@@ -1,12 +1,13 @@
-import { EMRContainers } from "../EMRContainers";
-import { EMRContainersClient } from "../EMRContainersClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListManagedEndpointsCommand,
   ListManagedEndpointsCommandInput,
   ListManagedEndpointsCommandOutput,
 } from "../commands/ListManagedEndpointsCommand";
+import { EMRContainers } from "../EMRContainers";
+import { EMRContainersClient } from "../EMRContainersClient";
 import { EMRContainersPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

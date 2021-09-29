@@ -1,12 +1,13 @@
-import { Lambda } from "../Lambda";
-import { LambdaClient } from "../LambdaClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListVersionsByFunctionCommand,
   ListVersionsByFunctionCommandInput,
   ListVersionsByFunctionCommandOutput,
 } from "../commands/ListVersionsByFunctionCommand";
+import { Lambda } from "../Lambda";
+import { LambdaClient } from "../LambdaClient";
 import { LambdaPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

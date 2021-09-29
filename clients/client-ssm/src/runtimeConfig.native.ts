@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SSMClientConfig } from "./SSMClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SSMClientConfig } from "./SSMClient";
 
 /**
  * @internal

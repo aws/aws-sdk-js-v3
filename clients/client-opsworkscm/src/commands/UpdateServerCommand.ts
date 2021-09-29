@@ -1,9 +1,3 @@
-import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { UpdateServerRequest, UpdateServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateServerCommand,
-  serializeAws_json1_1UpdateServerCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateServerRequest, UpdateServerResponse } from "../models/models_0";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
+import {
+  deserializeAws_json1_1UpdateServerCommand,
+  serializeAws_json1_1UpdateServerCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface UpdateServerCommandInput extends UpdateServerRequest {}
 export interface UpdateServerCommandOutput extends UpdateServerResponse, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { Macie } from "../Macie";
-import { MacieClient } from "../MacieClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMemberAccountsCommand,
   ListMemberAccountsCommandInput,
   ListMemberAccountsCommandOutput,
 } from "../commands/ListMemberAccountsCommand";
+import { Macie } from "../Macie";
+import { MacieClient } from "../MacieClient";
 import { MaciePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

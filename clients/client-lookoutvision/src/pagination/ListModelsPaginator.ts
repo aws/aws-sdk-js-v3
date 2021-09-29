@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import { LookoutVision } from "../LookoutVision";
 import { LookoutVisionClient } from "../LookoutVisionClient";
-import { ListModelsCommand, ListModelsCommandInput, ListModelsCommandOutput } from "../commands/ListModelsCommand";
 import { LookoutVisionPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

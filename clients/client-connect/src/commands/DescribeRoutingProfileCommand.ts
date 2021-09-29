@@ -1,9 +1,3 @@
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRoutingProfileCommand,
-  serializeAws_restJson1DescribeRoutingProfileCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DescribeRoutingProfileRequest, DescribeRoutingProfileResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeRoutingProfileCommand,
+  serializeAws_restJson1DescribeRoutingProfileCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DescribeRoutingProfileCommandInput extends DescribeRoutingProfileRequest {}
 export interface DescribeRoutingProfileCommandOutput extends DescribeRoutingProfileResponse, __MetadataBearer {}

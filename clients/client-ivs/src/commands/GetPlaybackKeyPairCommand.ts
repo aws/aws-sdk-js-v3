@@ -1,9 +1,3 @@
-import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import { GetPlaybackKeyPairRequest, GetPlaybackKeyPairResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetPlaybackKeyPairCommand,
-  serializeAws_restJson1GetPlaybackKeyPairCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { GetPlaybackKeyPairRequest, GetPlaybackKeyPairResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetPlaybackKeyPairCommand,
+  serializeAws_restJson1GetPlaybackKeyPairCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetPlaybackKeyPairCommandInput extends GetPlaybackKeyPairRequest {}
 export interface GetPlaybackKeyPairCommandOutput extends GetPlaybackKeyPairResponse, __MetadataBearer {}

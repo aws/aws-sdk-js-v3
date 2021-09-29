@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "../commands/ListEventsCommand";
 import { DevOpsGuru } from "../DevOpsGuru";
 import { DevOpsGuruClient } from "../DevOpsGuruClient";
-import { ListEventsCommand, ListEventsCommandInput, ListEventsCommandOutput } from "../commands/ListEventsCommand";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

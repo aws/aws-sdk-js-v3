@@ -1,4 +1,5 @@
-import { QueryProtocolClient } from "./QueryProtocolClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
@@ -115,7 +116,7 @@ import {
   XmlTimestampsCommandInput,
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { QueryProtocolClient } from "./QueryProtocolClient";
 
 /**
  * A query service that sends query requests and XML responses.

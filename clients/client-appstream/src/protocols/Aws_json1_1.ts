@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommandInput,
@@ -63,11 +81,11 @@ import {
   DescribeUsageReportSubscriptionsCommandInput,
   DescribeUsageReportSubscriptionsCommandOutput,
 } from "../commands/DescribeUsageReportSubscriptionsCommand";
+import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "../commands/DescribeUsersCommand";
 import {
   DescribeUserStackAssociationsCommandInput,
   DescribeUserStackAssociationsCommandOutput,
 } from "../commands/DescribeUserStackAssociationsCommand";
-import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "../commands/DescribeUsersCommand";
 import { DisableUserCommandInput, DisableUserCommandOutput } from "../commands/DisableUserCommand";
 import { DisassociateFleetCommandInput, DisassociateFleetCommandOutput } from "../commands/DisassociateFleetCommand";
 import { EnableUserCommandInput, EnableUserCommandOutput } from "../commands/EnableUserCommand";
@@ -166,10 +184,10 @@ import {
   DescribeStacksResult,
   DescribeUsageReportSubscriptionsRequest,
   DescribeUsageReportSubscriptionsResult,
-  DescribeUserStackAssociationsRequest,
-  DescribeUserStackAssociationsResult,
   DescribeUsersRequest,
   DescribeUsersResult,
+  DescribeUserStackAssociationsRequest,
+  DescribeUserStackAssociationsResult,
   DirectoryConfig,
   DisableUserRequest,
   DisableUserResult,
@@ -242,23 +260,6 @@ import {
   UserStackAssociationError,
   VpcConfig,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateFleetCommand = async (
   input: AssociateFleetCommandInput,
@@ -910,7 +911,7 @@ const deserializeAws_json1_1AssociateFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -1004,7 +1005,7 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1066,7 +1067,7 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1128,7 +1129,7 @@ const deserializeAws_json1_1CopyImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleImageException":
@@ -1222,7 +1223,7 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -1316,7 +1317,7 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -1450,7 +1451,7 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -1584,7 +1585,7 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
@@ -1646,7 +1647,7 @@ const deserializeAws_json1_1CreateStackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -1748,7 +1749,7 @@ const deserializeAws_json1_1CreateStreamingURLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -1826,7 +1827,7 @@ const deserializeAws_json1_1CreateUpdatedImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -1928,7 +1929,7 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -1998,7 +1999,7 @@ const deserializeAws_json1_1CreateUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -2084,7 +2085,7 @@ const deserializeAws_json1_1DeleteDirectoryConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceInUseException":
@@ -2146,7 +2147,7 @@ const deserializeAws_json1_1DeleteFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -2216,7 +2217,7 @@ const deserializeAws_json1_1DeleteImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -2294,7 +2295,7 @@ const deserializeAws_json1_1DeleteImageBuilderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -2364,7 +2365,7 @@ const deserializeAws_json1_1DeleteImagePermissionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotAvailableException":
@@ -2426,7 +2427,7 @@ const deserializeAws_json1_1DeleteStackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -2496,7 +2497,7 @@ const deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -2558,7 +2559,7 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2612,7 +2613,7 @@ const deserializeAws_json1_1DescribeDirectoryConfigsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2666,7 +2667,7 @@ const deserializeAws_json1_1DescribeFleetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2720,7 +2721,7 @@ const deserializeAws_json1_1DescribeImageBuildersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2774,7 +2775,7 @@ const deserializeAws_json1_1DescribeImagePermissionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2828,7 +2829,7 @@ const deserializeAws_json1_1DescribeImagesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2890,7 +2891,7 @@ const deserializeAws_json1_1DescribeSessionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -2944,7 +2945,7 @@ const deserializeAws_json1_1DescribeStacksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2998,7 +2999,7 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -3060,7 +3061,7 @@ const deserializeAws_json1_1DescribeUsersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3122,7 +3123,7 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterCombinationException":
@@ -3184,7 +3185,7 @@ const deserializeAws_json1_1DisableUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -3238,7 +3239,7 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3316,7 +3317,7 @@ const deserializeAws_json1_1EnableUserCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -3378,7 +3379,7 @@ const deserializeAws_json1_1ExpireSessionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3424,7 +3425,7 @@ const deserializeAws_json1_1ListAssociatedFleetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3470,7 +3471,7 @@ const deserializeAws_json1_1ListAssociatedStacksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3516,7 +3517,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -3570,7 +3571,7 @@ const deserializeAws_json1_1StartFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3680,7 +3681,7 @@ const deserializeAws_json1_1StartImageBuilderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3766,7 +3767,7 @@ const deserializeAws_json1_1StopFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3828,7 +3829,7 @@ const deserializeAws_json1_1StopImageBuilderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -3898,7 +3899,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAccountStatusException":
@@ -3968,7 +3969,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -4022,7 +4023,7 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4108,7 +4109,7 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":
@@ -4242,7 +4243,7 @@ const deserializeAws_json1_1UpdateImagePermissionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededException":
@@ -4312,7 +4313,7 @@ const deserializeAws_json1_1UpdateStackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModificationException":

@@ -1,9 +1,10 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import {
   DescribeRepositoryAssociationCommand,
   DescribeRepositoryAssociationCommandInput,
 } from "../commands/DescribeRepositoryAssociationCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: CodeGuruReviewerClient,
@@ -11,10 +12,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
+    const result: any = await client.send(new DescribeRepositoryAssociationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RepositoryAssociation.State;
       };
       if (returnComparator() === "Associated") {
@@ -22,7 +23,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.RepositoryAssociation.State;
       };
       if (returnComparator() === "Associating") {

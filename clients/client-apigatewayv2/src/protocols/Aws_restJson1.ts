@@ -1,3 +1,23 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { CreateApiCommandInput, CreateApiCommandOutput } from "../commands/CreateApiCommand";
 import { CreateApiMappingCommandInput, CreateApiMappingCommandOutput } from "../commands/CreateApiMappingCommand";
 import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "../commands/CreateAuthorizerCommand";
@@ -72,8 +92,8 @@ import {
 } from "../commands/GetIntegrationResponsesCommand";
 import { GetIntegrationsCommandInput, GetIntegrationsCommandOutput } from "../commands/GetIntegrationsCommand";
 import { GetModelCommandInput, GetModelCommandOutput } from "../commands/GetModelCommand";
-import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "../commands/GetModelTemplateCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
+import { GetModelTemplateCommandInput, GetModelTemplateCommandOutput } from "../commands/GetModelTemplateCommand";
 import { GetRouteCommandInput, GetRouteCommandOutput } from "../commands/GetRouteCommand";
 import { GetRouteResponseCommandInput, GetRouteResponseCommandOutput } from "../commands/GetRouteResponseCommand";
 import { GetRouteResponsesCommandInput, GetRouteResponsesCommandOutput } from "../commands/GetRouteResponsesCommand";
@@ -138,25 +158,6 @@ import {
   TooManyRequestsException,
   VpcLink,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseDouble as __limitedParseDouble,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1CreateApiCommand = async (
   input: CreateApiCommandInput,
@@ -166,7 +167,7 @@ export const serializeAws_restJson1CreateApiCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
   let body: any;
   body = JSON.stringify({
     ...(input.ApiKeySelectionExpression !== undefined &&
@@ -342,7 +343,7 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/domainnames";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/domainnames";
   let body: any;
   body = JSON.stringify({
     ...(input.DomainName !== undefined && input.DomainName !== null && { domainName: input.DomainName }),
@@ -713,7 +714,7 @@ export const serializeAws_restJson1CreateVpcLinkCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/vpclinks";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/vpclinks";
   let body: any;
   body = JSON.stringify({
     ...(input.Name !== undefined && input.Name !== null && { name: input.Name }),
@@ -1502,7 +1503,7 @@ export const serializeAws_restJson1GetApisCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1701,7 +1702,7 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/domainnames";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/domainnames";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2290,7 +2291,7 @@ export const serializeAws_restJson1GetVpcLinksCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/vpclinks";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/vpclinks";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2316,7 +2317,7 @@ export const serializeAws_restJson1ImportApiCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/apis";
   const query: any = {
     ...(input.Basepath !== undefined && { basepath: input.Basepath }),
     ...(input.FailOnWarnings !== undefined && { failOnWarnings: input.FailOnWarnings.toString() }),
@@ -3246,7 +3247,7 @@ const deserializeAws_restJson1CreateApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3337,7 +3338,7 @@ const deserializeAws_restJson1CreateApiMappingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3456,7 +3457,7 @@ const deserializeAws_restJson1CreateAuthorizerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3555,7 +3556,7 @@ const deserializeAws_restJson1CreateDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3656,7 +3657,7 @@ const deserializeAws_restJson1CreateDomainNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3822,7 +3823,7 @@ const deserializeAws_restJson1CreateIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3921,7 +3922,7 @@ const deserializeAws_restJson1CreateIntegrationResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4016,7 +4017,7 @@ const deserializeAws_restJson1CreateModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4143,7 +4144,7 @@ const deserializeAws_restJson1CreateRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4238,7 +4239,7 @@ const deserializeAws_restJson1CreateRouteResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4369,7 +4370,7 @@ const deserializeAws_restJson1CreateStageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4480,7 +4481,7 @@ const deserializeAws_restJson1CreateVpcLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4539,7 +4540,7 @@ const deserializeAws_restJson1DeleteAccessLogSettingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4598,7 +4599,7 @@ const deserializeAws_restJson1DeleteApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4657,7 +4658,7 @@ const deserializeAws_restJson1DeleteApiMappingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -4724,7 +4725,7 @@ const deserializeAws_restJson1DeleteAuthorizerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4783,7 +4784,7 @@ const deserializeAws_restJson1DeleteCorsConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4842,7 +4843,7 @@ const deserializeAws_restJson1DeleteDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4901,7 +4902,7 @@ const deserializeAws_restJson1DeleteDomainNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -4960,7 +4961,7 @@ const deserializeAws_restJson1DeleteIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5019,7 +5020,7 @@ const deserializeAws_restJson1DeleteIntegrationResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5078,7 +5079,7 @@ const deserializeAws_restJson1DeleteModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5137,7 +5138,7 @@ const deserializeAws_restJson1DeleteRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5196,7 +5197,7 @@ const deserializeAws_restJson1DeleteRouteRequestParameterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5255,7 +5256,7 @@ const deserializeAws_restJson1DeleteRouteResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5314,7 +5315,7 @@ const deserializeAws_restJson1DeleteRouteSettingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5373,7 +5374,7 @@ const deserializeAws_restJson1DeleteStageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5432,7 +5433,7 @@ const deserializeAws_restJson1DeleteVpcLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5493,7 +5494,7 @@ const deserializeAws_restJson1ExportApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -5624,7 +5625,7 @@ const deserializeAws_restJson1GetApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -5699,7 +5700,7 @@ const deserializeAws_restJson1GetApiMappingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -5774,7 +5775,7 @@ const deserializeAws_restJson1GetApiMappingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -5849,7 +5850,7 @@ const deserializeAws_restJson1GetApisCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -5960,7 +5961,7 @@ const deserializeAws_restJson1GetAuthorizerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6027,7 +6028,7 @@ const deserializeAws_restJson1GetAuthorizersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6118,7 +6119,7 @@ const deserializeAws_restJson1GetDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6185,7 +6186,7 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6278,7 +6279,7 @@ const deserializeAws_restJson1GetDomainNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6345,7 +6346,7 @@ const deserializeAws_restJson1GetDomainNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6495,7 +6496,7 @@ const deserializeAws_restJson1GetIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6578,7 +6579,7 @@ const deserializeAws_restJson1GetIntegrationResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6645,7 +6646,7 @@ const deserializeAws_restJson1GetIntegrationResponsesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6720,7 +6721,7 @@ const deserializeAws_restJson1GetIntegrationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6807,7 +6808,7 @@ const deserializeAws_restJson1GetModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -6874,7 +6875,7 @@ const deserializeAws_restJson1GetModelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -6945,7 +6946,7 @@ const deserializeAws_restJson1GetModelTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -7056,7 +7057,7 @@ const deserializeAws_restJson1GetRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -7135,7 +7136,7 @@ const deserializeAws_restJson1GetRouteResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -7202,7 +7203,7 @@ const deserializeAws_restJson1GetRouteResponsesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7277,7 +7278,7 @@ const deserializeAws_restJson1GetRoutesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7400,7 +7401,7 @@ const deserializeAws_restJson1GetStageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -7467,7 +7468,7 @@ const deserializeAws_restJson1GetStagesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7538,7 +7539,7 @@ const deserializeAws_restJson1GetTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7649,7 +7650,7 @@ const deserializeAws_restJson1GetVpcLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -7716,7 +7717,7 @@ const deserializeAws_restJson1GetVpcLinksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7839,7 +7840,7 @@ const deserializeAws_restJson1ImportApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7978,7 +7979,7 @@ const deserializeAws_restJson1ReimportApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8053,7 +8054,7 @@ const deserializeAws_restJson1ResetAuthorizersCacheCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NotFoundException":
@@ -8112,7 +8113,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8187,7 +8188,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8326,7 +8327,7 @@ const deserializeAws_restJson1UpdateApiCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8417,7 +8418,7 @@ const deserializeAws_restJson1UpdateApiMappingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8536,7 +8537,7 @@ const deserializeAws_restJson1UpdateAuthorizerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8635,7 +8636,7 @@ const deserializeAws_restJson1UpdateDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8736,7 +8737,7 @@ const deserializeAws_restJson1UpdateDomainNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8894,7 +8895,7 @@ const deserializeAws_restJson1UpdateIntegrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -8993,7 +8994,7 @@ const deserializeAws_restJson1UpdateIntegrationResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -9088,7 +9089,7 @@ const deserializeAws_restJson1UpdateModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -9215,7 +9216,7 @@ const deserializeAws_restJson1UpdateRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -9310,7 +9311,7 @@ const deserializeAws_restJson1UpdateRouteResponseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -9441,7 +9442,7 @@ const deserializeAws_restJson1UpdateStageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -9552,7 +9553,7 @@ const deserializeAws_restJson1UpdateVpcLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":

@@ -1,9 +1,3 @@
-import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { CreateCustomDataIdentifierRequest, CreateCustomDataIdentifierResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateCustomDataIdentifierCommand,
-  serializeAws_restJson1CreateCustomDataIdentifierCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { CreateCustomDataIdentifierRequest, CreateCustomDataIdentifierResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateCustomDataIdentifierCommand,
+  serializeAws_restJson1CreateCustomDataIdentifierCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface CreateCustomDataIdentifierCommandInput extends CreateCustomDataIdentifierRequest {}
 export interface CreateCustomDataIdentifierCommandOutput extends CreateCustomDataIdentifierResponse, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { ConfigService } from "../ConfigService";
-import { ConfigServiceClient } from "../ConfigServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "../commands/ListDiscoveredResourcesCommand";
+import { ConfigService } from "../ConfigService";
+import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

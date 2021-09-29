@@ -1,9 +1,3 @@
-import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DescribeSnapshotSchedulesMessage, DescribeSnapshotSchedulesOutputMessage } from "../models/models_1";
-import {
-  deserializeAws_queryDescribeSnapshotSchedulesCommand,
-  serializeAws_queryDescribeSnapshotSchedulesCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeSnapshotSchedulesMessage, DescribeSnapshotSchedulesOutputMessage } from "../models/models_1";
+import {
+  deserializeAws_queryDescribeSnapshotSchedulesCommand,
+  serializeAws_queryDescribeSnapshotSchedulesCommand,
+} from "../protocols/Aws_query";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 export interface DescribeSnapshotSchedulesCommandInput extends DescribeSnapshotSchedulesMessage {}
 export interface DescribeSnapshotSchedulesCommandOutput

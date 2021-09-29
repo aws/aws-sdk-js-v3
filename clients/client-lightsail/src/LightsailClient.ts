@@ -1,3 +1,54 @@
+import {
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
+  resolveEndpointsConfig,
+  resolveRegionConfig,
+} from "@aws-sdk/config-resolver";
+import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  getHostHeaderPlugin,
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import {
+  Client as __Client,
+  SmithyConfiguration as __SmithyConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+} from "@aws-sdk/smithy-client";
+import {
+  Credentials as __Credentials,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Hash as __Hash,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
+} from "@aws-sdk/types";
+
 import { AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput } from "./commands/AllocateStaticIpCommand";
 import {
   AttachCertificateToDistributionCommandInput,
@@ -53,15 +104,15 @@ import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from 
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "./commands/CreateDomainEntryCommand";
-import {
-  CreateInstanceSnapshotCommandInput,
-  CreateInstanceSnapshotCommandOutput,
-} from "./commands/CreateInstanceSnapshotCommand";
 import { CreateInstancesCommandInput, CreateInstancesCommandOutput } from "./commands/CreateInstancesCommand";
 import {
   CreateInstancesFromSnapshotCommandInput,
   CreateInstancesFromSnapshotCommandOutput,
 } from "./commands/CreateInstancesFromSnapshotCommand";
+import {
+  CreateInstanceSnapshotCommandInput,
+  CreateInstanceSnapshotCommandOutput,
+} from "./commands/CreateInstanceSnapshotCommand";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand";
 import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
 import {
@@ -189,9 +240,9 @@ import {
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
+import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand";
 import { GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput } from "./commands/GetDiskSnapshotsCommand";
-import { GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import {
   GetDistributionBundlesCommandInput,
   GetDistributionBundlesCommandOutput,
@@ -224,6 +275,7 @@ import {
   GetInstancePortStatesCommandInput,
   GetInstancePortStatesCommandOutput,
 } from "./commands/GetInstancePortStatesCommand";
+import { GetInstancesCommandInput, GetInstancesCommandOutput } from "./commands/GetInstancesCommand";
 import {
   GetInstanceSnapshotCommandInput,
   GetInstanceSnapshotCommandOutput,
@@ -233,7 +285,6 @@ import {
   GetInstanceSnapshotsCommandOutput,
 } from "./commands/GetInstanceSnapshotsCommand";
 import { GetInstanceStateCommandInput, GetInstanceStateCommandOutput } from "./commands/GetInstanceStateCommand";
-import { GetInstancesCommandInput, GetInstancesCommandOutput } from "./commands/GetInstancesCommand";
 import { GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand";
 import { GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand";
 import { GetLoadBalancerCommandInput, GetLoadBalancerCommandOutput } from "./commands/GetLoadBalancerCommand";
@@ -241,11 +292,11 @@ import {
   GetLoadBalancerMetricDataCommandInput,
   GetLoadBalancerMetricDataCommandOutput,
 } from "./commands/GetLoadBalancerMetricDataCommand";
+import { GetLoadBalancersCommandInput, GetLoadBalancersCommandOutput } from "./commands/GetLoadBalancersCommand";
 import {
   GetLoadBalancerTlsCertificatesCommandInput,
   GetLoadBalancerTlsCertificatesCommandOutput,
 } from "./commands/GetLoadBalancerTlsCertificatesCommand";
-import { GetLoadBalancersCommandInput, GetLoadBalancersCommandOutput } from "./commands/GetLoadBalancersCommand";
 import { GetOperationCommandInput, GetOperationCommandOutput } from "./commands/GetOperationCommand";
 import { GetOperationsCommandInput, GetOperationsCommandOutput } from "./commands/GetOperationsCommand";
 import {
@@ -290,6 +341,10 @@ import {
   GetRelationalDatabaseParametersCommandOutput,
 } from "./commands/GetRelationalDatabaseParametersCommand";
 import {
+  GetRelationalDatabasesCommandInput,
+  GetRelationalDatabasesCommandOutput,
+} from "./commands/GetRelationalDatabasesCommand";
+import {
   GetRelationalDatabaseSnapshotCommandInput,
   GetRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotCommand";
@@ -297,10 +352,6 @@ import {
   GetRelationalDatabaseSnapshotsCommandInput,
   GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
-import {
-  GetRelationalDatabasesCommandInput,
-  GetRelationalDatabasesCommandOutput,
-} from "./commands/GetRelationalDatabasesCommand";
 import { GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import { GetStaticIpsCommandInput, GetStaticIpsCommandOutput } from "./commands/GetStaticIpsCommand";
 import { ImportKeyPairCommandInput, ImportKeyPairCommandOutput } from "./commands/ImportKeyPairCommand";
@@ -377,56 +428,6 @@ import {
   UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
-import {
-  Client as __Client,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
-import {
-  Provider,
-  RegionInfoProvider,
-  Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  Hash as __Hash,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | AllocateStaticIpCommandInput
@@ -905,13 +906,13 @@ export class LightsailClient extends __Client<
   readonly config: LightsailClientResolvedConfig;
 
   constructor(configuration: LightsailClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getRetryPlugin(this.config));

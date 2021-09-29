@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AssociateCustomDomainCommandInput,
   AssociateCustomDomainCommandOutput,
@@ -116,23 +134,6 @@ import {
   UpdateServiceRequest,
   UpdateServiceResponse,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_0AssociateCustomDomainCommand = async (
   input: AssociateCustomDomainCommandInput,
@@ -446,7 +447,7 @@ const deserializeAws_json1_0AssociateCustomDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -516,7 +517,7 @@ const deserializeAws_json1_0CreateAutoScalingConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -586,7 +587,7 @@ const deserializeAws_json1_0CreateConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -656,7 +657,7 @@ const deserializeAws_json1_0CreateServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -726,7 +727,7 @@ const deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -796,7 +797,7 @@ const deserializeAws_json1_0DeleteConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -866,7 +867,7 @@ const deserializeAws_json1_0DeleteServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -944,7 +945,7 @@ const deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1014,7 +1015,7 @@ const deserializeAws_json1_0DescribeCustomDomainsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1084,7 +1085,7 @@ const deserializeAws_json1_0DescribeServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1154,7 +1155,7 @@ const deserializeAws_json1_0DisassociateCustomDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1232,7 +1233,7 @@ const deserializeAws_json1_0ListAutoScalingConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1294,7 +1295,7 @@ const deserializeAws_json1_0ListConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1356,7 +1357,7 @@ const deserializeAws_json1_0ListOperationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1426,7 +1427,7 @@ const deserializeAws_json1_0ListServicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1488,7 +1489,7 @@ const deserializeAws_json1_0ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1566,7 +1567,7 @@ const deserializeAws_json1_0PauseServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1644,7 +1645,7 @@ const deserializeAws_json1_0ResumeServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1722,7 +1723,7 @@ const deserializeAws_json1_0StartDeploymentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1792,7 +1793,7 @@ const deserializeAws_json1_0TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1870,7 +1871,7 @@ const deserializeAws_json1_0UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":
@@ -1948,7 +1949,7 @@ const deserializeAws_json1_0UpdateServiceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":

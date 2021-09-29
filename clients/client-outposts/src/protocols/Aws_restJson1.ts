@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { CreateOrderCommandInput, CreateOrderCommandOutput } from "../commands/CreateOrderCommand";
 import { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "../commands/CreateOutpostCommand";
 import { DeleteOutpostCommandInput, DeleteOutpostCommandOutput } from "../commands/DeleteOutpostCommand";
@@ -29,23 +47,6 @@ import {
   Site,
   ValidationException,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1CreateOrderCommand = async (
   input: CreateOrderCommandInput,
@@ -55,7 +56,7 @@ export const serializeAws_restJson1CreateOrderCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orders";
   let body: any;
   body = JSON.stringify({
     ...(input.LineItems !== undefined &&
@@ -86,7 +87,7 @@ export const serializeAws_restJson1CreateOutpostCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
   let body: any;
   body = JSON.stringify({
     ...(input.AvailabilityZone !== undefined &&
@@ -233,7 +234,7 @@ export const serializeAws_restJson1ListOutpostsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/outposts";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
@@ -266,7 +267,7 @@ export const serializeAws_restJson1ListSitesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sites";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
@@ -404,7 +405,7 @@ const deserializeAws_restJson1CreateOrderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -499,7 +500,7 @@ const deserializeAws_restJson1CreateOutpostCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -590,7 +591,7 @@ const deserializeAws_restJson1DeleteOutpostCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -673,7 +674,7 @@ const deserializeAws_restJson1DeleteSiteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -760,7 +761,7 @@ const deserializeAws_restJson1GetOutpostCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -851,7 +852,7 @@ const deserializeAws_restJson1GetOutpostInstanceTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -934,7 +935,7 @@ const deserializeAws_restJson1ListOutpostsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1009,7 +1010,7 @@ const deserializeAws_restJson1ListSitesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1080,7 +1081,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1147,7 +1148,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":
@@ -1214,7 +1215,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServerException":

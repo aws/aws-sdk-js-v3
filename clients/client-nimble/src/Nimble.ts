@@ -1,4 +1,5 @@
-import { NimbleClient } from "./NimbleClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AcceptEulasCommand, AcceptEulasCommandInput, AcceptEulasCommandOutput } from "./commands/AcceptEulasCommand";
 import {
   CreateLaunchProfileCommand,
@@ -200,7 +201,7 @@ import {
   UpdateStudioComponentCommandInput,
   UpdateStudioComponentCommandOutput,
 } from "./commands/UpdateStudioComponentCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { NimbleClient } from "./NimbleClient";
 
 export class Nimble extends NimbleClient {
   /**

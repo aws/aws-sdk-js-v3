@@ -1,3 +1,19 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectString as __expectString,
+  limitedParseFloat32 as __limitedParseFloat32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   BatchCreateVariableCommandInput,
   BatchCreateVariableCommandOutput,
@@ -50,8 +66,8 @@ import {
   GetBatchPredictionJobsCommandInput,
   GetBatchPredictionJobsCommandOutput,
 } from "../commands/GetBatchPredictionJobsCommand";
-import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "../commands/GetDetectorVersionCommand";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "../commands/GetDetectorsCommand";
+import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "../commands/GetDetectorVersionCommand";
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "../commands/GetEntityTypesCommand";
 import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "../commands/GetEventPredictionCommand";
 import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "../commands/GetEventTypesCommand";
@@ -61,8 +77,8 @@ import {
   GetKMSEncryptionKeyCommandOutput,
 } from "../commands/GetKMSEncryptionKeyCommand";
 import { GetLabelsCommandInput, GetLabelsCommandOutput } from "../commands/GetLabelsCommand";
-import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "../commands/GetModelVersionCommand";
 import { GetModelsCommandInput, GetModelsCommandOutput } from "../commands/GetModelsCommand";
+import { GetModelVersionCommandInput, GetModelVersionCommandOutput } from "../commands/GetModelVersionCommand";
 import { GetOutcomesCommandInput, GetOutcomesCommandOutput } from "../commands/GetOutcomesCommand";
 import { GetRulesCommandInput, GetRulesCommandOutput } from "../commands/GetRulesCommand";
 import { GetVariablesCommandInput, GetVariablesCommandOutput } from "../commands/GetVariablesCommand";
@@ -171,10 +187,10 @@ import {
   FileValidationMessage,
   GetBatchPredictionJobsRequest,
   GetBatchPredictionJobsResult,
-  GetDetectorVersionRequest,
-  GetDetectorVersionResult,
   GetDetectorsRequest,
   GetDetectorsResult,
+  GetDetectorVersionRequest,
+  GetDetectorVersionResult,
   GetEntityTypesRequest,
   GetEntityTypesResult,
   GetEventPredictionRequest,
@@ -186,10 +202,10 @@ import {
   GetKMSEncryptionKeyResult,
   GetLabelsRequest,
   GetLabelsResult,
-  GetModelVersionRequest,
-  GetModelVersionResult,
   GetModelsRequest,
   GetModelsResult,
+  GetModelVersionRequest,
+  GetModelVersionResult,
   GetOutcomesRequest,
   GetOutcomesResult,
   GetRulesRequest,
@@ -263,21 +279,6 @@ import {
   VariableEntry,
   VariableImportanceMetrics,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectString as __expectString,
-  limitedParseFloat32 as __limitedParseFloat32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1BatchCreateVariableCommand = async (
   input: BatchCreateVariableCommandInput,
@@ -1045,7 +1046,7 @@ const deserializeAws_json1_1BatchCreateVariableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1123,7 +1124,7 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1201,7 +1202,7 @@ const deserializeAws_json1_1CancelBatchPredictionJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1287,7 +1288,7 @@ const deserializeAws_json1_1CreateBatchPredictionJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1373,7 +1374,7 @@ const deserializeAws_json1_1CreateDetectorVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1459,7 +1460,7 @@ const deserializeAws_json1_1CreateModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1537,7 +1538,7 @@ const deserializeAws_json1_1CreateModelVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1623,7 +1624,7 @@ const deserializeAws_json1_1CreateRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1701,7 +1702,7 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1779,7 +1780,7 @@ const deserializeAws_json1_1DeleteBatchPredictionJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1865,7 +1866,7 @@ const deserializeAws_json1_1DeleteDetectorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1951,7 +1952,7 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2045,7 +2046,7 @@ const deserializeAws_json1_1DeleteEntityTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2131,7 +2132,7 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2209,7 +2210,7 @@ const deserializeAws_json1_1DeleteEventTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2295,7 +2296,7 @@ const deserializeAws_json1_1DeleteExternalModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2381,7 +2382,7 @@ const deserializeAws_json1_1DeleteLabelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictException":
@@ -2459,7 +2460,7 @@ const deserializeAws_json1_1DeleteModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2545,7 +2546,7 @@ const deserializeAws_json1_1DeleteModelVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2631,7 +2632,7 @@ const deserializeAws_json1_1DeleteOutcomeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2717,7 +2718,7 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2803,7 +2804,7 @@ const deserializeAws_json1_1DeleteVariableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2889,7 +2890,7 @@ const deserializeAws_json1_1DescribeDetectorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2975,7 +2976,7 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3061,7 +3062,7 @@ const deserializeAws_json1_1GetBatchPredictionJobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3147,7 +3148,7 @@ const deserializeAws_json1_1GetDetectorsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3233,7 +3234,7 @@ const deserializeAws_json1_1GetDetectorVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3319,7 +3320,7 @@ const deserializeAws_json1_1GetEntityTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3405,7 +3406,7 @@ const deserializeAws_json1_1GetEventPredictionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3507,7 +3508,7 @@ const deserializeAws_json1_1GetEventTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3593,7 +3594,7 @@ const deserializeAws_json1_1GetExternalModelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3679,7 +3680,7 @@ const deserializeAws_json1_1GetKMSEncryptionKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3757,7 +3758,7 @@ const deserializeAws_json1_1GetLabelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3843,7 +3844,7 @@ const deserializeAws_json1_1GetModelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3929,7 +3930,7 @@ const deserializeAws_json1_1GetModelVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4015,7 +4016,7 @@ const deserializeAws_json1_1GetOutcomesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4101,7 +4102,7 @@ const deserializeAws_json1_1GetRulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4187,7 +4188,7 @@ const deserializeAws_json1_1GetVariablesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4273,7 +4274,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4351,7 +4352,7 @@ const deserializeAws_json1_1PutDetectorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4437,7 +4438,7 @@ const deserializeAws_json1_1PutEntityTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4523,7 +4524,7 @@ const deserializeAws_json1_1PutEventTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4609,7 +4610,7 @@ const deserializeAws_json1_1PutExternalModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4695,7 +4696,7 @@ const deserializeAws_json1_1PutKMSEncryptionKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4789,7 +4790,7 @@ const deserializeAws_json1_1PutLabelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4875,7 +4876,7 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4961,7 +4962,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5039,7 +5040,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5117,7 +5118,7 @@ const deserializeAws_json1_1UpdateDetectorVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5211,7 +5212,7 @@ const deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5297,7 +5298,7 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5391,7 +5392,7 @@ const deserializeAws_json1_1UpdateModelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5485,7 +5486,7 @@ const deserializeAws_json1_1UpdateModelVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5579,7 +5580,7 @@ const deserializeAws_json1_1UpdateModelVersionStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5673,7 +5674,7 @@ const deserializeAws_json1_1UpdateRuleMetadataCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5767,7 +5768,7 @@ const deserializeAws_json1_1UpdateRuleVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5861,7 +5862,7 @@ const deserializeAws_json1_1UpdateVariableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

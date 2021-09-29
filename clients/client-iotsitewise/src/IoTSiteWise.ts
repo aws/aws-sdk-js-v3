@@ -1,4 +1,5 @@
-import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateAssetsCommand,
   AssociateAssetsCommandInput,
@@ -275,7 +276,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
 
 /**
  * <p>Welcome to the IoT SiteWise API Reference. IoT SiteWise is an Amazon Web Services service that connects <a href="https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications">Industrial Internet of Things (IIoT)</a> devices to the power of the Amazon Web Services Cloud. For more information, see the

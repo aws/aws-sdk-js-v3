@@ -1,4 +1,5 @@
-import { Route53Client } from "./Route53Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ActivateKeySigningKeyCommand,
   ActivateKeySigningKeyCommandInput,
@@ -311,7 +312,7 @@ import {
   UpdateTrafficPolicyInstanceCommandInput,
   UpdateTrafficPolicyInstanceCommandOutput,
 } from "./commands/UpdateTrafficPolicyInstanceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53Client } from "./Route53Client";
 
 /**
  * <p>Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service.</p>

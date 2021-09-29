@@ -1,12 +1,13 @@
-import { QuickSight } from "../QuickSight";
-import { QuickSightClient } from "../QuickSightClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAnalysesCommand,
   ListAnalysesCommandInput,
   ListAnalysesCommandOutput,
 } from "../commands/ListAnalysesCommand";
+import { QuickSight } from "../QuickSight";
+import { QuickSightClient } from "../QuickSightClient";
 import { QuickSightPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

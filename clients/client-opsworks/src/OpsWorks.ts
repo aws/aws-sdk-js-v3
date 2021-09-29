@@ -1,4 +1,5 @@
-import { OpsWorksClient } from "./OpsWorksClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssignInstanceCommand,
   AssignInstanceCommandInput,
@@ -162,15 +163,15 @@ import {
   DescribeStackProvisioningParametersCommandOutput,
 } from "./commands/DescribeStackProvisioningParametersCommand";
 import {
-  DescribeStackSummaryCommand,
-  DescribeStackSummaryCommandInput,
-  DescribeStackSummaryCommandOutput,
-} from "./commands/DescribeStackSummaryCommand";
-import {
   DescribeStacksCommand,
   DescribeStacksCommandInput,
   DescribeStacksCommandOutput,
 } from "./commands/DescribeStacksCommand";
+import {
+  DescribeStackSummaryCommand,
+  DescribeStackSummaryCommandInput,
+  DescribeStackSummaryCommandOutput,
+} from "./commands/DescribeStackSummaryCommand";
 import {
   DescribeTimeBasedAutoScalingCommand,
   DescribeTimeBasedAutoScalingCommandInput,
@@ -309,7 +310,7 @@ import {
   UpdateVolumeCommandInput,
   UpdateVolumeCommandOutput,
 } from "./commands/UpdateVolumeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { OpsWorksClient } from "./OpsWorksClient";
 
 /**
  * <fullname>AWS OpsWorks</fullname>

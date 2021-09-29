@@ -1,4 +1,5 @@
-import { LexModelsV2Client } from "./LexModelsV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BuildBotLocaleCommand,
   BuildBotLocaleCommandInput,
@@ -164,12 +165,12 @@ import {
   ListBotLocalesCommandInput,
   ListBotLocalesCommandOutput,
 } from "./commands/ListBotLocalesCommand";
+import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListBotVersionsCommand,
   ListBotVersionsCommandInput,
   ListBotVersionsCommandOutput,
 } from "./commands/ListBotVersionsCommand";
-import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListBuiltInIntentsCommand,
   ListBuiltInIntentsCommandInput,
@@ -183,12 +184,12 @@ import {
 import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListIntentsCommand, ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
+import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
 import {
   ListSlotTypesCommand,
   ListSlotTypesCommandInput,
   ListSlotTypesCommandOutput,
 } from "./commands/ListSlotTypesCommand";
-import { ListSlotsCommand, ListSlotsCommandInput, ListSlotsCommandOutput } from "./commands/ListSlotsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -233,7 +234,7 @@ import {
   UpdateSlotTypeCommandInput,
   UpdateSlotTypeCommandOutput,
 } from "./commands/UpdateSlotTypeCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LexModelsV2Client } from "./LexModelsV2Client";
 
 /**
  * <p></p>

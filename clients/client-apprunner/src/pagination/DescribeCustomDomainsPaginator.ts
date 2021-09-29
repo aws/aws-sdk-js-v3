@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AppRunner } from "../AppRunner";
 import { AppRunnerClient } from "../AppRunnerClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeCustomDomainsCommandOutput,
 } from "../commands/DescribeCustomDomainsCommand";
 import { AppRunnerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { ProtonClient } from "./ProtonClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptEnvironmentAccountConnectionCommand,
   AcceptEnvironmentAccountConnectionCommandInput,
@@ -136,40 +137,40 @@ import {
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "./commands/ListEnvironmentAccountConnectionsCommand";
 import {
-  ListEnvironmentTemplateVersionsCommand,
-  ListEnvironmentTemplateVersionsCommandInput,
-  ListEnvironmentTemplateVersionsCommandOutput,
-} from "./commands/ListEnvironmentTemplateVersionsCommand";
+  ListEnvironmentsCommand,
+  ListEnvironmentsCommandInput,
+  ListEnvironmentsCommandOutput,
+} from "./commands/ListEnvironmentsCommand";
 import {
   ListEnvironmentTemplatesCommand,
   ListEnvironmentTemplatesCommandInput,
   ListEnvironmentTemplatesCommandOutput,
 } from "./commands/ListEnvironmentTemplatesCommand";
 import {
-  ListEnvironmentsCommand,
-  ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
-} from "./commands/ListEnvironmentsCommand";
+  ListEnvironmentTemplateVersionsCommand,
+  ListEnvironmentTemplateVersionsCommandInput,
+  ListEnvironmentTemplateVersionsCommandOutput,
+} from "./commands/ListEnvironmentTemplateVersionsCommand";
 import {
   ListServiceInstancesCommand,
   ListServiceInstancesCommandInput,
   ListServiceInstancesCommandOutput,
 } from "./commands/ListServiceInstancesCommand";
 import {
-  ListServiceTemplateVersionsCommand,
-  ListServiceTemplateVersionsCommandInput,
-  ListServiceTemplateVersionsCommandOutput,
-} from "./commands/ListServiceTemplateVersionsCommand";
+  ListServicesCommand,
+  ListServicesCommandInput,
+  ListServicesCommandOutput,
+} from "./commands/ListServicesCommand";
 import {
   ListServiceTemplatesCommand,
   ListServiceTemplatesCommandInput,
   ListServiceTemplatesCommandOutput,
 } from "./commands/ListServiceTemplatesCommand";
 import {
-  ListServicesCommand,
-  ListServicesCommandInput,
-  ListServicesCommandOutput,
-} from "./commands/ListServicesCommand";
+  ListServiceTemplateVersionsCommand,
+  ListServiceTemplateVersionsCommandInput,
+  ListServiceTemplateVersionsCommandOutput,
+} from "./commands/ListServiceTemplateVersionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -236,7 +237,7 @@ import {
   UpdateServiceTemplateVersionCommandInput,
   UpdateServiceTemplateVersionCommandOutput,
 } from "./commands/UpdateServiceTemplateVersionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ProtonClient } from "./ProtonClient";
 
 /**
  * <p>This is the AWS Proton Service API Reference. It provides descriptions, syntax and usage examples for each of the <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html">actions</a> and <a href="https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html">data types</a> for the AWS Proton service.</p>

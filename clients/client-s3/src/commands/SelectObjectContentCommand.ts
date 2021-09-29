@@ -1,24 +1,25 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlSelectObjectContentCommand,
-  serializeAws_restXmlSelectObjectContentCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
+import {
+  deserializeAws_restXmlSelectObjectContentCommand,
+  serializeAws_restXmlSelectObjectContentCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface SelectObjectContentCommandInput extends SelectObjectContentRequest {}
 export interface SelectObjectContentCommandOutput extends SelectObjectContentOutput, __MetadataBearer {}

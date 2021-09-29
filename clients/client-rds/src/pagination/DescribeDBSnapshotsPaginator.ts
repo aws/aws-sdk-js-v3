@@ -1,12 +1,13 @@
-import { RDS } from "../RDS";
-import { RDSClient } from "../RDSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDBSnapshotsCommand,
   DescribeDBSnapshotsCommandInput,
   DescribeDBSnapshotsCommandOutput,
 } from "../commands/DescribeDBSnapshotsCommand";
+import { RDS } from "../RDS";
+import { RDSClient } from "../RDSClient";
 import { RDSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

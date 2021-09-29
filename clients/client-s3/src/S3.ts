@@ -1,4 +1,5 @@
-import { S3Client } from "./S3Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AbortMultipartUploadCommand,
   AbortMultipartUploadCommandInput,
@@ -91,15 +92,15 @@ import {
   DeleteObjectCommandOutput,
 } from "./commands/DeleteObjectCommand";
 import {
-  DeleteObjectTaggingCommand,
-  DeleteObjectTaggingCommandInput,
-  DeleteObjectTaggingCommandOutput,
-} from "./commands/DeleteObjectTaggingCommand";
-import {
   DeleteObjectsCommand,
   DeleteObjectsCommandInput,
   DeleteObjectsCommandOutput,
 } from "./commands/DeleteObjectsCommand";
+import {
+  DeleteObjectTaggingCommand,
+  DeleteObjectTaggingCommandInput,
+  DeleteObjectTaggingCommandOutput,
+} from "./commands/DeleteObjectTaggingCommand";
 import {
   DeletePublicAccessBlockCommand,
   DeletePublicAccessBlockCommandInput,
@@ -269,17 +270,17 @@ import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
-import {
-  ListObjectVersionsCommand,
-  ListObjectVersionsCommandInput,
-  ListObjectVersionsCommandOutput,
-} from "./commands/ListObjectVersionsCommand";
 import { ListObjectsCommand, ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand";
 import {
   ListObjectsV2Command,
   ListObjectsV2CommandInput,
   ListObjectsV2CommandOutput,
 } from "./commands/ListObjectsV2Command";
+import {
+  ListObjectVersionsCommand,
+  ListObjectVersionsCommandInput,
+  ListObjectVersionsCommandOutput,
+} from "./commands/ListObjectVersionsCommand";
 import { ListPartsCommand, ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand";
 import {
   PutBucketAccelerateConfigurationCommand,
@@ -423,7 +424,7 @@ import {
   WriteGetObjectResponseCommandInput,
   WriteGetObjectResponseCommandOutput,
 } from "./commands/WriteGetObjectResponseCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { S3Client } from "./S3Client";
 
 /**
  * <p></p>

@@ -1,12 +1,13 @@
-import { XRay } from "../XRay";
-import { XRayClient } from "../XRayClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetSamplingStatisticSummariesCommand,
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput,
 } from "../commands/GetSamplingStatisticSummariesCommand";
+import { XRay } from "../XRay";
+import { XRayClient } from "../XRayClient";
 import { XRayPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

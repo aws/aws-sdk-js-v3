@@ -1,3 +1,23 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "../commands/AssumeRoleCommand";
 import { AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput } from "../commands/AssumeRoleWithSAMLCommand";
 import {
@@ -13,13 +33,13 @@ import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from ".
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
 import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "../commands/GetSessionTokenCommand";
 import {
+  AssumedRoleUser,
   AssumeRoleRequest,
   AssumeRoleResponse,
   AssumeRoleWithSAMLRequest,
   AssumeRoleWithSAMLResponse,
   AssumeRoleWithWebIdentityRequest,
   AssumeRoleWithWebIdentityResponse,
-  AssumedRoleUser,
   Credentials,
   DecodeAuthorizationMessageRequest,
   DecodeAuthorizationMessageResponse,
@@ -43,25 +63,6 @@ import {
   RegionDisabledException,
   Tag,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAssumeRoleCommand = async (
   input: AssumeRoleCommandInput,
@@ -217,7 +218,7 @@ const deserializeAws_queryAssumeRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
@@ -295,7 +296,7 @@ const deserializeAws_queryAssumeRoleWithSAMLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
@@ -389,7 +390,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ExpiredTokenException":
@@ -491,7 +492,7 @@ const deserializeAws_queryDecodeAuthorizationMessageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidAuthorizationMessageException":
@@ -545,7 +546,7 @@ const deserializeAws_queryGetAccessKeyInfoCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -591,7 +592,7 @@ const deserializeAws_queryGetCallerIdentityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -637,7 +638,7 @@ const deserializeAws_queryGetFederationTokenCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MalformedPolicyDocumentException":
@@ -707,7 +708,7 @@ const deserializeAws_queryGetSessionTokenCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RegionDisabledException":
@@ -1040,7 +1041,7 @@ const serializeAws_queryGetSessionTokenRequest = (input: GetSessionTokenRequest,
 const serializeAws_querypolicyDescriptorListType = (input: PolicyDescriptorType[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1075,7 +1076,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_querytagKeyListType = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1088,7 +1089,7 @@ const serializeAws_querytagKeyListType = (input: string[], context: __SerdeConte
 const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1102,7 +1103,7 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
 };
 
 const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
-  let contents: any = {
+  const contents: any = {
     AssumedRoleId: undefined,
     Arn: undefined,
   };
@@ -1116,7 +1117,7 @@ const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
-  let contents: any = {
+  const contents: any = {
     Credentials: undefined,
     AssumedRoleUser: undefined,
     PackedPolicySize: undefined,
@@ -1141,7 +1142,7 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
   output: any,
   context: __SerdeContext
 ): AssumeRoleWithSAMLResponse => {
-  let contents: any = {
+  const contents: any = {
     Credentials: undefined,
     AssumedRoleUser: undefined,
     PackedPolicySize: undefined,
@@ -1186,7 +1187,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): AssumeRoleWithWebIdentityResponse => {
-  let contents: any = {
+  const contents: any = {
     Credentials: undefined,
     SubjectFromWebIdentityToken: undefined,
     AssumedRoleUser: undefined,
@@ -1220,7 +1221,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
 };
 
 const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): Credentials => {
-  let contents: any = {
+  const contents: any = {
     AccessKeyId: undefined,
     SecretAccessKey: undefined,
     SessionToken: undefined,
@@ -1245,7 +1246,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
   output: any,
   context: __SerdeContext
 ): DecodeAuthorizationMessageResponse => {
-  let contents: any = {
+  const contents: any = {
     DecodedMessage: undefined,
   };
   if (output["DecodedMessage"] !== undefined) {
@@ -1255,7 +1256,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
 };
 
 const deserializeAws_queryExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1265,7 +1266,7 @@ const deserializeAws_queryExpiredTokenException = (output: any, context: __Serde
 };
 
 const deserializeAws_queryFederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
-  let contents: any = {
+  const contents: any = {
     FederatedUserId: undefined,
     Arn: undefined,
   };
@@ -1282,7 +1283,7 @@ const deserializeAws_queryGetAccessKeyInfoResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccessKeyInfoResponse => {
-  let contents: any = {
+  const contents: any = {
     Account: undefined,
   };
   if (output["Account"] !== undefined) {
@@ -1295,7 +1296,7 @@ const deserializeAws_queryGetCallerIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): GetCallerIdentityResponse => {
-  let contents: any = {
+  const contents: any = {
     UserId: undefined,
     Account: undefined,
     Arn: undefined,
@@ -1316,7 +1317,7 @@ const deserializeAws_queryGetFederationTokenResponse = (
   output: any,
   context: __SerdeContext
 ): GetFederationTokenResponse => {
-  let contents: any = {
+  const contents: any = {
     Credentials: undefined,
     FederatedUser: undefined,
     PackedPolicySize: undefined,
@@ -1334,7 +1335,7 @@ const deserializeAws_queryGetFederationTokenResponse = (
 };
 
 const deserializeAws_queryGetSessionTokenResponse = (output: any, context: __SerdeContext): GetSessionTokenResponse => {
-  let contents: any = {
+  const contents: any = {
     Credentials: undefined,
   };
   if (output["Credentials"] !== undefined) {
@@ -1347,7 +1348,7 @@ const deserializeAws_queryIDPCommunicationErrorException = (
   output: any,
   context: __SerdeContext
 ): IDPCommunicationErrorException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1360,7 +1361,7 @@ const deserializeAws_queryIDPRejectedClaimException = (
   output: any,
   context: __SerdeContext
 ): IDPRejectedClaimException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1373,7 +1374,7 @@ const deserializeAws_queryInvalidAuthorizationMessageException = (
   output: any,
   context: __SerdeContext
 ): InvalidAuthorizationMessageException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1386,7 +1387,7 @@ const deserializeAws_queryInvalidIdentityTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidIdentityTokenException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1399,7 +1400,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1412,7 +1413,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
   output: any,
   context: __SerdeContext
 ): PackedPolicyTooLargeException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1422,7 +1423,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
 };
 
 const deserializeAws_queryRegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {

@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "../commands/GetJobsCommand";
 import { Glue } from "../Glue";
 import { GlueClient } from "../GlueClient";
-import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "../commands/GetJobsCommand";
 import { GluePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

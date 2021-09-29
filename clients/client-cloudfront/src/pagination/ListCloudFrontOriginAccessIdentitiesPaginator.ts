@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudFront } from "../CloudFront";
 import { CloudFrontClient } from "../CloudFrontClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListCloudFrontOriginAccessIdentitiesCommandOutput,
 } from "../commands/ListCloudFrontOriginAccessIdentitiesCommand";
 import { CloudFrontPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

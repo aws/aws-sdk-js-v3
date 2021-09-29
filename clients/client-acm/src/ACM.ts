@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ACMClient } from "./ACMClient";
 import {
   AddTagsToCertificateCommand,
@@ -74,7 +76,6 @@ import {
   UpdateCertificateOptionsCommandInput,
   UpdateCertificateOptionsCommandOutput,
 } from "./commands/UpdateCertificateOptionsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Web Services Certificate Manager</fullname>

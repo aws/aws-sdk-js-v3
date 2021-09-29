@@ -1,3 +1,25 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   AddSourceIdentifierToSubscriptionCommandInput,
   AddSourceIdentifierToSubscriptionCommandOutput,
@@ -71,6 +93,7 @@ import {
   DescribeDBClusterParametersCommandInput,
   DescribeDBClusterParametersCommandOutput,
 } from "../commands/DescribeDBClusterParametersCommand";
+import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "../commands/DescribeDBClustersCommand";
 import {
   DescribeDBClusterSnapshotAttributesCommandInput,
   DescribeDBClusterSnapshotAttributesCommandOutput,
@@ -79,7 +102,6 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "../commands/DescribeDBClusterSnapshotsCommand";
-import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "../commands/DescribeDBClustersCommand";
 import {
   DescribeDBEngineVersionsCommandInput,
   DescribeDBEngineVersionsCommandOutput,
@@ -100,11 +122,11 @@ import {
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "../commands/DescribeEventCategoriesCommand";
+import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand";
 import {
   DescribeEventSubscriptionsCommandInput,
   DescribeEventSubscriptionsCommandOutput,
 } from "../commands/DescribeEventSubscriptionsCommand";
-import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand";
 import {
   DescribeGlobalClustersCommandInput,
   DescribeGlobalClustersCommandOutput,
@@ -255,18 +277,18 @@ import {
   DescribeCertificatesMessage,
   DescribeDBClusterParameterGroupsMessage,
   DescribeDBClusterParametersMessage,
+  DescribeDBClustersMessage,
   DescribeDBClusterSnapshotAttributesMessage,
   DescribeDBClusterSnapshotAttributesResult,
   DescribeDBClusterSnapshotsMessage,
-  DescribeDBClustersMessage,
   DescribeDBEngineVersionsMessage,
   DescribeDBInstancesMessage,
   DescribeDBSubnetGroupsMessage,
   DescribeEngineDefaultClusterParametersMessage,
   DescribeEngineDefaultClusterParametersResult,
   DescribeEventCategoriesMessage,
-  DescribeEventSubscriptionsMessage,
   DescribeEventsMessage,
+  DescribeEventSubscriptionsMessage,
   DescribeGlobalClustersMessage,
   DescribeOrderableDBInstanceOptionsMessage,
   DescribePendingMaintenanceActionsMessage,
@@ -275,10 +297,10 @@ import {
   Event,
   EventCategoriesMap,
   EventCategoriesMessage,
+  EventsMessage,
   EventSubscription,
   EventSubscriptionQuotaExceededFault,
   EventSubscriptionsMessage,
-  EventsMessage,
   FailoverDBClusterMessage,
   FailoverDBClusterResult,
   Filter,
@@ -341,11 +363,11 @@ import {
   RestoreDBClusterFromSnapshotResult,
   RestoreDBClusterToPointInTimeMessage,
   RestoreDBClusterToPointInTimeResult,
+  SharedSnapshotQuotaExceededFault,
+  SnapshotQuotaExceededFault,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
-  SharedSnapshotQuotaExceededFault,
-  SnapshotQuotaExceededFault,
   SourceNotFoundFault,
   StartDBClusterMessage,
   StartDBClusterResult,
@@ -363,27 +385,6 @@ import {
   UpgradeTarget,
   VpcSecurityGroupMembership,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAddSourceIdentifierToSubscriptionCommand = async (
   input: AddSourceIdentifierToSubscriptionCommandInput,
@@ -1262,7 +1263,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
@@ -1321,7 +1322,7 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -1391,7 +1392,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDBClusterStateFault":
@@ -1461,7 +1462,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -1531,7 +1532,7 @@ const deserializeAws_queryCopyDBClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
@@ -1625,7 +1626,7 @@ const deserializeAws_queryCreateDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -1807,7 +1808,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupAlreadyExistsFault":
@@ -1869,7 +1870,7 @@ const deserializeAws_queryCreateDBClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -1955,7 +1956,7 @@ const deserializeAws_queryCreateDBInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -2121,7 +2122,7 @@ const deserializeAws_queryCreateDBSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupAlreadyExistsFault":
@@ -2207,7 +2208,7 @@ const deserializeAws_queryCreateEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
@@ -2309,7 +2310,7 @@ const deserializeAws_queryCreateGlobalClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -2387,7 +2388,7 @@ const deserializeAws_queryDeleteDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -2470,7 +2471,7 @@ const deserializeAws_queryDeleteDBClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -2532,7 +2533,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -2594,7 +2595,7 @@ const deserializeAws_queryDeleteDBInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -2677,7 +2678,7 @@ const deserializeAws_queryDeleteDBSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
@@ -2747,7 +2748,7 @@ const deserializeAws_queryDeleteEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidEventSubscriptionStateFault":
@@ -2809,7 +2810,7 @@ const deserializeAws_queryDeleteGlobalClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -2871,7 +2872,7 @@ const deserializeAws_queryDescribeCertificatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CertificateNotFoundFault":
@@ -2925,7 +2926,7 @@ const deserializeAws_queryDescribeDBClusterParameterGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -2979,7 +2980,7 @@ const deserializeAws_queryDescribeDBClusterParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -3033,7 +3034,7 @@ const deserializeAws_queryDescribeDBClustersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3090,7 +3091,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -3144,7 +3145,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -3198,7 +3199,7 @@ const deserializeAws_queryDescribeDBEngineVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3244,7 +3245,7 @@ const deserializeAws_queryDescribeDBInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -3298,7 +3299,7 @@ const deserializeAws_queryDescribeDBSubnetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupNotFoundFault":
@@ -3355,7 +3356,7 @@ const deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3401,7 +3402,7 @@ const deserializeAws_queryDescribeEventCategoriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3447,7 +3448,7 @@ const deserializeAws_queryDescribeEventsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3493,7 +3494,7 @@ const deserializeAws_queryDescribeEventSubscriptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SubscriptionNotFoundFault":
@@ -3547,7 +3548,7 @@ const deserializeAws_queryDescribeGlobalClustersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -3604,7 +3605,7 @@ const deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3653,7 +3654,7 @@ const deserializeAws_queryDescribePendingMaintenanceActionsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundFault":
@@ -3707,7 +3708,7 @@ const deserializeAws_queryFailoverDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3777,7 +3778,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -3847,7 +3848,7 @@ const deserializeAws_queryModifyDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -3981,7 +3982,7 @@ const deserializeAws_queryModifyDBClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -4046,7 +4047,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterSnapshotNotFoundFault":
@@ -4116,7 +4117,7 @@ const deserializeAws_queryModifyDBInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationNotFoundFault":
@@ -4266,7 +4267,7 @@ const deserializeAws_queryModifyDBSubnetGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
@@ -4352,7 +4353,7 @@ const deserializeAws_queryModifyEventSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "EventSubscriptionQuotaExceededFault":
@@ -4446,7 +4447,7 @@ const deserializeAws_queryModifyGlobalClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "GlobalClusterNotFoundFault":
@@ -4508,7 +4509,7 @@ const deserializeAws_queryRebootDBInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBInstanceNotFoundFault":
@@ -4570,7 +4571,7 @@ const deserializeAws_queryRemoveFromGlobalClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -4643,7 +4644,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "SourceNotFoundFault":
@@ -4702,7 +4703,7 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -4772,7 +4773,7 @@ const deserializeAws_queryResetDBClusterParameterGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBParameterGroupNotFoundFault":
@@ -4834,7 +4835,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -4992,7 +4993,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
@@ -5158,7 +5159,7 @@ const deserializeAws_queryStartDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -5228,7 +5229,7 @@ const deserializeAws_queryStopDBClusterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DBClusterNotFoundFault":
@@ -6176,7 +6177,7 @@ const serializeAws_queryApplyPendingMaintenanceActionMessage = (
 const serializeAws_queryAttributeValueList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6189,7 +6190,7 @@ const serializeAws_queryAttributeValueList = (input: string[], context: __SerdeC
 const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7047,7 +7048,7 @@ const serializeAws_queryDescribePendingMaintenanceActionsMessage = (
 const serializeAws_queryEventCategoriesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7086,7 +7087,7 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
 const serializeAws_queryFilterList = (input: Filter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7102,7 +7103,7 @@ const serializeAws_queryFilterList = (input: Filter[], context: __SerdeContext):
 const serializeAws_queryFilterValueList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7115,7 +7116,7 @@ const serializeAws_queryFilterValueList = (input: string[], context: __SerdeCont
 const serializeAws_queryKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7146,7 +7147,7 @@ const serializeAws_queryListTagsForResourceMessage = (
 const serializeAws_queryLogTypeList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7389,7 +7390,7 @@ const serializeAws_queryParameter = (input: Parameter, context: __SerdeContext):
 const serializeAws_queryParametersList = (input: Parameter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7596,7 +7597,7 @@ const serializeAws_queryRestoreDBClusterToPointInTimeMessage = (
 const serializeAws_querySourceIdsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7625,7 +7626,7 @@ const serializeAws_queryStopDBClusterMessage = (input: StopDBClusterMessage, con
 const serializeAws_querySubnetIdentifierList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7649,7 +7650,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7665,7 +7666,7 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 const serializeAws_queryVpcSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7679,7 +7680,7 @@ const deserializeAws_queryAddSourceIdentifierToSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): AddSourceIdentifierToSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -7692,7 +7693,7 @@ const deserializeAws_queryApplyPendingMaintenanceActionResult = (
   output: any,
   context: __SerdeContext
 ): ApplyPendingMaintenanceActionResult => {
-  let contents: any = {
+  const contents: any = {
     ResourcePendingMaintenanceActions: undefined,
   };
   if (output["ResourcePendingMaintenanceActions"] !== undefined) {
@@ -7719,7 +7720,7 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): AuthorizationNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7729,7 +7730,7 @@ const deserializeAws_queryAuthorizationNotFoundFault = (
 };
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -7761,7 +7762,7 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
-  let contents: any = {
+  const contents: any = {
     CertificateIdentifier: undefined,
     CertificateType: undefined,
     Thumbprint: undefined,
@@ -7802,7 +7803,7 @@ const deserializeAws_queryCertificateList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryCertificateMessage = (output: any, context: __SerdeContext): CertificateMessage => {
-  let contents: any = {
+  const contents: any = {
     Certificates: undefined,
     Marker: undefined,
   };
@@ -7825,7 +7826,7 @@ const deserializeAws_queryCertificateNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): CertificateNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7838,7 +7839,7 @@ const deserializeAws_queryCopyDBClusterParameterGroupResult = (
   output: any,
   context: __SerdeContext
 ): CopyDBClusterParameterGroupResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterParameterGroup: undefined,
   };
   if (output["DBClusterParameterGroup"] !== undefined) {
@@ -7854,7 +7855,7 @@ const deserializeAws_queryCopyDBClusterSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): CopyDBClusterSnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshot: undefined,
   };
   if (output["DBClusterSnapshot"] !== undefined) {
@@ -7867,7 +7868,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateDBClusterParameterGroupResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterParameterGroup: undefined,
   };
   if (output["DBClusterParameterGroup"] !== undefined) {
@@ -7880,7 +7881,7 @@ const deserializeAws_queryCreateDBClusterParameterGroupResult = (
 };
 
 const deserializeAws_queryCreateDBClusterResult = (output: any, context: __SerdeContext): CreateDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -7893,7 +7894,7 @@ const deserializeAws_queryCreateDBClusterSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): CreateDBClusterSnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshot: undefined,
   };
   if (output["DBClusterSnapshot"] !== undefined) {
@@ -7903,7 +7904,7 @@ const deserializeAws_queryCreateDBClusterSnapshotResult = (
 };
 
 const deserializeAws_queryCreateDBInstanceResult = (output: any, context: __SerdeContext): CreateDBInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     DBInstance: undefined,
   };
   if (output["DBInstance"] !== undefined) {
@@ -7916,7 +7917,7 @@ const deserializeAws_queryCreateDBSubnetGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateDBSubnetGroupResult => {
-  let contents: any = {
+  const contents: any = {
     DBSubnetGroup: undefined,
   };
   if (output["DBSubnetGroup"] !== undefined) {
@@ -7929,7 +7930,7 @@ const deserializeAws_queryCreateEventSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): CreateEventSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -7942,7 +7943,7 @@ const deserializeAws_queryCreateGlobalClusterResult = (
   output: any,
   context: __SerdeContext
 ): CreateGlobalClusterResult => {
-  let contents: any = {
+  const contents: any = {
     GlobalCluster: undefined,
   };
   if (output["GlobalCluster"] !== undefined) {
@@ -7952,7 +7953,7 @@ const deserializeAws_queryCreateGlobalClusterResult = (
 };
 
 const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DBCluster => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZones: undefined,
     BackupRetentionPeriod: undefined,
     DBClusterIdentifier: undefined,
@@ -8130,7 +8131,7 @@ const deserializeAws_queryDBClusterAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBClusterAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8151,7 +8152,7 @@ const deserializeAws_queryDBClusterList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryDBClusterMember = (output: any, context: __SerdeContext): DBClusterMember => {
-  let contents: any = {
+  const contents: any = {
     DBInstanceIdentifier: undefined,
     IsClusterWriter: undefined,
     DBClusterParameterGroupStatus: undefined,
@@ -8184,7 +8185,7 @@ const deserializeAws_queryDBClusterMemberList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryDBClusterMessage = (output: any, context: __SerdeContext): DBClusterMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBClusters: undefined,
   };
@@ -8204,7 +8205,7 @@ const deserializeAws_queryDBClusterMessage = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDBClusterNotFoundFault = (output: any, context: __SerdeContext): DBClusterNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8214,7 +8215,7 @@ const deserializeAws_queryDBClusterNotFoundFault = (output: any, context: __Serd
 };
 
 const deserializeAws_queryDBClusterParameterGroup = (output: any, context: __SerdeContext): DBClusterParameterGroup => {
-  let contents: any = {
+  const contents: any = {
     DBClusterParameterGroupName: undefined,
     DBParameterGroupFamily: undefined,
     Description: undefined,
@@ -8239,7 +8240,7 @@ const deserializeAws_queryDBClusterParameterGroupDetails = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroupDetails => {
-  let contents: any = {
+  const contents: any = {
     Parameters: undefined,
     Marker: undefined,
   };
@@ -8276,7 +8277,7 @@ const deserializeAws_queryDBClusterParameterGroupNameMessage = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroupNameMessage => {
-  let contents: any = {
+  const contents: any = {
     DBClusterParameterGroupName: undefined,
   };
   if (output["DBClusterParameterGroupName"] !== undefined) {
@@ -8289,7 +8290,7 @@ const deserializeAws_queryDBClusterParameterGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroupNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8302,7 +8303,7 @@ const deserializeAws_queryDBClusterParameterGroupsMessage = (
   output: any,
   context: __SerdeContext
 ): DBClusterParameterGroupsMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBClusterParameterGroups: undefined,
   };
@@ -8328,7 +8329,7 @@ const deserializeAws_queryDBClusterQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): DBClusterQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8338,7 +8339,7 @@ const deserializeAws_queryDBClusterQuotaExceededFault = (
 };
 
 const deserializeAws_queryDBClusterRole = (output: any, context: __SerdeContext): DBClusterRole => {
-  let contents: any = {
+  const contents: any = {
     RoleArn: undefined,
     Status: undefined,
   };
@@ -8363,7 +8364,7 @@ const deserializeAws_queryDBClusterRoles = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSnapshot => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZones: undefined,
     DBClusterSnapshotIdentifier: undefined,
     DBClusterIdentifier: undefined,
@@ -8446,7 +8447,7 @@ const deserializeAws_queryDBClusterSnapshotAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8459,7 +8460,7 @@ const deserializeAws_queryDBClusterSnapshotAttribute = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotAttribute => {
-  let contents: any = {
+  const contents: any = {
     AttributeName: undefined,
     AttributeValues: undefined,
   };
@@ -8496,7 +8497,7 @@ const deserializeAws_queryDBClusterSnapshotAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshotIdentifier: undefined,
     DBClusterSnapshotAttributes: undefined,
   };
@@ -8533,7 +8534,7 @@ const deserializeAws_queryDBClusterSnapshotMessage = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBClusterSnapshots: undefined,
   };
@@ -8556,7 +8557,7 @@ const deserializeAws_queryDBClusterSnapshotNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): DBClusterSnapshotNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8566,7 +8567,7 @@ const deserializeAws_queryDBClusterSnapshotNotFoundFault = (
 };
 
 const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersion => {
-  let contents: any = {
+  const contents: any = {
     Engine: undefined,
     EngineVersion: undefined,
     DBParameterGroupFamily: undefined,
@@ -8627,7 +8628,7 @@ const deserializeAws_queryDBEngineVersionList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryDBEngineVersionMessage = (output: any, context: __SerdeContext): DBEngineVersionMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBEngineVersions: undefined,
   };
@@ -8647,7 +8648,7 @@ const deserializeAws_queryDBEngineVersionMessage = (output: any, context: __Serd
 };
 
 const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): DBInstance => {
-  let contents: any = {
+  const contents: any = {
     DBInstanceIdentifier: undefined,
     DBInstanceClass: undefined,
     Engine: undefined,
@@ -8787,7 +8788,7 @@ const deserializeAws_queryDBInstanceAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBInstanceAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8808,7 +8809,7 @@ const deserializeAws_queryDBInstanceList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryDBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBInstances: undefined,
   };
@@ -8828,7 +8829,7 @@ const deserializeAws_queryDBInstanceMessage = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryDBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBInstanceNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8838,7 +8839,7 @@ const deserializeAws_queryDBInstanceNotFoundFault = (output: any, context: __Ser
 };
 
 const deserializeAws_queryDBInstanceStatusInfo = (output: any, context: __SerdeContext): DBInstanceStatusInfo => {
-  let contents: any = {
+  const contents: any = {
     StatusType: undefined,
     Normal: undefined,
     Status: undefined,
@@ -8874,7 +8875,7 @@ const deserializeAws_queryDBParameterGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBParameterGroupAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8887,7 +8888,7 @@ const deserializeAws_queryDBParameterGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): DBParameterGroupNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8900,7 +8901,7 @@ const deserializeAws_queryDBParameterGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): DBParameterGroupQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8913,7 +8914,7 @@ const deserializeAws_queryDBSecurityGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): DBSecurityGroupNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8926,7 +8927,7 @@ const deserializeAws_queryDBSnapshotAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBSnapshotAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8936,7 +8937,7 @@ const deserializeAws_queryDBSnapshotAlreadyExistsFault = (
 };
 
 const deserializeAws_queryDBSnapshotNotFoundFault = (output: any, context: __SerdeContext): DBSnapshotNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8946,7 +8947,7 @@ const deserializeAws_queryDBSnapshotNotFoundFault = (output: any, context: __Ser
 };
 
 const deserializeAws_queryDBSubnetGroup = (output: any, context: __SerdeContext): DBSubnetGroup => {
-  let contents: any = {
+  const contents: any = {
     DBSubnetGroupName: undefined,
     DBSubnetGroupDescription: undefined,
     VpcId: undefined,
@@ -8982,7 +8983,7 @@ const deserializeAws_queryDBSubnetGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroupAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8995,7 +8996,7 @@ const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroupDoesNotCoverEnoughAZs => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9005,7 +9006,7 @@ const deserializeAws_queryDBSubnetGroupDoesNotCoverEnoughAZs = (
 };
 
 const deserializeAws_queryDBSubnetGroupMessage = (output: any, context: __SerdeContext): DBSubnetGroupMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     DBSubnetGroups: undefined,
   };
@@ -9028,7 +9029,7 @@ const deserializeAws_queryDBSubnetGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroupNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9041,7 +9042,7 @@ const deserializeAws_queryDBSubnetGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): DBSubnetGroupQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9065,7 +9066,7 @@ const deserializeAws_queryDBSubnetQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): DBSubnetQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9078,7 +9079,7 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
   output: any,
   context: __SerdeContext
 ): DBUpgradeDependencyFailureFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9088,7 +9089,7 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
 };
 
 const deserializeAws_queryDeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -9101,7 +9102,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): DeleteDBClusterSnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshot: undefined,
   };
   if (output["DBClusterSnapshot"] !== undefined) {
@@ -9111,7 +9112,7 @@ const deserializeAws_queryDeleteDBClusterSnapshotResult = (
 };
 
 const deserializeAws_queryDeleteDBInstanceResult = (output: any, context: __SerdeContext): DeleteDBInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     DBInstance: undefined,
   };
   if (output["DBInstance"] !== undefined) {
@@ -9124,7 +9125,7 @@ const deserializeAws_queryDeleteEventSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEventSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -9137,7 +9138,7 @@ const deserializeAws_queryDeleteGlobalClusterResult = (
   output: any,
   context: __SerdeContext
 ): DeleteGlobalClusterResult => {
-  let contents: any = {
+  const contents: any = {
     GlobalCluster: undefined,
   };
   if (output["GlobalCluster"] !== undefined) {
@@ -9150,7 +9151,7 @@ const deserializeAws_queryDescribeDBClusterSnapshotAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeDBClusterSnapshotAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshotAttributesResult: undefined,
   };
   if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
@@ -9166,7 +9167,7 @@ const deserializeAws_queryDescribeEngineDefaultClusterParametersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEngineDefaultClusterParametersResult => {
-  let contents: any = {
+  const contents: any = {
     EngineDefaults: undefined,
   };
   if (output["EngineDefaults"] !== undefined) {
@@ -9176,7 +9177,7 @@ const deserializeAws_queryDescribeEngineDefaultClusterParametersResult = (
 };
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
-  let contents: any = {
+  const contents: any = {
     Address: undefined,
     Port: undefined,
     HostedZoneId: undefined,
@@ -9194,7 +9195,7 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
 };
 
 const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext): EngineDefaults => {
-  let contents: any = {
+  const contents: any = {
     DBParameterGroupFamily: undefined,
     Marker: undefined,
     Parameters: undefined,
@@ -9218,7 +9219,7 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event => {
-  let contents: any = {
+  const contents: any = {
     SourceIdentifier: undefined,
     SourceType: undefined,
     Message: undefined,
@@ -9265,7 +9266,7 @@ const deserializeAws_queryEventCategoriesList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryEventCategoriesMap = (output: any, context: __SerdeContext): EventCategoriesMap => {
-  let contents: any = {
+  const contents: any = {
     SourceType: undefined,
     EventCategories: undefined,
   };
@@ -9296,7 +9297,7 @@ const deserializeAws_queryEventCategoriesMapList = (output: any, context: __Serd
 };
 
 const deserializeAws_queryEventCategoriesMessage = (output: any, context: __SerdeContext): EventCategoriesMessage => {
-  let contents: any = {
+  const contents: any = {
     EventCategoriesMapList: undefined,
   };
   if (output.EventCategoriesMapList === "") {
@@ -9326,7 +9327,7 @@ const deserializeAws_queryEventList = (output: any, context: __SerdeContext): Ev
 };
 
 const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext): EventsMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     Events: undefined,
   };
@@ -9343,7 +9344,7 @@ const deserializeAws_queryEventsMessage = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryEventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
-  let contents: any = {
+  const contents: any = {
     CustomerAwsId: undefined,
     CustSubscriptionId: undefined,
     SnsTopicArn: undefined,
@@ -9404,7 +9405,7 @@ const deserializeAws_queryEventSubscriptionQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): EventSubscriptionQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9428,7 +9429,7 @@ const deserializeAws_queryEventSubscriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EventSubscriptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     EventSubscriptionsList: undefined,
   };
@@ -9451,7 +9452,7 @@ const deserializeAws_queryEventSubscriptionsMessage = (
 };
 
 const deserializeAws_queryFailoverDBClusterResult = (output: any, context: __SerdeContext): FailoverDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -9461,7 +9462,7 @@ const deserializeAws_queryFailoverDBClusterResult = (output: any, context: __Ser
 };
 
 const deserializeAws_queryGlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
-  let contents: any = {
+  const contents: any = {
     GlobalClusterIdentifier: undefined,
     GlobalClusterResourceId: undefined,
     GlobalClusterArn: undefined,
@@ -9519,7 +9520,7 @@ const deserializeAws_queryGlobalClusterAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): GlobalClusterAlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9540,7 +9541,7 @@ const deserializeAws_queryGlobalClusterList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryGlobalClusterMember = (output: any, context: __SerdeContext): GlobalClusterMember => {
-  let contents: any = {
+  const contents: any = {
     DBClusterArn: undefined,
     Readers: undefined,
     IsWriter: undefined,
@@ -9575,7 +9576,7 @@ const deserializeAws_queryGlobalClusterNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): GlobalClusterNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9588,7 +9589,7 @@ const deserializeAws_queryGlobalClusterQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): GlobalClusterQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9598,7 +9599,7 @@ const deserializeAws_queryGlobalClusterQuotaExceededFault = (
 };
 
 const deserializeAws_queryGlobalClustersMessage = (output: any, context: __SerdeContext): GlobalClustersMessage => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     GlobalClusters: undefined,
   };
@@ -9621,7 +9622,7 @@ const deserializeAws_queryInstanceQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): InstanceQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9634,7 +9635,7 @@ const deserializeAws_queryInsufficientDBClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientDBClusterCapacityFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9647,7 +9648,7 @@ const deserializeAws_queryInsufficientDBInstanceCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientDBInstanceCapacityFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9660,7 +9661,7 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientStorageClusterCapacityFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9673,7 +9674,7 @@ const deserializeAws_queryInvalidDBClusterSnapshotStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBClusterSnapshotStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9686,7 +9687,7 @@ const deserializeAws_queryInvalidDBClusterStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBClusterStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9699,7 +9700,7 @@ const deserializeAws_queryInvalidDBInstanceStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBInstanceStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9712,7 +9713,7 @@ const deserializeAws_queryInvalidDBParameterGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBParameterGroupStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9725,7 +9726,7 @@ const deserializeAws_queryInvalidDBSecurityGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBSecurityGroupStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9738,7 +9739,7 @@ const deserializeAws_queryInvalidDBSnapshotStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBSnapshotStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9751,7 +9752,7 @@ const deserializeAws_queryInvalidDBSubnetGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBSubnetGroupStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9764,7 +9765,7 @@ const deserializeAws_queryInvalidDBSubnetStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidDBSubnetStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9777,7 +9778,7 @@ const deserializeAws_queryInvalidEventSubscriptionStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidEventSubscriptionStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9790,7 +9791,7 @@ const deserializeAws_queryInvalidGlobalClusterStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidGlobalClusterStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9800,7 +9801,7 @@ const deserializeAws_queryInvalidGlobalClusterStateFault = (
 };
 
 const deserializeAws_queryInvalidRestoreFault = (output: any, context: __SerdeContext): InvalidRestoreFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9810,7 +9811,7 @@ const deserializeAws_queryInvalidRestoreFault = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9823,7 +9824,7 @@ const deserializeAws_queryInvalidVPCNetworkStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9836,7 +9837,7 @@ const deserializeAws_queryKMSKeyNotAccessibleFault = (
   output: any,
   context: __SerdeContext
 ): KMSKeyNotAccessibleFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9857,7 +9858,7 @@ const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryModifyDBClusterResult = (output: any, context: __SerdeContext): ModifyDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -9870,7 +9871,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyDBClusterSnapshotAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     DBClusterSnapshotAttributesResult: undefined,
   };
   if (output["DBClusterSnapshotAttributesResult"] !== undefined) {
@@ -9883,7 +9884,7 @@ const deserializeAws_queryModifyDBClusterSnapshotAttributeResult = (
 };
 
 const deserializeAws_queryModifyDBInstanceResult = (output: any, context: __SerdeContext): ModifyDBInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     DBInstance: undefined,
   };
   if (output["DBInstance"] !== undefined) {
@@ -9896,7 +9897,7 @@ const deserializeAws_queryModifyDBSubnetGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyDBSubnetGroupResult => {
-  let contents: any = {
+  const contents: any = {
     DBSubnetGroup: undefined,
   };
   if (output["DBSubnetGroup"] !== undefined) {
@@ -9909,7 +9910,7 @@ const deserializeAws_queryModifyEventSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): ModifyEventSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -9922,7 +9923,7 @@ const deserializeAws_queryModifyGlobalClusterResult = (
   output: any,
   context: __SerdeContext
 ): ModifyGlobalClusterResult => {
-  let contents: any = {
+  const contents: any = {
     GlobalCluster: undefined,
   };
   if (output["GlobalCluster"] !== undefined) {
@@ -9935,7 +9936,7 @@ const deserializeAws_queryOrderableDBInstanceOption = (
   output: any,
   context: __SerdeContext
 ): OrderableDBInstanceOption => {
-  let contents: any = {
+  const contents: any = {
     Engine: undefined,
     EngineVersion: undefined,
     DBInstanceClass: undefined,
@@ -9988,7 +9989,7 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
   output: any,
   context: __SerdeContext
 ): OrderableDBInstanceOptionsMessage => {
-  let contents: any = {
+  const contents: any = {
     OrderableDBInstanceOptions: undefined,
     Marker: undefined,
   };
@@ -10011,7 +10012,7 @@ const deserializeAws_queryOrderableDBInstanceOptionsMessage = (
 };
 
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
-  let contents: any = {
+  const contents: any = {
     ParameterName: undefined,
     ParameterValue: undefined,
     Description: undefined,
@@ -10071,7 +10072,7 @@ const deserializeAws_queryPendingCloudwatchLogsExports = (
   output: any,
   context: __SerdeContext
 ): PendingCloudwatchLogsExports => {
-  let contents: any = {
+  const contents: any = {
     LogTypesToEnable: undefined,
     LogTypesToDisable: undefined,
   };
@@ -10100,7 +10101,7 @@ const deserializeAws_queryPendingMaintenanceAction = (
   output: any,
   context: __SerdeContext
 ): PendingMaintenanceAction => {
-  let contents: any = {
+  const contents: any = {
     Action: undefined,
     AutoAppliedAfterDate: undefined,
     ForcedApplyDate: undefined,
@@ -10161,7 +10162,7 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
   output: any,
   context: __SerdeContext
 ): PendingMaintenanceActionsMessage => {
-  let contents: any = {
+  const contents: any = {
     PendingMaintenanceActions: undefined,
     Marker: undefined,
   };
@@ -10184,7 +10185,7 @@ const deserializeAws_queryPendingMaintenanceActionsMessage = (
 };
 
 const deserializeAws_queryPendingModifiedValues = (output: any, context: __SerdeContext): PendingModifiedValues => {
-  let contents: any = {
+  const contents: any = {
     DBInstanceClass: undefined,
     AllocatedStorage: undefined,
     MasterUserPassword: undefined,
@@ -10271,7 +10272,7 @@ const deserializeAws_queryReadReplicaIdentifierList = (output: any, context: __S
 };
 
 const deserializeAws_queryRebootDBInstanceResult = (output: any, context: __SerdeContext): RebootDBInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     DBInstance: undefined,
   };
   if (output["DBInstance"] !== undefined) {
@@ -10284,7 +10285,7 @@ const deserializeAws_queryRemoveFromGlobalClusterResult = (
   output: any,
   context: __SerdeContext
 ): RemoveFromGlobalClusterResult => {
-  let contents: any = {
+  const contents: any = {
     GlobalCluster: undefined,
   };
   if (output["GlobalCluster"] !== undefined) {
@@ -10297,7 +10298,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): RemoveSourceIdentifierFromSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     EventSubscription: undefined,
   };
   if (output["EventSubscription"] !== undefined) {
@@ -10307,7 +10308,7 @@ const deserializeAws_queryRemoveSourceIdentifierFromSubscriptionResult = (
 };
 
 const deserializeAws_queryResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10320,7 +10321,7 @@ const deserializeAws_queryResourcePendingMaintenanceActions = (
   output: any,
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions => {
-  let contents: any = {
+  const contents: any = {
     ResourceIdentifier: undefined,
     PendingMaintenanceActionDetails: undefined,
   };
@@ -10346,7 +10347,7 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): RestoreDBClusterFromSnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -10359,7 +10360,7 @@ const deserializeAws_queryRestoreDBClusterToPointInTimeResult = (
   output: any,
   context: __SerdeContext
 ): RestoreDBClusterToPointInTimeResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -10372,7 +10373,7 @@ const deserializeAws_querySharedSnapshotQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): SharedSnapshotQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10385,7 +10386,7 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): SnapshotQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10395,7 +10396,7 @@ const deserializeAws_querySnapshotQuotaExceededFault = (
 };
 
 const deserializeAws_querySNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10405,7 +10406,7 @@ const deserializeAws_querySNSInvalidTopicFault = (output: any, context: __SerdeC
 };
 
 const deserializeAws_querySNSNoAuthorizationFault = (output: any, context: __SerdeContext): SNSNoAuthorizationFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10418,7 +10419,7 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): SNSTopicArnNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10439,7 +10440,7 @@ const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeContext): SourceNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10449,7 +10450,7 @@ const deserializeAws_querySourceNotFoundFault = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryStartDBClusterResult = (output: any, context: __SerdeContext): StartDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -10459,7 +10460,7 @@ const deserializeAws_queryStartDBClusterResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryStopDBClusterResult = (output: any, context: __SerdeContext): StopDBClusterResult => {
-  let contents: any = {
+  const contents: any = {
     DBCluster: undefined,
   };
   if (output["DBCluster"] !== undefined) {
@@ -10472,7 +10473,7 @@ const deserializeAws_queryStorageQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): StorageQuotaExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10485,7 +10486,7 @@ const deserializeAws_queryStorageTypeNotSupportedFault = (
   output: any,
   context: __SerdeContext
 ): StorageTypeNotSupportedFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10495,7 +10496,7 @@ const deserializeAws_queryStorageTypeNotSupportedFault = (
 };
 
 const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subnet => {
-  let contents: any = {
+  const contents: any = {
     SubnetIdentifier: undefined,
     SubnetAvailabilityZone: undefined,
     SubnetStatus: undefined,
@@ -10513,7 +10514,7 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
 };
 
 const deserializeAws_querySubnetAlreadyInUse = (output: any, context: __SerdeContext): SubnetAlreadyInUse => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10537,7 +10538,7 @@ const deserializeAws_querySubscriptionAlreadyExistFault = (
   output: any,
   context: __SerdeContext
 ): SubscriptionAlreadyExistFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10550,7 +10551,7 @@ const deserializeAws_querySubscriptionCategoryNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): SubscriptionCategoryNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10563,7 +10564,7 @@ const deserializeAws_querySubscriptionNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): SubscriptionNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -10573,7 +10574,7 @@ const deserializeAws_querySubscriptionNotFoundFault = (
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -10598,7 +10599,7 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 };
 
 const deserializeAws_queryTagListMessage = (output: any, context: __SerdeContext): TagListMessage => {
-  let contents: any = {
+  const contents: any = {
     TagList: undefined,
   };
   if (output.TagList === "") {
@@ -10611,7 +10612,7 @@ const deserializeAws_queryTagListMessage = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryUpgradeTarget = (output: any, context: __SerdeContext): UpgradeTarget => {
-  let contents: any = {
+  const contents: any = {
     Engine: undefined,
     EngineVersion: undefined,
     Description: undefined,
@@ -10651,7 +10652,7 @@ const deserializeAws_queryVpcSecurityGroupMembership = (
   output: any,
   context: __SerdeContext
 ): VpcSecurityGroupMembership => {
-  let contents: any = {
+  const contents: any = {
     VpcSecurityGroupId: undefined,
     Status: undefined,
   };

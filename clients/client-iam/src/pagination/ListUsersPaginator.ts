@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { IAMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

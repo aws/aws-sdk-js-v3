@@ -1,22 +1,23 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeVpcsCommand, DescribeVpcsCommandInput } from "../commands/DescribeVpcsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: DescribeVpcsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeVpcsCommand(input));
+    const result: any = await client.send(new DescribeVpcsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.Vpcs);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Vpcs);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.State;
         });
         return projection_3;
       };
       let allStringEq_5 = returnComparator().length > 0;
-      for (let element_4 of returnComparator()) {
+      for (const element_4 of returnComparator()) {
         allStringEq_5 = allStringEq_5 && element_4 == "available";
       }
       if (allStringEq_5) {

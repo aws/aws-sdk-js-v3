@@ -1,9 +1,3 @@
-import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
-import { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateEnvironmentCommand,
-  serializeAws_restJson1UpdateEnvironmentCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateEnvironmentInput, UpdateEnvironmentOutput } from "../models/models_0";
+import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
+import {
+  deserializeAws_restJson1UpdateEnvironmentCommand,
+  serializeAws_restJson1UpdateEnvironmentCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateEnvironmentCommandInput extends UpdateEnvironmentInput {}
 export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput, __MetadataBearer {}

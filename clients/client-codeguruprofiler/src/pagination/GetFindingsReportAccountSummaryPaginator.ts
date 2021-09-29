@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeGuruProfiler } from "../CodeGuruProfiler";
 import { CodeGuruProfilerClient } from "../CodeGuruProfilerClient";
 import {
@@ -6,7 +8,6 @@ import {
   GetFindingsReportAccountSummaryCommandOutput,
 } from "../commands/GetFindingsReportAccountSummaryCommand";
 import { CodeGuruProfilerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

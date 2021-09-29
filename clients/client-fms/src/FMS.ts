@@ -1,4 +1,5 @@
-import { FMSClient } from "./FMSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateAdminAccountCommand,
   AssociateAdminAccountCommandInput,
@@ -109,7 +110,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FMSClient } from "./FMSClient";
 
 /**
  * <p>This is the <i>Firewall Manager API Reference</i>. This guide is for

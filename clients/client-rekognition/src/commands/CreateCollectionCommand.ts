@@ -1,9 +1,3 @@
-import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
-import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1CreateCollectionCommand,
-  serializeAws_json1_1CreateCollectionCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1CreateCollectionCommand,
+  serializeAws_json1_1CreateCollectionCommand,
+} from "../protocols/Aws_json1_1";
+import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 export interface CreateCollectionCommandInput extends CreateCollectionRequest {}
 export interface CreateCollectionCommandOutput extends CreateCollectionResponse, __MetadataBearer {}

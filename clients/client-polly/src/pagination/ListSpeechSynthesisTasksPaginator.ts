@@ -1,12 +1,13 @@
-import { Polly } from "../Polly";
-import { PollyClient } from "../PollyClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSpeechSynthesisTasksCommand,
   ListSpeechSynthesisTasksCommandInput,
   ListSpeechSynthesisTasksCommandOutput,
 } from "../commands/ListSpeechSynthesisTasksCommand";
+import { Polly } from "../Polly";
+import { PollyClient } from "../PollyClient";
 import { PollyPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

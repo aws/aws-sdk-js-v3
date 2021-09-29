@@ -1,3 +1,5 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   Account,
   AccountSettings,
@@ -60,7 +62,6 @@ import {
   VoiceConnectorItem,
   VoiceConnectorSettings,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 export interface GetUserSettingsResponse {
   /**

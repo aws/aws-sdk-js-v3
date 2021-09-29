@@ -1,14 +1,3 @@
-import { GetEntitlementsCommandInput, GetEntitlementsCommandOutput } from "../commands/GetEntitlementsCommand";
-import {
-  Entitlement,
-  EntitlementValue,
-  GetEntitlementFilterName,
-  GetEntitlementsRequest,
-  GetEntitlementsResult,
-  InternalServiceErrorException,
-  InvalidParameterException,
-  ThrottlingException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
@@ -28,6 +17,18 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import { GetEntitlementsCommandInput, GetEntitlementsCommandOutput } from "../commands/GetEntitlementsCommand";
+import {
+  Entitlement,
+  EntitlementValue,
+  GetEntitlementFilterName,
+  GetEntitlementsRequest,
+  GetEntitlementsResult,
+  InternalServiceErrorException,
+  InvalidParameterException,
+  ThrottlingException,
+} from "../models/models_0";
 
 export const serializeAws_json1_1GetEntitlementsCommand = async (
   input: GetEntitlementsCommandInput,
@@ -68,7 +69,7 @@ const deserializeAws_json1_1GetEntitlementsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceErrorException":

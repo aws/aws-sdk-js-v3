@@ -1,12 +1,13 @@
-import { Route53Resolver } from "../Route53Resolver";
-import { Route53ResolverClient } from "../Route53ResolverClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListResolverRulesCommand,
   ListResolverRulesCommandInput,
   ListResolverRulesCommandOutput,
 } from "../commands/ListResolverRulesCommand";
+import { Route53Resolver } from "../Route53Resolver";
+import { Route53ResolverClient } from "../Route53ResolverClient";
 import { Route53ResolverPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

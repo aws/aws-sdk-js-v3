@@ -1,12 +1,13 @@
-import { Schemas } from "../Schemas";
-import { SchemasClient } from "../SchemasClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   SearchSchemasCommand,
   SearchSchemasCommandInput,
   SearchSchemasCommandOutput,
 } from "../commands/SearchSchemasCommand";
+import { Schemas } from "../Schemas";
+import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

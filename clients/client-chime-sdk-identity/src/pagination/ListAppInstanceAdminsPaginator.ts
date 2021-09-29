@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ChimeSDKIdentity } from "../ChimeSDKIdentity";
 import { ChimeSDKIdentityClient } from "../ChimeSDKIdentityClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListAppInstanceAdminsCommandOutput,
 } from "../commands/ListAppInstanceAdminsCommand";
 import { ChimeSDKIdentityPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

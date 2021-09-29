@@ -1,4 +1,5 @@
-import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteHumanLoopCommand,
   DeleteHumanLoopCommandInput,
@@ -24,7 +25,7 @@ import {
   StopHumanLoopCommandInput,
   StopHumanLoopCommandOutput,
 } from "./commands/StopHumanLoopCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SageMakerA2IRuntimeClient } from "./SageMakerA2IRuntimeClient";
 
 /**
  * <p>Amazon Augmented AI (Amazon A2I) adds the benefit of human judgment to any machine learning

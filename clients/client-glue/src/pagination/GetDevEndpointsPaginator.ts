@@ -1,12 +1,13 @@
-import { Glue } from "../Glue";
-import { GlueClient } from "../GlueClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetDevEndpointsCommand,
   GetDevEndpointsCommandInput,
   GetDevEndpointsCommandOutput,
 } from "../commands/GetDevEndpointsCommand";
+import { Glue } from "../Glue";
+import { GlueClient } from "../GlueClient";
 import { GluePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

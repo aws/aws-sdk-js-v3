@@ -1,12 +1,13 @@
-import { SecretsManager } from "../SecretsManager";
-import { SecretsManagerClient } from "../SecretsManagerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSecretVersionIdsCommand,
   ListSecretVersionIdsCommandInput,
   ListSecretVersionIdsCommandOutput,
 } from "../commands/ListSecretVersionIdsCommand";
+import { SecretsManager } from "../SecretsManager";
+import { SecretsManagerClient } from "../SecretsManagerClient";
 import { SecretsManagerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

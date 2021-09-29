@@ -1,4 +1,5 @@
-import { MqClient } from "./MqClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateBrokerCommand,
   CreateBrokerCommandInput,
@@ -77,7 +78,7 @@ import {
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MqClient } from "./MqClient";
 
 /**
  * <p>Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud. A message broker allows software applications and components to communicate using various programming languages, operating systems, and formal messaging protocols.</p>

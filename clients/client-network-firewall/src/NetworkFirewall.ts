@@ -1,4 +1,5 @@
-import { NetworkFirewallClient } from "./NetworkFirewallClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateFirewallPolicyCommand,
   AssociateFirewallPolicyCommandInput,
@@ -140,7 +141,7 @@ import {
   UpdateSubnetChangeProtectionCommandInput,
   UpdateSubnetChangeProtectionCommandOutput,
 } from "./commands/UpdateSubnetChangeProtectionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { NetworkFirewallClient } from "./NetworkFirewallClient";
 
 /**
  * <p>This is the API Reference for AWS Network Firewall. This guide is for developers who need

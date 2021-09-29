@@ -1,4 +1,5 @@
-import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateEntityToThingCommand,
   AssociateEntityToThingCommandInput,
@@ -166,7 +167,7 @@ import {
   UploadEntityDefinitionsCommandInput,
   UploadEntityDefinitionsCommandOutput,
 } from "./commands/UploadEntityDefinitionsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTThingsGraphClient } from "./IoTThingsGraphClient";
 
 /**
  * <fullname>AWS IoT Things Graph</fullname>

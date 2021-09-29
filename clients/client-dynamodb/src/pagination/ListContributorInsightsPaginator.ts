@@ -1,12 +1,13 @@
-import { DynamoDB } from "../DynamoDB";
-import { DynamoDBClient } from "../DynamoDBClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListContributorInsightsCommand,
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "../commands/ListContributorInsightsCommand";
+import { DynamoDB } from "../DynamoDB";
+import { DynamoDBClient } from "../DynamoDBClient";
 import { DynamoDBPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

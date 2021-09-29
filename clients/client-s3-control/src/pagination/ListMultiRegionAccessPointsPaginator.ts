@@ -1,12 +1,13 @@
-import { S3Control } from "../S3Control";
-import { S3ControlClient } from "../S3ControlClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMultiRegionAccessPointsCommand,
   ListMultiRegionAccessPointsCommandInput,
   ListMultiRegionAccessPointsCommandOutput,
 } from "../commands/ListMultiRegionAccessPointsCommand";
+import { S3Control } from "../S3Control";
+import { S3ControlClient } from "../S3ControlClient";
 import { S3ControlPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

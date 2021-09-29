@@ -1,4 +1,5 @@
-import { FinspaceClient } from "./FinspaceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
@@ -35,7 +36,7 @@ import {
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FinspaceClient } from "./FinspaceClient";
 
 /**
  * <p>The FinSpace management service provides the APIs for managing the FinSpace

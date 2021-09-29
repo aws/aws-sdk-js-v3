@@ -1,3 +1,24 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AcceptInboundCrossClusterSearchConnectionCommandInput,
   AcceptInboundCrossClusterSearchConnectionCommandOutput,
@@ -154,7 +175,6 @@ import {
   Duration,
   EBSOptions,
   EBSOptionsStatus,
-  ESPartitionInstanceType,
   ElasticsearchClusterConfig,
   ElasticsearchClusterConfigStatus,
   ElasticsearchDomainConfig,
@@ -163,6 +183,7 @@ import {
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
   ErrorDetails,
+  ESPartitionInstanceType,
   Filter,
   InboundCrossClusterSearchConnection,
   InboundCrossClusterSearchConnectionStatus,
@@ -202,32 +223,12 @@ import {
   Tag,
   UpgradeHistory,
   UpgradeStepItem,
+  ValidationException,
   VPCDerivedInfo,
   VPCDerivedInfoStatus,
   VPCOptions,
-  ValidationException,
   ZoneAwarenessConfig,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  limitedParseDouble as __limitedParseDouble,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand = async (
   input: AcceptInboundCrossClusterSearchConnectionCommandInput,
@@ -267,7 +268,7 @@ export const serializeAws_restJson1AddTagsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
   let body: any;
   body = JSON.stringify({
     ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
@@ -332,7 +333,7 @@ export const serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateComma
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
@@ -358,7 +359,7 @@ export const serializeAws_restJson1CreateElasticsearchDomainCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain";
   let body: any;
   body = JSON.stringify({
     ...(input.AccessPolicies !== undefined &&
@@ -441,7 +442,7 @@ export const serializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCom
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/ccs/outboundConnection";
   let body: any;
   body = JSON.stringify({
@@ -475,7 +476,7 @@ export const serializeAws_restJson1CreatePackageCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages";
   let body: any;
   body = JSON.stringify({
     ...(input.PackageDescription !== undefined &&
@@ -535,7 +536,7 @@ export const serializeAws_restJson1DeleteElasticsearchServiceRoleCommand = async
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/role";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/role";
   let body: any;
   body = "";
   return new __HttpRequest({
@@ -740,7 +741,7 @@ export const serializeAws_restJson1DescribeElasticsearchDomainsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/domain-info";
   let body: any;
   body = JSON.stringify({
@@ -809,7 +810,7 @@ export const serializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsC
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2015-01-01/es/ccs/inboundConnection/search";
   let body: any;
@@ -838,7 +839,7 @@ export const serializeAws_restJson1DescribeOutboundCrossClusterSearchConnections
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2015-01-01/es/ccs/outboundConnection/search";
   let body: any;
@@ -867,7 +868,7 @@ export const serializeAws_restJson1DescribePackagesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/describe";
   let body: any;
   body = JSON.stringify({
@@ -893,7 +894,7 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstanceOffering
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstanceOfferings";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
@@ -921,7 +922,7 @@ export const serializeAws_restJson1DescribeReservedElasticsearchInstancesCommand
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/reservedInstances";
   const query: any = {
     ...(input.ReservedElasticsearchInstanceId !== undefined && {
@@ -988,7 +989,7 @@ export const serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand = a
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/compatibleVersions";
   const query: any = {
     ...(input.DomainName !== undefined && { domainName: input.DomainName }),
@@ -1111,7 +1112,7 @@ export const serializeAws_restJson1ListDomainNamesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/domain";
   const query: any = {
     ...(input.EngineType !== undefined && { engineType: input.EngineType }),
   };
@@ -1204,7 +1205,8 @@ export const serializeAws_restJson1ListElasticsearchVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/versions";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/versions";
   const query: any = {
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -1262,7 +1264,7 @@ export const serializeAws_restJson1ListTagsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags";
   const query: any = {
     ...(input.ARN !== undefined && { arn: input.ARN }),
   };
@@ -1287,7 +1289,7 @@ export const serializeAws_restJson1PurchaseReservedElasticsearchInstanceOffering
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
@@ -1349,7 +1351,8 @@ export const serializeAws_restJson1RemoveTagsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags-removal";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/tags-removal";
   let body: any;
   body = JSON.stringify({
     ...(input.ARN !== undefined && input.ARN !== null && { ARN: input.ARN }),
@@ -1375,7 +1378,7 @@ export const serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComman
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
@@ -1489,7 +1492,7 @@ export const serializeAws_restJson1UpdatePackageCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/packages/update";
   let body: any;
   body = JSON.stringify({
@@ -1521,7 +1524,7 @@ export const serializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-01-01/es/upgradeDomain";
   let body: any;
   body = JSON.stringify({
@@ -1571,7 +1574,7 @@ const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -1638,7 +1641,7 @@ const deserializeAws_restJson1AddTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1717,7 +1720,7 @@ const deserializeAws_restJson1AssociatePackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1815,7 +1818,7 @@ const deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1894,7 +1897,7 @@ const deserializeAws_restJson1CreateElasticsearchDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2016,7 +2019,7 @@ const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -2095,7 +2098,7 @@ const deserializeAws_restJson1CreatePackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2198,7 +2201,7 @@ const deserializeAws_restJson1DeleteElasticsearchDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2273,7 +2276,7 @@ const deserializeAws_restJson1DeleteElasticsearchServiceRoleCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2347,7 +2350,7 @@ const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -2413,7 +2416,7 @@ const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -2476,7 +2479,7 @@ const deserializeAws_restJson1DeletePackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2575,7 +2578,7 @@ const deserializeAws_restJson1DescribeDomainAutoTunesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2654,7 +2657,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2733,7 +2736,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainConfigCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2812,7 +2815,7 @@ const deserializeAws_restJson1DescribeElasticsearchDomainsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2883,7 +2886,7 @@ const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2985,7 +2988,7 @@ const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnectionsComman
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -3055,7 +3058,7 @@ const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsComma
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -3122,7 +3125,7 @@ const deserializeAws_restJson1DescribePackagesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3219,7 +3222,7 @@ const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferingsComm
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -3305,7 +3308,7 @@ const deserializeAws_restJson1DescribeReservedElasticsearchInstancesCommandError
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -3384,7 +3387,7 @@ const deserializeAws_restJson1DissociatePackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3482,7 +3485,7 @@ const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -3580,7 +3583,7 @@ const deserializeAws_restJson1GetPackageVersionHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3671,7 +3674,7 @@ const deserializeAws_restJson1GetUpgradeHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -3766,7 +3769,7 @@ const deserializeAws_restJson1GetUpgradeStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -3853,7 +3856,7 @@ const deserializeAws_restJson1ListDomainNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -3923,7 +3926,7 @@ const deserializeAws_restJson1ListDomainsForPackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4017,7 +4020,7 @@ const deserializeAws_restJson1ListElasticsearchInstanceTypesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4103,7 +4106,7 @@ const deserializeAws_restJson1ListElasticsearchVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4189,7 +4192,7 @@ const deserializeAws_restJson1ListPackagesForDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4276,7 +4279,7 @@ const deserializeAws_restJson1ListTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4359,7 +4362,7 @@ const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingComma
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -4457,7 +4460,7 @@ const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DisabledOperationException":
@@ -4516,7 +4519,7 @@ const deserializeAws_restJson1RemoveTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4590,7 +4593,7 @@ const deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4669,7 +4672,7 @@ const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -4764,7 +4767,7 @@ const deserializeAws_restJson1UpdatePackageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4867,7 +4870,7 @@ const deserializeAws_restJson1UpgradeElasticsearchDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":

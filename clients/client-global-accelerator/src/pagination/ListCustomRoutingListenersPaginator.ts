@@ -1,12 +1,13 @@
-import { GlobalAccelerator } from "../GlobalAccelerator";
-import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListCustomRoutingListenersCommand,
   ListCustomRoutingListenersCommandInput,
   ListCustomRoutingListenersCommandOutput,
 } from "../commands/ListCustomRoutingListenersCommand";
+import { GlobalAccelerator } from "../GlobalAccelerator";
+import { GlobalAcceleratorClient } from "../GlobalAcceleratorClient";
 import { GlobalAcceleratorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

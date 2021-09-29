@@ -1,12 +1,13 @@
-import { Route53RecoveryReadiness } from "../Route53RecoveryReadiness";
-import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetReadinessCheckStatusCommand,
   GetReadinessCheckStatusCommandInput,
   GetReadinessCheckStatusCommandOutput,
 } from "../commands/GetReadinessCheckStatusCommand";
+import { Route53RecoveryReadiness } from "../Route53RecoveryReadiness";
+import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClient";
 import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

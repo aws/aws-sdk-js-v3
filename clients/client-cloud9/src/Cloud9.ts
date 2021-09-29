@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { Cloud9Client } from "./Cloud9Client";
 import {
   CreateEnvironmentEC2Command,
@@ -25,15 +27,15 @@ import {
   DescribeEnvironmentMembershipsCommandOutput,
 } from "./commands/DescribeEnvironmentMembershipsCommand";
 import {
-  DescribeEnvironmentStatusCommand,
-  DescribeEnvironmentStatusCommandInput,
-  DescribeEnvironmentStatusCommandOutput,
-} from "./commands/DescribeEnvironmentStatusCommand";
-import {
   DescribeEnvironmentsCommand,
   DescribeEnvironmentsCommandInput,
   DescribeEnvironmentsCommandOutput,
 } from "./commands/DescribeEnvironmentsCommand";
+import {
+  DescribeEnvironmentStatusCommand,
+  DescribeEnvironmentStatusCommandInput,
+  DescribeEnvironmentStatusCommandOutput,
+} from "./commands/DescribeEnvironmentStatusCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
@@ -60,7 +62,6 @@ import {
   UpdateEnvironmentMembershipCommandInput,
   UpdateEnvironmentMembershipCommandOutput,
 } from "./commands/UpdateEnvironmentMembershipCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Cloud9</fullname>

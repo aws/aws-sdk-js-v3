@@ -1,12 +1,13 @@
-import { IAM } from "../IAM";
-import { IAMClient } from "../IAMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   SimulatePrincipalPolicyCommand,
   SimulatePrincipalPolicyCommandInput,
   SimulatePrincipalPolicyCommandOutput,
 } from "../commands/SimulatePrincipalPolicyCommand";
+import { IAM } from "../IAM";
+import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

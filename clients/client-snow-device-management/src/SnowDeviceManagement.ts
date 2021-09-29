@@ -1,4 +1,5 @@
-import { SnowDeviceManagementClient } from "./SnowDeviceManagementClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CancelTaskCommand, CancelTaskCommandInput, CancelTaskCommandOutput } from "./commands/CancelTaskCommand";
 import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
 import {
@@ -44,7 +45,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SnowDeviceManagementClient } from "./SnowDeviceManagementClient";
 
 /**
  * <p>Amazon Web Services Snow Device Management documentation.</p>

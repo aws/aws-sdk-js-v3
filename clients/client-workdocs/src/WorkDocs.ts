@@ -1,4 +1,5 @@
-import { WorkDocsClient } from "./WorkDocsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AbortDocumentVersionUploadCommand,
   AbortDocumentVersionUploadCommandInput,
@@ -184,7 +185,7 @@ import {
   UpdateFolderCommandOutput,
 } from "./commands/UpdateFolderCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WorkDocsClient } from "./WorkDocsClient";
 
 /**
  * <p>The WorkDocs API is designed for the following use cases:</p>

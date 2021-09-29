@@ -1,12 +1,13 @@
-import { Inspector } from "../Inspector";
-import { InspectorClient } from "../InspectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAssessmentRunsCommand,
   ListAssessmentRunsCommandInput,
   ListAssessmentRunsCommandOutput,
 } from "../commands/ListAssessmentRunsCommand";
+import { Inspector } from "../Inspector";
+import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,5 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
+
 import { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 

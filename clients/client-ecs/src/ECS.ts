@@ -1,4 +1,5 @@
-import { ECSClient } from "./ECSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateCapacityProviderCommand,
   CreateCapacityProviderCommandInput,
@@ -85,15 +86,15 @@ import {
   DescribeTaskDefinitionCommandOutput,
 } from "./commands/DescribeTaskDefinitionCommand";
 import {
-  DescribeTaskSetsCommand,
-  DescribeTaskSetsCommandInput,
-  DescribeTaskSetsCommandOutput,
-} from "./commands/DescribeTaskSetsCommand";
-import {
   DescribeTasksCommand,
   DescribeTasksCommandInput,
   DescribeTasksCommandOutput,
 } from "./commands/DescribeTasksCommand";
+import {
+  DescribeTaskSetsCommand,
+  DescribeTaskSetsCommandInput,
+  DescribeTaskSetsCommandOutput,
+} from "./commands/DescribeTaskSetsCommand";
 import {
   DiscoverPollEndpointCommand,
   DiscoverPollEndpointCommandInput,
@@ -239,7 +240,7 @@ import {
   UpdateTaskSetCommandInput,
   UpdateTaskSetCommandOutput,
 } from "./commands/UpdateTaskSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ECSClient } from "./ECSClient";
 
 /**
  * <fullname>Amazon Elastic Container Service</fullname>

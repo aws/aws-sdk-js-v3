@@ -1,4 +1,5 @@
-import { GlueClient } from "./GlueClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchCreatePartitionCommand,
   BatchCreatePartitionCommandInput,
@@ -320,17 +321,17 @@ import {
   GetCrawlerMetricsCommandOutput,
 } from "./commands/GetCrawlerMetricsCommand";
 import { GetCrawlersCommand, GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand";
-import {
-  GetDataCatalogEncryptionSettingsCommand,
-  GetDataCatalogEncryptionSettingsCommandInput,
-  GetDataCatalogEncryptionSettingsCommandOutput,
-} from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDatabasesCommand,
   GetDatabasesCommandInput,
   GetDatabasesCommandOutput,
 } from "./commands/GetDatabasesCommand";
+import {
+  GetDataCatalogEncryptionSettingsCommand,
+  GetDataCatalogEncryptionSettingsCommandInput,
+  GetDataCatalogEncryptionSettingsCommandOutput,
+} from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import {
   GetDataflowGraphCommand,
   GetDataflowGraphCommandInput,
@@ -355,6 +356,7 @@ import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./comman
 import { GetJobRunCommand, GetJobRunCommandInput, GetJobRunCommandOutput } from "./commands/GetJobRunCommand";
 import { GetJobRunsCommand, GetJobRunsCommandInput, GetJobRunsCommandOutput } from "./commands/GetJobRunsCommand";
 import { GetJobsCommand, GetJobsCommandInput, GetJobsCommandOutput } from "./commands/GetJobsCommand";
+import { GetMappingCommand, GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import {
   GetMLTaskRunCommand,
   GetMLTaskRunCommandInput,
@@ -375,7 +377,6 @@ import {
   GetMLTransformsCommandInput,
   GetMLTransformsCommandOutput,
 } from "./commands/GetMLTransformsCommand";
-import { GetMappingCommand, GetMappingCommandInput, GetMappingCommandOutput } from "./commands/GetMappingCommand";
 import {
   GetPartitionCommand,
   GetPartitionCommandInput,
@@ -430,6 +431,7 @@ import {
   GetSecurityConfigurationsCommandOutput,
 } from "./commands/GetSecurityConfigurationsCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import {
   GetTableVersionCommand,
   GetTableVersionCommandInput,
@@ -440,7 +442,6 @@ import {
   GetTableVersionsCommandInput,
   GetTableVersionsCommandOutput,
 } from "./commands/GetTableVersionsCommand";
-import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetTriggerCommand, GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand";
 import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand";
@@ -501,12 +502,12 @@ import {
   ListRegistriesCommandInput,
   ListRegistriesCommandOutput,
 } from "./commands/ListRegistriesCommand";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListSchemaVersionsCommand,
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand";
-import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
 import {
   ListTriggersCommand,
   ListTriggersCommandInput,
@@ -713,7 +714,7 @@ import {
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
 } from "./commands/UpdateWorkflowCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GlueClient } from "./GlueClient";
 
 /**
  * <fullname>Glue</fullname>

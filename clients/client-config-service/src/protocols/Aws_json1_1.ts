@@ -1,3 +1,22 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
@@ -93,57 +112,57 @@ import {
   DescribeConfigRulesCommandOutput,
 } from "../commands/DescribeConfigRulesCommand";
 import {
-  DescribeConfigurationAggregatorSourcesStatusCommandInput,
-  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
-} from "../commands/DescribeConfigurationAggregatorSourcesStatusCommand";
-import {
   DescribeConfigurationAggregatorsCommandInput,
   DescribeConfigurationAggregatorsCommandOutput,
 } from "../commands/DescribeConfigurationAggregatorsCommand";
 import {
-  DescribeConfigurationRecorderStatusCommandInput,
-  DescribeConfigurationRecorderStatusCommandOutput,
-} from "../commands/DescribeConfigurationRecorderStatusCommand";
+  DescribeConfigurationAggregatorSourcesStatusCommandInput,
+  DescribeConfigurationAggregatorSourcesStatusCommandOutput,
+} from "../commands/DescribeConfigurationAggregatorSourcesStatusCommand";
 import {
   DescribeConfigurationRecordersCommandInput,
   DescribeConfigurationRecordersCommandOutput,
 } from "../commands/DescribeConfigurationRecordersCommand";
 import {
+  DescribeConfigurationRecorderStatusCommandInput,
+  DescribeConfigurationRecorderStatusCommandOutput,
+} from "../commands/DescribeConfigurationRecorderStatusCommand";
+import {
   DescribeConformancePackComplianceCommandInput,
   DescribeConformancePackComplianceCommandOutput,
 } from "../commands/DescribeConformancePackComplianceCommand";
-import {
-  DescribeConformancePackStatusCommandInput,
-  DescribeConformancePackStatusCommandOutput,
-} from "../commands/DescribeConformancePackStatusCommand";
 import {
   DescribeConformancePacksCommandInput,
   DescribeConformancePacksCommandOutput,
 } from "../commands/DescribeConformancePacksCommand";
 import {
-  DescribeDeliveryChannelStatusCommandInput,
-  DescribeDeliveryChannelStatusCommandOutput,
-} from "../commands/DescribeDeliveryChannelStatusCommand";
+  DescribeConformancePackStatusCommandInput,
+  DescribeConformancePackStatusCommandOutput,
+} from "../commands/DescribeConformancePackStatusCommand";
 import {
   DescribeDeliveryChannelsCommandInput,
   DescribeDeliveryChannelsCommandOutput,
 } from "../commands/DescribeDeliveryChannelsCommand";
 import {
-  DescribeOrganizationConfigRuleStatusesCommandInput,
-  DescribeOrganizationConfigRuleStatusesCommandOutput,
-} from "../commands/DescribeOrganizationConfigRuleStatusesCommand";
+  DescribeDeliveryChannelStatusCommandInput,
+  DescribeDeliveryChannelStatusCommandOutput,
+} from "../commands/DescribeDeliveryChannelStatusCommand";
 import {
   DescribeOrganizationConfigRulesCommandInput,
   DescribeOrganizationConfigRulesCommandOutput,
 } from "../commands/DescribeOrganizationConfigRulesCommand";
 import {
-  DescribeOrganizationConformancePackStatusesCommandInput,
-  DescribeOrganizationConformancePackStatusesCommandOutput,
-} from "../commands/DescribeOrganizationConformancePackStatusesCommand";
+  DescribeOrganizationConfigRuleStatusesCommandInput,
+  DescribeOrganizationConfigRuleStatusesCommandOutput,
+} from "../commands/DescribeOrganizationConfigRuleStatusesCommand";
 import {
   DescribeOrganizationConformancePacksCommandInput,
   DescribeOrganizationConformancePacksCommandOutput,
 } from "../commands/DescribeOrganizationConformancePacksCommand";
+import {
+  DescribeOrganizationConformancePackStatusesCommandInput,
+  DescribeOrganizationConformancePackStatusesCommandOutput,
+} from "../commands/DescribeOrganizationConformancePackStatusesCommand";
 import {
   DescribePendingAggregationRequestsCommandInput,
   DescribePendingAggregationRequestsCommandOutput,
@@ -316,10 +335,10 @@ import {
   AggregateConformancePackComplianceFilters,
   AggregateConformancePackComplianceSummary,
   AggregateConformancePackComplianceSummaryFilters,
-  AggregateEvaluationResult,
-  AggregateResourceIdentifier,
   AggregatedSourceStatus,
   AggregatedSourceStatusType,
+  AggregateEvaluationResult,
+  AggregateResourceIdentifier,
   AggregationAuthorization,
   BaseConfigurationItem,
   BatchGetAggregateResourceConfigRequest,
@@ -394,28 +413,28 @@ import {
   DescribeConfigurationAggregatorSourcesStatusResponse,
   DescribeConfigurationAggregatorsRequest,
   DescribeConfigurationAggregatorsResponse,
-  DescribeConfigurationRecorderStatusRequest,
-  DescribeConfigurationRecorderStatusResponse,
   DescribeConfigurationRecordersRequest,
   DescribeConfigurationRecordersResponse,
+  DescribeConfigurationRecorderStatusRequest,
+  DescribeConfigurationRecorderStatusResponse,
   DescribeConformancePackComplianceRequest,
   DescribeConformancePackComplianceResponse,
-  DescribeConformancePackStatusRequest,
-  DescribeConformancePackStatusResponse,
   DescribeConformancePacksRequest,
   DescribeConformancePacksResponse,
-  DescribeDeliveryChannelStatusRequest,
-  DescribeDeliveryChannelStatusResponse,
+  DescribeConformancePackStatusRequest,
+  DescribeConformancePackStatusResponse,
   DescribeDeliveryChannelsRequest,
   DescribeDeliveryChannelsResponse,
-  DescribeOrganizationConfigRuleStatusesRequest,
-  DescribeOrganizationConfigRuleStatusesResponse,
+  DescribeDeliveryChannelStatusRequest,
+  DescribeDeliveryChannelStatusResponse,
   DescribeOrganizationConfigRulesRequest,
   DescribeOrganizationConfigRulesResponse,
-  DescribeOrganizationConformancePackStatusesRequest,
-  DescribeOrganizationConformancePackStatusesResponse,
+  DescribeOrganizationConfigRuleStatusesRequest,
+  DescribeOrganizationConfigRuleStatusesResponse,
   DescribeOrganizationConformancePacksRequest,
   DescribeOrganizationConformancePacksResponse,
+  DescribeOrganizationConformancePackStatusesRequest,
+  DescribeOrganizationConformancePackStatusesResponse,
   DescribePendingAggregationRequestsRequest,
   DescribePendingAggregationRequestsResponse,
   DescribeRemediationConfigurationsRequest,
@@ -607,24 +626,6 @@ import {
   TooManyTagsException,
   UntagResourceRequest,
 } from "../models/models_1";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1BatchGetAggregateResourceConfigCommand = async (
   input: BatchGetAggregateResourceConfigCommandInput,
@@ -1769,7 +1770,7 @@ const deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
@@ -1831,7 +1832,7 @@ const deserializeAws_json1_1BatchGetResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoAvailableConfigurationRecorderException":
@@ -1890,7 +1891,7 @@ const deserializeAws_json1_1DeleteAggregationAuthorizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -1941,7 +1942,7 @@ const deserializeAws_json1_1DeleteConfigRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigRuleException":
@@ -2000,7 +2001,7 @@ const deserializeAws_json1_1DeleteConfigurationAggregatorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
@@ -2051,7 +2052,7 @@ const deserializeAws_json1_1DeleteConfigurationRecorderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
@@ -2102,7 +2103,7 @@ const deserializeAws_json1_1DeleteConformancePackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConformancePackException":
@@ -2161,7 +2162,7 @@ const deserializeAws_json1_1DeleteDeliveryChannelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LastDeliveryChannelDeleteFailedException":
@@ -2223,7 +2224,7 @@ const deserializeAws_json1_1DeleteEvaluationResultsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigRuleException":
@@ -2282,7 +2283,7 @@ const deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchOrganizationConfigRuleException":
@@ -2349,7 +2350,7 @@ const deserializeAws_json1_1DeleteOrganizationConformancePackCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchOrganizationConformancePackException":
@@ -2416,7 +2417,7 @@ const deserializeAws_json1_1DeletePendingAggregationRequestCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -2470,7 +2471,7 @@ const deserializeAws_json1_1DeleteRemediationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -2548,7 +2549,7 @@ const deserializeAws_json1_1DeleteRemediationExceptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchRemediationExceptionException":
@@ -2599,7 +2600,7 @@ const deserializeAws_json1_1DeleteResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoRunningConfigurationRecorderException":
@@ -2658,7 +2659,7 @@ const deserializeAws_json1_1DeleteRetentionConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -2720,7 +2721,7 @@ const deserializeAws_json1_1DeleteStoredQueryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -2782,7 +2783,7 @@ const deserializeAws_json1_1DeliverConfigSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoAvailableConfigurationRecorderException":
@@ -2852,7 +2853,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -2930,7 +2931,7 @@ const deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3008,7 +3009,7 @@ const deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3078,7 +3079,7 @@ const deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -3148,7 +3149,7 @@ const deserializeAws_json1_1DescribeComplianceByResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -3210,7 +3211,7 @@ const deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -3280,7 +3281,7 @@ const deserializeAws_json1_1DescribeConfigRulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -3342,7 +3343,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3420,7 +3421,7 @@ const deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3498,7 +3499,7 @@ const deserializeAws_json1_1DescribeConfigurationRecordersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
@@ -3552,7 +3553,7 @@ const deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
@@ -3606,7 +3607,7 @@ const deserializeAws_json1_1DescribeConformancePackComplianceCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3692,7 +3693,7 @@ const deserializeAws_json1_1DescribeConformancePacksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3770,7 +3771,7 @@ const deserializeAws_json1_1DescribeConformancePackStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -3840,7 +3841,7 @@ const deserializeAws_json1_1DescribeDeliveryChannelsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchDeliveryChannelException":
@@ -3894,7 +3895,7 @@ const deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchDeliveryChannelException":
@@ -3948,7 +3949,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4026,7 +4027,7 @@ const deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4104,7 +4105,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4182,7 +4183,7 @@ const deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4260,7 +4261,7 @@ const deserializeAws_json1_1DescribePendingAggregationRequestsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4330,7 +4331,7 @@ const deserializeAws_json1_1DescribeRemediationConfigurationsCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4376,7 +4377,7 @@ const deserializeAws_json1_1DescribeRemediationExceptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4438,7 +4439,7 @@ const deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4508,7 +4509,7 @@ const deserializeAws_json1_1DescribeRetentionConfigurationsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -4578,7 +4579,7 @@ const deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4656,7 +4657,7 @@ const deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4734,7 +4735,7 @@ const deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4812,7 +4813,7 @@ const deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -4890,7 +4891,7 @@ const deserializeAws_json1_1GetAggregateResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationAggregatorException":
@@ -4968,7 +4969,7 @@ const deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -5038,7 +5039,7 @@ const deserializeAws_json1_1GetComplianceDetailsByResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -5092,7 +5093,7 @@ const deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5138,7 +5139,7 @@ const deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -5192,7 +5193,7 @@ const deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5278,7 +5279,7 @@ const deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5348,7 +5349,7 @@ const deserializeAws_json1_1GetDiscoveredResourceCountsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5418,7 +5419,7 @@ const deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5496,7 +5497,7 @@ const deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5574,7 +5575,7 @@ const deserializeAws_json1_1GetResourceConfigHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5668,7 +5669,7 @@ const deserializeAws_json1_1GetStoredQueryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -5730,7 +5731,7 @@ const deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5808,7 +5809,7 @@ const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -5886,7 +5887,7 @@ const deserializeAws_json1_1ListStoredQueriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -5948,7 +5949,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLimitException":
@@ -6026,7 +6027,7 @@ const deserializeAws_json1_1PutAggregationAuthorizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -6077,7 +6078,7 @@ const deserializeAws_json1_1PutConfigRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -6163,7 +6164,7 @@ const deserializeAws_json1_1PutConfigurationAggregatorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -6254,7 +6255,7 @@ const deserializeAws_json1_1PutConfigurationRecorderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidConfigurationRecorderNameException":
@@ -6335,7 +6336,7 @@ const deserializeAws_json1_1PutConformancePackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConformancePackTemplateValidationException":
@@ -6418,7 +6419,7 @@ const deserializeAws_json1_1PutDeliveryChannelCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientDeliveryPolicyException":
@@ -6528,7 +6529,7 @@ const deserializeAws_json1_1PutEvaluationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -6598,7 +6599,7 @@ const deserializeAws_json1_1PutExternalEvaluationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -6660,7 +6661,7 @@ const deserializeAws_json1_1PutOrganizationConfigRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -6773,7 +6774,7 @@ const deserializeAws_json1_1PutOrganizationConformancePackCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -6889,7 +6890,7 @@ const deserializeAws_json1_1PutRemediationConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -6951,7 +6952,7 @@ const deserializeAws_json1_1PutRemediationExceptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -7010,7 +7011,7 @@ const deserializeAws_json1_1PutResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -7088,7 +7089,7 @@ const deserializeAws_json1_1PutRetentionConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -7153,7 +7154,7 @@ const deserializeAws_json1_1PutStoredQueryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceConcurrentModificationException":
@@ -7223,7 +7224,7 @@ const deserializeAws_json1_1SelectAggregateResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidExpressionException":
@@ -7301,7 +7302,7 @@ const deserializeAws_json1_1SelectResourceConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidExpressionException":
@@ -7371,7 +7372,7 @@ const deserializeAws_json1_1StartConfigRulesEvaluationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterValueException":
@@ -7446,7 +7447,7 @@ const deserializeAws_json1_1StartConfigurationRecorderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoAvailableDeliveryChannelException":
@@ -7508,7 +7509,7 @@ const deserializeAws_json1_1StartRemediationExecutionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InsufficientPermissionsException":
@@ -7575,7 +7576,7 @@ const deserializeAws_json1_1StopConfigurationRecorderCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchConfigurationRecorderException":
@@ -7626,7 +7627,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":
@@ -7693,7 +7694,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceNotFoundException":

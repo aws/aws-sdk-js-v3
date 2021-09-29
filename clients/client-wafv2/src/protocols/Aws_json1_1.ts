@@ -1,3 +1,22 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "../commands/AssociateWebACLCommand";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "../commands/CheckCapacityCommand";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "../commands/CreateIPSetCommand";
@@ -54,13 +73,13 @@ import {
   GetWebACLForResourceCommandOutput,
 } from "../commands/GetWebACLForResourceCommand";
 import {
-  ListAvailableManagedRuleGroupVersionsCommandInput,
-  ListAvailableManagedRuleGroupVersionsCommandOutput,
-} from "../commands/ListAvailableManagedRuleGroupVersionsCommand";
-import {
   ListAvailableManagedRuleGroupsCommandInput,
   ListAvailableManagedRuleGroupsCommandOutput,
 } from "../commands/ListAvailableManagedRuleGroupsCommand";
+import {
+  ListAvailableManagedRuleGroupVersionsCommandInput,
+  ListAvailableManagedRuleGroupVersionsCommandOutput,
+} from "../commands/ListAvailableManagedRuleGroupVersionsCommand";
 import { ListIPSetsCommandInput, ListIPSetsCommandOutput } from "../commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommandInput,
@@ -112,8 +131,8 @@ import { UpdateWebACLCommandInput, UpdateWebACLCommandOutput } from "../commands
 import {
   ActionCondition,
   All,
-  AllQueryArguments,
   AllowAction,
+  AllQueryArguments,
   AndStatement,
   AssociateWebACLRequest,
   AssociateWebACLResponse,
@@ -195,10 +214,10 @@ import {
   LabelMatchStatement,
   LabelNameCondition,
   LabelSummary,
-  ListAvailableManagedRuleGroupVersionsRequest,
-  ListAvailableManagedRuleGroupVersionsResponse,
   ListAvailableManagedRuleGroupsRequest,
   ListAvailableManagedRuleGroupsResponse,
+  ListAvailableManagedRuleGroupVersionsRequest,
+  ListAvailableManagedRuleGroupVersionsResponse,
   ListIPSetsRequest,
   ListIPSetsResponse,
   ListLoggingConfigurationsRequest,
@@ -295,24 +314,6 @@ import {
   WebACLSummary,
   XssMatchStatement,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateWebACLCommand = async (
   input: AssociateWebACLCommandInput,
@@ -925,7 +926,7 @@ const deserializeAws_json1_1AssociateWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -1011,7 +1012,7 @@ const deserializeAws_json1_1CheckCapacityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFExpiredManagedRuleGroupVersionException":
@@ -1121,7 +1122,7 @@ const deserializeAws_json1_1CreateIPSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -1231,7 +1232,7 @@ const deserializeAws_json1_1CreateRegexPatternSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -1341,7 +1342,7 @@ const deserializeAws_json1_1CreateRuleGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -1475,7 +1476,7 @@ const deserializeAws_json1_1CreateWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -1617,7 +1618,7 @@ const deserializeAws_json1_1DeleteFirewallManagerRuleGroupsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -1703,7 +1704,7 @@ const deserializeAws_json1_1DeleteIPSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFAssociatedItemException":
@@ -1813,7 +1814,7 @@ const deserializeAws_json1_1DeleteLoggingConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -1899,7 +1900,7 @@ const deserializeAws_json1_1DeletePermissionPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -1969,7 +1970,7 @@ const deserializeAws_json1_1DeleteRegexPatternSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFAssociatedItemException":
@@ -2079,7 +2080,7 @@ const deserializeAws_json1_1DeleteRuleGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFAssociatedItemException":
@@ -2189,7 +2190,7 @@ const deserializeAws_json1_1DeleteWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFAssociatedItemException":
@@ -2299,7 +2300,7 @@ const deserializeAws_json1_1DescribeManagedRuleGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFExpiredManagedRuleGroupVersionException":
@@ -2393,7 +2394,7 @@ const deserializeAws_json1_1DisassociateWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2471,7 +2472,7 @@ const deserializeAws_json1_1GetIPSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2549,7 +2550,7 @@ const deserializeAws_json1_1GetLoggingConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2627,7 +2628,7 @@ const deserializeAws_json1_1GetManagedRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2705,7 +2706,7 @@ const deserializeAws_json1_1GetPermissionPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2775,7 +2776,7 @@ const deserializeAws_json1_1GetRateBasedStatementManagedKeysCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2853,7 +2854,7 @@ const deserializeAws_json1_1GetRegexPatternSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -2931,7 +2932,7 @@ const deserializeAws_json1_1GetRuleGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3009,7 +3010,7 @@ const deserializeAws_json1_1GetSampledRequestsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3079,7 +3080,7 @@ const deserializeAws_json1_1GetWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3157,7 +3158,7 @@ const deserializeAws_json1_1GetWebACLForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3243,7 +3244,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3313,7 +3314,7 @@ const deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3383,7 +3384,7 @@ const deserializeAws_json1_1ListIPSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3453,7 +3454,7 @@ const deserializeAws_json1_1ListLoggingConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3523,7 +3524,7 @@ const deserializeAws_json1_1ListManagedRuleSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3593,7 +3594,7 @@ const deserializeAws_json1_1ListRegexPatternSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3663,7 +3664,7 @@ const deserializeAws_json1_1ListResourcesForWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3741,7 +3742,7 @@ const deserializeAws_json1_1ListRuleGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3811,7 +3812,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3905,7 +3906,7 @@ const deserializeAws_json1_1ListWebACLsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -3975,7 +3976,7 @@ const deserializeAws_json1_1PutLoggingConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4077,7 +4078,7 @@ const deserializeAws_json1_1PutManagedRuleSetVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4163,7 +4164,7 @@ const deserializeAws_json1_1PutPermissionPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4241,7 +4242,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4343,7 +4344,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4437,7 +4438,7 @@ const deserializeAws_json1_1UpdateIPSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -4539,7 +4540,7 @@ const deserializeAws_json1_1UpdateManagedRuleSetVersionExpiryDateCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFInternalErrorException":
@@ -4625,7 +4626,7 @@ const deserializeAws_json1_1UpdateRegexPatternSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -4727,7 +4728,7 @@ const deserializeAws_json1_1UpdateRuleGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":
@@ -4845,7 +4846,7 @@ const deserializeAws_json1_1UpdateWebACLCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "WAFDuplicateItemException":

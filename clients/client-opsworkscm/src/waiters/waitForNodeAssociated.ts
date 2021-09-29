@@ -1,9 +1,10 @@
-import { OpsWorksCMClient } from "../OpsWorksCMClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeNodeAssociationStatusCommand,
   DescribeNodeAssociationStatusCommandInput,
 } from "../commands/DescribeNodeAssociationStatusCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { OpsWorksCMClient } from "../OpsWorksCMClient";
 
 const checkState = async (
   client: OpsWorksCMClient,
@@ -11,10 +12,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeNodeAssociationStatusCommand(input));
+    const result: any = await client.send(new DescribeNodeAssociationStatusCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.NodeAssociationStatus;
       };
       if (returnComparator() === "SUCCESS") {
@@ -22,7 +23,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.NodeAssociationStatus;
       };
       if (returnComparator() === "FAILED") {

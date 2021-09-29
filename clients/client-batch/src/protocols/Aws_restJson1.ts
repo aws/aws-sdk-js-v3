@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectLong as __expectLong,
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import {
   CreateComputeEnvironmentCommandInput,
@@ -58,9 +76,9 @@ import {
   ContainerSummary,
   Device,
   DeviceCgroupPermission,
+  Ec2Configuration,
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
-  Ec2Configuration,
   EvaluateOnExit,
   FargatePlatformConfiguration,
   Host,
@@ -93,23 +111,6 @@ import {
   Ulimit,
   Volume,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectLong as __expectLong,
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1CancelJobCommand = async (
   input: CancelJobCommandInput,
@@ -119,7 +120,7 @@ export const serializeAws_restJson1CancelJobCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/canceljob";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/canceljob";
   let body: any;
   body = JSON.stringify({
     ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
@@ -144,7 +145,7 @@ export const serializeAws_restJson1CreateComputeEnvironmentCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/createcomputeenvironment";
   let body: any;
   body = JSON.stringify({
@@ -179,7 +180,7 @@ export const serializeAws_restJson1CreateJobQueueCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/createjobqueue";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/createjobqueue";
   let body: any;
   body = JSON.stringify({
     ...(input.computeEnvironmentOrder !== undefined &&
@@ -211,7 +212,7 @@ export const serializeAws_restJson1DeleteComputeEnvironmentCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/deletecomputeenvironment";
   let body: any;
   body = JSON.stringify({
@@ -237,7 +238,7 @@ export const serializeAws_restJson1DeleteJobQueueCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/deletejobqueue";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/deletejobqueue";
   let body: any;
   body = JSON.stringify({
     ...(input.jobQueue !== undefined && input.jobQueue !== null && { jobQueue: input.jobQueue }),
@@ -261,7 +262,7 @@ export const serializeAws_restJson1DeregisterJobDefinitionCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/deregisterjobdefinition";
   let body: any;
   body = JSON.stringify({
@@ -286,7 +287,7 @@ export const serializeAws_restJson1DescribeComputeEnvironmentsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describecomputeenvironments";
   let body: any;
   body = JSON.stringify({
@@ -316,7 +317,7 @@ export const serializeAws_restJson1DescribeJobDefinitionsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describejobdefinitions";
   let body: any;
   body = JSON.stringify({
@@ -349,7 +350,7 @@ export const serializeAws_restJson1DescribeJobQueuesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describejobqueues";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describejobqueues";
   let body: any;
   body = JSON.stringify({
     ...(input.jobQueues !== undefined &&
@@ -376,7 +377,7 @@ export const serializeAws_restJson1DescribeJobsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describejobs";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describejobs";
   let body: any;
   body = JSON.stringify({
     ...(input.jobs !== undefined &&
@@ -401,7 +402,7 @@ export const serializeAws_restJson1ListJobsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/listjobs";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/listjobs";
   let body: any;
   body = JSON.stringify({
     ...(input.arrayJobId !== undefined && input.arrayJobId !== null && { arrayJobId: input.arrayJobId }),
@@ -461,7 +462,7 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/registerjobdefinition";
   let body: any;
   body = JSON.stringify({
@@ -511,7 +512,7 @@ export const serializeAws_restJson1SubmitJobCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/submitjob";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/submitjob";
   let body: any;
   body = JSON.stringify({
     ...(input.arrayProperties !== undefined &&
@@ -596,7 +597,7 @@ export const serializeAws_restJson1TerminateJobCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/terminatejob";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/terminatejob";
   let body: any;
   body = JSON.stringify({
     ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
@@ -653,7 +654,7 @@ export const serializeAws_restJson1UpdateComputeEnvironmentCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/updatecomputeenvironment";
   let body: any;
   body = JSON.stringify({
@@ -685,7 +686,7 @@ export const serializeAws_restJson1UpdateJobQueueCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/updatejobqueue";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/updatejobqueue";
   let body: any;
   body = JSON.stringify({
     ...(input.computeEnvironmentOrder !== undefined &&
@@ -730,7 +731,7 @@ const deserializeAws_restJson1CancelJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -797,7 +798,7 @@ const deserializeAws_restJson1CreateComputeEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -864,7 +865,7 @@ const deserializeAws_restJson1CreateJobQueueCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -923,7 +924,7 @@ const deserializeAws_restJson1DeleteComputeEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -982,7 +983,7 @@ const deserializeAws_restJson1DeleteJobQueueCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1041,7 +1042,7 @@ const deserializeAws_restJson1DeregisterJobDefinitionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1111,7 +1112,7 @@ const deserializeAws_restJson1DescribeComputeEnvironmentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1178,7 +1179,7 @@ const deserializeAws_restJson1DescribeJobDefinitionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1245,7 +1246,7 @@ const deserializeAws_restJson1DescribeJobQueuesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1308,7 +1309,7 @@ const deserializeAws_restJson1DescribeJobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1375,7 +1376,7 @@ const deserializeAws_restJson1ListJobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1438,7 +1439,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1509,7 +1510,7 @@ const deserializeAws_restJson1RegisterJobDefinitionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1580,7 +1581,7 @@ const deserializeAws_restJson1SubmitJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1639,7 +1640,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1698,7 +1699,7 @@ const deserializeAws_restJson1TerminateJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1757,7 +1758,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1824,7 +1825,7 @@ const deserializeAws_restJson1UpdateComputeEnvironmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":
@@ -1891,7 +1892,7 @@ const deserializeAws_restJson1UpdateJobQueueCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientException":

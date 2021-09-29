@@ -1,6 +1,7 @@
-import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient";
-import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
+import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
+import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient";
 
 /**
  * <p></p>

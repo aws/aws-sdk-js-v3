@@ -1,9 +1,3 @@
-import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_2";
-import {
-  deserializeAws_json1_1UpdateOpsMetadataCommand,
-  serializeAws_json1_1UpdateOpsMetadataCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateOpsMetadataRequest, UpdateOpsMetadataResult } from "../models/models_2";
+import {
+  deserializeAws_json1_1UpdateOpsMetadataCommand,
+  serializeAws_json1_1UpdateOpsMetadataCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 export interface UpdateOpsMetadataCommandInput extends UpdateOpsMetadataRequest {}
 export interface UpdateOpsMetadataCommandOutput extends UpdateOpsMetadataResult, __MetadataBearer {}

@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } from "../commands/ListGrantsCommand";
 import { KMS } from "../KMS";
 import { KMSClient } from "../KMSClient";
-import { ListGrantsCommand, ListGrantsCommandInput, ListGrantsCommandOutput } from "../commands/ListGrantsCommand";
 import { KMSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

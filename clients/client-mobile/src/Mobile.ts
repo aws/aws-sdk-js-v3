@@ -1,4 +1,5 @@
-import { MobileClient } from "./MobileClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
@@ -40,7 +41,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MobileClient } from "./MobileClient";
 
 /**
  * <p>

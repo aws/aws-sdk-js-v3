@@ -1,12 +1,13 @@
-import { LakeFormation } from "../LakeFormation";
-import { LakeFormationClient } from "../LakeFormationClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
   ListPermissionsCommandOutput,
 } from "../commands/ListPermissionsCommand";
+import { LakeFormation } from "../LakeFormation";
+import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

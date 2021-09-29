@@ -1,14 +1,15 @@
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeExportCommand, DescribeExportCommandInput } from "../commands/DescribeExportCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LexModelsV2Client } from "../LexModelsV2Client";
 
 const checkState = async (client: LexModelsV2Client, input: DescribeExportCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeExportCommand(input));
+    const result: any = await client.send(new DescribeExportCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       };
       if (returnComparator() === "Completed") {
@@ -16,7 +17,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeExportComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       };
       if (returnComparator() === "Deleting") {
@@ -24,7 +25,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeExportComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.exportStatus;
       };
       if (returnComparator() === "Failed") {

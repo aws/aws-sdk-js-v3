@@ -1,9 +1,3 @@
-import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import { PutSessionRequest, PutSessionResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1PutSessionCommand,
-  serializeAws_restJson1PutSessionCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
+import { PutSessionRequest, PutSessionResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1PutSessionCommand,
+  serializeAws_restJson1PutSessionCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface PutSessionCommandInput extends PutSessionRequest {}
 export interface PutSessionCommandOutput extends PutSessionResponse, __MetadataBearer {}

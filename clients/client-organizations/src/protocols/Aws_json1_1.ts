@@ -1,3 +1,20 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "../commands/AcceptHandshakeCommand";
 import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "../commands/AttachPolicyCommand";
 import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "../commands/CancelHandshakeCommand";
@@ -6,18 +23,18 @@ import {
   CreateGovCloudAccountCommandInput,
   CreateGovCloudAccountCommandOutput,
 } from "../commands/CreateGovCloudAccountCommand";
-import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "../commands/CreateOrganizationCommand";
 import {
   CreateOrganizationalUnitCommandInput,
   CreateOrganizationalUnitCommandOutput,
 } from "../commands/CreateOrganizationalUnitCommand";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "../commands/CreateOrganizationCommand";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "../commands/CreatePolicyCommand";
 import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "../commands/DeclineHandshakeCommand";
-import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "../commands/DeleteOrganizationCommand";
 import {
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput,
 } from "../commands/DeleteOrganizationalUnitCommand";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "../commands/DeleteOrganizationCommand";
 import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "../commands/DeletePolicyCommand";
 import {
   DeregisterDelegatedAdministratorCommandInput,
@@ -34,13 +51,13 @@ import {
 } from "../commands/DescribeEffectivePolicyCommand";
 import { DescribeHandshakeCommandInput, DescribeHandshakeCommandOutput } from "../commands/DescribeHandshakeCommand";
 import {
-  DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput,
-} from "../commands/DescribeOrganizationCommand";
-import {
   DescribeOrganizationalUnitCommandInput,
   DescribeOrganizationalUnitCommandOutput,
 } from "../commands/DescribeOrganizationalUnitCommand";
+import {
+  DescribeOrganizationCommandInput,
+  DescribeOrganizationCommandOutput,
+} from "../commands/DescribeOrganizationCommand";
 import { DescribePolicyCommandInput, DescribePolicyCommandOutput } from "../commands/DescribePolicyCommand";
 import { DetachPolicyCommandInput, DetachPolicyCommandOutput } from "../commands/DetachPolicyCommand";
 import {
@@ -48,26 +65,26 @@ import {
   DisableAWSServiceAccessCommandOutput,
 } from "../commands/DisableAWSServiceAccessCommand";
 import { DisablePolicyTypeCommandInput, DisablePolicyTypeCommandOutput } from "../commands/DisablePolicyTypeCommand";
+import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "../commands/EnableAllFeaturesCommand";
 import {
   EnableAWSServiceAccessCommandInput,
   EnableAWSServiceAccessCommandOutput,
 } from "../commands/EnableAWSServiceAccessCommand";
-import { EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput } from "../commands/EnableAllFeaturesCommand";
 import { EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput } from "../commands/EnablePolicyTypeCommand";
 import {
   InviteAccountToOrganizationCommandInput,
   InviteAccountToOrganizationCommandOutput,
 } from "../commands/InviteAccountToOrganizationCommand";
 import { LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput } from "../commands/LeaveOrganizationCommand";
-import {
-  ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput,
-} from "../commands/ListAWSServiceAccessForOrganizationCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand";
 import {
   ListAccountsForParentCommandInput,
   ListAccountsForParentCommandOutput,
 } from "../commands/ListAccountsForParentCommand";
+import {
+  ListAWSServiceAccessForOrganizationCommandInput,
+  ListAWSServiceAccessForOrganizationCommandOutput,
+} from "../commands/ListAWSServiceAccessForOrganizationCommand";
 import { ListChildrenCommandInput, ListChildrenCommandOutput } from "../commands/ListChildrenCommand";
 import {
   ListCreateAccountStatusCommandInput,
@@ -125,7 +142,6 @@ import {
 } from "../commands/UpdateOrganizationalUnitCommand";
 import { UpdatePolicyCommandInput, UpdatePolicyCommandOutput } from "../commands/UpdatePolicyCommand";
 import {
-  AWSOrganizationsNotInUseException,
   AcceptHandshakeRequest,
   AcceptHandshakeResponse,
   AccessDeniedException,
@@ -137,6 +153,7 @@ import {
   AccountOwnerNotVerifiedException,
   AlreadyInOrganizationException,
   AttachPolicyRequest,
+  AWSOrganizationsNotInUseException,
   CancelHandshakeRequest,
   CancelHandshakeResponse,
   Child,
@@ -150,10 +167,10 @@ import {
   CreateAccountStatusNotFoundException,
   CreateGovCloudAccountRequest,
   CreateGovCloudAccountResponse,
-  CreateOrganizationRequest,
-  CreateOrganizationResponse,
   CreateOrganizationalUnitRequest,
   CreateOrganizationalUnitResponse,
+  CreateOrganizationRequest,
+  CreateOrganizationResponse,
   CreatePolicyRequest,
   CreatePolicyResponse,
   DeclineHandshakeRequest,
@@ -171,9 +188,9 @@ import {
   DescribeEffectivePolicyResponse,
   DescribeHandshakeRequest,
   DescribeHandshakeResponse,
-  DescribeOrganizationResponse,
   DescribeOrganizationalUnitRequest,
   DescribeOrganizationalUnitResponse,
+  DescribeOrganizationResponse,
   DescribePolicyRequest,
   DescribePolicyResponse,
   DestinationParentNotFoundException,
@@ -188,12 +205,12 @@ import {
   DuplicatePolicyException,
   EffectivePolicy,
   EffectivePolicyNotFoundException,
-  EnableAWSServiceAccessRequest,
   EnableAllFeaturesRequest,
   EnableAllFeaturesResponse,
+  EnableAWSServiceAccessRequest,
+  EnabledServicePrincipal,
   EnablePolicyTypeRequest,
   EnablePolicyTypeResponse,
-  EnabledServicePrincipal,
   FinalizingOrganizationException,
   Handshake,
   HandshakeAlreadyInStateException,
@@ -206,12 +223,12 @@ import {
   InvalidInputException,
   InviteAccountToOrganizationRequest,
   InviteAccountToOrganizationResponse,
-  ListAWSServiceAccessForOrganizationRequest,
-  ListAWSServiceAccessForOrganizationResponse,
   ListAccountsForParentRequest,
   ListAccountsForParentResponse,
   ListAccountsRequest,
   ListAccountsResponse,
+  ListAWSServiceAccessForOrganizationRequest,
+  ListAWSServiceAccessForOrganizationResponse,
   ListChildrenRequest,
   ListChildrenResponse,
   ListCreateAccountStatusRequest,
@@ -242,10 +259,10 @@ import {
   MasterCannotLeaveOrganizationException,
   MoveAccountRequest,
   Organization,
-  OrganizationNotEmptyException,
   OrganizationalUnit,
   OrganizationalUnitNotEmptyException,
   OrganizationalUnitNotFoundException,
+  OrganizationNotEmptyException,
   Parent,
   ParentNotFoundException,
   Policy,
@@ -276,22 +293,6 @@ import {
   UpdatePolicyRequest,
   UpdatePolicyResponse,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AcceptHandshakeCommand = async (
   input: AcceptHandshakeCommandInput,
@@ -979,7 +980,7 @@ const deserializeAws_json1_1AcceptHandshakeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1110,7 +1111,7 @@ const deserializeAws_json1_1AttachPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1260,7 +1261,7 @@ const deserializeAws_json1_1CancelHandshakeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1370,7 +1371,7 @@ const deserializeAws_json1_1CreateAccountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1488,7 +1489,7 @@ const deserializeAws_json1_1CreateGovCloudAccountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1606,7 +1607,7 @@ const deserializeAws_json1_1CreateOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1716,7 +1717,7 @@ const deserializeAws_json1_1CreateOrganizationalUnitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1834,7 +1835,7 @@ const deserializeAws_json1_1CreatePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1968,7 +1969,7 @@ const deserializeAws_json1_1DeclineHandshakeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2075,7 +2076,7 @@ const deserializeAws_json1_1DeleteOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2174,7 +2175,7 @@ const deserializeAws_json1_1DeleteOrganizationalUnitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2281,7 +2282,7 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2396,7 +2397,7 @@ const deserializeAws_json1_1DeregisterDelegatedAdministratorCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2522,7 +2523,7 @@ const deserializeAws_json1_1DescribeAccountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2616,7 +2617,7 @@ const deserializeAws_json1_1DescribeCreateAccountStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2718,7 +2719,7 @@ const deserializeAws_json1_1DescribeEffectivePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2836,7 +2837,7 @@ const deserializeAws_json1_1DescribeHandshakeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2930,7 +2931,7 @@ const deserializeAws_json1_1DescribeOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3016,7 +3017,7 @@ const deserializeAws_json1_1DescribeOrganizationalUnitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3110,7 +3111,7 @@ const deserializeAws_json1_1DescribePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3209,7 +3210,7 @@ const deserializeAws_json1_1DetachPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3348,7 +3349,7 @@ const deserializeAws_json1_1DisableAWSServiceAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3458,7 +3459,7 @@ const deserializeAws_json1_1DisablePolicyTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3592,7 +3593,7 @@ const deserializeAws_json1_1EnableAllFeaturesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3691,7 +3692,7 @@ const deserializeAws_json1_1EnableAWSServiceAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3801,7 +3802,7 @@ const deserializeAws_json1_1EnablePolicyTypeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3943,7 +3944,7 @@ const deserializeAws_json1_1InviteAccountToOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4074,7 +4075,7 @@ const deserializeAws_json1_1LeaveOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4192,7 +4193,7 @@ const deserializeAws_json1_1ListAccountsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4278,7 +4279,7 @@ const deserializeAws_json1_1ListAccountsForParentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4372,7 +4373,7 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4474,7 +4475,7 @@ const deserializeAws_json1_1ListChildrenCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4568,7 +4569,7 @@ const deserializeAws_json1_1ListCreateAccountStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4662,7 +4663,7 @@ const deserializeAws_json1_1ListDelegatedAdministratorsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4764,7 +4765,7 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4882,7 +4883,7 @@ const deserializeAws_json1_1ListHandshakesForAccountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4968,7 +4969,7 @@ const deserializeAws_json1_1ListHandshakesForOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5062,7 +5063,7 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5156,7 +5157,7 @@ const deserializeAws_json1_1ListParentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5250,7 +5251,7 @@ const deserializeAws_json1_1ListPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5344,7 +5345,7 @@ const deserializeAws_json1_1ListPoliciesForTargetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5446,7 +5447,7 @@ const deserializeAws_json1_1ListRootsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5532,7 +5533,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5626,7 +5627,7 @@ const deserializeAws_json1_1ListTargetsForPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5725,7 +5726,7 @@ const deserializeAws_json1_1MoveAccountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5848,7 +5849,7 @@ const deserializeAws_json1_1RegisterDelegatedAdministratorCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5971,7 +5972,7 @@ const deserializeAws_json1_1RemoveAccountFromOrganizationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6086,7 +6087,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6193,7 +6194,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6303,7 +6304,7 @@ const deserializeAws_json1_1UpdateOrganizationalUnitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6413,7 +6414,7 @@ const deserializeAws_json1_1UpdatePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

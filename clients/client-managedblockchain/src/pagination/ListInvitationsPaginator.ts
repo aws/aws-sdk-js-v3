@@ -1,12 +1,13 @@
-import { ManagedBlockchain } from "../ManagedBlockchain";
-import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
+import { ManagedBlockchain } from "../ManagedBlockchain";
+import { ManagedBlockchainClient } from "../ManagedBlockchainClient";
 import { ManagedBlockchainPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

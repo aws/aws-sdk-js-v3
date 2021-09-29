@@ -1,4 +1,5 @@
-import { EC2ProtocolClient } from "./EC2ProtocolClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   EmptyInputAndEmptyOutputCommand,
   EmptyInputAndEmptyOutputCommandInput,
@@ -83,7 +84,7 @@ import {
   XmlTimestampsCommandInput,
   XmlTimestampsCommandOutput,
 } from "./commands/XmlTimestampsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EC2ProtocolClient } from "./EC2ProtocolClient";
 
 /**
  * An EC2 query service that sends query requests and XML responses.

@@ -1,3 +1,29 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+import { v4 as generateIdempotencyToken } from "uuid";
+
 import {
   AcceptReservedInstancesExchangeQuoteCommandInput,
   AcceptReservedInstancesExchangeQuoteCommandOutput,
@@ -496,11 +522,11 @@ import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
   DeleteVpcEndpointConnectionNotificationsCommandOutput,
 } from "../commands/DeleteVpcEndpointConnectionNotificationsCommand";
+import { DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput } from "../commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcEndpointServiceConfigurationsCommandInput,
   DeleteVpcEndpointServiceConfigurationsCommandOutput,
 } from "../commands/DeleteVpcEndpointServiceConfigurationsCommand";
-import { DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput } from "../commands/DeleteVpcEndpointsCommand";
 import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
@@ -646,11 +672,11 @@ import {
   DescribeIamInstanceProfileAssociationsCommandInput,
   DescribeIamInstanceProfileAssociationsCommandOutput,
 } from "../commands/DescribeIamInstanceProfileAssociationsCommand";
-import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "../commands/DescribeIdFormatCommand";
 import {
   DescribeIdentityIdFormatCommandInput,
   DescribeIdentityIdFormatCommandOutput,
 } from "../commands/DescribeIdentityIdFormatCommand";
+import { DescribeIdFormatCommandInput, DescribeIdFormatCommandOutput } from "../commands/DescribeIdFormatCommand";
 import {
   DescribeImageAttributeCommandInput,
   DescribeImageAttributeCommandOutput,
@@ -680,6 +706,7 @@ import {
   DescribeInstanceEventWindowsCommandInput,
   DescribeInstanceEventWindowsCommandOutput,
 } from "../commands/DescribeInstanceEventWindowsCommand";
+import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "../commands/DescribeInstancesCommand";
 import {
   DescribeInstanceStatusCommandInput,
   DescribeInstanceStatusCommandOutput,
@@ -692,7 +719,6 @@ import {
   DescribeInstanceTypesCommandInput,
   DescribeInstanceTypesCommandOutput,
 } from "../commands/DescribeInstanceTypesCommand";
-import { DescribeInstancesCommandInput, DescribeInstancesCommandOutput } from "../commands/DescribeInstancesCommand";
 import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
@@ -700,13 +726,17 @@ import {
 import { DescribeIpv6PoolsCommandInput, DescribeIpv6PoolsCommandOutput } from "../commands/DescribeIpv6PoolsCommand";
 import { DescribeKeyPairsCommandInput, DescribeKeyPairsCommandOutput } from "../commands/DescribeKeyPairsCommand";
 import {
+  DescribeLaunchTemplatesCommandInput,
+  DescribeLaunchTemplatesCommandOutput,
+} from "../commands/DescribeLaunchTemplatesCommand";
+import {
   DescribeLaunchTemplateVersionsCommandInput,
   DescribeLaunchTemplateVersionsCommandOutput,
 } from "../commands/DescribeLaunchTemplateVersionsCommand";
 import {
-  DescribeLaunchTemplatesCommandInput,
-  DescribeLaunchTemplatesCommandOutput,
-} from "../commands/DescribeLaunchTemplatesCommand";
+  DescribeLocalGatewayRouteTablesCommandInput,
+  DescribeLocalGatewayRouteTablesCommandOutput,
+} from "../commands/DescribeLocalGatewayRouteTablesCommand";
 import {
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput,
@@ -716,9 +746,9 @@ import {
   DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput,
 } from "../commands/DescribeLocalGatewayRouteTableVpcAssociationsCommand";
 import {
-  DescribeLocalGatewayRouteTablesCommandInput,
-  DescribeLocalGatewayRouteTablesCommandOutput,
-} from "../commands/DescribeLocalGatewayRouteTablesCommand";
+  DescribeLocalGatewaysCommandInput,
+  DescribeLocalGatewaysCommandOutput,
+} from "../commands/DescribeLocalGatewaysCommand";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
   DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput,
@@ -727,10 +757,6 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandInput,
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "../commands/DescribeLocalGatewayVirtualInterfacesCommand";
-import {
-  DescribeLocalGatewaysCommandInput,
-  DescribeLocalGatewaysCommandOutput,
-} from "../commands/DescribeLocalGatewaysCommand";
 import {
   DescribeManagedPrefixListsCommandInput,
   DescribeManagedPrefixListsCommandOutput,
@@ -904,13 +930,13 @@ import {
   DescribeTransitGatewayRouteTablesCommandOutput,
 } from "../commands/DescribeTransitGatewayRouteTablesCommand";
 import {
-  DescribeTransitGatewayVpcAttachmentsCommandInput,
-  DescribeTransitGatewayVpcAttachmentsCommandOutput,
-} from "../commands/DescribeTransitGatewayVpcAttachmentsCommand";
-import {
   DescribeTransitGatewaysCommandInput,
   DescribeTransitGatewaysCommandOutput,
 } from "../commands/DescribeTransitGatewaysCommand";
+import {
+  DescribeTransitGatewayVpcAttachmentsCommandInput,
+  DescribeTransitGatewayVpcAttachmentsCommandOutput,
+} from "../commands/DescribeTransitGatewayVpcAttachmentsCommand";
 import {
   DescribeTrunkInterfaceAssociationsCommandInput,
   DescribeTrunkInterfaceAssociationsCommandOutput,
@@ -919,15 +945,15 @@ import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "../commands/DescribeVolumeAttributeCommand";
-import {
-  DescribeVolumeStatusCommandInput,
-  DescribeVolumeStatusCommandOutput,
-} from "../commands/DescribeVolumeStatusCommand";
 import { DescribeVolumesCommandInput, DescribeVolumesCommandOutput } from "../commands/DescribeVolumesCommand";
 import {
   DescribeVolumesModificationsCommandInput,
   DescribeVolumesModificationsCommandOutput,
 } from "../commands/DescribeVolumesModificationsCommand";
+import {
+  DescribeVolumeStatusCommandInput,
+  DescribeVolumeStatusCommandOutput,
+} from "../commands/DescribeVolumeStatusCommand";
 import {
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
@@ -949,6 +975,10 @@ import {
   DescribeVpcEndpointConnectionsCommandOutput,
 } from "../commands/DescribeVpcEndpointConnectionsCommand";
 import {
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "../commands/DescribeVpcEndpointsCommand";
+import {
   DescribeVpcEndpointServiceConfigurationsCommandInput,
   DescribeVpcEndpointServiceConfigurationsCommandOutput,
 } from "../commands/DescribeVpcEndpointServiceConfigurationsCommand";
@@ -960,10 +990,6 @@ import {
   DescribeVpcEndpointServicesCommandInput,
   DescribeVpcEndpointServicesCommandOutput,
 } from "../commands/DescribeVpcEndpointServicesCommand";
-import {
-  DescribeVpcEndpointsCommandInput,
-  DescribeVpcEndpointsCommandOutput,
-} from "../commands/DescribeVpcEndpointsCommand";
 import {
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
@@ -1247,11 +1273,11 @@ import {
   ModifyFpgaImageAttributeCommandOutput,
 } from "../commands/ModifyFpgaImageAttributeCommand";
 import { ModifyHostsCommandInput, ModifyHostsCommandOutput } from "../commands/ModifyHostsCommand";
-import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "../commands/ModifyIdFormatCommand";
 import {
   ModifyIdentityIdFormatCommandInput,
   ModifyIdentityIdFormatCommandOutput,
 } from "../commands/ModifyIdentityIdFormatCommand";
+import { ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput } from "../commands/ModifyIdFormatCommand";
 import {
   ModifyImageAttributeCommandInput,
   ModifyImageAttributeCommandOutput,
@@ -1564,6 +1590,7 @@ import {
 } from "../commands/UpdateSecurityGroupRuleDescriptionsIngressCommand";
 import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "../commands/WithdrawByoipCidrCommand";
 import {
+  _InstanceType,
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult,
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
@@ -1593,11 +1620,11 @@ import {
   AlternatePathHint,
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
+  AssignedPrivateIpAddress,
   AssignIpv6AddressesRequest,
   AssignIpv6AddressesResult,
   AssignPrivateIpAddressesRequest,
   AssignPrivateIpAddressesResult,
-  AssignedPrivateIpAddress,
   AssociateAddressRequest,
   AssociateAddressResult,
   AssociateClientVpnTargetNetworkRequest,
@@ -1651,6 +1678,7 @@ import {
   CancelExportTaskRequest,
   CancelImportTaskRequest,
   CancelImportTaskResult,
+  CancelledSpotInstanceRequest,
   CancelReservedInstancesListingRequest,
   CancelReservedInstancesListingResult,
   CancelSpotFleetRequestsError,
@@ -1660,7 +1688,6 @@ import {
   CancelSpotFleetRequestsSuccessItem,
   CancelSpotInstanceRequestsRequest,
   CancelSpotInstanceRequestsResult,
-  CancelledSpotInstanceRequest,
   CapacityReservation,
   CapacityReservationOptionsRequest,
   CarrierGateway,
@@ -1791,7 +1818,6 @@ import {
   VpcPeeringConnectionOptionsDescription,
   VpcPeeringConnectionStateReason,
   VpcPeeringConnectionVpcInfo,
-  _InstanceType,
 } from "../models/models_0";
 import {
   CapacityReservationTarget,
@@ -1898,9 +1924,9 @@ import {
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
   GroupIdentifier,
+  IcmpTypeCode,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
-  IcmpTypeCode,
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceSpecification,
@@ -1939,13 +1965,13 @@ import {
   LaunchTemplateLicenseConfigurationRequest,
   LaunchTemplatePlacement,
   LaunchTemplatePlacementRequest,
+  LaunchTemplatesMonitoring,
+  LaunchTemplatesMonitoringRequest,
   LaunchTemplateSpotMarketOptions,
   LaunchTemplateSpotMarketOptionsRequest,
   LaunchTemplateTagSpecification,
   LaunchTemplateTagSpecificationRequest,
   LaunchTemplateVersion,
-  LaunchTemplatesMonitoring,
-  LaunchTemplatesMonitoringRequest,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
@@ -2063,9 +2089,9 @@ import {
   DeleteEgressOnlyInternetGatewayResult,
   DeleteFleetError,
   DeleteFleetErrorItem,
-  DeleteFleetSuccessItem,
   DeleteFleetsRequest,
   DeleteFleetsResult,
+  DeleteFleetSuccessItem,
   DeleteFlowLogsRequest,
   DeleteFlowLogsResult,
   DeleteFpgaImageRequest,
@@ -2205,9 +2231,9 @@ import {
   DescribeExportImageTasksResult,
   DescribeExportTasksRequest,
   DescribeExportTasksResult,
-  DescribeFastSnapshotRestoreSuccessItem,
   DescribeFastSnapshotRestoresRequest,
   DescribeFastSnapshotRestoresResult,
+  DescribeFastSnapshotRestoreSuccessItem,
   DescribeFleetError,
   DescribeFleetHistoryRequest,
   DescribeFleetHistoryResult,
@@ -2230,10 +2256,10 @@ import {
   DescribeHostsResult,
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-  DescribeIdFormatRequest,
-  DescribeIdFormatResult,
   DescribeIdentityIdFormatRequest,
   DescribeIdentityIdFormatResult,
+  DescribeIdFormatRequest,
+  DescribeIdFormatResult,
   DescribeImageAttributeRequest,
   DescribeImagesRequest,
   DescribeImagesResult,
@@ -2323,36 +2349,36 @@ import {
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
   DescribeInstanceEventWindowsResult,
+  DescribeInstancesRequest,
+  DescribeInstancesResult,
   DescribeInstanceStatusRequest,
   DescribeInstanceStatusResult,
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
   DescribeInstanceTypesResult,
-  DescribeInstancesRequest,
-  DescribeInstancesResult,
   DescribeInternetGatewaysRequest,
   DescribeInternetGatewaysResult,
   DescribeIpv6PoolsRequest,
   DescribeIpv6PoolsResult,
   DescribeKeyPairsRequest,
   DescribeKeyPairsResult,
-  DescribeLaunchTemplateVersionsRequest,
-  DescribeLaunchTemplateVersionsResult,
   DescribeLaunchTemplatesRequest,
   DescribeLaunchTemplatesResult,
+  DescribeLaunchTemplateVersionsRequest,
+  DescribeLaunchTemplateVersionsResult,
+  DescribeLocalGatewayRouteTablesRequest,
+  DescribeLocalGatewayRouteTablesResult,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest,
   DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult,
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
-  DescribeLocalGatewayRouteTablesRequest,
-  DescribeLocalGatewayRouteTablesResult,
+  DescribeLocalGatewaysRequest,
+  DescribeLocalGatewaysResult,
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
-  DescribeLocalGatewaysRequest,
-  DescribeLocalGatewaysResult,
   DescribeManagedPrefixListsRequest,
   DescribeManagedPrefixListsResult,
   DescribeMovingAddressesRequest,
@@ -2445,19 +2471,19 @@ import {
   DescribeTransitGatewayPeeringAttachmentsResult,
   DescribeTransitGatewayRouteTablesRequest,
   DescribeTransitGatewayRouteTablesResult,
-  DescribeTransitGatewayVpcAttachmentsRequest,
-  DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTransitGatewaysRequest,
   DescribeTransitGatewaysResult,
+  DescribeTransitGatewayVpcAttachmentsRequest,
+  DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
-  DescribeVolumeStatusRequest,
   DescribeVolumesModificationsRequest,
   DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
   DescribeVolumesResult,
+  DescribeVolumeStatusRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -2615,11 +2641,11 @@ import {
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastSnapshotRestoreErrorItem,
+  DisableFastSnapshotRestoresRequest,
+  DisableFastSnapshotRestoresResult,
   DisableFastSnapshotRestoreStateError,
   DisableFastSnapshotRestoreStateErrorItem,
   DisableFastSnapshotRestoreSuccessItem,
-  DisableFastSnapshotRestoresRequest,
-  DisableFastSnapshotRestoresResult,
   DisableImageDeprecationRequest,
   DisableImageDeprecationResult,
   DisableSerialConsoleAccessRequest,
@@ -2658,11 +2684,11 @@ import {
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
   EnableFastSnapshotRestoreErrorItem,
+  EnableFastSnapshotRestoresRequest,
+  EnableFastSnapshotRestoresResult,
   EnableFastSnapshotRestoreStateError,
   EnableFastSnapshotRestoreStateErrorItem,
   EnableFastSnapshotRestoreSuccessItem,
-  EnableFastSnapshotRestoresRequest,
-  EnableFastSnapshotRestoresResult,
   EnableImageDeprecationRequest,
   EnableImageDeprecationResult,
   EnableSerialConsoleAccessRequest,
@@ -2779,8 +2805,8 @@ import {
   ModifyFpgaImageAttributeResult,
   ModifyHostsRequest,
   ModifyHostsResult,
-  ModifyIdFormatRequest,
   ModifyIdentityIdFormatRequest,
+  ModifyIdFormatRequest,
   ModifyImageAttributeRequest,
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
@@ -3015,31 +3041,6 @@ import {
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
 } from "../models/models_5";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async (
   input: AcceptReservedInstancesExchangeQuoteCommandInput,
@@ -10539,7 +10540,7 @@ const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10585,7 +10586,7 @@ const deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10631,7 +10632,7 @@ const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10677,7 +10678,7 @@ const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10723,7 +10724,7 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10769,7 +10770,7 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10815,7 +10816,7 @@ const deserializeAws_ec2AdvertiseByoipCidrCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10861,7 +10862,7 @@ const deserializeAws_ec2AllocateAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10907,7 +10908,7 @@ const deserializeAws_ec2AllocateHostsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10953,7 +10954,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -10999,7 +11000,7 @@ const deserializeAws_ec2AssignIpv6AddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11045,7 +11046,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11091,7 +11092,7 @@ const deserializeAws_ec2AssociateAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11137,7 +11138,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11180,7 +11181,7 @@ const deserializeAws_ec2AssociateDhcpOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11226,7 +11227,7 @@ const deserializeAws_ec2AssociateEnclaveCertificateIamRoleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11272,7 +11273,7 @@ const deserializeAws_ec2AssociateIamInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11318,7 +11319,7 @@ const deserializeAws_ec2AssociateInstanceEventWindowCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11364,7 +11365,7 @@ const deserializeAws_ec2AssociateRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11410,7 +11411,7 @@ const deserializeAws_ec2AssociateSubnetCidrBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11456,7 +11457,7 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11502,7 +11503,7 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11548,7 +11549,7 @@ const deserializeAws_ec2AssociateTrunkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11594,7 +11595,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11640,7 +11641,7 @@ const deserializeAws_ec2AttachClassicLinkVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11683,7 +11684,7 @@ const deserializeAws_ec2AttachInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11729,7 +11730,7 @@ const deserializeAws_ec2AttachNetworkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11775,7 +11776,7 @@ const deserializeAws_ec2AttachVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11821,7 +11822,7 @@ const deserializeAws_ec2AttachVpnGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11867,7 +11868,7 @@ const deserializeAws_ec2AuthorizeClientVpnIngressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11913,7 +11914,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupEgressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -11959,7 +11960,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12005,7 +12006,7 @@ const deserializeAws_ec2BundleInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12051,7 +12052,7 @@ const deserializeAws_ec2CancelBundleTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12097,7 +12098,7 @@ const deserializeAws_ec2CancelCapacityReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12140,7 +12141,7 @@ const deserializeAws_ec2CancelConversionTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12183,7 +12184,7 @@ const deserializeAws_ec2CancelExportTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12229,7 +12230,7 @@ const deserializeAws_ec2CancelImportTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12275,7 +12276,7 @@ const deserializeAws_ec2CancelReservedInstancesListingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12321,7 +12322,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12367,7 +12368,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12413,7 +12414,7 @@ const deserializeAws_ec2ConfirmProductInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12459,7 +12460,7 @@ const deserializeAws_ec2CopyFpgaImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12505,7 +12506,7 @@ const deserializeAws_ec2CopyImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12551,7 +12552,7 @@ const deserializeAws_ec2CopySnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12597,7 +12598,7 @@ const deserializeAws_ec2CreateCapacityReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12643,7 +12644,7 @@ const deserializeAws_ec2CreateCarrierGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12689,7 +12690,7 @@ const deserializeAws_ec2CreateClientVpnEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12735,7 +12736,7 @@ const deserializeAws_ec2CreateClientVpnRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12781,7 +12782,7 @@ const deserializeAws_ec2CreateCustomerGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12827,7 +12828,7 @@ const deserializeAws_ec2CreateDefaultSubnetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12873,7 +12874,7 @@ const deserializeAws_ec2CreateDefaultVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12919,7 +12920,7 @@ const deserializeAws_ec2CreateDhcpOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -12965,7 +12966,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13011,7 +13012,7 @@ const deserializeAws_ec2CreateFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13057,7 +13058,7 @@ const deserializeAws_ec2CreateFlowLogsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13103,7 +13104,7 @@ const deserializeAws_ec2CreateFpgaImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13149,7 +13150,7 @@ const deserializeAws_ec2CreateImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13195,7 +13196,7 @@ const deserializeAws_ec2CreateInstanceEventWindowCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13241,7 +13242,7 @@ const deserializeAws_ec2CreateInstanceExportTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13287,7 +13288,7 @@ const deserializeAws_ec2CreateInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13333,7 +13334,7 @@ const deserializeAws_ec2CreateKeyPairCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13379,7 +13380,7 @@ const deserializeAws_ec2CreateLaunchTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13425,7 +13426,7 @@ const deserializeAws_ec2CreateLaunchTemplateVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13471,7 +13472,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13517,7 +13518,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13563,7 +13564,7 @@ const deserializeAws_ec2CreateManagedPrefixListCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13609,7 +13610,7 @@ const deserializeAws_ec2CreateNatGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13655,7 +13656,7 @@ const deserializeAws_ec2CreateNetworkAclCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13698,7 +13699,7 @@ const deserializeAws_ec2CreateNetworkAclEntryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13744,7 +13745,7 @@ const deserializeAws_ec2CreateNetworkInsightsPathCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13790,7 +13791,7 @@ const deserializeAws_ec2CreateNetworkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13836,7 +13837,7 @@ const deserializeAws_ec2CreateNetworkInterfacePermissionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13882,7 +13883,7 @@ const deserializeAws_ec2CreatePlacementGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13928,7 +13929,7 @@ const deserializeAws_ec2CreateReplaceRootVolumeTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -13974,7 +13975,7 @@ const deserializeAws_ec2CreateReservedInstancesListingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14020,7 +14021,7 @@ const deserializeAws_ec2CreateRestoreImageTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14066,7 +14067,7 @@ const deserializeAws_ec2CreateRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14112,7 +14113,7 @@ const deserializeAws_ec2CreateRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14158,7 +14159,7 @@ const deserializeAws_ec2CreateSecurityGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14204,7 +14205,7 @@ const deserializeAws_ec2CreateSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14250,7 +14251,7 @@ const deserializeAws_ec2CreateSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14296,7 +14297,7 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14342,7 +14343,7 @@ const deserializeAws_ec2CreateStoreImageTaskCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14388,7 +14389,7 @@ const deserializeAws_ec2CreateSubnetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14434,7 +14435,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14477,7 +14478,7 @@ const deserializeAws_ec2CreateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14523,7 +14524,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14569,7 +14570,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14615,7 +14616,7 @@ const deserializeAws_ec2CreateTrafficMirrorSessionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14661,7 +14662,7 @@ const deserializeAws_ec2CreateTrafficMirrorTargetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14707,7 +14708,7 @@ const deserializeAws_ec2CreateTransitGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14753,7 +14754,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14799,7 +14800,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectPeerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14845,7 +14846,7 @@ const deserializeAws_ec2CreateTransitGatewayMulticastDomainCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14891,7 +14892,7 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14937,7 +14938,7 @@ const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -14983,7 +14984,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15029,7 +15030,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15075,7 +15076,7 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15121,7 +15122,7 @@ const deserializeAws_ec2CreateVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15167,7 +15168,7 @@ const deserializeAws_ec2CreateVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15213,7 +15214,7 @@ const deserializeAws_ec2CreateVpcEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15259,7 +15260,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15305,7 +15306,7 @@ const deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15351,7 +15352,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15397,7 +15398,7 @@ const deserializeAws_ec2CreateVpnConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15440,7 +15441,7 @@ const deserializeAws_ec2CreateVpnConnectionRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15486,7 +15487,7 @@ const deserializeAws_ec2CreateVpnGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15532,7 +15533,7 @@ const deserializeAws_ec2DeleteCarrierGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15578,7 +15579,7 @@ const deserializeAws_ec2DeleteClientVpnEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15624,7 +15625,7 @@ const deserializeAws_ec2DeleteClientVpnRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15667,7 +15668,7 @@ const deserializeAws_ec2DeleteCustomerGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15710,7 +15711,7 @@ const deserializeAws_ec2DeleteDhcpOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15756,7 +15757,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15802,7 +15803,7 @@ const deserializeAws_ec2DeleteFleetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15848,7 +15849,7 @@ const deserializeAws_ec2DeleteFlowLogsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15894,7 +15895,7 @@ const deserializeAws_ec2DeleteFpgaImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15940,7 +15941,7 @@ const deserializeAws_ec2DeleteInstanceEventWindowCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -15983,7 +15984,7 @@ const deserializeAws_ec2DeleteInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16026,7 +16027,7 @@ const deserializeAws_ec2DeleteKeyPairCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16072,7 +16073,7 @@ const deserializeAws_ec2DeleteLaunchTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16118,7 +16119,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16164,7 +16165,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16210,7 +16211,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16256,7 +16257,7 @@ const deserializeAws_ec2DeleteManagedPrefixListCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16302,7 +16303,7 @@ const deserializeAws_ec2DeleteNatGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16345,7 +16346,7 @@ const deserializeAws_ec2DeleteNetworkAclCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16388,7 +16389,7 @@ const deserializeAws_ec2DeleteNetworkAclEntryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16434,7 +16435,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAnalysisCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16480,7 +16481,7 @@ const deserializeAws_ec2DeleteNetworkInsightsPathCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16523,7 +16524,7 @@ const deserializeAws_ec2DeleteNetworkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16569,7 +16570,7 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16612,7 +16613,7 @@ const deserializeAws_ec2DeletePlacementGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16658,7 +16659,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16701,7 +16702,7 @@ const deserializeAws_ec2DeleteRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16744,7 +16745,7 @@ const deserializeAws_ec2DeleteRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16787,7 +16788,7 @@ const deserializeAws_ec2DeleteSecurityGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16830,7 +16831,7 @@ const deserializeAws_ec2DeleteSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16873,7 +16874,7 @@ const deserializeAws_ec2DeleteSpotDatafeedSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16916,7 +16917,7 @@ const deserializeAws_ec2DeleteSubnetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -16962,7 +16963,7 @@ const deserializeAws_ec2DeleteSubnetCidrReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17005,7 +17006,7 @@ const deserializeAws_ec2DeleteTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17051,7 +17052,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17097,7 +17098,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17143,7 +17144,7 @@ const deserializeAws_ec2DeleteTrafficMirrorSessionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17189,7 +17190,7 @@ const deserializeAws_ec2DeleteTrafficMirrorTargetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17235,7 +17236,7 @@ const deserializeAws_ec2DeleteTransitGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17281,7 +17282,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17327,7 +17328,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectPeerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17373,7 +17374,7 @@ const deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17419,7 +17420,7 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17465,7 +17466,7 @@ const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17511,7 +17512,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17557,7 +17558,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17603,7 +17604,7 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17646,7 +17647,7 @@ const deserializeAws_ec2DeleteVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17689,7 +17690,7 @@ const deserializeAws_ec2DeleteVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17735,7 +17736,7 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17781,7 +17782,7 @@ const deserializeAws_ec2DeleteVpcEndpointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17827,7 +17828,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17873,7 +17874,7 @@ const deserializeAws_ec2DeleteVpcPeeringConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17916,7 +17917,7 @@ const deserializeAws_ec2DeleteVpnConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -17959,7 +17960,7 @@ const deserializeAws_ec2DeleteVpnConnectionRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18002,7 +18003,7 @@ const deserializeAws_ec2DeleteVpnGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18048,7 +18049,7 @@ const deserializeAws_ec2DeprovisionByoipCidrCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18091,7 +18092,7 @@ const deserializeAws_ec2DeregisterImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18137,7 +18138,7 @@ const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18183,7 +18184,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18229,7 +18230,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18275,7 +18276,7 @@ const deserializeAws_ec2DescribeAccountAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18321,7 +18322,7 @@ const deserializeAws_ec2DescribeAddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18367,7 +18368,7 @@ const deserializeAws_ec2DescribeAddressesAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18413,7 +18414,7 @@ const deserializeAws_ec2DescribeAggregateIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18459,7 +18460,7 @@ const deserializeAws_ec2DescribeAvailabilityZonesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18505,7 +18506,7 @@ const deserializeAws_ec2DescribeBundleTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18551,7 +18552,7 @@ const deserializeAws_ec2DescribeByoipCidrsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18597,7 +18598,7 @@ const deserializeAws_ec2DescribeCapacityReservationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18643,7 +18644,7 @@ const deserializeAws_ec2DescribeCarrierGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18689,7 +18690,7 @@ const deserializeAws_ec2DescribeClassicLinkInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18735,7 +18736,7 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18781,7 +18782,7 @@ const deserializeAws_ec2DescribeClientVpnConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18827,7 +18828,7 @@ const deserializeAws_ec2DescribeClientVpnEndpointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18873,7 +18874,7 @@ const deserializeAws_ec2DescribeClientVpnRoutesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18919,7 +18920,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -18965,7 +18966,7 @@ const deserializeAws_ec2DescribeCoipPoolsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19011,7 +19012,7 @@ const deserializeAws_ec2DescribeConversionTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19057,7 +19058,7 @@ const deserializeAws_ec2DescribeCustomerGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19103,7 +19104,7 @@ const deserializeAws_ec2DescribeDhcpOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19149,7 +19150,7 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19195,7 +19196,7 @@ const deserializeAws_ec2DescribeElasticGpusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19241,7 +19242,7 @@ const deserializeAws_ec2DescribeExportImageTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19287,7 +19288,7 @@ const deserializeAws_ec2DescribeExportTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19333,7 +19334,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19379,7 +19380,7 @@ const deserializeAws_ec2DescribeFleetHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19425,7 +19426,7 @@ const deserializeAws_ec2DescribeFleetInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19471,7 +19472,7 @@ const deserializeAws_ec2DescribeFleetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19517,7 +19518,7 @@ const deserializeAws_ec2DescribeFlowLogsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19563,7 +19564,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19609,7 +19610,7 @@ const deserializeAws_ec2DescribeFpgaImagesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19655,7 +19656,7 @@ const deserializeAws_ec2DescribeHostReservationOfferingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19701,7 +19702,7 @@ const deserializeAws_ec2DescribeHostReservationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19747,7 +19748,7 @@ const deserializeAws_ec2DescribeHostsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19793,7 +19794,7 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19839,7 +19840,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19885,7 +19886,7 @@ const deserializeAws_ec2DescribeIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19931,7 +19932,7 @@ const deserializeAws_ec2DescribeImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -19977,7 +19978,7 @@ const deserializeAws_ec2DescribeImagesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20023,7 +20024,7 @@ const deserializeAws_ec2DescribeImportImageTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20069,7 +20070,7 @@ const deserializeAws_ec2DescribeImportSnapshotTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20115,7 +20116,7 @@ const deserializeAws_ec2DescribeInstanceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20161,7 +20162,7 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20207,7 +20208,7 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20253,7 +20254,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20299,7 +20300,7 @@ const deserializeAws_ec2DescribeInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20345,7 +20346,7 @@ const deserializeAws_ec2DescribeInstanceStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20391,7 +20392,7 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20437,7 +20438,7 @@ const deserializeAws_ec2DescribeInstanceTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20483,7 +20484,7 @@ const deserializeAws_ec2DescribeInternetGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20529,7 +20530,7 @@ const deserializeAws_ec2DescribeIpv6PoolsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20575,7 +20576,7 @@ const deserializeAws_ec2DescribeKeyPairsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20621,7 +20622,7 @@ const deserializeAws_ec2DescribeLaunchTemplatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20667,7 +20668,7 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20713,7 +20714,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20762,7 +20763,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20808,7 +20809,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20854,7 +20855,7 @@ const deserializeAws_ec2DescribeLocalGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20900,7 +20901,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20946,7 +20947,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -20992,7 +20993,7 @@ const deserializeAws_ec2DescribeManagedPrefixListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21038,7 +21039,7 @@ const deserializeAws_ec2DescribeMovingAddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21084,7 +21085,7 @@ const deserializeAws_ec2DescribeNatGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21130,7 +21131,7 @@ const deserializeAws_ec2DescribeNetworkAclsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21176,7 +21177,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAnalysesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21222,7 +21223,7 @@ const deserializeAws_ec2DescribeNetworkInsightsPathsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21268,7 +21269,7 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21314,7 +21315,7 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21360,7 +21361,7 @@ const deserializeAws_ec2DescribeNetworkInterfacesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21406,7 +21407,7 @@ const deserializeAws_ec2DescribePlacementGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21452,7 +21453,7 @@ const deserializeAws_ec2DescribePrefixListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21498,7 +21499,7 @@ const deserializeAws_ec2DescribePrincipalIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21544,7 +21545,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21590,7 +21591,7 @@ const deserializeAws_ec2DescribeRegionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21636,7 +21637,7 @@ const deserializeAws_ec2DescribeReplaceRootVolumeTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21682,7 +21683,7 @@ const deserializeAws_ec2DescribeReservedInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21728,7 +21729,7 @@ const deserializeAws_ec2DescribeReservedInstancesListingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21774,7 +21775,7 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21820,7 +21821,7 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21866,7 +21867,7 @@ const deserializeAws_ec2DescribeRouteTablesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21912,7 +21913,7 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -21958,7 +21959,7 @@ const deserializeAws_ec2DescribeScheduledInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22004,7 +22005,7 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22050,7 +22051,7 @@ const deserializeAws_ec2DescribeSecurityGroupRulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22096,7 +22097,7 @@ const deserializeAws_ec2DescribeSecurityGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22142,7 +22143,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22188,7 +22189,7 @@ const deserializeAws_ec2DescribeSnapshotsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22234,7 +22235,7 @@ const deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22280,7 +22281,7 @@ const deserializeAws_ec2DescribeSpotFleetInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22326,7 +22327,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22372,7 +22373,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22418,7 +22419,7 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22464,7 +22465,7 @@ const deserializeAws_ec2DescribeSpotPriceHistoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22510,7 +22511,7 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22556,7 +22557,7 @@ const deserializeAws_ec2DescribeStoreImageTasksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22602,7 +22603,7 @@ const deserializeAws_ec2DescribeSubnetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22648,7 +22649,7 @@ const deserializeAws_ec2DescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22694,7 +22695,7 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22740,7 +22741,7 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22786,7 +22787,7 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22832,7 +22833,7 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22878,7 +22879,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectPeersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22924,7 +22925,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -22970,7 +22971,7 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23016,7 +23017,7 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23062,7 +23063,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23108,7 +23109,7 @@ const deserializeAws_ec2DescribeTransitGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23154,7 +23155,7 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23200,7 +23201,7 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23246,7 +23247,7 @@ const deserializeAws_ec2DescribeVolumeAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23292,7 +23293,7 @@ const deserializeAws_ec2DescribeVolumesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23338,7 +23339,7 @@ const deserializeAws_ec2DescribeVolumesModificationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23384,7 +23385,7 @@ const deserializeAws_ec2DescribeVolumeStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23430,7 +23431,7 @@ const deserializeAws_ec2DescribeVpcAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23476,7 +23477,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23522,7 +23523,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23568,7 +23569,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23614,7 +23615,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23660,7 +23661,7 @@ const deserializeAws_ec2DescribeVpcEndpointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23706,7 +23707,7 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23752,7 +23753,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23798,7 +23799,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23844,7 +23845,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23890,7 +23891,7 @@ const deserializeAws_ec2DescribeVpcsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23936,7 +23937,7 @@ const deserializeAws_ec2DescribeVpnConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -23982,7 +23983,7 @@ const deserializeAws_ec2DescribeVpnGatewaysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24028,7 +24029,7 @@ const deserializeAws_ec2DetachClassicLinkVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24071,7 +24072,7 @@ const deserializeAws_ec2DetachInternetGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24114,7 +24115,7 @@ const deserializeAws_ec2DetachNetworkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24160,7 +24161,7 @@ const deserializeAws_ec2DetachVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24203,7 +24204,7 @@ const deserializeAws_ec2DetachVpnGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24249,7 +24250,7 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24295,7 +24296,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoresCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24341,7 +24342,7 @@ const deserializeAws_ec2DisableImageDeprecationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24387,7 +24388,7 @@ const deserializeAws_ec2DisableSerialConsoleAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24433,7 +24434,7 @@ const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24476,7 +24477,7 @@ const deserializeAws_ec2DisableVgwRoutePropagationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24522,7 +24523,7 @@ const deserializeAws_ec2DisableVpcClassicLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24568,7 +24569,7 @@ const deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24611,7 +24612,7 @@ const deserializeAws_ec2DisassociateAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24657,7 +24658,7 @@ const deserializeAws_ec2DisassociateClientVpnTargetNetworkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24703,7 +24704,7 @@ const deserializeAws_ec2DisassociateEnclaveCertificateIamRoleCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24749,7 +24750,7 @@ const deserializeAws_ec2DisassociateIamInstanceProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24795,7 +24796,7 @@ const deserializeAws_ec2DisassociateInstanceEventWindowCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24838,7 +24839,7 @@ const deserializeAws_ec2DisassociateRouteTableCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24884,7 +24885,7 @@ const deserializeAws_ec2DisassociateSubnetCidrBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24930,7 +24931,7 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -24976,7 +24977,7 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25022,7 +25023,7 @@ const deserializeAws_ec2DisassociateTrunkInterfaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25068,7 +25069,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25114,7 +25115,7 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25160,7 +25161,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoresCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25206,7 +25207,7 @@ const deserializeAws_ec2EnableImageDeprecationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25252,7 +25253,7 @@ const deserializeAws_ec2EnableSerialConsoleAccessCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25298,7 +25299,7 @@ const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25341,7 +25342,7 @@ const deserializeAws_ec2EnableVgwRoutePropagationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25384,7 +25385,7 @@ const deserializeAws_ec2EnableVolumeIOCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25430,7 +25431,7 @@ const deserializeAws_ec2EnableVpcClassicLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25476,7 +25477,7 @@ const deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25522,7 +25523,7 @@ const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25568,7 +25569,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25614,7 +25615,7 @@ const deserializeAws_ec2ExportImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25660,7 +25661,7 @@ const deserializeAws_ec2ExportTransitGatewayRoutesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25706,7 +25707,7 @@ const deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25752,7 +25753,7 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25798,7 +25799,7 @@ const deserializeAws_ec2GetCapacityReservationUsageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25844,7 +25845,7 @@ const deserializeAws_ec2GetCoipPoolUsageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25890,7 +25891,7 @@ const deserializeAws_ec2GetConsoleOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25936,7 +25937,7 @@ const deserializeAws_ec2GetConsoleScreenshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -25982,7 +25983,7 @@ const deserializeAws_ec2GetDefaultCreditSpecificationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26028,7 +26029,7 @@ const deserializeAws_ec2GetEbsDefaultKmsKeyIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26074,7 +26075,7 @@ const deserializeAws_ec2GetEbsEncryptionByDefaultCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26120,7 +26121,7 @@ const deserializeAws_ec2GetFlowLogsIntegrationTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26166,7 +26167,7 @@ const deserializeAws_ec2GetGroupsForCapacityReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26212,7 +26213,7 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26258,7 +26259,7 @@ const deserializeAws_ec2GetLaunchTemplateDataCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26304,7 +26305,7 @@ const deserializeAws_ec2GetManagedPrefixListAssociationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26350,7 +26351,7 @@ const deserializeAws_ec2GetManagedPrefixListEntriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26396,7 +26397,7 @@ const deserializeAws_ec2GetPasswordDataCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26442,7 +26443,7 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26488,7 +26489,7 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26534,7 +26535,7 @@ const deserializeAws_ec2GetSubnetCidrReservationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26580,7 +26581,7 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26626,7 +26627,7 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommandError
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26672,7 +26673,7 @@ const deserializeAws_ec2GetTransitGatewayPrefixListReferencesCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26718,7 +26719,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26764,7 +26765,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26810,7 +26811,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26856,7 +26857,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26902,7 +26903,7 @@ const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26948,7 +26949,7 @@ const deserializeAws_ec2ImportImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -26994,7 +26995,7 @@ const deserializeAws_ec2ImportInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27040,7 +27041,7 @@ const deserializeAws_ec2ImportKeyPairCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27086,7 +27087,7 @@ const deserializeAws_ec2ImportSnapshotCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27132,7 +27133,7 @@ const deserializeAws_ec2ImportVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27178,7 +27179,7 @@ const deserializeAws_ec2ModifyAddressAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27224,7 +27225,7 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27270,7 +27271,7 @@ const deserializeAws_ec2ModifyCapacityReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27316,7 +27317,7 @@ const deserializeAws_ec2ModifyClientVpnEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27362,7 +27363,7 @@ const deserializeAws_ec2ModifyDefaultCreditSpecificationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27408,7 +27409,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27454,7 +27455,7 @@ const deserializeAws_ec2ModifyFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27500,7 +27501,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27546,7 +27547,7 @@ const deserializeAws_ec2ModifyHostsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27589,7 +27590,7 @@ const deserializeAws_ec2ModifyIdentityIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27632,7 +27633,7 @@ const deserializeAws_ec2ModifyIdFormatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27675,7 +27676,7 @@ const deserializeAws_ec2ModifyImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27718,7 +27719,7 @@ const deserializeAws_ec2ModifyInstanceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27764,7 +27765,7 @@ const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27810,7 +27811,7 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27856,7 +27857,7 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27902,7 +27903,7 @@ const deserializeAws_ec2ModifyInstanceEventWindowCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27948,7 +27949,7 @@ const deserializeAws_ec2ModifyInstanceMetadataOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -27994,7 +27995,7 @@ const deserializeAws_ec2ModifyInstancePlacementCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28040,7 +28041,7 @@ const deserializeAws_ec2ModifyLaunchTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28086,7 +28087,7 @@ const deserializeAws_ec2ModifyManagedPrefixListCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28129,7 +28130,7 @@ const deserializeAws_ec2ModifyNetworkInterfaceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28175,7 +28176,7 @@ const deserializeAws_ec2ModifyReservedInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28221,7 +28222,7 @@ const deserializeAws_ec2ModifySecurityGroupRulesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28264,7 +28265,7 @@ const deserializeAws_ec2ModifySnapshotAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28310,7 +28311,7 @@ const deserializeAws_ec2ModifySpotFleetRequestCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28353,7 +28354,7 @@ const deserializeAws_ec2ModifySubnetAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28399,7 +28400,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28445,7 +28446,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28491,7 +28492,7 @@ const deserializeAws_ec2ModifyTrafficMirrorSessionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28537,7 +28538,7 @@ const deserializeAws_ec2ModifyTransitGatewayCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28583,7 +28584,7 @@ const deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28629,7 +28630,7 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28675,7 +28676,7 @@ const deserializeAws_ec2ModifyVolumeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28718,7 +28719,7 @@ const deserializeAws_ec2ModifyVolumeAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28761,7 +28762,7 @@ const deserializeAws_ec2ModifyVpcAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28807,7 +28808,7 @@ const deserializeAws_ec2ModifyVpcEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28853,7 +28854,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28899,7 +28900,7 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28945,7 +28946,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -28991,7 +28992,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29037,7 +29038,7 @@ const deserializeAws_ec2ModifyVpcTenancyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29083,7 +29084,7 @@ const deserializeAws_ec2ModifyVpnConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29129,7 +29130,7 @@ const deserializeAws_ec2ModifyVpnConnectionOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29175,7 +29176,7 @@ const deserializeAws_ec2ModifyVpnTunnelCertificateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29221,7 +29222,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29267,7 +29268,7 @@ const deserializeAws_ec2MonitorInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29313,7 +29314,7 @@ const deserializeAws_ec2MoveAddressToVpcCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29359,7 +29360,7 @@ const deserializeAws_ec2ProvisionByoipCidrCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29405,7 +29406,7 @@ const deserializeAws_ec2PurchaseHostReservationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29451,7 +29452,7 @@ const deserializeAws_ec2PurchaseReservedInstancesOfferingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29497,7 +29498,7 @@ const deserializeAws_ec2PurchaseScheduledInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29540,7 +29541,7 @@ const deserializeAws_ec2RebootInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29586,7 +29587,7 @@ const deserializeAws_ec2RegisterImageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29632,7 +29633,7 @@ const deserializeAws_ec2RegisterInstanceEventNotificationAttributesCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29678,7 +29679,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29724,7 +29725,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29770,7 +29771,7 @@ const deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommandEr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29816,7 +29817,7 @@ const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29862,7 +29863,7 @@ const deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29908,7 +29909,7 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29954,7 +29955,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -29997,7 +29998,7 @@ const deserializeAws_ec2ReleaseAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30043,7 +30044,7 @@ const deserializeAws_ec2ReleaseHostsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30089,7 +30090,7 @@ const deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30135,7 +30136,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30178,7 +30179,7 @@ const deserializeAws_ec2ReplaceNetworkAclEntryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30221,7 +30222,7 @@ const deserializeAws_ec2ReplaceRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30267,7 +30268,7 @@ const deserializeAws_ec2ReplaceRouteTableAssociationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30313,7 +30314,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30356,7 +30357,7 @@ const deserializeAws_ec2ReportInstanceStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30402,7 +30403,7 @@ const deserializeAws_ec2RequestSpotFleetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30448,7 +30449,7 @@ const deserializeAws_ec2RequestSpotInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30494,7 +30495,7 @@ const deserializeAws_ec2ResetAddressAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30540,7 +30541,7 @@ const deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30586,7 +30587,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30629,7 +30630,7 @@ const deserializeAws_ec2ResetImageAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30672,7 +30673,7 @@ const deserializeAws_ec2ResetInstanceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30715,7 +30716,7 @@ const deserializeAws_ec2ResetNetworkInterfaceAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30758,7 +30759,7 @@ const deserializeAws_ec2ResetSnapshotAttributeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30804,7 +30805,7 @@ const deserializeAws_ec2RestoreAddressToClassicCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30850,7 +30851,7 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30896,7 +30897,7 @@ const deserializeAws_ec2RevokeClientVpnIngressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30942,7 +30943,7 @@ const deserializeAws_ec2RevokeSecurityGroupEgressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -30988,7 +30989,7 @@ const deserializeAws_ec2RevokeSecurityGroupIngressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31034,7 +31035,7 @@ const deserializeAws_ec2RunInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31080,7 +31081,7 @@ const deserializeAws_ec2RunScheduledInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31126,7 +31127,7 @@ const deserializeAws_ec2SearchLocalGatewayRoutesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31172,7 +31173,7 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31218,7 +31219,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31261,7 +31262,7 @@ const deserializeAws_ec2SendDiagnosticInterruptCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31307,7 +31308,7 @@ const deserializeAws_ec2StartInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31353,7 +31354,7 @@ const deserializeAws_ec2StartNetworkInsightsAnalysisCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31399,7 +31400,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31445,7 +31446,7 @@ const deserializeAws_ec2StopInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31491,7 +31492,7 @@ const deserializeAws_ec2TerminateClientVpnConnectionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31537,7 +31538,7 @@ const deserializeAws_ec2TerminateInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31583,7 +31584,7 @@ const deserializeAws_ec2UnassignIpv6AddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31626,7 +31627,7 @@ const deserializeAws_ec2UnassignPrivateIpAddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31672,7 +31673,7 @@ const deserializeAws_ec2UnmonitorInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31718,7 +31719,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31764,7 +31765,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31810,7 +31811,7 @@ const deserializeAws_ec2WithdrawByoipCidrCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -31948,7 +31949,7 @@ const serializeAws_ec2AccountAttributeNameStringList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -31961,7 +31962,7 @@ const serializeAws_ec2AccountAttributeNameStringList = (
 const serializeAws_ec2AddPrefixListEntries = (input: AddPrefixListEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32062,7 +32063,7 @@ const serializeAws_ec2AllocateHostsRequest = (input: AllocateHostsRequest, conte
 const serializeAws_ec2AllocationIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32075,7 +32076,7 @@ const serializeAws_ec2AllocationIdList = (input: string[], context: __SerdeConte
 const serializeAws_ec2AllocationIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32112,7 +32113,7 @@ const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
 const serializeAws_ec2ArnList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32442,7 +32443,7 @@ const serializeAws_ec2AssociateVpcCidrBlockRequest = (
 const serializeAws_ec2AssociationIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32472,7 +32473,7 @@ const serializeAws_ec2AthenaIntegration = (input: AthenaIntegration, context: __
 const serializeAws_ec2AthenaIntegrationsSet = (input: AthenaIntegration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32726,7 +32727,7 @@ const serializeAws_ec2AuthorizeSecurityGroupIngressRequest = (
 const serializeAws_ec2AvailabilityZoneStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32739,7 +32740,7 @@ const serializeAws_ec2AvailabilityZoneStringList = (input: string[], context: __
 const serializeAws_ec2BillingProductList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32781,7 +32782,7 @@ const serializeAws_ec2BlockDeviceMapping = (input: BlockDeviceMapping, context: 
 const serializeAws_ec2BlockDeviceMappingList = (input: BlockDeviceMapping[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32797,7 +32798,7 @@ const serializeAws_ec2BlockDeviceMappingList = (input: BlockDeviceMapping[], con
 const serializeAws_ec2BlockDeviceMappingRequestList = (input: BlockDeviceMapping[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32813,7 +32814,7 @@ const serializeAws_ec2BlockDeviceMappingRequestList = (input: BlockDeviceMapping
 const serializeAws_ec2BundleIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -32955,7 +32956,7 @@ const serializeAws_ec2CancelSpotInstanceRequestsRequest = (
 const serializeAws_ec2CapacityReservationIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33008,7 +33009,7 @@ const serializeAws_ec2CapacityReservationTarget = (input: CapacityReservationTar
 const serializeAws_ec2CarrierGatewayIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33051,7 +33052,7 @@ const serializeAws_ec2ClassicLoadBalancer = (input: ClassicLoadBalancer, context
 const serializeAws_ec2ClassicLoadBalancers = (input: ClassicLoadBalancer[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33145,7 +33146,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33161,7 +33162,7 @@ const serializeAws_ec2ClientVpnAuthenticationRequestList = (
 const serializeAws_ec2ClientVpnEndpointIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33174,7 +33175,7 @@ const serializeAws_ec2ClientVpnEndpointIdList = (input: string[], context: __Ser
 const serializeAws_ec2ClientVpnSecurityGroupIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33187,7 +33188,7 @@ const serializeAws_ec2ClientVpnSecurityGroupIdSet = (input: string[], context: _
 const serializeAws_ec2CoipPoolIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33231,7 +33232,7 @@ const serializeAws_ec2ConnectionLogOptions = (input: ConnectionLogOptions, conte
 const serializeAws_ec2ConnectionNotificationIdsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -33244,7 +33245,7 @@ const serializeAws_ec2ConnectionNotificationIdsList = (input: string[], context:
 const serializeAws_ec2ConversionIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -35204,7 +35205,7 @@ const serializeAws_ec2CreateVolumePermission = (input: CreateVolumePermission, c
 const serializeAws_ec2CreateVolumePermissionList = (input: CreateVolumePermission[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -35567,7 +35568,7 @@ const serializeAws_ec2CreditSpecificationRequest = (
 const serializeAws_ec2CustomerGatewayIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -35580,7 +35581,7 @@ const serializeAws_ec2CustomerGatewayIdStringList = (input: string[], context: _
 const serializeAws_ec2DedicatedHostIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -35973,7 +35974,7 @@ const serializeAws_ec2DeletePlacementGroupRequest = (
 const serializeAws_ec2DeleteQueuedReservedInstancesIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40213,7 +40214,7 @@ const serializeAws_ec2DetachVpnGatewayRequest = (input: DetachVpnGatewayRequest,
 const serializeAws_ec2DhcpOptionsIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40573,7 +40574,7 @@ const serializeAws_ec2DiskImageDetail = (input: DiskImageDetail, context: __Serd
 const serializeAws_ec2DiskImageList = (input: DiskImage[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40653,7 +40654,7 @@ const serializeAws_ec2EbsInstanceBlockDeviceSpecification = (
 const serializeAws_ec2EgressOnlyInternetGatewayIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40666,7 +40667,7 @@ const serializeAws_ec2EgressOnlyInternetGatewayIdList = (input: string[], contex
 const serializeAws_ec2ElasticGpuIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40690,7 +40691,7 @@ const serializeAws_ec2ElasticGpuSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40706,7 +40707,7 @@ const serializeAws_ec2ElasticGpuSpecificationList = (
 const serializeAws_ec2ElasticGpuSpecifications = (input: ElasticGpuSpecification[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40739,7 +40740,7 @@ const serializeAws_ec2ElasticInferenceAccelerators = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40897,7 +40898,7 @@ const serializeAws_ec2EnclaveOptionsRequest = (input: EnclaveOptionsRequest, con
 const serializeAws_ec2ExecutableByStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40978,7 +40979,7 @@ const serializeAws_ec2ExportImageRequest = (input: ExportImageRequest, context: 
 const serializeAws_ec2ExportImageTaskIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -40991,7 +40992,7 @@ const serializeAws_ec2ExportImageTaskIdList = (input: string[], context: __Serde
 const serializeAws_ec2ExportTaskIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41091,7 +41092,7 @@ const serializeAws_ec2Filter = (input: Filter, context: __SerdeContext): any => 
 const serializeAws_ec2FilterList = (input: Filter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41107,7 +41108,7 @@ const serializeAws_ec2FilterList = (input: Filter[], context: __SerdeContext): a
 const serializeAws_ec2FleetIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41123,7 +41124,7 @@ const serializeAws_ec2FleetLaunchTemplateConfigListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41167,7 +41168,7 @@ const serializeAws_ec2FleetLaunchTemplateOverridesListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41276,7 +41277,7 @@ const serializeAws_ec2FleetSpotMaintenanceStrategiesRequest = (
 const serializeAws_ec2FlowLogIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41289,7 +41290,7 @@ const serializeAws_ec2FlowLogIdList = (input: string[], context: __SerdeContext)
 const serializeAws_ec2FlowLogResourceIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41302,7 +41303,7 @@ const serializeAws_ec2FlowLogResourceIds = (input: string[], context: __SerdeCon
 const serializeAws_ec2FpgaImageIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41836,7 +41837,7 @@ const serializeAws_ec2GroupIdentifier = (input: GroupIdentifier, context: __Serd
 const serializeAws_ec2GroupIdentifierList = (input: GroupIdentifier[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41852,7 +41853,7 @@ const serializeAws_ec2GroupIdentifierList = (input: GroupIdentifier[], context: 
 const serializeAws_ec2GroupIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41865,7 +41866,7 @@ const serializeAws_ec2GroupIds = (input: string[], context: __SerdeContext): any
 const serializeAws_ec2GroupIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41878,7 +41879,7 @@ const serializeAws_ec2GroupIdStringList = (input: string[], context: __SerdeCont
 const serializeAws_ec2GroupNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41899,7 +41900,7 @@ const serializeAws_ec2HibernationOptionsRequest = (input: HibernationOptionsRequ
 const serializeAws_ec2HostReservationIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41937,7 +41938,7 @@ const serializeAws_ec2IcmpTypeCode = (input: IcmpTypeCode, context: __SerdeConte
 const serializeAws_ec2IKEVersionsRequestList = (input: IKEVersionsRequestListValue[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -41991,7 +41992,7 @@ const serializeAws_ec2ImageDiskContainer = (input: ImageDiskContainer, context: 
 const serializeAws_ec2ImageDiskContainerList = (input: ImageDiskContainer[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42007,7 +42008,7 @@ const serializeAws_ec2ImageDiskContainerList = (input: ImageDiskContainer[], con
 const serializeAws_ec2ImageIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42020,7 +42021,7 @@ const serializeAws_ec2ImageIdList = (input: string[], context: __SerdeContext): 
 const serializeAws_ec2ImageIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42064,7 +42065,7 @@ const serializeAws_ec2ImportImageLicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42302,7 +42303,7 @@ const serializeAws_ec2ImportSnapshotRequest = (input: ImportSnapshotRequest, con
 const serializeAws_ec2ImportSnapshotTaskIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42315,7 +42316,7 @@ const serializeAws_ec2ImportSnapshotTaskIdList = (input: string[], context: __Se
 const serializeAws_ec2ImportTaskIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42356,7 +42357,7 @@ const serializeAws_ec2ImportVolumeRequest = (input: ImportVolumeRequest, context
 const serializeAws_ec2InsideCidrBlocksStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42396,7 +42397,7 @@ const serializeAws_ec2InstanceBlockDeviceMappingSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42415,7 +42416,7 @@ const serializeAws_ec2InstanceCreditSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42503,7 +42504,7 @@ const serializeAws_ec2InstanceEventWindowDisassociationRequest = (
 const serializeAws_ec2InstanceEventWindowIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42539,7 +42540,7 @@ const serializeAws_ec2InstanceEventWindowTimeRangeRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42555,7 +42556,7 @@ const serializeAws_ec2InstanceEventWindowTimeRangeRequestSet = (
 const serializeAws_ec2InstanceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42568,7 +42569,7 @@ const serializeAws_ec2InstanceIdList = (input: string[], context: __SerdeContext
 const serializeAws_ec2InstanceIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42589,7 +42590,7 @@ const serializeAws_ec2InstanceIpv6Address = (input: InstanceIpv6Address, context
 const serializeAws_ec2InstanceIpv6AddressList = (input: InstanceIpv6Address[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42608,7 +42609,7 @@ const serializeAws_ec2InstanceIpv6AddressListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42761,7 +42762,7 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42788,7 +42789,7 @@ const serializeAws_ec2InstanceSpecification = (input: InstanceSpecification, con
 const serializeAws_ec2InstanceTagKeySet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42801,7 +42802,7 @@ const serializeAws_ec2InstanceTagKeySet = (input: string[], context: __SerdeCont
 const serializeAws_ec2InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42826,7 +42827,7 @@ const serializeAws_ec2IntegrateServices = (input: IntegrateServices, context: __
 const serializeAws_ec2InternetGatewayIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42881,7 +42882,7 @@ const serializeAws_ec2IpPermission = (input: IpPermission, context: __SerdeConte
 const serializeAws_ec2IpPermissionList = (input: IpPermission[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42897,7 +42898,7 @@ const serializeAws_ec2IpPermissionList = (input: IpPermission[], context: __Serd
 const serializeAws_ec2IpPrefixList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42921,7 +42922,7 @@ const serializeAws_ec2IpRange = (input: IpRange, context: __SerdeContext): any =
 const serializeAws_ec2IpRangeList = (input: IpRange[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42937,7 +42938,7 @@ const serializeAws_ec2IpRangeList = (input: IpRange[], context: __SerdeContext):
 const serializeAws_ec2Ipv4PrefixList = (input: Ipv4PrefixSpecificationRequest[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42964,7 +42965,7 @@ const serializeAws_ec2Ipv4PrefixSpecificationRequest = (
 const serializeAws_ec2Ipv6AddressList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42977,7 +42978,7 @@ const serializeAws_ec2Ipv6AddressList = (input: string[], context: __SerdeContex
 const serializeAws_ec2Ipv6PoolIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -42990,7 +42991,7 @@ const serializeAws_ec2Ipv6PoolIdList = (input: string[], context: __SerdeContext
 const serializeAws_ec2Ipv6PrefixList = (input: Ipv6PrefixSpecificationRequest[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43028,7 +43029,7 @@ const serializeAws_ec2Ipv6Range = (input: Ipv6Range, context: __SerdeContext): a
 const serializeAws_ec2Ipv6RangeList = (input: Ipv6Range[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43044,7 +43045,7 @@ const serializeAws_ec2Ipv6RangeList = (input: Ipv6Range[], context: __SerdeConte
 const serializeAws_ec2KeyNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43057,7 +43058,7 @@ const serializeAws_ec2KeyNameStringList = (input: string[], context: __SerdeCont
 const serializeAws_ec2KeyPairIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43081,7 +43082,7 @@ const serializeAws_ec2LaunchPermission = (input: LaunchPermission, context: __Se
 const serializeAws_ec2LaunchPermissionList = (input: LaunchPermission[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43119,7 +43120,7 @@ const serializeAws_ec2LaunchPermissionModifications = (
 const serializeAws_ec2LaunchSpecsList = (input: SpotFleetLaunchSpecification[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43162,7 +43163,7 @@ const serializeAws_ec2LaunchTemplateBlockDeviceMappingRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43215,7 +43216,7 @@ const serializeAws_ec2LaunchTemplateConfig = (input: LaunchTemplateConfig, conte
 const serializeAws_ec2LaunchTemplateConfigList = (input: LaunchTemplateConfig[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43294,7 +43295,7 @@ const serializeAws_ec2LaunchTemplateElasticInferenceAcceleratorList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43346,7 +43347,7 @@ const serializeAws_ec2LaunchTemplateIamInstanceProfileSpecificationRequest = (
 const serializeAws_ec2LaunchTemplateIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43485,7 +43486,7 @@ const serializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43515,7 +43516,7 @@ const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43531,7 +43532,7 @@ const serializeAws_ec2LaunchTemplateLicenseSpecificationListRequest = (
 const serializeAws_ec2LaunchTemplateNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43570,7 +43571,7 @@ const serializeAws_ec2LaunchTemplateOverridesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43690,7 +43691,7 @@ const serializeAws_ec2LaunchTemplateTagSpecificationRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43720,7 +43721,7 @@ const serializeAws_ec2LicenseSpecificationListRequest = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43755,7 +43756,7 @@ const serializeAws_ec2LoadBalancersConfig = (input: LoadBalancersConfig, context
 const serializeAws_ec2LoadPermissionListRequest = (input: LoadPermissionRequest[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43804,7 +43805,7 @@ const serializeAws_ec2LoadPermissionRequest = (input: LoadPermissionRequest, con
 const serializeAws_ec2LocalGatewayIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43817,7 +43818,7 @@ const serializeAws_ec2LocalGatewayIdSet = (input: string[], context: __SerdeCont
 const serializeAws_ec2LocalGatewayRouteTableIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43833,7 +43834,7 @@ const serializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSe
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43846,7 +43847,7 @@ const serializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSe
 const serializeAws_ec2LocalGatewayRouteTableVpcAssociationIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43859,7 +43860,7 @@ const serializeAws_ec2LocalGatewayRouteTableVpcAssociationIdSet = (input: string
 const serializeAws_ec2LocalGatewayVirtualInterfaceGroupIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -43872,7 +43873,7 @@ const serializeAws_ec2LocalGatewayVirtualInterfaceGroupIdSet = (input: string[],
 const serializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45513,7 +45514,7 @@ const serializeAws_ec2MoveAddressToVpcRequest = (input: MoveAddressToVpcRequest,
 const serializeAws_ec2NatGatewayIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45526,7 +45527,7 @@ const serializeAws_ec2NatGatewayIdStringList = (input: string[], context: __Serd
 const serializeAws_ec2NetworkAclIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45539,7 +45540,7 @@ const serializeAws_ec2NetworkAclIdStringList = (input: string[], context: __Serd
 const serializeAws_ec2NetworkInsightsAnalysisIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45552,7 +45553,7 @@ const serializeAws_ec2NetworkInsightsAnalysisIdList = (input: string[], context:
 const serializeAws_ec2NetworkInsightsPathIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45579,7 +45580,7 @@ const serializeAws_ec2NetworkInterfaceAttachmentChanges = (
 const serializeAws_ec2NetworkInterfaceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45592,7 +45593,7 @@ const serializeAws_ec2NetworkInterfaceIdList = (input: string[], context: __Serd
 const serializeAws_ec2NetworkInterfacePermissionIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45620,7 +45621,7 @@ const serializeAws_ec2NewDhcpConfiguration = (input: NewDhcpConfiguration, conte
 const serializeAws_ec2NewDhcpConfigurationList = (input: NewDhcpConfiguration[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45636,7 +45637,7 @@ const serializeAws_ec2NewDhcpConfigurationList = (input: NewDhcpConfiguration[],
 const serializeAws_ec2OccurrenceDayRequestSet = (input: number[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45676,7 +45677,7 @@ const serializeAws_ec2OnDemandOptionsRequest = (input: OnDemandOptionsRequest, c
 const serializeAws_ec2OwnerStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45715,7 +45716,7 @@ const serializeAws_ec2Phase1DHGroupNumbersRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45745,7 +45746,7 @@ const serializeAws_ec2Phase1EncryptionAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45775,7 +45776,7 @@ const serializeAws_ec2Phase1IntegrityAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45805,7 +45806,7 @@ const serializeAws_ec2Phase2DHGroupNumbersRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45835,7 +45836,7 @@ const serializeAws_ec2Phase2EncryptionAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45865,7 +45866,7 @@ const serializeAws_ec2Phase2IntegrityAlgorithmsRequestList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45921,7 +45922,7 @@ const serializeAws_ec2Placement = (input: Placement, context: __SerdeContext): a
 const serializeAws_ec2PlacementGroupIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45934,7 +45935,7 @@ const serializeAws_ec2PlacementGroupIdStringList = (input: string[], context: __
 const serializeAws_ec2PlacementGroupStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45969,7 +45970,7 @@ const serializeAws_ec2PrefixListId = (input: PrefixListId, context: __SerdeConte
 const serializeAws_ec2PrefixListIdList = (input: PrefixListId[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -45985,7 +45986,7 @@ const serializeAws_ec2PrefixListIdList = (input: PrefixListId[], context: __Serd
 const serializeAws_ec2PrefixListResourceIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46018,7 +46019,7 @@ const serializeAws_ec2PriceScheduleSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46037,7 +46038,7 @@ const serializeAws_ec2PrivateIpAddressConfigSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46070,7 +46071,7 @@ const serializeAws_ec2PrivateIpAddressSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46086,7 +46087,7 @@ const serializeAws_ec2PrivateIpAddressSpecificationList = (
 const serializeAws_ec2PrivateIpAddressStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46099,7 +46100,7 @@ const serializeAws_ec2PrivateIpAddressStringList = (input: string[], context: __
 const serializeAws_ec2ProductCodeStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46112,7 +46113,7 @@ const serializeAws_ec2ProductCodeStringList = (input: string[], context: __Serde
 const serializeAws_ec2ProductDescriptionList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46159,7 +46160,7 @@ const serializeAws_ec2ProvisionByoipCidrRequest = (input: ProvisionByoipCidrRequ
 const serializeAws_ec2PublicIpStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46172,7 +46173,7 @@ const serializeAws_ec2PublicIpStringList = (input: string[], context: __SerdeCon
 const serializeAws_ec2PublicIpv4PoolIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46230,7 +46231,7 @@ const serializeAws_ec2PurchaseRequest = (input: PurchaseRequest, context: __Serd
 const serializeAws_ec2PurchaseRequestSet = (input: PurchaseRequest[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46300,7 +46301,7 @@ const serializeAws_ec2ReasonCodesList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46328,7 +46329,7 @@ const serializeAws_ec2RebootInstancesRequest = (input: RebootInstancesRequest, c
 const serializeAws_ec2RegionNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46596,7 +46597,7 @@ const serializeAws_ec2ReleaseHostsRequest = (input: ReleaseHostsRequest, context
 const serializeAws_ec2RemovePrefixListEntries = (input: RemovePrefixListEntry[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46701,7 +46702,7 @@ const serializeAws_ec2ReplaceNetworkAclEntryRequest = (
 const serializeAws_ec2ReplaceRootVolumeTaskIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46844,7 +46845,7 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
 const serializeAws_ec2RequestHostIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46857,7 +46858,7 @@ const serializeAws_ec2RequestHostIdList = (input: string[], context: __SerdeCont
 const serializeAws_ec2RequestHostIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -46870,7 +46871,7 @@ const serializeAws_ec2RequestHostIdSet = (input: string[], context: __SerdeConte
 const serializeAws_ec2RequestInstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47225,7 +47226,7 @@ const serializeAws_ec2RequestSpotLaunchSpecificationSecurityGroupIdList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47241,7 +47242,7 @@ const serializeAws_ec2RequestSpotLaunchSpecificationSecurityGroupList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47254,7 +47255,7 @@ const serializeAws_ec2RequestSpotLaunchSpecificationSecurityGroupList = (
 const serializeAws_ec2ReservedInstanceIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47307,7 +47308,7 @@ const serializeAws_ec2ReservedInstancesConfigurationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47323,7 +47324,7 @@ const serializeAws_ec2ReservedInstancesConfigurationList = (
 const serializeAws_ec2ReservedInstancesIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47336,7 +47337,7 @@ const serializeAws_ec2ReservedInstancesIdStringList = (input: string[], context:
 const serializeAws_ec2ReservedInstancesModificationIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47349,7 +47350,7 @@ const serializeAws_ec2ReservedInstancesModificationIdStringList = (input: string
 const serializeAws_ec2ReservedInstancesOfferingIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47475,7 +47476,7 @@ const serializeAws_ec2ResetSnapshotAttributeRequest = (
 const serializeAws_ec2ResourceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47488,7 +47489,7 @@ const serializeAws_ec2ResourceIdList = (input: string[], context: __SerdeContext
 const serializeAws_ec2ResourceList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47501,7 +47502,7 @@ const serializeAws_ec2ResourceList = (input: string[], context: __SerdeContext):
 const serializeAws_ec2RestorableByStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47666,7 +47667,7 @@ const serializeAws_ec2RevokeSecurityGroupIngressRequest = (
 const serializeAws_ec2RouteTableIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47933,7 +47934,7 @@ const serializeAws_ec2S3ObjectTag = (input: S3ObjectTag, context: __SerdeContext
 const serializeAws_ec2S3ObjectTagList = (input: S3ObjectTag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -47969,7 +47970,7 @@ const serializeAws_ec2S3Storage = (input: S3Storage, context: __SerdeContext): a
 const serializeAws_ec2ScheduledInstanceIdRequestSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48036,7 +48037,7 @@ const serializeAws_ec2ScheduledInstancesBlockDeviceMappingSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48103,7 +48104,7 @@ const serializeAws_ec2ScheduledInstancesIpv6AddressList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48263,7 +48264,7 @@ const serializeAws_ec2ScheduledInstancesNetworkInterfaceSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48307,7 +48308,7 @@ const serializeAws_ec2ScheduledInstancesPrivateIpAddressConfig = (
 const serializeAws_ec2ScheduledInstancesSecurityGroupIdSet = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48398,7 +48399,7 @@ const serializeAws_ec2SearchTransitGatewayRoutesRequest = (
 const serializeAws_ec2SecurityGroupIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48428,7 +48429,7 @@ const serializeAws_ec2SecurityGroupRuleDescriptionList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48444,7 +48445,7 @@ const serializeAws_ec2SecurityGroupRuleDescriptionList = (
 const serializeAws_ec2SecurityGroupRuleIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48504,7 +48505,7 @@ const serializeAws_ec2SecurityGroupRuleUpdateList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48520,7 +48521,7 @@ const serializeAws_ec2SecurityGroupRuleUpdateList = (
 const serializeAws_ec2SecurityGroupStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48590,7 +48591,7 @@ const serializeAws_ec2SnapshotDiskContainer = (input: SnapshotDiskContainer, con
 const serializeAws_ec2SnapshotIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48812,7 +48813,7 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
 const serializeAws_ec2SpotFleetRequestIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48843,7 +48844,7 @@ const serializeAws_ec2SpotFleetTagSpecificationList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -48859,7 +48860,7 @@ const serializeAws_ec2SpotFleetTagSpecificationList = (
 const serializeAws_ec2SpotInstanceRequestIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49061,7 +49062,7 @@ const serializeAws_ec2StorageLocation = (input: StorageLocation, context: __Serd
 const serializeAws_ec2SubnetIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49085,7 +49086,7 @@ const serializeAws_ec2Tag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_ec2TagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49116,7 +49117,7 @@ const serializeAws_ec2TagSpecification = (input: TagSpecification, context: __Se
 const serializeAws_ec2TagSpecificationList = (input: TagSpecification[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49169,7 +49170,7 @@ const serializeAws_ec2TargetConfigurationRequestSet = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49193,7 +49194,7 @@ const serializeAws_ec2TargetGroup = (input: TargetGroup, context: __SerdeContext
 const serializeAws_ec2TargetGroups = (input: TargetGroup[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49256,7 +49257,7 @@ const serializeAws_ec2TerminateInstancesRequest = (input: TerminateInstancesRequ
 const serializeAws_ec2TrafficMirrorFilterIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49272,7 +49273,7 @@ const serializeAws_ec2TrafficMirrorFilterRuleFieldList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49288,7 +49289,7 @@ const serializeAws_ec2TrafficMirrorNetworkServiceList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49318,7 +49319,7 @@ const serializeAws_ec2TrafficMirrorSessionFieldList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49331,7 +49332,7 @@ const serializeAws_ec2TrafficMirrorSessionFieldList = (
 const serializeAws_ec2TrafficMirrorSessionIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49344,7 +49345,7 @@ const serializeAws_ec2TrafficMirrorSessionIdList = (input: string[], context: __
 const serializeAws_ec2TrafficMirrorTargetIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49357,7 +49358,7 @@ const serializeAws_ec2TrafficMirrorTargetIdList = (input: string[], context: __S
 const serializeAws_ec2TransitGatewayAttachmentIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49370,7 +49371,7 @@ const serializeAws_ec2TransitGatewayAttachmentIdStringList = (input: string[], c
 const serializeAws_ec2TransitGatewayCidrBlockStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49383,7 +49384,7 @@ const serializeAws_ec2TransitGatewayCidrBlockStringList = (input: string[], cont
 const serializeAws_ec2TransitGatewayConnectPeerIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49407,7 +49408,7 @@ const serializeAws_ec2TransitGatewayConnectRequestBgpOptions = (
 const serializeAws_ec2TransitGatewayIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49420,7 +49421,7 @@ const serializeAws_ec2TransitGatewayIdStringList = (input: string[], context: __
 const serializeAws_ec2TransitGatewayMulticastDomainIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49433,7 +49434,7 @@ const serializeAws_ec2TransitGatewayMulticastDomainIdStringList = (input: string
 const serializeAws_ec2TransitGatewayNetworkInterfaceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49482,7 +49483,7 @@ const serializeAws_ec2TransitGatewayRequestOptions = (
 const serializeAws_ec2TransitGatewayRouteTableIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49495,7 +49496,7 @@ const serializeAws_ec2TransitGatewayRouteTableIdStringList = (input: string[], c
 const serializeAws_ec2TransitGatewaySubnetIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49508,7 +49509,7 @@ const serializeAws_ec2TransitGatewaySubnetIdList = (input: string[], context: __
 const serializeAws_ec2TrunkInterfaceAssociationIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49673,7 +49674,7 @@ const serializeAws_ec2UserData = (input: UserData, context: __SerdeContext): any
 const serializeAws_ec2UserGroupStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49712,7 +49713,7 @@ const serializeAws_ec2UserIdGroupPair = (input: UserIdGroupPair, context: __Serd
 const serializeAws_ec2UserIdGroupPairList = (input: UserIdGroupPair[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49728,7 +49729,7 @@ const serializeAws_ec2UserIdGroupPairList = (input: UserIdGroupPair[], context: 
 const serializeAws_ec2UserIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49741,7 +49742,7 @@ const serializeAws_ec2UserIdStringList = (input: string[], context: __SerdeConte
 const serializeAws_ec2ValueStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49754,7 +49755,7 @@ const serializeAws_ec2ValueStringList = (input: string[], context: __SerdeContex
 const serializeAws_ec2VersionStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49775,7 +49776,7 @@ const serializeAws_ec2VolumeDetail = (input: VolumeDetail, context: __SerdeConte
 const serializeAws_ec2VolumeIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49788,7 +49789,7 @@ const serializeAws_ec2VolumeIdStringList = (input: string[], context: __SerdeCon
 const serializeAws_ec2VpcClassicLinkIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49801,7 +49802,7 @@ const serializeAws_ec2VpcClassicLinkIdList = (input: string[], context: __SerdeC
 const serializeAws_ec2VpcEndpointIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49814,7 +49815,7 @@ const serializeAws_ec2VpcEndpointIdList = (input: string[], context: __SerdeCont
 const serializeAws_ec2VpcEndpointRouteTableIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49827,7 +49828,7 @@ const serializeAws_ec2VpcEndpointRouteTableIdList = (input: string[], context: _
 const serializeAws_ec2VpcEndpointSecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49840,7 +49841,7 @@ const serializeAws_ec2VpcEndpointSecurityGroupIdList = (input: string[], context
 const serializeAws_ec2VpcEndpointServiceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49853,7 +49854,7 @@ const serializeAws_ec2VpcEndpointServiceIdList = (input: string[], context: __Se
 const serializeAws_ec2VpcEndpointSubnetIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49866,7 +49867,7 @@ const serializeAws_ec2VpcEndpointSubnetIdList = (input: string[], context: __Ser
 const serializeAws_ec2VpcIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49879,7 +49880,7 @@ const serializeAws_ec2VpcIdStringList = (input: string[], context: __SerdeContex
 const serializeAws_ec2VpcPeeringConnectionIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49892,7 +49893,7 @@ const serializeAws_ec2VpcPeeringConnectionIdList = (input: string[], context: __
 const serializeAws_ec2VpnConnectionIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -49941,7 +49942,7 @@ const serializeAws_ec2VpnConnectionOptionsSpecification = (
 const serializeAws_ec2VpnGatewayIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -50059,7 +50060,7 @@ const serializeAws_ec2VpnTunnelOptionsSpecificationsList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -50086,7 +50087,7 @@ const serializeAws_ec2WithdrawByoipCidrRequest = (input: WithdrawByoipCidrReques
 const serializeAws_ec2ZoneIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -50099,7 +50100,7 @@ const serializeAws_ec2ZoneIdStringList = (input: string[], context: __SerdeConte
 const serializeAws_ec2ZoneNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -50113,7 +50114,7 @@ const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult = (
   output: any,
   context: __SerdeContext
 ): AcceptReservedInstancesExchangeQuoteResult => {
-  let contents: any = {
+  const contents: any = {
     ExchangeId: undefined,
   };
   if (output["exchangeId"] !== undefined) {
@@ -50126,7 +50127,7 @@ const deserializeAws_ec2AcceptTransitGatewayMulticastDomainAssociationsResult = 
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayMulticastDomainAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -50142,7 +50143,7 @@ const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayPeeringAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -50158,7 +50159,7 @@ const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): AcceptTransitGatewayVpcAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -50174,7 +50175,7 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): AcceptVpcEndpointConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -50193,7 +50194,7 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): AcceptVpcPeeringConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     VpcPeeringConnection: undefined,
   };
   if (output["vpcPeeringConnection"] !== undefined) {
@@ -50203,7 +50204,7 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
 };
 
 const deserializeAws_ec2AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
-  let contents: any = {
+  const contents: any = {
     AttributeName: undefined,
     AttributeValues: undefined,
   };
@@ -50234,7 +50235,7 @@ const deserializeAws_ec2AccountAttributeList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AccountAttributeValue = (output: any, context: __SerdeContext): AccountAttributeValue => {
-  let contents: any = {
+  const contents: any = {
     AttributeValue: undefined,
   };
   if (output["attributeValue"] !== undefined) {
@@ -50255,7 +50256,7 @@ const deserializeAws_ec2AccountAttributeValueList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ActiveInstance = (output: any, context: __SerdeContext): ActiveInstance => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     InstanceType: undefined,
     SpotInstanceRequestId: undefined,
@@ -50288,7 +50289,7 @@ const deserializeAws_ec2ActiveInstanceSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Address => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     PublicIp: undefined,
     AllocationId: undefined,
@@ -50353,7 +50354,7 @@ const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Addres
 };
 
 const deserializeAws_ec2AddressAttribute = (output: any, context: __SerdeContext): AddressAttribute => {
-  let contents: any = {
+  const contents: any = {
     PublicIp: undefined,
     AllocationId: undefined,
     PtrRecord: undefined,
@@ -50397,7 +50398,7 @@ const deserializeAws_ec2AddressSet = (output: any, context: __SerdeContext): Add
 };
 
 const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __SerdeContext): AdvertiseByoipCidrResult => {
-  let contents: any = {
+  const contents: any = {
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -50407,7 +50408,7 @@ const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeContext): AllocateAddressResult => {
-  let contents: any = {
+  const contents: any = {
     PublicIp: undefined,
     AllocationId: undefined,
     PublicIpv4Pool: undefined,
@@ -50445,7 +50446,7 @@ const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeContext): AllocateHostsResult => {
-  let contents: any = {
+  const contents: any = {
     HostIds: undefined,
   };
   if (output.hostIdSet === "") {
@@ -50461,7 +50462,7 @@ const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrincipal => {
-  let contents: any = {
+  const contents: any = {
     PrincipalType: undefined,
     Principal: undefined,
   };
@@ -50486,7 +50487,7 @@ const deserializeAws_ec2AllowedPrincipalSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AlternatePathHint = (output: any, context: __SerdeContext): AlternatePathHint => {
-  let contents: any = {
+  const contents: any = {
     ComponentId: undefined,
     ComponentArn: undefined,
   };
@@ -50511,7 +50512,7 @@ const deserializeAws_ec2AlternatePathHintList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AnalysisAclRule = (output: any, context: __SerdeContext): AnalysisAclRule => {
-  let contents: any = {
+  const contents: any = {
     Cidr: undefined,
     Egress: undefined,
     PortRange: undefined,
@@ -50541,7 +50542,7 @@ const deserializeAws_ec2AnalysisAclRule = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2AnalysisComponent = (output: any, context: __SerdeContext): AnalysisComponent => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Arn: undefined,
   };
@@ -50569,7 +50570,7 @@ const deserializeAws_ec2AnalysisLoadBalancerListener = (
   output: any,
   context: __SerdeContext
 ): AnalysisLoadBalancerListener => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerPort: undefined,
     InstancePort: undefined,
   };
@@ -50586,7 +50587,7 @@ const deserializeAws_ec2AnalysisLoadBalancerTarget = (
   output: any,
   context: __SerdeContext
 ): AnalysisLoadBalancerTarget => {
-  let contents: any = {
+  const contents: any = {
     Address: undefined,
     AvailabilityZone: undefined,
     Instance: undefined,
@@ -50608,7 +50609,7 @@ const deserializeAws_ec2AnalysisLoadBalancerTarget = (
 };
 
 const deserializeAws_ec2AnalysisPacketHeader = (output: any, context: __SerdeContext): AnalysisPacketHeader => {
-  let contents: any = {
+  const contents: any = {
     DestinationAddresses: undefined,
     DestinationPortRanges: undefined,
     Protocol: undefined,
@@ -50658,7 +50659,7 @@ const deserializeAws_ec2AnalysisPacketHeader = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __SerdeContext): AnalysisRouteTableRoute => {
-  let contents: any = {
+  const contents: any = {
     DestinationCidr: undefined,
     DestinationPrefixListId: undefined,
     EgressOnlyInternetGatewayId: undefined,
@@ -50707,7 +50708,7 @@ const deserializeAws_ec2AnalysisSecurityGroupRule = (
   output: any,
   context: __SerdeContext
 ): AnalysisSecurityGroupRule => {
-  let contents: any = {
+  const contents: any = {
     Cidr: undefined,
     Direction: undefined,
     SecurityGroupId: undefined,
@@ -50740,7 +50741,7 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): ApplySecurityGroupsToClientVpnTargetNetworkResult => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroupIds: undefined,
   };
   if (output.securityGroupIds === "") {
@@ -50781,7 +50782,7 @@ const deserializeAws_ec2ArnList = (output: any, context: __SerdeContext): string
 };
 
 const deserializeAws_ec2AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
-  let contents: any = {
+  const contents: any = {
     PrivateIpAddress: undefined,
   };
   if (output["privateIpAddress"] !== undefined) {
@@ -50808,7 +50809,7 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
   output: any,
   context: __SerdeContext
 ): AssignIpv6AddressesResult => {
-  let contents: any = {
+  const contents: any = {
     AssignedIpv6Addresses: undefined,
     AssignedIpv6Prefixes: undefined,
     NetworkInterfaceId: undefined,
@@ -50841,7 +50842,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   output: any,
   context: __SerdeContext
 ): AssignPrivateIpAddressesResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterfaceId: undefined,
     AssignedPrivateIpAddresses: undefined,
     AssignedIpv4Prefixes: undefined,
@@ -50874,7 +50875,7 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
 };
 
 const deserializeAws_ec2AssociateAddressResult = (output: any, context: __SerdeContext): AssociateAddressResult => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
   };
   if (output["associationId"] !== undefined) {
@@ -50887,7 +50888,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): AssociateClientVpnTargetNetworkResult => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     Status: undefined,
   };
@@ -50901,7 +50902,7 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
 };
 
 const deserializeAws_ec2AssociatedRole = (output: any, context: __SerdeContext): AssociatedRole => {
-  let contents: any = {
+  const contents: any = {
     AssociatedRoleArn: undefined,
     CertificateS3BucketName: undefined,
     CertificateS3ObjectKey: undefined,
@@ -50934,7 +50935,7 @@ const deserializeAws_ec2AssociatedRolesList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2AssociatedTargetNetwork = (output: any, context: __SerdeContext): AssociatedTargetNetwork => {
-  let contents: any = {
+  const contents: any = {
     NetworkId: undefined,
     NetworkType: undefined,
   };
@@ -50965,7 +50966,7 @@ const deserializeAws_ec2AssociateEnclaveCertificateIamRoleResult = (
   output: any,
   context: __SerdeContext
 ): AssociateEnclaveCertificateIamRoleResult => {
-  let contents: any = {
+  const contents: any = {
     CertificateS3BucketName: undefined,
     CertificateS3ObjectKey: undefined,
     EncryptionKmsKeyId: undefined,
@@ -50986,7 +50987,7 @@ const deserializeAws_ec2AssociateIamInstanceProfileResult = (
   output: any,
   context: __SerdeContext
 ): AssociateIamInstanceProfileResult => {
-  let contents: any = {
+  const contents: any = {
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -51002,7 +51003,7 @@ const deserializeAws_ec2AssociateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): AssociateInstanceEventWindowResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindow: undefined,
   };
   if (output["instanceEventWindow"] !== undefined) {
@@ -51015,7 +51016,7 @@ const deserializeAws_ec2AssociateRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): AssociateRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     AssociationState: undefined,
   };
@@ -51032,7 +51033,7 @@ const deserializeAws_ec2AssociateSubnetCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): AssociateSubnetCidrBlockResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrBlockAssociation: undefined,
     SubnetId: undefined,
   };
@@ -51052,7 +51053,7 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTransitGatewayMulticastDomainResult => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -51068,7 +51069,7 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTransitGatewayRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
   };
   if (output["association"] !== undefined) {
@@ -51081,7 +51082,7 @@ const deserializeAws_ec2AssociateTrunkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTrunkInterfaceResult => {
-  let contents: any = {
+  const contents: any = {
     InterfaceAssociation: undefined,
     ClientToken: undefined,
   };
@@ -51101,7 +51102,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): AssociateVpcCidrBlockResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrBlockAssociation: undefined,
     CidrBlockAssociation: undefined,
     VpcId: undefined,
@@ -51122,7 +51123,7 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
 };
 
 const deserializeAws_ec2AssociationStatus = (output: any, context: __SerdeContext): AssociationStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -51139,7 +51140,7 @@ const deserializeAws_ec2AttachClassicLinkVpcResult = (
   output: any,
   context: __SerdeContext
 ): AttachClassicLinkVpcResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -51152,7 +51153,7 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): AttachNetworkInterfaceResult => {
-  let contents: any = {
+  const contents: any = {
     AttachmentId: undefined,
     NetworkCardIndex: undefined,
   };
@@ -51166,7 +51167,7 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
 };
 
 const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeContext): AttachVpnGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     VpcAttachment: undefined,
   };
   if (output["attachment"] !== undefined) {
@@ -51176,7 +51177,7 @@ const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeContext): AttributeBooleanValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -51186,7 +51187,7 @@ const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -51196,7 +51197,7 @@ const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2AuthorizationRule = (output: any, context: __SerdeContext): AuthorizationRule => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     Description: undefined,
     GroupId: undefined,
@@ -51240,7 +51241,7 @@ const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeClientVpnIngressResult => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -51253,7 +51254,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupEgressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeSecurityGroupEgressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
     SecurityGroupRules: undefined,
   };
@@ -51276,7 +51277,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): AuthorizeSecurityGroupIngressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
     SecurityGroupRules: undefined,
   };
@@ -51296,7 +51297,7 @@ const deserializeAws_ec2AuthorizeSecurityGroupIngressResult = (
 };
 
 const deserializeAws_ec2AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     OptInStatus: undefined,
     Messages: undefined,
@@ -51363,7 +51364,7 @@ const deserializeAws_ec2AvailabilityZoneList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2AvailabilityZoneMessage = (output: any, context: __SerdeContext): AvailabilityZoneMessage => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -51387,7 +51388,7 @@ const deserializeAws_ec2AvailabilityZoneMessageList = (
 };
 
 const deserializeAws_ec2AvailableCapacity = (output: any, context: __SerdeContext): AvailableCapacity => {
-  let contents: any = {
+  const contents: any = {
     AvailableInstanceCapacity: undefined,
     AvailableVCpus: undefined,
   };
@@ -51418,7 +51419,7 @@ const deserializeAws_ec2AvailableInstanceCapacityList = (output: any, context: _
 };
 
 const deserializeAws_ec2BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
-  let contents: any = {
+  const contents: any = {
     DeviceName: undefined,
     VirtualName: undefined,
     Ebs: undefined,
@@ -51462,7 +51463,7 @@ const deserializeAws_ec2BootModeTypeList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeContext): BundleInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     BundleTask: undefined,
   };
   if (output["bundleInstanceTask"] !== undefined) {
@@ -51472,7 +51473,7 @@ const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): BundleTask => {
-  let contents: any = {
+  const contents: any = {
     BundleId: undefined,
     BundleTaskError: undefined,
     InstanceId: undefined,
@@ -51510,7 +51511,7 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
 };
 
 const deserializeAws_ec2BundleTaskError = (output: any, context: __SerdeContext): BundleTaskError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -51535,7 +51536,7 @@ const deserializeAws_ec2BundleTaskList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
-  let contents: any = {
+  const contents: any = {
     Cidr: undefined,
     Description: undefined,
     StatusMessage: undefined,
@@ -51568,7 +51569,7 @@ const deserializeAws_ec2ByoipCidrSet = (output: any, context: __SerdeContext): B
 };
 
 const deserializeAws_ec2CancelBundleTaskResult = (output: any, context: __SerdeContext): CancelBundleTaskResult => {
-  let contents: any = {
+  const contents: any = {
     BundleTask: undefined,
   };
   if (output["bundleInstanceTask"] !== undefined) {
@@ -51581,7 +51582,7 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): CancelCapacityReservationResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -51591,7 +51592,7 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
 };
 
 const deserializeAws_ec2CancelImportTaskResult = (output: any, context: __SerdeContext): CancelImportTaskResult => {
-  let contents: any = {
+  const contents: any = {
     ImportTaskId: undefined,
     PreviousState: undefined,
     State: undefined,
@@ -51612,7 +51613,7 @@ const deserializeAws_ec2CancelledSpotInstanceRequest = (
   output: any,
   context: __SerdeContext
 ): CancelledSpotInstanceRequest => {
-  let contents: any = {
+  const contents: any = {
     SpotInstanceRequestId: undefined,
     State: undefined,
   };
@@ -51643,7 +51644,7 @@ const deserializeAws_ec2CancelReservedInstancesListingResult = (
   output: any,
   context: __SerdeContext
 ): CancelReservedInstancesListingResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -51665,7 +51666,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsError = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -51682,7 +51683,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsErrorItem = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsErrorItem => {
-  let contents: any = {
+  const contents: any = {
     Error: undefined,
     SpotFleetRequestId: undefined,
   };
@@ -51713,7 +51714,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsResponse => {
-  let contents: any = {
+  const contents: any = {
     SuccessfulFleetRequests: undefined,
     UnsuccessfulFleetRequests: undefined,
   };
@@ -51745,7 +51746,7 @@ const deserializeAws_ec2CancelSpotFleetRequestsSuccessItem = (
   output: any,
   context: __SerdeContext
 ): CancelSpotFleetRequestsSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     CurrentSpotFleetRequestState: undefined,
     PreviousSpotFleetRequestState: undefined,
     SpotFleetRequestId: undefined,
@@ -51780,7 +51781,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
   output: any,
   context: __SerdeContext
 ): CancelSpotInstanceRequestsResult => {
-  let contents: any = {
+  const contents: any = {
     CancelledSpotInstanceRequests: undefined,
   };
   if (output.spotInstanceRequestSet === "") {
@@ -51796,7 +51797,7 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
 };
 
 const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
-  let contents: any = {
+  const contents: any = {
     CapacityReservationId: undefined,
     OwnerId: undefined,
     CapacityReservationArn: undefined,
@@ -51885,7 +51886,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CapacityReservationGroup = (output: any, context: __SerdeContext): CapacityReservationGroup => {
-  let contents: any = {
+  const contents: any = {
     GroupArn: undefined,
     OwnerId: undefined,
   };
@@ -51916,7 +51917,7 @@ const deserializeAws_ec2CapacityReservationOptions = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationOptions => {
-  let contents: any = {
+  const contents: any = {
     UsageStrategy: undefined,
   };
   if (output["usageStrategy"] !== undefined) {
@@ -51940,7 +51941,7 @@ const deserializeAws_ec2CapacityReservationSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationSpecificationResponse => {
-  let contents: any = {
+  const contents: any = {
     CapacityReservationPreference: undefined,
     CapacityReservationTarget: undefined,
   };
@@ -51960,7 +51961,7 @@ const deserializeAws_ec2CapacityReservationTargetResponse = (
   output: any,
   context: __SerdeContext
 ): CapacityReservationTargetResponse => {
-  let contents: any = {
+  const contents: any = {
     CapacityReservationId: undefined,
     CapacityReservationResourceGroupArn: undefined,
   };
@@ -51974,7 +51975,7 @@ const deserializeAws_ec2CapacityReservationTargetResponse = (
 };
 
 const deserializeAws_ec2CarrierGateway = (output: any, context: __SerdeContext): CarrierGateway => {
-  let contents: any = {
+  const contents: any = {
     CarrierGatewayId: undefined,
     VpcId: undefined,
     State: undefined,
@@ -52017,7 +52018,7 @@ const deserializeAws_ec2CertificateAuthentication = (
   output: any,
   context: __SerdeContext
 ): CertificateAuthentication => {
-  let contents: any = {
+  const contents: any = {
     ClientRootCertificateChain: undefined,
   };
   if (output["clientRootCertificateChain"] !== undefined) {
@@ -52027,7 +52028,7 @@ const deserializeAws_ec2CertificateAuthentication = (
 };
 
 const deserializeAws_ec2CidrBlock = (output: any, context: __SerdeContext): CidrBlock => {
-  let contents: any = {
+  const contents: any = {
     CidrBlock: undefined,
   };
   if (output["cidrBlock"] !== undefined) {
@@ -52048,7 +52049,7 @@ const deserializeAws_ec2CidrBlockSet = (output: any, context: __SerdeContext): C
 };
 
 const deserializeAws_ec2ClassicLinkDnsSupport = (output: any, context: __SerdeContext): ClassicLinkDnsSupport => {
-  let contents: any = {
+  const contents: any = {
     ClassicLinkDnsSupported: undefined,
     VpcId: undefined,
   };
@@ -52073,7 +52074,7 @@ const deserializeAws_ec2ClassicLinkDnsSupportList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ClassicLinkInstance = (output: any, context: __SerdeContext): ClassicLinkInstance => {
-  let contents: any = {
+  const contents: any = {
     Groups: undefined,
     InstanceId: undefined,
     Tags: undefined,
@@ -52115,7 +52116,7 @@ const deserializeAws_ec2ClassicLinkInstanceList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ClassicLoadBalancer = (output: any, context: __SerdeContext): ClassicLoadBalancer => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["name"] !== undefined) {
@@ -52139,7 +52140,7 @@ const deserializeAws_ec2ClassicLoadBalancersConfig = (
   output: any,
   context: __SerdeContext
 ): ClassicLoadBalancersConfig => {
-  let contents: any = {
+  const contents: any = {
     ClassicLoadBalancers: undefined,
   };
   if (output.classicLoadBalancers === "") {
@@ -52158,7 +52159,7 @@ const deserializeAws_ec2ClientCertificateRevocationListStatus = (
   output: any,
   context: __SerdeContext
 ): ClientCertificateRevocationListStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52175,7 +52176,7 @@ const deserializeAws_ec2ClientConnectResponseOptions = (
   output: any,
   context: __SerdeContext
 ): ClientConnectResponseOptions => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     LambdaFunctionArn: undefined,
     Status: undefined,
@@ -52193,7 +52194,7 @@ const deserializeAws_ec2ClientConnectResponseOptions = (
 };
 
 const deserializeAws_ec2ClientVpnAuthentication = (output: any, context: __SerdeContext): ClientVpnAuthentication => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     ActiveDirectory: undefined,
     MutualAuthentication: undefined,
@@ -52238,7 +52239,7 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnAuthorizationRuleStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52252,7 +52253,7 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
 };
 
 const deserializeAws_ec2ClientVpnConnection = (output: any, context: __SerdeContext): ClientVpnConnection => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     Timestamp: undefined,
     ConnectionId: undefined,
@@ -52337,7 +52338,7 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnConnectionStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52351,7 +52352,7 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
 };
 
 const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEndpoint => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     Description: undefined,
     Status: undefined,
@@ -52477,7 +52478,7 @@ const deserializeAws_ec2ClientVpnEndpointAttributeStatus = (
   output: any,
   context: __SerdeContext
 ): ClientVpnEndpointAttributeStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52491,7 +52492,7 @@ const deserializeAws_ec2ClientVpnEndpointAttributeStatus = (
 };
 
 const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __SerdeContext): ClientVpnEndpointStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52505,7 +52506,7 @@ const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ClientVpnRoute = (output: any, context: __SerdeContext): ClientVpnRoute => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     DestinationCidr: undefined,
     TargetSubnet: undefined,
@@ -52550,7 +52551,7 @@ const deserializeAws_ec2ClientVpnRouteSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ClientVpnRouteStatus = (output: any, context: __SerdeContext): ClientVpnRouteStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -52575,7 +52576,7 @@ const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (output: any, context: __S
 };
 
 const deserializeAws_ec2CoipAddressUsage = (output: any, context: __SerdeContext): CoipAddressUsage => {
-  let contents: any = {
+  const contents: any = {
     AllocationId: undefined,
     AwsAccountId: undefined,
     AwsService: undefined,
@@ -52608,7 +52609,7 @@ const deserializeAws_ec2CoipAddressUsageSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CoipPool = (output: any, context: __SerdeContext): CoipPool => {
-  let contents: any = {
+  const contents: any = {
     PoolId: undefined,
     PoolCidrs: undefined,
     LocalGatewayRouteTableId: undefined,
@@ -52657,7 +52658,7 @@ const deserializeAws_ec2ConfirmProductInstanceResult = (
   output: any,
   context: __SerdeContext
 ): ConfirmProductInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     OwnerId: undefined,
     Return: undefined,
   };
@@ -52674,7 +52675,7 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
   output: any,
   context: __SerdeContext
 ): ConnectionLogResponseOptions => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     CloudwatchLogGroup: undefined,
     CloudwatchLogStream: undefined,
@@ -52692,7 +52693,7 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
 };
 
 const deserializeAws_ec2ConnectionNotification = (output: any, context: __SerdeContext): ConnectionNotification => {
-  let contents: any = {
+  const contents: any = {
     ConnectionNotificationId: undefined,
     ServiceId: undefined,
     VpcEndpointId: undefined,
@@ -52746,7 +52747,7 @@ const deserializeAws_ec2ConnectionNotificationSet = (
 };
 
 const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext): ConversionTask => {
-  let contents: any = {
+  const contents: any = {
     ConversionTaskId: undefined,
     ExpirationTime: undefined,
     ImportInstance: undefined,
@@ -52783,7 +52784,7 @@ const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeContext): CopyFpgaImageResult => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageId: undefined,
   };
   if (output["fpgaImageId"] !== undefined) {
@@ -52793,7 +52794,7 @@ const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext): CopyImageResult => {
-  let contents: any = {
+  const contents: any = {
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -52803,7 +52804,7 @@ const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     Tags: undefined,
   };
@@ -52831,7 +52832,7 @@ const deserializeAws_ec2CoreCountList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
-  let contents: any = {
+  const contents: any = {
     CoreCount: undefined,
     ThreadsPerCore: undefined,
   };
@@ -52848,7 +52849,7 @@ const deserializeAws_ec2CreateCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): CreateCapacityReservationResult => {
-  let contents: any = {
+  const contents: any = {
     CapacityReservation: undefined,
   };
   if (output["capacityReservation"] !== undefined) {
@@ -52861,7 +52862,7 @@ const deserializeAws_ec2CreateCarrierGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateCarrierGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     CarrierGateway: undefined,
   };
   if (output["carrierGateway"] !== undefined) {
@@ -52874,7 +52875,7 @@ const deserializeAws_ec2CreateClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): CreateClientVpnEndpointResult => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     Status: undefined,
     DnsName: undefined,
@@ -52895,7 +52896,7 @@ const deserializeAws_ec2CreateClientVpnRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateClientVpnRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -52908,7 +52909,7 @@ const deserializeAws_ec2CreateCustomerGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateCustomerGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     CustomerGateway: undefined,
   };
   if (output["customerGateway"] !== undefined) {
@@ -52921,7 +52922,7 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
   output: any,
   context: __SerdeContext
 ): CreateDefaultSubnetResult => {
-  let contents: any = {
+  const contents: any = {
     Subnet: undefined,
   };
   if (output["subnet"] !== undefined) {
@@ -52931,7 +52932,7 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
 };
 
 const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeContext): CreateDefaultVpcResult => {
-  let contents: any = {
+  const contents: any = {
     Vpc: undefined,
   };
   if (output["vpc"] !== undefined) {
@@ -52941,7 +52942,7 @@ const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreateDhcpOptionsResult = (output: any, context: __SerdeContext): CreateDhcpOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     DhcpOptions: undefined,
   };
   if (output["dhcpOptions"] !== undefined) {
@@ -52954,7 +52955,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateEgressOnlyInternetGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     EgressOnlyInternetGateway: undefined,
   };
@@ -52971,7 +52972,7 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
 };
 
 const deserializeAws_ec2CreateFleetError = (output: any, context: __SerdeContext): CreateFleetError => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateAndOverrides: undefined,
     Lifecycle: undefined,
     ErrorCode: undefined,
@@ -53007,7 +53008,7 @@ const deserializeAws_ec2CreateFleetErrorsSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CreateFleetInstance = (output: any, context: __SerdeContext): CreateFleetInstance => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateAndOverrides: undefined,
     Lifecycle: undefined,
     InstanceIds: undefined,
@@ -53053,7 +53054,7 @@ const deserializeAws_ec2CreateFleetInstancesSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
-  let contents: any = {
+  const contents: any = {
     FleetId: undefined,
     Errors: undefined,
     Instances: undefined,
@@ -53083,7 +53084,7 @@ const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeContext): CreateFlowLogsResult => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     FlowLogIds: undefined,
     Unsuccessful: undefined,
@@ -53113,7 +53114,7 @@ const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeContext): CreateFpgaImageResult => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageId: undefined,
     FpgaImageGlobalId: undefined,
   };
@@ -53127,7 +53128,7 @@ const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2CreateImageResult = (output: any, context: __SerdeContext): CreateImageResult => {
-  let contents: any = {
+  const contents: any = {
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -53140,7 +53141,7 @@ const deserializeAws_ec2CreateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): CreateInstanceEventWindowResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindow: undefined,
   };
   if (output["instanceEventWindow"] !== undefined) {
@@ -53153,7 +53154,7 @@ const deserializeAws_ec2CreateInstanceExportTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateInstanceExportTaskResult => {
-  let contents: any = {
+  const contents: any = {
     ExportTask: undefined,
   };
   if (output["exportTask"] !== undefined) {
@@ -53166,7 +53167,7 @@ const deserializeAws_ec2CreateInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateInternetGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     InternetGateway: undefined,
   };
   if (output["internetGateway"] !== undefined) {
@@ -53179,7 +53180,7 @@ const deserializeAws_ec2CreateLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): CreateLaunchTemplateResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplate: undefined,
     Warning: undefined,
   };
@@ -53196,7 +53197,7 @@ const deserializeAws_ec2CreateLaunchTemplateVersionResult = (
   output: any,
   context: __SerdeContext
 ): CreateLaunchTemplateVersionResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateVersion: undefined,
     Warning: undefined,
   };
@@ -53213,7 +53214,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -53226,7 +53227,7 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationResult = (
   output: any,
   context: __SerdeContext
 ): CreateLocalGatewayRouteTableVpcAssociationResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVpcAssociation: undefined,
   };
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
@@ -53242,7 +53243,7 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): CreateManagedPrefixListResult => {
-  let contents: any = {
+  const contents: any = {
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -53252,7 +53253,7 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
 };
 
 const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeContext): CreateNatGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     NatGateway: undefined,
   };
@@ -53266,7 +53267,7 @@ const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreateNetworkAclResult = (output: any, context: __SerdeContext): CreateNetworkAclResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkAcl: undefined,
   };
   if (output["networkAcl"] !== undefined) {
@@ -53279,7 +53280,7 @@ const deserializeAws_ec2CreateNetworkInsightsPathResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInsightsPathResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsPath: undefined,
   };
   if (output["networkInsightsPath"] !== undefined) {
@@ -53292,7 +53293,7 @@ const deserializeAws_ec2CreateNetworkInterfacePermissionResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInterfacePermissionResult => {
-  let contents: any = {
+  const contents: any = {
     InterfacePermission: undefined,
   };
   if (output["interfacePermission"] !== undefined) {
@@ -53305,7 +53306,7 @@ const deserializeAws_ec2CreateNetworkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): CreateNetworkInterfaceResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterface: undefined,
     ClientToken: undefined,
   };
@@ -53322,7 +53323,7 @@ const deserializeAws_ec2CreatePlacementGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreatePlacementGroupResult => {
-  let contents: any = {
+  const contents: any = {
     PlacementGroup: undefined,
   };
   if (output["placementGroup"] !== undefined) {
@@ -53335,7 +53336,7 @@ const deserializeAws_ec2CreateReplaceRootVolumeTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateReplaceRootVolumeTaskResult => {
-  let contents: any = {
+  const contents: any = {
     ReplaceRootVolumeTask: undefined,
   };
   if (output["replaceRootVolumeTask"] !== undefined) {
@@ -53348,7 +53349,7 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
   output: any,
   context: __SerdeContext
 ): CreateReservedInstancesListingResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -53370,7 +53371,7 @@ const deserializeAws_ec2CreateRestoreImageTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateRestoreImageTaskResult => {
-  let contents: any = {
+  const contents: any = {
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -53380,7 +53381,7 @@ const deserializeAws_ec2CreateRestoreImageTaskResult = (
 };
 
 const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContext): CreateRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -53390,7 +53391,7 @@ const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2CreateRouteTableResult = (output: any, context: __SerdeContext): CreateRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     RouteTable: undefined,
   };
   if (output["routeTable"] !== undefined) {
@@ -53403,7 +53404,7 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
   output: any,
   context: __SerdeContext
 ): CreateSecurityGroupResult => {
-  let contents: any = {
+  const contents: any = {
     GroupId: undefined,
     Tags: undefined,
   };
@@ -53420,7 +53421,7 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
 };
 
 const deserializeAws_ec2CreateSnapshotsResult = (output: any, context: __SerdeContext): CreateSnapshotsResult => {
-  let contents: any = {
+  const contents: any = {
     Snapshots: undefined,
   };
   if (output.snapshotSet === "") {
@@ -53436,7 +53437,7 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): CreateSpotDatafeedSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     SpotDatafeedSubscription: undefined,
   };
   if (output["spotDatafeedSubscription"] !== undefined) {
@@ -53452,7 +53453,7 @@ const deserializeAws_ec2CreateStoreImageTaskResult = (
   output: any,
   context: __SerdeContext
 ): CreateStoreImageTaskResult => {
-  let contents: any = {
+  const contents: any = {
     ObjectKey: undefined,
   };
   if (output["objectKey"] !== undefined) {
@@ -53465,7 +53466,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationResult = (
   output: any,
   context: __SerdeContext
 ): CreateSubnetCidrReservationResult => {
-  let contents: any = {
+  const contents: any = {
     SubnetCidrReservation: undefined,
   };
   if (output["subnetCidrReservation"] !== undefined) {
@@ -53475,7 +53476,7 @@ const deserializeAws_ec2CreateSubnetCidrReservationResult = (
 };
 
 const deserializeAws_ec2CreateSubnetResult = (output: any, context: __SerdeContext): CreateSubnetResult => {
-  let contents: any = {
+  const contents: any = {
     Subnet: undefined,
   };
   if (output["subnet"] !== undefined) {
@@ -53488,7 +53489,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorFilterResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilter: undefined,
     ClientToken: undefined,
   };
@@ -53505,7 +53506,7 @@ const deserializeAws_ec2CreateTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorFilterRuleResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterRule: undefined,
     ClientToken: undefined,
   };
@@ -53525,7 +53526,7 @@ const deserializeAws_ec2CreateTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorSessionResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorSession: undefined,
     ClientToken: undefined,
   };
@@ -53542,7 +53543,7 @@ const deserializeAws_ec2CreateTrafficMirrorTargetResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrafficMirrorTargetResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorTarget: undefined,
     ClientToken: undefined,
   };
@@ -53559,7 +53560,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectPeerResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayConnectPeerResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnectPeer: undefined,
   };
   if (output["transitGatewayConnectPeer"] !== undefined) {
@@ -53575,7 +53576,7 @@ const deserializeAws_ec2CreateTransitGatewayConnectResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayConnectResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnect: undefined,
   };
   if (output["transitGatewayConnect"] !== undefined) {
@@ -53588,7 +53589,7 @@ const deserializeAws_ec2CreateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayMulticastDomainResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomain: undefined,
   };
   if (output["transitGatewayMulticastDomain"] !== undefined) {
@@ -53604,7 +53605,7 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayPeeringAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -53620,7 +53621,7 @@ const deserializeAws_ec2CreateTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayPrefixListReferenceResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPrefixListReference: undefined,
   };
   if (output["transitGatewayPrefixListReference"] !== undefined) {
@@ -53636,7 +53637,7 @@ const deserializeAws_ec2CreateTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGateway: undefined,
   };
   if (output["transitGateway"] !== undefined) {
@@ -53649,7 +53650,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -53662,7 +53663,7 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTable: undefined,
   };
   if (output["transitGatewayRouteTable"] !== undefined) {
@@ -53678,7 +53679,7 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): CreateTransitGatewayVpcAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -53691,7 +53692,7 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
 };
 
 const deserializeAws_ec2CreateVolumePermission = (output: any, context: __SerdeContext): CreateVolumePermission => {
-  let contents: any = {
+  const contents: any = {
     Group: undefined,
     UserId: undefined,
   };
@@ -53722,7 +53723,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcEndpointConnectionNotificationResult => {
-  let contents: any = {
+  const contents: any = {
     ConnectionNotification: undefined,
     ClientToken: undefined,
   };
@@ -53739,7 +53740,7 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
 };
 
 const deserializeAws_ec2CreateVpcEndpointResult = (output: any, context: __SerdeContext): CreateVpcEndpointResult => {
-  let contents: any = {
+  const contents: any = {
     VpcEndpoint: undefined,
     ClientToken: undefined,
   };
@@ -53756,7 +53757,7 @@ const deserializeAws_ec2CreateVpcEndpointServiceConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcEndpointServiceConfigurationResult => {
-  let contents: any = {
+  const contents: any = {
     ServiceConfiguration: undefined,
     ClientToken: undefined,
   };
@@ -53773,7 +53774,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpcPeeringConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     VpcPeeringConnection: undefined,
   };
   if (output["vpcPeeringConnection"] !== undefined) {
@@ -53783,7 +53784,7 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
 };
 
 const deserializeAws_ec2CreateVpcResult = (output: any, context: __SerdeContext): CreateVpcResult => {
-  let contents: any = {
+  const contents: any = {
     Vpc: undefined,
   };
   if (output["vpc"] !== undefined) {
@@ -53796,7 +53797,7 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
   output: any,
   context: __SerdeContext
 ): CreateVpnConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -53806,7 +53807,7 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
 };
 
 const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeContext): CreateVpnGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     VpnGateway: undefined,
   };
   if (output["vpnGateway"] !== undefined) {
@@ -53816,7 +53817,7 @@ const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeContext): CreditSpecification => {
-  let contents: any = {
+  const contents: any = {
     CpuCredits: undefined,
   };
   if (output["cpuCredits"] !== undefined) {
@@ -53826,7 +53827,7 @@ const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2CustomerGateway = (output: any, context: __SerdeContext): CustomerGateway => {
-  let contents: any = {
+  const contents: any = {
     BgpAsn: undefined,
     CustomerGatewayId: undefined,
     IpAddress: undefined,
@@ -53892,7 +53893,7 @@ const deserializeAws_ec2DeleteCarrierGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteCarrierGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     CarrierGateway: undefined,
   };
   if (output["carrierGateway"] !== undefined) {
@@ -53905,7 +53906,7 @@ const deserializeAws_ec2DeleteClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): DeleteClientVpnEndpointResult => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -53918,7 +53919,7 @@ const deserializeAws_ec2DeleteClientVpnRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteClientVpnRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -53931,7 +53932,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEgressOnlyInternetGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     ReturnCode: undefined,
   };
   if (output["returnCode"] !== undefined) {
@@ -53941,7 +53942,7 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
 };
 
 const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext): DeleteFleetError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -53955,7 +53956,7 @@ const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2DeleteFleetErrorItem = (output: any, context: __SerdeContext): DeleteFleetErrorItem => {
-  let contents: any = {
+  const contents: any = {
     Error: undefined,
     FleetId: undefined,
   };
@@ -53980,7 +53981,7 @@ const deserializeAws_ec2DeleteFleetErrorSet = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeContext): DeleteFleetsResult => {
-  let contents: any = {
+  const contents: any = {
     SuccessfulFleetDeletions: undefined,
     UnsuccessfulFleetDeletions: undefined,
   };
@@ -54012,7 +54013,7 @@ const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2DeleteFleetSuccessItem = (output: any, context: __SerdeContext): DeleteFleetSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     CurrentFleetState: undefined,
     PreviousFleetState: undefined,
     FleetId: undefined,
@@ -54041,7 +54042,7 @@ const deserializeAws_ec2DeleteFleetSuccessSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeContext): DeleteFlowLogsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -54057,7 +54058,7 @@ const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2DeleteFpgaImageResult = (output: any, context: __SerdeContext): DeleteFpgaImageResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -54070,7 +54071,7 @@ const deserializeAws_ec2DeleteInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): DeleteInstanceEventWindowResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindowState: undefined,
   };
   if (output["instanceEventWindowState"] !== undefined) {
@@ -54086,7 +54087,7 @@ const deserializeAws_ec2DeleteLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplate: undefined,
   };
   if (output["launchTemplate"] !== undefined) {
@@ -54099,7 +54100,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseErrorItem => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     VersionNumber: undefined,
@@ -54138,7 +54139,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     VersionNumber: undefined,
@@ -54173,7 +54174,7 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResult => {
-  let contents: any = {
+  const contents: any = {
     SuccessfullyDeletedLaunchTemplateVersions: undefined,
     UnsuccessfullyDeletedLaunchTemplateVersions: undefined,
   };
@@ -54210,7 +54211,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -54223,7 +54224,7 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLocalGatewayRouteTableVpcAssociationResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVpcAssociation: undefined,
   };
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
@@ -54239,7 +54240,7 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): DeleteManagedPrefixListResult => {
-  let contents: any = {
+  const contents: any = {
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -54249,7 +54250,7 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
 };
 
 const deserializeAws_ec2DeleteNatGatewayResult = (output: any, context: __SerdeContext): DeleteNatGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     NatGatewayId: undefined,
   };
   if (output["natGatewayId"] !== undefined) {
@@ -54262,7 +54263,7 @@ const deserializeAws_ec2DeleteNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsAnalysisResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsAnalysisId: undefined,
   };
   if (output["networkInsightsAnalysisId"] !== undefined) {
@@ -54275,7 +54276,7 @@ const deserializeAws_ec2DeleteNetworkInsightsPathResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInsightsPathResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsPathId: undefined,
   };
   if (output["networkInsightsPathId"] !== undefined) {
@@ -54288,7 +54289,7 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkInterfacePermissionResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -54301,7 +54302,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesError = (
   output: any,
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -54318,7 +54319,7 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     SuccessfulQueuedPurchaseDeletions: undefined,
     FailedQueuedPurchaseDeletions: undefined,
   };
@@ -54353,7 +54354,7 @@ const deserializeAws_ec2DeleteSubnetCidrReservationResult = (
   output: any,
   context: __SerdeContext
 ): DeleteSubnetCidrReservationResult => {
-  let contents: any = {
+  const contents: any = {
     DeletedSubnetCidrReservation: undefined,
   };
   if (output["deletedSubnetCidrReservation"] !== undefined) {
@@ -54369,7 +54370,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterId: undefined,
   };
   if (output["trafficMirrorFilterId"] !== undefined) {
@@ -54382,7 +54383,7 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterRuleResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterRuleId: undefined,
   };
   if (output["trafficMirrorFilterRuleId"] !== undefined) {
@@ -54395,7 +54396,7 @@ const deserializeAws_ec2DeleteTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorSessionResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorSessionId: undefined,
   };
   if (output["trafficMirrorSessionId"] !== undefined) {
@@ -54408,7 +54409,7 @@ const deserializeAws_ec2DeleteTrafficMirrorTargetResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrafficMirrorTargetResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorTargetId: undefined,
   };
   if (output["trafficMirrorTargetId"] !== undefined) {
@@ -54421,7 +54422,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectPeerResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayConnectPeerResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnectPeer: undefined,
   };
   if (output["transitGatewayConnectPeer"] !== undefined) {
@@ -54437,7 +54438,7 @@ const deserializeAws_ec2DeleteTransitGatewayConnectResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayConnectResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnect: undefined,
   };
   if (output["transitGatewayConnect"] !== undefined) {
@@ -54450,7 +54451,7 @@ const deserializeAws_ec2DeleteTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayMulticastDomainResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomain: undefined,
   };
   if (output["transitGatewayMulticastDomain"] !== undefined) {
@@ -54466,7 +54467,7 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayPeeringAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -54482,7 +54483,7 @@ const deserializeAws_ec2DeleteTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayPrefixListReferenceResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPrefixListReference: undefined,
   };
   if (output["transitGatewayPrefixListReference"] !== undefined) {
@@ -54498,7 +54499,7 @@ const deserializeAws_ec2DeleteTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGateway: undefined,
   };
   if (output["transitGateway"] !== undefined) {
@@ -54511,7 +54512,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -54524,7 +54525,7 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTable: undefined,
   };
   if (output["transitGatewayRouteTable"] !== undefined) {
@@ -54540,7 +54541,7 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTransitGatewayVpcAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -54556,7 +54557,7 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcEndpointConnectionNotificationsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -54575,7 +54576,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcEndpointServiceConfigurationsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -54591,7 +54592,7 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
 };
 
 const deserializeAws_ec2DeleteVpcEndpointsResult = (output: any, context: __SerdeContext): DeleteVpcEndpointsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -54610,7 +54611,7 @@ const deserializeAws_ec2DeleteVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteVpcPeeringConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -54623,7 +54624,7 @@ const deserializeAws_ec2DeprovisionByoipCidrResult = (
   output: any,
   context: __SerdeContext
 ): DeprovisionByoipCidrResult => {
-  let contents: any = {
+  const contents: any = {
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -54636,7 +54637,7 @@ const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterInstanceEventNotificationAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -54652,7 +54653,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupMembersResult => {
-  let contents: any = {
+  const contents: any = {
     DeregisteredMulticastGroupMembers: undefined,
   };
   if (output["deregisteredMulticastGroupMembers"] !== undefined) {
@@ -54668,7 +54669,7 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupSourcesResult => {
-  let contents: any = {
+  const contents: any = {
     DeregisteredMulticastGroupSources: undefined,
   };
   if (output["deregisteredMulticastGroupSources"] !== undefined) {
@@ -54684,7 +54685,7 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     AccountAttributes: undefined,
   };
   if (output.accountAttributeSet === "") {
@@ -54703,7 +54704,7 @@ const deserializeAws_ec2DescribeAddressesAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAddressesAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     Addresses: undefined,
     NextToken: undefined,
   };
@@ -54720,7 +54721,7 @@ const deserializeAws_ec2DescribeAddressesAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeAddressesResult = (output: any, context: __SerdeContext): DescribeAddressesResult => {
-  let contents: any = {
+  const contents: any = {
     Addresses: undefined,
   };
   if (output.addressesSet === "") {
@@ -54736,7 +54737,7 @@ const deserializeAws_ec2DescribeAggregateIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAggregateIdFormatResult => {
-  let contents: any = {
+  const contents: any = {
     UseLongIdsAggregated: undefined,
     Statuses: undefined,
   };
@@ -54756,7 +54757,7 @@ const deserializeAws_ec2DescribeAvailabilityZonesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityZonesResult => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZones: undefined,
   };
   if (output.availabilityZoneInfo === "") {
@@ -54775,7 +54776,7 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeBundleTasksResult => {
-  let contents: any = {
+  const contents: any = {
     BundleTasks: undefined,
   };
   if (output.bundleInstanceTasksSet === "") {
@@ -54791,7 +54792,7 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
 };
 
 const deserializeAws_ec2DescribeByoipCidrsResult = (output: any, context: __SerdeContext): DescribeByoipCidrsResult => {
-  let contents: any = {
+  const contents: any = {
     ByoipCidrs: undefined,
     NextToken: undefined,
   };
@@ -54814,7 +54815,7 @@ const deserializeAws_ec2DescribeCapacityReservationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCapacityReservationsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     CapacityReservations: undefined,
   };
@@ -54837,7 +54838,7 @@ const deserializeAws_ec2DescribeCarrierGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCarrierGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     CarrierGateways: undefined,
     NextToken: undefined,
   };
@@ -54860,7 +54861,7 @@ const deserializeAws_ec2DescribeClassicLinkInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClassicLinkInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     Instances: undefined,
     NextToken: undefined,
   };
@@ -54883,7 +54884,7 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnAuthorizationRulesResult => {
-  let contents: any = {
+  const contents: any = {
     AuthorizationRules: undefined,
     NextToken: undefined,
   };
@@ -54906,7 +54907,7 @@ const deserializeAws_ec2DescribeClientVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     Connections: undefined,
     NextToken: undefined,
   };
@@ -54929,7 +54930,7 @@ const deserializeAws_ec2DescribeClientVpnEndpointsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnEndpointsResult => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpoints: undefined,
     NextToken: undefined,
   };
@@ -54952,7 +54953,7 @@ const deserializeAws_ec2DescribeClientVpnRoutesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnRoutesResult => {
-  let contents: any = {
+  const contents: any = {
     Routes: undefined,
     NextToken: undefined,
   };
@@ -54972,7 +54973,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeClientVpnTargetNetworksResult => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnTargetNetworks: undefined,
     NextToken: undefined,
   };
@@ -54992,7 +54993,7 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
 };
 
 const deserializeAws_ec2DescribeCoipPoolsResult = (output: any, context: __SerdeContext): DescribeCoipPoolsResult => {
-  let contents: any = {
+  const contents: any = {
     CoipPools: undefined,
     NextToken: undefined,
   };
@@ -55023,7 +55024,7 @@ const deserializeAws_ec2DescribeConversionTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeConversionTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ConversionTasks: undefined,
   };
   if (output.conversionTasks === "") {
@@ -55042,7 +55043,7 @@ const deserializeAws_ec2DescribeCustomerGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCustomerGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     CustomerGateways: undefined,
   };
   if (output.customerGatewaySet === "") {
@@ -55061,7 +55062,7 @@ const deserializeAws_ec2DescribeDhcpOptionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeDhcpOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     DhcpOptions: undefined,
     NextToken: undefined,
   };
@@ -55084,7 +55085,7 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEgressOnlyInternetGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     EgressOnlyInternetGateways: undefined,
     NextToken: undefined,
   };
@@ -55110,7 +55111,7 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeElasticGpusResult => {
-  let contents: any = {
+  const contents: any = {
     ElasticGpuSet: undefined,
     MaxResults: undefined,
     NextToken: undefined,
@@ -55137,7 +55138,7 @@ const deserializeAws_ec2DescribeExportImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeExportImageTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ExportImageTasks: undefined,
     NextToken: undefined,
   };
@@ -55160,7 +55161,7 @@ const deserializeAws_ec2DescribeExportTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeExportTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ExportTasks: undefined,
   };
   if (output.exportTaskSet === "") {
@@ -55179,7 +55180,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFastSnapshotRestoresResult => {
-  let contents: any = {
+  const contents: any = {
     FastSnapshotRestores: undefined,
     NextToken: undefined,
   };
@@ -55202,7 +55203,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DescribeFastSnapshotRestoreSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     AvailabilityZone: undefined,
     State: undefined,
@@ -55266,7 +55267,7 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet = (
 };
 
 const deserializeAws_ec2DescribeFleetError = (output: any, context: __SerdeContext): DescribeFleetError => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateAndOverrides: undefined,
     Lifecycle: undefined,
     ErrorCode: undefined,
@@ -55294,7 +55295,7 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFleetHistoryResult => {
-  let contents: any = {
+  const contents: any = {
     HistoryRecords: undefined,
     LastEvaluatedTime: undefined,
     NextToken: undefined,
@@ -55329,7 +55330,7 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFleetInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     ActiveInstances: undefined,
     NextToken: undefined,
     FleetId: undefined,
@@ -55364,7 +55365,7 @@ const deserializeAws_ec2DescribeFleetsErrorSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2DescribeFleetsInstances = (output: any, context: __SerdeContext): DescribeFleetsInstances => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateAndOverrides: undefined,
     Lifecycle: undefined,
     InstanceIds: undefined,
@@ -55413,7 +55414,7 @@ const deserializeAws_ec2DescribeFleetsInstancesSet = (
 };
 
 const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     Fleets: undefined,
   };
@@ -55430,7 +55431,7 @@ const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2DescribeFlowLogsResult = (output: any, context: __SerdeContext): DescribeFlowLogsResult => {
-  let contents: any = {
+  const contents: any = {
     FlowLogs: undefined,
     NextToken: undefined,
   };
@@ -55450,7 +55451,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeFpgaImageAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageAttribute: undefined,
   };
   if (output["fpgaImageAttribute"] !== undefined) {
@@ -55460,7 +55461,7 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeFpgaImagesResult = (output: any, context: __SerdeContext): DescribeFpgaImagesResult => {
-  let contents: any = {
+  const contents: any = {
     FpgaImages: undefined,
     NextToken: undefined,
   };
@@ -55483,7 +55484,7 @@ const deserializeAws_ec2DescribeHostReservationOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeHostReservationOfferingsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     OfferingSet: undefined,
   };
@@ -55506,7 +55507,7 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeHostReservationsResult => {
-  let contents: any = {
+  const contents: any = {
     HostReservationSet: undefined,
     NextToken: undefined,
   };
@@ -55526,7 +55527,7 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
 };
 
 const deserializeAws_ec2DescribeHostsResult = (output: any, context: __SerdeContext): DescribeHostsResult => {
-  let contents: any = {
+  const contents: any = {
     Hosts: undefined,
     NextToken: undefined,
   };
@@ -55546,7 +55547,7 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIamInstanceProfileAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     IamInstanceProfileAssociations: undefined,
     NextToken: undefined,
   };
@@ -55572,7 +55573,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribeIdentityIdFormatResult => {
-  let contents: any = {
+  const contents: any = {
     Statuses: undefined,
   };
   if (output.statusSet === "") {
@@ -55585,7 +55586,7 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
 };
 
 const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeContext): DescribeIdFormatResult => {
-  let contents: any = {
+  const contents: any = {
     Statuses: undefined,
   };
   if (output.statusSet === "") {
@@ -55598,7 +55599,7 @@ const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
-  let contents: any = {
+  const contents: any = {
     Images: undefined,
   };
   if (output.imagesSet === "") {
@@ -55614,7 +55615,7 @@ const deserializeAws_ec2DescribeImportImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeImportImageTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ImportImageTasks: undefined,
     NextToken: undefined,
   };
@@ -55637,7 +55638,7 @@ const deserializeAws_ec2DescribeImportSnapshotTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeImportSnapshotTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ImportSnapshotTasks: undefined,
     NextToken: undefined,
   };
@@ -55660,7 +55661,7 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceCreditSpecificationsResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceCreditSpecifications: undefined,
     NextToken: undefined,
   };
@@ -55686,7 +55687,7 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceEventNotificationAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -55702,7 +55703,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceEventWindowsResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindows: undefined,
     NextToken: undefined,
   };
@@ -55722,7 +55723,7 @@ const deserializeAws_ec2DescribeInstanceEventWindowsResult = (
 };
 
 const deserializeAws_ec2DescribeInstancesResult = (output: any, context: __SerdeContext): DescribeInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     Reservations: undefined,
     NextToken: undefined,
   };
@@ -55745,7 +55746,7 @@ const deserializeAws_ec2DescribeInstanceStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceStatusResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceStatuses: undefined,
     NextToken: undefined,
   };
@@ -55768,7 +55769,7 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceTypeOfferingsResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceTypeOfferings: undefined,
     NextToken: undefined,
   };
@@ -55791,7 +55792,7 @@ const deserializeAws_ec2DescribeInstanceTypesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceTypesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceTypes: undefined,
     NextToken: undefined,
   };
@@ -55814,7 +55815,7 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInternetGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     InternetGateways: undefined,
     NextToken: undefined,
   };
@@ -55834,7 +55835,7 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
 };
 
 const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): DescribeIpv6PoolsResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Pools: undefined,
     NextToken: undefined,
   };
@@ -55851,7 +55852,7 @@ const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2DescribeKeyPairsResult = (output: any, context: __SerdeContext): DescribeKeyPairsResult => {
-  let contents: any = {
+  const contents: any = {
     KeyPairs: undefined,
   };
   if (output.keySet === "") {
@@ -55867,7 +55868,7 @@ const deserializeAws_ec2DescribeLaunchTemplatesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLaunchTemplatesResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplates: undefined,
     NextToken: undefined,
   };
@@ -55890,7 +55891,7 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLaunchTemplateVersionsResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateVersions: undefined,
     NextToken: undefined,
   };
@@ -55913,7 +55914,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTablesResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTables: undefined,
     NextToken: undefined,
   };
@@ -55936,7 +55937,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVirtualInterfaceGroupAssociations: undefined,
     NextToken: undefined,
   };
@@ -55963,7 +55964,7 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVpcAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVpcAssociations: undefined,
     NextToken: undefined,
   };
@@ -55989,7 +55990,7 @@ const deserializeAws_ec2DescribeLocalGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGateways: undefined,
     NextToken: undefined,
   };
@@ -56012,7 +56013,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfaceGroupsResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayVirtualInterfaceGroups: undefined,
     NextToken: undefined,
   };
@@ -56038,7 +56039,7 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfacesResult => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayVirtualInterfaces: undefined,
     NextToken: undefined,
   };
@@ -56064,7 +56065,7 @@ const deserializeAws_ec2DescribeManagedPrefixListsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeManagedPrefixListsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     PrefixLists: undefined,
   };
@@ -56087,7 +56088,7 @@ const deserializeAws_ec2DescribeMovingAddressesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeMovingAddressesResult => {
-  let contents: any = {
+  const contents: any = {
     MovingAddressStatuses: undefined,
     NextToken: undefined,
   };
@@ -56110,7 +56111,7 @@ const deserializeAws_ec2DescribeNatGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNatGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     NatGateways: undefined,
     NextToken: undefined,
   };
@@ -56133,7 +56134,7 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkAclsResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkAcls: undefined,
     NextToken: undefined,
   };
@@ -56156,7 +56157,7 @@ const deserializeAws_ec2DescribeNetworkInsightsAnalysesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsAnalysesResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsAnalyses: undefined,
     NextToken: undefined,
   };
@@ -56182,7 +56183,7 @@ const deserializeAws_ec2DescribeNetworkInsightsPathsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInsightsPathsResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsPaths: undefined,
     NextToken: undefined,
   };
@@ -56205,7 +56206,7 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfaceAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     Attachment: undefined,
     Description: undefined,
     Groups: undefined,
@@ -56240,7 +56241,7 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfacePermissionsResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterfacePermissions: undefined,
     NextToken: undefined,
   };
@@ -56266,7 +56267,7 @@ const deserializeAws_ec2DescribeNetworkInterfacesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeNetworkInterfacesResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterfaces: undefined,
     NextToken: undefined,
   };
@@ -56289,7 +56290,7 @@ const deserializeAws_ec2DescribePlacementGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePlacementGroupsResult => {
-  let contents: any = {
+  const contents: any = {
     PlacementGroups: undefined,
   };
   if (output.placementGroupSet === "") {
@@ -56308,7 +56309,7 @@ const deserializeAws_ec2DescribePrefixListsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePrefixListsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     PrefixLists: undefined,
   };
@@ -56331,7 +56332,7 @@ const deserializeAws_ec2DescribePrincipalIdFormatResult = (
   output: any,
   context: __SerdeContext
 ): DescribePrincipalIdFormatResult => {
-  let contents: any = {
+  const contents: any = {
     Principals: undefined,
     NextToken: undefined,
   };
@@ -56354,7 +56355,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
   output: any,
   context: __SerdeContext
 ): DescribePublicIpv4PoolsResult => {
-  let contents: any = {
+  const contents: any = {
     PublicIpv4Pools: undefined,
     NextToken: undefined,
   };
@@ -56374,7 +56375,7 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
 };
 
 const deserializeAws_ec2DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
-  let contents: any = {
+  const contents: any = {
     Regions: undefined,
   };
   if (output.regionInfo === "") {
@@ -56390,7 +56391,7 @@ const deserializeAws_ec2DescribeReplaceRootVolumeTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReplaceRootVolumeTasksResult => {
-  let contents: any = {
+  const contents: any = {
     ReplaceRootVolumeTasks: undefined,
     NextToken: undefined,
   };
@@ -56413,7 +56414,7 @@ const deserializeAws_ec2DescribeReservedInstancesListingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesListingsResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -56435,7 +56436,7 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesModificationsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     ReservedInstancesModifications: undefined,
   };
@@ -56461,7 +56462,7 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesOfferingsResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesOfferings: undefined,
     NextToken: undefined,
   };
@@ -56487,7 +56488,7 @@ const deserializeAws_ec2DescribeReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeReservedInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstances: undefined,
   };
   if (output.reservedInstancesSet === "") {
@@ -56506,7 +56507,7 @@ const deserializeAws_ec2DescribeRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeRouteTablesResult => {
-  let contents: any = {
+  const contents: any = {
     RouteTables: undefined,
     NextToken: undefined,
   };
@@ -56529,7 +56530,7 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult = (
   output: any,
   context: __SerdeContext
 ): DescribeScheduledInstanceAvailabilityResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     ScheduledInstanceAvailabilitySet: undefined,
   };
@@ -56555,7 +56556,7 @@ const deserializeAws_ec2DescribeScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeScheduledInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     ScheduledInstanceSet: undefined,
   };
@@ -56578,7 +56579,7 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupReferencesResult => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroupReferenceSet: undefined,
   };
   if (output.securityGroupReferenceSet === "") {
@@ -56597,7 +56598,7 @@ const deserializeAws_ec2DescribeSecurityGroupRulesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupRulesResult => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroupRules: undefined,
     NextToken: undefined,
   };
@@ -56620,7 +56621,7 @@ const deserializeAws_ec2DescribeSecurityGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityGroupsResult => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroups: undefined,
     NextToken: undefined,
   };
@@ -56643,7 +56644,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSnapshotAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     CreateVolumePermissions: undefined,
     ProductCodes: undefined,
     SnapshotId: undefined,
@@ -56673,7 +56674,7 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
 };
 
 const deserializeAws_ec2DescribeSnapshotsResult = (output: any, context: __SerdeContext): DescribeSnapshotsResult => {
-  let contents: any = {
+  const contents: any = {
     Snapshots: undefined,
     NextToken: undefined,
   };
@@ -56693,7 +56694,7 @@ const deserializeAws_ec2DescribeSpotDatafeedSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotDatafeedSubscriptionResult => {
-  let contents: any = {
+  const contents: any = {
     SpotDatafeedSubscription: undefined,
   };
   if (output["spotDatafeedSubscription"] !== undefined) {
@@ -56709,7 +56710,7 @@ const deserializeAws_ec2DescribeSpotFleetInstancesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetInstancesResponse => {
-  let contents: any = {
+  const contents: any = {
     ActiveInstances: undefined,
     NextToken: undefined,
     SpotFleetRequestId: undefined,
@@ -56736,7 +56737,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetRequestHistoryResponse => {
-  let contents: any = {
+  const contents: any = {
     HistoryRecords: undefined,
     LastEvaluatedTime: undefined,
     NextToken: undefined,
@@ -56771,7 +56772,7 @@ const deserializeAws_ec2DescribeSpotFleetRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotFleetRequestsResponse => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     SpotFleetRequestConfigs: undefined,
   };
@@ -56794,7 +56795,7 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotInstanceRequestsResult => {
-  let contents: any = {
+  const contents: any = {
     SpotInstanceRequests: undefined,
     NextToken: undefined,
   };
@@ -56817,7 +56818,7 @@ const deserializeAws_ec2DescribeSpotPriceHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSpotPriceHistoryResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     SpotPriceHistory: undefined,
   };
@@ -56840,7 +56841,7 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeStaleSecurityGroupsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     StaleSecurityGroupSet: undefined,
   };
@@ -56863,7 +56864,7 @@ const deserializeAws_ec2DescribeStoreImageTasksResult = (
   output: any,
   context: __SerdeContext
 ): DescribeStoreImageTasksResult => {
-  let contents: any = {
+  const contents: any = {
     StoreImageTaskResults: undefined,
     NextToken: undefined,
   };
@@ -56883,7 +56884,7 @@ const deserializeAws_ec2DescribeStoreImageTasksResult = (
 };
 
 const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeContext): DescribeSubnetsResult => {
-  let contents: any = {
+  const contents: any = {
     Subnets: undefined,
     NextToken: undefined,
   };
@@ -56900,7 +56901,7 @@ const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTagsResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     Tags: undefined,
   };
@@ -56920,7 +56921,7 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorFiltersResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilters: undefined,
     NextToken: undefined,
   };
@@ -56943,7 +56944,7 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorSessionsResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorSessions: undefined,
     NextToken: undefined,
   };
@@ -56966,7 +56967,7 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrafficMirrorTargetsResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorTargets: undefined,
     NextToken: undefined,
   };
@@ -56989,7 +56990,7 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayAttachmentsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachments: undefined,
     NextToken: undefined,
   };
@@ -57012,7 +57013,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectPeersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayConnectPeersResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnectPeers: undefined,
     NextToken: undefined,
   };
@@ -57038,7 +57039,7 @@ const deserializeAws_ec2DescribeTransitGatewayConnectsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayConnectsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayConnects: undefined,
     NextToken: undefined,
   };
@@ -57061,7 +57062,7 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayMulticastDomainsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomains: undefined,
     NextToken: undefined,
   };
@@ -57087,7 +57088,7 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayPeeringAttachmentsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPeeringAttachments: undefined,
     NextToken: undefined,
   };
@@ -57113,7 +57114,7 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTablesResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTables: undefined,
     NextToken: undefined,
   };
@@ -57136,7 +57137,7 @@ const deserializeAws_ec2DescribeTransitGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGateways: undefined,
     NextToken: undefined,
   };
@@ -57159,7 +57160,7 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTransitGatewayVpcAttachmentsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachments: undefined,
     NextToken: undefined,
   };
@@ -57185,7 +57186,7 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrunkInterfaceAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     InterfaceAssociations: undefined,
     NextToken: undefined,
   };
@@ -57208,7 +57209,7 @@ const deserializeAws_ec2DescribeVolumeAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumeAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     AutoEnableIO: undefined,
     ProductCodes: undefined,
     VolumeId: undefined,
@@ -57235,7 +57236,7 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumesModificationsResult => {
-  let contents: any = {
+  const contents: any = {
     VolumesModifications: undefined,
     NextToken: undefined,
   };
@@ -57255,7 +57256,7 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
 };
 
 const deserializeAws_ec2DescribeVolumesResult = (output: any, context: __SerdeContext): DescribeVolumesResult => {
-  let contents: any = {
+  const contents: any = {
     Volumes: undefined,
     NextToken: undefined,
   };
@@ -57275,7 +57276,7 @@ const deserializeAws_ec2DescribeVolumeStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVolumeStatusResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     VolumeStatuses: undefined,
   };
@@ -57298,7 +57299,7 @@ const deserializeAws_ec2DescribeVpcAttributeResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     VpcId: undefined,
     EnableDnsHostnames: undefined,
     EnableDnsSupport: undefined,
@@ -57319,7 +57320,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcClassicLinkDnsSupportResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     Vpcs: undefined,
   };
@@ -57342,7 +57343,7 @@ const deserializeAws_ec2DescribeVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcClassicLinkResult => {
-  let contents: any = {
+  const contents: any = {
     Vpcs: undefined,
   };
   if (output.vpcSet === "") {
@@ -57358,7 +57359,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionNotificationsResult => {
-  let contents: any = {
+  const contents: any = {
     ConnectionNotificationSet: undefined,
     NextToken: undefined,
   };
@@ -57381,7 +57382,7 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     VpcEndpointConnections: undefined,
     NextToken: undefined,
   };
@@ -57404,7 +57405,7 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServiceConfigurationsResult => {
-  let contents: any = {
+  const contents: any = {
     ServiceConfigurations: undefined,
     NextToken: undefined,
   };
@@ -57427,7 +57428,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServicePermissionsResult => {
-  let contents: any = {
+  const contents: any = {
     AllowedPrincipals: undefined,
     NextToken: undefined,
   };
@@ -57450,7 +57451,7 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointServicesResult => {
-  let contents: any = {
+  const contents: any = {
     ServiceNames: undefined,
     ServiceDetails: undefined,
     NextToken: undefined,
@@ -57483,7 +57484,7 @@ const deserializeAws_ec2DescribeVpcEndpointsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcEndpointsResult => {
-  let contents: any = {
+  const contents: any = {
     VpcEndpoints: undefined,
     NextToken: undefined,
   };
@@ -57506,7 +57507,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpcPeeringConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     VpcPeeringConnections: undefined,
     NextToken: undefined,
   };
@@ -57526,7 +57527,7 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
 };
 
 const deserializeAws_ec2DescribeVpcsResult = (output: any, context: __SerdeContext): DescribeVpcsResult => {
-  let contents: any = {
+  const contents: any = {
     Vpcs: undefined,
     NextToken: undefined,
   };
@@ -57546,7 +57547,7 @@ const deserializeAws_ec2DescribeVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpnConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnections: undefined,
   };
   if (output.vpnConnectionSet === "") {
@@ -57565,7 +57566,7 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
   output: any,
   context: __SerdeContext
 ): DescribeVpnGatewaysResult => {
-  let contents: any = {
+  const contents: any = {
     VpnGateways: undefined,
   };
   if (output.vpnGatewaySet === "") {
@@ -57584,7 +57585,7 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
   output: any,
   context: __SerdeContext
 ): DetachClassicLinkVpcResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -57594,7 +57595,7 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
 };
 
 const deserializeAws_ec2DhcpConfiguration = (output: any, context: __SerdeContext): DhcpConfiguration => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Values: undefined,
   };
@@ -57636,7 +57637,7 @@ const deserializeAws_ec2DhcpConfigurationValueList = (output: any, context: __Se
 };
 
 const deserializeAws_ec2DhcpOptions = (output: any, context: __SerdeContext): DhcpOptions => {
-  let contents: any = {
+  const contents: any = {
     DhcpConfigurations: undefined,
     DhcpOptionsId: undefined,
     OwnerId: undefined,
@@ -57681,7 +57682,7 @@ const deserializeAws_ec2DirectoryServiceAuthentication = (
   output: any,
   context: __SerdeContext
 ): DirectoryServiceAuthentication => {
-  let contents: any = {
+  const contents: any = {
     DirectoryId: undefined,
   };
   if (output["directoryId"] !== undefined) {
@@ -57694,7 +57695,7 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): DisableEbsEncryptionByDefaultResult => {
-  let contents: any = {
+  const contents: any = {
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -57707,7 +57708,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreErrorItem => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     FastSnapshotRestoreStateErrors: undefined,
   };
@@ -57747,7 +57748,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoresResult => {
-  let contents: any = {
+  const contents: any = {
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -57776,7 +57777,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateError = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -57793,7 +57794,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateErrorItem => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Error: undefined,
   };
@@ -57824,7 +57825,7 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): DisableFastSnapshotRestoreSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     AvailabilityZone: undefined,
     State: undefined,
@@ -57891,7 +57892,7 @@ const deserializeAws_ec2DisableImageDeprecationResult = (
   output: any,
   context: __SerdeContext
 ): DisableImageDeprecationResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -57904,7 +57905,7 @@ const deserializeAws_ec2DisableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
 ): DisableSerialConsoleAccessResult => {
-  let contents: any = {
+  const contents: any = {
     SerialConsoleAccessEnabled: undefined,
   };
   if (output["serialConsoleAccessEnabled"] !== undefined) {
@@ -57917,7 +57918,7 @@ const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationResult = (
   output: any,
   context: __SerdeContext
 ): DisableTransitGatewayRouteTablePropagationResult => {
-  let contents: any = {
+  const contents: any = {
     Propagation: undefined,
   };
   if (output["propagation"] !== undefined) {
@@ -57930,7 +57931,7 @@ const deserializeAws_ec2DisableVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): DisableVpcClassicLinkDnsSupportResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -57943,7 +57944,7 @@ const deserializeAws_ec2DisableVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): DisableVpcClassicLinkResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -57956,7 +57957,7 @@ const deserializeAws_ec2DisassociateClientVpnTargetNetworkResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateClientVpnTargetNetworkResult => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     Status: undefined,
   };
@@ -57973,7 +57974,7 @@ const deserializeAws_ec2DisassociateEnclaveCertificateIamRoleResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateEnclaveCertificateIamRoleResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -57986,7 +57987,7 @@ const deserializeAws_ec2DisassociateIamInstanceProfileResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateIamInstanceProfileResult => {
-  let contents: any = {
+  const contents: any = {
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -58002,7 +58003,7 @@ const deserializeAws_ec2DisassociateInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateInstanceEventWindowResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindow: undefined,
   };
   if (output["instanceEventWindow"] !== undefined) {
@@ -58015,7 +58016,7 @@ const deserializeAws_ec2DisassociateSubnetCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateSubnetCidrBlockResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrBlockAssociation: undefined,
     SubnetId: undefined,
   };
@@ -58035,7 +58036,7 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTransitGatewayMulticastDomainResult => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -58051,7 +58052,7 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTransitGatewayRouteTableResult => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
   };
   if (output["association"] !== undefined) {
@@ -58064,7 +58065,7 @@ const deserializeAws_ec2DisassociateTrunkInterfaceResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTrunkInterfaceResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
     ClientToken: undefined,
   };
@@ -58081,7 +58082,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateVpcCidrBlockResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrBlockAssociation: undefined,
     CidrBlockAssociation: undefined,
     VpcId: undefined,
@@ -58102,7 +58103,7 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
 };
 
 const deserializeAws_ec2DiskImageDescription = (output: any, context: __SerdeContext): DiskImageDescription => {
-  let contents: any = {
+  const contents: any = {
     Checksum: undefined,
     Format: undefined,
     ImportManifestUrl: undefined,
@@ -58127,7 +58128,7 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
   output: any,
   context: __SerdeContext
 ): DiskImageVolumeDescription => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Size: undefined,
   };
@@ -58141,7 +58142,7 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
 };
 
 const deserializeAws_ec2DiskInfo = (output: any, context: __SerdeContext): DiskInfo => {
-  let contents: any = {
+  const contents: any = {
     SizeInGB: undefined,
     Count: undefined,
     Type: undefined,
@@ -58170,7 +58171,7 @@ const deserializeAws_ec2DiskInfoList = (output: any, context: __SerdeContext): D
 };
 
 const deserializeAws_ec2DnsEntry = (output: any, context: __SerdeContext): DnsEntry => {
-  let contents: any = {
+  const contents: any = {
     DnsName: undefined,
     HostedZoneId: undefined,
   };
@@ -58195,7 +58196,7 @@ const deserializeAws_ec2DnsEntrySet = (output: any, context: __SerdeContext): Dn
 };
 
 const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
-  let contents: any = {
+  const contents: any = {
     DeleteOnTermination: undefined,
     Iops: undefined,
     SnapshotId: undefined,
@@ -58237,7 +58238,7 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInfo => {
-  let contents: any = {
+  const contents: any = {
     EbsOptimizedSupport: undefined,
     EncryptionSupport: undefined,
     EbsOptimizedInfo: undefined,
@@ -58259,7 +58260,7 @@ const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInf
 };
 
 const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsInstanceBlockDevice => {
-  let contents: any = {
+  const contents: any = {
     AttachTime: undefined,
     DeleteOnTermination: undefined,
     Status: undefined,
@@ -58281,7 +58282,7 @@ const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext): EbsOptimizedInfo => {
-  let contents: any = {
+  const contents: any = {
     BaselineBandwidthInMbps: undefined,
     BaselineThroughputInMBps: undefined,
     BaselineIops: undefined,
@@ -58311,7 +58312,7 @@ const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2EfaInfo = (output: any, context: __SerdeContext): EfaInfo => {
-  let contents: any = {
+  const contents: any = {
     MaximumEfaInterfaces: undefined,
   };
   if (output["maximumEfaInterfaces"] !== undefined) {
@@ -58324,7 +58325,7 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
   output: any,
   context: __SerdeContext
 ): EgressOnlyInternetGateway => {
-  let contents: any = {
+  const contents: any = {
     Attachments: undefined,
     EgressOnlyInternetGatewayId: undefined,
     Tags: undefined,
@@ -58365,7 +58366,7 @@ const deserializeAws_ec2EgressOnlyInternetGatewayList = (
 };
 
 const deserializeAws_ec2ElasticGpuAssociation = (output: any, context: __SerdeContext): ElasticGpuAssociation => {
-  let contents: any = {
+  const contents: any = {
     ElasticGpuId: undefined,
     ElasticGpuAssociationId: undefined,
     ElasticGpuAssociationState: undefined,
@@ -58398,7 +58399,7 @@ const deserializeAws_ec2ElasticGpuAssociationList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext): ElasticGpuHealth => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -58408,7 +58409,7 @@ const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2ElasticGpus = (output: any, context: __SerdeContext): ElasticGpus => {
-  let contents: any = {
+  const contents: any = {
     ElasticGpuId: undefined,
     AvailabilityZone: undefined,
     ElasticGpuType: undefined,
@@ -58459,7 +58460,7 @@ const deserializeAws_ec2ElasticGpuSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): ElasticGpuSpecificationResponse => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
   };
   if (output["type"] !== undefined) {
@@ -58486,7 +58487,7 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
   output: any,
   context: __SerdeContext
 ): ElasticInferenceAcceleratorAssociation => {
-  let contents: any = {
+  const contents: any = {
     ElasticInferenceAcceleratorArn: undefined,
     ElasticInferenceAcceleratorAssociationId: undefined,
     ElasticInferenceAcceleratorAssociationState: undefined,
@@ -58531,7 +58532,7 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): EnableEbsEncryptionByDefaultResult => {
-  let contents: any = {
+  const contents: any = {
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -58544,7 +58545,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreErrorItem => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     FastSnapshotRestoreStateErrors: undefined,
   };
@@ -58584,7 +58585,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoresResult => {
-  let contents: any = {
+  const contents: any = {
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -58613,7 +58614,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateError = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -58630,7 +58631,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateErrorItem => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Error: undefined,
   };
@@ -58661,7 +58662,7 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
   output: any,
   context: __SerdeContext
 ): EnableFastSnapshotRestoreSuccessItem => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     AvailabilityZone: undefined,
     State: undefined,
@@ -58728,7 +58729,7 @@ const deserializeAws_ec2EnableImageDeprecationResult = (
   output: any,
   context: __SerdeContext
 ): EnableImageDeprecationResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -58741,7 +58742,7 @@ const deserializeAws_ec2EnableSerialConsoleAccessResult = (
   output: any,
   context: __SerdeContext
 ): EnableSerialConsoleAccessResult => {
-  let contents: any = {
+  const contents: any = {
     SerialConsoleAccessEnabled: undefined,
   };
   if (output["serialConsoleAccessEnabled"] !== undefined) {
@@ -58754,7 +58755,7 @@ const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationResult = (
   output: any,
   context: __SerdeContext
 ): EnableTransitGatewayRouteTablePropagationResult => {
-  let contents: any = {
+  const contents: any = {
     Propagation: undefined,
   };
   if (output["propagation"] !== undefined) {
@@ -58767,7 +58768,7 @@ const deserializeAws_ec2EnableVpcClassicLinkDnsSupportResult = (
   output: any,
   context: __SerdeContext
 ): EnableVpcClassicLinkDnsSupportResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -58780,7 +58781,7 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
   output: any,
   context: __SerdeContext
 ): EnableVpcClassicLinkResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -58790,7 +58791,7 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
 };
 
 const deserializeAws_ec2EnclaveOptions = (output: any, context: __SerdeContext): EnclaveOptions => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -58822,7 +58823,7 @@ const deserializeAws_ec2ErrorSet = (output: any, context: __SerdeContext): Valid
 };
 
 const deserializeAws_ec2EventInformation = (output: any, context: __SerdeContext): EventInformation => {
-  let contents: any = {
+  const contents: any = {
     EventDescription: undefined,
     EventSubType: undefined,
     InstanceId: undefined,
@@ -58840,7 +58841,7 @@ const deserializeAws_ec2EventInformation = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Explanation => {
-  let contents: any = {
+  const contents: any = {
     Acl: undefined,
     AclRule: undefined,
     Address: undefined,
@@ -59082,7 +59083,7 @@ const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListResult = (
   output: any,
   context: __SerdeContext
 ): ExportClientVpnClientCertificateRevocationListResult => {
-  let contents: any = {
+  const contents: any = {
     CertificateRevocationList: undefined,
     Status: undefined,
   };
@@ -59099,7 +59100,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): ExportClientVpnClientConfigurationResult => {
-  let contents: any = {
+  const contents: any = {
     ClientConfiguration: undefined,
   };
   if (output["clientConfiguration"] !== undefined) {
@@ -59109,7 +59110,7 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
 };
 
 const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContext): ExportImageResult => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     DiskImageFormat: undefined,
     ExportImageTaskId: undefined,
@@ -59158,7 +59159,7 @@ const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ExportImageTask = (output: any, context: __SerdeContext): ExportImageTask => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     ExportImageTaskId: undefined,
     ImageId: undefined,
@@ -59210,7 +59211,7 @@ const deserializeAws_ec2ExportImageTaskList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ExportTask = (output: any, context: __SerdeContext): ExportTask => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     ExportTaskId: undefined,
     ExportToS3Task: undefined,
@@ -59258,7 +59259,7 @@ const deserializeAws_ec2ExportTaskList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeContext): ExportTaskS3Location => {
-  let contents: any = {
+  const contents: any = {
     S3Bucket: undefined,
     S3Prefix: undefined,
   };
@@ -59272,7 +59273,7 @@ const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ExportToS3Task = (output: any, context: __SerdeContext): ExportToS3Task => {
-  let contents: any = {
+  const contents: any = {
     ContainerFormat: undefined,
     DiskImageFormat: undefined,
     S3Bucket: undefined,
@@ -59297,7 +59298,7 @@ const deserializeAws_ec2ExportTransitGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): ExportTransitGatewayRoutesResult => {
-  let contents: any = {
+  const contents: any = {
     S3Location: undefined,
   };
   if (output["s3Location"] !== undefined) {
@@ -59310,7 +59311,7 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletion = (
   output: any,
   context: __SerdeContext
 ): FailedQueuedPurchaseDeletion => {
-  let contents: any = {
+  const contents: any = {
     Error: undefined,
     ReservedInstancesId: undefined,
   };
@@ -59338,7 +59339,7 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletionSet = (
 };
 
 const deserializeAws_ec2FederatedAuthentication = (output: any, context: __SerdeContext): FederatedAuthentication => {
-  let contents: any = {
+  const contents: any = {
     SamlProviderArn: undefined,
     SelfServiceSamlProviderArn: undefined,
   };
@@ -59352,7 +59353,7 @@ const deserializeAws_ec2FederatedAuthentication = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): FleetData => {
-  let contents: any = {
+  const contents: any = {
     ActivityStatus: undefined,
     CreateTime: undefined,
     FleetId: undefined,
@@ -59469,7 +59470,7 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateConfig => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -59509,7 +59510,7 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateOverrides => {
-  let contents: any = {
+  const contents: any = {
     InstanceType: undefined,
     MaxPrice: undefined,
     SubnetId: undefined,
@@ -59560,7 +59561,7 @@ const deserializeAws_ec2FleetLaunchTemplateSpecification = (
   output: any,
   context: __SerdeContext
 ): FleetLaunchTemplateSpecification => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     Version: undefined,
@@ -59592,7 +59593,7 @@ const deserializeAws_ec2FleetSpotCapacityRebalance = (
   output: any,
   context: __SerdeContext
 ): FleetSpotCapacityRebalance => {
-  let contents: any = {
+  const contents: any = {
     ReplacementStrategy: undefined,
   };
   if (output["replacementStrategy"] !== undefined) {
@@ -59605,7 +59606,7 @@ const deserializeAws_ec2FleetSpotMaintenanceStrategies = (
   output: any,
   context: __SerdeContext
 ): FleetSpotMaintenanceStrategies => {
-  let contents: any = {
+  const contents: any = {
     CapacityRebalance: undefined,
   };
   if (output["capacityRebalance"] !== undefined) {
@@ -59615,7 +59616,7 @@ const deserializeAws_ec2FleetSpotMaintenanceStrategies = (
 };
 
 const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLog => {
-  let contents: any = {
+  const contents: any = {
     CreationTime: undefined,
     DeliverLogsErrorMessage: undefined,
     DeliverLogsPermissionArn: undefined,
@@ -59691,7 +59692,7 @@ const deserializeAws_ec2FlowLogSet = (output: any, context: __SerdeContext): Flo
 };
 
 const deserializeAws_ec2FpgaDeviceInfo = (output: any, context: __SerdeContext): FpgaDeviceInfo => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Manufacturer: undefined,
     Count: undefined,
@@ -59724,7 +59725,7 @@ const deserializeAws_ec2FpgaDeviceInfoList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeContext): FpgaDeviceMemoryInfo => {
-  let contents: any = {
+  const contents: any = {
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -59734,7 +59735,7 @@ const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageId: undefined,
     FpgaImageGlobalId: undefined,
     Name: undefined,
@@ -59809,7 +59810,7 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
 };
 
 const deserializeAws_ec2FpgaImageAttribute = (output: any, context: __SerdeContext): FpgaImageAttribute => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageId: undefined,
     Name: undefined,
     Description: undefined,
@@ -59858,7 +59859,7 @@ const deserializeAws_ec2FpgaImageList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext): FpgaImageState => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -59872,7 +59873,7 @@ const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2FpgaInfo = (output: any, context: __SerdeContext): FpgaInfo => {
-  let contents: any = {
+  const contents: any = {
     Fpgas: undefined,
     TotalFpgaMemoryInMiB: undefined,
   };
@@ -59892,7 +59893,7 @@ const deserializeAws_ec2GetAssociatedEnclaveCertificateIamRolesResult = (
   output: any,
   context: __SerdeContext
 ): GetAssociatedEnclaveCertificateIamRolesResult => {
-  let contents: any = {
+  const contents: any = {
     AssociatedRoles: undefined,
   };
   if (output.associatedRoleSet === "") {
@@ -59911,7 +59912,7 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult = (
   output: any,
   context: __SerdeContext
 ): GetAssociatedIpv6PoolCidrsResult => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrAssociations: undefined,
     NextToken: undefined,
   };
@@ -59934,7 +59935,7 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
   output: any,
   context: __SerdeContext
 ): GetCapacityReservationUsageResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     CapacityReservationId: undefined,
     InstanceType: undefined,
@@ -59974,7 +59975,7 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
 };
 
 const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeContext): GetCoipPoolUsageResult => {
-  let contents: any = {
+  const contents: any = {
     CoipPoolId: undefined,
     CoipAddressUsages: undefined,
     LocalGatewayRouteTableId: undefined,
@@ -59998,7 +59999,7 @@ const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2GetConsoleOutputResult = (output: any, context: __SerdeContext): GetConsoleOutputResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     Output: undefined,
     Timestamp: undefined,
@@ -60019,7 +60020,7 @@ const deserializeAws_ec2GetConsoleScreenshotResult = (
   output: any,
   context: __SerdeContext
 ): GetConsoleScreenshotResult => {
-  let contents: any = {
+  const contents: any = {
     ImageData: undefined,
     InstanceId: undefined,
   };
@@ -60036,7 +60037,7 @@ const deserializeAws_ec2GetDefaultCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): GetDefaultCreditSpecificationResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceFamilyCreditSpecification: undefined,
   };
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
@@ -60052,7 +60053,7 @@ const deserializeAws_ec2GetEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): GetEbsDefaultKmsKeyIdResult => {
-  let contents: any = {
+  const contents: any = {
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -60065,7 +60066,7 @@ const deserializeAws_ec2GetEbsEncryptionByDefaultResult = (
   output: any,
   context: __SerdeContext
 ): GetEbsEncryptionByDefaultResult => {
-  let contents: any = {
+  const contents: any = {
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -60078,7 +60079,7 @@ const deserializeAws_ec2GetFlowLogsIntegrationTemplateResult = (
   output: any,
   context: __SerdeContext
 ): GetFlowLogsIntegrationTemplateResult => {
-  let contents: any = {
+  const contents: any = {
     Result: undefined,
   };
   if (output["result"] !== undefined) {
@@ -60091,7 +60092,7 @@ const deserializeAws_ec2GetGroupsForCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): GetGroupsForCapacityReservationResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     CapacityReservationGroups: undefined,
   };
@@ -60117,7 +60118,7 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
   output: any,
   context: __SerdeContext
 ): GetHostReservationPurchasePreviewResult => {
-  let contents: any = {
+  const contents: any = {
     CurrencyCode: undefined,
     Purchase: undefined,
     TotalHourlyPrice: undefined,
@@ -60145,7 +60146,7 @@ const deserializeAws_ec2GetLaunchTemplateDataResult = (
   output: any,
   context: __SerdeContext
 ): GetLaunchTemplateDataResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateData: undefined,
   };
   if (output["launchTemplateData"] !== undefined) {
@@ -60158,7 +60159,7 @@ const deserializeAws_ec2GetManagedPrefixListAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetManagedPrefixListAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     PrefixListAssociations: undefined,
     NextToken: undefined,
   };
@@ -60181,7 +60182,7 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
   output: any,
   context: __SerdeContext
 ): GetManagedPrefixListEntriesResult => {
-  let contents: any = {
+  const contents: any = {
     Entries: undefined,
     NextToken: undefined,
   };
@@ -60201,7 +60202,7 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
 };
 
 const deserializeAws_ec2GetPasswordDataResult = (output: any, context: __SerdeContext): GetPasswordDataResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     PasswordData: undefined,
     Timestamp: undefined,
@@ -60222,7 +60223,7 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   output: any,
   context: __SerdeContext
 ): GetReservedInstancesExchangeQuoteResult => {
-  let contents: any = {
+  const contents: any = {
     CurrencyCode: undefined,
     IsValidExchange: undefined,
     OutputReservedInstancesWillExpireAt: undefined,
@@ -60290,7 +60291,7 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusResult = (
   output: any,
   context: __SerdeContext
 ): GetSerialConsoleAccessStatusResult => {
-  let contents: any = {
+  const contents: any = {
     SerialConsoleAccessEnabled: undefined,
   };
   if (output["serialConsoleAccessEnabled"] !== undefined) {
@@ -60303,7 +60304,7 @@ const deserializeAws_ec2GetSubnetCidrReservationsResult = (
   output: any,
   context: __SerdeContext
 ): GetSubnetCidrReservationsResult => {
-  let contents: any = {
+  const contents: any = {
     SubnetIpv4CidrReservations: undefined,
     SubnetIpv6CidrReservations: undefined,
     NextToken: undefined,
@@ -60342,7 +60343,7 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayAttachmentPropagationsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentPropagations: undefined,
     NextToken: undefined,
   };
@@ -60368,7 +60369,7 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayMulticastDomainAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     MulticastDomainAssociations: undefined,
     NextToken: undefined,
   };
@@ -60394,7 +60395,7 @@ const deserializeAws_ec2GetTransitGatewayPrefixListReferencesResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayPrefixListReferencesResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPrefixListReferences: undefined,
     NextToken: undefined,
   };
@@ -60420,7 +60421,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayRouteTableAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
     NextToken: undefined,
   };
@@ -60443,7 +60444,7 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   output: any,
   context: __SerdeContext
 ): GetTransitGatewayRouteTablePropagationsResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTablePropagations: undefined,
     NextToken: undefined,
   };
@@ -60469,7 +60470,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): GetVpnConnectionDeviceSampleConfigurationResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnectionDeviceSampleConfiguration: undefined,
   };
   if (output["vpnConnectionDeviceSampleConfiguration"] !== undefined) {
@@ -60482,7 +60483,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
   output: any,
   context: __SerdeContext
 ): GetVpnConnectionDeviceTypesResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnectionDeviceTypes: undefined,
     NextToken: undefined,
   };
@@ -60505,7 +60506,7 @@ const deserializeAws_ec2GetVpnConnectionDeviceTypesResult = (
 };
 
 const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): GpuDeviceInfo => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Manufacturer: undefined,
     Count: undefined,
@@ -60538,7 +60539,7 @@ const deserializeAws_ec2GpuDeviceInfoList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeContext): GpuDeviceMemoryInfo => {
-  let contents: any = {
+  const contents: any = {
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -60548,7 +60549,7 @@ const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInfo => {
-  let contents: any = {
+  const contents: any = {
     Gpus: undefined,
     TotalGpuMemoryInMiB: undefined,
   };
@@ -60565,7 +60566,7 @@ const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInf
 };
 
 const deserializeAws_ec2GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
-  let contents: any = {
+  const contents: any = {
     GroupName: undefined,
     GroupId: undefined,
   };
@@ -60612,7 +60613,7 @@ const deserializeAws_ec2GroupIdStringList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeContext): HibernationOptions => {
-  let contents: any = {
+  const contents: any = {
     Configured: undefined,
   };
   if (output["configured"] !== undefined) {
@@ -60622,7 +60623,7 @@ const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): HistoryRecord => {
-  let contents: any = {
+  const contents: any = {
     EventInformation: undefined,
     EventType: undefined,
     Timestamp: undefined,
@@ -60640,7 +60641,7 @@ const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2HistoryRecordEntry = (output: any, context: __SerdeContext): HistoryRecordEntry => {
-  let contents: any = {
+  const contents: any = {
     EventInformation: undefined,
     EventType: undefined,
     Timestamp: undefined,
@@ -60680,7 +60681,7 @@ const deserializeAws_ec2HistoryRecordSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
-  let contents: any = {
+  const contents: any = {
     AutoPlacement: undefined,
     AvailabilityZone: undefined,
     AvailableCapacity: undefined,
@@ -60763,7 +60764,7 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
 };
 
 const deserializeAws_ec2HostInstance = (output: any, context: __SerdeContext): HostInstance => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     InstanceType: undefined,
     OwnerId: undefined,
@@ -60803,7 +60804,7 @@ const deserializeAws_ec2HostList = (output: any, context: __SerdeContext): Host[
 };
 
 const deserializeAws_ec2HostOffering = (output: any, context: __SerdeContext): HostOffering => {
-  let contents: any = {
+  const contents: any = {
     CurrencyCode: undefined,
     Duration: undefined,
     HourlyPrice: undefined,
@@ -60848,7 +60849,7 @@ const deserializeAws_ec2HostOfferingSet = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext): HostProperties => {
-  let contents: any = {
+  const contents: any = {
     Cores: undefined,
     InstanceType: undefined,
     InstanceFamily: undefined,
@@ -60874,7 +60875,7 @@ const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext): HostReservation => {
-  let contents: any = {
+  const contents: any = {
     Count: undefined,
     CurrencyCode: undefined,
     Duration: undefined,
@@ -60956,7 +60957,7 @@ const deserializeAws_ec2HostReservationSet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanceProfile => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     Id: undefined,
   };
@@ -60973,7 +60974,7 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
   output: any,
   context: __SerdeContext
 ): IamInstanceProfileAssociation => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     InstanceId: undefined,
     IamInstanceProfile: undefined,
@@ -61016,7 +61017,7 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
   output: any,
   context: __SerdeContext
 ): IamInstanceProfileSpecification => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     Name: undefined,
   };
@@ -61030,7 +61031,7 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
 };
 
 const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): IcmpTypeCode => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Type: undefined,
   };
@@ -61044,7 +61045,7 @@ const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_ec2IdFormat = (output: any, context: __SerdeContext): IdFormat => {
-  let contents: any = {
+  const contents: any = {
     Deadline: undefined,
     Resource: undefined,
     UseLongIds: undefined,
@@ -61084,7 +61085,7 @@ const deserializeAws_ec2IKEVersionsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeContext): IKEVersionsListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -61094,7 +61095,7 @@ const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image => {
-  let contents: any = {
+  const contents: any = {
     Architecture: undefined,
     CreationDate: undefined,
     ImageId: undefined,
@@ -61227,7 +61228,7 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
 };
 
 const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext): ImageAttribute => {
-  let contents: any = {
+  const contents: any = {
     BlockDeviceMappings: undefined,
     ImageId: undefined,
     LaunchPermissions: undefined,
@@ -61301,7 +61302,7 @@ const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult = (
   output: any,
   context: __SerdeContext
 ): ImportClientVpnClientCertificateRevocationListResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -61314,7 +61315,7 @@ const deserializeAws_ec2ImportImageLicenseConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): ImportImageLicenseConfigurationResponse => {
-  let contents: any = {
+  const contents: any = {
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -61338,7 +61339,7 @@ const deserializeAws_ec2ImportImageLicenseSpecificationListResponse = (
 };
 
 const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContext): ImportImageResult => {
-  let contents: any = {
+  const contents: any = {
     Architecture: undefined,
     Description: undefined,
     Encrypted: undefined,
@@ -61423,7 +61424,7 @@ const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext): ImportImageTask => {
-  let contents: any = {
+  const contents: any = {
     Architecture: undefined,
     Description: undefined,
     Encrypted: undefined,
@@ -61523,7 +61524,7 @@ const deserializeAws_ec2ImportImageTaskList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ImportInstanceResult = (output: any, context: __SerdeContext): ImportInstanceResult => {
-  let contents: any = {
+  const contents: any = {
     ConversionTask: undefined,
   };
   if (output["conversionTask"] !== undefined) {
@@ -61536,7 +61537,7 @@ const deserializeAws_ec2ImportInstanceTaskDetails = (
   output: any,
   context: __SerdeContext
 ): ImportInstanceTaskDetails => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     InstanceId: undefined,
     Platform: undefined,
@@ -61567,7 +61568,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailItem = (
   output: any,
   context: __SerdeContext
 ): ImportInstanceVolumeDetailItem => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     BytesConverted: undefined,
     Description: undefined,
@@ -61615,7 +61616,7 @@ const deserializeAws_ec2ImportInstanceVolumeDetailSet = (
 };
 
 const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKeyPairResult => {
-  let contents: any = {
+  const contents: any = {
     KeyFingerprint: undefined,
     KeyName: undefined,
     KeyPairId: undefined,
@@ -61640,7 +61641,7 @@ const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeContext): ImportSnapshotResult => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     ImportTaskId: undefined,
     SnapshotTaskDetail: undefined,
@@ -61665,7 +61666,7 @@ const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ImportSnapshotTask = (output: any, context: __SerdeContext): ImportSnapshotTask => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     ImportTaskId: undefined,
     SnapshotTaskDetail: undefined,
@@ -61701,7 +61702,7 @@ const deserializeAws_ec2ImportSnapshotTaskList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeContext): ImportVolumeResult => {
-  let contents: any = {
+  const contents: any = {
     ConversionTask: undefined,
   };
   if (output["conversionTask"] !== undefined) {
@@ -61711,7 +61712,7 @@ const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __SerdeContext): ImportVolumeTaskDetails => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     BytesConverted: undefined,
     Description: undefined,
@@ -61737,7 +61738,7 @@ const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __SerdeContext): InferenceAcceleratorInfo => {
-  let contents: any = {
+  const contents: any = {
     Accelerators: undefined,
   };
   if (output.accelerators === "") {
@@ -61753,7 +61754,7 @@ const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2InferenceDeviceInfo = (output: any, context: __SerdeContext): InferenceDeviceInfo => {
-  let contents: any = {
+  const contents: any = {
     Count: undefined,
     Name: undefined,
     Manufacturer: undefined,
@@ -61793,7 +61794,7 @@ const deserializeAws_ec2InsideCidrBlocksStringList = (output: any, context: __Se
 };
 
 const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Instance => {
-  let contents: any = {
+  const contents: any = {
     AmiLaunchIndex: undefined,
     ImageId: undefined,
     InstanceId: undefined,
@@ -62055,7 +62056,7 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
 };
 
 const deserializeAws_ec2InstanceAttribute = (output: any, context: __SerdeContext): InstanceAttribute => {
-  let contents: any = {
+  const contents: any = {
     Groups: undefined,
     BlockDeviceMappings: undefined,
     DisableApiTermination: undefined,
@@ -62149,7 +62150,7 @@ const deserializeAws_ec2InstanceBlockDeviceMapping = (
   output: any,
   context: __SerdeContext
 ): InstanceBlockDeviceMapping => {
-  let contents: any = {
+  const contents: any = {
     DeviceName: undefined,
     Ebs: undefined,
   };
@@ -62177,7 +62178,7 @@ const deserializeAws_ec2InstanceBlockDeviceMappingList = (
 };
 
 const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext): InstanceCapacity => {
-  let contents: any = {
+  const contents: any = {
     AvailableCapacity: undefined,
     InstanceType: undefined,
     TotalCapacity: undefined,
@@ -62195,7 +62196,7 @@ const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2InstanceCount = (output: any, context: __SerdeContext): InstanceCount => {
-  let contents: any = {
+  const contents: any = {
     InstanceCount: undefined,
     State: undefined,
   };
@@ -62223,7 +62224,7 @@ const deserializeAws_ec2InstanceCreditSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceCreditSpecification => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     CpuCredits: undefined,
   };
@@ -62251,7 +62252,7 @@ const deserializeAws_ec2InstanceCreditSpecificationList = (
 };
 
 const deserializeAws_ec2InstanceEventWindow = (output: any, context: __SerdeContext): InstanceEventWindow => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindowId: undefined,
     TimeRanges: undefined,
     Name: undefined,
@@ -62300,7 +62301,7 @@ const deserializeAws_ec2InstanceEventWindowAssociationTarget = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowAssociationTarget => {
-  let contents: any = {
+  const contents: any = {
     InstanceIds: undefined,
     Tags: undefined,
     DedicatedHostIds: undefined,
@@ -62347,7 +62348,7 @@ const deserializeAws_ec2InstanceEventWindowStateChange = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowStateChange => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindowId: undefined,
     State: undefined,
   };
@@ -62364,7 +62365,7 @@ const deserializeAws_ec2InstanceEventWindowTimeRange = (
   output: any,
   context: __SerdeContext
 ): InstanceEventWindowTimeRange => {
-  let contents: any = {
+  const contents: any = {
     StartWeekDay: undefined,
     StartHour: undefined,
     EndWeekDay: undefined,
@@ -62400,7 +62401,7 @@ const deserializeAws_ec2InstanceEventWindowTimeRangeList = (
 };
 
 const deserializeAws_ec2InstanceExportDetails = (output: any, context: __SerdeContext): InstanceExportDetails => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     TargetEnvironment: undefined,
   };
@@ -62417,7 +62418,7 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceFamilyCreditSpecification => {
-  let contents: any = {
+  const contents: any = {
     InstanceFamily: undefined,
     CpuCredits: undefined,
   };
@@ -62464,7 +62465,7 @@ const deserializeAws_ec2InstanceIdsSet = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2InstanceIpv4Prefix = (output: any, context: __SerdeContext): InstanceIpv4Prefix => {
-  let contents: any = {
+  const contents: any = {
     Ipv4Prefix: undefined,
   };
   if (output["ipv4Prefix"] !== undefined) {
@@ -62485,7 +62486,7 @@ const deserializeAws_ec2InstanceIpv4PrefixList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2InstanceIpv6Address = (output: any, context: __SerdeContext): InstanceIpv6Address => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Address: undefined,
   };
   if (output["ipv6Address"] !== undefined) {
@@ -62506,7 +62507,7 @@ const deserializeAws_ec2InstanceIpv6AddressList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InstanceIpv6Prefix = (output: any, context: __SerdeContext): InstanceIpv6Prefix => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Prefix: undefined,
   };
   if (output["ipv6Prefix"] !== undefined) {
@@ -62541,7 +62542,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): InstanceMetadataOptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
@@ -62567,7 +62568,7 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
 };
 
 const deserializeAws_ec2InstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     Monitoring: undefined,
   };
@@ -62592,7 +62593,7 @@ const deserializeAws_ec2InstanceMonitoringList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2InstanceNetworkInterface = (output: any, context: __SerdeContext): InstanceNetworkInterface => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
     Attachment: undefined,
     Description: undefined,
@@ -62703,7 +62704,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceAssociation => {
-  let contents: any = {
+  const contents: any = {
     CarrierIp: undefined,
     IpOwnerId: undefined,
     PublicDnsName: undefined,
@@ -62728,7 +62729,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceAttachment => {
-  let contents: any = {
+  const contents: any = {
     AttachTime: undefined,
     AttachmentId: undefined,
     DeleteOnTermination: undefined,
@@ -62775,7 +62776,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceNetworkInterfaceSpecification => {
-  let contents: any = {
+  const contents: any = {
     AssociatePublicIpAddress: undefined,
     DeleteOnTermination: undefined,
     Description: undefined,
@@ -62901,7 +62902,7 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
 };
 
 const deserializeAws_ec2InstancePrivateIpAddress = (output: any, context: __SerdeContext): InstancePrivateIpAddress => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
     Primary: undefined,
     PrivateDnsName: undefined,
@@ -62937,7 +62938,7 @@ const deserializeAws_ec2InstancePrivateIpAddressList = (
 };
 
 const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): InstanceState => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Name: undefined,
   };
@@ -62951,7 +62952,7 @@ const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2InstanceStateChange = (output: any, context: __SerdeContext): InstanceStateChange => {
-  let contents: any = {
+  const contents: any = {
     CurrentState: undefined,
     InstanceId: undefined,
     PreviousState: undefined,
@@ -62980,7 +62981,7 @@ const deserializeAws_ec2InstanceStateChangeList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     OutpostArn: undefined,
     Events: undefined,
@@ -63020,7 +63021,7 @@ const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2InstanceStatusDetails = (output: any, context: __SerdeContext): InstanceStatusDetails => {
-  let contents: any = {
+  const contents: any = {
     ImpairedSince: undefined,
     Name: undefined,
     Status: undefined,
@@ -63049,7 +63050,7 @@ const deserializeAws_ec2InstanceStatusDetailsList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2InstanceStatusEvent = (output: any, context: __SerdeContext): InstanceStatusEvent => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventId: undefined,
     Code: undefined,
     Description: undefined,
@@ -63101,7 +63102,7 @@ const deserializeAws_ec2InstanceStatusList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeContext): InstanceStatusSummary => {
-  let contents: any = {
+  const contents: any = {
     Details: undefined,
     Status: undefined,
   };
@@ -63121,7 +63122,7 @@ const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeContext): InstanceStorageInfo => {
-  let contents: any = {
+  const contents: any = {
     TotalSizeInGB: undefined,
     Disks: undefined,
     NvmeSupport: undefined,
@@ -63156,7 +63157,7 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
   output: any,
   context: __SerdeContext
 ): InstanceTagNotificationAttribute => {
-  let contents: any = {
+  const contents: any = {
     InstanceTagKeys: undefined,
     IncludeAllTagsOfInstance: undefined,
   };
@@ -63176,7 +63177,7 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
 };
 
 const deserializeAws_ec2InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceTypeInfo => {
-  let contents: any = {
+  const contents: any = {
     InstanceType: undefined,
     CurrentGeneration: undefined,
     FreeTierEligible: undefined,
@@ -63319,7 +63320,7 @@ const deserializeAws_ec2InstanceTypeInfoList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2InstanceTypeOffering = (output: any, context: __SerdeContext): InstanceTypeOffering => {
-  let contents: any = {
+  const contents: any = {
     InstanceType: undefined,
     LocationType: undefined,
     Location: undefined,
@@ -63348,7 +63349,7 @@ const deserializeAws_ec2InstanceTypeOfferingsList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2InstanceUsage = (output: any, context: __SerdeContext): InstanceUsage => {
-  let contents: any = {
+  const contents: any = {
     AccountId: undefined,
     UsedInstanceCount: undefined,
   };
@@ -63373,7 +63374,7 @@ const deserializeAws_ec2InstanceUsageSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2InternetGateway = (output: any, context: __SerdeContext): InternetGateway => {
-  let contents: any = {
+  const contents: any = {
     Attachments: undefined,
     InternetGatewayId: undefined,
     OwnerId: undefined,
@@ -63407,7 +63408,7 @@ const deserializeAws_ec2InternetGatewayAttachment = (
   output: any,
   context: __SerdeContext
 ): InternetGatewayAttachment => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     VpcId: undefined,
   };
@@ -63457,7 +63458,7 @@ const deserializeAws_ec2IpAddressList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): IpPermission => {
-  let contents: any = {
+  const contents: any = {
     FromPort: undefined,
     IpProtocol: undefined,
     IpRanges: undefined,
@@ -63534,7 +63535,7 @@ const deserializeAws_ec2IpPrefixList = (output: any, context: __SerdeContext): s
 };
 
 const deserializeAws_ec2IpRange = (output: any, context: __SerdeContext): IpRange => {
-  let contents: any = {
+  const contents: any = {
     CidrIp: undefined,
     Description: undefined,
   };
@@ -63606,7 +63607,7 @@ const deserializeAws_ec2Ipv4PrefixListResponse = (
 };
 
 const deserializeAws_ec2Ipv4PrefixSpecification = (output: any, context: __SerdeContext): Ipv4PrefixSpecification => {
-  let contents: any = {
+  const contents: any = {
     Ipv4Prefix: undefined,
   };
   if (output["ipv4Prefix"] !== undefined) {
@@ -63619,7 +63620,7 @@ const deserializeAws_ec2Ipv4PrefixSpecificationRequest = (
   output: any,
   context: __SerdeContext
 ): Ipv4PrefixSpecificationRequest => {
-  let contents: any = {
+  const contents: any = {
     Ipv4Prefix: undefined,
   };
   if (output["Ipv4Prefix"] !== undefined) {
@@ -63632,7 +63633,7 @@ const deserializeAws_ec2Ipv4PrefixSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): Ipv4PrefixSpecificationResponse => {
-  let contents: any = {
+  const contents: any = {
     Ipv4Prefix: undefined,
   };
   if (output["ipv4Prefix"] !== undefined) {
@@ -63653,7 +63654,7 @@ const deserializeAws_ec2Ipv6AddressList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2Ipv6CidrAssociation = (output: any, context: __SerdeContext): Ipv6CidrAssociation => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Cidr: undefined,
     AssociatedResource: undefined,
   };
@@ -63678,7 +63679,7 @@ const deserializeAws_ec2Ipv6CidrAssociationSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2Ipv6CidrBlock = (output: any, context: __SerdeContext): Ipv6CidrBlock => {
-  let contents: any = {
+  const contents: any = {
     Ipv6CidrBlock: undefined,
   };
   if (output["ipv6CidrBlock"] !== undefined) {
@@ -63699,7 +63700,7 @@ const deserializeAws_ec2Ipv6CidrBlockSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Ipv6Pool = (output: any, context: __SerdeContext): Ipv6Pool => {
-  let contents: any = {
+  const contents: any = {
     PoolId: undefined,
     Description: undefined,
     PoolCidrBlocks: undefined,
@@ -63777,7 +63778,7 @@ const deserializeAws_ec2Ipv6PrefixListResponse = (
 };
 
 const deserializeAws_ec2Ipv6PrefixSpecification = (output: any, context: __SerdeContext): Ipv6PrefixSpecification => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Prefix: undefined,
   };
   if (output["ipv6Prefix"] !== undefined) {
@@ -63790,7 +63791,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationRequest = (
   output: any,
   context: __SerdeContext
 ): Ipv6PrefixSpecificationRequest => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Prefix: undefined,
   };
   if (output["Ipv6Prefix"] !== undefined) {
@@ -63803,7 +63804,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationResponse = (
   output: any,
   context: __SerdeContext
 ): Ipv6PrefixSpecificationResponse => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Prefix: undefined,
   };
   if (output["ipv6Prefix"] !== undefined) {
@@ -63813,7 +63814,7 @@ const deserializeAws_ec2Ipv6PrefixSpecificationResponse = (
 };
 
 const deserializeAws_ec2Ipv6Range = (output: any, context: __SerdeContext): Ipv6Range => {
-  let contents: any = {
+  const contents: any = {
     CidrIpv6: undefined,
     Description: undefined,
   };
@@ -63838,7 +63839,7 @@ const deserializeAws_ec2Ipv6RangeList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPair => {
-  let contents: any = {
+  const contents: any = {
     KeyFingerprint: undefined,
     KeyMaterial: undefined,
     KeyName: undefined,
@@ -63867,7 +63868,7 @@ const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPai
 };
 
 const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): KeyPairInfo => {
-  let contents: any = {
+  const contents: any = {
     KeyPairId: undefined,
     KeyFingerprint: undefined,
     KeyName: undefined,
@@ -63907,7 +63908,7 @@ const deserializeAws_ec2KeyPairList = (output: any, context: __SerdeContext): Ke
 };
 
 const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): LastError => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
     Code: undefined,
   };
@@ -63921,7 +63922,7 @@ const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): Last
 };
 
 const deserializeAws_ec2LaunchPermission = (output: any, context: __SerdeContext): LaunchPermission => {
-  let contents: any = {
+  const contents: any = {
     Group: undefined,
     UserId: undefined,
   };
@@ -63946,7 +63947,7 @@ const deserializeAws_ec2LaunchPermissionList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpecification => {
-  let contents: any = {
+  const contents: any = {
     UserData: undefined,
     SecurityGroups: undefined,
     AddressingType: undefined,
@@ -64044,7 +64045,7 @@ const deserializeAws_ec2LaunchSpecsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     CreateTime: undefined,
@@ -64084,7 +64085,7 @@ const deserializeAws_ec2LaunchTemplateAndOverridesResponse = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateAndOverridesResponse => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -64104,7 +64105,7 @@ const deserializeAws_ec2LaunchTemplateBlockDeviceMapping = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateBlockDeviceMapping => {
-  let contents: any = {
+  const contents: any = {
     DeviceName: undefined,
     VirtualName: undefined,
     Ebs: undefined,
@@ -64143,7 +64144,7 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
   output: any,
   context: __SerdeContext
 ): LaunchTemplateCapacityReservationSpecificationResponse => {
-  let contents: any = {
+  const contents: any = {
     CapacityReservationPreference: undefined,
     CapacityReservationTarget: undefined,
   };
@@ -64160,7 +64161,7 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
 };
 
 const deserializeAws_ec2LaunchTemplateConfig = (output: any, context: __SerdeContext): LaunchTemplateConfig => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -64194,7 +64195,7 @@ const deserializeAws_ec2LaunchTemplateConfigList = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2LaunchTemplateCpuOptions = (output: any, context: __SerdeContext): LaunchTemplateCpuOptions => {
-  let contents: any = {
+  const contents: any = {
     CoreCount: undefined,
     ThreadsPerCore: undefined,
   };
@@ -64211,7 +64212,7 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateEbsBlockDevice => {
-  let contents: any = {
+  const contents: any = {
     Encrypted: undefined,
     DeleteOnTermination: undefined,
     Iops: undefined,
@@ -64252,7 +64253,7 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateElasticInferenceAcceleratorResponse => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     Count: undefined,
   };
@@ -64283,7 +64284,7 @@ const deserializeAws_ec2LaunchTemplateEnclaveOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateEnclaveOptions => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -64296,7 +64297,7 @@ const deserializeAws_ec2LaunchTemplateHibernationOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateHibernationOptions => {
-  let contents: any = {
+  const contents: any = {
     Configured: undefined,
   };
   if (output["configured"] !== undefined) {
@@ -64309,7 +64310,7 @@ const deserializeAws_ec2LaunchTemplateIamInstanceProfileSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateIamInstanceProfileSpecification => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     Name: undefined,
   };
@@ -64326,7 +64327,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMarketOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceMarketOptions => {
-  let contents: any = {
+  const contents: any = {
     MarketType: undefined,
     SpotOptions: undefined,
   };
@@ -64343,7 +64344,7 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceMetadataOptions => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
@@ -64372,7 +64373,7 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateInstanceNetworkInterfaceSpecification => {
-  let contents: any = {
+  const contents: any = {
     AssociateCarrierIpAddress: undefined,
     AssociatePublicIpAddress: undefined,
     DeleteOnTermination: undefined,
@@ -64501,7 +64502,7 @@ const deserializeAws_ec2LaunchTemplateLicenseConfiguration = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateLicenseConfiguration => {
-  let contents: any = {
+  const contents: any = {
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -64525,7 +64526,7 @@ const deserializeAws_ec2LaunchTemplateLicenseList = (
 };
 
 const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
-  let contents: any = {
+  const contents: any = {
     InstanceType: undefined,
     SpotPrice: undefined,
     SubnetId: undefined,
@@ -64569,7 +64570,7 @@ const deserializeAws_ec2LaunchTemplateOverridesList = (
 };
 
 const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __SerdeContext): LaunchTemplatePlacement => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Affinity: undefined,
     GroupName: undefined,
@@ -64621,7 +64622,7 @@ const deserializeAws_ec2LaunchTemplatesMonitoring = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplatesMonitoring => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -64634,7 +64635,7 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateSpotMarketOptions => {
-  let contents: any = {
+  const contents: any = {
     MaxPrice: undefined,
     SpotInstanceType: undefined,
     BlockDurationMinutes: undefined,
@@ -64663,7 +64664,7 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateTagSpecification => {
-  let contents: any = {
+  const contents: any = {
     ResourceType: undefined,
     Tags: undefined,
   };
@@ -64694,7 +64695,7 @@ const deserializeAws_ec2LaunchTemplateTagSpecificationList = (
 };
 
 const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeContext): LaunchTemplateVersion => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     VersionNumber: undefined,
@@ -64743,7 +64744,7 @@ const deserializeAws_ec2LaunchTemplateVersionSet = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
-  let contents: any = {
+  const contents: any = {
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -64764,7 +64765,7 @@ const deserializeAws_ec2LicenseList = (output: any, context: __SerdeContext): Li
 };
 
 const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeContext): LoadBalancersConfig => {
-  let contents: any = {
+  const contents: any = {
     ClassicLoadBalancersConfig: undefined,
     TargetGroupsConfig: undefined,
   };
@@ -64781,7 +64782,7 @@ const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2LoadPermission = (output: any, context: __SerdeContext): LoadPermission => {
-  let contents: any = {
+  const contents: any = {
     UserId: undefined,
     Group: undefined,
   };
@@ -64806,7 +64807,7 @@ const deserializeAws_ec2LoadPermissionList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): LocalGateway => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayId: undefined,
     OutpostArn: undefined,
     OwnerId: undefined,
@@ -64835,7 +64836,7 @@ const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): L
 };
 
 const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContext): LocalGatewayRoute => {
-  let contents: any = {
+  const contents: any = {
     DestinationCidrBlock: undefined,
     LocalGatewayVirtualInterfaceGroupId: undefined,
     Type: undefined,
@@ -64880,7 +64881,7 @@ const deserializeAws_ec2LocalGatewayRouteList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeContext): LocalGatewayRouteTable => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableId: undefined,
     LocalGatewayRouteTableArn: undefined,
     LocalGatewayId: undefined,
@@ -64934,7 +64935,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   output: any,
   context: __SerdeContext
 ): LocalGatewayRouteTableVirtualInterfaceGroupAssociation => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: undefined,
     LocalGatewayVirtualInterfaceGroupId: undefined,
     LocalGatewayId: undefined,
@@ -64994,7 +64995,7 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayRouteTableVpcAssociation => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayRouteTableVpcAssociationId: undefined,
     LocalGatewayRouteTableId: undefined,
     LocalGatewayRouteTableArn: undefined,
@@ -65063,7 +65064,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayVirtualInterface => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayVirtualInterfaceId: undefined,
     LocalGatewayId: undefined,
     Vlan: undefined,
@@ -65111,7 +65112,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
   output: any,
   context: __SerdeContext
 ): LocalGatewayVirtualInterfaceGroup => {
-  let contents: any = {
+  const contents: any = {
     LocalGatewayVirtualInterfaceGroupId: undefined,
     LocalGatewayVirtualInterfaceIds: undefined,
     LocalGatewayId: undefined,
@@ -65188,7 +65189,7 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceSet = (
 };
 
 const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPrefixList => {
-  let contents: any = {
+  const contents: any = {
     PrefixListId: undefined,
     AddressFamily: undefined,
     State: undefined,
@@ -65248,7 +65249,7 @@ const deserializeAws_ec2ManagedPrefixListSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
-  let contents: any = {
+  const contents: any = {
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -65261,7 +65262,7 @@ const deserializeAws_ec2ModifyAddressAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyAddressAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     Address: undefined,
   };
   if (output["address"] !== undefined) {
@@ -65274,7 +65275,7 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyAvailabilityZoneGroupResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65287,7 +65288,7 @@ const deserializeAws_ec2ModifyCapacityReservationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyCapacityReservationResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65300,7 +65301,7 @@ const deserializeAws_ec2ModifyClientVpnEndpointResult = (
   output: any,
   context: __SerdeContext
 ): ModifyClientVpnEndpointResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65313,7 +65314,7 @@ const deserializeAws_ec2ModifyDefaultCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyDefaultCreditSpecificationResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceFamilyCreditSpecification: undefined,
   };
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
@@ -65329,7 +65330,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): ModifyEbsDefaultKmsKeyIdResult => {
-  let contents: any = {
+  const contents: any = {
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -65339,7 +65340,7 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
 };
 
 const deserializeAws_ec2ModifyFleetResult = (output: any, context: __SerdeContext): ModifyFleetResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65352,7 +65353,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyFpgaImageAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     FpgaImageAttribute: undefined,
   };
   if (output["fpgaImageAttribute"] !== undefined) {
@@ -65362,7 +65363,7 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2ModifyHostsResult = (output: any, context: __SerdeContext): ModifyHostsResult => {
-  let contents: any = {
+  const contents: any = {
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -65391,7 +65392,7 @@ const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceCapacityReservationAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65404,7 +65405,7 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceCreditSpecificationResult => {
-  let contents: any = {
+  const contents: any = {
     SuccessfulInstanceCreditSpecifications: undefined,
     UnsuccessfulInstanceCreditSpecifications: undefined,
   };
@@ -65439,7 +65440,7 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceEventStartTimeResult => {
-  let contents: any = {
+  const contents: any = {
     Event: undefined,
   };
   if (output["event"] !== undefined) {
@@ -65452,7 +65453,7 @@ const deserializeAws_ec2ModifyInstanceEventWindowResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceEventWindowResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceEventWindow: undefined,
   };
   if (output["instanceEventWindow"] !== undefined) {
@@ -65465,7 +65466,7 @@ const deserializeAws_ec2ModifyInstanceMetadataOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstanceMetadataOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     InstanceMetadataOptions: undefined,
   };
@@ -65485,7 +65486,7 @@ const deserializeAws_ec2ModifyInstancePlacementResult = (
   output: any,
   context: __SerdeContext
 ): ModifyInstancePlacementResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65498,7 +65499,7 @@ const deserializeAws_ec2ModifyLaunchTemplateResult = (
   output: any,
   context: __SerdeContext
 ): ModifyLaunchTemplateResult => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplate: undefined,
   };
   if (output["launchTemplate"] !== undefined) {
@@ -65511,7 +65512,7 @@ const deserializeAws_ec2ModifyManagedPrefixListResult = (
   output: any,
   context: __SerdeContext
 ): ModifyManagedPrefixListResult => {
-  let contents: any = {
+  const contents: any = {
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -65524,7 +65525,7 @@ const deserializeAws_ec2ModifyReservedInstancesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyReservedInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesModificationId: undefined,
   };
   if (output["reservedInstancesModificationId"] !== undefined) {
@@ -65537,7 +65538,7 @@ const deserializeAws_ec2ModifySecurityGroupRulesResult = (
   output: any,
   context: __SerdeContext
 ): ModifySecurityGroupRulesResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65550,7 +65551,7 @@ const deserializeAws_ec2ModifySpotFleetRequestResponse = (
   output: any,
   context: __SerdeContext
 ): ModifySpotFleetRequestResponse => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65563,7 +65564,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterNetworkServicesResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilter: undefined,
   };
   if (output["trafficMirrorFilter"] !== undefined) {
@@ -65576,7 +65577,7 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterRuleResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterRuleResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterRule: undefined,
   };
   if (output["trafficMirrorFilterRule"] !== undefined) {
@@ -65592,7 +65593,7 @@ const deserializeAws_ec2ModifyTrafficMirrorSessionResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTrafficMirrorSessionResult => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorSession: undefined,
   };
   if (output["trafficMirrorSession"] !== undefined) {
@@ -65605,7 +65606,7 @@ const deserializeAws_ec2ModifyTransitGatewayPrefixListReferenceResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayPrefixListReferenceResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPrefixListReference: undefined,
   };
   if (output["transitGatewayPrefixListReference"] !== undefined) {
@@ -65621,7 +65622,7 @@ const deserializeAws_ec2ModifyTransitGatewayResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGateway: undefined,
   };
   if (output["transitGateway"] !== undefined) {
@@ -65634,7 +65635,7 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): ModifyTransitGatewayVpcAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -65647,7 +65648,7 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
 };
 
 const deserializeAws_ec2ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolumeResult => {
-  let contents: any = {
+  const contents: any = {
     VolumeModification: undefined,
   };
   if (output["volumeModification"] !== undefined) {
@@ -65660,7 +65661,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointConnectionNotificationResult => {
-  let contents: any = {
+  const contents: any = {
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65670,7 +65671,7 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
 };
 
 const deserializeAws_ec2ModifyVpcEndpointResult = (output: any, context: __SerdeContext): ModifyVpcEndpointResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65683,7 +65684,7 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointServiceConfigurationResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65696,7 +65697,7 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcEndpointServicePermissionsResult => {
-  let contents: any = {
+  const contents: any = {
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65709,7 +65710,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpcPeeringConnectionOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     AccepterPeeringConnectionOptions: undefined,
     RequesterPeeringConnectionOptions: undefined,
   };
@@ -65729,7 +65730,7 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
 };
 
 const deserializeAws_ec2ModifyVpcTenancyResult = (output: any, context: __SerdeContext): ModifyVpcTenancyResult => {
-  let contents: any = {
+  const contents: any = {
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -65742,7 +65743,7 @@ const deserializeAws_ec2ModifyVpnConnectionOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnConnectionOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -65755,7 +65756,7 @@ const deserializeAws_ec2ModifyVpnConnectionResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -65768,7 +65769,7 @@ const deserializeAws_ec2ModifyVpnTunnelCertificateResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnTunnelCertificateResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -65781,7 +65782,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
   output: any,
   context: __SerdeContext
 ): ModifyVpnTunnelOptionsResult => {
-  let contents: any = {
+  const contents: any = {
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -65791,7 +65792,7 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
 };
 
 const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Monitoring => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
   };
   if (output["state"] !== undefined) {
@@ -65801,7 +65802,7 @@ const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Mon
 };
 
 const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeContext): MonitorInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceMonitorings: undefined,
   };
   if (output.instancesSet === "") {
@@ -65817,7 +65818,7 @@ const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeContext): MoveAddressToVpcResult => {
-  let contents: any = {
+  const contents: any = {
     AllocationId: undefined,
     Status: undefined,
   };
@@ -65831,7 +65832,7 @@ const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2MovingAddressStatus = (output: any, context: __SerdeContext): MovingAddressStatus => {
-  let contents: any = {
+  const contents: any = {
     MoveStatus: undefined,
     PublicIp: undefined,
   };
@@ -65856,7 +65857,7 @@ const deserializeAws_ec2MovingAddressStatusSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): NatGateway => {
-  let contents: any = {
+  const contents: any = {
     CreateTime: undefined,
     DeleteTime: undefined,
     FailureCode: undefined,
@@ -65919,7 +65920,7 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
 };
 
 const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContext): NatGatewayAddress => {
-  let contents: any = {
+  const contents: any = {
     AllocationId: undefined,
     NetworkInterfaceId: undefined,
     PrivateIp: undefined,
@@ -65963,7 +65964,7 @@ const deserializeAws_ec2NatGatewayList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): NetworkAcl => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
     Entries: undefined,
     IsDefault: undefined,
@@ -66012,7 +66013,7 @@ const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): Net
 };
 
 const deserializeAws_ec2NetworkAclAssociation = (output: any, context: __SerdeContext): NetworkAclAssociation => {
-  let contents: any = {
+  const contents: any = {
     NetworkAclAssociationId: undefined,
     NetworkAclId: undefined,
     SubnetId: undefined,
@@ -66041,7 +66042,7 @@ const deserializeAws_ec2NetworkAclAssociationList = (output: any, context: __Ser
 };
 
 const deserializeAws_ec2NetworkAclEntry = (output: any, context: __SerdeContext): NetworkAclEntry => {
-  let contents: any = {
+  const contents: any = {
     CidrBlock: undefined,
     Egress: undefined,
     IcmpTypeCode: undefined,
@@ -66101,7 +66102,7 @@ const deserializeAws_ec2NetworkAclList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardInfo => {
-  let contents: any = {
+  const contents: any = {
     NetworkCardIndex: undefined,
     NetworkPerformance: undefined,
     MaximumNetworkInterfaces: undefined,
@@ -66130,7 +66131,7 @@ const deserializeAws_ec2NetworkCardInfoList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
-  let contents: any = {
+  const contents: any = {
     NetworkPerformance: undefined,
     MaximumNetworkInterfaces: undefined,
     MaximumNetworkCards: undefined,
@@ -66190,7 +66191,7 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
 };
 
 const deserializeAws_ec2NetworkInsightsAnalysis = (output: any, context: __SerdeContext): NetworkInsightsAnalysis => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsAnalysisId: undefined,
     NetworkInsightsAnalysisArn: undefined,
     NetworkInsightsPathId: undefined,
@@ -66295,7 +66296,7 @@ const deserializeAws_ec2NetworkInsightsAnalysisList = (
 };
 
 const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeContext): NetworkInsightsPath => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsPathId: undefined,
     NetworkInsightsPathArn: undefined,
     CreatedDate: undefined,
@@ -66355,7 +66356,7 @@ const deserializeAws_ec2NetworkInsightsPathList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
     Attachment: undefined,
     AvailabilityZone: undefined,
@@ -66489,7 +66490,7 @@ const deserializeAws_ec2NetworkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceAssociation => {
-  let contents: any = {
+  const contents: any = {
     AllocationId: undefined,
     AssociationId: undefined,
     IpOwnerId: undefined,
@@ -66526,7 +66527,7 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceAttachment => {
-  let contents: any = {
+  const contents: any = {
     AttachTime: undefined,
     AttachmentId: undefined,
     DeleteOnTermination: undefined,
@@ -66567,7 +66568,7 @@ const deserializeAws_ec2NetworkInterfaceIpv6Address = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfaceIpv6Address => {
-  let contents: any = {
+  const contents: any = {
     Ipv6Address: undefined,
   };
   if (output["ipv6Address"] !== undefined) {
@@ -66605,7 +66606,7 @@ const deserializeAws_ec2NetworkInterfacePermission = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePermission => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterfacePermissionId: undefined,
     NetworkInterfaceId: undefined,
     AwsAccountId: undefined,
@@ -66652,7 +66653,7 @@ const deserializeAws_ec2NetworkInterfacePermissionState = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePermissionState => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     StatusMessage: undefined,
   };
@@ -66669,7 +66670,7 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddress = (
   output: any,
   context: __SerdeContext
 ): NetworkInterfacePrivateIpAddress => {
-  let contents: any = {
+  const contents: any = {
     Association: undefined,
     Primary: undefined,
     PrivateDnsName: undefined,
@@ -66716,7 +66717,7 @@ const deserializeAws_ec2OccurrenceDaySet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext): OnDemandOptions => {
-  let contents: any = {
+  const contents: any = {
     AllocationStrategy: undefined,
     CapacityReservationOptions: undefined,
     SingleInstanceType: undefined,
@@ -66749,7 +66750,7 @@ const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): PathComponent => {
-  let contents: any = {
+  const contents: any = {
     SequenceNumber: undefined,
     AclRule: undefined,
     Component: undefined,
@@ -66810,7 +66811,7 @@ const deserializeAws_ec2PathComponentList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId => {
-  let contents: any = {
+  const contents: any = {
     DeviceId: undefined,
     VendorId: undefined,
     SubsystemId: undefined,
@@ -66832,7 +66833,7 @@ const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId =>
 };
 
 const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __SerdeContext): PeeringAttachmentStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -66846,7 +66847,7 @@ const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __SerdeContext): PeeringConnectionOptions => {
-  let contents: any = {
+  const contents: any = {
     AllowDnsResolutionFromRemoteVpc: undefined,
     AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
     AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
@@ -66868,7 +66869,7 @@ const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2PeeringTgwInfo = (output: any, context: __SerdeContext): PeeringTgwInfo => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayId: undefined,
     OwnerId: undefined,
     Region: undefined,
@@ -66903,7 +66904,7 @@ const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1DHGroupNumbersListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -66930,7 +66931,7 @@ const deserializeAws_ec2Phase1EncryptionAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1EncryptionAlgorithmsListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -66957,7 +66958,7 @@ const deserializeAws_ec2Phase1IntegrityAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase1IntegrityAlgorithmsListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -66984,7 +66985,7 @@ const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2DHGroupNumbersListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -67011,7 +67012,7 @@ const deserializeAws_ec2Phase2EncryptionAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2EncryptionAlgorithmsListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -67038,7 +67039,7 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
   output: any,
   context: __SerdeContext
 ): Phase2IntegrityAlgorithmsListValue => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -67048,7 +67049,7 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
 };
 
 const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Placement => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Affinity: undefined,
     GroupName: undefined,
@@ -67086,7 +67087,7 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
 };
 
 const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup => {
-  let contents: any = {
+  const contents: any = {
     GroupName: undefined,
     State: undefined,
     Strategy: undefined,
@@ -67119,7 +67120,7 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2PlacementGroupInfo = (output: any, context: __SerdeContext): PlacementGroupInfo => {
-  let contents: any = {
+  const contents: any = {
     SupportedStrategies: undefined,
   };
   if (output.supportedStrategies === "") {
@@ -67160,7 +67161,7 @@ const deserializeAws_ec2PlacementGroupStrategyList = (
 };
 
 const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContext): PlacementResponse => {
-  let contents: any = {
+  const contents: any = {
     GroupName: undefined,
   };
   if (output["groupName"] !== undefined) {
@@ -67170,7 +67171,7 @@ const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PoolCidrBlock = (output: any, context: __SerdeContext): PoolCidrBlock => {
-  let contents: any = {
+  const contents: any = {
     Cidr: undefined,
   };
   if (output["poolCidrBlock"] !== undefined) {
@@ -67191,7 +67192,7 @@ const deserializeAws_ec2PoolCidrBlocksSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PortRange = (output: any, context: __SerdeContext): PortRange => {
-  let contents: any = {
+  const contents: any = {
     From: undefined,
     To: undefined,
   };
@@ -67216,7 +67217,7 @@ const deserializeAws_ec2PortRangeList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): PrefixList => {
-  let contents: any = {
+  const contents: any = {
     Cidrs: undefined,
     PrefixListId: undefined,
     PrefixListName: undefined,
@@ -67237,7 +67238,7 @@ const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): Pre
 };
 
 const deserializeAws_ec2PrefixListAssociation = (output: any, context: __SerdeContext): PrefixListAssociation => {
-  let contents: any = {
+  const contents: any = {
     ResourceId: undefined,
     ResourceOwner: undefined,
   };
@@ -67262,7 +67263,7 @@ const deserializeAws_ec2PrefixListAssociationSet = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2PrefixListEntry = (output: any, context: __SerdeContext): PrefixListEntry => {
-  let contents: any = {
+  const contents: any = {
     Cidr: undefined,
     Description: undefined,
   };
@@ -67287,7 +67288,7 @@ const deserializeAws_ec2PrefixListEntrySet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2PrefixListId = (output: any, context: __SerdeContext): PrefixListId => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     PrefixListId: undefined,
   };
@@ -67334,7 +67335,7 @@ const deserializeAws_ec2PrefixListSet = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2PriceSchedule = (output: any, context: __SerdeContext): PriceSchedule => {
-  let contents: any = {
+  const contents: any = {
     Active: undefined,
     CurrencyCode: undefined,
     Price: undefined,
@@ -67367,7 +67368,7 @@ const deserializeAws_ec2PriceScheduleList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2PricingDetail = (output: any, context: __SerdeContext): PricingDetail => {
-  let contents: any = {
+  const contents: any = {
     Count: undefined,
     Price: undefined,
   };
@@ -67392,7 +67393,7 @@ const deserializeAws_ec2PricingDetailsList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2PrincipalIdFormat = (output: any, context: __SerdeContext): PrincipalIdFormat => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
     Statuses: undefined,
   };
@@ -67420,7 +67421,7 @@ const deserializeAws_ec2PrincipalIdFormatList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2PrivateDnsDetails = (output: any, context: __SerdeContext): PrivateDnsDetails => {
-  let contents: any = {
+  const contents: any = {
     PrivateDnsName: undefined,
   };
   if (output["privateDnsName"] !== undefined) {
@@ -67444,7 +67445,7 @@ const deserializeAws_ec2PrivateDnsNameConfiguration = (
   output: any,
   context: __SerdeContext
 ): PrivateDnsNameConfiguration => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     Type: undefined,
     Value: undefined,
@@ -67469,7 +67470,7 @@ const deserializeAws_ec2PrivateIpAddressSpecification = (
   output: any,
   context: __SerdeContext
 ): PrivateIpAddressSpecification => {
-  let contents: any = {
+  const contents: any = {
     Primary: undefined,
     PrivateIpAddress: undefined,
   };
@@ -67497,7 +67498,7 @@ const deserializeAws_ec2PrivateIpAddressSpecificationList = (
 };
 
 const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo => {
-  let contents: any = {
+  const contents: any = {
     SupportedArchitectures: undefined,
     SustainedClockSpeedInGhz: undefined,
   };
@@ -67517,7 +67518,7 @@ const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2ProductCode = (output: any, context: __SerdeContext): ProductCode => {
-  let contents: any = {
+  const contents: any = {
     ProductCodeId: undefined,
     ProductCodeType: undefined,
   };
@@ -67542,7 +67543,7 @@ const deserializeAws_ec2ProductCodeList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PropagatingVgw = (output: any, context: __SerdeContext): PropagatingVgw => {
-  let contents: any = {
+  const contents: any = {
     GatewayId: undefined,
   };
   if (output["gatewayId"] !== undefined) {
@@ -67563,7 +67564,7 @@ const deserializeAws_ec2PropagatingVgwList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __SerdeContext): ProvisionByoipCidrResult => {
-  let contents: any = {
+  const contents: any = {
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -67573,7 +67574,7 @@ const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __Serd
 };
 
 const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeContext): ProvisionedBandwidth => {
-  let contents: any = {
+  const contents: any = {
     ProvisionTime: undefined,
     Provisioned: undefined,
     RequestTime: undefined,
@@ -67599,7 +67600,7 @@ const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2PtrUpdateStatus = (output: any, context: __SerdeContext): PtrUpdateStatus => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
     Status: undefined,
     Reason: undefined,
@@ -67617,7 +67618,7 @@ const deserializeAws_ec2PtrUpdateStatus = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext): PublicIpv4Pool => {
-  let contents: any = {
+  const contents: any = {
     PoolId: undefined,
     Description: undefined,
     PoolAddressRanges: undefined,
@@ -67660,7 +67661,7 @@ const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2PublicIpv4PoolRange = (output: any, context: __SerdeContext): PublicIpv4PoolRange => {
-  let contents: any = {
+  const contents: any = {
     FirstAddress: undefined,
     LastAddress: undefined,
     AddressCount: undefined,
@@ -67704,7 +67705,7 @@ const deserializeAws_ec2PublicIpv4PoolSet = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2Purchase = (output: any, context: __SerdeContext): Purchase => {
-  let contents: any = {
+  const contents: any = {
     CurrencyCode: undefined,
     Duration: undefined,
     HostIdSet: undefined,
@@ -67762,7 +67763,7 @@ const deserializeAws_ec2PurchaseHostReservationResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseHostReservationResult => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     CurrencyCode: undefined,
     Purchase: undefined,
@@ -67794,7 +67795,7 @@ const deserializeAws_ec2PurchaseReservedInstancesOfferingResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseReservedInstancesOfferingResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -67807,7 +67808,7 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): PurchaseScheduledInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     ScheduledInstanceSet: undefined,
   };
   if (output.scheduledInstanceSet === "") {
@@ -67834,7 +67835,7 @@ const deserializeAws_ec2PurchaseSet = (output: any, context: __SerdeContext): Pu
 };
 
 const deserializeAws_ec2RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
-  let contents: any = {
+  const contents: any = {
     Amount: undefined,
     Frequency: undefined,
   };
@@ -67859,7 +67860,7 @@ const deserializeAws_ec2RecurringChargesList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2ReferencedSecurityGroup = (output: any, context: __SerdeContext): ReferencedSecurityGroup => {
-  let contents: any = {
+  const contents: any = {
     GroupId: undefined,
     PeeringStatus: undefined,
     UserId: undefined,
@@ -67885,7 +67886,7 @@ const deserializeAws_ec2ReferencedSecurityGroup = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2Region = (output: any, context: __SerdeContext): Region => {
-  let contents: any = {
+  const contents: any = {
     Endpoint: undefined,
     RegionName: undefined,
     OptInStatus: undefined,
@@ -67914,7 +67915,7 @@ const deserializeAws_ec2RegionList = (output: any, context: __SerdeContext): Reg
 };
 
 const deserializeAws_ec2RegisterImageResult = (output: any, context: __SerdeContext): RegisterImageResult => {
-  let contents: any = {
+  const contents: any = {
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -67927,7 +67928,7 @@ const deserializeAws_ec2RegisterInstanceEventNotificationAttributesResult = (
   output: any,
   context: __SerdeContext
 ): RegisterInstanceEventNotificationAttributesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -67943,7 +67944,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersResult = (
   output: any,
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupMembersResult => {
-  let contents: any = {
+  const contents: any = {
     RegisteredMulticastGroupMembers: undefined,
   };
   if (output["registeredMulticastGroupMembers"] !== undefined) {
@@ -67959,7 +67960,7 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesResult = (
   output: any,
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupSourcesResult => {
-  let contents: any = {
+  const contents: any = {
     RegisteredMulticastGroupSources: undefined,
   };
   if (output["registeredMulticastGroupSources"] !== undefined) {
@@ -67975,7 +67976,7 @@ const deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsResult = 
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayMulticastDomainAssociationsResult => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -67991,7 +67992,7 @@ const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayPeeringAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -68007,7 +68008,7 @@ const deserializeAws_ec2RejectTransitGatewayVpcAttachmentResult = (
   output: any,
   context: __SerdeContext
 ): RejectTransitGatewayVpcAttachmentResult => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -68023,7 +68024,7 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): RejectVpcEndpointConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -68042,7 +68043,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
   output: any,
   context: __SerdeContext
 ): RejectVpcPeeringConnectionResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -68052,7 +68053,7 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
 };
 
 const deserializeAws_ec2ReleaseHostsResult = (output: any, context: __SerdeContext): ReleaseHostsResult => {
-  let contents: any = {
+  const contents: any = {
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -68081,7 +68082,7 @@ const deserializeAws_ec2ReplaceIamInstanceProfileAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceIamInstanceProfileAssociationResult => {
-  let contents: any = {
+  const contents: any = {
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -68097,7 +68098,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceNetworkAclAssociationResult => {
-  let contents: any = {
+  const contents: any = {
     NewAssociationId: undefined,
   };
   if (output["newAssociationId"] !== undefined) {
@@ -68107,7 +68108,7 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationResult = (
 };
 
 const deserializeAws_ec2ReplaceRootVolumeTask = (output: any, context: __SerdeContext): ReplaceRootVolumeTask => {
-  let contents: any = {
+  const contents: any = {
     ReplaceRootVolumeTaskId: undefined,
     InstanceId: undefined,
     TaskState: undefined,
@@ -68154,7 +68155,7 @@ const deserializeAws_ec2ReplaceRouteTableAssociationResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceRouteTableAssociationResult => {
-  let contents: any = {
+  const contents: any = {
     NewAssociationId: undefined,
     AssociationState: undefined,
   };
@@ -68171,7 +68172,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
   output: any,
   context: __SerdeContext
 ): ReplaceTransitGatewayRouteResult => {
-  let contents: any = {
+  const contents: any = {
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -68181,7 +68182,7 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
 };
 
 const deserializeAws_ec2RequestSpotFleetResponse = (output: any, context: __SerdeContext): RequestSpotFleetResponse => {
-  let contents: any = {
+  const contents: any = {
     SpotFleetRequestId: undefined,
   };
   if (output["spotFleetRequestId"] !== undefined) {
@@ -68194,7 +68195,7 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
   output: any,
   context: __SerdeContext
 ): RequestSpotInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     SpotInstanceRequests: undefined,
   };
   if (output.spotInstanceRequestSet === "") {
@@ -68210,7 +68211,7 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
 };
 
 const deserializeAws_ec2Reservation = (output: any, context: __SerdeContext): Reservation => {
-  let contents: any = {
+  const contents: any = {
     Groups: undefined,
     Instances: undefined,
     OwnerId: undefined,
@@ -68259,7 +68260,7 @@ const deserializeAws_ec2ReservationList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2ReservationValue = (output: any, context: __SerdeContext): ReservationValue => {
-  let contents: any = {
+  const contents: any = {
     HourlyPrice: undefined,
     RemainingTotalValue: undefined,
     RemainingUpfrontValue: undefined,
@@ -68280,7 +68281,7 @@ const deserializeAws_ec2ReservedInstanceReservationValue = (
   output: any,
   context: __SerdeContext
 ): ReservedInstanceReservationValue => {
-  let contents: any = {
+  const contents: any = {
     ReservationValue: undefined,
     ReservedInstanceId: undefined,
   };
@@ -68308,7 +68309,7 @@ const deserializeAws_ec2ReservedInstanceReservationValueSet = (
 };
 
 const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContext): ReservedInstances => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Duration: undefined,
     End: undefined,
@@ -68398,7 +68399,7 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesConfiguration => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     InstanceCount: undefined,
     InstanceType: undefined,
@@ -68424,7 +68425,7 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
 };
 
 const deserializeAws_ec2ReservedInstancesId = (output: any, context: __SerdeContext): ReservedInstancesId => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -68445,7 +68446,7 @@ const deserializeAws_ec2ReservedInstancesList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __SerdeContext): ReservedInstancesListing => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     CreateDate: undefined,
     InstanceCounts: undefined,
@@ -68523,7 +68524,7 @@ const deserializeAws_ec2ReservedInstancesModification = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesModification => {
-  let contents: any = {
+  const contents: any = {
     ClientToken: undefined,
     CreateDate: undefined,
     EffectiveDate: undefined,
@@ -68594,7 +68595,7 @@ const deserializeAws_ec2ReservedInstancesModificationResult = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesModificationResult => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesId: undefined,
     TargetConfiguration: undefined,
   };
@@ -68628,7 +68629,7 @@ const deserializeAws_ec2ReservedInstancesOffering = (
   output: any,
   context: __SerdeContext
 ): ReservedInstancesOffering => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     Duration: undefined,
     FixedPrice: undefined,
@@ -68734,7 +68735,7 @@ const deserializeAws_ec2ResetAddressAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ResetAddressAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     Address: undefined,
   };
   if (output["address"] !== undefined) {
@@ -68747,7 +68748,7 @@ const deserializeAws_ec2ResetEbsDefaultKmsKeyIdResult = (
   output: any,
   context: __SerdeContext
 ): ResetEbsDefaultKmsKeyIdResult => {
-  let contents: any = {
+  const contents: any = {
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -68760,7 +68761,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
   output: any,
   context: __SerdeContext
 ): ResetFpgaImageAttributeResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -68770,7 +68771,7 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
 };
 
 const deserializeAws_ec2ResponseError = (output: any, context: __SerdeContext): ResponseError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -68809,7 +68810,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   output: any,
   context: __SerdeContext
 ): ResponseLaunchTemplateData => {
-  let contents: any = {
+  const contents: any = {
     KernelId: undefined,
     EbsOptimized: undefined,
     IamInstanceProfile: undefined,
@@ -68996,7 +68997,7 @@ const deserializeAws_ec2RestoreAddressToClassicResult = (
   output: any,
   context: __SerdeContext
 ): RestoreAddressToClassicResult => {
-  let contents: any = {
+  const contents: any = {
     PublicIp: undefined,
     Status: undefined,
   };
@@ -69013,7 +69014,7 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionResult = (
   output: any,
   context: __SerdeContext
 ): RestoreManagedPrefixListVersionResult => {
-  let contents: any = {
+  const contents: any = {
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -69026,7 +69027,7 @@ const deserializeAws_ec2RevokeClientVpnIngressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeClientVpnIngressResult => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -69039,7 +69040,7 @@ const deserializeAws_ec2RevokeSecurityGroupEgressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeSecurityGroupEgressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
     UnknownIpPermissions: undefined,
   };
@@ -69062,7 +69063,7 @@ const deserializeAws_ec2RevokeSecurityGroupIngressResult = (
   output: any,
   context: __SerdeContext
 ): RevokeSecurityGroupIngressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
     UnknownIpPermissions: undefined,
   };
@@ -69093,7 +69094,7 @@ const deserializeAws_ec2RootDeviceTypeList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2Route = (output: any, context: __SerdeContext): Route => {
-  let contents: any = {
+  const contents: any = {
     DestinationCidrBlock: undefined,
     DestinationIpv6CidrBlock: undefined,
     DestinationPrefixListId: undefined,
@@ -69170,7 +69171,7 @@ const deserializeAws_ec2RouteList = (output: any, context: __SerdeContext): Rout
 };
 
 const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): RouteTable => {
-  let contents: any = {
+  const contents: any = {
     Associations: undefined,
     PropagatingVgws: undefined,
     RouteTableId: undefined,
@@ -69222,7 +69223,7 @@ const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): Rou
 };
 
 const deserializeAws_ec2RouteTableAssociation = (output: any, context: __SerdeContext): RouteTableAssociation => {
-  let contents: any = {
+  const contents: any = {
     Main: undefined,
     RouteTableAssociationId: undefined,
     RouteTableId: undefined,
@@ -69266,7 +69267,7 @@ const deserializeAws_ec2RouteTableAssociationState = (
   output: any,
   context: __SerdeContext
 ): RouteTableAssociationState => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     StatusMessage: undefined,
   };
@@ -69294,7 +69295,7 @@ const deserializeAws_ec2RunInstancesMonitoringEnabled = (
   output: any,
   context: __SerdeContext
 ): RunInstancesMonitoringEnabled => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -69307,7 +69308,7 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
   output: any,
   context: __SerdeContext
 ): RunScheduledInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceIdSet: undefined,
   };
   if (output.instanceIdSet === "") {
@@ -69323,7 +69324,7 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
 };
 
 const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3Storage => {
-  let contents: any = {
+  const contents: any = {
     AWSAccessKeyId: undefined,
     Bucket: undefined,
     Prefix: undefined,
@@ -69349,7 +69350,7 @@ const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3St
 };
 
 const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContext): ScheduledInstance => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     CreateDate: undefined,
     HourlyPrice: undefined,
@@ -69418,7 +69419,7 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
   output: any,
   context: __SerdeContext
 ): ScheduledInstanceAvailability => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     AvailableInstanceCount: undefined,
     FirstSlotStartTime: undefined,
@@ -69493,7 +69494,7 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
   output: any,
   context: __SerdeContext
 ): ScheduledInstanceRecurrence => {
-  let contents: any = {
+  const contents: any = {
     Frequency: undefined,
     Interval: undefined,
     OccurrenceDaySet: undefined,
@@ -69539,7 +69540,7 @@ const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): SearchLocalGatewayRoutesResult => {
-  let contents: any = {
+  const contents: any = {
     Routes: undefined,
     NextToken: undefined,
   };
@@ -69562,7 +69563,7 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult = (
   output: any,
   context: __SerdeContext
 ): SearchTransitGatewayMulticastGroupsResult => {
-  let contents: any = {
+  const contents: any = {
     MulticastGroups: undefined,
     NextToken: undefined,
   };
@@ -69585,7 +69586,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
   output: any,
   context: __SerdeContext
 ): SearchTransitGatewayRoutesResult => {
-  let contents: any = {
+  const contents: any = {
     Routes: undefined,
     AdditionalRoutesAvailable: undefined,
   };
@@ -69605,7 +69606,7 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
 };
 
 const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     GroupName: undefined,
     IpPermissions: undefined,
@@ -69658,7 +69659,7 @@ const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2SecurityGroupIdentifier = (output: any, context: __SerdeContext): SecurityGroupIdentifier => {
-  let contents: any = {
+  const contents: any = {
     GroupId: undefined,
     GroupName: undefined,
   };
@@ -69694,7 +69695,7 @@ const deserializeAws_ec2SecurityGroupList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2SecurityGroupReference = (output: any, context: __SerdeContext): SecurityGroupReference => {
-  let contents: any = {
+  const contents: any = {
     GroupId: undefined,
     ReferencingVpcId: undefined,
     VpcPeeringConnectionId: undefined,
@@ -69723,7 +69724,7 @@ const deserializeAws_ec2SecurityGroupReferences = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2SecurityGroupRule = (output: any, context: __SerdeContext): SecurityGroupRule => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroupRuleId: undefined,
     GroupId: undefined,
     GroupOwnerId: undefined,
@@ -69795,7 +69796,7 @@ const deserializeAws_ec2SecurityGroupRuleList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
-  let contents: any = {
+  const contents: any = {
     ServiceType: undefined,
     ServiceId: undefined,
     ServiceName: undefined,
@@ -69900,7 +69901,7 @@ const deserializeAws_ec2ServiceConfigurationSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail => {
-  let contents: any = {
+  const contents: any = {
     ServiceName: undefined,
     ServiceId: undefined,
     ServiceType: undefined,
@@ -69996,7 +69997,7 @@ const deserializeAws_ec2ServiceDetailSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2ServiceTypeDetail = (output: any, context: __SerdeContext): ServiceTypeDetail => {
-  let contents: any = {
+  const contents: any = {
     ServiceType: undefined,
   };
   if (output["serviceType"] !== undefined) {
@@ -70017,7 +70018,7 @@ const deserializeAws_ec2ServiceTypeDetailSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snapshot => {
-  let contents: any = {
+  const contents: any = {
     DataEncryptionKeyId: undefined,
     Description: undefined,
     Encrypted: undefined,
@@ -70086,7 +70087,7 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
 };
 
 const deserializeAws_ec2SnapshotDetail = (output: any, context: __SerdeContext): SnapshotDetail => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     DeviceName: undefined,
     DiskImageSize: undefined,
@@ -70143,7 +70144,7 @@ const deserializeAws_ec2SnapshotDetailList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     Tags: undefined,
     Encrypted: undefined,
@@ -70218,7 +70219,7 @@ const deserializeAws_ec2SnapshotSet = (output: any, context: __SerdeContext): Sn
 };
 
 const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeContext): SnapshotTaskDetail => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     DiskImageSize: undefined,
     Encrypted: undefined,
@@ -70268,7 +70269,7 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
-  let contents: any = {
+  const contents: any = {
     ReplacementStrategy: undefined,
   };
   if (output["replacementStrategy"] !== undefined) {
@@ -70278,7 +70279,7 @@ const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2SpotDatafeedSubscription = (output: any, context: __SerdeContext): SpotDatafeedSubscription => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
     Fault: undefined,
     OwnerId: undefined,
@@ -70307,7 +70308,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   output: any,
   context: __SerdeContext
 ): SpotFleetLaunchSpecification => {
-  let contents: any = {
+  const contents: any = {
     SecurityGroups: undefined,
     AddressingType: undefined,
     BlockDeviceMappings: undefined,
@@ -70412,7 +70413,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
 };
 
 const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeContext): SpotFleetMonitoring => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -70422,7 +70423,7 @@ const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2SpotFleetRequestConfig = (output: any, context: __SerdeContext): SpotFleetRequestConfig => {
-  let contents: any = {
+  const contents: any = {
     ActivityStatus: undefined,
     CreateTime: undefined,
     SpotFleetRequestConfig: undefined,
@@ -70461,7 +70462,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   output: any,
   context: __SerdeContext
 ): SpotFleetRequestConfigData => {
-  let contents: any = {
+  const contents: any = {
     AllocationStrategy: undefined,
     OnDemandAllocationStrategy: undefined,
     SpotMaintenanceStrategies: undefined,
@@ -70605,7 +70606,7 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
   output: any,
   context: __SerdeContext
 ): SpotFleetTagSpecification => {
-  let contents: any = {
+  const contents: any = {
     ResourceType: undefined,
     Tags: undefined,
   };
@@ -70636,7 +70637,7 @@ const deserializeAws_ec2SpotFleetTagSpecificationList = (
 };
 
 const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeContext): SpotInstanceRequest => {
-  let contents: any = {
+  const contents: any = {
     ActualBlockHourlyPrice: undefined,
     AvailabilityZoneGroup: undefined,
     BlockDurationMinutes: undefined,
@@ -70732,7 +70733,7 @@ const deserializeAws_ec2SpotInstanceRequestList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeContext): SpotInstanceStateFault => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -70746,7 +70747,7 @@ const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeContext): SpotInstanceStatus => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
     UpdateTime: undefined,
@@ -70767,7 +70768,7 @@ const deserializeAws_ec2SpotMaintenanceStrategies = (
   output: any,
   context: __SerdeContext
 ): SpotMaintenanceStrategies => {
-  let contents: any = {
+  const contents: any = {
     CapacityRebalance: undefined,
   };
   if (output["capacityRebalance"] !== undefined) {
@@ -70777,7 +70778,7 @@ const deserializeAws_ec2SpotMaintenanceStrategies = (
 };
 
 const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): SpotOptions => {
-  let contents: any = {
+  const contents: any = {
     AllocationStrategy: undefined,
     MaintenanceStrategies: undefined,
     InstanceInterruptionBehavior: undefined,
@@ -70818,7 +70819,7 @@ const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): Sp
 };
 
 const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): SpotPlacement => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     GroupName: undefined,
     Tenancy: undefined,
@@ -70836,7 +70837,7 @@ const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): SpotPrice => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     InstanceType: undefined,
     ProductDescription: undefined,
@@ -70873,7 +70874,7 @@ const deserializeAws_ec2SpotPriceHistoryList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2StaleIpPermission = (output: any, context: __SerdeContext): StaleIpPermission => {
-  let contents: any = {
+  const contents: any = {
     FromPort: undefined,
     IpProtocol: undefined,
     IpRanges: undefined,
@@ -70929,7 +70930,7 @@ const deserializeAws_ec2StaleIpPermissionSet = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2StaleSecurityGroup = (output: any, context: __SerdeContext): StaleSecurityGroup => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     GroupId: undefined,
     GroupName: undefined,
@@ -70982,7 +70983,7 @@ const deserializeAws_ec2StaleSecurityGroupSet = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2StartInstancesResult = (output: any, context: __SerdeContext): StartInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     StartingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -71001,7 +71002,7 @@ const deserializeAws_ec2StartNetworkInsightsAnalysisResult = (
   output: any,
   context: __SerdeContext
 ): StartNetworkInsightsAnalysisResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInsightsAnalysis: undefined,
   };
   if (output["networkInsightsAnalysis"] !== undefined) {
@@ -71017,7 +71018,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
   output: any,
   context: __SerdeContext
 ): StartVpcEndpointServicePrivateDnsVerificationResult => {
-  let contents: any = {
+  const contents: any = {
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -71027,7 +71028,7 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
 };
 
 const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): StateReason => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -71041,7 +71042,7 @@ const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): St
 };
 
 const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeContext): StopInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     StoppingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -71057,7 +71058,7 @@ const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storage => {
-  let contents: any = {
+  const contents: any = {
     S3: undefined,
   };
   if (output["S3"] !== undefined) {
@@ -71067,7 +71068,7 @@ const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storag
 };
 
 const deserializeAws_ec2StoreImageTaskResult = (output: any, context: __SerdeContext): StoreImageTaskResult => {
-  let contents: any = {
+  const contents: any = {
     AmiId: undefined,
     TaskStartTime: undefined,
     Bucket: undefined,
@@ -71123,7 +71124,7 @@ const deserializeAws_ec2StringList = (output: any, context: __SerdeContext): str
 };
 
 const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     AvailabilityZoneId: undefined,
     AvailableIpAddressCount: undefined,
@@ -71209,7 +71210,7 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
 };
 
 const deserializeAws_ec2SubnetAssociation = (output: any, context: __SerdeContext): SubnetAssociation => {
-  let contents: any = {
+  const contents: any = {
     SubnetId: undefined,
     State: undefined,
   };
@@ -71234,7 +71235,7 @@ const deserializeAws_ec2SubnetAssociationList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCidrBlockState => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     StatusMessage: undefined,
   };
@@ -71248,7 +71249,7 @@ const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2SubnetCidrReservation = (output: any, context: __SerdeContext): SubnetCidrReservation => {
-  let contents: any = {
+  const contents: any = {
     SubnetCidrReservationId: undefined,
     SubnetId: undefined,
     Cidr: undefined,
@@ -71299,7 +71300,7 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociation = (
   output: any,
   context: __SerdeContext
 ): SubnetIpv6CidrBlockAssociation => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     Ipv6CidrBlock: undefined,
     Ipv6CidrBlockState: undefined,
@@ -71345,7 +71346,7 @@ const deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem = (
   output: any,
   context: __SerdeContext
 ): SuccessfulInstanceCreditSpecificationItem => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
   };
   if (output["instanceId"] !== undefined) {
@@ -71372,7 +71373,7 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletion = (
   output: any,
   context: __SerdeContext
 ): SuccessfulQueuedPurchaseDeletion => {
-  let contents: any = {
+  const contents: any = {
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -71396,7 +71397,7 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletionSet = (
 };
 
 const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -71410,7 +71411,7 @@ const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
 };
 
 const deserializeAws_ec2TagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -71454,7 +71455,7 @@ const deserializeAws_ec2TagList = (output: any, context: __SerdeContext): Tag[] 
 };
 
 const deserializeAws_ec2TagSpecification = (output: any, context: __SerdeContext): TagSpecification => {
-  let contents: any = {
+  const contents: any = {
     ResourceType: undefined,
     Tags: undefined,
   };
@@ -71485,7 +71486,7 @@ const deserializeAws_ec2TargetCapacitySpecification = (
   output: any,
   context: __SerdeContext
 ): TargetCapacitySpecification => {
-  let contents: any = {
+  const contents: any = {
     TotalTargetCapacity: undefined,
     OnDemandTargetCapacity: undefined,
     SpotTargetCapacity: undefined,
@@ -71507,7 +71508,7 @@ const deserializeAws_ec2TargetCapacitySpecification = (
 };
 
 const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
-  let contents: any = {
+  const contents: any = {
     InstanceCount: undefined,
     OfferingId: undefined,
   };
@@ -71521,7 +71522,7 @@ const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2TargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
   };
   if (output["arn"] !== undefined) {
@@ -71542,7 +71543,7 @@ const deserializeAws_ec2TargetGroups = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeContext): TargetGroupsConfig => {
-  let contents: any = {
+  const contents: any = {
     TargetGroups: undefined,
   };
   if (output.targetGroups === "") {
@@ -71558,7 +71559,7 @@ const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2TargetNetwork = (output: any, context: __SerdeContext): TargetNetwork => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     VpcId: undefined,
     TargetNetworkId: undefined,
@@ -71605,7 +71606,7 @@ const deserializeAws_ec2TargetNetworkSet = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2TargetReservationValue = (output: any, context: __SerdeContext): TargetReservationValue => {
-  let contents: any = {
+  const contents: any = {
     ReservationValue: undefined,
     TargetConfiguration: undefined,
   };
@@ -71636,7 +71637,7 @@ const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
   output: any,
   context: __SerdeContext
 ): TerminateClientVpnConnectionsResult => {
-  let contents: any = {
+  const contents: any = {
     ClientVpnEndpointId: undefined,
     Username: undefined,
     ConnectionStatuses: undefined,
@@ -71663,7 +71664,7 @@ const deserializeAws_ec2TerminateConnectionStatus = (
   output: any,
   context: __SerdeContext
 ): TerminateConnectionStatus => {
-  let contents: any = {
+  const contents: any = {
     ConnectionId: undefined,
     PreviousStatus: undefined,
     CurrentStatus: undefined,
@@ -71695,7 +71696,7 @@ const deserializeAws_ec2TerminateConnectionStatusSet = (
 };
 
 const deserializeAws_ec2TerminateInstancesResult = (output: any, context: __SerdeContext): TerminateInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     TerminatingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -71722,7 +71723,7 @@ const deserializeAws_ec2ThreadsPerCoreList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMirrorFilter => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterId: undefined,
     IngressFilterRules: undefined,
     EgressFilterRules: undefined,
@@ -71773,7 +71774,7 @@ const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2TrafficMirrorFilterRule = (output: any, context: __SerdeContext): TrafficMirrorFilterRule => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorFilterRuleId: undefined,
     TrafficMirrorFilterId: undefined,
     TrafficDirection: undefined,
@@ -71862,7 +71863,7 @@ const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
 };
 
 const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeContext): TrafficMirrorPortRange => {
-  let contents: any = {
+  const contents: any = {
     FromPort: undefined,
     ToPort: undefined,
   };
@@ -71876,7 +71877,7 @@ const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2TrafficMirrorSession = (output: any, context: __SerdeContext): TrafficMirrorSession => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorSessionId: undefined,
     TrafficMirrorTargetId: undefined,
     TrafficMirrorFilterId: undefined,
@@ -71936,7 +71937,7 @@ const deserializeAws_ec2TrafficMirrorSessionSet = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2TrafficMirrorTarget = (output: any, context: __SerdeContext): TrafficMirrorTarget => {
-  let contents: any = {
+  const contents: any = {
     TrafficMirrorTargetId: undefined,
     NetworkInterfaceId: undefined,
     NetworkLoadBalancerArn: undefined,
@@ -71984,7 +71985,7 @@ const deserializeAws_ec2TrafficMirrorTargetSet = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2TransitGateway = (output: any, context: __SerdeContext): TransitGateway => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayId: undefined,
     TransitGatewayArn: undefined,
     State: undefined,
@@ -72028,7 +72029,7 @@ const deserializeAws_ec2TransitGatewayAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAssociation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTableId: undefined,
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
@@ -72054,7 +72055,7 @@ const deserializeAws_ec2TransitGatewayAssociation = (
 };
 
 const deserializeAws_ec2TransitGatewayAttachment = (output: any, context: __SerdeContext): TransitGatewayAttachment => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     TransitGatewayId: undefined,
     TransitGatewayOwnerId: undefined,
@@ -72106,7 +72107,7 @@ const deserializeAws_ec2TransitGatewayAttachmentAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentAssociation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTableId: undefined,
     State: undefined,
   };
@@ -72123,7 +72124,7 @@ const deserializeAws_ec2TransitGatewayAttachmentBgpConfiguration = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentBgpConfiguration => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAsn: undefined,
     PeerAsn: undefined,
     TransitGatewayAddress: undefined,
@@ -72180,7 +72181,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayAttachmentPropagation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTableId: undefined,
     State: undefined,
   };
@@ -72208,7 +72209,7 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagationList = (
 };
 
 const deserializeAws_ec2TransitGatewayConnect = (output: any, context: __SerdeContext): TransitGatewayConnect => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     TransportTransitGatewayAttachmentId: undefined,
     TransitGatewayId: undefined,
@@ -72259,7 +72260,7 @@ const deserializeAws_ec2TransitGatewayConnectOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectOptions => {
-  let contents: any = {
+  const contents: any = {
     Protocol: undefined,
   };
   if (output["protocol"] !== undefined) {
@@ -72272,7 +72273,7 @@ const deserializeAws_ec2TransitGatewayConnectPeer = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectPeer => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     TransitGatewayConnectPeerId: undefined,
     State: undefined,
@@ -72311,7 +72312,7 @@ const deserializeAws_ec2TransitGatewayConnectPeerConfiguration = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayConnectPeerConfiguration => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAddress: undefined,
     PeerAddress: undefined,
     InsideCidrBlocks: undefined,
@@ -72377,7 +72378,7 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupMembers => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     DeregisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -72407,7 +72408,7 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupSources => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     DeregisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -72437,7 +72438,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomain => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     TransitGatewayId: undefined,
     TransitGatewayMulticastDomainArn: undefined,
@@ -72481,7 +72482,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -72524,7 +72525,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociations => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
@@ -72577,7 +72578,7 @@ const deserializeAws_ec2TransitGatewayMulticastDomainOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastDomainOptions => {
-  let contents: any = {
+  const contents: any = {
     Igmpv2Support: undefined,
     StaticSourcesSupport: undefined,
     AutoAcceptSharedAssociations: undefined,
@@ -72598,7 +72599,7 @@ const deserializeAws_ec2TransitGatewayMulticastGroup = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastGroup => {
-  let contents: any = {
+  const contents: any = {
     GroupIpAddress: undefined,
     TransitGatewayAttachmentId: undefined,
     SubnetId: undefined,
@@ -72665,7 +72666,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupMembers => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     RegisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -72695,7 +72696,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupSources => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayMulticastDomainId: undefined,
     RegisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -72722,7 +72723,7 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
 };
 
 const deserializeAws_ec2TransitGatewayOptions = (output: any, context: __SerdeContext): TransitGatewayOptions => {
-  let contents: any = {
+  const contents: any = {
     AmazonSideAsn: undefined,
     TransitGatewayCidrBlocks: undefined,
     AutoAcceptSharedAttachments: undefined,
@@ -72777,7 +72778,7 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPeeringAttachment => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     RequesterTgwInfo: undefined,
     AccepterTgwInfo: undefined,
@@ -72831,7 +72832,7 @@ const deserializeAws_ec2TransitGatewayPrefixListAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPrefixListAttachment => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     ResourceType: undefined,
     ResourceId: undefined,
@@ -72852,7 +72853,7 @@ const deserializeAws_ec2TransitGatewayPrefixListReference = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPrefixListReference => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTableId: undefined,
     PrefixListId: undefined,
     PrefixListOwnerId: undefined,
@@ -72902,7 +72903,7 @@ const deserializeAws_ec2TransitGatewayPropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayPropagation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -72928,7 +72929,7 @@ const deserializeAws_ec2TransitGatewayPropagation = (
 };
 
 const deserializeAws_ec2TransitGatewayRoute = (output: any, context: __SerdeContext): TransitGatewayRoute => {
-  let contents: any = {
+  const contents: any = {
     DestinationCidrBlock: undefined,
     PrefixListId: undefined,
     TransitGatewayAttachments: undefined,
@@ -72963,7 +72964,7 @@ const deserializeAws_ec2TransitGatewayRouteAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteAttachment => {
-  let contents: any = {
+  const contents: any = {
     ResourceId: undefined,
     TransitGatewayAttachmentId: undefined,
     ResourceType: undefined,
@@ -73006,7 +73007,7 @@ const deserializeAws_ec2TransitGatewayRouteList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __SerdeContext): TransitGatewayRouteTable => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayRouteTableId: undefined,
     TransitGatewayId: undefined,
     State: undefined,
@@ -73046,7 +73047,7 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTableAssociation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -73099,7 +73100,7 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayRouteTablePropagation => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
     ResourceType: undefined,
@@ -73138,7 +73139,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayVpcAttachment => {
-  let contents: any = {
+  const contents: any = {
     TransitGatewayAttachmentId: undefined,
     TransitGatewayId: undefined,
     VpcId: undefined,
@@ -73206,7 +73207,7 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
   output: any,
   context: __SerdeContext
 ): TransitGatewayVpcAttachmentOptions => {
-  let contents: any = {
+  const contents: any = {
     DnsSupport: undefined,
     Ipv6Support: undefined,
     ApplianceModeSupport: undefined,
@@ -73227,7 +73228,7 @@ const deserializeAws_ec2TrunkInterfaceAssociation = (
   output: any,
   context: __SerdeContext
 ): TrunkInterfaceAssociation => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     BranchInterfaceId: undefined,
     TrunkInterfaceId: undefined,
@@ -73278,7 +73279,7 @@ const deserializeAws_ec2TrunkInterfaceAssociationList = (
 };
 
 const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): TunnelOption => {
-  let contents: any = {
+  const contents: any = {
     OutsideIpAddress: undefined,
     TunnelInsideCidr: undefined,
     TunnelInsideIpv6Cidr: undefined,
@@ -73428,7 +73429,7 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   output: any,
   context: __SerdeContext
 ): UnassignIpv6AddressesResult => {
-  let contents: any = {
+  const contents: any = {
     NetworkInterfaceId: undefined,
     UnassignedIpv6Addresses: undefined,
     UnassignedIpv6Prefixes: undefined,
@@ -73458,7 +73459,7 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
 };
 
 const deserializeAws_ec2UnmonitorInstancesResult = (output: any, context: __SerdeContext): UnmonitorInstancesResult => {
-  let contents: any = {
+  const contents: any = {
     InstanceMonitorings: undefined,
   };
   if (output.instancesSet === "") {
@@ -73477,7 +73478,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItem = (
   output: any,
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItem => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     Error: undefined,
   };
@@ -73494,7 +73495,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItemError = (
   output: any,
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItemError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -73522,7 +73523,7 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet = (
 };
 
 const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext): UnsuccessfulItem => {
-  let contents: any = {
+  const contents: any = {
     Error: undefined,
     ResourceId: undefined,
   };
@@ -73536,7 +73537,7 @@ const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2UnsuccessfulItemError = (output: any, context: __SerdeContext): UnsuccessfulItemError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -73575,7 +73576,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult = (
   output: any,
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsEgressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -73588,7 +73589,7 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult = (
   output: any,
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsIngressResult => {
-  let contents: any = {
+  const contents: any = {
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -73609,7 +73610,7 @@ const deserializeAws_ec2UsageClassTypeList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContext): UserBucketDetails => {
-  let contents: any = {
+  const contents: any = {
     S3Bucket: undefined,
     S3Key: undefined,
   };
@@ -73623,7 +73624,7 @@ const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2UserIdGroupPair = (output: any, context: __SerdeContext): UserIdGroupPair => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     GroupId: undefined,
     GroupName: undefined,
@@ -73679,7 +73680,7 @@ const deserializeAws_ec2UserIdGroupPairSet = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext): ValidationError => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -73693,7 +73694,7 @@ const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
-  let contents: any = {
+  const contents: any = {
     Errors: undefined,
   };
   if (output.errorSet === "") {
@@ -73717,7 +73718,7 @@ const deserializeAws_ec2ValueStringList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuInfo => {
-  let contents: any = {
+  const contents: any = {
     DefaultVCpus: undefined,
     DefaultCores: undefined,
     DefaultThreadsPerCore: undefined,
@@ -73755,7 +73756,7 @@ const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuI
 };
 
 const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => {
-  let contents: any = {
+  const contents: any = {
     AcceptedRouteCount: undefined,
     LastStatusChange: undefined,
     OutsideIpAddress: undefined,
@@ -73810,7 +73811,7 @@ const deserializeAws_ec2VirtualizationTypeList = (
 };
 
 const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume => {
-  let contents: any = {
+  const contents: any = {
     Attachments: undefined,
     AvailabilityZone: undefined,
     CreateTime: undefined,
@@ -73889,7 +73890,7 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
 };
 
 const deserializeAws_ec2VolumeAttachment = (output: any, context: __SerdeContext): VolumeAttachment => {
-  let contents: any = {
+  const contents: any = {
     AttachTime: undefined,
     Device: undefined,
     InstanceId: undefined,
@@ -73941,7 +73942,7 @@ const deserializeAws_ec2VolumeList = (output: any, context: __SerdeContext): Vol
 };
 
 const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeContext): VolumeModification => {
-  let contents: any = {
+  const contents: any = {
     VolumeId: undefined,
     ModificationState: undefined,
     StatusMessage: undefined,
@@ -74022,7 +74023,7 @@ const deserializeAws_ec2VolumeModificationList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2VolumeStatusAction = (output: any, context: __SerdeContext): VolumeStatusAction => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Description: undefined,
     EventId: undefined,
@@ -74058,7 +74059,7 @@ const deserializeAws_ec2VolumeStatusAttachmentStatus = (
   output: any,
   context: __SerdeContext
 ): VolumeStatusAttachmentStatus => {
-  let contents: any = {
+  const contents: any = {
     IoPerformance: undefined,
     InstanceId: undefined,
   };
@@ -74086,7 +74087,7 @@ const deserializeAws_ec2VolumeStatusAttachmentStatusList = (
 };
 
 const deserializeAws_ec2VolumeStatusDetails = (output: any, context: __SerdeContext): VolumeStatusDetails => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Status: undefined,
   };
@@ -74111,7 +74112,7 @@ const deserializeAws_ec2VolumeStatusDetailsList = (output: any, context: __Serde
 };
 
 const deserializeAws_ec2VolumeStatusEvent = (output: any, context: __SerdeContext): VolumeStatusEvent => {
-  let contents: any = {
+  const contents: any = {
     Description: undefined,
     EventId: undefined,
     EventType: undefined,
@@ -74152,7 +74153,7 @@ const deserializeAws_ec2VolumeStatusEventsList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext): VolumeStatusInfo => {
-  let contents: any = {
+  const contents: any = {
     Details: undefined,
     Status: undefined,
   };
@@ -74172,7 +74173,7 @@ const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatusItem => {
-  let contents: any = {
+  const contents: any = {
     Actions: undefined,
     AvailabilityZone: undefined,
     OutpostArn: undefined,
@@ -74235,7 +74236,7 @@ const deserializeAws_ec2VolumeStatusList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
-  let contents: any = {
+  const contents: any = {
     CidrBlock: undefined,
     DhcpOptionsId: undefined,
     State: undefined,
@@ -74299,7 +74300,7 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
 };
 
 const deserializeAws_ec2VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     VpcId: undefined,
   };
@@ -74324,7 +74325,7 @@ const deserializeAws_ec2VpcAttachmentList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpcCidrBlockAssociation = (output: any, context: __SerdeContext): VpcCidrBlockAssociation => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     CidrBlock: undefined,
     CidrBlockState: undefined,
@@ -74356,7 +74357,7 @@ const deserializeAws_ec2VpcCidrBlockAssociationSet = (
 };
 
 const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContext): VpcCidrBlockState => {
-  let contents: any = {
+  const contents: any = {
     State: undefined,
     StatusMessage: undefined,
   };
@@ -74370,7 +74371,7 @@ const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpcClassicLink = (output: any, context: __SerdeContext): VpcClassicLink => {
-  let contents: any = {
+  const contents: any = {
     ClassicLinkEnabled: undefined,
     Tags: undefined,
     VpcId: undefined,
@@ -74402,7 +74403,7 @@ const deserializeAws_ec2VpcClassicLinkList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
-  let contents: any = {
+  const contents: any = {
     VpcEndpointId: undefined,
     VpcEndpointType: undefined,
     VpcId: undefined,
@@ -74503,7 +74504,7 @@ const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): Vp
 };
 
 const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndpointConnection => {
-  let contents: any = {
+  const contents: any = {
     ServiceId: undefined,
     VpcEndpointId: undefined,
     VpcEndpointOwner: undefined,
@@ -74581,7 +74582,7 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociation = (
   output: any,
   context: __SerdeContext
 ): VpcIpv6CidrBlockAssociation => {
-  let contents: any = {
+  const contents: any = {
     AssociationId: undefined,
     Ipv6CidrBlock: undefined,
     Ipv6CidrBlockState: undefined,
@@ -74632,7 +74633,7 @@ const deserializeAws_ec2VpcList = (output: any, context: __SerdeContext): Vpc[] 
 };
 
 const deserializeAws_ec2VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeringConnection => {
-  let contents: any = {
+  const contents: any = {
     AccepterVpcInfo: undefined,
     ExpirationTime: undefined,
     RequesterVpcInfo: undefined,
@@ -74679,7 +74680,7 @@ const deserializeAws_ec2VpcPeeringConnectionOptionsDescription = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionOptionsDescription => {
-  let contents: any = {
+  const contents: any = {
     AllowDnsResolutionFromRemoteVpc: undefined,
     AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
     AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
@@ -74704,7 +74705,7 @@ const deserializeAws_ec2VpcPeeringConnectionStateReason = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionStateReason => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -74721,7 +74722,7 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
   output: any,
   context: __SerdeContext
 ): VpcPeeringConnectionVpcInfo => {
-  let contents: any = {
+  const contents: any = {
     CidrBlock: undefined,
     Ipv6CidrBlockSet: undefined,
     CidrBlockSet: undefined,
@@ -74770,7 +74771,7 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
 };
 
 const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): VpnConnection => {
-  let contents: any = {
+  const contents: any = {
     CustomerGatewayConfiguration: undefined,
     CustomerGatewayId: undefined,
     Category: undefined,
@@ -74836,7 +74837,7 @@ const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2VpnConnectionDeviceType = (output: any, context: __SerdeContext): VpnConnectionDeviceType => {
-  let contents: any = {
+  const contents: any = {
     VpnConnectionDeviceTypeId: undefined,
     Vendor: undefined,
     Platform: undefined,
@@ -74883,7 +74884,7 @@ const deserializeAws_ec2VpnConnectionList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeContext): VpnConnectionOptions => {
-  let contents: any = {
+  const contents: any = {
     EnableAcceleration: undefined,
     StaticRoutesOnly: undefined,
     LocalIpv4NetworkCidr: undefined,
@@ -74927,7 +74928,7 @@ const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_ec2VpnGateway = (output: any, context: __SerdeContext): VpnGateway => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityZone: undefined,
     State: undefined,
     Type: undefined,
@@ -74981,7 +74982,7 @@ const deserializeAws_ec2VpnGatewayList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2VpnStaticRoute = (output: any, context: __SerdeContext): VpnStaticRoute => {
-  let contents: any = {
+  const contents: any = {
     DestinationCidrBlock: undefined,
     Source: undefined,
     State: undefined,
@@ -75010,7 +75011,7 @@ const deserializeAws_ec2VpnStaticRouteList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2WithdrawByoipCidrResult = (output: any, context: __SerdeContext): WithdrawByoipCidrResult => {
-  let contents: any = {
+  const contents: any = {
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {

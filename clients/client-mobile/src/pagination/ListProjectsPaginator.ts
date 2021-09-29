@@ -1,12 +1,13 @@
-import { Mobile } from "../Mobile";
-import { MobileClient } from "../MobileClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
+import { Mobile } from "../Mobile";
+import { MobileClient } from "../MobileClient";
 import { MobilePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

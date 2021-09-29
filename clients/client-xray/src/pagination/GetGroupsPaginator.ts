@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
 import { XRay } from "../XRay";
 import { XRayClient } from "../XRayClient";
-import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
 import { XRayPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

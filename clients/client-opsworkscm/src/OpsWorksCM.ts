@@ -1,4 +1,5 @@
-import { OpsWorksCMClient } from "./OpsWorksCMClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateNodeCommand,
   AssociateNodeCommandInput,
@@ -90,7 +91,7 @@ import {
   UpdateServerEngineAttributesCommandInput,
   UpdateServerEngineAttributesCommandOutput,
 } from "./commands/UpdateServerEngineAttributesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { OpsWorksCMClient } from "./OpsWorksCMClient";
 
 /**
  * <fullname>AWS OpsWorks CM</fullname>

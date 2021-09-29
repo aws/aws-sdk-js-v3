@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { ServiceCatalogClientConfig } from "./ServiceCatalogClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { ServiceCatalogClientConfig } from "./ServiceCatalogClient";
 
 /**
  * @internal

@@ -1,9 +1,10 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { AutoScalingClient } from "../AutoScalingClient";
 import {
   DescribeAutoScalingGroupsCommand,
   DescribeAutoScalingGroupsCommandInput,
 } from "../commands/DescribeAutoScalingGroupsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: AutoScalingClient,
@@ -11,21 +12,21 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
+    const result: any = await client.send(new DescribeAutoScalingGroupsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.AutoScalingGroups);
-        let projection_3 = flat_1.map((element_2: any) => {
-          let filterRes_5 = element_2.Instances.filter((element_4: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.AutoScalingGroups);
+        const projection_3 = flat_1.map((element_2: any) => {
+          const filterRes_5 = element_2.Instances.filter((element_4: any) => {
             return element_4.LifecycleState == "InService";
           });
-          let result_6 = [];
+          const result_6 = [];
           result_6.push(filterRes_5.length >= element_2.MinSize);
           element_2 = result_6;
           return element_2;
         });
-        let flat_7: any[] = [].concat(...projection_3);
+        const flat_7: any[] = [].concat(...projection_3);
         return flat_7.includes(false);
       };
       if (returnComparator() == false) {
@@ -33,18 +34,18 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.AutoScalingGroups);
-        let projection_3 = flat_1.map((element_2: any) => {
-          let filterRes_5 = element_2.Instances.filter((element_4: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.AutoScalingGroups);
+        const projection_3 = flat_1.map((element_2: any) => {
+          const filterRes_5 = element_2.Instances.filter((element_4: any) => {
             return element_4.LifecycleState == "InService";
           });
-          let result_6 = [];
+          const result_6 = [];
           result_6.push(filterRes_5.length >= element_2.MinSize);
           element_2 = result_6;
           return element_2;
         });
-        let flat_7: any[] = [].concat(...projection_3);
+        const flat_7: any[] = [].concat(...projection_3);
         return flat_7.includes(false);
       };
       if (returnComparator() == true) {

@@ -1,9 +1,3 @@
-import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_5";
-import {
-  deserializeAws_ec2ModifyVpcTenancyCommand,
-  serializeAws_ec2ModifyVpcTenancyCommand,
-} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_5";
+import {
+  deserializeAws_ec2ModifyVpcTenancyCommand,
+  serializeAws_ec2ModifyVpcTenancyCommand,
+} from "../protocols/Aws_ec2";
 
 export interface ModifyVpcTenancyCommandInput extends ModifyVpcTenancyRequest {}
 export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, __MetadataBearer {}

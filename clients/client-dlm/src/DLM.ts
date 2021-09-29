@@ -1,4 +1,5 @@
-import { DLMClient } from "./DLMClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateLifecyclePolicyCommand,
   CreateLifecyclePolicyCommandInput,
@@ -35,7 +36,7 @@ import {
   UpdateLifecyclePolicyCommandInput,
   UpdateLifecyclePolicyCommandOutput,
 } from "./commands/UpdateLifecyclePolicyCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DLMClient } from "./DLMClient";
 
 /**
  * <fullname>Amazon Data Lifecycle Manager</fullname>

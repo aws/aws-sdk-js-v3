@@ -1,13 +1,3 @@
-import {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
-import { GetRecoveryGroupRequest, GetRecoveryGroupResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetRecoveryGroupCommand,
-  serializeAws_restJson1GetRecoveryGroupCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetRecoveryGroupRequest, GetRecoveryGroupResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetRecoveryGroupCommand,
+  serializeAws_restJson1GetRecoveryGroupCommand,
+} from "../protocols/Aws_restJson1";
+import {
+  Route53RecoveryReadinessClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53RecoveryReadinessClient";
 
 export interface GetRecoveryGroupCommandInput extends GetRecoveryGroupRequest {}
 export interface GetRecoveryGroupCommandOutput extends GetRecoveryGroupResponse, __MetadataBearer {}

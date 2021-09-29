@@ -1,9 +1,3 @@
-import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateS3ResourcesCommand,
-  serializeAws_json1_1UpdateS3ResourcesCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
+import {
+  deserializeAws_json1_1UpdateS3ResourcesCommand,
+  serializeAws_json1_1UpdateS3ResourcesCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface UpdateS3ResourcesCommandInput extends UpdateS3ResourcesRequest {}
 export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult, __MetadataBearer {}

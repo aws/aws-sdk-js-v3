@@ -1,12 +1,13 @@
-import { Fis } from "../Fis";
-import { FisClient } from "../FisClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListExperimentsCommand,
   ListExperimentsCommandInput,
   ListExperimentsCommandOutput,
 } from "../commands/ListExperimentsCommand";
+import { Fis } from "../Fis";
+import { FisClient } from "../FisClient";
 import { FisPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

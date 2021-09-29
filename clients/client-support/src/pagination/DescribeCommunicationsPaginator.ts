@@ -1,12 +1,13 @@
-import { Support } from "../Support";
-import { SupportClient } from "../SupportClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeCommunicationsCommand,
   DescribeCommunicationsCommandInput,
   DescribeCommunicationsCommandOutput,
 } from "../commands/DescribeCommunicationsCommand";
+import { Support } from "../Support";
+import { SupportClient } from "../SupportClient";
 import { SupportPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

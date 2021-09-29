@@ -1,4 +1,5 @@
-import { TranslateClient } from "./TranslateClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateParallelDataCommand,
   CreateParallelDataCommandInput,
@@ -69,7 +70,7 @@ import {
   UpdateParallelDataCommandInput,
   UpdateParallelDataCommandOutput,
 } from "./commands/UpdateParallelDataCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { TranslateClient } from "./TranslateClient";
 
 /**
  * <p>Provides translation between one source language and another of the same set of

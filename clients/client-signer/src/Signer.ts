@@ -1,4 +1,5 @@
-import { SignerClient } from "./SignerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddProfilePermissionCommand,
   AddProfilePermissionCommandInput,
@@ -80,7 +81,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SignerClient } from "./SignerClient";
 
 /**
  * <p>AWS Signer is a fully managed code signing service to help you ensure the trust and

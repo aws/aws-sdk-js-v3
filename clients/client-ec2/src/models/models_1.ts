@@ -1,4 +1,7 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
+  _InstanceType,
   AddPrefixListEntry,
   ApplianceModeSupportValue,
   AttachmentStatus,
@@ -24,9 +27,7 @@ import {
   Vpc,
   VpcAttachment,
   VpcPeeringConnection,
-  _InstanceType,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>Describes an internet gateway.</p>

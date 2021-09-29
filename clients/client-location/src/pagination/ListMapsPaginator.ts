@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListMapsCommand, ListMapsCommandInput, ListMapsCommandOutput } from "../commands/ListMapsCommand";
 import { Location } from "../Location";
 import { LocationClient } from "../LocationClient";
-import { ListMapsCommand, ListMapsCommandInput, ListMapsCommandOutput } from "../commands/ListMapsCommand";
 import { LocationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

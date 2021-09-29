@@ -1,12 +1,13 @@
-import { FSx } from "../FSx";
-import { FSxClient } from "../FSxClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
   DescribeBackupsCommandOutput,
 } from "../commands/DescribeBackupsCommand";
+import { FSx } from "../FSx";
+import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

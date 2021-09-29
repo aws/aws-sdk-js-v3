@@ -1,4 +1,5 @@
 import {
+  _InstanceType,
   AddressAttribute,
   AddressAttributeName,
   BlockDeviceMapping,
@@ -16,13 +17,12 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
-  _InstanceType,
 } from "./models_0";
 import {
   CreditSpecificationRequest,
   ElasticGpuSpecification,
-  IKEVersionsRequestListValue,
   IcmpTypeCode,
+  IKEVersionsRequestListValue,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LocalGatewayRoute,

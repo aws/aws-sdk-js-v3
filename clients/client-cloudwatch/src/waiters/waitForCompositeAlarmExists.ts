@@ -1,15 +1,16 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CloudWatchClient } from "../CloudWatchClient";
 import { DescribeAlarmsCommand, DescribeAlarmsCommandInput } from "../commands/DescribeAlarmsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (client: CloudWatchClient, input: DescribeAlarmsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAlarmsCommand(input));
+    const result: any = await client.send(new DescribeAlarmsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.CompositeAlarms);
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.CompositeAlarms);
         return flat_1.length > 0.0;
       };
       if (returnComparator() == true) {

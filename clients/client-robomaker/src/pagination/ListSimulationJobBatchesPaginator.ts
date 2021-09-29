@@ -1,12 +1,13 @@
-import { RoboMaker } from "../RoboMaker";
-import { RoboMakerClient } from "../RoboMakerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSimulationJobBatchesCommand,
   ListSimulationJobBatchesCommandInput,
   ListSimulationJobBatchesCommandOutput,
 } from "../commands/ListSimulationJobBatchesCommand";
+import { RoboMaker } from "../RoboMaker";
+import { RoboMakerClient } from "../RoboMakerClient";
 import { RoboMakerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

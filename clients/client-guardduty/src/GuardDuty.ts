@@ -1,4 +1,5 @@
-import { GuardDutyClient } from "./GuardDutyClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
@@ -55,12 +56,12 @@ import {
   DeleteFilterCommandInput,
   DeleteFilterCommandOutput,
 } from "./commands/DeleteFilterCommand";
-import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteInvitationsCommand,
   DeleteInvitationsCommandInput,
   DeleteInvitationsCommandOutput,
 } from "./commands/DeleteInvitationsCommand";
+import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
@@ -114,12 +115,12 @@ import {
   GetFindingsStatisticsCommandInput,
   GetFindingsStatisticsCommandOutput,
 } from "./commands/GetFindingsStatisticsCommand";
-import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
   GetInvitationsCountCommandOutput,
 } from "./commands/GetInvitationsCountCommand";
+import { GetIPSetCommand, GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand";
 import {
   GetMasterAccountCommand,
   GetMasterAccountCommandInput,
@@ -157,12 +158,12 @@ import {
   ListFindingsCommandInput,
   ListFindingsCommandOutput,
 } from "./commands/ListFindingsCommand";
-import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand";
+import { ListIPSetsCommand, ListIPSetsCommandInput, ListIPSetsCommandOutput } from "./commands/ListIPSetsCommand";
 import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
   ListOrganizationAdminAccountsCommand,
@@ -241,7 +242,7 @@ import {
   UpdateThreatIntelSetCommandInput,
   UpdateThreatIntelSetCommandOutput,
 } from "./commands/UpdateThreatIntelSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GuardDutyClient } from "./GuardDutyClient";
 
 /**
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes

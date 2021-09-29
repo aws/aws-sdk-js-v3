@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ApplicationInsightsClient } from "./ApplicationInsightsClient";
 import {
   CreateApplicationCommand,
@@ -85,15 +87,15 @@ import {
   ListConfigurationHistoryCommandOutput,
 } from "./commands/ListConfigurationHistoryCommand";
 import {
-  ListLogPatternSetsCommand,
-  ListLogPatternSetsCommandInput,
-  ListLogPatternSetsCommandOutput,
-} from "./commands/ListLogPatternSetsCommand";
-import {
   ListLogPatternsCommand,
   ListLogPatternsCommandInput,
   ListLogPatternsCommandOutput,
 } from "./commands/ListLogPatternsCommand";
+import {
+  ListLogPatternSetsCommand,
+  ListLogPatternSetsCommandInput,
+  ListLogPatternSetsCommandOutput,
+} from "./commands/ListLogPatternSetsCommand";
 import {
   ListProblemsCommand,
   ListProblemsCommandInput,
@@ -130,7 +132,6 @@ import {
   UpdateLogPatternCommandInput,
   UpdateLogPatternCommandOutput,
 } from "./commands/UpdateLogPatternCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon CloudWatch Application Insights</fullname>

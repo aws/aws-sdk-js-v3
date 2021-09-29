@@ -1,7 +1,7 @@
 import { LazyJsonString as __LazyJsonString } from "@aws-sdk/smithy-client";
 import {
-  MetadataBearer as $MetadataBearer,
   DocumentType as __DocumentType,
+  MetadataBearer as $MetadataBearer,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 import { Readable } from "stream";

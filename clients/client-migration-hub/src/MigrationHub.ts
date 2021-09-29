@@ -1,4 +1,5 @@
-import { MigrationHubClient } from "./MigrationHubClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateCreatedArtifactCommand,
   AssociateCreatedArtifactCommandInput,
@@ -84,7 +85,7 @@ import {
   PutResourceAttributesCommandInput,
   PutResourceAttributesCommandOutput,
 } from "./commands/PutResourceAttributesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MigrationHubClient } from "./MigrationHubClient";
 
 /**
  * <p>The AWS Migration Hub API methods help to obtain server and application migration status

@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeCommit } from "../CodeCommit";
 import { CodeCommitClient } from "../CodeCommitClient";
 import {
@@ -6,7 +8,6 @@ import {
   GetMergeConflictsCommandOutput,
 } from "../commands/GetMergeConflictsCommand";
 import { CodeCommitPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

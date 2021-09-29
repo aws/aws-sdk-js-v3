@@ -1,4 +1,5 @@
-import { LightsailClient } from "./LightsailClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AllocateStaticIpCommand,
   AllocateStaticIpCommandInput,
@@ -102,11 +103,6 @@ import {
   CreateDomainEntryCommandOutput,
 } from "./commands/CreateDomainEntryCommand";
 import {
-  CreateInstanceSnapshotCommand,
-  CreateInstanceSnapshotCommandInput,
-  CreateInstanceSnapshotCommandOutput,
-} from "./commands/CreateInstanceSnapshotCommand";
-import {
   CreateInstancesCommand,
   CreateInstancesCommandInput,
   CreateInstancesCommandOutput,
@@ -116,6 +112,11 @@ import {
   CreateInstancesFromSnapshotCommandInput,
   CreateInstancesFromSnapshotCommandOutput,
 } from "./commands/CreateInstancesFromSnapshotCommand";
+import {
+  CreateInstanceSnapshotCommand,
+  CreateInstanceSnapshotCommandInput,
+  CreateInstanceSnapshotCommandOutput,
+} from "./commands/CreateInstanceSnapshotCommand";
 import {
   CreateKeyPairCommand,
   CreateKeyPairCommandInput,
@@ -359,6 +360,7 @@ import {
   GetContainerServicesCommandOutput,
 } from "./commands/GetContainerServicesCommand";
 import { GetDiskCommand, GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand";
+import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import {
   GetDiskSnapshotCommand,
   GetDiskSnapshotCommandInput,
@@ -369,7 +371,6 @@ import {
   GetDiskSnapshotsCommandInput,
   GetDiskSnapshotsCommandOutput,
 } from "./commands/GetDiskSnapshotsCommand";
-import { GetDisksCommand, GetDisksCommandInput, GetDisksCommandOutput } from "./commands/GetDisksCommand";
 import {
   GetDistributionBundlesCommand,
   GetDistributionBundlesCommandInput,
@@ -414,6 +415,11 @@ import {
   GetInstancePortStatesCommandOutput,
 } from "./commands/GetInstancePortStatesCommand";
 import {
+  GetInstancesCommand,
+  GetInstancesCommandInput,
+  GetInstancesCommandOutput,
+} from "./commands/GetInstancesCommand";
+import {
   GetInstanceSnapshotCommand,
   GetInstanceSnapshotCommandInput,
   GetInstanceSnapshotCommandOutput,
@@ -428,11 +434,6 @@ import {
   GetInstanceStateCommandInput,
   GetInstanceStateCommandOutput,
 } from "./commands/GetInstanceStateCommand";
-import {
-  GetInstancesCommand,
-  GetInstancesCommandInput,
-  GetInstancesCommandOutput,
-} from "./commands/GetInstancesCommand";
 import { GetKeyPairCommand, GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand";
 import { GetKeyPairsCommand, GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand";
 import {
@@ -446,15 +447,15 @@ import {
   GetLoadBalancerMetricDataCommandOutput,
 } from "./commands/GetLoadBalancerMetricDataCommand";
 import {
-  GetLoadBalancerTlsCertificatesCommand,
-  GetLoadBalancerTlsCertificatesCommandInput,
-  GetLoadBalancerTlsCertificatesCommandOutput,
-} from "./commands/GetLoadBalancerTlsCertificatesCommand";
-import {
   GetLoadBalancersCommand,
   GetLoadBalancersCommandInput,
   GetLoadBalancersCommandOutput,
 } from "./commands/GetLoadBalancersCommand";
+import {
+  GetLoadBalancerTlsCertificatesCommand,
+  GetLoadBalancerTlsCertificatesCommandInput,
+  GetLoadBalancerTlsCertificatesCommandOutput,
+} from "./commands/GetLoadBalancerTlsCertificatesCommand";
 import {
   GetOperationCommand,
   GetOperationCommandInput,
@@ -517,6 +518,11 @@ import {
   GetRelationalDatabaseParametersCommandOutput,
 } from "./commands/GetRelationalDatabaseParametersCommand";
 import {
+  GetRelationalDatabasesCommand,
+  GetRelationalDatabasesCommandInput,
+  GetRelationalDatabasesCommandOutput,
+} from "./commands/GetRelationalDatabasesCommand";
+import {
   GetRelationalDatabaseSnapshotCommand,
   GetRelationalDatabaseSnapshotCommandInput,
   GetRelationalDatabaseSnapshotCommandOutput,
@@ -526,11 +532,6 @@ import {
   GetRelationalDatabaseSnapshotsCommandInput,
   GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
-import {
-  GetRelationalDatabasesCommand,
-  GetRelationalDatabasesCommandInput,
-  GetRelationalDatabasesCommandOutput,
-} from "./commands/GetRelationalDatabasesCommand";
 import { GetStaticIpCommand, GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import {
   GetStaticIpsCommand,
@@ -668,7 +669,7 @@ import {
   UpdateRelationalDatabaseParametersCommandInput,
   UpdateRelationalDatabaseParametersCommandOutput,
 } from "./commands/UpdateRelationalDatabaseParametersCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LightsailClient } from "./LightsailClient";
 
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers

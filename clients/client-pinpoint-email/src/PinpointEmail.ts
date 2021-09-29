@@ -1,4 +1,5 @@
-import { PinpointEmailClient } from "./PinpointEmailClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
@@ -197,7 +198,7 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PinpointEmailClient } from "./PinpointEmailClient";
 
 /**
  * <fullname>Amazon Pinpoint Email Service</fullname>

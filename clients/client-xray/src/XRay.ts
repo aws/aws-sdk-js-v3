@@ -1,4 +1,5 @@
-import { XRayClient } from "./XRayClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchGetTracesCommand,
   BatchGetTracesCommandInput,
@@ -106,7 +107,7 @@ import {
   UpdateSamplingRuleCommandInput,
   UpdateSamplingRuleCommandOutput,
 } from "./commands/UpdateSamplingRuleCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { XRayClient } from "./XRayClient";
 
 /**
  * <p>Amazon Web Services X-Ray provides APIs for managing debug traces and retrieving service maps

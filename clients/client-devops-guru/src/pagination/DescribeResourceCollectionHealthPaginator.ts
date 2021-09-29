@@ -1,12 +1,13 @@
-import { DevOpsGuru } from "../DevOpsGuru";
-import { DevOpsGuruClient } from "../DevOpsGuruClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeResourceCollectionHealthCommand,
   DescribeResourceCollectionHealthCommandInput,
   DescribeResourceCollectionHealthCommandOutput,
 } from "../commands/DescribeResourceCollectionHealthCommand";
+import { DevOpsGuru } from "../DevOpsGuru";
+import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

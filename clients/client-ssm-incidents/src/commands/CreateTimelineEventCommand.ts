@@ -1,9 +1,3 @@
-import { SSMIncidentsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMIncidentsClient";
-import { CreateTimelineEventInput, CreateTimelineEventOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateTimelineEventCommand,
-  serializeAws_restJson1CreateTimelineEventCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateTimelineEventInput, CreateTimelineEventOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateTimelineEventCommand,
+  serializeAws_restJson1CreateTimelineEventCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 export interface CreateTimelineEventCommandInput extends CreateTimelineEventInput {}
 export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOutput, __MetadataBearer {}

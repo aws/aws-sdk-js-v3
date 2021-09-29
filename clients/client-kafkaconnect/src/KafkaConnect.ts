@@ -1,4 +1,5 @@
-import { KafkaConnectClient } from "./KafkaConnectClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateConnectorCommand,
   CreateConnectorCommandInput,
@@ -54,7 +55,7 @@ import {
   UpdateConnectorCommandInput,
   UpdateConnectorCommandOutput,
 } from "./commands/UpdateConnectorCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KafkaConnectClient } from "./KafkaConnectClient";
 
 /**
  * <p/>

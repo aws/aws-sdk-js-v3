@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeBuildClient } from "./CodeBuildClient";
 import {
   BatchDeleteBuildsCommand,
@@ -204,7 +206,6 @@ import {
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>CodeBuild</fullname>

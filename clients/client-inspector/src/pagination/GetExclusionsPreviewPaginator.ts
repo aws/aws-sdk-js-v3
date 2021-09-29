@@ -1,12 +1,13 @@
-import { Inspector } from "../Inspector";
-import { InspectorClient } from "../InspectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetExclusionsPreviewCommand,
   GetExclusionsPreviewCommandInput,
   GetExclusionsPreviewCommandOutput,
 } from "../commands/GetExclusionsPreviewCommand";
+import { Inspector } from "../Inspector";
+import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

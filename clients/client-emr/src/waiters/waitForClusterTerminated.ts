@@ -1,14 +1,15 @@
-import { EMRClient } from "../EMRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeClusterCommand, DescribeClusterCommandInput } from "../commands/DescribeClusterCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EMRClient } from "../EMRClient";
 
 const checkState = async (client: EMRClient, input: DescribeClusterCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeClusterCommand(input));
+    const result: any = await client.send(new DescribeClusterCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Cluster.Status.State;
       };
       if (returnComparator() === "TERMINATED") {
@@ -16,7 +17,7 @@ const checkState = async (client: EMRClient, input: DescribeClusterCommandInput)
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Cluster.Status.State;
       };
       if (returnComparator() === "TERMINATED_WITH_ERRORS") {

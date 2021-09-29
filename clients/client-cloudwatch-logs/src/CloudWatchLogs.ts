@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudWatchLogsClient } from "./CloudWatchLogsClient";
 import {
   AssociateKmsKeyCommand,
@@ -197,7 +199,6 @@ import {
   UntagLogGroupCommandInput,
   UntagLogGroupCommandOutput,
 } from "./commands/UntagLogGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from

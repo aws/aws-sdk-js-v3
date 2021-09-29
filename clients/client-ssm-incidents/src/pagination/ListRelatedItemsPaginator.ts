@@ -1,12 +1,13 @@
-import { SSMIncidents } from "../SSMIncidents";
-import { SSMIncidentsClient } from "../SSMIncidentsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRelatedItemsCommand,
   ListRelatedItemsCommandInput,
   ListRelatedItemsCommandOutput,
 } from "../commands/ListRelatedItemsCommand";
+import { SSMIncidents } from "../SSMIncidents";
+import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { IoTThingsGraph } from "../IoTThingsGraph";
-import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListFlowExecutionMessagesCommand,
   ListFlowExecutionMessagesCommandInput,
   ListFlowExecutionMessagesCommandOutput,
 } from "../commands/ListFlowExecutionMessagesCommand";
+import { IoTThingsGraph } from "../IoTThingsGraph";
+import { IoTThingsGraphClient } from "../IoTThingsGraphClient";
 import { IoTThingsGraphPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

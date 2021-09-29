@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SageMakerA2IRuntimeClientConfig } from "./SageMakerA2IRuntimeClient";
 
 /**
  * @internal

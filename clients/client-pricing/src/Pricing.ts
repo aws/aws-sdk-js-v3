@@ -1,4 +1,5 @@
-import { PricingClient } from "./PricingClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
@@ -10,7 +11,7 @@ import {
   GetAttributeValuesCommandOutput,
 } from "./commands/GetAttributeValuesCommand";
 import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PricingClient } from "./PricingClient";
 
 /**
  * <p>Amazon Web Services Price List Service API (Amazon Web Services Price List Service) is a centralized and convenient way to

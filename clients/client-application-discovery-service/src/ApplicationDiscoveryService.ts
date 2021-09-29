@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ApplicationDiscoveryServiceClient } from "./ApplicationDiscoveryServiceClient";
 import {
   AssociateConfigurationItemsToApplicationCommand,
@@ -116,7 +118,6 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS Application Discovery Service</fullname>

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppIntegrationsClient } from "./AppIntegrationsClient";
 import {
   CreateEventIntegrationCommand,
@@ -40,7 +42,6 @@ import {
   UpdateEventIntegrationCommandInput,
   UpdateEventIntegrationCommandOutput,
 } from "./commands/UpdateEventIntegrationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>

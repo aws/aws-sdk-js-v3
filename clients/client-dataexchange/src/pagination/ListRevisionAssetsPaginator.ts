@@ -1,12 +1,13 @@
-import { DataExchange } from "../DataExchange";
-import { DataExchangeClient } from "../DataExchangeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRevisionAssetsCommand,
   ListRevisionAssetsCommandInput,
   ListRevisionAssetsCommandOutput,
 } from "../commands/ListRevisionAssetsCommand";
+import { DataExchange } from "../DataExchange";
+import { DataExchangeClient } from "../DataExchangeClient";
 import { DataExchangePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

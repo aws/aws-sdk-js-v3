@@ -1,11 +1,12 @@
-import { IAMClient } from "../IAMClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetInstanceProfileCommand, GetInstanceProfileCommandInput } from "../commands/GetInstanceProfileCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { IAMClient } from "../IAMClient";
 
 const checkState = async (client: IAMClient, input: GetInstanceProfileCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetInstanceProfileCommand(input));
+    const result: any = await client.send(new GetInstanceProfileCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

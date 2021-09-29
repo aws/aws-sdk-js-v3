@@ -1,11 +1,12 @@
-import { LambdaClient } from "../LambdaClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetFunctionCommand, GetFunctionCommandInput } from "../commands/GetFunctionCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LambdaClient } from "../LambdaClient";
 
 const checkState = async (client: LambdaClient, input: GetFunctionCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetFunctionCommand(input));
+    const result: any = await client.send(new GetFunctionCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

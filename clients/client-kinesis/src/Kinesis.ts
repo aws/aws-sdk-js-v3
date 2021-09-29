@@ -1,4 +1,5 @@
-import { KinesisClient } from "./KinesisClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddTagsToStreamCommand,
   AddTagsToStreamCommandInput,
@@ -111,7 +112,7 @@ import {
   UpdateShardCountCommandInput,
   UpdateShardCountCommandOutput,
 } from "./commands/UpdateShardCountCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisClient } from "./KinesisClient";
 
 /**
  * <fullname>Amazon Kinesis Data Streams Service API Reference</fullname>

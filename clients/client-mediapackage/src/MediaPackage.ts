@@ -1,4 +1,5 @@
-import { MediaPackageClient } from "./MediaPackageClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ConfigureLogsCommand,
   ConfigureLogsCommandInput,
@@ -90,7 +91,7 @@ import {
   UpdateOriginEndpointCommandInput,
   UpdateOriginEndpointCommandOutput,
 } from "./commands/UpdateOriginEndpointCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaPackageClient } from "./MediaPackageClient";
 
 /**
  * AWS Elemental MediaPackage

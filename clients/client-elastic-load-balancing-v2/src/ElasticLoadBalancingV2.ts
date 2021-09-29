@@ -1,4 +1,5 @@
-import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddListenerCertificatesCommand,
   AddListenerCertificatesCommandInput,
@@ -145,7 +146,7 @@ import {
   SetSecurityGroupsCommandOutput,
 } from "./commands/SetSecurityGroupsCommand";
 import { SetSubnetsCommand, SetSubnetsCommandInput, SetSubnetsCommandOutput } from "./commands/SetSubnetsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticLoadBalancingV2Client } from "./ElasticLoadBalancingV2Client";
 
 /**
  * <fullname>Elastic Load Balancing</fullname>

@@ -1,4 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
+
 import { Route53DomainsClientConfig } from "./Route53DomainsClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 

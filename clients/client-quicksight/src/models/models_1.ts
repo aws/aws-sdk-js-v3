@@ -1,4 +1,8 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
+  _Parameters,
   AccountCustomization,
   ActiveIAMPolicyAssignment,
   AnalysisSearchFilter,
@@ -44,10 +48,7 @@ import {
   User,
   UserRole,
   VpcConnectionProperties,
-  _Parameters,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export enum FolderFilterAttribute {
   PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",

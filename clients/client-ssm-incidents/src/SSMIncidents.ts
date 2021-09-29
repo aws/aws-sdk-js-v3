@@ -1,4 +1,5 @@
-import { SSMIncidentsClient } from "./SSMIncidentsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateReplicationSetCommand,
   CreateReplicationSetCommandInput,
@@ -140,7 +141,7 @@ import {
   UpdateTimelineEventCommandInput,
   UpdateTimelineEventCommandOutput,
 } from "./commands/UpdateTimelineEventCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSMIncidentsClient } from "./SSMIncidentsClient";
 
 /**
  * <p>AWS Systems Manager Incident Manager is an incident management console designed to help

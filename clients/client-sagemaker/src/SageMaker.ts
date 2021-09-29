@@ -1,4 +1,5 @@
-import { SageMakerClient } from "./SageMakerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddAssociationCommand,
   AddAssociationCommandInput,
@@ -759,12 +760,12 @@ import {
   ListHyperParameterTuningJobsCommandInput,
   ListHyperParameterTuningJobsCommandOutput,
 } from "./commands/ListHyperParameterTuningJobsCommand";
+import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListImageVersionsCommand,
   ListImageVersionsCommandInput,
   ListImageVersionsCommandOutput,
 } from "./commands/ListImageVersionsCommand";
-import { ListImagesCommand, ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
@@ -822,15 +823,15 @@ import {
   ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand";
 import {
-  ListPipelineExecutionStepsCommand,
-  ListPipelineExecutionStepsCommandInput,
-  ListPipelineExecutionStepsCommandOutput,
-} from "./commands/ListPipelineExecutionStepsCommand";
-import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
+import {
+  ListPipelineExecutionStepsCommand,
+  ListPipelineExecutionStepsCommandInput,
+  ListPipelineExecutionStepsCommandOutput,
+} from "./commands/ListPipelineExecutionStepsCommand";
 import {
   ListPipelineParametersForExecutionCommand,
   ListPipelineParametersForExecutionCommandInput,
@@ -1111,7 +1112,7 @@ import {
   UpdateWorkteamCommandInput,
   UpdateWorkteamCommandOutput,
 } from "./commands/UpdateWorkteamCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SageMakerClient } from "./SageMakerClient";
 
 /**
  * <p>Provides APIs for creating and managing Amazon SageMaker resources. </p>

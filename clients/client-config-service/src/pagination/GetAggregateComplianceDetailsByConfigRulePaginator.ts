@@ -1,12 +1,13 @@
-import { ConfigService } from "../ConfigService";
-import { ConfigServiceClient } from "../ConfigServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetAggregateComplianceDetailsByConfigRuleCommand,
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "../commands/GetAggregateComplianceDetailsByConfigRuleCommand";
+import { ConfigService } from "../ConfigService";
+import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { EC2 } from "../EC2";
-import { EC2Client } from "../EC2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetManagedPrefixListEntriesCommand,
   GetManagedPrefixListEntriesCommandInput,
   GetManagedPrefixListEntriesCommandOutput,
 } from "../commands/GetManagedPrefixListEntriesCommand";
+import { EC2 } from "../EC2";
+import { EC2Client } from "../EC2Client";
 import { EC2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

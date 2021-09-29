@@ -1,12 +1,13 @@
-import { ElasticLoadBalancingV2 } from "../ElasticLoadBalancingV2";
-import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeTargetGroupsCommand,
   DescribeTargetGroupsCommandInput,
   DescribeTargetGroupsCommandOutput,
 } from "../commands/DescribeTargetGroupsCommand";
+import { ElasticLoadBalancingV2 } from "../ElasticLoadBalancingV2";
+import { ElasticLoadBalancingV2Client } from "../ElasticLoadBalancingV2Client";
 import { ElasticLoadBalancingV2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,9 +1,3 @@
-import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetRecordsCommand,
-  serializeAws_json1_0GetRecordsCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
+import {
+  deserializeAws_json1_0GetRecordsCommand,
+  serializeAws_json1_0GetRecordsCommand,
+} from "../protocols/Aws_json1_0";
 
 export interface GetRecordsCommandInput extends GetRecordsInput {}
 export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { Personalize } from "../Personalize";
-import { PersonalizeClient } from "../PersonalizeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEventTrackersCommand,
   ListEventTrackersCommandInput,
   ListEventTrackersCommandOutput,
 } from "../commands/ListEventTrackersCommand";
+import { Personalize } from "../Personalize";
+import { PersonalizeClient } from "../PersonalizeClient";
 import { PersonalizePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,16 @@
-import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
 import {
   CreateCustomVerificationEmailTemplateRequest,
   CreateCustomVerificationEmailTemplateResponse,
@@ -7,18 +19,7 @@ import {
   deserializeAws_restJson1CreateCustomVerificationEmailTemplateCommand,
   serializeAws_restJson1CreateCustomVerificationEmailTemplateCommand,
 } from "../protocols/Aws_restJson1";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  MiddlewareStack,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
+import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 export interface CreateCustomVerificationEmailTemplateCommandInput
   extends CreateCustomVerificationEmailTemplateRequest {}

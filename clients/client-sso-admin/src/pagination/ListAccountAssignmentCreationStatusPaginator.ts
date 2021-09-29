@@ -1,12 +1,13 @@
-import { SSOAdmin } from "../SSOAdmin";
-import { SSOAdminClient } from "../SSOAdminClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAccountAssignmentCreationStatusCommand,
   ListAccountAssignmentCreationStatusCommandInput,
   ListAccountAssignmentCreationStatusCommandOutput,
 } from "../commands/ListAccountAssignmentCreationStatusCommand";
+import { SSOAdmin } from "../SSOAdmin";
+import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

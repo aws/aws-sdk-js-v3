@@ -1,9 +1,3 @@
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlDescribeJobCommand,
-  serializeAws_restXmlDescribeJobCommand,
-} from "../protocols/Aws_restXml";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeJobRequest, DescribeJobResult } from "../models/models_0";
+import {
+  deserializeAws_restXmlDescribeJobCommand,
+  serializeAws_restXmlDescribeJobCommand,
+} from "../protocols/Aws_restXml";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 export interface DescribeJobCommandInput extends DescribeJobRequest {}
 export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataBearer {}

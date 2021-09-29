@@ -1,12 +1,13 @@
-import { Kendra } from "../Kendra";
-import { KendraClient } from "../KendraClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
   ListDataSourcesCommandOutput,
 } from "../commands/ListDataSourcesCommand";
+import { Kendra } from "../Kendra";
+import { KendraClient } from "../KendraClient";
 import { KendraPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

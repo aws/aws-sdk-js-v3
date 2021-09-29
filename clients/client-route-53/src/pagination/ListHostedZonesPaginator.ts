@@ -1,12 +1,13 @@
-import { Route53 } from "../Route53";
-import { Route53Client } from "../Route53Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListHostedZonesCommand,
   ListHostedZonesCommandInput,
   ListHostedZonesCommandOutput,
 } from "../commands/ListHostedZonesCommand";
+import { Route53 } from "../Route53";
+import { Route53Client } from "../Route53Client";
 import { Route53PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

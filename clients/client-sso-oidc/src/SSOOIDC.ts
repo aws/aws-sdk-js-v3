@@ -1,4 +1,5 @@
-import { SSOOIDCClient } from "./SSOOIDCClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand";
 import {
   RegisterClientCommand,
@@ -10,7 +11,7 @@ import {
   StartDeviceAuthorizationCommandInput,
   StartDeviceAuthorizationCommandOutput,
 } from "./commands/StartDeviceAuthorizationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSOOIDCClient } from "./SSOOIDCClient";
 
 /**
  * <p>AWS Single Sign-On (SSO) OpenID Connect (OIDC) is a web service that enables a client

@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketInventoryConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
-  serializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteBucketInventoryConfigurationRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
+  serializeAws_restXmlDeleteBucketInventoryConfigurationCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface DeleteBucketInventoryConfigurationCommandInput extends DeleteBucketInventoryConfigurationRequest {}
 export interface DeleteBucketInventoryConfigurationCommandOutput extends __MetadataBearer {}

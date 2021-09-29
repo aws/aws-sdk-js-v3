@@ -1,9 +1,3 @@
-import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagSAMLProviderRequest } from "../models/models_1";
-import {
-  deserializeAws_queryUntagSAMLProviderCommand,
-  serializeAws_queryUntagSAMLProviderCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { UntagSAMLProviderRequest } from "../models/models_1";
+import {
+  deserializeAws_queryUntagSAMLProviderCommand,
+  serializeAws_queryUntagSAMLProviderCommand,
+} from "../protocols/Aws_query";
 
 export interface UntagSAMLProviderCommandInput extends UntagSAMLProviderRequest {}
 export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}

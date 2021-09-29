@@ -1,13 +1,3 @@
-import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
-import {
-  ClientLimitExceededException,
-  ConnectionLimitExceededException,
-  InvalidArgumentException,
-  InvalidEndpointException,
-  NotAuthorizedException,
-  ResourceNotFoundException,
-  StartSelector,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
@@ -18,6 +8,17 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import { GetMediaCommandInput, GetMediaCommandOutput } from "../commands/GetMediaCommand";
+import {
+  ClientLimitExceededException,
+  ConnectionLimitExceededException,
+  InvalidArgumentException,
+  InvalidEndpointException,
+  NotAuthorizedException,
+  ResourceNotFoundException,
+  StartSelector,
+} from "../models/models_0";
+
 export const serializeAws_restJson1GetMediaCommand = async (
   input: GetMediaCommandInput,
   context: __SerdeContext
@@ -26,7 +27,7 @@ export const serializeAws_restJson1GetMediaCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMedia";
   let body: any;
   body = JSON.stringify({
     ...(input.StartSelector !== undefined &&
@@ -76,7 +77,7 @@ const deserializeAws_restJson1GetMediaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ClientLimitExceededException":

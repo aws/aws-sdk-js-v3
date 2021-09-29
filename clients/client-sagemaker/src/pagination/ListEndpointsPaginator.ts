@@ -1,12 +1,13 @@
-import { SageMaker } from "../SageMaker";
-import { SageMakerClient } from "../SageMakerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEndpointsCommand,
   ListEndpointsCommandInput,
   ListEndpointsCommandOutput,
 } from "../commands/ListEndpointsCommand";
+import { SageMaker } from "../SageMaker";
+import { SageMakerClient } from "../SageMakerClient";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

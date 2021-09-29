@@ -1,12 +1,13 @@
-import { Health } from "../Health";
-import { HealthClient } from "../HealthClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEventAggregatesCommand,
   DescribeEventAggregatesCommandInput,
   DescribeEventAggregatesCommandOutput,
 } from "../commands/DescribeEventAggregatesCommand";
+import { Health } from "../Health";
+import { HealthClient } from "../HealthClient";
 import { HealthPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

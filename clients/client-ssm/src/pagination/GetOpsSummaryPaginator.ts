@@ -1,12 +1,13 @@
-import { SSM } from "../SSM";
-import { SSMClient } from "../SSMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetOpsSummaryCommand,
   GetOpsSummaryCommandInput,
   GetOpsSummaryCommandOutput,
 } from "../commands/GetOpsSummaryCommand";
+import { SSM } from "../SSM";
+import { SSMClient } from "../SSMClient";
 import { SSMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

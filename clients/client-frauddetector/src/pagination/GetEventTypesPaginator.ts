@@ -1,12 +1,13 @@
-import { FraudDetector } from "../FraudDetector";
-import { FraudDetectorClient } from "../FraudDetectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetEventTypesCommand,
   GetEventTypesCommandInput,
   GetEventTypesCommandOutput,
 } from "../commands/GetEventTypesCommand";
+import { FraudDetector } from "../FraudDetector";
+import { FraudDetectorClient } from "../FraudDetectorClient";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

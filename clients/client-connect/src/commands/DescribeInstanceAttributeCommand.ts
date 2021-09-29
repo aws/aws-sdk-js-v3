@@ -1,9 +1,3 @@
-import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeInstanceAttributeCommand,
-  serializeAws_restJson1DescribeInstanceAttributeCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { DescribeInstanceAttributeRequest, DescribeInstanceAttributeResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeInstanceAttributeCommand,
+  serializeAws_restJson1DescribeInstanceAttributeCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface DescribeInstanceAttributeCommandInput extends DescribeInstanceAttributeRequest {}
 export interface DescribeInstanceAttributeCommandOutput extends DescribeInstanceAttributeResponse, __MetadataBearer {}

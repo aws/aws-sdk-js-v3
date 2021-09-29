@@ -1,12 +1,13 @@
-import { LookoutMetrics } from "../LookoutMetrics";
-import { LookoutMetricsClient } from "../LookoutMetricsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAnomalyGroupSummariesCommand,
   ListAnomalyGroupSummariesCommandInput,
   ListAnomalyGroupSummariesCommandOutput,
 } from "../commands/ListAnomalyGroupSummariesCommand";
+import { LookoutMetrics } from "../LookoutMetrics";
+import { LookoutMetricsClient } from "../LookoutMetricsClient";
 import { LookoutMetricsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

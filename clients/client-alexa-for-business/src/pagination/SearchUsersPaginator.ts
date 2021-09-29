@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AlexaForBusiness } from "../AlexaForBusiness";
 import { AlexaForBusinessClient } from "../AlexaForBusinessClient";
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

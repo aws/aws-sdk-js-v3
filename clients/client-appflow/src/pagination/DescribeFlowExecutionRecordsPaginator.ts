@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Appflow } from "../Appflow";
 import { AppflowClient } from "../AppflowClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeFlowExecutionRecordsCommandOutput,
 } from "../commands/DescribeFlowExecutionRecordsCommand";
 import { AppflowPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

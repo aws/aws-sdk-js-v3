@@ -1,15 +1,16 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeImagesCommand, DescribeImagesCommandInput } from "../commands/DescribeImagesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: DescribeImagesCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImagesCommand(input));
+    const result: any = await client.send(new DescribeImagesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.Images);
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Images);
         return flat_1.length > 0.0;
       };
       if (returnComparator() == true) {

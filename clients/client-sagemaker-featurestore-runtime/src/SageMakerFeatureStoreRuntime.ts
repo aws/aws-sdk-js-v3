@@ -1,4 +1,5 @@
-import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchGetRecordCommand,
   BatchGetRecordCommandInput,
@@ -11,7 +12,7 @@ import {
 } from "./commands/DeleteRecordCommand";
 import { GetRecordCommand, GetRecordCommandInput, GetRecordCommandOutput } from "./commands/GetRecordCommand";
 import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SageMakerFeatureStoreRuntimeClient } from "./SageMakerFeatureStoreRuntimeClient";
 
 /**
  * <p>Contains all data plane API operations and data types for the Amazon SageMaker Feature

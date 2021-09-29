@@ -1,14 +1,15 @@
-import { EC2Client } from "../EC2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetPasswordDataCommand, GetPasswordDataCommandInput } from "../commands/GetPasswordDataCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EC2Client } from "../EC2Client";
 
 const checkState = async (client: EC2Client, input: GetPasswordDataCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetPasswordDataCommand(input));
+    const result: any = await client.send(new GetPasswordDataCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.PasswordData.length > 0.0;
       };
       if (returnComparator() == true) {

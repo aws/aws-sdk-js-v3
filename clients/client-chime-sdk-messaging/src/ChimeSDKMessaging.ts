@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
   BatchCreateChannelMembershipCommand,
@@ -149,7 +151,6 @@ import {
   UpdateChannelReadMarkerCommandInput,
   UpdateChannelReadMarkerCommandOutput,
 } from "./commands/UpdateChannelReadMarkerCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The Amazon Chime SDK Messaging APIs in this section allow software developers to send

@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
-import { ImportTerminologyRequest, ImportTerminologyResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1ImportTerminologyCommand,
-  serializeAws_json1_1ImportTerminologyCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ImportTerminologyRequest, ImportTerminologyResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1ImportTerminologyCommand,
+  serializeAws_json1_1ImportTerminologyCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 export interface ImportTerminologyCommandInput extends ImportTerminologyRequest {}
 export interface ImportTerminologyCommandOutput extends ImportTerminologyResponse, __MetadataBearer {}

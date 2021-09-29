@@ -1,9 +1,3 @@
-import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient";
-import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartAutomationExecutionCommand,
-  serializeAws_json1_1StartAutomationExecutionCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
+import {
+  deserializeAws_json1_1StartAutomationExecutionCommand,
+  serializeAws_json1_1StartAutomationExecutionCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 export interface StartAutomationExecutionCommandInput extends StartAutomationExecutionRequest {}
 export interface StartAutomationExecutionCommandOutput extends StartAutomationExecutionResult, __MetadataBearer {}

@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { DeleteBucketRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlDeleteBucketCommand,
-  serializeAws_restXmlDeleteBucketCommand,
-} from "../protocols/Aws_restXml";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteBucketRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlDeleteBucketCommand,
+  serializeAws_restXmlDeleteBucketCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface DeleteBucketCommandInput extends DeleteBucketRequest {}
 export interface DeleteBucketCommandOutput extends __MetadataBearer {}

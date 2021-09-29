@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodePipelineClient } from "./CodePipelineClient";
 import {
   AcknowledgeJobCommand,
@@ -178,7 +180,6 @@ import {
   UpdatePipelineCommandInput,
   UpdatePipelineCommandOutput,
 } from "./commands/UpdatePipelineCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS CodePipeline</fullname>

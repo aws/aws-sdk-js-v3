@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Braket } from "../Braket";
 import { BraketClient } from "../BraketClient";
 import {
@@ -6,7 +8,6 @@ import {
   SearchQuantumTasksCommandOutput,
 } from "../commands/SearchQuantumTasksCommand";
 import { BraketPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

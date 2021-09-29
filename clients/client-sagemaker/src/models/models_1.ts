@@ -1,3 +1,5 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   ActionSource,
   ActionStatus,
@@ -100,7 +102,6 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>Inputs for the model bias job.</p>

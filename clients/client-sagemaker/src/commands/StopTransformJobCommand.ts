@@ -1,9 +1,3 @@
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { StopTransformJobRequest } from "../models/models_2";
-import {
-  deserializeAws_json1_1StopTransformJobCommand,
-  serializeAws_json1_1StopTransformJobCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { StopTransformJobRequest } from "../models/models_2";
+import {
+  deserializeAws_json1_1StopTransformJobCommand,
+  serializeAws_json1_1StopTransformJobCommand,
+} from "../protocols/Aws_json1_1";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}

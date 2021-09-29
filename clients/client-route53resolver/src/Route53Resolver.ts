@@ -1,4 +1,5 @@
-import { Route53ResolverClient } from "./Route53ResolverClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateFirewallRuleGroupCommand,
   AssociateFirewallRuleGroupCommandInput,
@@ -295,7 +296,7 @@ import {
   UpdateResolverRuleCommandInput,
   UpdateResolverRuleCommandOutput,
 } from "./commands/UpdateResolverRuleCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53ResolverClient } from "./Route53ResolverClient";
 
 /**
  * <p>When you create a VPC using Amazon VPC, you automatically get DNS resolution within the VPC

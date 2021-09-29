@@ -1,12 +1,13 @@
-import { WellArchitected } from "../WellArchitected";
-import { WellArchitectedClient } from "../WellArchitectedClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListMilestonesCommand,
   ListMilestonesCommandInput,
   ListMilestonesCommandOutput,
 } from "../commands/ListMilestonesCommand";
+import { WellArchitected } from "../WellArchitected";
+import { WellArchitectedClient } from "../WellArchitectedClient";
 import { WellArchitectedPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

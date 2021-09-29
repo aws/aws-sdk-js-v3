@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { APIGateway } from "../APIGateway";
 import { APIGatewayClient } from "../APIGatewayClient";
 import { GetApiKeysCommand, GetApiKeysCommandInput, GetApiKeysCommandOutput } from "../commands/GetApiKeysCommand";
 import { APIGatewayPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

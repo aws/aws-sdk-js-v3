@@ -1,9 +1,3 @@
-import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import { ListSuiteRunsRequest, ListSuiteRunsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1ListSuiteRunsCommand,
-  serializeAws_restJson1ListSuiteRunsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
+import { ListSuiteRunsRequest, ListSuiteRunsResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1ListSuiteRunsCommand,
+  serializeAws_restJson1ListSuiteRunsCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface ListSuiteRunsCommandInput extends ListSuiteRunsRequest {}
 export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __MetadataBearer {}

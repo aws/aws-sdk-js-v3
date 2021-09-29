@@ -1,12 +1,13 @@
-import { EKS } from "../EKS";
-import { EKSClient } from "../EKSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListFargateProfilesCommand,
   ListFargateProfilesCommandInput,
   ListFargateProfilesCommandOutput,
 } from "../commands/ListFargateProfilesCommand";
+import { EKS } from "../EKS";
+import { EKSClient } from "../EKSClient";
 import { EKSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

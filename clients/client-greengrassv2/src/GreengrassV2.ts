@@ -1,4 +1,5 @@
-import { GreengrassV2Client } from "./GreengrassV2Client";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchAssociateClientDeviceWithCoreDeviceCommand,
   BatchAssociateClientDeviceWithCoreDeviceCommandInput,
@@ -65,15 +66,15 @@ import {
   ListClientDevicesAssociatedWithCoreDeviceCommandOutput,
 } from "./commands/ListClientDevicesAssociatedWithCoreDeviceCommand";
 import {
-  ListComponentVersionsCommand,
-  ListComponentVersionsCommandInput,
-  ListComponentVersionsCommandOutput,
-} from "./commands/ListComponentVersionsCommand";
-import {
   ListComponentsCommand,
   ListComponentsCommandInput,
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
+import {
+  ListComponentVersionsCommand,
+  ListComponentVersionsCommandInput,
+  ListComponentVersionsCommandOutput,
+} from "./commands/ListComponentVersionsCommand";
 import {
   ListCoreDevicesCommand,
   ListCoreDevicesCommandInput,
@@ -110,7 +111,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GreengrassV2Client } from "./GreengrassV2Client";
 
 /**
  * <p>IoT Greengrass brings local compute, messaging, data management, sync, and ML inference capabilities

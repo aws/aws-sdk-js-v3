@@ -1,12 +1,13 @@
-import { SWF } from "../SWF";
-import { SWFClient } from "../SWFClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   PollForDecisionTaskCommand,
   PollForDecisionTaskCommandInput,
   PollForDecisionTaskCommandOutput,
 } from "../commands/PollForDecisionTaskCommand";
+import { SWF } from "../SWF";
+import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

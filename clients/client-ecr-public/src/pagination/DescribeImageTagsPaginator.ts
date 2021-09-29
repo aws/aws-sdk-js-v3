@@ -1,12 +1,13 @@
-import { ECRPUBLIC } from "../ECRPUBLIC";
-import { ECRPUBLICClient } from "../ECRPUBLICClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeImageTagsCommand,
   DescribeImageTagsCommandInput,
   DescribeImageTagsCommandOutput,
 } from "../commands/DescribeImageTagsCommand";
+import { ECRPUBLIC } from "../ECRPUBLIC";
+import { ECRPUBLICClient } from "../ECRPUBLICClient";
 import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { DirectoryService } from "../DirectoryService";
-import { DirectoryServiceClient } from "../DirectoryServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeDomainControllersCommand,
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
 } from "../commands/DescribeDomainControllersCommand";
+import { DirectoryService } from "../DirectoryService";
+import { DirectoryServiceClient } from "../DirectoryServiceClient";
 import { DirectoryServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

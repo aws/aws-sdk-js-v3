@@ -1,4 +1,5 @@
-import { MediaPackageVodClient } from "./MediaPackageVodClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ConfigureLogsCommand,
   ConfigureLogsCommandInput,
@@ -68,7 +69,7 @@ import {
   UpdatePackagingGroupCommandInput,
   UpdatePackagingGroupCommandOutput,
 } from "./commands/UpdatePackagingGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaPackageVodClient } from "./MediaPackageVodClient";
 
 /**
  * AWS Elemental MediaPackage VOD

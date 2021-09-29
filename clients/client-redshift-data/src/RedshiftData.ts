@@ -1,4 +1,5 @@
-import { RedshiftDataClient } from "./RedshiftDataClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput,
@@ -41,7 +42,7 @@ import {
   ListStatementsCommandOutput,
 } from "./commands/ListStatementsCommand";
 import { ListTablesCommand, ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RedshiftDataClient } from "./RedshiftDataClient";
 
 /**
  * <p>You can use the Amazon Redshift Data API to run queries on Amazon Redshift tables. You

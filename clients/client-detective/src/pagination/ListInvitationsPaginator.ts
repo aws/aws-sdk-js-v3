@@ -1,12 +1,13 @@
-import { Detective } from "../Detective";
-import { DetectiveClient } from "../DetectiveClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "../commands/ListInvitationsCommand";
+import { Detective } from "../Detective";
+import { DetectiveClient } from "../DetectiveClient";
 import { DetectivePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

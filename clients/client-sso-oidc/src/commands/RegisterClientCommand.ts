@@ -1,9 +1,3 @@
-import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient";
-import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterClientCommand,
-  serializeAws_restJson1RegisterClientCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1RegisterClientCommand,
+  serializeAws_restJson1RegisterClientCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}

@@ -1,6 +1,7 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CloudFormationClient } from "../CloudFormationClient";
 import { DescribeChangeSetCommand, DescribeChangeSetCommandInput } from "../commands/DescribeChangeSetCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: CloudFormationClient,
@@ -8,10 +9,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeChangeSetCommand(input));
+    const result: any = await client.send(new DescribeChangeSetCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       };
       if (returnComparator() === "CREATE_COMPLETE") {
@@ -19,7 +20,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Status;
       };
       if (returnComparator() === "FAILED") {

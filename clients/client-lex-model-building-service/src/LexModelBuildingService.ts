@@ -1,4 +1,5 @@
-import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateBotVersionCommand,
   CreateBotVersionCommandInput,
@@ -72,12 +73,12 @@ import {
   GetBotChannelAssociationsCommandOutput,
 } from "./commands/GetBotChannelAssociationsCommand";
 import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand";
+import { GetBotsCommand, GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
 import {
   GetBotVersionsCommand,
   GetBotVersionsCommandInput,
   GetBotVersionsCommandOutput,
 } from "./commands/GetBotVersionsCommand";
-import { GetBotsCommand, GetBotsCommandInput, GetBotsCommandOutput } from "./commands/GetBotsCommand";
 import {
   GetBuiltinIntentCommand,
   GetBuiltinIntentCommandInput,
@@ -96,12 +97,12 @@ import {
 import { GetExportCommand, GetExportCommandInput, GetExportCommandOutput } from "./commands/GetExportCommand";
 import { GetImportCommand, GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
 import { GetIntentCommand, GetIntentCommandInput, GetIntentCommandOutput } from "./commands/GetIntentCommand";
+import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
 import {
   GetIntentVersionsCommand,
   GetIntentVersionsCommandInput,
   GetIntentVersionsCommandOutput,
 } from "./commands/GetIntentVersionsCommand";
-import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand";
 import {
   GetMigrationCommand,
   GetMigrationCommandInput,
@@ -114,15 +115,15 @@ import {
 } from "./commands/GetMigrationsCommand";
 import { GetSlotTypeCommand, GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand";
 import {
-  GetSlotTypeVersionsCommand,
-  GetSlotTypeVersionsCommandInput,
-  GetSlotTypeVersionsCommandOutput,
-} from "./commands/GetSlotTypeVersionsCommand";
-import {
   GetSlotTypesCommand,
   GetSlotTypesCommandInput,
   GetSlotTypesCommandOutput,
 } from "./commands/GetSlotTypesCommand";
+import {
+  GetSlotTypeVersionsCommand,
+  GetSlotTypeVersionsCommandInput,
+  GetSlotTypeVersionsCommandOutput,
+} from "./commands/GetSlotTypeVersionsCommand";
 import {
   GetUtterancesViewCommand,
   GetUtterancesViewCommandInput,
@@ -149,7 +150,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient";
 
 /**
  * <fullname>Amazon Lex Build-Time Actions</fullname>

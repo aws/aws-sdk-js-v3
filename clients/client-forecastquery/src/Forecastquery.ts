@@ -1,10 +1,11 @@
-import { ForecastqueryClient } from "./ForecastqueryClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   QueryForecastCommand,
   QueryForecastCommandInput,
   QueryForecastCommandOutput,
 } from "./commands/QueryForecastCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ForecastqueryClient } from "./ForecastqueryClient";
 
 /**
  * <p>Provides APIs for creating and managing Amazon Forecast resources.</p>

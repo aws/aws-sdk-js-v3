@@ -1,4 +1,38 @@
 import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseByte as __strictParseByte,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+  strictParseShort as __strictParseShort,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+import { v4 as generateIdempotencyToken } from "uuid";
+
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
@@ -62,9 +96,9 @@ import {
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
   InvalidGreeting,
+  NestedStructuresInput,
   NestedStructWithList,
   NestedStructWithMap,
-  NestedStructuresInput,
   NoInputAndOutputOutput,
   QueryIdempotencyTokenAutoFillInput,
   QueryListsInput,
@@ -86,39 +120,6 @@ import {
   XmlNamespacesOutput,
   XmlTimestampsOutput,
 } from "../models/models_0";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  parseRfc7231DateTime as __parseRfc7231DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseByte as __strictParseByte,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-  strictParseShort as __strictParseShort,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_queryEmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
@@ -574,7 +575,7 @@ const deserializeAws_queryEmptyInputAndEmptyOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -617,7 +618,7 @@ const deserializeAws_queryEndpointOperationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -660,7 +661,7 @@ const deserializeAws_queryEndpointWithHostLabelOperationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -706,7 +707,7 @@ const deserializeAws_queryFlattenedXmlMapCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -752,7 +753,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -801,7 +802,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -847,7 +848,7 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
@@ -917,7 +918,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -960,7 +961,7 @@ const deserializeAws_queryNestedStructuresCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1003,7 +1004,7 @@ const deserializeAws_queryNoInputAndNoOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1046,7 +1047,7 @@ const deserializeAws_queryNoInputAndOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1089,7 +1090,7 @@ const deserializeAws_queryQueryIdempotencyTokenAutoFillCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1132,7 +1133,7 @@ const deserializeAws_queryQueryListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1175,7 +1176,7 @@ const deserializeAws_queryQueryMapsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1218,7 +1219,7 @@ const deserializeAws_queryQueryTimestampsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1264,7 +1265,7 @@ const deserializeAws_queryRecursiveXmlShapesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1307,7 +1308,7 @@ const deserializeAws_querySimpleInputParamsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1353,7 +1354,7 @@ const deserializeAws_querySimpleScalarXmlPropertiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1399,7 +1400,7 @@ const deserializeAws_queryXmlBlobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1445,7 +1446,7 @@ const deserializeAws_queryXmlEmptyBlobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1491,7 +1492,7 @@ const deserializeAws_queryXmlEmptyListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1537,7 +1538,7 @@ const deserializeAws_queryXmlEmptyMapsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1583,7 +1584,7 @@ const deserializeAws_queryXmlEnumsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1629,7 +1630,7 @@ const deserializeAws_queryXmlListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1675,7 +1676,7 @@ const deserializeAws_queryXmlMapsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1721,7 +1722,7 @@ const deserializeAws_queryXmlMapsXmlNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1767,7 +1768,7 @@ const deserializeAws_queryXmlNamespacesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1813,7 +1814,7 @@ const deserializeAws_queryXmlTimestampsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1913,7 +1914,7 @@ const serializeAws_queryHostLabelInput = (input: HostLabelInput, context: __Serd
 const serializeAws_queryListWithXmlName = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -2179,7 +2180,7 @@ const serializeAws_queryStructArg = (input: StructArg, context: __SerdeContext):
 const serializeAws_queryGreetingList = (input: GreetingStruct[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -2203,7 +2204,7 @@ const serializeAws_queryGreetingStruct = (input: GreetingStruct, context: __Serd
 const serializeAws_queryStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -2227,7 +2228,7 @@ const serializeAws_queryStringMap = (input: { [key: string]: string }, context: 
 };
 
 const deserializeAws_queryComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  let contents: any = {
+  const contents: any = {
     TopLevel: undefined,
     Nested: undefined,
   };
@@ -2241,7 +2242,7 @@ const deserializeAws_queryComplexError = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  let contents: any = {
+  const contents: any = {
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
@@ -2251,7 +2252,7 @@ const deserializeAws_queryComplexNestedErrorData = (output: any, context: __Serd
 };
 
 const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContext): CustomCodeError => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -2264,12 +2265,12 @@ const deserializeAws_queryEmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryFlattenedXmlMapOutput = (output: any, context: __SerdeContext): FlattenedXmlMapOutput => {
-  let contents: any = {
+  const contents: any = {
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -2285,7 +2286,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): FlattenedXmlMapWithXmlNameOutput => {
-  let contents: any = {
+  const contents: any = {
     myMap: undefined,
   };
   if (output.KVP === "") {
@@ -2319,7 +2320,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput = (
   output: any,
   context: __SerdeContext
 ): FlattenedXmlMapWithXmlNamespaceOutput => {
-  let contents: any = {
+  const contents: any = {
     myMap: undefined,
   };
   if (output.KVP === "") {
@@ -2353,7 +2354,7 @@ const deserializeAws_queryGreetingWithErrorsOutput = (
   output: any,
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
-  let contents: any = {
+  const contents: any = {
     greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
@@ -2366,7 +2367,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
   };
   if (output["foo"] !== undefined) {
@@ -2376,7 +2377,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
 };
 
 const deserializeAws_queryInvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -2411,7 +2412,7 @@ const deserializeAws_queryRecursiveXmlShapesOutput = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutput => {
-  let contents: any = {
+  const contents: any = {
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -2424,7 +2425,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
     nested: undefined,
   };
@@ -2441,7 +2442,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
-  let contents: any = {
+  const contents: any = {
     bar: undefined,
     recursiveMember: undefined,
   };
@@ -2469,7 +2470,7 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
-  let contents: any = {
+  const contents: any = {
     stringValue: undefined,
     emptyStringValue: undefined,
     trueBooleanValue: undefined,
@@ -2526,7 +2527,7 @@ const deserializeAws_queryStructureList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  let contents: any = {
+  const contents: any = {
     a: undefined,
     b: undefined,
   };
@@ -2540,7 +2541,7 @@ const deserializeAws_queryStructureListMember = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
-  let contents: any = {
+  const contents: any = {
     data: undefined,
   };
   if (output["data"] !== undefined) {
@@ -2550,7 +2551,7 @@ const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
-  let contents: any = {
+  const contents: any = {
     fooEnum1: undefined,
     fooEnum2: undefined,
     fooEnum3: undefined,
@@ -2598,7 +2599,7 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
-  let contents: any = {
+  const contents: any = {
     stringList: undefined,
     stringSet: undefined,
     integerList: undefined,
@@ -2728,7 +2729,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlMapsOutput = (output: any, context: __SerdeContext): XmlMapsOutput => {
-  let contents: any = {
+  const contents: any = {
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -2756,7 +2757,7 @@ const deserializeAws_queryXmlMapsOutputMap = (
 };
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeContext): XmlMapsXmlNameOutput => {
-  let contents: any = {
+  const contents: any = {
     myMap: undefined,
   };
   if (output.myMap === "") {
@@ -2798,7 +2799,7 @@ const deserializeAws_queryXmlNamespacedList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
     values: undefined,
   };
@@ -2818,7 +2819,7 @@ const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
-  let contents: any = {
+  const contents: any = {
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -2828,7 +2829,7 @@ const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
-  let contents: any = {
+  const contents: any = {
     normal: undefined,
     dateTime: undefined,
     epochSeconds: undefined,
@@ -2895,7 +2896,7 @@ const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (
 };
 
 const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  let contents: any = {
+  const contents: any = {
     hi: undefined,
   };
   if (output["hi"] !== undefined) {

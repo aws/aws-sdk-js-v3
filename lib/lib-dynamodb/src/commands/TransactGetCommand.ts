@@ -1,5 +1,3 @@
-import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
-import { marshallInput, unmarshallOutput } from "../commands/utils";
 import {
   Get,
   ItemResponse,
@@ -9,8 +7,11 @@ import {
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import { Command as $Command } from "@aws-sdk/smithy-client";
-import { Handler, MiddlewareStack, HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@aws-sdk/types";
 import { NativeAttributeValue } from "@aws-sdk/util-dynamodb";
+
+import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "TransactItems"> & {
   TransactItems:

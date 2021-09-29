@@ -1,4 +1,5 @@
-import { MediaStoreDataClient } from "./MediaStoreDataClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteObjectCommand,
   DeleteObjectCommandInput,
@@ -12,7 +13,7 @@ import {
 import { GetObjectCommand, GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand";
 import { ListItemsCommand, ListItemsCommandInput, ListItemsCommandOutput } from "./commands/ListItemsCommand";
 import { PutObjectCommand, PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaStoreDataClient } from "./MediaStoreDataClient";
 
 /**
  * <p>An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3

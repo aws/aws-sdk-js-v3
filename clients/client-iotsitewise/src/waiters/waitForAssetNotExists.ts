@@ -1,11 +1,12 @@
-import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeAssetCommand, DescribeAssetCommandInput } from "../commands/DescribeAssetCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 
 const checkState = async (client: IoTSiteWiseClient, input: DescribeAssetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAssetCommand(input));
+    const result: any = await client.send(new DescribeAssetCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

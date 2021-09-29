@@ -1,4 +1,5 @@
-import { OpenSearchClient } from "./OpenSearchClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInboundConnectionCommand,
   AcceptInboundConnectionCommandInput,
@@ -182,7 +183,7 @@ import {
   UpgradeDomainCommandInput,
   UpgradeDomainCommandOutput,
 } from "./commands/UpgradeDomainCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { OpenSearchClient } from "./OpenSearchClient";
 
 /**
  * <fullname>Amazon OpenSearch Configuration Service</fullname>

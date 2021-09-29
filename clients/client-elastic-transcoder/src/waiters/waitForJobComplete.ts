@@ -1,14 +1,15 @@
-import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { ReadJobCommand, ReadJobCommandInput } from "../commands/ReadJobCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
 
 const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new ReadJobCommand(input));
+    const result: any = await client.send(new ReadJobCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Job.Status;
       };
       if (returnComparator() === "Complete") {
@@ -16,7 +17,7 @@ const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Job.Status;
       };
       if (returnComparator() === "Canceled") {
@@ -24,7 +25,7 @@ const checkState = async (client: ElasticTranscoderClient, input: ReadJobCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Job.Status;
       };
       if (returnComparator() === "Error") {

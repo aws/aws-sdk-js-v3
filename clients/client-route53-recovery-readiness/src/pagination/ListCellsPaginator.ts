@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { ListCellsCommand, ListCellsCommandInput, ListCellsCommandOutput } from "../commands/ListCellsCommand";
 import { Route53RecoveryReadiness } from "../Route53RecoveryReadiness";
 import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClient";
-import { ListCellsCommand, ListCellsCommandInput, ListCellsCommandOutput } from "../commands/ListCellsCommand";
 import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

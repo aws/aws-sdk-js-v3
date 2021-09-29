@@ -1,4 +1,5 @@
-import { DataSyncClient } from "./DataSyncClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelTaskExecutionCommand,
   CancelTaskExecutionCommandInput,
@@ -138,7 +139,7 @@ import {
   UpdateTaskExecutionCommandInput,
   UpdateTaskExecutionCommandOutput,
 } from "./commands/UpdateTaskExecutionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DataSyncClient } from "./DataSyncClient";
 
 /**
  * <fullname>DataSync</fullname>

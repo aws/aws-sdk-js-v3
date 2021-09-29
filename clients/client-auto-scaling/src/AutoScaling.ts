@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AutoScalingClient } from "./AutoScalingClient";
 import {
   AttachInstancesCommand,
@@ -5,15 +7,15 @@ import {
   AttachInstancesCommandOutput,
 } from "./commands/AttachInstancesCommand";
 import {
-  AttachLoadBalancerTargetGroupsCommand,
-  AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput,
-} from "./commands/AttachLoadBalancerTargetGroupsCommand";
-import {
   AttachLoadBalancersCommand,
   AttachLoadBalancersCommandInput,
   AttachLoadBalancersCommandOutput,
 } from "./commands/AttachLoadBalancersCommand";
+import {
+  AttachLoadBalancerTargetGroupsCommand,
+  AttachLoadBalancerTargetGroupsCommandInput,
+  AttachLoadBalancerTargetGroupsCommandOutput,
+} from "./commands/AttachLoadBalancerTargetGroupsCommand";
 import {
   BatchDeleteScheduledActionCommand,
   BatchDeleteScheduledActionCommandInput,
@@ -121,25 +123,25 @@ import {
   DescribeLaunchConfigurationsCommandOutput,
 } from "./commands/DescribeLaunchConfigurationsCommand";
 import {
-  DescribeLifecycleHookTypesCommand,
-  DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput,
-} from "./commands/DescribeLifecycleHookTypesCommand";
-import {
   DescribeLifecycleHooksCommand,
   DescribeLifecycleHooksCommandInput,
   DescribeLifecycleHooksCommandOutput,
 } from "./commands/DescribeLifecycleHooksCommand";
 import {
-  DescribeLoadBalancerTargetGroupsCommand,
-  DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput,
-} from "./commands/DescribeLoadBalancerTargetGroupsCommand";
+  DescribeLifecycleHookTypesCommand,
+  DescribeLifecycleHookTypesCommandInput,
+  DescribeLifecycleHookTypesCommandOutput,
+} from "./commands/DescribeLifecycleHookTypesCommand";
 import {
   DescribeLoadBalancersCommand,
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "./commands/DescribeLoadBalancersCommand";
+import {
+  DescribeLoadBalancerTargetGroupsCommand,
+  DescribeLoadBalancerTargetGroupsCommandInput,
+  DescribeLoadBalancerTargetGroupsCommandOutput,
+} from "./commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
   DescribeMetricCollectionTypesCommand,
   DescribeMetricCollectionTypesCommandInput,
@@ -191,15 +193,15 @@ import {
   DetachInstancesCommandOutput,
 } from "./commands/DetachInstancesCommand";
 import {
-  DetachLoadBalancerTargetGroupsCommand,
-  DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput,
-} from "./commands/DetachLoadBalancerTargetGroupsCommand";
-import {
   DetachLoadBalancersCommand,
   DetachLoadBalancersCommandInput,
   DetachLoadBalancersCommandOutput,
 } from "./commands/DetachLoadBalancersCommand";
+import {
+  DetachLoadBalancerTargetGroupsCommand,
+  DetachLoadBalancerTargetGroupsCommandInput,
+  DetachLoadBalancerTargetGroupsCommandOutput,
+} from "./commands/DetachLoadBalancerTargetGroupsCommand";
 import {
   DisableMetricsCollectionCommand,
   DisableMetricsCollectionCommandInput,
@@ -292,7 +294,6 @@ import {
   UpdateAutoScalingGroupCommandInput,
   UpdateAutoScalingGroupCommandOutput,
 } from "./commands/UpdateAutoScalingGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon EC2 Auto Scaling</fullname>

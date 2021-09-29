@@ -1,9 +1,3 @@
-import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { StartConfigRulesEvaluationRequest, StartConfigRulesEvaluationResponse } from "../models/models_1";
-import {
-  deserializeAws_json1_1StartConfigRulesEvaluationCommand,
-  serializeAws_json1_1StartConfigRulesEvaluationCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { StartConfigRulesEvaluationRequest, StartConfigRulesEvaluationResponse } from "../models/models_1";
+import {
+  deserializeAws_json1_1StartConfigRulesEvaluationCommand,
+  serializeAws_json1_1StartConfigRulesEvaluationCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface StartConfigRulesEvaluationCommandInput extends StartConfigRulesEvaluationRequest {}
 export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRulesEvaluationResponse, __MetadataBearer {}

@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudDirectory } from "../CloudDirectory";
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
 import { ListIndexCommand, ListIndexCommandInput, ListIndexCommandOutput } from "../commands/ListIndexCommand";
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

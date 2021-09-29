@@ -1,12 +1,13 @@
-import { ResourceGroups } from "../ResourceGroups";
-import { ResourceGroupsClient } from "../ResourceGroupsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListGroupResourcesCommand,
   ListGroupResourcesCommandInput,
   ListGroupResourcesCommandOutput,
 } from "../commands/ListGroupResourcesCommand";
+import { ResourceGroups } from "../ResourceGroups";
+import { ResourceGroupsClient } from "../ResourceGroupsClient";
 import { ResourceGroupsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

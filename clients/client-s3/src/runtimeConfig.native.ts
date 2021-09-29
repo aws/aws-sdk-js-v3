@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { S3ClientConfig } from "./S3Client";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { S3ClientConfig } from "./S3Client";
 
 /**
  * @internal

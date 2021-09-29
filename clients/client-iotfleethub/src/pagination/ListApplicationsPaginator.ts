@@ -1,12 +1,13 @@
-import { IoTFleetHub } from "../IoTFleetHub";
-import { IoTFleetHubClient } from "../IoTFleetHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
+import { IoTFleetHub } from "../IoTFleetHub";
+import { IoTFleetHubClient } from "../IoTFleetHubClient";
 import { IoTFleetHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

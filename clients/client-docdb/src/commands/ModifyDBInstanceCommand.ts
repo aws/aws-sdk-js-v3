@@ -1,9 +1,3 @@
-import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
-import {
-  deserializeAws_queryModifyDBInstanceCommand,
-  serializeAws_queryModifyDBInstanceCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0";
+import {
+  deserializeAws_queryModifyDBInstanceCommand,
+  serializeAws_queryModifyDBInstanceCommand,
+} from "../protocols/Aws_query";
 
 export interface ModifyDBInstanceCommandInput extends ModifyDBInstanceMessage {}
 export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, __MetadataBearer {}

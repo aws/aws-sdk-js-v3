@@ -1,4 +1,5 @@
-import { ElasticTranscoderClient } from "./ElasticTranscoderClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
@@ -60,7 +61,7 @@ import {
   UpdatePipelineStatusCommandInput,
   UpdatePipelineStatusCommandOutput,
 } from "./commands/UpdatePipelineStatusCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElasticTranscoderClient } from "./ElasticTranscoderClient";
 
 /**
  * <fullname>AWS Elastic Transcoder Service</fullname>

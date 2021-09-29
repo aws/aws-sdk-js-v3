@@ -1,3 +1,26 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseFloat as __strictParseFloat,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   CloneReceiptRuleSetCommandInput,
   CloneReceiptRuleSetCommandOutput,
@@ -369,8 +392,6 @@ import {
   RuleDoesNotExistException,
   RuleSetDoesNotExistException,
   S3Action,
-  SNSAction,
-  SNSDestination,
   SendBounceRequest,
   SendBounceResponse,
   SendBulkTemplatedEmailRequest,
@@ -398,6 +419,8 @@ import {
   SetIdentityNotificationTopicResponse,
   SetReceiptRulePositionRequest,
   SetReceiptRulePositionResponse,
+  SNSAction,
+  SNSDestination,
   StopAction,
   Template,
   TemplateDoesNotExistException,
@@ -428,28 +451,6 @@ import {
   VerifyEmailIdentityResponse,
   WorkmailAction,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseFloat as __strictParseFloat,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryCloneReceiptRuleSetCommand = async (
   input: CloneReceiptRuleSetCommandInput,
@@ -1605,7 +1606,7 @@ const deserializeAws_queryCloneReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -1675,7 +1676,7 @@ const deserializeAws_queryCreateConfigurationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetAlreadyExistsException":
@@ -1748,7 +1749,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -1845,7 +1846,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -1912,7 +1913,7 @@ const deserializeAws_queryCreateCustomVerificationEmailTemplateCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
@@ -1993,7 +1994,7 @@ const deserializeAws_queryCreateReceiptFilterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2055,7 +2056,7 @@ const deserializeAws_queryCreateReceiptRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2157,7 +2158,7 @@ const deserializeAws_queryCreateReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2219,7 +2220,7 @@ const deserializeAws_queryCreateTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsException":
@@ -2289,7 +2290,7 @@ const deserializeAws_queryDeleteConfigurationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2346,7 +2347,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2411,7 +2412,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2470,7 +2471,7 @@ const deserializeAws_queryDeleteCustomVerificationEmailTemplateCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2516,7 +2517,7 @@ const deserializeAws_queryDeleteIdentityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2562,7 +2563,7 @@ const deserializeAws_queryDeleteIdentityPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2608,7 +2609,7 @@ const deserializeAws_queryDeleteReceiptFilterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2654,7 +2655,7 @@ const deserializeAws_queryDeleteReceiptRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -2708,7 +2709,7 @@ const deserializeAws_queryDeleteReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CannotDeleteException":
@@ -2762,7 +2763,7 @@ const deserializeAws_queryDeleteTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2805,7 +2806,7 @@ const deserializeAws_queryDeleteVerifiedEmailAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2851,7 +2852,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2897,7 +2898,7 @@ const deserializeAws_queryDescribeConfigurationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -2951,7 +2952,7 @@ const deserializeAws_queryDescribeReceiptRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -3013,7 +3014,7 @@ const deserializeAws_queryDescribeReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -3067,7 +3068,7 @@ const deserializeAws_queryGetAccountSendingEnabledCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3116,7 +3117,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailTemplateDoesNotExistException":
@@ -3173,7 +3174,7 @@ const deserializeAws_queryGetIdentityDkimAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3222,7 +3223,7 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3271,7 +3272,7 @@ const deserializeAws_queryGetIdentityNotificationAttributesCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3317,7 +3318,7 @@ const deserializeAws_queryGetIdentityPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3366,7 +3367,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3412,7 +3413,7 @@ const deserializeAws_queryGetSendQuotaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3458,7 +3459,7 @@ const deserializeAws_queryGetSendStatisticsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3504,7 +3505,7 @@ const deserializeAws_queryGetTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "TemplateDoesNotExistException":
@@ -3558,7 +3559,7 @@ const deserializeAws_queryListConfigurationSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3607,7 +3608,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3653,7 +3654,7 @@ const deserializeAws_queryListIdentitiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3699,7 +3700,7 @@ const deserializeAws_queryListIdentityPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3745,7 +3746,7 @@ const deserializeAws_queryListReceiptFiltersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3791,7 +3792,7 @@ const deserializeAws_queryListReceiptRuleSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3837,7 +3838,7 @@ const deserializeAws_queryListTemplatesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3883,7 +3884,7 @@ const deserializeAws_queryListVerifiedEmailAddressesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3932,7 +3933,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -3994,7 +3995,7 @@ const deserializeAws_queryPutIdentityPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidPolicyException":
@@ -4048,7 +4049,7 @@ const deserializeAws_queryReorderReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -4110,7 +4111,7 @@ const deserializeAws_querySendBounceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "MessageRejected":
@@ -4164,7 +4165,7 @@ const deserializeAws_querySendBulkTemplatedEmailCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4258,7 +4259,7 @@ const deserializeAws_querySendCustomVerificationEmailCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -4347,7 +4348,7 @@ const deserializeAws_querySendEmailCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4433,7 +4434,7 @@ const deserializeAws_querySendRawEmailCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4519,7 +4520,7 @@ const deserializeAws_querySendTemplatedEmailCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccountSendingPausedException":
@@ -4613,7 +4614,7 @@ const deserializeAws_querySetActiveReceiptRuleSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleSetDoesNotExistException":
@@ -4667,7 +4668,7 @@ const deserializeAws_querySetIdentityDkimEnabledCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4716,7 +4717,7 @@ const deserializeAws_querySetIdentityFeedbackForwardingEnabledCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4765,7 +4766,7 @@ const deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4811,7 +4812,7 @@ const deserializeAws_querySetIdentityMailFromDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4857,7 +4858,7 @@ const deserializeAws_querySetIdentityNotificationTopicCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4903,7 +4904,7 @@ const deserializeAws_querySetReceiptRulePositionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "RuleDoesNotExistException":
@@ -4965,7 +4966,7 @@ const deserializeAws_queryTestRenderTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidRenderingParameterException":
@@ -5032,7 +5033,7 @@ const deserializeAws_queryUpdateAccountSendingEnabledCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5081,7 +5082,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5164,7 +5165,7 @@ const deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommandE
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5215,7 +5216,7 @@ const deserializeAws_queryUpdateConfigurationSetSendingEnabledCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5272,7 +5273,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConfigurationSetDoesNotExistException":
@@ -5339,7 +5340,7 @@ const deserializeAws_queryUpdateCustomVerificationEmailTemplateCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CustomVerificationEmailInvalidContentException":
@@ -5412,7 +5413,7 @@ const deserializeAws_queryUpdateReceiptRuleCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidLambdaFunctionException":
@@ -5506,7 +5507,7 @@ const deserializeAws_queryUpdateTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidTemplateException":
@@ -5568,7 +5569,7 @@ const deserializeAws_queryVerifyDomainDkimCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5614,7 +5615,7 @@ const deserializeAws_queryVerifyDomainIdentityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5657,7 +5658,7 @@ const deserializeAws_queryVerifyEmailAddressCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5703,7 +5704,7 @@ const deserializeAws_queryVerifyEmailIdentityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -6253,7 +6254,7 @@ const serializeAws_queryAddHeaderAction = (input: AddHeaderAction, context: __Se
 const serializeAws_queryAddressList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6326,7 +6327,7 @@ const serializeAws_queryBouncedRecipientInfo = (input: BouncedRecipientInfo, con
 const serializeAws_queryBouncedRecipientInfoList = (input: BouncedRecipientInfo[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6364,7 +6365,7 @@ const serializeAws_queryBulkEmailDestination = (input: BulkEmailDestination, con
 const serializeAws_queryBulkEmailDestinationList = (input: BulkEmailDestination[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6426,7 +6427,7 @@ const serializeAws_queryCloudWatchDimensionConfigurations = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6453,7 +6454,7 @@ const serializeAws_queryConfigurationSetAttributeList = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6858,7 +6859,7 @@ const serializeAws_queryEventDestination = (input: EventDestination, context: __
 const serializeAws_queryEventTypes = (input: (EventType | string)[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6882,7 +6883,7 @@ const serializeAws_queryExtensionField = (input: ExtensionField, context: __Serd
 const serializeAws_queryExtensionFieldList = (input: ExtensionField[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6995,7 +6996,7 @@ const serializeAws_queryGetTemplateRequest = (input: GetTemplateRequest, context
 const serializeAws_queryIdentityList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7167,7 +7168,7 @@ const serializeAws_queryMessageTag = (input: MessageTag, context: __SerdeContext
 const serializeAws_queryMessageTagList = (input: MessageTag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7183,7 +7184,7 @@ const serializeAws_queryMessageTagList = (input: MessageTag[], context: __SerdeC
 const serializeAws_queryPolicyNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7290,7 +7291,7 @@ const serializeAws_queryReceiptAction = (input: ReceiptAction, context: __SerdeC
 const serializeAws_queryReceiptActionsList = (input: ReceiptAction[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7363,7 +7364,7 @@ const serializeAws_queryReceiptRule = (input: ReceiptRule, context: __SerdeConte
 const serializeAws_queryReceiptRuleNamesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7406,7 +7407,7 @@ const serializeAws_queryRecipientDsnFields = (input: RecipientDsnFields, context
 const serializeAws_queryRecipientsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -8054,7 +8055,7 @@ const deserializeAws_queryAccountSendingPausedException = (
   output: any,
   context: __SerdeContext
 ): AccountSendingPausedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8064,7 +8065,7 @@ const deserializeAws_queryAccountSendingPausedException = (
 };
 
 const deserializeAws_queryAddHeaderAction = (output: any, context: __SerdeContext): AddHeaderAction => {
-  let contents: any = {
+  const contents: any = {
     HeaderName: undefined,
     HeaderValue: undefined,
   };
@@ -8089,7 +8090,7 @@ const deserializeAws_queryAddressList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     message: undefined,
   };
@@ -8103,7 +8104,7 @@ const deserializeAws_queryAlreadyExistsException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryBounceAction = (output: any, context: __SerdeContext): BounceAction => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
     SmtpReplyCode: undefined,
     StatusCode: undefined,
@@ -8132,7 +8133,7 @@ const deserializeAws_queryBulkEmailDestinationStatus = (
   output: any,
   context: __SerdeContext
 ): BulkEmailDestinationStatus => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
     Error: undefined,
     MessageId: undefined,
@@ -8164,7 +8165,7 @@ const deserializeAws_queryBulkEmailDestinationStatusList = (
 };
 
 const deserializeAws_queryCannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     message: undefined,
   };
@@ -8181,12 +8182,12 @@ const deserializeAws_queryCloneReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): CloneReceiptRuleSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryCloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
-  let contents: any = {
+  const contents: any = {
     DimensionConfigurations: undefined,
   };
   if (output.DimensionConfigurations === "") {
@@ -8205,7 +8206,7 @@ const deserializeAws_queryCloudWatchDimensionConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
-  let contents: any = {
+  const contents: any = {
     DimensionName: undefined,
     DimensionValueSource: undefined,
     DefaultDimensionValue: undefined,
@@ -8237,7 +8238,7 @@ const deserializeAws_queryCloudWatchDimensionConfigurations = (
 };
 
 const deserializeAws_queryConfigurationSet = (output: any, context: __SerdeContext): ConfigurationSet => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -8250,7 +8251,7 @@ const deserializeAws_queryConfigurationSetAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     message: undefined,
   };
@@ -8267,7 +8268,7 @@ const deserializeAws_queryConfigurationSetDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     message: undefined,
   };
@@ -8295,7 +8296,7 @@ const deserializeAws_queryConfigurationSetSendingPausedException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetSendingPausedException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     message: undefined,
   };
@@ -8312,7 +8313,7 @@ const deserializeAws_queryCreateConfigurationSetEventDestinationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateConfigurationSetEventDestinationResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8320,7 +8321,7 @@ const deserializeAws_queryCreateConfigurationSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateConfigurationSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8328,7 +8329,7 @@ const deserializeAws_queryCreateConfigurationSetTrackingOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): CreateConfigurationSetTrackingOptionsResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8336,7 +8337,7 @@ const deserializeAws_queryCreateReceiptFilterResponse = (
   output: any,
   context: __SerdeContext
 ): CreateReceiptFilterResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8344,7 +8345,7 @@ const deserializeAws_queryCreateReceiptRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateReceiptRuleResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8352,12 +8353,12 @@ const deserializeAws_queryCreateReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateReceiptRuleSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryCreateTemplateResponse = (output: any, context: __SerdeContext): CreateTemplateResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8365,7 +8366,7 @@ const deserializeAws_queryCustomVerificationEmailInvalidContentException = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailInvalidContentException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8378,7 +8379,7 @@ const deserializeAws_queryCustomVerificationEmailTemplate = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplate => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     FromEmailAddress: undefined,
     TemplateSubject: undefined,
@@ -8407,7 +8408,7 @@ const deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsException 
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplateAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     CustomVerificationEmailTemplateName: undefined,
     message: undefined,
   };
@@ -8424,7 +8425,7 @@ const deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistException =
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplateDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     CustomVerificationEmailTemplateName: undefined,
     message: undefined,
   };
@@ -8455,7 +8456,7 @@ const deserializeAws_queryDeleteConfigurationSetEventDestinationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteConfigurationSetEventDestinationResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8463,7 +8464,7 @@ const deserializeAws_queryDeleteConfigurationSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteConfigurationSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8471,7 +8472,7 @@ const deserializeAws_queryDeleteConfigurationSetTrackingOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteConfigurationSetTrackingOptionsResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8479,12 +8480,12 @@ const deserializeAws_queryDeleteIdentityPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteIdentityPolicyResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteIdentityResponse = (output: any, context: __SerdeContext): DeleteIdentityResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8492,7 +8493,7 @@ const deserializeAws_queryDeleteReceiptFilterResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReceiptFilterResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8500,7 +8501,7 @@ const deserializeAws_queryDeleteReceiptRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReceiptRuleResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8508,17 +8509,17 @@ const deserializeAws_queryDeleteReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReceiptRuleSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteTemplateResponse = (output: any, context: __SerdeContext): DeleteTemplateResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
-  let contents: any = {
+  const contents: any = {
     TlsPolicy: undefined,
   };
   if (output["TlsPolicy"] !== undefined) {
@@ -8531,7 +8532,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeActiveReceiptRuleSetResponse => {
-  let contents: any = {
+  const contents: any = {
     Metadata: undefined,
     Rules: undefined,
   };
@@ -8551,7 +8552,7 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigurationSetResponse => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSet: undefined,
     EventDestinations: undefined,
     TrackingOptions: undefined,
@@ -8586,7 +8587,7 @@ const deserializeAws_queryDescribeReceiptRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReceiptRuleResponse => {
-  let contents: any = {
+  const contents: any = {
     Rule: undefined,
   };
   if (output["Rule"] !== undefined) {
@@ -8599,7 +8600,7 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReceiptRuleSetResponse => {
-  let contents: any = {
+  const contents: any = {
     Metadata: undefined,
     Rules: undefined,
   };
@@ -8631,7 +8632,7 @@ const deserializeAws_queryDkimAttributes = (
 };
 
 const deserializeAws_queryEventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Enabled: undefined,
     MatchingEventTypes: undefined,
@@ -8676,7 +8677,7 @@ const deserializeAws_queryEventDestinationAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): EventDestinationAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     EventDestinationName: undefined,
     message: undefined,
@@ -8697,7 +8698,7 @@ const deserializeAws_queryEventDestinationDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): EventDestinationDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     EventDestinationName: undefined,
     message: undefined,
@@ -8740,7 +8741,7 @@ const deserializeAws_queryFromEmailAddressNotVerifiedException = (
   output: any,
   context: __SerdeContext
 ): FromEmailAddressNotVerifiedException => {
-  let contents: any = {
+  const contents: any = {
     FromEmailAddress: undefined,
     message: undefined,
   };
@@ -8757,7 +8758,7 @@ const deserializeAws_queryGetAccountSendingEnabledResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountSendingEnabledResponse => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
@@ -8770,7 +8771,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetCustomVerificationEmailTemplateResponse => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     FromEmailAddress: undefined,
     TemplateSubject: undefined,
@@ -8803,7 +8804,7 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityDkimAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     DkimAttributes: undefined,
   };
   if (output.DkimAttributes === "") {
@@ -8822,7 +8823,7 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityMailFromDomainAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     MailFromDomainAttributes: undefined,
   };
   if (output.MailFromDomainAttributes === "") {
@@ -8841,7 +8842,7 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityNotificationAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     NotificationAttributes: undefined,
   };
   if (output.NotificationAttributes === "") {
@@ -8860,7 +8861,7 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     Policies: undefined,
   };
   if (output.Policies === "") {
@@ -8876,7 +8877,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityVerificationAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     VerificationAttributes: undefined,
   };
   if (output.VerificationAttributes === "") {
@@ -8892,7 +8893,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
 };
 
 const deserializeAws_queryGetSendQuotaResponse = (output: any, context: __SerdeContext): GetSendQuotaResponse => {
-  let contents: any = {
+  const contents: any = {
     Max24HourSend: undefined,
     MaxSendRate: undefined,
     SentLast24Hours: undefined,
@@ -8913,7 +8914,7 @@ const deserializeAws_queryGetSendStatisticsResponse = (
   output: any,
   context: __SerdeContext
 ): GetSendStatisticsResponse => {
-  let contents: any = {
+  const contents: any = {
     SendDataPoints: undefined,
   };
   if (output.SendDataPoints === "") {
@@ -8929,7 +8930,7 @@ const deserializeAws_queryGetSendStatisticsResponse = (
 };
 
 const deserializeAws_queryGetTemplateResponse = (output: any, context: __SerdeContext): GetTemplateResponse => {
-  let contents: any = {
+  const contents: any = {
     Template: undefined,
   };
   if (output["Template"] !== undefined) {
@@ -8939,7 +8940,7 @@ const deserializeAws_queryGetTemplateResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __SerdeContext): IdentityDkimAttributes => {
-  let contents: any = {
+  const contents: any = {
     DkimEnabled: undefined,
     DkimVerificationStatus: undefined,
     DkimTokens: undefined,
@@ -8977,7 +8978,7 @@ const deserializeAws_queryIdentityMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityMailFromDomainAttributes => {
-  let contents: any = {
+  const contents: any = {
     MailFromDomain: undefined,
     MailFromDomainStatus: undefined,
     BehaviorOnMXFailure: undefined,
@@ -8998,7 +8999,7 @@ const deserializeAws_queryIdentityNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityNotificationAttributes => {
-  let contents: any = {
+  const contents: any = {
     BounceTopic: undefined,
     ComplaintTopic: undefined,
     DeliveryTopic: undefined,
@@ -9035,7 +9036,7 @@ const deserializeAws_queryIdentityVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityVerificationAttributes => {
-  let contents: any = {
+  const contents: any = {
     VerificationStatus: undefined,
     VerificationToken: undefined,
   };
@@ -9052,7 +9053,7 @@ const deserializeAws_queryInvalidCloudWatchDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidCloudWatchDestinationException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     EventDestinationName: undefined,
     message: undefined,
@@ -9073,7 +9074,7 @@ const deserializeAws_queryInvalidConfigurationSetException = (
   output: any,
   context: __SerdeContext
 ): InvalidConfigurationSetException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9086,7 +9087,7 @@ const deserializeAws_queryInvalidDeliveryOptionsException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeliveryOptionsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9099,7 +9100,7 @@ const deserializeAws_queryInvalidFirehoseDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidFirehoseDestinationException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     EventDestinationName: undefined,
     message: undefined,
@@ -9120,7 +9121,7 @@ const deserializeAws_queryInvalidLambdaFunctionException = (
   output: any,
   context: __SerdeContext
 ): InvalidLambdaFunctionException => {
-  let contents: any = {
+  const contents: any = {
     FunctionArn: undefined,
     message: undefined,
   };
@@ -9134,7 +9135,7 @@ const deserializeAws_queryInvalidLambdaFunctionException = (
 };
 
 const deserializeAws_queryInvalidPolicyException = (output: any, context: __SerdeContext): InvalidPolicyException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9147,7 +9148,7 @@ const deserializeAws_queryInvalidRenderingParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidRenderingParameterException => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     message: undefined,
   };
@@ -9164,7 +9165,7 @@ const deserializeAws_queryInvalidS3ConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidS3ConfigurationException => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
     message: undefined,
   };
@@ -9181,7 +9182,7 @@ const deserializeAws_queryInvalidSNSDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidSNSDestinationException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     EventDestinationName: undefined,
     message: undefined,
@@ -9202,7 +9203,7 @@ const deserializeAws_queryInvalidSnsTopicException = (
   output: any,
   context: __SerdeContext
 ): InvalidSnsTopicException => {
-  let contents: any = {
+  const contents: any = {
     Topic: undefined,
     message: undefined,
   };
@@ -9219,7 +9220,7 @@ const deserializeAws_queryInvalidTemplateException = (
   output: any,
   context: __SerdeContext
 ): InvalidTemplateException => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     message: undefined,
   };
@@ -9236,7 +9237,7 @@ const deserializeAws_queryInvalidTrackingOptionsException = (
   output: any,
   context: __SerdeContext
 ): InvalidTrackingOptionsException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9249,7 +9250,7 @@ const deserializeAws_queryKinesisFirehoseDestination = (
   output: any,
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
-  let contents: any = {
+  const contents: any = {
     IAMRoleARN: undefined,
     DeliveryStreamARN: undefined,
   };
@@ -9263,7 +9264,7 @@ const deserializeAws_queryKinesisFirehoseDestination = (
 };
 
 const deserializeAws_queryLambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
     FunctionArn: undefined,
     InvocationType: undefined,
@@ -9281,7 +9282,7 @@ const deserializeAws_queryLambdaAction = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9294,7 +9295,7 @@ const deserializeAws_queryListConfigurationSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListConfigurationSetsResponse => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSets: undefined,
     NextToken: undefined,
   };
@@ -9317,7 +9318,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCustomVerificationEmailTemplatesResponse => {
-  let contents: any = {
+  const contents: any = {
     CustomVerificationEmailTemplates: undefined,
     NextToken: undefined,
   };
@@ -9340,7 +9341,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
 };
 
 const deserializeAws_queryListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
-  let contents: any = {
+  const contents: any = {
     Identities: undefined,
     NextToken: undefined,
   };
@@ -9363,7 +9364,7 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListIdentityPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     PolicyNames: undefined,
   };
   if (output.PolicyNames === "") {
@@ -9382,7 +9383,7 @@ const deserializeAws_queryListReceiptFiltersResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceiptFiltersResponse => {
-  let contents: any = {
+  const contents: any = {
     Filters: undefined,
   };
   if (output.Filters === "") {
@@ -9401,7 +9402,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceiptRuleSetsResponse => {
-  let contents: any = {
+  const contents: any = {
     RuleSets: undefined,
     NextToken: undefined,
   };
@@ -9421,7 +9422,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
 };
 
 const deserializeAws_queryListTemplatesResponse = (output: any, context: __SerdeContext): ListTemplatesResponse => {
-  let contents: any = {
+  const contents: any = {
     TemplatesMetadata: undefined,
     NextToken: undefined,
   };
@@ -9444,7 +9445,7 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
   output: any,
   context: __SerdeContext
 ): ListVerifiedEmailAddressesResponse => {
-  let contents: any = {
+  const contents: any = {
     VerifiedEmailAddresses: undefined,
   };
   if (output.VerifiedEmailAddresses === "") {
@@ -9478,7 +9479,7 @@ const deserializeAws_queryMailFromDomainNotVerifiedException = (
   output: any,
   context: __SerdeContext
 ): MailFromDomainNotVerifiedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9488,7 +9489,7 @@ const deserializeAws_queryMailFromDomainNotVerifiedException = (
 };
 
 const deserializeAws_queryMessageRejected = (output: any, context: __SerdeContext): MessageRejected => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9501,7 +9502,7 @@ const deserializeAws_queryMissingRenderingAttributeException = (
   output: any,
   context: __SerdeContext
 ): MissingRenderingAttributeException => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     message: undefined,
   };
@@ -9556,7 +9557,7 @@ const deserializeAws_queryProductionAccessNotGrantedException = (
   output: any,
   context: __SerdeContext
 ): ProductionAccessNotGrantedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9569,7 +9570,7 @@ const deserializeAws_queryPutConfigurationSetDeliveryOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): PutConfigurationSetDeliveryOptionsResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9577,12 +9578,12 @@ const deserializeAws_queryPutIdentityPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutIdentityPolicyResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryReceiptAction = (output: any, context: __SerdeContext): ReceiptAction => {
-  let contents: any = {
+  const contents: any = {
     S3Action: undefined,
     BounceAction: undefined,
     WorkmailAction: undefined,
@@ -9627,7 +9628,7 @@ const deserializeAws_queryReceiptActionsList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryReceiptFilter = (output: any, context: __SerdeContext): ReceiptFilter => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     IpFilter: undefined,
   };
@@ -9652,7 +9653,7 @@ const deserializeAws_queryReceiptFilterList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContext): ReceiptIpFilter => {
-  let contents: any = {
+  const contents: any = {
     Policy: undefined,
     Cidr: undefined,
   };
@@ -9666,7 +9667,7 @@ const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): ReceiptRule => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Enabled: undefined,
     TlsPolicy: undefined,
@@ -9708,7 +9709,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __SerdeContext): ReceiptRuleSetMetadata => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     CreatedTimestamp: undefined,
   };
@@ -9758,12 +9759,12 @@ const deserializeAws_queryReorderReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): ReorderReceiptRuleSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
-  let contents: any = {
+  const contents: any = {
     SendingEnabled: undefined,
     ReputationMetricsEnabled: undefined,
     LastFreshStart: undefined,
@@ -9784,7 +9785,7 @@ const deserializeAws_queryRuleDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): RuleDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     message: undefined,
   };
@@ -9801,7 +9802,7 @@ const deserializeAws_queryRuleSetDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): RuleSetDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     message: undefined,
   };
@@ -9815,7 +9816,7 @@ const deserializeAws_queryRuleSetDoesNotExistException = (
 };
 
 const deserializeAws_queryS3Action = (output: any, context: __SerdeContext): S3Action => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
     BucketName: undefined,
     ObjectKeyPrefix: undefined,
@@ -9837,7 +9838,7 @@ const deserializeAws_queryS3Action = (output: any, context: __SerdeContext): S3A
 };
 
 const deserializeAws_querySendBounceResponse = (output: any, context: __SerdeContext): SendBounceResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -9850,7 +9851,7 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendBulkTemplatedEmailResponse => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output.Status === "") {
@@ -9869,7 +9870,7 @@ const deserializeAws_querySendCustomVerificationEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendCustomVerificationEmailResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -9879,7 +9880,7 @@ const deserializeAws_querySendCustomVerificationEmailResponse = (
 };
 
 const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext): SendDataPoint => {
-  let contents: any = {
+  const contents: any = {
     Timestamp: undefined,
     DeliveryAttempts: undefined,
     Bounces: undefined,
@@ -9916,7 +9917,7 @@ const deserializeAws_querySendDataPointList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeContext): SendEmailResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -9926,7 +9927,7 @@ const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySendRawEmailResponse = (output: any, context: __SerdeContext): SendRawEmailResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -9939,7 +9940,7 @@ const deserializeAws_querySendTemplatedEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendTemplatedEmailResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -9952,7 +9953,7 @@ const deserializeAws_querySetActiveReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): SetActiveReceiptRuleSetResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9960,7 +9961,7 @@ const deserializeAws_querySetIdentityDkimEnabledResponse = (
   output: any,
   context: __SerdeContext
 ): SetIdentityDkimEnabledResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9968,7 +9969,7 @@ const deserializeAws_querySetIdentityFeedbackForwardingEnabledResponse = (
   output: any,
   context: __SerdeContext
 ): SetIdentityFeedbackForwardingEnabledResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9976,7 +9977,7 @@ const deserializeAws_querySetIdentityHeadersInNotificationsEnabledResponse = (
   output: any,
   context: __SerdeContext
 ): SetIdentityHeadersInNotificationsEnabledResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9984,7 +9985,7 @@ const deserializeAws_querySetIdentityMailFromDomainResponse = (
   output: any,
   context: __SerdeContext
 ): SetIdentityMailFromDomainResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9992,7 +9993,7 @@ const deserializeAws_querySetIdentityNotificationTopicResponse = (
   output: any,
   context: __SerdeContext
 ): SetIdentityNotificationTopicResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -10000,12 +10001,12 @@ const deserializeAws_querySetReceiptRulePositionResponse = (
   output: any,
   context: __SerdeContext
 ): SetReceiptRulePositionResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_querySNSAction = (output: any, context: __SerdeContext): SNSAction => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
     Encoding: undefined,
   };
@@ -10019,7 +10020,7 @@ const deserializeAws_querySNSAction = (output: any, context: __SerdeContext): SN
 };
 
 const deserializeAws_querySNSDestination = (output: any, context: __SerdeContext): SNSDestination => {
-  let contents: any = {
+  const contents: any = {
     TopicARN: undefined,
   };
   if (output["TopicARN"] !== undefined) {
@@ -10029,7 +10030,7 @@ const deserializeAws_querySNSDestination = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryStopAction = (output: any, context: __SerdeContext): StopAction => {
-  let contents: any = {
+  const contents: any = {
     Scope: undefined,
     TopicArn: undefined,
   };
@@ -10043,7 +10044,7 @@ const deserializeAws_queryStopAction = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_queryTemplate = (output: any, context: __SerdeContext): Template => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     SubjectPart: undefined,
     TextPart: undefined,
@@ -10068,7 +10069,7 @@ const deserializeAws_queryTemplateDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): TemplateDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     TemplateName: undefined,
     message: undefined,
   };
@@ -10082,7 +10083,7 @@ const deserializeAws_queryTemplateDoesNotExistException = (
 };
 
 const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeContext): TemplateMetadata => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     CreatedTimestamp: undefined,
   };
@@ -10110,7 +10111,7 @@ const deserializeAws_queryTestRenderTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): TestRenderTemplateResponse => {
-  let contents: any = {
+  const contents: any = {
     RenderedTemplate: undefined,
   };
   if (output["RenderedTemplate"] !== undefined) {
@@ -10120,7 +10121,7 @@ const deserializeAws_queryTestRenderTemplateResponse = (
 };
 
 const deserializeAws_queryTrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
-  let contents: any = {
+  const contents: any = {
     CustomRedirectDomain: undefined,
   };
   if (output["CustomRedirectDomain"] !== undefined) {
@@ -10133,7 +10134,7 @@ const deserializeAws_queryTrackingOptionsAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): TrackingOptionsAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     message: undefined,
   };
@@ -10150,7 +10151,7 @@ const deserializeAws_queryTrackingOptionsDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): TrackingOptionsDoesNotExistException => {
-  let contents: any = {
+  const contents: any = {
     ConfigurationSetName: undefined,
     message: undefined,
   };
@@ -10167,7 +10168,7 @@ const deserializeAws_queryUpdateConfigurationSetEventDestinationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateConfigurationSetEventDestinationResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -10175,7 +10176,7 @@ const deserializeAws_queryUpdateConfigurationSetTrackingOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateConfigurationSetTrackingOptionsResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -10183,12 +10184,12 @@ const deserializeAws_queryUpdateReceiptRuleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateReceiptRuleResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryUpdateTemplateResponse = (output: any, context: __SerdeContext): UpdateTemplateResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -10222,7 +10223,7 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyDomainDkimResponse => {
-  let contents: any = {
+  const contents: any = {
     DkimTokens: undefined,
   };
   if (output.DkimTokens === "") {
@@ -10241,7 +10242,7 @@ const deserializeAws_queryVerifyDomainIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyDomainIdentityResponse => {
-  let contents: any = {
+  const contents: any = {
     VerificationToken: undefined,
   };
   if (output["VerificationToken"] !== undefined) {
@@ -10254,12 +10255,12 @@ const deserializeAws_queryVerifyEmailIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyEmailIdentityResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryWorkmailAction = (output: any, context: __SerdeContext): WorkmailAction => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
     OrganizationArn: undefined,
   };

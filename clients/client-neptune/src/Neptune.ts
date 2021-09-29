@@ -1,4 +1,5 @@
-import { NeptuneClient } from "./NeptuneClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddRoleToDBClusterCommand,
   AddRoleToDBClusterCommandInput,
@@ -130,6 +131,11 @@ import {
   DescribeDBClusterParametersCommandOutput,
 } from "./commands/DescribeDBClusterParametersCommand";
 import {
+  DescribeDBClustersCommand,
+  DescribeDBClustersCommandInput,
+  DescribeDBClustersCommandOutput,
+} from "./commands/DescribeDBClustersCommand";
+import {
   DescribeDBClusterSnapshotAttributesCommand,
   DescribeDBClusterSnapshotAttributesCommandInput,
   DescribeDBClusterSnapshotAttributesCommandOutput,
@@ -139,11 +145,6 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand";
-import {
-  DescribeDBClustersCommand,
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput,
-} from "./commands/DescribeDBClustersCommand";
 import {
   DescribeDBEngineVersionsCommand,
   DescribeDBEngineVersionsCommandInput,
@@ -185,15 +186,15 @@ import {
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
-  DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
-} from "./commands/DescribeEventSubscriptionsCommand";
-import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
 import {
   DescribeOrderableDBInstanceOptionsCommand,
   DescribeOrderableDBInstanceOptionsCommandInput,
@@ -314,7 +315,7 @@ import {
   StopDBClusterCommandInput,
   StopDBClusterCommandOutput,
 } from "./commands/StopDBClusterCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { NeptuneClient } from "./NeptuneClient";
 
 /**
  * <fullname>Amazon Neptune</fullname>

@@ -1,9 +1,3 @@
-import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
-import { GroupResourcesInput, GroupResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GroupResourcesCommand,
-  serializeAws_restJson1GroupResourcesCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GroupResourcesInput, GroupResourcesOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1GroupResourcesCommand,
+  serializeAws_restJson1GroupResourcesCommand,
+} from "../protocols/Aws_restJson1";
+import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient";
 
 export interface GroupResourcesCommandInput extends GroupResourcesInput {}
 export interface GroupResourcesCommandOutput extends GroupResourcesOutput, __MetadataBearer {}

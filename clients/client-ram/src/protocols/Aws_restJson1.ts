@@ -1,3 +1,21 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AcceptResourceShareInvitationCommandInput,
   AcceptResourceShareInvitationCommandOutput,
@@ -50,12 +68,12 @@ import {
 } from "../commands/ListPendingInvitationResourcesCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "../commands/ListPermissionsCommand";
 import { ListPrincipalsCommandInput, ListPrincipalsCommandOutput } from "../commands/ListPrincipalsCommand";
+import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
 } from "../commands/ListResourceSharePermissionsCommand";
 import { ListResourceTypesCommandInput, ListResourceTypesCommandOutput } from "../commands/ListResourceTypesCommand";
-import { ListResourcesCommandInput, ListResourcesCommandOutput } from "../commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommandInput,
   PromoteResourceShareCreatedFromPolicyCommandOutput,
@@ -103,23 +121,6 @@ import {
   TagPolicyViolationException,
   UnknownResourceException,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1AcceptResourceShareInvitationCommand = async (
   input: AcceptResourceShareInvitationCommandInput,
@@ -129,7 +130,7 @@ export const serializeAws_restJson1AcceptResourceShareInvitationCommand = async 
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/acceptresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
@@ -156,7 +157,8 @@ export const serializeAws_restJson1AssociateResourceShareCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.clientToken !== undefined && input.clientToken !== null && { clientToken: input.clientToken }),
@@ -190,7 +192,7 @@ export const serializeAws_restJson1AssociateResourceSharePermissionCommand = asy
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
@@ -221,7 +223,7 @@ export const serializeAws_restJson1CreateResourceShareCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/createresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.allowExternalPrincipals !== undefined &&
@@ -260,7 +262,7 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
   const query: any = {
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
     ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
@@ -286,7 +288,7 @@ export const serializeAws_restJson1DisassociateResourceShareCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourceshare";
   let body: any;
   body = JSON.stringify({
@@ -321,7 +323,7 @@ export const serializeAws_restJson1DisassociateResourceSharePermissionCommand = 
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disassociateresourcesharepermission";
   let body: any;
   body = JSON.stringify({
@@ -349,7 +351,7 @@ export const serializeAws_restJson1EnableSharingWithAwsOrganizationCommand = asy
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enablesharingwithawsorganization";
   let body: any;
   body = "";
@@ -372,7 +374,7 @@ export const serializeAws_restJson1GetPermissionCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getpermission";
   let body: any;
   body = JSON.stringify({
     ...(input.permissionArn !== undefined && input.permissionArn !== null && { permissionArn: input.permissionArn }),
@@ -398,7 +400,7 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourcepolicies";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -428,7 +430,7 @@ export const serializeAws_restJson1GetResourceShareAssociationsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareassociations";
   let body: any;
   body = JSON.stringify({
@@ -464,7 +466,7 @@ export const serializeAws_restJson1GetResourceShareInvitationsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshareinvitations";
   let body: any;
   body = JSON.stringify({
@@ -501,7 +503,7 @@ export const serializeAws_restJson1GetResourceSharesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getresourceshares";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -537,7 +539,7 @@ export const serializeAws_restJson1ListPendingInvitationResourcesCommand = async
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpendinginvitationresources";
   let body: any;
   body = JSON.stringify({
@@ -565,7 +567,7 @@ export const serializeAws_restJson1ListPermissionsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listpermissions";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -591,7 +593,7 @@ export const serializeAws_restJson1ListPrincipalsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listprincipals";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -627,7 +629,7 @@ export const serializeAws_restJson1ListResourcesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresources";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -663,7 +665,7 @@ export const serializeAws_restJson1ListResourceSharePermissionsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcesharepermissions";
   let body: any;
   body = JSON.stringify({
@@ -691,7 +693,7 @@ export const serializeAws_restJson1ListResourceTypesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listresourcetypes";
   let body: any;
   body = JSON.stringify({
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
@@ -714,7 +716,7 @@ export const serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand 
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
   const query: any = {
     ...(input.resourceShareArn !== undefined && { resourceShareArn: input.resourceShareArn }),
@@ -740,7 +742,7 @@ export const serializeAws_restJson1RejectResourceShareInvitationCommand = async 
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rejectresourceshareinvitation";
   let body: any;
   body = JSON.stringify({
@@ -767,7 +769,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tagresource";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceShareArn !== undefined &&
@@ -794,7 +796,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untagresource";
   let body: any;
   body = JSON.stringify({
     ...(input.resourceShareArn !== undefined &&
@@ -821,7 +823,7 @@ export const serializeAws_restJson1UpdateResourceShareCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateresourceshare";
   let body: any;
   body = JSON.stringify({
     ...(input.allowExternalPrincipals !== undefined &&
@@ -876,7 +878,7 @@ const deserializeAws_restJson1AcceptResourceShareInvitationCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1016,7 +1018,7 @@ const deserializeAws_restJson1AssociateResourceShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1147,7 +1149,7 @@ const deserializeAws_restJson1AssociateResourceSharePermissionCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
@@ -1254,7 +1256,7 @@ const deserializeAws_restJson1CreateResourceShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1393,7 +1395,7 @@ const deserializeAws_restJson1DeleteResourceShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1519,7 +1521,7 @@ const deserializeAws_restJson1DisassociateResourceShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -1650,7 +1652,7 @@ const deserializeAws_restJson1DisassociateResourceSharePermissionCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidClientTokenException":
@@ -1761,7 +1763,7 @@ const deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "OperationNotPermittedException":
@@ -1832,7 +1834,7 @@ const deserializeAws_restJson1GetPermissionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -1931,7 +1933,7 @@ const deserializeAws_restJson1GetResourcePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2033,7 +2035,7 @@ const deserializeAws_restJson1GetResourceShareAssociationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2143,7 +2145,7 @@ const deserializeAws_restJson1GetResourceShareInvitationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidMaxResultsException":
@@ -2258,7 +2260,7 @@ const deserializeAws_restJson1GetResourceSharesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2357,7 +2359,7 @@ const deserializeAws_restJson1ListPendingInvitationResourcesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2483,7 +2485,7 @@ const deserializeAws_restJson1ListPermissionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2574,7 +2576,7 @@ const deserializeAws_restJson1ListPrincipalsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2673,7 +2675,7 @@ const deserializeAws_restJson1ListResourcesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2780,7 +2782,7 @@ const deserializeAws_restJson1ListResourceSharePermissionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2887,7 +2889,7 @@ const deserializeAws_restJson1ListResourceTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextTokenException":
@@ -2966,7 +2968,7 @@ const deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -3084,7 +3086,7 @@ const deserializeAws_restJson1RejectResourceShareInvitationCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
@@ -3213,7 +3215,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -3320,7 +3322,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidParameterException":
@@ -3395,7 +3397,7 @@ const deserializeAws_restJson1UpdateResourceShareCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IdempotentParameterMismatchException":

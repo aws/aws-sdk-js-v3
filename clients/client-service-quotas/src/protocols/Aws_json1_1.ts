@@ -1,3 +1,23 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import {
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
@@ -11,13 +31,13 @@ import {
   DisassociateServiceQuotaTemplateCommandOutput,
 } from "../commands/DisassociateServiceQuotaTemplateCommand";
 import {
-  GetAWSDefaultServiceQuotaCommandInput,
-  GetAWSDefaultServiceQuotaCommandOutput,
-} from "../commands/GetAWSDefaultServiceQuotaCommand";
-import {
   GetAssociationForServiceQuotaTemplateCommandInput,
   GetAssociationForServiceQuotaTemplateCommandOutput,
 } from "../commands/GetAssociationForServiceQuotaTemplateCommand";
+import {
+  GetAWSDefaultServiceQuotaCommandInput,
+  GetAWSDefaultServiceQuotaCommandOutput,
+} from "../commands/GetAWSDefaultServiceQuotaCommand";
 import {
   GetRequestedServiceQuotaChangeCommandInput,
   GetRequestedServiceQuotaChangeCommandOutput,
@@ -60,20 +80,20 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
-  AWSServiceAccessNotEnabledException,
   AccessDeniedException,
   AssociateServiceQuotaTemplateRequest,
   AssociateServiceQuotaTemplateResponse,
+  AWSServiceAccessNotEnabledException,
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
   DependencyAccessDeniedException,
   DisassociateServiceQuotaTemplateRequest,
   DisassociateServiceQuotaTemplateResponse,
   ErrorReason,
-  GetAWSDefaultServiceQuotaRequest,
-  GetAWSDefaultServiceQuotaResponse,
   GetAssociationForServiceQuotaTemplateRequest,
   GetAssociationForServiceQuotaTemplateResponse,
+  GetAWSDefaultServiceQuotaRequest,
+  GetAWSDefaultServiceQuotaResponse,
   GetRequestedServiceQuotaChangeRequest,
   GetRequestedServiceQuotaChangeResponse,
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
@@ -105,9 +125,9 @@ import {
   PutServiceQuotaIncreaseRequestIntoTemplateResponse,
   QuotaExceededException,
   QuotaPeriod,
+  RequestedServiceQuotaChange,
   RequestServiceQuotaIncreaseRequest,
   RequestServiceQuotaIncreaseResponse,
-  RequestedServiceQuotaChange,
   ResourceAlreadyExistsException,
   ServiceException,
   ServiceInfo,
@@ -124,25 +144,6 @@ import {
   UntagResourceRequest,
   UntagResourceResponse,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectString as __expectString,
-  limitedParseDouble as __limitedParseDouble,
-  parseEpochTimestamp as __parseEpochTimestamp,
-  serializeFloat as __serializeFloat,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_json1_1AssociateServiceQuotaTemplateCommand = async (
   input: AssociateServiceQuotaTemplateCommandInput,
@@ -417,7 +418,7 @@ const deserializeAws_json1_1AssociateServiceQuotaTemplateCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -527,7 +528,7 @@ const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -645,7 +646,7 @@ const deserializeAws_json1_1DisassociateServiceQuotaTemplateCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -755,7 +756,7 @@ const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -865,7 +866,7 @@ const deserializeAws_json1_1GetAWSDefaultServiceQuotaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -951,7 +952,7 @@ const deserializeAws_json1_1GetRequestedServiceQuotaChangeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1037,7 +1038,7 @@ const deserializeAws_json1_1GetServiceQuotaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1123,7 +1124,7 @@ const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1241,7 +1242,7 @@ const deserializeAws_json1_1ListAWSDefaultServiceQuotasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1335,7 +1336,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1429,7 +1430,7 @@ const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1523,7 +1524,7 @@ const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1633,7 +1634,7 @@ const deserializeAws_json1_1ListServiceQuotasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1727,7 +1728,7 @@ const deserializeAws_json1_1ListServicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1813,7 +1814,7 @@ const deserializeAws_json1_1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -1899,7 +1900,7 @@ const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2025,7 +2026,7 @@ const deserializeAws_json1_1RequestServiceQuotaIncreaseCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2143,7 +2144,7 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2245,7 +2246,7 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

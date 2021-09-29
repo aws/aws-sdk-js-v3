@@ -1,4 +1,5 @@
-import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteReportDefinitionCommand,
   DeleteReportDefinitionCommandInput,
@@ -19,7 +20,7 @@ import {
   PutReportDefinitionCommandInput,
   PutReportDefinitionCommandOutput,
 } from "./commands/PutReportDefinitionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { CostAndUsageReportServiceClient } from "./CostAndUsageReportServiceClient";
 
 /**
  * <p>The AWS Cost and Usage Report API enables you to programmatically create, query, and delete

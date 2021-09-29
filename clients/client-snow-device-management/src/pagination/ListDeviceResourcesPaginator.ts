@@ -1,12 +1,13 @@
-import { SnowDeviceManagement } from "../SnowDeviceManagement";
-import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDeviceResourcesCommand,
   ListDeviceResourcesCommandInput,
   ListDeviceResourcesCommandOutput,
 } from "../commands/ListDeviceResourcesCommand";
+import { SnowDeviceManagement } from "../SnowDeviceManagement";
+import { SnowDeviceManagementClient } from "../SnowDeviceManagementClient";
 import { SnowDeviceManagementPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

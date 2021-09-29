@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Chime } from "../Chime";
 import { ChimeClient } from "../ChimeClient";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { ChimePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

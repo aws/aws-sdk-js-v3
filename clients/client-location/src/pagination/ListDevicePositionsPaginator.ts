@@ -1,12 +1,13 @@
-import { Location } from "../Location";
-import { LocationClient } from "../LocationClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDevicePositionsCommand,
   ListDevicePositionsCommandInput,
   ListDevicePositionsCommandOutput,
 } from "../commands/ListDevicePositionsCommand";
+import { Location } from "../Location";
+import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

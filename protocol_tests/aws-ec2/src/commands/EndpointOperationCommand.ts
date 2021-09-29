@@ -1,8 +1,3 @@
-import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import {
-  deserializeAws_ec2EndpointOperationCommand,
-  serializeAws_ec2EndpointOperationCommand,
-} from "../protocols/Aws_ec2";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -10,11 +5,17 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
+import {
+  deserializeAws_ec2EndpointOperationCommand,
+  serializeAws_ec2EndpointOperationCommand,
+} from "../protocols/Aws_ec2";
 
 export interface EndpointOperationCommandInput {}
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}

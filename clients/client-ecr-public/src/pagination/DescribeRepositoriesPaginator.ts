@@ -1,12 +1,13 @@
-import { ECRPUBLIC } from "../ECRPUBLIC";
-import { ECRPUBLICClient } from "../ECRPUBLICClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeRepositoriesCommand,
   DescribeRepositoriesCommandInput,
   DescribeRepositoriesCommandOutput,
 } from "../commands/DescribeRepositoriesCommand";
+import { ECRPUBLIC } from "../ECRPUBLIC";
+import { ECRPUBLICClient } from "../ECRPUBLICClient";
 import { ECRPUBLICPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

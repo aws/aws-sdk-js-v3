@@ -1,4 +1,5 @@
-import { MacieClient } from "./MacieClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateMemberAccountCommand,
   AssociateMemberAccountCommandInput,
@@ -34,7 +35,7 @@ import {
   UpdateS3ResourcesCommandInput,
   UpdateS3ResourcesCommandOutput,
 } from "./commands/UpdateS3ResourcesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MacieClient } from "./MacieClient";
 
 /**
  * <fullname>Amazon Macie Classic</fullname>

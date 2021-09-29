@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Codeartifact } from "../Codeartifact";
 import { CodeartifactClient } from "../CodeartifactClient";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { CodeartifactPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

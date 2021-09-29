@@ -1,13 +1,4 @@
 import {
-  StartMedicalStreamTranscriptionCommandInput,
-  StartMedicalStreamTranscriptionCommandOutput,
-} from "./commands/StartMedicalStreamTranscriptionCommand";
-import {
-  StartStreamTranscriptionCommandInput,
-  StartStreamTranscriptionCommandOutput,
-} from "./commands/StartStreamTranscriptionCommand";
-import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
   RegionInputConfig,
@@ -27,18 +18,18 @@ import {
   resolveEventStreamConfig,
 } from "@aws-sdk/middleware-eventstream";
 import {
+  getHostHeaderPlugin,
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
   resolveHostHeaderConfig,
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
 import {
-  WebSocketInputConfig,
-  WebSocketResolvedConfig,
   getWebSocketPlugin,
   resolveWebSocketConfig,
+  WebSocketInputConfig,
+  WebSocketResolvedConfig,
 } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import {
   AwsAuthInputConfig,
@@ -47,10 +38,10 @@ import {
   resolveAwsAuthConfig,
 } from "@aws-sdk/middleware-signing";
 import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
@@ -59,8 +50,6 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@aws-sdk/smithy-client";
 import {
-  Provider,
-  RegionInfoProvider,
   Credentials as __Credentials,
   Decoder as __Decoder,
   Encoder as __Encoder,
@@ -71,10 +60,22 @@ import {
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
+
+import {
+  StartMedicalStreamTranscriptionCommandInput,
+  StartMedicalStreamTranscriptionCommandOutput,
+} from "./commands/StartMedicalStreamTranscriptionCommand";
+import {
+  StartStreamTranscriptionCommandInput,
+  StartStreamTranscriptionCommandOutput,
+} from "./commands/StartStreamTranscriptionCommand";
+import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes = StartMedicalStreamTranscriptionCommandInput | StartStreamTranscriptionCommandInput;
 
@@ -250,16 +251,16 @@ export class TranscribeStreamingClient extends __Client<
   readonly config: TranscribeStreamingClientResolvedConfig;
 
   constructor(configuration: TranscribeStreamingClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveEventStreamConfig(_config_5);
-    let _config_7 = resolveWebSocketConfig(_config_6);
-    let _config_8 = resolveUserAgentConfig(_config_7);
-    let _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveEventStreamConfig(_config_5);
+    const _config_7 = resolveWebSocketConfig(_config_6);
+    const _config_8 = resolveUserAgentConfig(_config_7);
+    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
     super(_config_9);
     this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));

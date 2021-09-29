@@ -1,12 +1,13 @@
-import { KafkaConnect } from "../KafkaConnect";
-import { KafkaConnectClient } from "../KafkaConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListWorkerConfigurationsCommand,
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "../commands/ListWorkerConfigurationsCommand";
+import { KafkaConnect } from "../KafkaConnect";
+import { KafkaConnectClient } from "../KafkaConnectClient";
 import { KafkaConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

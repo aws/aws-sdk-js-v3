@@ -1,4 +1,5 @@
-import { DevOpsGuruClient } from "./DevOpsGuruClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddNotificationChannelCommand,
   AddNotificationChannelCommandInput,
@@ -96,7 +97,7 @@ import {
   UpdateServiceIntegrationCommandInput,
   UpdateServiceIntegrationCommandOutput,
 } from "./commands/UpdateServiceIntegrationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DevOpsGuruClient } from "./DevOpsGuruClient";
 
 /**
  * <p> Amazon DevOps Guru is a fully managed service that helps you identify anomalous behavior in business

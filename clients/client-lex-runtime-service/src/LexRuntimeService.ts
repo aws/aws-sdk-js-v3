@@ -1,4 +1,5 @@
-import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DeleteSessionCommand,
   DeleteSessionCommandInput,
@@ -8,7 +9,7 @@ import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } fr
 import { PostContentCommand, PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand";
 import { PostTextCommand, PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand";
 import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient";
 
 /**
  * <p>Amazon Lex provides both build and runtime endpoints. Each endpoint

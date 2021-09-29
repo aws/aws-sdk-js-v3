@@ -1,12 +1,13 @@
-import { DataBrew } from "../DataBrew";
-import { DataBrewClient } from "../DataBrewClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "../commands/ListProjectsCommand";
+import { DataBrew } from "../DataBrew";
+import { DataBrewClient } from "../DataBrewClient";
 import { DataBrewPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

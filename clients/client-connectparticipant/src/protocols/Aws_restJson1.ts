@@ -1,3 +1,18 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
+
 import {
   CompleteAttachmentUploadCommandInput,
   CompleteAttachmentUploadCommandOutput,
@@ -33,20 +48,6 @@ import {
   ValidationException,
   Websocket,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
   input: CompleteAttachmentUploadCommandInput,
@@ -57,7 +58,7 @@ export const serializeAws_restJson1CompleteAttachmentUploadCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
   let body: any;
   body = JSON.stringify({
@@ -87,7 +88,8 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ParticipantToken) && { "x-amz-bearer": input.ParticipantToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
   let body: any;
   body = JSON.stringify({
     ...(input.Type !== undefined &&
@@ -113,7 +115,8 @@ export const serializeAws_restJson1DisconnectParticipantCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -138,7 +141,8 @@ export const serializeAws_restJson1GetAttachmentCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
   let body: any;
   body = JSON.stringify({
     ...(input.AttachmentId !== undefined && input.AttachmentId !== null && { AttachmentId: input.AttachmentId }),
@@ -163,7 +167,8 @@ export const serializeAws_restJson1GetTranscriptCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
   let body: any;
   body = JSON.stringify({
     ...(input.ContactId !== undefined && input.ContactId !== null && { ContactId: input.ContactId }),
@@ -196,7 +201,7 @@ export const serializeAws_restJson1SendEventCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -223,7 +228,7 @@ export const serializeAws_restJson1SendMessageCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
   let body: any;
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
@@ -250,7 +255,7 @@ export const serializeAws_restJson1StartAttachmentUploadCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.ConnectionToken) && { "x-amz-bearer": input.ConnectionToken! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
   let body: any;
   body = JSON.stringify({
@@ -295,7 +300,7 @@ const deserializeAws_restJson1CompleteAttachmentUploadCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -394,7 +399,7 @@ const deserializeAws_restJson1CreateParticipantConnectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -469,7 +474,7 @@ const deserializeAws_restJson1DisconnectParticipantCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -552,7 +557,7 @@ const deserializeAws_restJson1GetAttachmentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -639,7 +644,7 @@ const deserializeAws_restJson1GetTranscriptCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -722,7 +727,7 @@ const deserializeAws_restJson1SendEventCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -805,7 +810,7 @@ const deserializeAws_restJson1SendMessageCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -888,7 +893,7 @@ const deserializeAws_restJson1StartAttachmentUploadCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

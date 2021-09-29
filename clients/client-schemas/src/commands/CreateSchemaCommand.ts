@@ -1,9 +1,3 @@
-import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
-import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1CreateSchemaCommand,
-  serializeAws_restJson1CreateSchemaCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateSchemaCommand,
+  serializeAws_restJson1CreateSchemaCommand,
+} from "../protocols/Aws_restJson1";
+import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 export interface CreateSchemaCommandInput extends CreateSchemaRequest {}
 export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __MetadataBearer {}

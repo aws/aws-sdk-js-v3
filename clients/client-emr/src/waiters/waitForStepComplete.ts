@@ -1,14 +1,15 @@
-import { EMRClient } from "../EMRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeStepCommand, DescribeStepCommandInput } from "../commands/DescribeStepCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { EMRClient } from "../EMRClient";
 
 const checkState = async (client: EMRClient, input: DescribeStepCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeStepCommand(input));
+    const result: any = await client.send(new DescribeStepCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       };
       if (returnComparator() === "COMPLETED") {
@@ -16,7 +17,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       };
       if (returnComparator() === "FAILED") {
@@ -24,7 +25,7 @@ const checkState = async (client: EMRClient, input: DescribeStepCommandInput): P
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Step.Status.State;
       };
       if (returnComparator() === "CANCELLED") {

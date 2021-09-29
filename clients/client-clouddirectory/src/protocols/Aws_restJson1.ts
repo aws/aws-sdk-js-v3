@@ -1,3 +1,22 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  expectUnion as __expectUnion,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+
 import { AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput } from "../commands/AddFacetToObjectCommand";
 import { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "../commands/ApplySchemaCommand";
 import { AttachObjectCommandInput, AttachObjectCommandOutput } from "../commands/AttachObjectCommand";
@@ -274,24 +293,6 @@ import {
   UnsupportedIndexTypeException,
   ValidationException,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectBoolean as __expectBoolean,
-  expectInt32 as __expectInt32,
-  expectNonNull as __expectNonNull,
-  expectNumber as __expectNumber,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  expectUnion as __expectUnion,
-  parseEpochTimestamp as __parseEpochTimestamp,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
 
 export const serializeAws_restJson1AddFacetToObjectCommand = async (
   input: AddFacetToObjectCommandInput,
@@ -302,7 +303,7 @@ export const serializeAws_restJson1AddFacetToObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
@@ -338,7 +339,7 @@ export const serializeAws_restJson1ApplySchemaCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
@@ -366,7 +367,7 @@ export const serializeAws_restJson1AttachObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
@@ -401,7 +402,7 @@ export const serializeAws_restJson1AttachPolicyCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
@@ -435,7 +436,7 @@ export const serializeAws_restJson1AttachToIndexCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
@@ -469,7 +470,7 @@ export const serializeAws_restJson1AttachTypedLinkCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
@@ -512,7 +513,7 @@ export const serializeAws_restJson1BatchReadCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
@@ -542,7 +543,7 @@ export const serializeAws_restJson1BatchWriteCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
@@ -572,7 +573,7 @@ export const serializeAws_restJson1CreateDirectoryCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
@@ -599,7 +600,7 @@ export const serializeAws_restJson1CreateFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
@@ -630,7 +631,7 @@ export const serializeAws_restJson1CreateIndexCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/index";
   let body: any;
   body = JSON.stringify({
@@ -665,7 +666,7 @@ export const serializeAws_restJson1CreateObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/object";
   let body: any;
   body = JSON.stringify({
@@ -702,7 +703,7 @@ export const serializeAws_restJson1CreateSchemaCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
@@ -729,7 +730,7 @@ export const serializeAws_restJson1CreateTypedLinkFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
@@ -756,7 +757,7 @@ export const serializeAws_restJson1DeleteDirectoryCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory";
   let body: any;
@@ -780,7 +781,7 @@ export const serializeAws_restJson1DeleteFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
@@ -807,7 +808,7 @@ export const serializeAws_restJson1DeleteObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
@@ -836,7 +837,7 @@ export const serializeAws_restJson1DeleteSchemaCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/schema";
   let body: any;
   return new __HttpRequest({
@@ -859,7 +860,7 @@ export const serializeAws_restJson1DeleteTypedLinkFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
@@ -886,7 +887,7 @@ export const serializeAws_restJson1DetachFromIndexCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
@@ -920,7 +921,7 @@ export const serializeAws_restJson1DetachObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
@@ -951,7 +952,7 @@ export const serializeAws_restJson1DetachPolicyCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
@@ -985,7 +986,7 @@ export const serializeAws_restJson1DetachTypedLinkCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
@@ -1014,7 +1015,7 @@ export const serializeAws_restJson1DisableDirectoryCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/disable";
   let body: any;
@@ -1037,7 +1038,7 @@ export const serializeAws_restJson1EnableDirectoryCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/enable";
   let body: any;
@@ -1060,7 +1061,7 @@ export const serializeAws_restJson1GetAppliedSchemaVersionCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
@@ -1086,7 +1087,7 @@ export const serializeAws_restJson1GetDirectoryCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/get";
   let body: any;
@@ -1110,7 +1111,7 @@ export const serializeAws_restJson1GetFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   body = JSON.stringify({
@@ -1136,7 +1137,7 @@ export const serializeAws_restJson1GetLinkAttributesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
@@ -1173,7 +1174,7 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1210,7 +1211,7 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
@@ -1239,7 +1240,7 @@ export const serializeAws_restJson1GetSchemaAsJsonCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -1263,7 +1264,7 @@ export const serializeAws_restJson1GetTypedLinkFacetInformationCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
@@ -1289,7 +1290,7 @@ export const serializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
@@ -1320,7 +1321,7 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
@@ -1351,7 +1352,7 @@ export const serializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
@@ -1378,7 +1379,7 @@ export const serializeAws_restJson1ListDirectoriesCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
@@ -1407,7 +1408,7 @@ export const serializeAws_restJson1ListFacetAttributesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
@@ -1436,7 +1437,7 @@ export const serializeAws_restJson1ListFacetNamesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
@@ -1464,7 +1465,7 @@ export const serializeAws_restJson1ListIncomingTypedLinksCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
@@ -1507,7 +1508,7 @@ export const serializeAws_restJson1ListIndexCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
@@ -1542,7 +1543,7 @@ export const serializeAws_restJson1ListManagedSchemaArnsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
@@ -1572,7 +1573,7 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -1607,7 +1608,7 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
@@ -1639,7 +1640,7 @@ export const serializeAws_restJson1ListObjectParentPathsCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
@@ -1672,7 +1673,7 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
@@ -1707,7 +1708,7 @@ export const serializeAws_restJson1ListObjectPoliciesCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
@@ -1739,7 +1740,7 @@ export const serializeAws_restJson1ListOutgoingTypedLinksCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
@@ -1782,7 +1783,7 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
@@ -1813,7 +1814,7 @@ export const serializeAws_restJson1ListPublishedSchemaArnsCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
@@ -1841,7 +1842,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
   body = JSON.stringify({
@@ -1869,7 +1870,7 @@ export const serializeAws_restJson1ListTypedLinkFacetAttributesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
@@ -1898,7 +1899,7 @@ export const serializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
@@ -1926,7 +1927,7 @@ export const serializeAws_restJson1LookupPolicyCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
@@ -1960,7 +1961,7 @@ export const serializeAws_restJson1PublishSchemaCommand = async (
       "x-amz-data-partition": input.DevelopmentSchemaArn!,
     }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
@@ -1989,7 +1990,7 @@ export const serializeAws_restJson1PutSchemaFromJsonCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
@@ -2016,7 +2017,7 @@ export const serializeAws_restJson1RemoveFacetFromObjectCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
@@ -2047,7 +2048,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
   body = JSON.stringify({
@@ -2074,7 +2075,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
@@ -2103,7 +2104,7 @@ export const serializeAws_restJson1UpdateFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
   body = JSON.stringify({
@@ -2134,7 +2135,7 @@ export const serializeAws_restJson1UpdateLinkAttributesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
@@ -2168,7 +2169,7 @@ export const serializeAws_restJson1UpdateObjectAttributesCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
@@ -2202,7 +2203,7 @@ export const serializeAws_restJson1UpdateSchemaCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
@@ -2229,7 +2230,7 @@ export const serializeAws_restJson1UpdateTypedLinkFacetCommand = async (
     "content-type": "application/json",
     ...(isSerializableHeaderValue(input.SchemaArn) && { "x-amz-data-partition": input.SchemaArn! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
@@ -2263,7 +2264,7 @@ export const serializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
@@ -2292,7 +2293,7 @@ export const serializeAws_restJson1UpgradePublishedSchemaCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
@@ -2338,7 +2339,7 @@ const deserializeAws_restJson1AddFacetToObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2461,7 +2462,7 @@ const deserializeAws_restJson1ApplySchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2580,7 +2581,7 @@ const deserializeAws_restJson1AttachObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2711,7 +2712,7 @@ const deserializeAws_restJson1AttachPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2830,7 +2831,7 @@ const deserializeAws_restJson1AttachToIndexCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -2973,7 +2974,7 @@ const deserializeAws_restJson1AttachTypedLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3100,7 +3101,7 @@ const deserializeAws_restJson1BatchReadCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3203,7 +3204,7 @@ const deserializeAws_restJson1BatchWriteCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3326,7 +3327,7 @@ const deserializeAws_restJson1CreateDirectoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3433,7 +3434,7 @@ const deserializeAws_restJson1CreateFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3560,7 +3561,7 @@ const deserializeAws_restJson1CreateIndexCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3695,7 +3696,7 @@ const deserializeAws_restJson1CreateObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3830,7 +3831,7 @@ const deserializeAws_restJson1CreateSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -3929,7 +3930,7 @@ const deserializeAws_restJson1CreateTypedLinkFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4056,7 +4057,7 @@ const deserializeAws_restJson1DeleteDirectoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4171,7 +4172,7 @@ const deserializeAws_restJson1DeleteFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4286,7 +4287,7 @@ const deserializeAws_restJson1DeleteObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4405,7 +4406,7 @@ const deserializeAws_restJson1DeleteSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4512,7 +4513,7 @@ const deserializeAws_restJson1DeleteTypedLinkFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4623,7 +4624,7 @@ const deserializeAws_restJson1DetachFromIndexCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4750,7 +4751,7 @@ const deserializeAws_restJson1DetachObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4865,7 +4866,7 @@ const deserializeAws_restJson1DetachPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -4980,7 +4981,7 @@ const deserializeAws_restJson1DetachTypedLinkCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5099,7 +5100,7 @@ const deserializeAws_restJson1DisableDirectoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5210,7 +5211,7 @@ const deserializeAws_restJson1EnableDirectoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5321,7 +5322,7 @@ const deserializeAws_restJson1GetAppliedSchemaVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5424,7 +5425,7 @@ const deserializeAws_restJson1GetDirectoryCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5519,7 +5520,7 @@ const deserializeAws_restJson1GetFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5630,7 +5631,7 @@ const deserializeAws_restJson1GetLinkAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5749,7 +5750,7 @@ const deserializeAws_restJson1GetObjectAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5872,7 +5873,7 @@ const deserializeAws_restJson1GetObjectInformationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -5987,7 +5988,7 @@ const deserializeAws_restJson1GetSchemaAsJsonCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6090,7 +6091,7 @@ const deserializeAws_restJson1GetTypedLinkFacetInformationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6213,7 +6214,7 @@ const deserializeAws_restJson1ListAppliedSchemaArnsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6328,7 +6329,7 @@ const deserializeAws_restJson1ListAttachedIndicesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6443,7 +6444,7 @@ const deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6558,7 +6559,7 @@ const deserializeAws_restJson1ListDirectoriesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6665,7 +6666,7 @@ const deserializeAws_restJson1ListFacetAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6788,7 +6789,7 @@ const deserializeAws_restJson1ListFacetNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -6903,7 +6904,7 @@ const deserializeAws_restJson1ListIncomingTypedLinksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7034,7 +7035,7 @@ const deserializeAws_restJson1ListIndexCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7173,7 +7174,7 @@ const deserializeAws_restJson1ListManagedSchemaArnsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7272,7 +7273,7 @@ const deserializeAws_restJson1ListObjectAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7403,7 +7404,7 @@ const deserializeAws_restJson1ListObjectChildrenCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7537,7 +7538,7 @@ const deserializeAws_restJson1ListObjectParentPathsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7664,7 +7665,7 @@ const deserializeAws_restJson1ListObjectParentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7795,7 +7796,7 @@ const deserializeAws_restJson1ListObjectPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -7918,7 +7919,7 @@ const deserializeAws_restJson1ListOutgoingTypedLinksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8049,7 +8050,7 @@ const deserializeAws_restJson1ListPolicyAttachmentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8180,7 +8181,7 @@ const deserializeAws_restJson1ListPublishedSchemaArnsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8295,7 +8296,7 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8410,7 +8411,7 @@ const deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8533,7 +8534,7 @@ const deserializeAws_restJson1ListTypedLinkFacetNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8648,7 +8649,7 @@ const deserializeAws_restJson1LookupPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8767,7 +8768,7 @@ const deserializeAws_restJson1PublishSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8878,7 +8879,7 @@ const deserializeAws_restJson1PutSchemaFromJsonCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -8985,7 +8986,7 @@ const deserializeAws_restJson1RemoveFacetFromObjectCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9100,7 +9101,7 @@ const deserializeAws_restJson1TagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9207,7 +9208,7 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9314,7 +9315,7 @@ const deserializeAws_restJson1UpdateFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9445,7 +9446,7 @@ const deserializeAws_restJson1UpdateLinkAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9564,7 +9565,7 @@ const deserializeAws_restJson1UpdateObjectAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9691,7 +9692,7 @@ const deserializeAws_restJson1UpdateSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9790,7 +9791,7 @@ const deserializeAws_restJson1UpdateTypedLinkFacetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -9929,7 +9930,7 @@ const deserializeAws_restJson1UpgradeAppliedSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":
@@ -10048,7 +10049,7 @@ const deserializeAws_restJson1UpgradePublishedSchemaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDeniedException":

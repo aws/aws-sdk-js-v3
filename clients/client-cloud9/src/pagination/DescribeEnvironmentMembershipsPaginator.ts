@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Cloud9 } from "../Cloud9";
 import { Cloud9Client } from "../Cloud9Client";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeEnvironmentMembershipsCommandOutput,
 } from "../commands/DescribeEnvironmentMembershipsCommand";
 import { Cloud9PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

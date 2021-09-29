@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AlexaForBusinessClient } from "./AlexaForBusinessClient";
 import {
   ApproveSkillCommand,
@@ -396,7 +398,6 @@ import {
   UpdateSkillGroupCommandInput,
   UpdateSkillGroupCommandOutput,
 } from "./commands/UpdateSkillGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools

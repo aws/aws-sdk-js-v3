@@ -1,12 +1,13 @@
-import { IoT } from "../IoT";
-import { IoTClient } from "../IoTClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListFleetMetricsCommand,
   ListFleetMetricsCommandInput,
   ListFleetMetricsCommandOutput,
 } from "../commands/ListFleetMetricsCommand";
+import { IoT } from "../IoT";
+import { IoTClient } from "../IoTClient";
 import { IoTPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,14 +1,15 @@
-import { MediaConnectClient } from "../MediaConnectClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeFlowCommand, DescribeFlowCommandInput } from "../commands/DescribeFlowCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { MediaConnectClient } from "../MediaConnectClient";
 
 const checkState = async (client: MediaConnectClient, input: DescribeFlowCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeFlowCommand(input));
+    const result: any = await client.send(new DescribeFlowCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Flow.Status;
       };
       if (returnComparator() === "DELETING") {
@@ -16,7 +17,7 @@ const checkState = async (client: MediaConnectClient, input: DescribeFlowCommand
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.Flow.Status;
       };
       if (returnComparator() === "ERROR") {

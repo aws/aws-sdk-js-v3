@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient";
 import {
   ApplyArchiveRuleCommand,
@@ -127,7 +129,6 @@ import {
   ValidatePolicyCommandInput,
   ValidatePolicyCommandOutput,
 } from "./commands/ValidatePolicyCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Identity and Access Management Access Analyzer helps identify potential resource-access risks by enabling you to

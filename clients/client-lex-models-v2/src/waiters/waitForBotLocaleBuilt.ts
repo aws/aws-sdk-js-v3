@@ -1,14 +1,15 @@
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeBotLocaleCommand, DescribeBotLocaleCommandInput } from "../commands/DescribeBotLocaleCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LexModelsV2Client } from "../LexModelsV2Client";
 
 const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotLocaleCommand(input));
+    const result: any = await client.send(new DescribeBotLocaleCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botLocaleStatus;
       };
       if (returnComparator() === "Built") {
@@ -16,7 +17,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botLocaleStatus;
       };
       if (returnComparator() === "Deleting") {
@@ -24,7 +25,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botLocaleStatus;
       };
       if (returnComparator() === "Failed") {
@@ -32,7 +33,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotLocaleCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botLocaleStatus;
       };
       if (returnComparator() === "NotBuilt") {

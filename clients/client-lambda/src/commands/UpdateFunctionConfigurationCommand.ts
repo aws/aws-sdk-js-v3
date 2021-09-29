@@ -1,9 +1,3 @@
-import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/models_0";
-import {
-  deserializeAws_restJson1UpdateFunctionConfigurationCommand,
-  serializeAws_restJson1UpdateFunctionConfigurationCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/models_0";
+import {
+  deserializeAws_restJson1UpdateFunctionConfigurationCommand,
+  serializeAws_restJson1UpdateFunctionConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateFunctionConfigurationCommandInput extends UpdateFunctionConfigurationRequest {}
 export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfiguration, __MetadataBearer {}

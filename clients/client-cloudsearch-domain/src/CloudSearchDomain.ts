@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudSearchDomainClient } from "./CloudSearchDomainClient";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import { SuggestCommand, SuggestCommandInput, SuggestCommandOutput } from "./commands/SuggestCommand";
@@ -6,7 +8,6 @@ import {
   UploadDocumentsCommandInput,
   UploadDocumentsCommandOutput,
 } from "./commands/UploadDocumentsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>You use the AmazonCloudSearch2013 API to upload documents to a search domain and search those documents. </p>

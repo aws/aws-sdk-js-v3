@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { IAM } from "../IAM";
 import { IAMClient } from "../IAMClient";
-import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { IAMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

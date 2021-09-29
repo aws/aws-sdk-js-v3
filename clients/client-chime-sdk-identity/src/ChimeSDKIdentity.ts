@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ChimeSDKIdentityClient } from "./ChimeSDKIdentityClient";
 import {
   CreateAppInstanceAdminCommand,
@@ -55,15 +57,15 @@ import {
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
 import {
-  ListAppInstanceUsersCommand,
-  ListAppInstanceUsersCommandInput,
-  ListAppInstanceUsersCommandOutput,
-} from "./commands/ListAppInstanceUsersCommand";
-import {
   ListAppInstancesCommand,
   ListAppInstancesCommandInput,
   ListAppInstancesCommandOutput,
 } from "./commands/ListAppInstancesCommand";
+import {
+  ListAppInstanceUsersCommand,
+  ListAppInstanceUsersCommandInput,
+  ListAppInstanceUsersCommandOutput,
+} from "./commands/ListAppInstanceUsersCommand";
 import {
   PutAppInstanceRetentionSettingsCommand,
   PutAppInstanceRetentionSettingsCommandInput,
@@ -79,7 +81,6 @@ import {
   UpdateAppInstanceUserCommandInput,
   UpdateAppInstanceUserCommandOutput,
 } from "./commands/UpdateAppInstanceUserCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The Amazon Chime SDK Identity APIs in this section allow software developers to create

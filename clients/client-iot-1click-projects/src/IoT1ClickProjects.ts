@@ -1,4 +1,5 @@
-import { IoT1ClickProjectsClient } from "./IoT1ClickProjectsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateDeviceWithPlacementCommand,
   AssociateDeviceWithPlacementCommandInput,
@@ -75,7 +76,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoT1ClickProjectsClient } from "./IoT1ClickProjectsClient";
 
 /**
  * <p>The AWS IoT 1-Click Projects API Reference</p>

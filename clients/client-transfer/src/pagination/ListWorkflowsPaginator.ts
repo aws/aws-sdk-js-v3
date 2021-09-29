@@ -1,12 +1,13 @@
-import { Transfer } from "../Transfer";
-import { TransferClient } from "../TransferClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListWorkflowsCommand,
   ListWorkflowsCommandInput,
   ListWorkflowsCommandOutput,
 } from "../commands/ListWorkflowsCommand";
+import { Transfer } from "../Transfer";
+import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

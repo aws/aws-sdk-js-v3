@@ -1,4 +1,5 @@
-import { MWAAClient } from "./MWAAClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateCliTokenCommand,
   CreateCliTokenCommandInput,
@@ -50,7 +51,7 @@ import {
   UpdateEnvironmentCommandInput,
   UpdateEnvironmentCommandOutput,
 } from "./commands/UpdateEnvironmentCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MWAAClient } from "./MWAAClient";
 
 /**
  * <fullname>Amazon Managed Workflows for Apache Airflow</fullname>

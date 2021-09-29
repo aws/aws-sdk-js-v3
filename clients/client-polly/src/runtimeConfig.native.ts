@@ -1,4 +1,5 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
+
 import { PollyClientConfig } from "./PollyClient";
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CognitoSyncClient } from "./CognitoSyncClient";
 import { BulkPublishCommand, BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand";
 import {
@@ -76,7 +78,6 @@ import {
   UpdateRecordsCommandInput,
   UpdateRecordsCommandOutput,
 } from "./commands/UpdateRecordsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Cognito Sync</fullname>

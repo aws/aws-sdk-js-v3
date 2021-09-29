@@ -1,8 +1,3 @@
-import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import {
-  deserializeAws_json1_0EndpointOperationCommand,
-  serializeAws_json1_0EndpointOperationCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -10,11 +5,17 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import {
+  deserializeAws_json1_0EndpointOperationCommand,
+  serializeAws_json1_0EndpointOperationCommand,
+} from "../protocols/Aws_json1_0";
 
 export interface EndpointOperationCommandInput {}
 export interface EndpointOperationCommandOutput extends __MetadataBearer {}

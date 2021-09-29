@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ApplicationInsights } from "../ApplicationInsights";
 import { ApplicationInsightsClient } from "../ApplicationInsightsClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListProblemsCommandOutput,
 } from "../commands/ListProblemsCommand";
 import { ApplicationInsightsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

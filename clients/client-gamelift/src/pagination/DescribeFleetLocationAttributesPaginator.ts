@@ -1,12 +1,13 @@
-import { GameLift } from "../GameLift";
-import { GameLiftClient } from "../GameLiftClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeFleetLocationAttributesCommand,
   DescribeFleetLocationAttributesCommandInput,
   DescribeFleetLocationAttributesCommandOutput,
 } from "../commands/DescribeFleetLocationAttributesCommand";
+import { GameLift } from "../GameLift";
+import { GameLiftClient } from "../GameLiftClient";
 import { GameLiftPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { EFSClient } from "./EFSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateAccessPointCommand,
   CreateAccessPointCommandInput,
@@ -67,15 +68,15 @@ import {
   DescribeLifecycleConfigurationCommandOutput,
 } from "./commands/DescribeLifecycleConfigurationCommand";
 import {
-  DescribeMountTargetSecurityGroupsCommand,
-  DescribeMountTargetSecurityGroupsCommandInput,
-  DescribeMountTargetSecurityGroupsCommandOutput,
-} from "./commands/DescribeMountTargetSecurityGroupsCommand";
-import {
   DescribeMountTargetsCommand,
   DescribeMountTargetsCommandInput,
   DescribeMountTargetsCommandOutput,
 } from "./commands/DescribeMountTargetsCommand";
+import {
+  DescribeMountTargetSecurityGroupsCommand,
+  DescribeMountTargetSecurityGroupsCommandInput,
+  DescribeMountTargetSecurityGroupsCommandOutput,
+} from "./commands/DescribeMountTargetSecurityGroupsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
@@ -122,7 +123,7 @@ import {
   UpdateFileSystemCommandInput,
   UpdateFileSystemCommandOutput,
 } from "./commands/UpdateFileSystemCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EFSClient } from "./EFSClient";
 
 /**
  * <fullname>Amazon Elastic File System</fullname>

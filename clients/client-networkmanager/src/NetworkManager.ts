@@ -1,4 +1,5 @@
-import { NetworkManagerClient } from "./NetworkManagerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateCustomerGatewayCommand,
   AssociateCustomerGatewayCommandInput,
@@ -134,7 +135,7 @@ import {
 } from "./commands/UpdateGlobalNetworkCommand";
 import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
 import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { NetworkManagerClient } from "./NetworkManagerClient";
 
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your

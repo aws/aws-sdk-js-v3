@@ -1,6 +1,7 @@
-import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeControlPanelCommand, DescribeControlPanelCommandInput } from "../commands/DescribeControlPanelCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { Route53RecoveryControlConfigClient } from "../Route53RecoveryControlConfigClient";
 
 const checkState = async (
   client: Route53RecoveryControlConfigClient,
@@ -8,10 +9,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeControlPanelCommand(input));
+    const result: any = await client.send(new DescribeControlPanelCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ControlPanel.Status;
       };
       if (returnComparator() === "PENDING_DELETION") {

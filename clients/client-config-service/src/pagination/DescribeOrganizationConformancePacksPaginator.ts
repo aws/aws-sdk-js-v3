@@ -1,12 +1,13 @@
-import { ConfigService } from "../ConfigService";
-import { ConfigServiceClient } from "../ConfigServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeOrganizationConformancePacksCommand,
   DescribeOrganizationConformancePacksCommandInput,
   DescribeOrganizationConformancePacksCommandOutput,
 } from "../commands/DescribeOrganizationConformancePacksCommand";
+import { ConfigService } from "../ConfigService";
+import { ConfigServiceClient } from "../ConfigServiceClient";
 import { ConfigServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

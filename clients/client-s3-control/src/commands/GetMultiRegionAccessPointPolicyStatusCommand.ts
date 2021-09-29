@@ -1,12 +1,3 @@
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import {
-  GetMultiRegionAccessPointPolicyStatusRequest,
-  GetMultiRegionAccessPointPolicyStatusResult,
-} from "../models/models_0";
-import {
-  deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
-  serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
-} from "../protocols/Aws_restXml";
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -16,11 +7,21 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import {
+  GetMultiRegionAccessPointPolicyStatusRequest,
+  GetMultiRegionAccessPointPolicyStatusResult,
+} from "../models/models_0";
+import {
+  deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
+  serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand,
+} from "../protocols/Aws_restXml";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 export interface GetMultiRegionAccessPointPolicyStatusCommandInput
   extends GetMultiRegionAccessPointPolicyStatusRequest {}

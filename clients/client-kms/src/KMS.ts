@@ -1,4 +1,5 @@
-import { KMSClient } from "./KMSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelKeyDeletionCommand,
   CancelKeyDeletionCommandInput,
@@ -163,7 +164,7 @@ import {
   UpdatePrimaryRegionCommandOutput,
 } from "./commands/UpdatePrimaryRegionCommand";
 import { VerifyCommand, VerifyCommandInput, VerifyCommandOutput } from "./commands/VerifyCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KMSClient } from "./KMSClient";
 
 /**
  * <fullname>Key Management Service</fullname>

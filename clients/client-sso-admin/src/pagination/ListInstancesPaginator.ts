@@ -1,12 +1,13 @@
-import { SSOAdmin } from "../SSOAdmin";
-import { SSOAdminClient } from "../SSOAdminClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
 } from "../commands/ListInstancesCommand";
+import { SSOAdmin } from "../SSOAdmin";
+import { SSOAdminClient } from "../SSOAdminClient";
 import { SSOAdminPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,12 +1,13 @@
-import { ElastiCache } from "../ElastiCache";
-import { ElastiCacheClient } from "../ElastiCacheClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeGlobalReplicationGroupsCommand,
   DescribeGlobalReplicationGroupsCommandInput,
   DescribeGlobalReplicationGroupsCommandOutput,
 } from "../commands/DescribeGlobalReplicationGroupsCommand";
+import { ElastiCache } from "../ElastiCache";
+import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,6 +1,3 @@
-// @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../package.json";
-
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
@@ -12,8 +9,11 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-import { S3ClientConfig } from "./S3Client";
+
+// @ts-ignore: package.json will be imported from dist folders
+import packageInfo from "../package.json";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { S3ClientConfig } from "./S3Client";
 
 /**
  * @internal

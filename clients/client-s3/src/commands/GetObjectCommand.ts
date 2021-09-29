@@ -1,6 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetObjectOutput, GetObjectRequest } from "../models/models_0";
-import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
@@ -10,11 +7,15 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetObjectOutput, GetObjectRequest } from "../models/models_0";
+import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetObjectCommandInput extends GetObjectRequest {}
 export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBearer {}

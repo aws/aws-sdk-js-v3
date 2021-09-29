@@ -1,12 +1,13 @@
-import { LookoutEquipment } from "../LookoutEquipment";
-import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInferenceSchedulersCommand,
   ListInferenceSchedulersCommandInput,
   ListInferenceSchedulersCommandOutput,
 } from "../commands/ListInferenceSchedulersCommand";
+import { LookoutEquipment } from "../LookoutEquipment";
+import { LookoutEquipmentClient } from "../LookoutEquipmentClient";
 import { LookoutEquipmentPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private
