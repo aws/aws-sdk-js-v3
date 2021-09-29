@@ -1,0 +1,4 @@
+{
+  "paths": ["clients/**/*.ts", "protocol_tests/**/*.ts"],
+  "ignored": []
+}
