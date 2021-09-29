@@ -1,9 +1,3 @@
-import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
-import { DeleteServerRequest, DeleteServerResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1DeleteServerCommand,
-  serializeAws_json1_1DeleteServerCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteServerRequest, DeleteServerResponse } from "../models/models_0";
+import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
+import {
+  deserializeAws_json1_1DeleteServerCommand,
+  serializeAws_json1_1DeleteServerCommand,
+} from "../protocols/Aws_json1_1";
 
 export interface DeleteServerCommandInput extends DeleteServerRequest {}
 export interface DeleteServerCommandOutput extends DeleteServerResponse, __MetadataBearer {}

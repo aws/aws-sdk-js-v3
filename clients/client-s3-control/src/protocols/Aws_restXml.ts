@@ -1,3 +1,34 @@
+import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  expectUnion as __expectUnion,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+import { v4 as generateIdempotencyToken } from "uuid";
+
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "../commands/CreateAccessPointCommand";
 import {
   CreateAccessPointForObjectLambdaCommandInput,
@@ -167,6 +198,7 @@ import {
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "../commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "../commands/UpdateJobStatusCommand";
 import {
+  _Exclude,
   AbortIncompleteMultipartUpload,
   AccessPoint,
   AccountLevel,
@@ -211,9 +243,9 @@ import {
   MultiRegionAccessPointRegionalResponse,
   MultiRegionAccessPointReport,
   MultiRegionAccessPointsAsyncResponse,
-  NoSuchPublicAccessBlockConfiguration,
   NoncurrentVersionExpiration,
   NoncurrentVersionTransition,
+  NoSuchPublicAccessBlockConfiguration,
   NotFoundException,
   ObjectLambdaAccessPoint,
   ObjectLambdaAllowedFeature,
@@ -228,8 +260,8 @@ import {
   PublicAccessBlockConfiguration,
   PutMultiRegionAccessPointPolicyInput,
   Region,
-  RegionReport,
   RegionalBucket,
+  RegionReport,
   S3AccessControlList,
   S3AccessControlPolicy,
   S3BucketDestination,
@@ -247,9 +279,9 @@ import {
   S3SetObjectRetentionOperation,
   S3SetObjectTaggingOperation,
   S3Tag,
+  SelectionCriteria,
   SSEKMS,
   SSES3,
-  SelectionCriteria,
   StorageLensAwsOrg,
   StorageLensConfiguration,
   StorageLensDataExport,
@@ -260,38 +292,7 @@ import {
   TooManyTagsException,
   Transition,
   VpcConfiguration,
-  _Exclude,
 } from "../models/models_0";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  expectUnion as __expectUnion,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_restXmlCreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
@@ -467,7 +468,7 @@ export const serializeAws_restXmlCreateJobCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateJobRequest");
@@ -553,7 +554,7 @@ export const serializeAws_restXmlCreateMultiRegionAccessPointCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/create";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -985,7 +986,7 @@ export const serializeAws_restXmlDeleteMultiRegionAccessPointCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/delete";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1035,7 +1036,7 @@ export const serializeAws_restXmlDeletePublicAccessBlockCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -1880,7 +1881,7 @@ export const serializeAws_restXmlGetPublicAccessBlockCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -1998,7 +1999,7 @@ export const serializeAws_restXmlListAccessPointsCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspoint";
   const query: any = {
     ...(input.Bucket !== undefined && { bucket: input.Bucket }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2036,7 +2037,7 @@ export const serializeAws_restXmlListAccessPointsForObjectLambdaCommand = async 
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/accesspointforobjectlambda";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2074,7 +2075,7 @@ export const serializeAws_restXmlListJobsCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs";
   const query: any = {
     ...(input.JobStatuses !== undefined && { jobStatuses: (input.JobStatuses || []).map((_entry) => _entry as any) }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2112,7 +2113,7 @@ export const serializeAws_restXmlListMultiRegionAccessPointsCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
@@ -2151,7 +2152,7 @@ export const serializeAws_restXmlListRegionalBucketsCommand = async (
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
     ...(isSerializableHeaderValue(input.OutpostId) && { "x-amz-outpost-id": input.OutpostId! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/bucket";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
@@ -2188,7 +2189,7 @@ export const serializeAws_restXmlListStorageLensConfigurationsCommand = async (
   const headers: any = {
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/storagelens";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
@@ -2596,7 +2597,7 @@ export const serializeAws_restXmlPutMultiRegionAccessPointPolicyCommand = async 
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/async-requests/mrap/put-policy";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -2647,7 +2648,7 @@ export const serializeAws_restXmlPutPublicAccessBlockCommand = async (
     "content-type": "application/xml",
     ...(isSerializableHeaderValue(input.AccountId) && { "x-amz-account-id": input.AccountId! }),
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/v20180820/configuration/publicAccessBlock";
   let body: any;
@@ -2923,7 +2924,7 @@ const deserializeAws_restXmlCreateAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -2970,7 +2971,7 @@ const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3021,7 +3022,7 @@ const deserializeAws_restXmlCreateBucketCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BucketAlreadyExists":
@@ -3084,7 +3085,7 @@ const deserializeAws_restXmlCreateJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3163,7 +3164,7 @@ const deserializeAws_restXmlCreateMultiRegionAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3206,7 +3207,7 @@ const deserializeAws_restXmlDeleteAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3249,7 +3250,7 @@ const deserializeAws_restXmlDeleteAccessPointForObjectLambdaCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3292,7 +3293,7 @@ const deserializeAws_restXmlDeleteAccessPointPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3335,7 +3336,7 @@ const deserializeAws_restXmlDeleteAccessPointPolicyForObjectLambdaCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3378,7 +3379,7 @@ const deserializeAws_restXmlDeleteBucketCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3421,7 +3422,7 @@ const deserializeAws_restXmlDeleteBucketLifecycleConfigurationCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3464,7 +3465,7 @@ const deserializeAws_restXmlDeleteBucketPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3507,7 +3508,7 @@ const deserializeAws_restXmlDeleteBucketTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3550,7 +3551,7 @@ const deserializeAws_restXmlDeleteJobTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -3621,7 +3622,7 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3664,7 +3665,7 @@ const deserializeAws_restXmlDeletePublicAccessBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3707,7 +3708,7 @@ const deserializeAws_restXmlDeleteStorageLensConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3750,7 +3751,7 @@ const deserializeAws_restXmlDeleteStorageLensConfigurationTaggingCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3797,7 +3798,7 @@ const deserializeAws_restXmlDescribeJobCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -3876,7 +3877,7 @@ const deserializeAws_restXmlDescribeMultiRegionAccessPointOperationCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -3961,7 +3962,7 @@ const deserializeAws_restXmlGetAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4008,7 +4009,7 @@ const deserializeAws_restXmlGetAccessPointConfigurationForObjectLambdaCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4066,7 +4067,7 @@ const deserializeAws_restXmlGetAccessPointForObjectLambdaCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4113,7 +4114,7 @@ const deserializeAws_restXmlGetAccessPointPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4160,7 +4161,7 @@ const deserializeAws_restXmlGetAccessPointPolicyForObjectLambdaCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4207,7 +4208,7 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4254,7 +4255,7 @@ const deserializeAws_restXmlGetAccessPointPolicyStatusForObjectLambdaCommandErro
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4309,7 +4310,7 @@ const deserializeAws_restXmlGetBucketCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4359,7 +4360,7 @@ const deserializeAws_restXmlGetBucketLifecycleConfigurationCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4406,7 +4407,7 @@ const deserializeAws_restXmlGetBucketPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4456,7 +4457,7 @@ const deserializeAws_restXmlGetBucketTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4506,7 +4507,7 @@ const deserializeAws_restXmlGetJobTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -4577,7 +4578,7 @@ const deserializeAws_restXmlGetMultiRegionAccessPointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4624,7 +4625,7 @@ const deserializeAws_restXmlGetMultiRegionAccessPointPolicyCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4671,7 +4672,7 @@ const deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommandError = 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4716,7 +4717,7 @@ const deserializeAws_restXmlGetPublicAccessBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchPublicAccessBlockConfiguration":
@@ -4769,7 +4770,7 @@ const deserializeAws_restXmlGetStorageLensConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4819,7 +4820,7 @@ const deserializeAws_restXmlGetStorageLensConfigurationTaggingCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4876,7 +4877,7 @@ const deserializeAws_restXmlListAccessPointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4936,7 +4937,7 @@ const deserializeAws_restXmlListAccessPointsForObjectLambdaCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -4993,7 +4994,7 @@ const deserializeAws_restXmlListJobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -5074,7 +5075,7 @@ const deserializeAws_restXmlListMultiRegionAccessPointsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5131,7 +5132,7 @@ const deserializeAws_restXmlListRegionalBucketsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5188,7 +5189,7 @@ const deserializeAws_restXmlListStorageLensConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5231,7 +5232,7 @@ const deserializeAws_restXmlPutAccessPointConfigurationForObjectLambdaCommandErr
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5274,7 +5275,7 @@ const deserializeAws_restXmlPutAccessPointPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5317,7 +5318,7 @@ const deserializeAws_restXmlPutAccessPointPolicyForObjectLambdaCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5360,7 +5361,7 @@ const deserializeAws_restXmlPutBucketLifecycleConfigurationCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5403,7 +5404,7 @@ const deserializeAws_restXmlPutBucketPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5446,7 +5447,7 @@ const deserializeAws_restXmlPutBucketTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5489,7 +5490,7 @@ const deserializeAws_restXmlPutJobTaggingCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -5568,7 +5569,7 @@ const deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5611,7 +5612,7 @@ const deserializeAws_restXmlPutPublicAccessBlockCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5654,7 +5655,7 @@ const deserializeAws_restXmlPutStorageLensConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5697,7 +5698,7 @@ const deserializeAws_restXmlPutStorageLensConfigurationTaggingCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5748,7 +5749,7 @@ const deserializeAws_restXmlUpdateJobPriorityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -5835,7 +5836,7 @@ const deserializeAws_restXmlUpdateJobStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BadRequestException":
@@ -7279,7 +7280,7 @@ const serializeAws_restXmlS3UserMetadata = (input: { [key: string]: string }, co
       const entryNode = new __XmlNode("entry");
       const keyNode = new __XmlNode("NonEmptyMaxLength1024String").addChildNode(new __XmlText(key)).withName("key");
       entryNode.addChildNode(keyNode);
-      var node;
+      let node;
       node = new __XmlNode("MaxLength1024String").addChildNode(new __XmlText(input[key]));
       entryNode.addChildNode(node.withName("value"));
       return entryNode;
@@ -7485,7 +7486,7 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
   output: any,
   context: __SerdeContext
 ): AbortIncompleteMultipartUpload => {
-  let contents: any = {
+  const contents: any = {
     DaysAfterInitiation: undefined,
   };
   if (output["DaysAfterInitiation"] !== undefined) {
@@ -7495,7 +7496,7 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
 };
 
 const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext): AccessPoint => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     NetworkOrigin: undefined,
     VpcConfiguration: undefined,
@@ -7536,7 +7537,7 @@ const deserializeAws_restXmlAccessPointList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext): AccountLevel => {
-  let contents: any = {
+  const contents: any = {
     ActivityMetrics: undefined,
     BucketLevel: undefined,
   };
@@ -7550,7 +7551,7 @@ const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeContext): ActivityMetrics => {
-  let contents: any = {
+  const contents: any = {
     IsEnabled: undefined,
   };
   if (output["IsEnabled"] !== undefined) {
@@ -7560,7 +7561,7 @@ const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlAsyncErrorDetails = (output: any, context: __SerdeContext): AsyncErrorDetails => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
     Resource: undefined,
@@ -7582,7 +7583,7 @@ const deserializeAws_restXmlAsyncErrorDetails = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlAsyncOperation = (output: any, context: __SerdeContext): AsyncOperation => {
-  let contents: any = {
+  const contents: any = {
     CreationTime: undefined,
     Operation: undefined,
     RequestTokenARN: undefined,
@@ -7612,7 +7613,7 @@ const deserializeAws_restXmlAsyncOperation = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlAsyncRequestParameters = (output: any, context: __SerdeContext): AsyncRequestParameters => {
-  let contents: any = {
+  const contents: any = {
     CreateMultiRegionAccessPointRequest: undefined,
     DeleteMultiRegionAccessPointRequest: undefined,
     PutMultiRegionAccessPointPolicyRequest: undefined,
@@ -7639,7 +7640,7 @@ const deserializeAws_restXmlAsyncRequestParameters = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlAsyncResponseDetails = (output: any, context: __SerdeContext): AsyncResponseDetails => {
-  let contents: any = {
+  const contents: any = {
     MultiRegionAccessPointDetails: undefined,
     ErrorDetails: undefined,
   };
@@ -7659,7 +7660,7 @@ const deserializeAws_restXmlAwsLambdaTransformation = (
   output: any,
   context: __SerdeContext
 ): AwsLambdaTransformation => {
-  let contents: any = {
+  const contents: any = {
     FunctionArn: undefined,
     FunctionPayload: undefined,
   };
@@ -7673,7 +7674,7 @@ const deserializeAws_restXmlAwsLambdaTransformation = (
 };
 
 const deserializeAws_restXmlBucketLevel = (output: any, context: __SerdeContext): BucketLevel => {
-  let contents: any = {
+  const contents: any = {
     ActivityMetrics: undefined,
     PrefixLevel: undefined,
   };
@@ -7701,7 +7702,7 @@ const deserializeAws_restXmlCreateMultiRegionAccessPointInput = (
   output: any,
   context: __SerdeContext
 ): CreateMultiRegionAccessPointInput => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     PublicAccessBlock: undefined,
     Regions: undefined,
@@ -7731,7 +7732,7 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   output: any,
   context: __SerdeContext
 ): DeleteMultiRegionAccessPointInput => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
   };
   if (output["Name"] !== undefined) {
@@ -7756,7 +7757,7 @@ const deserializeAws_restXmlEstablishedMultiRegionAccessPointPolicy = (
   output: any,
   context: __SerdeContext
 ): EstablishedMultiRegionAccessPointPolicy => {
-  let contents: any = {
+  const contents: any = {
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -7766,7 +7767,7 @@ const deserializeAws_restXmlEstablishedMultiRegionAccessPointPolicy = (
 };
 
 const deserializeAws_restXml_Exclude = (output: any, context: __SerdeContext): _Exclude => {
-  let contents: any = {
+  const contents: any = {
     Buckets: undefined,
     Regions: undefined,
   };
@@ -7786,7 +7787,7 @@ const deserializeAws_restXml_Exclude = (output: any, context: __SerdeContext): _
 };
 
 const deserializeAws_restXmlInclude = (output: any, context: __SerdeContext): Include => {
-  let contents: any = {
+  const contents: any = {
     Buckets: undefined,
     Regions: undefined,
   };
@@ -7806,7 +7807,7 @@ const deserializeAws_restXmlInclude = (output: any, context: __SerdeContext): In
 };
 
 const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContext): JobDescriptor => {
-  let contents: any = {
+  const contents: any = {
     JobId: undefined,
     ConfirmationRequired: undefined,
     Description: undefined,
@@ -7886,7 +7887,7 @@ const deserializeAws_restXmlJobDescriptor = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlJobFailure = (output: any, context: __SerdeContext): JobFailure => {
-  let contents: any = {
+  const contents: any = {
     FailureCode: undefined,
     FailureReason: undefined,
   };
@@ -7911,7 +7912,7 @@ const deserializeAws_restXmlJobFailureList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlJobListDescriptor = (output: any, context: __SerdeContext): JobListDescriptor => {
-  let contents: any = {
+  const contents: any = {
     JobId: undefined,
     Description: undefined,
     Operation: undefined,
@@ -7960,7 +7961,7 @@ const deserializeAws_restXmlJobListDescriptorList = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlJobManifest = (output: any, context: __SerdeContext): JobManifest => {
-  let contents: any = {
+  const contents: any = {
     Spec: undefined,
     Location: undefined,
   };
@@ -7988,7 +7989,7 @@ const deserializeAws_restXmlJobManifestFieldList = (
 };
 
 const deserializeAws_restXmlJobManifestLocation = (output: any, context: __SerdeContext): JobManifestLocation => {
-  let contents: any = {
+  const contents: any = {
     ObjectArn: undefined,
     ObjectVersionId: undefined,
     ETag: undefined,
@@ -8006,7 +8007,7 @@ const deserializeAws_restXmlJobManifestLocation = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeContext): JobManifestSpec => {
-  let contents: any = {
+  const contents: any = {
     Format: undefined,
     Fields: undefined,
   };
@@ -8026,7 +8027,7 @@ const deserializeAws_restXmlJobManifestSpec = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext): JobOperation => {
-  let contents: any = {
+  const contents: any = {
     LambdaInvoke: undefined,
     S3PutObjectCopy: undefined,
     S3PutObjectAcl: undefined,
@@ -8079,7 +8080,7 @@ const deserializeAws_restXmlJobOperation = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeContext): JobProgressSummary => {
-  let contents: any = {
+  const contents: any = {
     TotalNumberOfTasks: undefined,
     NumberOfTasksSucceeded: undefined,
     NumberOfTasksFailed: undefined,
@@ -8097,7 +8098,7 @@ const deserializeAws_restXmlJobProgressSummary = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): JobReport => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
     Format: undefined,
     Enabled: undefined,
@@ -8123,7 +8124,7 @@ const deserializeAws_restXmlJobReport = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restXmlLambdaInvokeOperation = (output: any, context: __SerdeContext): LambdaInvokeOperation => {
-  let contents: any = {
+  const contents: any = {
     FunctionArn: undefined,
   };
   if (output["FunctionArn"] !== undefined) {
@@ -8133,7 +8134,7 @@ const deserializeAws_restXmlLambdaInvokeOperation = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __SerdeContext): LifecycleExpiration => {
-  let contents: any = {
+  const contents: any = {
     Date: undefined,
     Days: undefined,
     ExpiredObjectDeleteMarker: undefined,
@@ -8151,7 +8152,7 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlLifecycleRule = (output: any, context: __SerdeContext): LifecycleRule => {
-  let contents: any = {
+  const contents: any = {
     Expiration: undefined,
     ID: undefined,
     Filter: undefined,
@@ -8213,7 +8214,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   output: any,
   context: __SerdeContext
 ): LifecycleRuleAndOperator => {
-  let contents: any = {
+  const contents: any = {
     Prefix: undefined,
     Tags: undefined,
   };
@@ -8230,7 +8231,7 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
 };
 
 const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
-  let contents: any = {
+  const contents: any = {
     Prefix: undefined,
     Tag: undefined,
     And: undefined,
@@ -8262,7 +8263,7 @@ const deserializeAws_restXmlListStorageLensConfigurationEntry = (
   output: any,
   context: __SerdeContext
 ): ListStorageLensConfigurationEntry => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     StorageLensArn: undefined,
     HomeRegion: undefined,
@@ -8287,7 +8288,7 @@ const deserializeAws_restXmlMultiRegionAccessPointPolicyDocument = (
   output: any,
   context: __SerdeContext
 ): MultiRegionAccessPointPolicyDocument => {
-  let contents: any = {
+  const contents: any = {
     Established: undefined,
     Proposed: undefined,
   };
@@ -8307,7 +8308,7 @@ const deserializeAws_restXmlMultiRegionAccessPointRegionalResponse = (
   output: any,
   context: __SerdeContext
 ): MultiRegionAccessPointRegionalResponse => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     RequestStatus: undefined,
   };
@@ -8338,7 +8339,7 @@ const deserializeAws_restXmlMultiRegionAccessPointReport = (
   output: any,
   context: __SerdeContext
 ): MultiRegionAccessPointReport => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Alias: undefined,
     CreatedAt: undefined,
@@ -8394,7 +8395,7 @@ const deserializeAws_restXmlMultiRegionAccessPointsAsyncResponse = (
   output: any,
   context: __SerdeContext
 ): MultiRegionAccessPointsAsyncResponse => {
-  let contents: any = {
+  const contents: any = {
     Regions: undefined,
   };
   if (output.Regions === "") {
@@ -8413,7 +8414,7 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
   output: any,
   context: __SerdeContext
 ): NoncurrentVersionExpiration => {
-  let contents: any = {
+  const contents: any = {
     NoncurrentDays: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
@@ -8426,7 +8427,7 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
   output: any,
   context: __SerdeContext
 ): NoncurrentVersionTransition => {
-  let contents: any = {
+  const contents: any = {
     NoncurrentDays: undefined,
     StorageClass: undefined,
   };
@@ -8457,7 +8458,7 @@ const deserializeAws_restXmlObjectLambdaAccessPoint = (
   output: any,
   context: __SerdeContext
 ): ObjectLambdaAccessPoint => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     ObjectLambdaAccessPointArn: undefined,
   };
@@ -8502,7 +8503,7 @@ const deserializeAws_restXmlObjectLambdaConfiguration = (
   output: any,
   context: __SerdeContext
 ): ObjectLambdaConfiguration => {
-  let contents: any = {
+  const contents: any = {
     SupportingAccessPoint: undefined,
     CloudWatchMetricsEnabled: undefined,
     AllowedFeatures: undefined,
@@ -8554,7 +8555,7 @@ const deserializeAws_restXmlObjectLambdaTransformationConfiguration = (
   output: any,
   context: __SerdeContext
 ): ObjectLambdaTransformationConfiguration => {
-  let contents: any = {
+  const contents: any = {
     Actions: undefined,
     ContentTransformation: undefined,
   };
@@ -8605,7 +8606,7 @@ const deserializeAws_restXmlObjectLambdaTransformationConfigurationsList = (
 };
 
 const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
-  let contents: any = {
+  const contents: any = {
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
@@ -8615,7 +8616,7 @@ const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlPrefixLevel = (output: any, context: __SerdeContext): PrefixLevel => {
-  let contents: any = {
+  const contents: any = {
     StorageMetrics: undefined,
   };
   if (output["StorageMetrics"] !== undefined) {
@@ -8628,7 +8629,7 @@ const deserializeAws_restXmlPrefixLevelStorageMetrics = (
   output: any,
   context: __SerdeContext
 ): PrefixLevelStorageMetrics => {
-  let contents: any = {
+  const contents: any = {
     IsEnabled: undefined,
     SelectionCriteria: undefined,
   };
@@ -8645,7 +8646,7 @@ const deserializeAws_restXmlProposedMultiRegionAccessPointPolicy = (
   output: any,
   context: __SerdeContext
 ): ProposedMultiRegionAccessPointPolicy => {
-  let contents: any = {
+  const contents: any = {
     Policy: undefined,
   };
   if (output["Policy"] !== undefined) {
@@ -8658,7 +8659,7 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
   output: any,
   context: __SerdeContext
 ): PublicAccessBlockConfiguration => {
-  let contents: any = {
+  const contents: any = {
     BlockPublicAcls: undefined,
     IgnorePublicAcls: undefined,
     BlockPublicPolicy: undefined,
@@ -8683,7 +8684,7 @@ const deserializeAws_restXmlPutMultiRegionAccessPointPolicyInput = (
   output: any,
   context: __SerdeContext
 ): PutMultiRegionAccessPointPolicyInput => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Policy: undefined,
   };
@@ -8697,7 +8698,7 @@ const deserializeAws_restXmlPutMultiRegionAccessPointPolicyInput = (
 };
 
 const deserializeAws_restXmlRegion = (output: any, context: __SerdeContext): Region => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
   };
   if (output["Bucket"] !== undefined) {
@@ -8707,7 +8708,7 @@ const deserializeAws_restXmlRegion = (output: any, context: __SerdeContext): Reg
 };
 
 const deserializeAws_restXmlRegionalBucket = (output: any, context: __SerdeContext): RegionalBucket => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
     BucketArn: undefined,
     PublicAccessBlockEnabled: undefined,
@@ -8755,7 +8756,7 @@ const deserializeAws_restXmlRegionCreationList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlRegionReport = (output: any, context: __SerdeContext): RegionReport => {
-  let contents: any = {
+  const contents: any = {
     Bucket: undefined,
     Region: undefined,
   };
@@ -8791,7 +8792,7 @@ const deserializeAws_restXmlRegions = (output: any, context: __SerdeContext): st
 };
 
 const deserializeAws_restXmlS3AccessControlList = (output: any, context: __SerdeContext): S3AccessControlList => {
-  let contents: any = {
+  const contents: any = {
     Owner: undefined,
     Grants: undefined,
   };
@@ -8808,7 +8809,7 @@ const deserializeAws_restXmlS3AccessControlList = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __SerdeContext): S3AccessControlPolicy => {
-  let contents: any = {
+  const contents: any = {
     AccessControlList: undefined,
     CannedAccessControlList: undefined,
   };
@@ -8822,7 +8823,7 @@ const deserializeAws_restXmlS3AccessControlPolicy = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlS3BucketDestination = (output: any, context: __SerdeContext): S3BucketDestination => {
-  let contents: any = {
+  const contents: any = {
     Format: undefined,
     OutputSchemaVersion: undefined,
     AccountId: undefined,
@@ -8852,7 +8853,7 @@ const deserializeAws_restXmlS3BucketDestination = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlS3CopyObjectOperation = (output: any, context: __SerdeContext): S3CopyObjectOperation => {
-  let contents: any = {
+  const contents: any = {
     TargetResource: undefined,
     CannedAccessControlList: undefined,
     AccessControlGrants: undefined,
@@ -8941,12 +8942,12 @@ const deserializeAws_restXmlS3DeleteObjectTaggingOperation = (
   output: any,
   context: __SerdeContext
 ): S3DeleteObjectTaggingOperation => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3Grant => {
-  let contents: any = {
+  const contents: any = {
     Grantee: undefined,
     Permission: undefined,
   };
@@ -8960,7 +8961,7 @@ const deserializeAws_restXmlS3Grant = (output: any, context: __SerdeContext): S3
 };
 
 const deserializeAws_restXmlS3Grantee = (output: any, context: __SerdeContext): S3Grantee => {
-  let contents: any = {
+  const contents: any = {
     TypeIdentifier: undefined,
     Identifier: undefined,
     DisplayName: undefined,
@@ -8992,7 +8993,7 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
   output: any,
   context: __SerdeContext
 ): S3InitiateRestoreObjectOperation => {
-  let contents: any = {
+  const contents: any = {
     ExpirationInDays: undefined,
     GlacierJobTier: undefined,
   };
@@ -9006,7 +9007,7 @@ const deserializeAws_restXmlS3InitiateRestoreObjectOperation = (
 };
 
 const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __SerdeContext): S3ObjectLockLegalHold => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -9016,7 +9017,7 @@ const deserializeAws_restXmlS3ObjectLockLegalHold = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeContext): S3ObjectMetadata => {
-  let contents: any = {
+  const contents: any = {
     CacheControl: undefined,
     ContentDisposition: undefined,
     ContentEncoding: undefined,
@@ -9072,7 +9073,7 @@ const deserializeAws_restXmlS3ObjectMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContext): S3ObjectOwner => {
-  let contents: any = {
+  const contents: any = {
     ID: undefined,
     DisplayName: undefined,
   };
@@ -9086,7 +9087,7 @@ const deserializeAws_restXmlS3ObjectOwner = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlS3Retention = (output: any, context: __SerdeContext): S3Retention => {
-  let contents: any = {
+  const contents: any = {
     RetainUntilDate: undefined,
     Mode: undefined,
   };
@@ -9103,7 +9104,7 @@ const deserializeAws_restXmlS3SetObjectAclOperation = (
   output: any,
   context: __SerdeContext
 ): S3SetObjectAclOperation => {
-  let contents: any = {
+  const contents: any = {
     AccessControlPolicy: undefined,
   };
   if (output["AccessControlPolicy"] !== undefined) {
@@ -9116,7 +9117,7 @@ const deserializeAws_restXmlS3SetObjectLegalHoldOperation = (
   output: any,
   context: __SerdeContext
 ): S3SetObjectLegalHoldOperation => {
-  let contents: any = {
+  const contents: any = {
     LegalHold: undefined,
   };
   if (output["LegalHold"] !== undefined) {
@@ -9129,7 +9130,7 @@ const deserializeAws_restXmlS3SetObjectRetentionOperation = (
   output: any,
   context: __SerdeContext
 ): S3SetObjectRetentionOperation => {
-  let contents: any = {
+  const contents: any = {
     BypassGovernanceRetention: undefined,
     Retention: undefined,
   };
@@ -9146,7 +9147,7 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
   output: any,
   context: __SerdeContext
 ): S3SetObjectTaggingOperation => {
-  let contents: any = {
+  const contents: any = {
     TagSet: undefined,
   };
   if (output.TagSet === "") {
@@ -9159,7 +9160,7 @@ const deserializeAws_restXmlS3SetObjectTaggingOperation = (
 };
 
 const deserializeAws_restXmlS3Tag = (output: any, context: __SerdeContext): S3Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -9196,7 +9197,7 @@ const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeContext): SelectionCriteria => {
-  let contents: any = {
+  const contents: any = {
     Delimiter: undefined,
     MaxDepth: undefined,
     MinStorageBytesPercentage: undefined,
@@ -9214,7 +9215,7 @@ const deserializeAws_restXmlSelectionCriteria = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
-  let contents: any = {
+  const contents: any = {
     KeyId: undefined,
   };
   if (output["KeyId"] !== undefined) {
@@ -9224,12 +9225,12 @@ const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSE
 };
 
 const deserializeAws_restXmlSSES3 = (output: any, context: __SerdeContext): SSES3 => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_restXmlStorageLensAwsOrg = (output: any, context: __SerdeContext): StorageLensAwsOrg => {
-  let contents: any = {
+  const contents: any = {
     Arn: undefined,
   };
   if (output["Arn"] !== undefined) {
@@ -9242,7 +9243,7 @@ const deserializeAws_restXmlStorageLensConfiguration = (
   output: any,
   context: __SerdeContext
 ): StorageLensConfiguration => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     AccountLevel: undefined,
     Include: undefined,
@@ -9294,7 +9295,7 @@ const deserializeAws_restXmlStorageLensConfigurationList = (
 };
 
 const deserializeAws_restXmlStorageLensDataExport = (output: any, context: __SerdeContext): StorageLensDataExport => {
-  let contents: any = {
+  const contents: any = {
     S3BucketDestination: undefined,
   };
   if (output["S3BucketDestination"] !== undefined) {
@@ -9307,7 +9308,7 @@ const deserializeAws_restXmlStorageLensDataExportEncryption = (
   output: any,
   context: __SerdeContext
 ): StorageLensDataExportEncryption => {
-  let contents: any = {
+  const contents: any = {
     SSES3: undefined,
     SSEKMS: undefined,
   };
@@ -9321,7 +9322,7 @@ const deserializeAws_restXmlStorageLensDataExportEncryption = (
 };
 
 const deserializeAws_restXmlStorageLensTag = (output: any, context: __SerdeContext): StorageLensTag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -9346,7 +9347,7 @@ const deserializeAws_restXmlStorageLensTags = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext): Transition => {
-  let contents: any = {
+  const contents: any = {
     Date: undefined,
     Days: undefined,
     StorageClass: undefined,
@@ -9375,7 +9376,7 @@ const deserializeAws_restXmlTransitionList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlVpcConfiguration = (output: any, context: __SerdeContext): VpcConfiguration => {
-  let contents: any = {
+  const contents: any = {
     VpcId: undefined,
   };
   if (output["VpcId"] !== undefined) {

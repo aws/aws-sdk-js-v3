@@ -1,4 +1,5 @@
-import { MediaStoreClient } from "./MediaStoreClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateContainerCommand,
   CreateContainerCommandInput,
@@ -100,7 +101,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaStoreClient } from "./MediaStoreClient";
 
 /**
  * <p>An AWS Elemental MediaStore container is a namespace that holds folders and objects.

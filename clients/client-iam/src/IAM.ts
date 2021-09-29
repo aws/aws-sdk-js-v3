@@ -1,4 +1,5 @@
-import { IAMClient } from "./IAMClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddClientIDToOpenIDConnectProviderCommand,
   AddClientIDToOpenIDConnectProviderCommandInput,
@@ -160,11 +161,6 @@ import {
   DeleteSAMLProviderCommandOutput,
 } from "./commands/DeleteSAMLProviderCommand";
 import {
-  DeleteSSHPublicKeyCommand,
-  DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput,
-} from "./commands/DeleteSSHPublicKeyCommand";
-import {
   DeleteServerCertificateCommand,
   DeleteServerCertificateCommandInput,
   DeleteServerCertificateCommandOutput,
@@ -184,6 +180,11 @@ import {
   DeleteSigningCertificateCommandInput,
   DeleteSigningCertificateCommandOutput,
 } from "./commands/DeleteSigningCertificateCommand";
+import {
+  DeleteSSHPublicKeyCommand,
+  DeleteSSHPublicKeyCommandInput,
+  DeleteSSHPublicKeyCommandOutput,
+} from "./commands/DeleteSSHPublicKeyCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
   DeleteUserPermissionsBoundaryCommand,
@@ -314,11 +315,6 @@ import {
   GetSAMLProviderCommandOutput,
 } from "./commands/GetSAMLProviderCommand";
 import {
-  GetSSHPublicKeyCommand,
-  GetSSHPublicKeyCommandInput,
-  GetSSHPublicKeyCommandOutput,
-} from "./commands/GetSSHPublicKeyCommand";
-import {
   GetServerCertificateCommand,
   GetServerCertificateCommandInput,
   GetServerCertificateCommandOutput,
@@ -338,6 +334,11 @@ import {
   GetServiceLinkedRoleDeletionStatusCommandInput,
   GetServiceLinkedRoleDeletionStatusCommandOutput,
 } from "./commands/GetServiceLinkedRoleDeletionStatusCommand";
+import {
+  GetSSHPublicKeyCommand,
+  GetSSHPublicKeyCommandInput,
+  GetSSHPublicKeyCommandOutput,
+} from "./commands/GetSSHPublicKeyCommand";
 import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPolicyCommand,
@@ -386,11 +387,6 @@ import {
   ListGroupsForUserCommandOutput,
 } from "./commands/ListGroupsForUserCommand";
 import {
-  ListInstanceProfileTagsCommand,
-  ListInstanceProfileTagsCommandInput,
-  ListInstanceProfileTagsCommandOutput,
-} from "./commands/ListInstanceProfileTagsCommand";
-import {
   ListInstanceProfilesCommand,
   ListInstanceProfilesCommandInput,
   ListInstanceProfilesCommandOutput,
@@ -401,25 +397,30 @@ import {
   ListInstanceProfilesForRoleCommandOutput,
 } from "./commands/ListInstanceProfilesForRoleCommand";
 import {
-  ListMFADeviceTagsCommand,
-  ListMFADeviceTagsCommandInput,
-  ListMFADeviceTagsCommandOutput,
-} from "./commands/ListMFADeviceTagsCommand";
+  ListInstanceProfileTagsCommand,
+  ListInstanceProfileTagsCommandInput,
+  ListInstanceProfileTagsCommandOutput,
+} from "./commands/ListInstanceProfileTagsCommand";
 import {
   ListMFADevicesCommand,
   ListMFADevicesCommandInput,
   ListMFADevicesCommandOutput,
 } from "./commands/ListMFADevicesCommand";
 import {
-  ListOpenIDConnectProviderTagsCommand,
-  ListOpenIDConnectProviderTagsCommandInput,
-  ListOpenIDConnectProviderTagsCommandOutput,
-} from "./commands/ListOpenIDConnectProviderTagsCommand";
+  ListMFADeviceTagsCommand,
+  ListMFADeviceTagsCommandInput,
+  ListMFADeviceTagsCommandOutput,
+} from "./commands/ListMFADeviceTagsCommand";
 import {
   ListOpenIDConnectProvidersCommand,
   ListOpenIDConnectProvidersCommandInput,
   ListOpenIDConnectProvidersCommandOutput,
 } from "./commands/ListOpenIDConnectProvidersCommand";
+import {
+  ListOpenIDConnectProviderTagsCommand,
+  ListOpenIDConnectProviderTagsCommandInput,
+  ListOpenIDConnectProviderTagsCommandOutput,
+} from "./commands/ListOpenIDConnectProviderTagsCommand";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
@@ -445,37 +446,32 @@ import {
   ListRolePoliciesCommandInput,
   ListRolePoliciesCommandOutput,
 } from "./commands/ListRolePoliciesCommand";
+import { ListRolesCommand, ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
 import {
   ListRoleTagsCommand,
   ListRoleTagsCommandInput,
   ListRoleTagsCommandOutput,
 } from "./commands/ListRoleTagsCommand";
-import { ListRolesCommand, ListRolesCommandInput, ListRolesCommandOutput } from "./commands/ListRolesCommand";
-import {
-  ListSAMLProviderTagsCommand,
-  ListSAMLProviderTagsCommandInput,
-  ListSAMLProviderTagsCommandOutput,
-} from "./commands/ListSAMLProviderTagsCommand";
 import {
   ListSAMLProvidersCommand,
   ListSAMLProvidersCommandInput,
   ListSAMLProvidersCommandOutput,
 } from "./commands/ListSAMLProvidersCommand";
 import {
-  ListSSHPublicKeysCommand,
-  ListSSHPublicKeysCommandInput,
-  ListSSHPublicKeysCommandOutput,
-} from "./commands/ListSSHPublicKeysCommand";
-import {
-  ListServerCertificateTagsCommand,
-  ListServerCertificateTagsCommandInput,
-  ListServerCertificateTagsCommandOutput,
-} from "./commands/ListServerCertificateTagsCommand";
+  ListSAMLProviderTagsCommand,
+  ListSAMLProviderTagsCommandInput,
+  ListSAMLProviderTagsCommandOutput,
+} from "./commands/ListSAMLProviderTagsCommand";
 import {
   ListServerCertificatesCommand,
   ListServerCertificatesCommandInput,
   ListServerCertificatesCommandOutput,
 } from "./commands/ListServerCertificatesCommand";
+import {
+  ListServerCertificateTagsCommand,
+  ListServerCertificateTagsCommandInput,
+  ListServerCertificateTagsCommandOutput,
+} from "./commands/ListServerCertificateTagsCommand";
 import {
   ListServiceSpecificCredentialsCommand,
   ListServiceSpecificCredentialsCommandInput,
@@ -487,16 +483,21 @@ import {
   ListSigningCertificatesCommandOutput,
 } from "./commands/ListSigningCertificatesCommand";
 import {
+  ListSSHPublicKeysCommand,
+  ListSSHPublicKeysCommandInput,
+  ListSSHPublicKeysCommandOutput,
+} from "./commands/ListSSHPublicKeysCommand";
+import {
   ListUserPoliciesCommand,
   ListUserPoliciesCommandInput,
   ListUserPoliciesCommandOutput,
 } from "./commands/ListUserPoliciesCommand";
+import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListUserTagsCommand,
   ListUserTagsCommandInput,
   ListUserTagsCommandOutput,
 } from "./commands/ListUserTagsCommand";
-import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
   ListVirtualMFADevicesCommand,
   ListVirtualMFADevicesCommandInput,
@@ -666,11 +667,6 @@ import {
   UpdateSAMLProviderCommandOutput,
 } from "./commands/UpdateSAMLProviderCommand";
 import {
-  UpdateSSHPublicKeyCommand,
-  UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput,
-} from "./commands/UpdateSSHPublicKeyCommand";
-import {
   UpdateServerCertificateCommand,
   UpdateServerCertificateCommandInput,
   UpdateServerCertificateCommandOutput,
@@ -685,12 +681,12 @@ import {
   UpdateSigningCertificateCommandInput,
   UpdateSigningCertificateCommandOutput,
 } from "./commands/UpdateSigningCertificateCommand";
-import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
-  UploadSSHPublicKeyCommand,
-  UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput,
-} from "./commands/UploadSSHPublicKeyCommand";
+  UpdateSSHPublicKeyCommand,
+  UpdateSSHPublicKeyCommandInput,
+  UpdateSSHPublicKeyCommandOutput,
+} from "./commands/UpdateSSHPublicKeyCommand";
+import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UploadServerCertificateCommand,
   UploadServerCertificateCommandInput,
@@ -701,7 +697,12 @@ import {
   UploadSigningCertificateCommandInput,
   UploadSigningCertificateCommandOutput,
 } from "./commands/UploadSigningCertificateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import {
+  UploadSSHPublicKeyCommand,
+  UploadSSHPublicKeyCommandInput,
+  UploadSSHPublicKeyCommandOutput,
+} from "./commands/UploadSSHPublicKeyCommand";
+import { IAMClient } from "./IAMClient";
 
 /**
  * <fullname>Identity and Access Management</fullname>

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeGuruProfilerClient } from "./CodeGuruProfilerClient";
 import {
   AddNotificationChannelsCommand,
@@ -102,7 +104,6 @@ import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,
 } from "./commands/UpdateProfilingGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>

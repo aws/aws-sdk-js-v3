@@ -1,9 +1,3 @@
-import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import { GetFeedbackRequest, GetFeedbackResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetFeedbackCommand,
-  serializeAws_restJson1GetFeedbackCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
+import { GetFeedbackRequest, GetFeedbackResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetFeedbackCommand,
+  serializeAws_restJson1GetFeedbackCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface GetFeedbackCommandInput extends GetFeedbackRequest {}
 export interface GetFeedbackCommandOutput extends GetFeedbackResponse, __MetadataBearer {}

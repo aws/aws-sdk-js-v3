@@ -1,14 +1,15 @@
-import { SSMIncidentsClient } from "../SSMIncidentsClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetReplicationSetCommand, GetReplicationSetCommandInput } from "../commands/GetReplicationSetCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SSMIncidentsClient } from "../SSMIncidentsClient";
 
 const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetReplicationSetCommand(input));
+    const result: any = await client.send(new GetReplicationSetCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.replicationSet.status;
       };
       if (returnComparator() === "DELETING") {
@@ -16,7 +17,7 @@ const checkState = async (client: SSMIncidentsClient, input: GetReplicationSetCo
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.replicationSet.status;
       };
       if (returnComparator() === "FAILED") {

@@ -1,4 +1,5 @@
-import { PIClient } from "./PIClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeDimensionKeysCommand,
   DescribeDimensionKeysCommandInput,
@@ -14,7 +15,7 @@ import {
   GetResourceMetricsCommandInput,
   GetResourceMetricsCommandOutput,
 } from "./commands/GetResourceMetricsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PIClient } from "./PIClient";
 
 /**
  * <fullname>Amazon RDS Performance Insights</fullname>

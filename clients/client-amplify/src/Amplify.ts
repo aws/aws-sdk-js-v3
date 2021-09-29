@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AmplifyClient } from "./AmplifyClient";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
@@ -132,7 +134,6 @@ import {
   UpdateWebhookCommandInput,
   UpdateWebhookCommandOutput,
 } from "./commands/UpdateWebhookCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amplify enables developers to develop and deploy cloud-powered mobile and web apps.

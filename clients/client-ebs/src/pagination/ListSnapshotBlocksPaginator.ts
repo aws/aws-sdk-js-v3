@@ -1,12 +1,13 @@
-import { EBS } from "../EBS";
-import { EBSClient } from "../EBSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSnapshotBlocksCommand,
   ListSnapshotBlocksCommandInput,
   ListSnapshotBlocksCommandOutput,
 } from "../commands/ListSnapshotBlocksCommand";
+import { EBS } from "../EBS";
+import { EBSClient } from "../EBSClient";
 import { EBSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

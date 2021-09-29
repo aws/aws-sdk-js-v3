@@ -1,12 +1,13 @@
-import { SecurityHub } from "../SecurityHub";
-import { SecurityHubClient } from "../SecurityHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListOrganizationAdminAccountsCommand,
   ListOrganizationAdminAccountsCommandInput,
   ListOrganizationAdminAccountsCommandOutput,
 } from "../commands/ListOrganizationAdminAccountsCommand";
+import { SecurityHub } from "../SecurityHub";
+import { SecurityHubClient } from "../SecurityHubClient";
 import { SecurityHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

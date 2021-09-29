@@ -1,12 +1,13 @@
-import { SSO } from "../SSO";
-import { SSOClient } from "../SSOClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAccountsCommand,
   ListAccountsCommandInput,
   ListAccountsCommandOutput,
 } from "../commands/ListAccountsCommand";
+import { SSO } from "../SSO";
+import { SSOClient } from "../SSOClient";
 import { SSOPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

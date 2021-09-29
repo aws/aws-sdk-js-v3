@@ -1,12 +1,13 @@
-import { SWF } from "../SWF";
-import { SWFClient } from "../SWFClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListWorkflowTypesCommand,
   ListWorkflowTypesCommandInput,
   ListWorkflowTypesCommandOutput,
 } from "../commands/ListWorkflowTypesCommand";
+import { SWF } from "../SWF";
+import { SWFClient } from "../SWFClient";
 import { SWFPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

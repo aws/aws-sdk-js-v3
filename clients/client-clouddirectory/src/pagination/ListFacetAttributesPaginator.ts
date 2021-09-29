@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudDirectory } from "../CloudDirectory";
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListFacetAttributesCommandOutput,
 } from "../commands/ListFacetAttributesCommand";
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

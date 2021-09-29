@@ -1,9 +1,3 @@
-import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
-import { ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult } from "../models/models_0";
-import {
-  deserializeAws_restXmlListMultiRegionAccessPointsCommand,
-  serializeAws_restXmlListMultiRegionAccessPointsCommand,
-} from "../protocols/Aws_restXml";
 import { getApplyMd5BodyChecksumPlugin } from "@aws-sdk/middleware-apply-body-checksum";
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -13,11 +7,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult } from "../models/models_0";
+import {
+  deserializeAws_restXmlListMultiRegionAccessPointsCommand,
+  serializeAws_restXmlListMultiRegionAccessPointsCommand,
+} from "../protocols/Aws_restXml";
+import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 export interface ListMultiRegionAccessPointsCommandInput extends ListMultiRegionAccessPointsRequest {}
 export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegionAccessPointsResult, __MetadataBearer {}

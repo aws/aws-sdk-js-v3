@@ -1,12 +1,13 @@
-import { ECS } from "../ECS";
-import { ECSClient } from "../ECSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
 } from "../commands/ListClustersCommand";
+import { ECS } from "../ECS";
+import { ECSClient } from "../ECSClient";
 import { ECSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

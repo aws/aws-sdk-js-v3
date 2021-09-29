@@ -1,12 +1,13 @@
-import { ServiceDiscovery } from "../ServiceDiscovery";
-import { ServiceDiscoveryClient } from "../ServiceDiscoveryClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
 } from "../commands/ListInstancesCommand";
+import { ServiceDiscovery } from "../ServiceDiscovery";
+import { ServiceDiscoveryClient } from "../ServiceDiscoveryClient";
 import { ServiceDiscoveryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

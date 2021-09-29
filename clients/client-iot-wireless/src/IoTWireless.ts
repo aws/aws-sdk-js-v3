@@ -1,4 +1,5 @@
-import { IoTWirelessClient } from "./IoTWirelessClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateAwsAccountWithPartnerAccountCommand,
   AssociateAwsAccountWithPartnerAccountCommandInput,
@@ -215,15 +216,15 @@ import {
   ListWirelessDevicesCommandOutput,
 } from "./commands/ListWirelessDevicesCommand";
 import {
-  ListWirelessGatewayTaskDefinitionsCommand,
-  ListWirelessGatewayTaskDefinitionsCommandInput,
-  ListWirelessGatewayTaskDefinitionsCommandOutput,
-} from "./commands/ListWirelessGatewayTaskDefinitionsCommand";
-import {
   ListWirelessGatewaysCommand,
   ListWirelessGatewaysCommandInput,
   ListWirelessGatewaysCommandOutput,
 } from "./commands/ListWirelessGatewaysCommand";
+import {
+  ListWirelessGatewayTaskDefinitionsCommand,
+  ListWirelessGatewayTaskDefinitionsCommandInput,
+  ListWirelessGatewayTaskDefinitionsCommandOutput,
+} from "./commands/ListWirelessGatewayTaskDefinitionsCommand";
 import {
   PutResourceLogLevelCommand,
   PutResourceLogLevelCommandInput,
@@ -280,7 +281,7 @@ import {
   UpdateWirelessGatewayCommandInput,
   UpdateWirelessGatewayCommandOutput,
 } from "./commands/UpdateWirelessGatewayCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTWirelessClient } from "./IoTWirelessClient";
 
 /**
  * <p>AWS IoT Wireless API documentation</p>

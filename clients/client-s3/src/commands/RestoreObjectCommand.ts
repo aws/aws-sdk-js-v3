@@ -1,10 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { RestoreObjectOutput } from "../models/models_0";
-import { RestoreObjectRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlRestoreObjectCommand,
-  serializeAws_restXmlRestoreObjectCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -13,11 +6,19 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { RestoreObjectOutput } from "../models/models_0";
+import { RestoreObjectRequest } from "../models/models_1";
+import {
+  deserializeAws_restXmlRestoreObjectCommand,
+  serializeAws_restXmlRestoreObjectCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface RestoreObjectCommandInput extends RestoreObjectRequest {}
 export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __MetadataBearer {}

@@ -1,12 +1,13 @@
-import { ServiceCatalogAppRegistry } from "../ServiceCatalogAppRegistry";
-import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
+import { ServiceCatalogAppRegistry } from "../ServiceCatalogAppRegistry";
+import { ServiceCatalogAppRegistryClient } from "../ServiceCatalogAppRegistryClient";
 import { ServiceCatalogAppRegistryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

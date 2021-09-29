@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CodeartifactClient } from "./CodeartifactClient";
 import {
   AssociateExternalConnectionCommand,
@@ -101,6 +103,11 @@ import {
 } from "./commands/GetRepositoryPermissionsPolicyCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
+  ListPackagesCommand,
+  ListPackagesCommandInput,
+  ListPackagesCommandOutput,
+} from "./commands/ListPackagesCommand";
+import {
   ListPackageVersionAssetsCommand,
   ListPackageVersionAssetsCommandInput,
   ListPackageVersionAssetsCommandOutput,
@@ -115,11 +122,6 @@ import {
   ListPackageVersionsCommandInput,
   ListPackageVersionsCommandOutput,
 } from "./commands/ListPackageVersionsCommand";
-import {
-  ListPackagesCommand,
-  ListPackagesCommandInput,
-  ListPackagesCommandOutput,
-} from "./commands/ListPackagesCommand";
 import {
   ListRepositoriesCommand,
   ListRepositoriesCommandInput,
@@ -161,7 +163,6 @@ import {
   UpdateRepositoryCommandInput,
   UpdateRepositoryCommandOutput,
 } from "./commands/UpdateRepositoryCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p> AWS CodeArtifact is a fully managed artifact repository compatible with language-native

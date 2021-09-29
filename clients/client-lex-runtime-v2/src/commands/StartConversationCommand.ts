@@ -1,23 +1,24 @@
+import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
+import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import { Command as $Command } from "@aws-sdk/smithy-client";
+import {
+  EventStreamSerdeContext as __EventStreamSerdeContext,
+  FinalizeHandlerArguments,
+  Handler,
+  HandlerExecutionContext,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
+  SerdeContext as __SerdeContext,
+} from "@aws-sdk/types";
+
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import { StartConversationRequest, StartConversationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartConversationCommand,
   serializeAws_restJson1StartConversationCommand,
 } from "../protocols/Aws_restJson1";
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { getSerdePlugin } from "@aws-sdk/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import { Command as $Command } from "@aws-sdk/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  MiddlewareStack,
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  SerdeContext as __SerdeContext,
-} from "@aws-sdk/types";
 
 export interface StartConversationCommandInput extends StartConversationRequest {}
 export interface StartConversationCommandOutput extends StartConversationResponse, __MetadataBearer {}

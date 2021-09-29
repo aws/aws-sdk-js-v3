@@ -1,12 +1,13 @@
-import { CostExplorer } from "../CostExplorer";
-import { CostExplorerClient } from "../CostExplorerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetSavingsPlansCoverageCommand,
   GetSavingsPlansCoverageCommandInput,
   GetSavingsPlansCoverageCommandOutput,
 } from "../commands/GetSavingsPlansCoverageCommand";
+import { CostExplorer } from "../CostExplorer";
+import { CostExplorerClient } from "../CostExplorerClient";
 import { CostExplorerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

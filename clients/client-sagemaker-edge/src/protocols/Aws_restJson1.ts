@@ -1,9 +1,3 @@
-import {
-  GetDeviceRegistrationCommandInput,
-  GetDeviceRegistrationCommandOutput,
-} from "../commands/GetDeviceRegistrationCommand";
-import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
-import { EdgeMetric, InternalServiceException, Model } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
@@ -19,6 +13,13 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import {
+  GetDeviceRegistrationCommandInput,
+  GetDeviceRegistrationCommandOutput,
+} from "../commands/GetDeviceRegistrationCommand";
+import { SendHeartbeatCommandInput, SendHeartbeatCommandOutput } from "../commands/SendHeartbeatCommand";
+import { EdgeMetric, InternalServiceException, Model } from "../models/models_0";
+
 export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   input: GetDeviceRegistrationCommandInput,
   context: __SerdeContext
@@ -27,7 +28,7 @@ export const serializeAws_restJson1GetDeviceRegistrationCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDeviceRegistration";
   let body: any;
   body = JSON.stringify({
     ...(input.DeviceFleetName !== undefined &&
@@ -53,7 +54,7 @@ export const serializeAws_restJson1SendHeartbeatCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SendHeartbeat";
   let body: any;
   body = JSON.stringify({
     ...(input.AgentMetrics !== undefined &&
@@ -107,7 +108,7 @@ const deserializeAws_restJson1GetDeviceRegistrationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":
@@ -158,7 +159,7 @@ const deserializeAws_restJson1SendHeartbeatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InternalServiceException":

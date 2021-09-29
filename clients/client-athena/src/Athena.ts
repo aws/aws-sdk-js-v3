@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AthenaClient } from "./AthenaClient";
 import {
   BatchGetNamedQueryCommand,
@@ -49,12 +51,12 @@ import {
   DeleteWorkGroupCommandInput,
   DeleteWorkGroupCommandOutput,
 } from "./commands/DeleteWorkGroupCommand";
+import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetDataCatalogCommand,
   GetDataCatalogCommandInput,
   GetDataCatalogCommandOutput,
 } from "./commands/GetDataCatalogCommand";
-import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import {
   GetNamedQueryCommand,
   GetNamedQueryCommandInput,
@@ -86,15 +88,15 @@ import {
   GetWorkGroupCommandOutput,
 } from "./commands/GetWorkGroupCommand";
 import {
-  ListDataCatalogsCommand,
-  ListDataCatalogsCommandInput,
-  ListDataCatalogsCommandOutput,
-} from "./commands/ListDataCatalogsCommand";
-import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
 } from "./commands/ListDatabasesCommand";
+import {
+  ListDataCatalogsCommand,
+  ListDataCatalogsCommandInput,
+  ListDataCatalogsCommandOutput,
+} from "./commands/ListDataCatalogsCommand";
 import {
   ListEngineVersionsCommand,
   ListEngineVersionsCommandInput,
@@ -161,7 +163,6 @@ import {
   UpdateWorkGroupCommandInput,
   UpdateWorkGroupCommandOutput,
 } from "./commands/UpdateWorkGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon Athena is an interactive query service that lets you use standard SQL

@@ -1,12 +1,13 @@
-import { MediaTailor } from "../MediaTailor";
-import { MediaTailorClient } from "../MediaTailorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPlaybackConfigurationsCommand,
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "../commands/ListPlaybackConfigurationsCommand";
+import { MediaTailor } from "../MediaTailor";
+import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

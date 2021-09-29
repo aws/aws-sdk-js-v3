@@ -1,9 +1,3 @@
-import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { DescribeThemePermissionsRequest, DescribeThemePermissionsResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeThemePermissionsCommand,
-  serializeAws_restJson1DescribeThemePermissionsCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeThemePermissionsRequest, DescribeThemePermissionsResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeThemePermissionsCommand,
+  serializeAws_restJson1DescribeThemePermissionsCommand,
+} from "../protocols/Aws_restJson1";
+import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 export interface DescribeThemePermissionsCommandInput extends DescribeThemePermissionsRequest {}
 export interface DescribeThemePermissionsCommandOutput extends DescribeThemePermissionsResponse, __MetadataBearer {}

@@ -1,12 +1,36 @@
-import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand";
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
-  AttachLoadBalancerTargetGroupsCommandInput,
-  AttachLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/AttachLoadBalancerTargetGroupsCommand";
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
+import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand";
 import {
   AttachLoadBalancersCommandInput,
   AttachLoadBalancersCommandOutput,
 } from "../commands/AttachLoadBalancersCommand";
+import {
+  AttachLoadBalancerTargetGroupsCommandInput,
+  AttachLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/AttachLoadBalancerTargetGroupsCommand";
 import {
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
@@ -84,21 +108,21 @@ import {
   DescribeLaunchConfigurationsCommandOutput,
 } from "../commands/DescribeLaunchConfigurationsCommand";
 import {
-  DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput,
-} from "../commands/DescribeLifecycleHookTypesCommand";
-import {
   DescribeLifecycleHooksCommandInput,
   DescribeLifecycleHooksCommandOutput,
 } from "../commands/DescribeLifecycleHooksCommand";
 import {
-  DescribeLoadBalancerTargetGroupsCommandInput,
-  DescribeLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/DescribeLoadBalancerTargetGroupsCommand";
+  DescribeLifecycleHookTypesCommandInput,
+  DescribeLifecycleHookTypesCommandOutput,
+} from "../commands/DescribeLifecycleHookTypesCommand";
 import {
   DescribeLoadBalancersCommandInput,
   DescribeLoadBalancersCommandOutput,
 } from "../commands/DescribeLoadBalancersCommand";
+import {
+  DescribeLoadBalancerTargetGroupsCommandInput,
+  DescribeLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/DescribeLoadBalancerTargetGroupsCommand";
 import {
   DescribeMetricCollectionTypesCommandInput,
   DescribeMetricCollectionTypesCommandOutput,
@@ -128,13 +152,13 @@ import {
 import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "../commands/DescribeWarmPoolCommand";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "../commands/DetachInstancesCommand";
 import {
-  DetachLoadBalancerTargetGroupsCommandInput,
-  DetachLoadBalancerTargetGroupsCommandOutput,
-} from "../commands/DetachLoadBalancerTargetGroupsCommand";
-import {
   DetachLoadBalancersCommandInput,
   DetachLoadBalancersCommandOutput,
 } from "../commands/DetachLoadBalancersCommand";
+import {
+  DetachLoadBalancerTargetGroupsCommandInput,
+  DetachLoadBalancerTargetGroupsCommandOutput,
+} from "../commands/DetachLoadBalancerTargetGroupsCommand";
 import {
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
@@ -194,10 +218,10 @@ import {
   Alarm,
   AlreadyExistsFault,
   AttachInstancesQuery,
-  AttachLoadBalancerTargetGroupsResultType,
-  AttachLoadBalancerTargetGroupsType,
   AttachLoadBalancersResultType,
   AttachLoadBalancersType,
+  AttachLoadBalancerTargetGroupsResultType,
+  AttachLoadBalancerTargetGroupsType,
   AutoScalingGroup,
   AutoScalingGroupNamesType,
   AutoScalingGroupsType,
@@ -232,13 +256,13 @@ import {
   DescribeAutoScalingNotificationTypesAnswer,
   DescribeInstanceRefreshesAnswer,
   DescribeInstanceRefreshesType,
-  DescribeLifecycleHookTypesAnswer,
   DescribeLifecycleHooksAnswer,
   DescribeLifecycleHooksType,
-  DescribeLoadBalancerTargetGroupsRequest,
-  DescribeLoadBalancerTargetGroupsResponse,
+  DescribeLifecycleHookTypesAnswer,
   DescribeLoadBalancersRequest,
   DescribeLoadBalancersResponse,
+  DescribeLoadBalancerTargetGroupsRequest,
+  DescribeLoadBalancerTargetGroupsResponse,
   DescribeMetricCollectionTypesAnswer,
   DescribeNotificationConfigurationsAnswer,
   DescribeNotificationConfigurationsType,
@@ -252,14 +276,14 @@ import {
   DesiredConfiguration,
   DetachInstancesAnswer,
   DetachInstancesQuery,
-  DetachLoadBalancerTargetGroupsResultType,
-  DetachLoadBalancerTargetGroupsType,
   DetachLoadBalancersResultType,
   DetachLoadBalancersType,
+  DetachLoadBalancerTargetGroupsResultType,
+  DetachLoadBalancerTargetGroupsType,
   DisableMetricsCollectionQuery,
   Ebs,
-  EnableMetricsCollectionQuery,
   EnabledMetric,
+  EnableMetricsCollectionQuery,
   EnterStandbyAnswer,
   EnterStandbyQuery,
   ExecutePolicyType,
@@ -280,8 +304,8 @@ import {
   InstancesDistribution,
   InvalidNextToken,
   LaunchConfiguration,
-  LaunchConfigurationNameType,
   LaunchConfigurationNamesType,
+  LaunchConfigurationNameType,
   LaunchConfigurationsType,
   LaunchTemplate,
   LaunchTemplateOverrides,
@@ -305,8 +329,8 @@ import {
   PredictiveScalingPredefinedLoadMetric,
   PredictiveScalingPredefinedMetricPair,
   PredictiveScalingPredefinedScalingMetric,
-  ProcessType,
   ProcessesType,
+  ProcessType,
   PutLifecycleHookAnswer,
   PutLifecycleHookType,
   PutNotificationConfigurationType,
@@ -342,29 +366,6 @@ import {
   UpdateAutoScalingGroupType,
   WarmPoolConfiguration,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAttachInstancesCommand = async (
   input: AttachInstancesCommandInput,
@@ -1351,7 +1352,7 @@ const deserializeAws_queryAttachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1413,7 +1414,7 @@ const deserializeAws_queryAttachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1478,7 +1479,7 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1540,7 +1541,7 @@ const deserializeAws_queryBatchDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1597,7 +1598,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1667,7 +1668,7 @@ const deserializeAws_queryCancelInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ActiveInstanceRefreshNotFoundFault":
@@ -1737,7 +1738,7 @@ const deserializeAws_queryCompleteLifecycleActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -1788,7 +1789,7 @@ const deserializeAws_queryCreateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1863,7 +1864,7 @@ const deserializeAws_queryCreateLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -1930,7 +1931,7 @@ const deserializeAws_queryCreateOrUpdateTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -2005,7 +2006,7 @@ const deserializeAws_queryDeleteAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2072,7 +2073,7 @@ const deserializeAws_queryDeleteLaunchConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2134,7 +2135,7 @@ const deserializeAws_queryDeleteLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2185,7 +2186,7 @@ const deserializeAws_queryDeleteNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2236,7 +2237,7 @@ const deserializeAws_queryDeletePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2295,7 +2296,7 @@ const deserializeAws_queryDeleteScheduledActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2346,7 +2347,7 @@ const deserializeAws_queryDeleteTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2408,7 +2409,7 @@ const deserializeAws_queryDeleteWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -2486,7 +2487,7 @@ const deserializeAws_queryDescribeAccountLimitsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2540,7 +2541,7 @@ const deserializeAws_queryDescribeAdjustmentTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2594,7 +2595,7 @@ const deserializeAws_queryDescribeAutoScalingGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2656,7 +2657,7 @@ const deserializeAws_queryDescribeAutoScalingInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2721,7 +2722,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2775,7 +2776,7 @@ const deserializeAws_queryDescribeInstanceRefreshesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2837,7 +2838,7 @@ const deserializeAws_queryDescribeLaunchConfigurationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -2899,7 +2900,7 @@ const deserializeAws_queryDescribeLifecycleHooksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -2953,7 +2954,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3007,7 +3008,7 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3064,7 +3065,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3118,7 +3119,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3175,7 +3176,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3237,7 +3238,7 @@ const deserializeAws_queryDescribePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3307,7 +3308,7 @@ const deserializeAws_queryDescribeScalingActivitiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3369,7 +3370,7 @@ const deserializeAws_queryDescribeScalingProcessTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3423,7 +3424,7 @@ const deserializeAws_queryDescribeScheduledActionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3485,7 +3486,7 @@ const deserializeAws_queryDescribeTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3550,7 +3551,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3604,7 +3605,7 @@ const deserializeAws_queryDescribeWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidNextToken":
@@ -3674,7 +3675,7 @@ const deserializeAws_queryDetachInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3728,7 +3729,7 @@ const deserializeAws_queryDetachLoadBalancersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3785,7 +3786,7 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3836,7 +3837,7 @@ const deserializeAws_queryDisableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3887,7 +3888,7 @@ const deserializeAws_queryEnableMetricsCollectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3941,7 +3942,7 @@ const deserializeAws_queryEnterStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -3992,7 +3993,7 @@ const deserializeAws_queryExecutePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4054,7 +4055,7 @@ const deserializeAws_queryExitStandbyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4108,7 +4109,7 @@ const deserializeAws_queryGetPredictiveScalingForecastCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4162,7 +4163,7 @@ const deserializeAws_queryPutLifecycleHookCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4221,7 +4222,7 @@ const deserializeAws_queryPutNotificationConfigurationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4291,7 +4292,7 @@ const deserializeAws_queryPutScalingPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4358,7 +4359,7 @@ const deserializeAws_queryPutScheduledUpdateGroupActionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AlreadyExistsFault":
@@ -4428,7 +4429,7 @@ const deserializeAws_queryPutWarmPoolCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4493,7 +4494,7 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4544,7 +4545,7 @@ const deserializeAws_queryResumeProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4603,7 +4604,7 @@ const deserializeAws_querySetDesiredCapacityCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4662,7 +4663,7 @@ const deserializeAws_querySetInstanceHealthCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4716,7 +4717,7 @@ const deserializeAws_querySetInstanceProtectionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "LimitExceededFault":
@@ -4778,7 +4779,7 @@ const deserializeAws_queryStartInstanceRefreshCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InstanceRefreshInProgressFault":
@@ -4845,7 +4846,7 @@ const deserializeAws_querySuspendProcessesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4907,7 +4908,7 @@ const deserializeAws_queryTerminateInstanceInAutoScalingGroupCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -4966,7 +4967,7 @@ const deserializeAws_queryUpdateAutoScalingGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ResourceContentionFault":
@@ -5148,7 +5149,7 @@ const deserializeAws_queryServiceLinkedRoleFailureResponse = async (
 const serializeAws_queryActivityIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5209,7 +5210,7 @@ const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
 const serializeAws_queryAutoScalingGroupNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5243,7 +5244,7 @@ const serializeAws_queryAutoScalingGroupNamesType = (
 const serializeAws_queryAutoScalingNotificationTypes = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5256,7 +5257,7 @@ const serializeAws_queryAutoScalingNotificationTypes = (input: string[], context
 const serializeAws_queryAvailabilityZones = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5329,7 +5330,7 @@ const serializeAws_queryBlockDeviceMapping = (input: BlockDeviceMapping, context
 const serializeAws_queryBlockDeviceMappings = (input: BlockDeviceMapping[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5356,7 +5357,7 @@ const serializeAws_queryCancelInstanceRefreshType = (
 const serializeAws_queryCheckpointPercentages = (input: number[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5369,7 +5370,7 @@ const serializeAws_queryCheckpointPercentages = (input: number[], context: __Ser
 const serializeAws_queryClassicLinkVPCSecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6166,7 +6167,7 @@ const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any =
 const serializeAws_queryFilters = (input: Filter[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6202,7 +6203,7 @@ const serializeAws_queryGetPredictiveScalingForecastType = (
 const serializeAws_queryInstanceIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6237,7 +6238,7 @@ const serializeAws_queryInstanceMonitoring = (input: InstanceMonitoring, context
 const serializeAws_queryInstanceRefreshIds = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6273,7 +6274,7 @@ const serializeAws_queryInstancesDistribution = (input: InstancesDistribution, c
 const serializeAws_queryLaunchConfigurationNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6372,7 +6373,7 @@ const serializeAws_queryLaunchTemplateSpecification = (
 const serializeAws_queryLifecycleHookNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6417,7 +6418,7 @@ const serializeAws_queryLifecycleHookSpecifications = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6433,7 +6434,7 @@ const serializeAws_queryLifecycleHookSpecifications = (
 const serializeAws_queryLoadBalancerNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6457,7 +6458,7 @@ const serializeAws_queryMetricDimension = (input: MetricDimension, context: __Se
 const serializeAws_queryMetricDimensions = (input: MetricDimension[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6473,7 +6474,7 @@ const serializeAws_queryMetricDimensions = (input: MetricDimension[], context: _
 const serializeAws_queryMetrics = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6505,7 +6506,7 @@ const serializeAws_queryMixedInstancesPolicy = (input: MixedInstancesPolicy, con
 const serializeAws_queryOverrides = (input: LaunchTemplateOverrides[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6521,7 +6522,7 @@ const serializeAws_queryOverrides = (input: LaunchTemplateOverrides[], context: 
 const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6534,7 +6535,7 @@ const serializeAws_queryPolicyNames = (input: string[], context: __SerdeContext)
 const serializeAws_queryPolicyTypes = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6632,7 +6633,7 @@ const serializeAws_queryPredictiveScalingMetricSpecifications = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6690,7 +6691,7 @@ const serializeAws_queryPredictiveScalingPredefinedScalingMetric = (
 const serializeAws_queryProcessNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6929,7 +6930,7 @@ const serializeAws_queryScalingProcessQuery = (input: ScalingProcessQuery, conte
 const serializeAws_queryScheduledActionNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6977,7 +6978,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
 ): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -6993,7 +6994,7 @@ const serializeAws_queryScheduledUpdateGroupActionRequests = (
 const serializeAws_querySecurityGroups = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7094,7 +7095,7 @@ const serializeAws_queryStepAdjustment = (input: StepAdjustment, context: __Serd
 const serializeAws_queryStepAdjustments = (input: StepAdjustment[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7130,7 +7131,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7146,7 +7147,7 @@ const serializeAws_queryTags = (input: Tag[], context: __SerdeContext): any => {
 const serializeAws_queryTargetGroupARNs = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7201,7 +7202,7 @@ const serializeAws_queryTerminateInstanceInAutoScalingGroupType = (
 const serializeAws_queryTerminationPolicies = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7295,7 +7296,7 @@ const serializeAws_queryUpdateAutoScalingGroupType = (
 const serializeAws_queryValues = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -7309,7 +7310,7 @@ const deserializeAws_queryActiveInstanceRefreshNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ActiveInstanceRefreshNotFoundFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7330,7 +7331,7 @@ const deserializeAws_queryActivities = (output: any, context: __SerdeContext): A
 };
 
 const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext): ActivitiesType => {
-  let contents: any = {
+  const contents: any = {
     Activities: undefined,
     NextToken: undefined,
   };
@@ -7350,7 +7351,7 @@ const deserializeAws_queryActivitiesType = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Activity => {
-  let contents: any = {
+  const contents: any = {
     ActivityId: undefined,
     AutoScalingGroupName: undefined,
     Description: undefined,
@@ -7404,7 +7405,7 @@ const deserializeAws_queryActivity = (output: any, context: __SerdeContext): Act
 };
 
 const deserializeAws_queryActivityType = (output: any, context: __SerdeContext): ActivityType => {
-  let contents: any = {
+  const contents: any = {
     Activity: undefined,
   };
   if (output["Activity"] !== undefined) {
@@ -7414,7 +7415,7 @@ const deserializeAws_queryActivityType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryAdjustmentType = (output: any, context: __SerdeContext): AdjustmentType => {
-  let contents: any = {
+  const contents: any = {
     AdjustmentType: undefined,
   };
   if (output["AdjustmentType"] !== undefined) {
@@ -7435,7 +7436,7 @@ const deserializeAws_queryAdjustmentTypes = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAlarm = (output: any, context: __SerdeContext): Alarm => {
-  let contents: any = {
+  const contents: any = {
     AlarmName: undefined,
     AlarmARN: undefined,
   };
@@ -7460,7 +7461,7 @@ const deserializeAws_queryAlarms = (output: any, context: __SerdeContext): Alarm
 };
 
 const deserializeAws_queryAlreadyExistsFault = (output: any, context: __SerdeContext): AlreadyExistsFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -7473,7 +7474,7 @@ const deserializeAws_queryAttachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancersResultType => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -7481,12 +7482,12 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
   output: any,
   context: __SerdeContext
 ): AttachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingGroupName: undefined,
     AutoScalingGroupARN: undefined,
     LaunchConfigurationName: undefined,
@@ -7672,7 +7673,7 @@ const deserializeAws_queryAutoScalingGroups = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryAutoScalingGroupsType = (output: any, context: __SerdeContext): AutoScalingGroupsType => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingGroups: undefined,
     NextToken: undefined,
   };
@@ -7695,7 +7696,7 @@ const deserializeAws_queryAutoScalingInstanceDetails = (
   output: any,
   context: __SerdeContext
 ): AutoScalingInstanceDetails => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     InstanceType: undefined,
     AutoScalingGroupName: undefined,
@@ -7758,7 +7759,7 @@ const deserializeAws_queryAutoScalingInstancesType = (
   output: any,
   context: __SerdeContext
 ): AutoScalingInstancesType => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingInstances: undefined,
     NextToken: undefined,
   };
@@ -7803,7 +7804,7 @@ const deserializeAws_queryBatchDeleteScheduledActionAnswer = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteScheduledActionAnswer => {
-  let contents: any = {
+  const contents: any = {
     FailedScheduledActions: undefined,
   };
   if (output.FailedScheduledActions === "") {
@@ -7822,7 +7823,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
   output: any,
   context: __SerdeContext
 ): BatchPutScheduledUpdateGroupActionAnswer => {
-  let contents: any = {
+  const contents: any = {
     FailedScheduledUpdateGroupActions: undefined,
   };
   if (output.FailedScheduledUpdateGroupActions === "") {
@@ -7841,7 +7842,7 @@ const deserializeAws_queryBatchPutScheduledUpdateGroupActionAnswer = (
 };
 
 const deserializeAws_queryBlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
-  let contents: any = {
+  const contents: any = {
     VirtualName: undefined,
     DeviceName: undefined,
     Ebs: undefined,
@@ -7877,7 +7878,7 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
   output: any,
   context: __SerdeContext
 ): CancelInstanceRefreshAnswer => {
-  let contents: any = {
+  const contents: any = {
     InstanceRefreshId: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
@@ -7887,7 +7888,7 @@ const deserializeAws_queryCancelInstanceRefreshAnswer = (
 };
 
 const deserializeAws_queryCapacityForecast = (output: any, context: __SerdeContext): CapacityForecast => {
-  let contents: any = {
+  const contents: any = {
     Timestamps: undefined,
     Values: undefined,
   };
@@ -7938,7 +7939,7 @@ const deserializeAws_queryCompleteLifecycleActionAnswer = (
   output: any,
   context: __SerdeContext
 ): CompleteLifecycleActionAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -7946,7 +7947,7 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): CustomizedMetricSpecification => {
-  let contents: any = {
+  const contents: any = {
     MetricName: undefined,
     Namespace: undefined,
     Dimensions: undefined,
@@ -7981,12 +7982,12 @@ const deserializeAws_queryDeleteLifecycleHookAnswer = (
   output: any,
   context: __SerdeContext
 ): DeleteLifecycleHookAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteWarmPoolAnswer = (output: any, context: __SerdeContext): DeleteWarmPoolAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -7994,7 +7995,7 @@ const deserializeAws_queryDescribeAccountLimitsAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountLimitsAnswer => {
-  let contents: any = {
+  const contents: any = {
     MaxNumberOfAutoScalingGroups: undefined,
     MaxNumberOfLaunchConfigurations: undefined,
     NumberOfAutoScalingGroups: undefined,
@@ -8019,7 +8020,7 @@ const deserializeAws_queryDescribeAdjustmentTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAdjustmentTypesAnswer => {
-  let contents: any = {
+  const contents: any = {
     AdjustmentTypes: undefined,
   };
   if (output.AdjustmentTypes === "") {
@@ -8038,7 +8039,7 @@ const deserializeAws_queryDescribeAutoScalingNotificationTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeAutoScalingNotificationTypesAnswer => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingNotificationTypes: undefined,
   };
   if (output.AutoScalingNotificationTypes === "") {
@@ -8060,7 +8061,7 @@ const deserializeAws_queryDescribeInstanceRefreshesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeInstanceRefreshesAnswer => {
-  let contents: any = {
+  const contents: any = {
     InstanceRefreshes: undefined,
     NextToken: undefined,
   };
@@ -8083,7 +8084,7 @@ const deserializeAws_queryDescribeLifecycleHooksAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeLifecycleHooksAnswer => {
-  let contents: any = {
+  const contents: any = {
     LifecycleHooks: undefined,
   };
   if (output.LifecycleHooks === "") {
@@ -8102,7 +8103,7 @@ const deserializeAws_queryDescribeLifecycleHookTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeLifecycleHookTypesAnswer => {
-  let contents: any = {
+  const contents: any = {
     LifecycleHookTypes: undefined,
   };
   if (output.LifecycleHookTypes === "") {
@@ -8121,7 +8122,7 @@ const deserializeAws_queryDescribeLoadBalancersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancersResponse => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancers: undefined,
     NextToken: undefined,
   };
@@ -8144,7 +8145,7 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeLoadBalancerTargetGroupsResponse => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerTargetGroups: undefined,
     NextToken: undefined,
   };
@@ -8167,7 +8168,7 @@ const deserializeAws_queryDescribeMetricCollectionTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeMetricCollectionTypesAnswer => {
-  let contents: any = {
+  const contents: any = {
     Metrics: undefined,
     Granularities: undefined,
   };
@@ -8196,7 +8197,7 @@ const deserializeAws_queryDescribeNotificationConfigurationsAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeNotificationConfigurationsAnswer => {
-  let contents: any = {
+  const contents: any = {
     NotificationConfigurations: undefined,
     NextToken: undefined,
   };
@@ -8222,7 +8223,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
   output: any,
   context: __SerdeContext
 ): DescribeTerminationPolicyTypesAnswer => {
-  let contents: any = {
+  const contents: any = {
     TerminationPolicyTypes: undefined,
   };
   if (output.TerminationPolicyTypes === "") {
@@ -8238,7 +8239,7 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
 };
 
 const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __SerdeContext): DescribeWarmPoolAnswer => {
-  let contents: any = {
+  const contents: any = {
     WarmPoolConfiguration: undefined,
     Instances: undefined,
     NextToken: undefined,
@@ -8262,7 +8263,7 @@ const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __Serd
 };
 
 const deserializeAws_queryDesiredConfiguration = (output: any, context: __SerdeContext): DesiredConfiguration => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplate: undefined,
     MixedInstancesPolicy: undefined,
   };
@@ -8276,7 +8277,7 @@ const deserializeAws_queryDesiredConfiguration = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryDetachInstancesAnswer = (output: any, context: __SerdeContext): DetachInstancesAnswer => {
-  let contents: any = {
+  const contents: any = {
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -8295,7 +8296,7 @@ const deserializeAws_queryDetachLoadBalancersResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancersResultType => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -8303,12 +8304,12 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancerTargetGroupsResultType => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
-  let contents: any = {
+  const contents: any = {
     SnapshotId: undefined,
     VolumeSize: undefined,
     VolumeType: undefined,
@@ -8342,7 +8343,7 @@ const deserializeAws_queryEbs = (output: any, context: __SerdeContext): Ebs => {
 };
 
 const deserializeAws_queryEnabledMetric = (output: any, context: __SerdeContext): EnabledMetric => {
-  let contents: any = {
+  const contents: any = {
     Metric: undefined,
     Granularity: undefined,
   };
@@ -8367,7 +8368,7 @@ const deserializeAws_queryEnabledMetrics = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryEnterStandbyAnswer = (output: any, context: __SerdeContext): EnterStandbyAnswer => {
-  let contents: any = {
+  const contents: any = {
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -8383,7 +8384,7 @@ const deserializeAws_queryEnterStandbyAnswer = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryExitStandbyAnswer = (output: any, context: __SerdeContext): ExitStandbyAnswer => {
-  let contents: any = {
+  const contents: any = {
     Activities: undefined,
   };
   if (output.Activities === "") {
@@ -8402,7 +8403,7 @@ const deserializeAws_queryFailedScheduledUpdateGroupActionRequest = (
   output: any,
   context: __SerdeContext
 ): FailedScheduledUpdateGroupActionRequest => {
-  let contents: any = {
+  const contents: any = {
     ScheduledActionName: undefined,
     ErrorCode: undefined,
     ErrorMessage: undefined,
@@ -8437,7 +8438,7 @@ const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
   output: any,
   context: __SerdeContext
 ): GetPredictiveScalingForecastAnswer => {
-  let contents: any = {
+  const contents: any = {
     LoadForecast: undefined,
     CapacityForecast: undefined,
     UpdateTime: undefined,
@@ -8461,7 +8462,7 @@ const deserializeAws_queryGetPredictiveScalingForecastAnswer = (
 };
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
-  let contents: any = {
+  const contents: any = {
     InstanceId: undefined,
     InstanceType: undefined,
     AvailabilityZone: undefined,
@@ -8503,7 +8504,7 @@ const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Ins
 };
 
 const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __SerdeContext): InstanceMetadataOptions => {
-  let contents: any = {
+  const contents: any = {
     HttpTokens: undefined,
     HttpPutResponseHopLimit: undefined,
     HttpEndpoint: undefined,
@@ -8521,7 +8522,7 @@ const deserializeAws_queryInstanceMetadataOptions = (output: any, context: __Ser
 };
 
 const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
   };
   if (output["Enabled"] !== undefined) {
@@ -8531,7 +8532,7 @@ const deserializeAws_queryInstanceMonitoring = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryInstanceRefresh = (output: any, context: __SerdeContext): InstanceRefresh => {
-  let contents: any = {
+  const contents: any = {
     InstanceRefreshId: undefined,
     AutoScalingGroupName: undefined,
     Status: undefined,
@@ -8595,7 +8596,7 @@ const deserializeAws_queryInstanceRefreshInProgressFault = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshInProgressFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8608,7 +8609,7 @@ const deserializeAws_queryInstanceRefreshLivePoolProgress = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshLivePoolProgress => {
-  let contents: any = {
+  const contents: any = {
     PercentageComplete: undefined,
     InstancesToUpdate: undefined,
   };
@@ -8625,7 +8626,7 @@ const deserializeAws_queryInstanceRefreshProgressDetails = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshProgressDetails => {
-  let contents: any = {
+  const contents: any = {
     LivePoolProgress: undefined,
     WarmPoolProgress: undefined,
   };
@@ -8648,7 +8649,7 @@ const deserializeAws_queryInstanceRefreshWarmPoolProgress = (
   output: any,
   context: __SerdeContext
 ): InstanceRefreshWarmPoolProgress => {
-  let contents: any = {
+  const contents: any = {
     PercentageComplete: undefined,
     InstancesToUpdate: undefined,
   };
@@ -8673,7 +8674,7 @@ const deserializeAws_queryInstances = (output: any, context: __SerdeContext): In
 };
 
 const deserializeAws_queryInstancesDistribution = (output: any, context: __SerdeContext): InstancesDistribution => {
-  let contents: any = {
+  const contents: any = {
     OnDemandAllocationStrategy: undefined,
     OnDemandBaseCapacity: undefined,
     OnDemandPercentageAboveBaseCapacity: undefined,
@@ -8705,7 +8706,7 @@ const deserializeAws_queryInstancesDistribution = (output: any, context: __Serde
 };
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8715,7 +8716,7 @@ const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
-  let contents: any = {
+  const contents: any = {
     LaunchConfigurationName: undefined,
     LaunchConfigurationARN: undefined,
     ImageId: undefined,
@@ -8836,7 +8837,7 @@ const deserializeAws_queryLaunchConfigurationsType = (
   output: any,
   context: __SerdeContext
 ): LaunchConfigurationsType => {
-  let contents: any = {
+  const contents: any = {
     LaunchConfigurations: undefined,
     NextToken: undefined,
   };
@@ -8856,7 +8857,7 @@ const deserializeAws_queryLaunchConfigurationsType = (
 };
 
 const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -8876,7 +8877,7 @@ const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryLaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
-  let contents: any = {
+  const contents: any = {
     InstanceType: undefined,
     WeightedCapacity: undefined,
     LaunchTemplateSpecification: undefined,
@@ -8900,7 +8901,7 @@ const deserializeAws_queryLaunchTemplateSpecification = (
   output: any,
   context: __SerdeContext
 ): LaunchTemplateSpecification => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplateId: undefined,
     LaunchTemplateName: undefined,
     Version: undefined,
@@ -8918,7 +8919,7 @@ const deserializeAws_queryLaunchTemplateSpecification = (
 };
 
 const deserializeAws_queryLifecycleHook = (output: any, context: __SerdeContext): LifecycleHook => {
-  let contents: any = {
+  const contents: any = {
     LifecycleHookName: undefined,
     AutoScalingGroupName: undefined,
     LifecycleTransition: undefined,
@@ -8971,7 +8972,7 @@ const deserializeAws_queryLifecycleHooks = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -8992,7 +8993,7 @@ const deserializeAws_queryLoadBalancerNames = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerName: undefined,
     State: undefined,
   };
@@ -9020,7 +9021,7 @@ const deserializeAws_queryLoadBalancerTargetGroupState = (
   output: any,
   context: __SerdeContext
 ): LoadBalancerTargetGroupState => {
-  let contents: any = {
+  const contents: any = {
     LoadBalancerTargetGroupARN: undefined,
     State: undefined,
   };
@@ -9048,7 +9049,7 @@ const deserializeAws_queryLoadBalancerTargetGroupStates = (
 };
 
 const deserializeAws_queryLoadForecast = (output: any, context: __SerdeContext): LoadForecast => {
-  let contents: any = {
+  const contents: any = {
     Timestamps: undefined,
     Values: undefined,
     MetricSpecification: undefined,
@@ -9092,7 +9093,7 @@ const deserializeAws_queryLoadForecasts = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryMetricCollectionType = (output: any, context: __SerdeContext): MetricCollectionType => {
-  let contents: any = {
+  const contents: any = {
     Metric: undefined,
   };
   if (output["Metric"] !== undefined) {
@@ -9113,7 +9114,7 @@ const deserializeAws_queryMetricCollectionTypes = (output: any, context: __Serde
 };
 
 const deserializeAws_queryMetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Value: undefined,
   };
@@ -9138,7 +9139,7 @@ const deserializeAws_queryMetricDimensions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryMetricGranularityType = (output: any, context: __SerdeContext): MetricGranularityType => {
-  let contents: any = {
+  const contents: any = {
     Granularity: undefined,
   };
   if (output["Granularity"] !== undefined) {
@@ -9159,7 +9160,7 @@ const deserializeAws_queryMetricGranularityTypes = (output: any, context: __Serd
 };
 
 const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeContext): MixedInstancesPolicy => {
-  let contents: any = {
+  const contents: any = {
     LaunchTemplate: undefined,
     InstancesDistribution: undefined,
   };
@@ -9179,7 +9180,7 @@ const deserializeAws_queryNotificationConfiguration = (
   output: any,
   context: __SerdeContext
 ): NotificationConfiguration => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingGroupName: undefined,
     TopicARN: undefined,
     NotificationType: undefined,
@@ -9222,7 +9223,7 @@ const deserializeAws_queryOverrides = (output: any, context: __SerdeContext): La
 };
 
 const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext): PoliciesType => {
-  let contents: any = {
+  const contents: any = {
     ScalingPolicies: undefined,
     NextToken: undefined,
   };
@@ -9242,7 +9243,7 @@ const deserializeAws_queryPoliciesType = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryPolicyARNType = (output: any, context: __SerdeContext): PolicyARNType => {
-  let contents: any = {
+  const contents: any = {
     PolicyARN: undefined,
     Alarms: undefined,
   };
@@ -9262,7 +9263,7 @@ const deserializeAws_queryPredefinedMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): PredefinedMetricSpecification => {
-  let contents: any = {
+  const contents: any = {
     PredefinedMetricType: undefined,
     ResourceLabel: undefined,
   };
@@ -9279,7 +9280,7 @@ const deserializeAws_queryPredictiveScalingConfiguration = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingConfiguration => {
-  let contents: any = {
+  const contents: any = {
     MetricSpecifications: undefined,
     Mode: undefined,
     SchedulingBufferTime: undefined,
@@ -9336,7 +9337,7 @@ const deserializeAws_queryPredictiveScalingMetricSpecification = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingMetricSpecification => {
-  let contents: any = {
+  const contents: any = {
     TargetValue: undefined,
     PredefinedMetricPairSpecification: undefined,
     PredefinedScalingMetricSpecification: undefined,
@@ -9384,7 +9385,7 @@ const deserializeAws_queryPredictiveScalingPredefinedLoadMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedLoadMetric => {
-  let contents: any = {
+  const contents: any = {
     PredefinedMetricType: undefined,
     ResourceLabel: undefined,
   };
@@ -9401,7 +9402,7 @@ const deserializeAws_queryPredictiveScalingPredefinedMetricPair = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedMetricPair => {
-  let contents: any = {
+  const contents: any = {
     PredefinedMetricType: undefined,
     ResourceLabel: undefined,
   };
@@ -9418,7 +9419,7 @@ const deserializeAws_queryPredictiveScalingPredefinedScalingMetric = (
   output: any,
   context: __SerdeContext
 ): PredictiveScalingPredefinedScalingMetric => {
-  let contents: any = {
+  const contents: any = {
     PredefinedMetricType: undefined,
     ResourceLabel: undefined,
   };
@@ -9443,7 +9444,7 @@ const deserializeAws_queryProcesses = (output: any, context: __SerdeContext): Pr
 };
 
 const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
-  let contents: any = {
+  const contents: any = {
     Processes: undefined,
   };
   if (output.Processes === "") {
@@ -9456,7 +9457,7 @@ const deserializeAws_queryProcessesType = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): ProcessType => {
-  let contents: any = {
+  const contents: any = {
     ProcessName: undefined,
   };
   if (output["ProcessName"] !== undefined) {
@@ -9466,12 +9467,12 @@ const deserializeAws_queryProcessType = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryPutLifecycleHookAnswer = (output: any, context: __SerdeContext): PutLifecycleHookAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryPutWarmPoolAnswer = (output: any, context: __SerdeContext): PutWarmPoolAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9479,12 +9480,12 @@ const deserializeAws_queryRecordLifecycleActionHeartbeatAnswer = (
   output: any,
   context: __SerdeContext
 ): RecordLifecycleActionHeartbeatAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeContext): RefreshPreferences => {
-  let contents: any = {
+  const contents: any = {
     MinHealthyPercentage: undefined,
     InstanceWarmup: undefined,
     CheckpointPercentages: undefined,
@@ -9516,7 +9517,7 @@ const deserializeAws_queryRefreshPreferences = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryResourceContentionFault = (output: any, context: __SerdeContext): ResourceContentionFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9526,7 +9527,7 @@ const deserializeAws_queryResourceContentionFault = (output: any, context: __Ser
 };
 
 const deserializeAws_queryResourceInUseFault = (output: any, context: __SerdeContext): ResourceInUseFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9539,7 +9540,7 @@ const deserializeAws_queryScalingActivityInProgressFault = (
   output: any,
   context: __SerdeContext
 ): ScalingActivityInProgressFault => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9560,7 +9561,7 @@ const deserializeAws_queryScalingPolicies = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingGroupName: undefined,
     PolicyName: undefined,
     PolicyARN: undefined,
@@ -9645,7 +9646,7 @@ const deserializeAws_queryScalingPolicy = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryScheduledActionsType = (output: any, context: __SerdeContext): ScheduledActionsType => {
-  let contents: any = {
+  const contents: any = {
     ScheduledUpdateGroupActions: undefined,
     NextToken: undefined,
   };
@@ -9671,7 +9672,7 @@ const deserializeAws_queryScheduledUpdateGroupAction = (
   output: any,
   context: __SerdeContext
 ): ScheduledUpdateGroupAction => {
-  let contents: any = {
+  const contents: any = {
     AutoScalingGroupName: undefined,
     ScheduledActionName: undefined,
     ScheduledActionARN: undefined,
@@ -9749,7 +9750,7 @@ const deserializeAws_queryServiceLinkedRoleFailure = (
   output: any,
   context: __SerdeContext
 ): ServiceLinkedRoleFailure => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -9762,7 +9763,7 @@ const deserializeAws_querySetInstanceProtectionAnswer = (
   output: any,
   context: __SerdeContext
 ): SetInstanceProtectionAnswer => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
@@ -9770,7 +9771,7 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
   output: any,
   context: __SerdeContext
 ): StartInstanceRefreshAnswer => {
-  let contents: any = {
+  const contents: any = {
     InstanceRefreshId: undefined,
   };
   if (output["InstanceRefreshId"] !== undefined) {
@@ -9780,7 +9781,7 @@ const deserializeAws_queryStartInstanceRefreshAnswer = (
 };
 
 const deserializeAws_queryStepAdjustment = (output: any, context: __SerdeContext): StepAdjustment => {
-  let contents: any = {
+  const contents: any = {
     MetricIntervalLowerBound: undefined,
     MetricIntervalUpperBound: undefined,
     ScalingAdjustment: undefined,
@@ -9809,7 +9810,7 @@ const deserializeAws_queryStepAdjustments = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_querySuspendedProcess = (output: any, context: __SerdeContext): SuspendedProcess => {
-  let contents: any = {
+  const contents: any = {
     ProcessName: undefined,
     SuspensionReason: undefined,
   };
@@ -9834,7 +9835,7 @@ const deserializeAws_querySuspendedProcesses = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
-  let contents: any = {
+  const contents: any = {
     ResourceId: undefined,
     ResourceType: undefined,
     Key: undefined,
@@ -9871,7 +9872,7 @@ const deserializeAws_queryTagDescriptionList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagsType = (output: any, context: __SerdeContext): TagsType => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
     NextToken: undefined,
   };
@@ -9902,7 +9903,7 @@ const deserializeAws_queryTargetTrackingConfiguration = (
   output: any,
   context: __SerdeContext
 ): TargetTrackingConfiguration => {
-  let contents: any = {
+  const contents: any = {
     PredefinedMetricSpecification: undefined,
     CustomizedMetricSpecification: undefined,
     TargetValue: undefined,
@@ -9941,7 +9942,7 @@ const deserializeAws_queryTerminationPolicies = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryWarmPoolConfiguration = (output: any, context: __SerdeContext): WarmPoolConfiguration => {
-  let contents: any = {
+  const contents: any = {
     MaxGroupPreparedCapacity: undefined,
     MinSize: undefined,
     PoolState: undefined,

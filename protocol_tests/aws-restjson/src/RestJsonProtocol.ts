@@ -1,4 +1,5 @@
-import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AllQueryStringTypesCommand,
   AllQueryStringTypesCommandInput,
@@ -209,7 +210,7 @@ import {
   TimestampFormatHeadersCommandInput,
   TimestampFormatHeadersCommandOutput,
 } from "./commands/TimestampFormatHeadersCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RestJsonProtocolClient } from "./RestJsonProtocolClient";
 
 /**
  * A REST JSON service that sends JSON requests and responses.

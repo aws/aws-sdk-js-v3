@@ -1,11 +1,12 @@
-import { OpsWorksClient } from "../OpsWorksClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeAppsCommand, DescribeAppsCommandInput } from "../commands/DescribeAppsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { OpsWorksClient } from "../OpsWorksClient";
 
 const checkState = async (client: OpsWorksClient, input: DescribeAppsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeAppsCommand(input));
+    const result: any = await client.send(new DescribeAppsCommand(input));
     reason = result;
     return { state: WaiterState.SUCCESS, reason };
   } catch (exception) {

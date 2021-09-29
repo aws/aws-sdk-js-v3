@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Braket } from "../Braket";
 import { BraketClient } from "../BraketClient";
 import {
@@ -6,7 +8,6 @@ import {
   SearchDevicesCommandOutput,
 } from "../commands/SearchDevicesCommand";
 import { BraketPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

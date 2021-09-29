@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AccessAnalyzer } from "../AccessAnalyzer";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListAnalyzersCommandOutput,
 } from "../commands/ListAnalyzersCommand";
 import { AccessAnalyzerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

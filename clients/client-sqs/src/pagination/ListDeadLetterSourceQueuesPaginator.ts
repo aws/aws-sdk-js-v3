@@ -1,12 +1,13 @@
-import { SQS } from "../SQS";
-import { SQSClient } from "../SQSClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDeadLetterSourceQueuesCommand,
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
 } from "../commands/ListDeadLetterSourceQueuesCommand";
+import { SQS } from "../SQS";
+import { SQSClient } from "../SQSClient";
 import { SQSPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

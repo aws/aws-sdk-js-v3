@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SavingsplansClientConfig } from "./SavingsplansClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SavingsplansClientConfig } from "./SavingsplansClient";
 
 /**
  * @internal

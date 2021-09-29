@@ -1,4 +1,5 @@
-import { S3ControlClient } from "./S3ControlClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateAccessPointCommand,
   CreateAccessPointCommandInput,
@@ -268,7 +269,7 @@ import {
   UpdateJobStatusCommandInput,
   UpdateJobStatusCommandOutput,
 } from "./commands/UpdateJobStatusCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { S3ControlClient } from "./S3ControlClient";
 
 /**
  * <p>

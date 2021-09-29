@@ -1,9 +1,3 @@
-import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
-import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_0GetShardIteratorCommand,
-  serializeAws_json1_0GetShardIteratorCommand,
-} from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient";
+import { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
+import {
+  deserializeAws_json1_0GetShardIteratorCommand,
+  serializeAws_json1_0GetShardIteratorCommand,
+} from "../protocols/Aws_json1_0";
 
 export interface GetShardIteratorCommandInput extends GetShardIteratorInput {}
 export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, __MetadataBearer {}

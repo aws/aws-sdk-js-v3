@@ -1,12 +1,13 @@
-import { Translate } from "../Translate";
-import { TranslateClient } from "../TranslateClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTerminologiesCommand,
   ListTerminologiesCommandInput,
   ListTerminologiesCommandOutput,
 } from "../commands/ListTerminologiesCommand";
+import { Translate } from "../Translate";
+import { TranslateClient } from "../TranslateClient";
 import { TranslatePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

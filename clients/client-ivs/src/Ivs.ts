@@ -1,4 +1,5 @@
-import { IvsClient } from "./IvsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchGetChannelCommand,
   BatchGetChannelCommandInput,
@@ -105,7 +106,7 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IvsClient } from "./IvsClient";
 
 /**
  * <p>

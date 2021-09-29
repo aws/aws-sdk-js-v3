@@ -1,4 +1,5 @@
-import { CostExplorerClient } from "./CostExplorerClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateAnomalyMonitorCommand,
   CreateAnomalyMonitorCommandInput,
@@ -145,7 +146,7 @@ import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
 } from "./commands/UpdateCostCategoryDefinitionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { CostExplorerClient } from "./CostExplorerClient";
 
 /**
  * <p>You can use the Cost Explorer API to programmatically query your cost and usage data. You

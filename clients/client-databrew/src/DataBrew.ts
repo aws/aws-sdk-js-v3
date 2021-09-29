@@ -1,4 +1,5 @@
-import { DataBrewClient } from "./DataBrewClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchDeleteRecipeVersionCommand,
   BatchDeleteRecipeVersionCommandInput,
@@ -93,12 +94,12 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import {
   ListRecipeVersionsCommand,
   ListRecipeVersionsCommandInput,
   ListRecipeVersionsCommandOutput,
 } from "./commands/ListRecipeVersionsCommand";
-import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import {
   ListSchedulesCommand,
   ListSchedulesCommandInput,
@@ -162,7 +163,7 @@ import {
   UpdateScheduleCommandInput,
   UpdateScheduleCommandOutput,
 } from "./commands/UpdateScheduleCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DataBrewClient } from "./DataBrewClient";
 
 /**
  * <p>Glue DataBrew is a visual, cloud-scale data-preparation service. DataBrew

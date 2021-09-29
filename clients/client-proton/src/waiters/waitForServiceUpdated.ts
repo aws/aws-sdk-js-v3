@@ -1,14 +1,15 @@
-import { ProtonClient } from "../ProtonClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { GetServiceCommand, GetServiceCommandInput } from "../commands/GetServiceCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ProtonClient } from "../ProtonClient";
 
 const checkState = async (client: ProtonClient, input: GetServiceCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetServiceCommand(input));
+    const result: any = await client.send(new GetServiceCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       };
       if (returnComparator() === "ACTIVE") {
@@ -16,7 +17,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       };
       if (returnComparator() === "UPDATE_FAILED_CLEANUP_COMPLETE") {
@@ -24,7 +25,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       };
       if (returnComparator() === "UPDATE_FAILED_CLEANUP_FAILED") {
@@ -32,7 +33,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       };
       if (returnComparator() === "UPDATE_FAILED") {
@@ -40,7 +41,7 @@ const checkState = async (client: ProtonClient, input: GetServiceCommandInput): 
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.service.status;
       };
       if (returnComparator() === "UPDATE_COMPLETE_CLEANUP_FAILED") {

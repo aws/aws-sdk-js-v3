@@ -1,4 +1,5 @@
-import { RDSDataClient } from "./RDSDataClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput,
@@ -25,7 +26,7 @@ import {
   RollbackTransactionCommandInput,
   RollbackTransactionCommandOutput,
 } from "./commands/RollbackTransactionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RDSDataClient } from "./RDSDataClient";
 
 /**
  * <fullname>Amazon RDS Data Service</fullname>

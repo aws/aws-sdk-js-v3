@@ -1,3 +1,27 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "../commands/AssociateAliasCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "../commands/CreateCachePolicyCommand";
 import {
@@ -234,13 +258,13 @@ import {
   AccessDenied,
   ActiveTrustedKeyGroups,
   ActiveTrustedSigners,
-  AliasICPRecordal,
   Aliases,
+  AliasICPRecordal,
   AllowedMethods,
   BatchTooLarge,
-  CNAMEAlreadyExists,
   CacheBehavior,
   CacheBehaviors,
+  CachedMethods,
   CachePolicy,
   CachePolicyAlreadyExists,
   CachePolicyConfig,
@@ -250,12 +274,12 @@ import {
   CachePolicyList,
   CachePolicyQueryStringsConfig,
   CachePolicySummary,
-  CachedMethods,
   CannotChangeImmutablePublicKeyFields,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityAlreadyExists,
   CloudFrontOriginAccessIdentityConfig,
   CloudFrontOriginAccessIdentityInUse,
+  CNAMEAlreadyExists,
   ContentTypeProfile,
   ContentTypeProfileConfig,
   ContentTypeProfiles,
@@ -300,6 +324,8 @@ import {
   IllegalUpdate,
   InconsistentQuantities,
   InvalidArgument,
+  Invalidation,
+  InvalidationBatch,
   InvalidDefaultRootObject,
   InvalidErrorCode,
   InvalidForwardCookies,
@@ -319,17 +345,15 @@ import {
   InvalidRelativePath,
   InvalidRequiredProtocol,
   InvalidResponseCode,
-  InvalidTTLOrder,
   InvalidTagging,
+  InvalidTTLOrder,
   InvalidViewerCertificate,
   InvalidWebACLId,
-  Invalidation,
-  InvalidationBatch,
-  KGKeyPairIds,
   KeyGroup,
   KeyGroupAlreadyExists,
   KeyGroupConfig,
   KeyPairIds,
+  KGKeyPairIds,
   KinesisStreamConfig,
   LambdaFunctionAssociation,
   LambdaFunctionAssociations,
@@ -363,9 +387,9 @@ import {
   OriginRequestPolicyHeadersConfig,
   OriginRequestPolicyInUse,
   OriginRequestPolicyQueryStringsConfig,
+  Origins,
   OriginShield,
   OriginSslProtocols,
-  Origins,
   ParametersInCacheKeyAndForwardedToOrigin,
   Paths,
   PreconditionFailed,
@@ -479,29 +503,6 @@ import {
   TestFunctionFailed,
   TestResult,
 } from "../models/models_1";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_restXmlAssociateAliasCommand = async (
   input: AssociateAliasCommandInput,
@@ -545,7 +546,8 @@ export const serializeAws_restXmlCreateCachePolicyCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
   let body: any;
   if (input.CachePolicyConfig !== undefined) {
     body = serializeAws_restXmlCachePolicyConfig(input.CachePolicyConfig, context);
@@ -576,7 +578,7 @@ export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = a
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront";
   let body: any;
@@ -615,7 +617,8 @@ export const serializeAws_restXmlCreateDistributionCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
   let body: any;
   if (input.DistributionConfig !== undefined) {
     body = serializeAws_restXmlDistributionConfig(input.DistributionConfig, context);
@@ -646,7 +649,8 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
   const query: any = {
     WithTags: "",
   };
@@ -681,7 +685,7 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionConfigCommand = async
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
   let body: any;
   if (input.FieldLevelEncryptionConfig !== undefined) {
@@ -713,7 +717,7 @@ export const serializeAws_restXmlCreateFieldLevelEncryptionProfileCommand = asyn
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile";
   let body: any;
@@ -746,7 +750,7 @@ export const serializeAws_restXmlCreateFunctionCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateFunctionRequest");
@@ -827,7 +831,7 @@ export const serializeAws_restXmlCreateKeyGroupCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
   let body: any;
   if (input.KeyGroupConfig !== undefined) {
     body = serializeAws_restXmlKeyGroupConfig(input.KeyGroupConfig, context);
@@ -900,7 +904,7 @@ export const serializeAws_restXmlCreateOriginRequestPolicyCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
   let body: any;
   if (input.OriginRequestPolicyConfig !== undefined) {
@@ -932,7 +936,7 @@ export const serializeAws_restXmlCreatePublicKeyCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
   let body: any;
   if (input.PublicKeyConfig !== undefined) {
     body = serializeAws_restXmlPublicKeyConfig(input.PublicKeyConfig, context);
@@ -963,7 +967,7 @@ export const serializeAws_restXmlCreateRealtimeLogConfigCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1013,7 +1017,7 @@ export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
   let body: any;
   if (input.StreamingDistributionConfig !== undefined) {
@@ -1045,7 +1049,7 @@ export const serializeAws_restXmlCreateStreamingDistributionWithTagsCommand = as
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
   const query: any = {
     WithTags: "",
@@ -1395,7 +1399,7 @@ export const serializeAws_restXmlDeleteRealtimeLogConfigCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/delete-realtime-log-config";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -2065,7 +2069,7 @@ export const serializeAws_restXmlGetRealtimeLogConfigCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/get-realtime-log-config";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -2156,7 +2160,8 @@ export const serializeAws_restXmlListCachePoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/cache-policy";
   const query: any = {
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2181,7 +2186,7 @@ export const serializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommand = a
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront";
   const query: any = {
@@ -2207,7 +2212,7 @@ export const serializeAws_restXmlListConflictingAliasesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/conflicting-alias";
   const query: any = {
     ...(input.DistributionId !== undefined && { DistributionId: input.DistributionId }),
@@ -2234,7 +2239,8 @@ export const serializeAws_restXmlListDistributionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
@@ -2365,7 +2371,7 @@ export const serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand = a
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByRealtimeLogConfig";
   let body: any;
@@ -2445,7 +2451,7 @@ export const serializeAws_restXmlListFieldLevelEncryptionConfigsCommand = async 
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/field-level-encryption";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2470,7 +2476,7 @@ export const serializeAws_restXmlListFieldLevelEncryptionProfilesCommand = async
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/field-level-encryption-profile";
   const query: any = {
@@ -2496,7 +2502,7 @@ export const serializeAws_restXmlListFunctionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
@@ -2556,7 +2562,7 @@ export const serializeAws_restXmlListKeyGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/key-group";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
@@ -2580,7 +2586,7 @@ export const serializeAws_restXmlListOriginRequestPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/origin-request-policy";
   const query: any = {
     ...(input.Type !== undefined && { Type: input.Type }),
@@ -2606,7 +2612,7 @@ export const serializeAws_restXmlListPublicKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/public-key";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
@@ -2630,7 +2636,7 @@ export const serializeAws_restXmlListRealtimeLogConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
@@ -2655,7 +2661,7 @@ export const serializeAws_restXmlListStreamingDistributionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/streaming-distribution";
   const query: any = {
     ...(input.Marker !== undefined && { Marker: input.Marker }),
@@ -2680,7 +2686,7 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = {
     ...(input.Resource !== undefined && { Resource: input.Resource }),
   };
@@ -2736,7 +2742,7 @@ export const serializeAws_restXmlTagResourceCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = {
     Operation: "Tag",
     ...(input.Resource !== undefined && { Resource: input.Resource }),
@@ -2818,7 +2824,7 @@ export const serializeAws_restXmlUntagResourceCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = {
     Operation: "Untag",
     ...(input.Resource !== undefined && { Resource: input.Resource }),
@@ -3245,7 +3251,7 @@ export const serializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/realtime-log-config";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -3357,7 +3363,7 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -3450,7 +3456,7 @@ const deserializeAws_restXmlCreateCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -3567,7 +3573,7 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "CloudFrontOriginAccessIdentityAlreadyExists":
@@ -3660,7 +3666,7 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4178,7 +4184,7 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -4704,7 +4710,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionConfigAlreadyExists":
@@ -4821,7 +4827,7 @@ const deserializeAws_restXmlCreateFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FieldLevelEncryptionProfileAlreadyExists":
@@ -4938,7 +4944,7 @@ const deserializeAws_restXmlCreateFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionAlreadyExists":
@@ -5027,7 +5033,7 @@ const deserializeAws_restXmlCreateInvalidationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5136,7 +5142,7 @@ const deserializeAws_restXmlCreateKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -5213,7 +5219,7 @@ const deserializeAws_restXmlCreateMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5290,7 +5296,7 @@ const deserializeAws_restXmlCreateOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5407,7 +5413,7 @@ const deserializeAws_restXmlCreatePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -5478,7 +5484,7 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5563,7 +5569,7 @@ const deserializeAws_restXmlCreateStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5712,7 +5718,7 @@ const deserializeAws_restXmlCreateStreamingDistributionWithTagsCommandError = as
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5859,7 +5865,7 @@ const deserializeAws_restXmlDeleteCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -5950,7 +5956,7 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6033,7 +6039,7 @@ const deserializeAws_restXmlDeleteDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6116,7 +6122,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6199,7 +6205,7 @@ const deserializeAws_restXmlDeleteFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6282,7 +6288,7 @@ const deserializeAws_restXmlDeleteFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionInUse":
@@ -6365,7 +6371,7 @@ const deserializeAws_restXmlDeleteKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidIfMatchVersion":
@@ -6440,7 +6446,7 @@ const deserializeAws_restXmlDeleteMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6507,7 +6513,7 @@ const deserializeAws_restXmlDeleteOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6598,7 +6604,7 @@ const deserializeAws_restXmlDeletePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6681,7 +6687,7 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6756,7 +6762,7 @@ const deserializeAws_restXmlDeleteStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6845,7 +6851,7 @@ const deserializeAws_restXmlDescribeFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
@@ -6910,7 +6916,7 @@ const deserializeAws_restXmlGetCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -6975,7 +6981,7 @@ const deserializeAws_restXmlGetCachePolicyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7040,7 +7046,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7108,7 +7114,7 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7173,7 +7179,7 @@ const deserializeAws_restXmlGetDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7238,7 +7244,7 @@ const deserializeAws_restXmlGetDistributionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7303,7 +7309,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7368,7 +7374,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7433,7 +7439,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7498,7 +7504,7 @@ const deserializeAws_restXmlGetFieldLevelEncryptionProfileConfigCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7567,7 +7573,7 @@ const deserializeAws_restXmlGetFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchFunctionExists":
@@ -7628,7 +7634,7 @@ const deserializeAws_restXmlGetInvalidationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7701,7 +7707,7 @@ const deserializeAws_restXmlGetKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
@@ -7758,7 +7764,7 @@ const deserializeAws_restXmlGetKeyGroupConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "NoSuchResource":
@@ -7811,7 +7817,7 @@ const deserializeAws_restXmlGetMonitoringSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7884,7 +7890,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -7949,7 +7955,7 @@ const deserializeAws_restXmlGetOriginRequestPolicyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8014,7 +8020,7 @@ const deserializeAws_restXmlGetPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8079,7 +8085,7 @@ const deserializeAws_restXmlGetPublicKeyConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8142,7 +8148,7 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8215,7 +8221,7 @@ const deserializeAws_restXmlGetStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8280,7 +8286,7 @@ const deserializeAws_restXmlGetStreamingDistributionConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8341,7 +8347,7 @@ const deserializeAws_restXmlListCachePoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8410,7 +8416,7 @@ const deserializeAws_restXmlListCloudFrontOriginAccessIdentitiesCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8463,7 +8469,7 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8524,7 +8530,7 @@ const deserializeAws_restXmlListDistributionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8577,7 +8583,7 @@ const deserializeAws_restXmlListDistributionsByCachePolicyIdCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8646,7 +8652,7 @@ const deserializeAws_restXmlListDistributionsByKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8707,7 +8713,7 @@ const deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommandError
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -8776,7 +8782,7 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8829,7 +8835,7 @@ const deserializeAws_restXmlListDistributionsByWebACLIdCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8890,7 +8896,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionConfigsCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8943,7 +8949,7 @@ const deserializeAws_restXmlListFieldLevelEncryptionProfilesCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -8996,7 +9002,7 @@ const deserializeAws_restXmlListFunctionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9057,7 +9063,7 @@ const deserializeAws_restXmlListInvalidationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9126,7 +9132,7 @@ const deserializeAws_restXmlListKeyGroupsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9179,7 +9185,7 @@ const deserializeAws_restXmlListOriginRequestPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9248,7 +9254,7 @@ const deserializeAws_restXmlListPublicKeysCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9301,7 +9307,7 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9370,7 +9376,7 @@ const deserializeAws_restXmlListStreamingDistributionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9423,7 +9429,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9500,7 +9506,7 @@ const deserializeAws_restXmlPublishFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9583,7 +9589,7 @@ const deserializeAws_restXmlTagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9660,7 +9666,7 @@ const deserializeAws_restXmlTestFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -9743,7 +9749,7 @@ const deserializeAws_restXmlUntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9824,7 +9830,7 @@ const deserializeAws_restXmlUpdateCachePolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -9961,7 +9967,7 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -10074,7 +10080,7 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -10588,7 +10594,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionConfigCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -10725,7 +10731,7 @@ const deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -10870,7 +10876,7 @@ const deserializeAws_restXmlUpdateFunctionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "FunctionSizeLimitExceeded":
@@ -10967,7 +10973,7 @@ const deserializeAws_restXmlUpdateKeyGroupCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -11064,7 +11070,7 @@ const deserializeAws_restXmlUpdateOriginRequestPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -11201,7 +11207,7 @@ const deserializeAws_restXmlUpdatePublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -11304,7 +11310,7 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -11377,7 +11383,7 @@ const deserializeAws_restXmlUpdateStreamingDistributionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessDenied":
@@ -15587,7 +15593,7 @@ const serializeAws_restXmlViewerCertificate = (input: ViewerCertificate, context
 };
 
 const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __SerdeContext): ActiveTrustedKeyGroups => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -15611,7 +15617,7 @@ const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTrustedSigners => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -15632,7 +15638,7 @@ const deserializeAws_restXmlActiveTrustedSigners = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Aliases => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -15649,7 +15655,7 @@ const deserializeAws_restXmlAliases = (output: any, context: __SerdeContext): Al
 };
 
 const deserializeAws_restXmlAliasICPRecordal = (output: any, context: __SerdeContext): AliasICPRecordal => {
-  let contents: any = {
+  const contents: any = {
     CNAME: undefined,
     ICPRecordalStatus: undefined,
   };
@@ -15685,7 +15691,7 @@ const deserializeAws_restXmlAliasList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restXmlAllowedMethods = (output: any, context: __SerdeContext): AllowedMethods => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
     CachedMethods: undefined,
@@ -15717,7 +15723,7 @@ const deserializeAws_restXmlAwsAccountNumberList = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContext): CacheBehavior => {
-  let contents: any = {
+  const contents: any = {
     PathPattern: undefined,
     TargetOriginId: undefined,
     TrustedSigners: undefined,
@@ -15809,7 +15815,7 @@ const deserializeAws_restXmlCacheBehaviorList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -15829,7 +15835,7 @@ const deserializeAws_restXmlCacheBehaviors = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContext): CachedMethods => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -15846,7 +15852,7 @@ const deserializeAws_restXmlCachedMethods = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlCachePolicy = (output: any, context: __SerdeContext): CachePolicy => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     CachePolicyConfig: undefined,
@@ -15864,7 +15870,7 @@ const deserializeAws_restXmlCachePolicy = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlCachePolicyConfig = (output: any, context: __SerdeContext): CachePolicyConfig => {
-  let contents: any = {
+  const contents: any = {
     Comment: undefined,
     Name: undefined,
     DefaultTTL: undefined,
@@ -15900,7 +15906,7 @@ const deserializeAws_restXmlCachePolicyCookiesConfig = (
   output: any,
   context: __SerdeContext
 ): CachePolicyCookiesConfig => {
-  let contents: any = {
+  const contents: any = {
     CookieBehavior: undefined,
     Cookies: undefined,
   };
@@ -15917,7 +15923,7 @@ const deserializeAws_restXmlCachePolicyHeadersConfig = (
   output: any,
   context: __SerdeContext
 ): CachePolicyHeadersConfig => {
-  let contents: any = {
+  const contents: any = {
     HeaderBehavior: undefined,
     Headers: undefined,
   };
@@ -15931,7 +15937,7 @@ const deserializeAws_restXmlCachePolicyHeadersConfig = (
 };
 
 const deserializeAws_restXmlCachePolicyList = (output: any, context: __SerdeContext): CachePolicyList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -15962,7 +15968,7 @@ const deserializeAws_restXmlCachePolicyQueryStringsConfig = (
   output: any,
   context: __SerdeContext
 ): CachePolicyQueryStringsConfig => {
-  let contents: any = {
+  const contents: any = {
     QueryStringBehavior: undefined,
     QueryStrings: undefined,
   };
@@ -15976,7 +15982,7 @@ const deserializeAws_restXmlCachePolicyQueryStringsConfig = (
 };
 
 const deserializeAws_restXmlCachePolicySummary = (output: any, context: __SerdeContext): CachePolicySummary => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     CachePolicy: undefined,
   };
@@ -16004,7 +16010,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentity = (
   output: any,
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentity => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     S3CanonicalUserId: undefined,
     CloudFrontOriginAccessIdentityConfig: undefined,
@@ -16028,7 +16034,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityConfig = (
   output: any,
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityConfig => {
-  let contents: any = {
+  const contents: any = {
     CallerReference: undefined,
     Comment: undefined,
   };
@@ -16045,7 +16051,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentityList = (
   output: any,
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentityList => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -16084,7 +16090,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummary = (
   output: any,
   context: __SerdeContext
 ): CloudFrontOriginAccessIdentitySummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     S3CanonicalUserId: undefined,
     Comment: undefined,
@@ -16116,7 +16122,7 @@ const deserializeAws_restXmlCloudFrontOriginAccessIdentitySummaryList = (
 };
 
 const deserializeAws_restXmlConflictingAlias = (output: any, context: __SerdeContext): ConflictingAlias => {
-  let contents: any = {
+  const contents: any = {
     Alias: undefined,
     DistributionId: undefined,
     AccountId: undefined,
@@ -16145,7 +16151,7 @@ const deserializeAws_restXmlConflictingAliases = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlConflictingAliasesList = (output: any, context: __SerdeContext): ConflictingAliasesList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -16173,7 +16179,7 @@ const deserializeAws_restXmlConflictingAliasesList = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlContentTypeProfile = (output: any, context: __SerdeContext): ContentTypeProfile => {
-  let contents: any = {
+  const contents: any = {
     Format: undefined,
     ProfileId: undefined,
     ContentType: undefined,
@@ -16194,7 +16200,7 @@ const deserializeAws_restXmlContentTypeProfileConfig = (
   output: any,
   context: __SerdeContext
 ): ContentTypeProfileConfig => {
-  let contents: any = {
+  const contents: any = {
     ForwardWhenContentTypeIsUnknown: undefined,
     ContentTypeProfiles: undefined,
   };
@@ -16219,7 +16225,7 @@ const deserializeAws_restXmlContentTypeProfileList = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __SerdeContext): ContentTypeProfiles => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -16250,7 +16256,7 @@ const deserializeAws_restXmlCookieNameList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext): CookieNames => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -16267,7 +16273,7 @@ const deserializeAws_restXmlCookieNames = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlCookiePreference = (output: any, context: __SerdeContext): CookiePreference => {
-  let contents: any = {
+  const contents: any = {
     Forward: undefined,
     WhitelistedNames: undefined,
   };
@@ -16281,7 +16287,7 @@ const deserializeAws_restXmlCookiePreference = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlCustomErrorResponse = (output: any, context: __SerdeContext): CustomErrorResponse => {
-  let contents: any = {
+  const contents: any = {
     ErrorCode: undefined,
     ResponsePagePath: undefined,
     ResponseCode: undefined,
@@ -16314,7 +16320,7 @@ const deserializeAws_restXmlCustomErrorResponseList = (output: any, context: __S
 };
 
 const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __SerdeContext): CustomErrorResponses => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -16334,7 +16340,7 @@ const deserializeAws_restXmlCustomErrorResponses = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContext): CustomHeaders => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -16354,7 +16360,7 @@ const deserializeAws_restXmlCustomHeaders = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeContext): CustomOriginConfig => {
-  let contents: any = {
+  const contents: any = {
     HTTPPort: undefined,
     HTTPSPort: undefined,
     OriginProtocolPolicy: undefined,
@@ -16384,7 +16390,7 @@ const deserializeAws_restXmlCustomOriginConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultCacheBehavior => {
-  let contents: any = {
+  const contents: any = {
     TargetOriginId: undefined,
     TrustedSigners: undefined,
     TrustedKeyGroups: undefined,
@@ -16461,7 +16467,7 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext): Distribution => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     ARN: undefined,
     Status: undefined,
@@ -16516,7 +16522,7 @@ const deserializeAws_restXmlDistribution = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeContext): DistributionConfig => {
-  let contents: any = {
+  const contents: any = {
     CallerReference: undefined,
     Aliases: undefined,
     DefaultRootObject: undefined,
@@ -16590,7 +16596,7 @@ const deserializeAws_restXmlDistributionConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlDistributionIdList = (output: any, context: __SerdeContext): DistributionIdList => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -16637,7 +16643,7 @@ const deserializeAws_restXmlDistributionIdListSummary = (output: any, context: _
 };
 
 const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeContext): DistributionList => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -16673,7 +16679,7 @@ const deserializeAws_restXmlDistributionList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlDistributionSummary = (output: any, context: __SerdeContext): DistributionSummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     ARN: undefined,
     Status: undefined,
@@ -16776,7 +16782,7 @@ const deserializeAws_restXmlDistributionSummaryList = (output: any, context: __S
 };
 
 const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeContext): EncryptionEntities => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -16796,7 +16802,7 @@ const deserializeAws_restXmlEncryptionEntities = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlEncryptionEntity = (output: any, context: __SerdeContext): EncryptionEntity => {
-  let contents: any = {
+  const contents: any = {
     PublicKeyId: undefined,
     ProviderId: undefined,
     FieldPatterns: undefined,
@@ -16825,7 +16831,7 @@ const deserializeAws_restXmlEncryptionEntityList = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlEndPoint = (output: any, context: __SerdeContext): EndPoint => {
-  let contents: any = {
+  const contents: any = {
     StreamType: undefined,
     KinesisStreamConfig: undefined,
   };
@@ -16850,7 +16856,7 @@ const deserializeAws_restXmlEndPointList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlFieldLevelEncryption = (output: any, context: __SerdeContext): FieldLevelEncryption => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     FieldLevelEncryptionConfig: undefined,
@@ -16874,7 +16880,7 @@ const deserializeAws_restXmlFieldLevelEncryptionConfig = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionConfig => {
-  let contents: any = {
+  const contents: any = {
     CallerReference: undefined,
     Comment: undefined,
     QueryArgProfileConfig: undefined,
@@ -16905,7 +16911,7 @@ const deserializeAws_restXmlFieldLevelEncryptionList = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -16936,7 +16942,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfile = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionProfile => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     FieldLevelEncryptionProfileConfig: undefined,
@@ -16960,7 +16966,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileConfig = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionProfileConfig => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     CallerReference: undefined,
     Comment: undefined,
@@ -16985,7 +16991,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileList = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionProfileList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -17016,7 +17022,7 @@ const deserializeAws_restXmlFieldLevelEncryptionProfileSummary = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionProfileSummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     Name: undefined,
@@ -17059,7 +17065,7 @@ const deserializeAws_restXmlFieldLevelEncryptionSummary = (
   output: any,
   context: __SerdeContext
 ): FieldLevelEncryptionSummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     Comment: undefined,
@@ -17127,7 +17133,7 @@ const deserializeAws_restXmlFieldPatternList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContext): FieldPatterns => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17147,7 +17153,7 @@ const deserializeAws_restXmlFieldPatterns = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlForwardedValues = (output: any, context: __SerdeContext): ForwardedValues => {
-  let contents: any = {
+  const contents: any = {
     QueryString: undefined,
     Cookies: undefined,
     Headers: undefined,
@@ -17169,7 +17175,7 @@ const deserializeAws_restXmlForwardedValues = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlFunctionAssociation = (output: any, context: __SerdeContext): FunctionAssociation => {
-  let contents: any = {
+  const contents: any = {
     FunctionARN: undefined,
     EventType: undefined,
   };
@@ -17194,7 +17200,7 @@ const deserializeAws_restXmlFunctionAssociationList = (output: any, context: __S
 };
 
 const deserializeAws_restXmlFunctionAssociations = (output: any, context: __SerdeContext): FunctionAssociations => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17214,7 +17220,7 @@ const deserializeAws_restXmlFunctionAssociations = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlFunctionConfig = (output: any, context: __SerdeContext): FunctionConfig => {
-  let contents: any = {
+  const contents: any = {
     Comment: undefined,
     Runtime: undefined,
   };
@@ -17239,7 +17245,7 @@ const deserializeAws_restXmlFunctionExecutionLogList = (output: any, context: __
 };
 
 const deserializeAws_restXmlFunctionList = (output: any, context: __SerdeContext): FunctionList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -17267,7 +17273,7 @@ const deserializeAws_restXmlFunctionList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlFunctionMetadata = (output: any, context: __SerdeContext): FunctionMetadata => {
-  let contents: any = {
+  const contents: any = {
     FunctionARN: undefined,
     Stage: undefined,
     CreatedTime: undefined,
@@ -17289,7 +17295,7 @@ const deserializeAws_restXmlFunctionMetadata = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlFunctionSummary = (output: any, context: __SerdeContext): FunctionSummary => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Status: undefined,
     FunctionConfig: undefined,
@@ -17322,7 +17328,7 @@ const deserializeAws_restXmlFunctionSummaryList = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlGeoRestriction = (output: any, context: __SerdeContext): GeoRestriction => {
-  let contents: any = {
+  const contents: any = {
     RestrictionType: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -17354,7 +17360,7 @@ const deserializeAws_restXmlHeaderList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): Headers => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17371,7 +17377,7 @@ const deserializeAws_restXmlHeaders = (output: any, context: __SerdeContext): He
 };
 
 const deserializeAws_restXmlInvalidation = (output: any, context: __SerdeContext): Invalidation => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Status: undefined,
     CreateTime: undefined,
@@ -17393,7 +17399,7 @@ const deserializeAws_restXmlInvalidation = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlInvalidationBatch = (output: any, context: __SerdeContext): InvalidationBatch => {
-  let contents: any = {
+  const contents: any = {
     Paths: undefined,
     CallerReference: undefined,
   };
@@ -17407,7 +17413,7 @@ const deserializeAws_restXmlInvalidationBatch = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeContext): InvalidationList => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -17443,7 +17449,7 @@ const deserializeAws_restXmlInvalidationList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlInvalidationSummary = (output: any, context: __SerdeContext): InvalidationSummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     CreateTime: undefined,
     Status: undefined,
@@ -17472,7 +17478,7 @@ const deserializeAws_restXmlInvalidationSummaryList = (output: any, context: __S
 };
 
 const deserializeAws_restXmlKeyGroup = (output: any, context: __SerdeContext): KeyGroup => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     KeyGroupConfig: undefined,
@@ -17490,7 +17496,7 @@ const deserializeAws_restXmlKeyGroup = (output: any, context: __SerdeContext): K
 };
 
 const deserializeAws_restXmlKeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Items: undefined,
     Comment: undefined,
@@ -17514,7 +17520,7 @@ const deserializeAws_restXmlKeyGroupConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlKeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -17542,7 +17548,7 @@ const deserializeAws_restXmlKeyGroupList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlKeyGroupSummary = (output: any, context: __SerdeContext): KeyGroupSummary => {
-  let contents: any = {
+  const contents: any = {
     KeyGroup: undefined,
   };
   if (output["KeyGroup"] !== undefined) {
@@ -17574,7 +17580,7 @@ const deserializeAws_restXmlKeyPairIdList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17591,7 +17597,7 @@ const deserializeAws_restXmlKeyPairIds = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlKGKeyPairIds = (output: any, context: __SerdeContext): KGKeyPairIds => {
-  let contents: any = {
+  const contents: any = {
     KeyGroupId: undefined,
     KeyPairIds: undefined,
   };
@@ -17616,7 +17622,7 @@ const deserializeAws_restXmlKGKeyPairIdsList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlKinesisStreamConfig = (output: any, context: __SerdeContext): KinesisStreamConfig => {
-  let contents: any = {
+  const contents: any = {
     RoleARN: undefined,
     StreamARN: undefined,
   };
@@ -17633,7 +17639,7 @@ const deserializeAws_restXmlLambdaFunctionAssociation = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionAssociation => {
-  let contents: any = {
+  const contents: any = {
     LambdaFunctionARN: undefined,
     EventType: undefined,
     IncludeBody: undefined,
@@ -17668,7 +17674,7 @@ const deserializeAws_restXmlLambdaFunctionAssociations = (
   output: any,
   context: __SerdeContext
 ): LambdaFunctionAssociations => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17699,7 +17705,7 @@ const deserializeAws_restXmlLocationList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     IncludeCookies: undefined,
     Bucket: undefined,
@@ -17732,7 +17738,7 @@ const deserializeAws_restXmlMethodsList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlMonitoringSubscription = (output: any, context: __SerdeContext): MonitoringSubscription => {
-  let contents: any = {
+  const contents: any = {
     RealtimeMetricsSubscriptionConfig: undefined,
   };
   if (output["RealtimeMetricsSubscriptionConfig"] !== undefined) {
@@ -17745,7 +17751,7 @@ const deserializeAws_restXmlMonitoringSubscription = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlOrigin = (output: any, context: __SerdeContext): Origin => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     DomainName: undefined,
     OriginPath: undefined,
@@ -17787,7 +17793,7 @@ const deserializeAws_restXmlOrigin = (output: any, context: __SerdeContext): Ori
 };
 
 const deserializeAws_restXmlOriginCustomHeader = (output: any, context: __SerdeContext): OriginCustomHeader => {
-  let contents: any = {
+  const contents: any = {
     HeaderName: undefined,
     HeaderValue: undefined,
   };
@@ -17812,7 +17818,7 @@ const deserializeAws_restXmlOriginCustomHeadersList = (output: any, context: __S
 };
 
 const deserializeAws_restXmlOriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     FailoverCriteria: undefined,
     Members: undefined,
@@ -17833,7 +17839,7 @@ const deserializeAws_restXmlOriginGroupFailoverCriteria = (
   output: any,
   context: __SerdeContext
 ): OriginGroupFailoverCriteria => {
-  let contents: any = {
+  const contents: any = {
     StatusCodes: undefined,
   };
   if (output["StatusCodes"] !== undefined) {
@@ -17854,7 +17860,7 @@ const deserializeAws_restXmlOriginGroupList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlOriginGroupMember = (output: any, context: __SerdeContext): OriginGroupMember => {
-  let contents: any = {
+  const contents: any = {
     OriginId: undefined,
   };
   if (output["OriginId"] !== undefined) {
@@ -17875,7 +17881,7 @@ const deserializeAws_restXmlOriginGroupMemberList = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeContext): OriginGroupMembers => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17895,7 +17901,7 @@ const deserializeAws_restXmlOriginGroupMembers = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlOriginGroups = (output: any, context: __SerdeContext): OriginGroups => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -17926,7 +17932,7 @@ const deserializeAws_restXmlOriginList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlOriginRequestPolicy = (output: any, context: __SerdeContext): OriginRequestPolicy => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     LastModifiedTime: undefined,
     OriginRequestPolicyConfig: undefined,
@@ -17950,7 +17956,7 @@ const deserializeAws_restXmlOriginRequestPolicyConfig = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicyConfig => {
-  let contents: any = {
+  const contents: any = {
     Comment: undefined,
     Name: undefined,
     HeadersConfig: undefined,
@@ -17982,7 +17988,7 @@ const deserializeAws_restXmlOriginRequestPolicyCookiesConfig = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicyCookiesConfig => {
-  let contents: any = {
+  const contents: any = {
     CookieBehavior: undefined,
     Cookies: undefined,
   };
@@ -17999,7 +18005,7 @@ const deserializeAws_restXmlOriginRequestPolicyHeadersConfig = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicyHeadersConfig => {
-  let contents: any = {
+  const contents: any = {
     HeaderBehavior: undefined,
     Headers: undefined,
   };
@@ -18016,7 +18022,7 @@ const deserializeAws_restXmlOriginRequestPolicyList = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicyList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -18047,7 +18053,7 @@ const deserializeAws_restXmlOriginRequestPolicyQueryStringsConfig = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicyQueryStringsConfig => {
-  let contents: any = {
+  const contents: any = {
     QueryStringBehavior: undefined,
     QueryStrings: undefined,
   };
@@ -18064,7 +18070,7 @@ const deserializeAws_restXmlOriginRequestPolicySummary = (
   output: any,
   context: __SerdeContext
 ): OriginRequestPolicySummary => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     OriginRequestPolicy: undefined,
   };
@@ -18092,7 +18098,7 @@ const deserializeAws_restXmlOriginRequestPolicySummaryList = (
 };
 
 const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Origins => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18109,7 +18115,7 @@ const deserializeAws_restXmlOrigins = (output: any, context: __SerdeContext): Or
 };
 
 const deserializeAws_restXmlOriginShield = (output: any, context: __SerdeContext): OriginShield => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     OriginShieldRegion: undefined,
   };
@@ -18123,7 +18129,7 @@ const deserializeAws_restXmlOriginShield = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlOriginSslProtocols = (output: any, context: __SerdeContext): OriginSslProtocols => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18146,7 +18152,7 @@ const deserializeAws_restXmlParametersInCacheKeyAndForwardedToOrigin = (
   output: any,
   context: __SerdeContext
 ): ParametersInCacheKeyAndForwardedToOrigin => {
-  let contents: any = {
+  const contents: any = {
     EnableAcceptEncodingGzip: undefined,
     EnableAcceptEncodingBrotli: undefined,
     HeadersConfig: undefined,
@@ -18186,7 +18192,7 @@ const deserializeAws_restXmlPathList = (output: any, context: __SerdeContext): s
 };
 
 const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Paths => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18203,7 +18209,7 @@ const deserializeAws_restXmlPaths = (output: any, context: __SerdeContext): Path
 };
 
 const deserializeAws_restXmlPublicKey = (output: any, context: __SerdeContext): PublicKey => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     CreatedTime: undefined,
     PublicKeyConfig: undefined,
@@ -18221,7 +18227,7 @@ const deserializeAws_restXmlPublicKey = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_restXmlPublicKeyConfig = (output: any, context: __SerdeContext): PublicKeyConfig => {
-  let contents: any = {
+  const contents: any = {
     CallerReference: undefined,
     Name: undefined,
     EncodedKey: undefined,
@@ -18254,7 +18260,7 @@ const deserializeAws_restXmlPublicKeyIdList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContext): PublicKeyList => {
-  let contents: any = {
+  const contents: any = {
     NextMarker: undefined,
     MaxItems: undefined,
     Quantity: undefined,
@@ -18282,7 +18288,7 @@ const deserializeAws_restXmlPublicKeyList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlPublicKeySummary = (output: any, context: __SerdeContext): PublicKeySummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Name: undefined,
     CreatedTime: undefined,
@@ -18319,7 +18325,7 @@ const deserializeAws_restXmlPublicKeySummaryList = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlQueryArgProfile = (output: any, context: __SerdeContext): QueryArgProfile => {
-  let contents: any = {
+  const contents: any = {
     QueryArg: undefined,
     ProfileId: undefined,
   };
@@ -18333,7 +18339,7 @@ const deserializeAws_restXmlQueryArgProfile = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlQueryArgProfileConfig = (output: any, context: __SerdeContext): QueryArgProfileConfig => {
-  let contents: any = {
+  const contents: any = {
     ForwardWhenQueryArgProfileIsUnknown: undefined,
     QueryArgProfiles: undefined,
   };
@@ -18358,7 +18364,7 @@ const deserializeAws_restXmlQueryArgProfileList = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProfiles => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18378,7 +18384,7 @@ const deserializeAws_restXmlQueryArgProfiles = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlQueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStringCacheKeys => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18409,7 +18415,7 @@ const deserializeAws_restXmlQueryStringCacheKeysList = (output: any, context: __
 };
 
 const deserializeAws_restXmlQueryStringNames = (output: any, context: __SerdeContext): QueryStringNames => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18440,7 +18446,7 @@ const deserializeAws_restXmlQueryStringNamesList = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlRealtimeLogConfig = (output: any, context: __SerdeContext): RealtimeLogConfig => {
-  let contents: any = {
+  const contents: any = {
     ARN: undefined,
     Name: undefined,
     SamplingRate: undefined,
@@ -18486,7 +18492,7 @@ const deserializeAws_restXmlRealtimeLogConfigList = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlRealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLogConfigs => {
-  let contents: any = {
+  const contents: any = {
     MaxItems: undefined,
     Items: undefined,
     IsTruncated: undefined,
@@ -18521,7 +18527,7 @@ const deserializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
   output: any,
   context: __SerdeContext
 ): RealtimeMetricsSubscriptionConfig => {
-  let contents: any = {
+  const contents: any = {
     RealtimeMetricsSubscriptionStatus: undefined,
   };
   if (output["RealtimeMetricsSubscriptionStatus"] !== undefined) {
@@ -18531,7 +18537,7 @@ const deserializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
 };
 
 const deserializeAws_restXmlRestrictions = (output: any, context: __SerdeContext): Restrictions => {
-  let contents: any = {
+  const contents: any = {
     GeoRestriction: undefined,
   };
   if (output["GeoRestriction"] !== undefined) {
@@ -18541,7 +18547,7 @@ const deserializeAws_restXmlRestrictions = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlS3Origin = (output: any, context: __SerdeContext): S3Origin => {
-  let contents: any = {
+  const contents: any = {
     DomainName: undefined,
     OriginAccessIdentity: undefined,
   };
@@ -18555,7 +18561,7 @@ const deserializeAws_restXmlS3Origin = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_restXmlS3OriginConfig = (output: any, context: __SerdeContext): S3OriginConfig => {
-  let contents: any = {
+  const contents: any = {
     OriginAccessIdentity: undefined,
   };
   if (output["OriginAccessIdentity"] !== undefined) {
@@ -18565,7 +18571,7 @@ const deserializeAws_restXmlS3OriginConfig = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlSigner = (output: any, context: __SerdeContext): Signer => {
-  let contents: any = {
+  const contents: any = {
     AwsAccountNumber: undefined,
     KeyPairIds: undefined,
   };
@@ -18612,7 +18618,7 @@ const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
-  let contents: any = {
+  const contents: any = {
     Quantity: undefined,
     Items: undefined,
   };
@@ -18632,7 +18638,7 @@ const deserializeAws_restXmlStatusCodes = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlStreamingDistribution = (output: any, context: __SerdeContext): StreamingDistribution => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     ARN: undefined,
     Status: undefined,
@@ -18672,7 +18678,7 @@ const deserializeAws_restXmlStreamingDistributionConfig = (
   output: any,
   context: __SerdeContext
 ): StreamingDistributionConfig => {
-  let contents: any = {
+  const contents: any = {
     CallerReference: undefined,
     S3Origin: undefined,
     Aliases: undefined,
@@ -18713,7 +18719,7 @@ const deserializeAws_restXmlStreamingDistributionList = (
   output: any,
   context: __SerdeContext
 ): StreamingDistributionList => {
-  let contents: any = {
+  const contents: any = {
     Marker: undefined,
     NextMarker: undefined,
     MaxItems: undefined,
@@ -18752,7 +18758,7 @@ const deserializeAws_restXmlStreamingDistributionSummary = (
   output: any,
   context: __SerdeContext
 ): StreamingDistributionSummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     ARN: undefined,
     Status: undefined,
@@ -18816,7 +18822,7 @@ const deserializeAws_restXmlStreamingDistributionSummaryList = (
 };
 
 const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __SerdeContext): StreamingLoggingConfig => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     Bucket: undefined,
     Prefix: undefined,
@@ -18834,7 +18840,7 @@ const deserializeAws_restXmlStreamingLoggingConfig = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -18859,7 +18865,7 @@ const deserializeAws_restXmlTagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags => {
-  let contents: any = {
+  const contents: any = {
     Items: undefined,
   };
   if (output.Items === "") {
@@ -18872,7 +18878,7 @@ const deserializeAws_restXmlTags = (output: any, context: __SerdeContext): Tags 
 };
 
 const deserializeAws_restXmlTestResult = (output: any, context: __SerdeContext): TestResult => {
-  let contents: any = {
+  const contents: any = {
     FunctionSummary: undefined,
     ComputeUtilization: undefined,
     FunctionExecutionLogs: undefined,
@@ -18915,7 +18921,7 @@ const deserializeAws_restXmlTrustedKeyGroupIdList = (output: any, context: __Ser
 };
 
 const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGroups => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -18939,7 +18945,7 @@ const deserializeAws_restXmlTrustedKeyGroups = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeContext): TrustedSigners => {
-  let contents: any = {
+  const contents: any = {
     Enabled: undefined,
     Quantity: undefined,
     Items: undefined,
@@ -18963,7 +18969,7 @@ const deserializeAws_restXmlTrustedSigners = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlViewerCertificate = (output: any, context: __SerdeContext): ViewerCertificate => {
-  let contents: any = {
+  const contents: any = {
     CloudFrontDefaultCertificate: undefined,
     IAMCertificateId: undefined,
     ACMCertificateArn: undefined,

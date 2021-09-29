@@ -1,4 +1,5 @@
-import { WorkSpacesClient } from "./WorkSpacesClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateConnectionAliasCommand,
   AssociateConnectionAliasCommandInput,
@@ -82,15 +83,15 @@ import {
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand";
 import {
-  DescribeConnectionAliasPermissionsCommand,
-  DescribeConnectionAliasPermissionsCommandInput,
-  DescribeConnectionAliasPermissionsCommandOutput,
-} from "./commands/DescribeConnectionAliasPermissionsCommand";
-import {
   DescribeConnectionAliasesCommand,
   DescribeConnectionAliasesCommandInput,
   DescribeConnectionAliasesCommandOutput,
 } from "./commands/DescribeConnectionAliasesCommand";
+import {
+  DescribeConnectionAliasPermissionsCommand,
+  DescribeConnectionAliasPermissionsCommandInput,
+  DescribeConnectionAliasPermissionsCommandOutput,
+} from "./commands/DescribeConnectionAliasPermissionsCommand";
 import {
   DescribeIpGroupsCommand,
   DescribeIpGroupsCommandInput,
@@ -122,11 +123,6 @@ import {
   DescribeWorkspaceImagesCommandOutput,
 } from "./commands/DescribeWorkspaceImagesCommand";
 import {
-  DescribeWorkspaceSnapshotsCommand,
-  DescribeWorkspaceSnapshotsCommandInput,
-  DescribeWorkspaceSnapshotsCommandOutput,
-} from "./commands/DescribeWorkspaceSnapshotsCommand";
-import {
   DescribeWorkspacesCommand,
   DescribeWorkspacesCommandInput,
   DescribeWorkspacesCommandOutput,
@@ -136,6 +132,11 @@ import {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand";
+import {
+  DescribeWorkspaceSnapshotsCommand,
+  DescribeWorkspaceSnapshotsCommandInput,
+  DescribeWorkspaceSnapshotsCommandOutput,
+} from "./commands/DescribeWorkspaceSnapshotsCommand";
 import {
   DisassociateConnectionAliasCommand,
   DisassociateConnectionAliasCommandInput,
@@ -256,7 +257,7 @@ import {
   UpdateWorkspaceImagePermissionCommandInput,
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "./commands/UpdateWorkspaceImagePermissionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WorkSpacesClient } from "./WorkSpacesClient";
 
 /**
  * <fullname>Amazon WorkSpaces Service</fullname>

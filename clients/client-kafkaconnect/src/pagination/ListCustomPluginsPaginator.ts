@@ -1,12 +1,13 @@
-import { KafkaConnect } from "../KafkaConnect";
-import { KafkaConnectClient } from "../KafkaConnectClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListCustomPluginsCommand,
   ListCustomPluginsCommandInput,
   ListCustomPluginsCommandOutput,
 } from "../commands/ListCustomPluginsCommand";
+import { KafkaConnect } from "../KafkaConnect";
+import { KafkaConnectClient } from "../KafkaConnectClient";
 import { KafkaConnectPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

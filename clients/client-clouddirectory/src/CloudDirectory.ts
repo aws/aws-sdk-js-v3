@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloudDirectoryClient } from "./CloudDirectoryClient";
 import {
   AddFacetToObjectCommand,
@@ -289,7 +291,6 @@ import {
   UpgradePublishedSchemaCommandInput,
   UpgradePublishedSchemaCommandOutput,
 } from "./commands/UpgradePublishedSchemaCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Cloud Directory</fullname>

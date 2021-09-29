@@ -1,14 +1,15 @@
-import { SageMakerClient } from "../SageMakerClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeEndpointCommand, DescribeEndpointCommandInput } from "../commands/DescribeEndpointCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SageMakerClient } from "../SageMakerClient";
 
 const checkState = async (client: SageMakerClient, input: DescribeEndpointCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeEndpointCommand(input));
+    const result: any = await client.send(new DescribeEndpointCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.EndpointStatus;
       };
       if (returnComparator() === "InService") {
@@ -16,7 +17,7 @@ const checkState = async (client: SageMakerClient, input: DescribeEndpointComman
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.EndpointStatus;
       };
       if (returnComparator() === "Failed") {

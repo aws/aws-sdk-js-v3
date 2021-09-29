@@ -1,12 +1,13 @@
-import { RedshiftData } from "../RedshiftData";
-import { RedshiftDataClient } from "../RedshiftDataClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDatabasesCommand,
   ListDatabasesCommandInput,
   ListDatabasesCommandOutput,
 } from "../commands/ListDatabasesCommand";
+import { RedshiftData } from "../RedshiftData";
+import { RedshiftDataClient } from "../RedshiftDataClient";
 import { RedshiftDataPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

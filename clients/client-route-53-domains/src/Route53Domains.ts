@@ -1,4 +1,5 @@
-import { Route53DomainsClient } from "./Route53DomainsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptDomainTransferFromAnotherAwsAccountCommand,
   AcceptDomainTransferFromAnotherAwsAccountCommandInput,
@@ -127,7 +128,7 @@ import {
   UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand";
 import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { Route53DomainsClient } from "./Route53DomainsClient";
 
 /**
  * <p>Amazon Route 53 API actions let you register domain names and perform related operations.</p>

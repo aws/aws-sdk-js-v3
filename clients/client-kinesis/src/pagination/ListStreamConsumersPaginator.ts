@@ -1,12 +1,13 @@
-import { Kinesis } from "../Kinesis";
-import { KinesisClient } from "../KinesisClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListStreamConsumersCommand,
   ListStreamConsumersCommandInput,
   ListStreamConsumersCommandOutput,
 } from "../commands/ListStreamConsumersCommand";
+import { Kinesis } from "../Kinesis";
+import { KinesisClient } from "../KinesisClient";
 import { KinesisPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

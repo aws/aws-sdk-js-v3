@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { WorkDocsClientConfig } from "./WorkDocsClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { WorkDocsClientConfig } from "./WorkDocsClient";
 
 /**
  * @internal

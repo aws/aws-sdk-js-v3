@@ -1,12 +1,13 @@
-import { DataSync } from "../DataSync";
-import { DataSyncClient } from "../DataSyncClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTaskExecutionsCommand,
   ListTaskExecutionsCommandInput,
   ListTaskExecutionsCommandOutput,
 } from "../commands/ListTaskExecutionsCommand";
+import { DataSync } from "../DataSync";
+import { DataSyncClient } from "../DataSyncClient";
 import { DataSyncPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { DataPipelineClient } from "./DataPipelineClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ActivatePipelineCommand,
   ActivatePipelineCommandInput,
@@ -78,7 +79,7 @@ import {
   ValidatePipelineDefinitionCommandInput,
   ValidatePipelineDefinitionCommandOutput,
 } from "./commands/ValidatePipelineDefinitionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DataPipelineClient } from "./DataPipelineClient";
 
 /**
  * <p>AWS Data Pipeline configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline

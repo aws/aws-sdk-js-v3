@@ -1,12 +1,13 @@
-import { S3 } from "../S3";
-import { S3Client } from "../S3Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListObjectsV2Command,
   ListObjectsV2CommandInput,
   ListObjectsV2CommandOutput,
 } from "../commands/ListObjectsV2Command";
+import { S3 } from "../S3";
+import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

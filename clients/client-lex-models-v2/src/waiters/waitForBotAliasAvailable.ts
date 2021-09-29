@@ -1,14 +1,15 @@
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeBotAliasCommand, DescribeBotAliasCommandInput } from "../commands/DescribeBotAliasCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LexModelsV2Client } from "../LexModelsV2Client";
 
 const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeBotAliasCommand(input));
+    const result: any = await client.send(new DescribeBotAliasCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botAliasStatus;
       };
       if (returnComparator() === "Available") {
@@ -16,7 +17,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botAliasStatus;
       };
       if (returnComparator() === "Failed") {
@@ -24,7 +25,7 @@ const checkState = async (client: LexModelsV2Client, input: DescribeBotAliasComm
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.botAliasStatus;
       };
       if (returnComparator() === "Deleting") {

@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   ActionType,
   AquaConfiguration,
@@ -21,7 +23,6 @@ import {
   UsageLimitBreachAction,
   UsageLimitFeatureType,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
  * <p>Describes the status of logging for a cluster.</p>

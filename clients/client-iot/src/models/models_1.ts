@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AbortConfig,
   Action,
@@ -53,7 +55,6 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export interface DeleteSecurityProfileResponse {}
 

@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlGetBucketCorsCommand,
-  serializeAws_restXmlGetBucketCorsCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlGetBucketCorsCommand,
+  serializeAws_restXmlGetBucketCorsCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface GetBucketCorsCommandInput extends GetBucketCorsRequest {}
 export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __MetadataBearer {}

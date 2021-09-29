@@ -1,12 +1,13 @@
-import { MediaTailor } from "../MediaTailor";
-import { MediaTailorClient } from "../MediaTailorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetChannelScheduleCommand,
   GetChannelScheduleCommandInput,
   GetChannelScheduleCommandOutput,
 } from "../commands/GetChannelScheduleCommand";
+import { MediaTailor } from "../MediaTailor";
+import { MediaTailorClient } from "../MediaTailorClient";
 import { MediaTailorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

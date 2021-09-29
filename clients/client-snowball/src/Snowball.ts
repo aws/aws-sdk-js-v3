@@ -1,4 +1,5 @@
-import { SnowballClient } from "./SnowballClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelClusterCommand,
   CancelClusterCommandInput,
@@ -104,7 +105,7 @@ import {
   UpdateLongTermPricingCommandInput,
   UpdateLongTermPricingCommandOutput,
 } from "./commands/UpdateLongTermPricingCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SnowballClient } from "./SnowballClient";
 
 /**
  * <p>AWS Snow Family is a petabyte-scale data transport solution that uses secure devices to

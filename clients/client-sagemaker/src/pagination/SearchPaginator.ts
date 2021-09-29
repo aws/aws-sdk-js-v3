@@ -1,8 +1,9 @@
+import { Paginator } from "@aws-sdk/types";
+
+import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import { SageMaker } from "../SageMaker";
 import { SageMakerClient } from "../SageMakerClient";
-import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "../commands/SearchCommand";
 import { SageMakerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

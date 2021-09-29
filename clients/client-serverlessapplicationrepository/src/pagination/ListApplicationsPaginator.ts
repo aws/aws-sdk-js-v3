@@ -1,12 +1,13 @@
-import { ServerlessApplicationRepository } from "../ServerlessApplicationRepository";
-import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "../commands/ListApplicationsCommand";
+import { ServerlessApplicationRepository } from "../ServerlessApplicationRepository";
+import { ServerlessApplicationRepositoryClient } from "../ServerlessApplicationRepositoryClient";
 import { ServerlessApplicationRepositoryPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

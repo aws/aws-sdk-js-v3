@@ -1,7 +1,8 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
+import { eventStreamPayloadHandler, WebSocketHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";
 
 /**
  * @internal

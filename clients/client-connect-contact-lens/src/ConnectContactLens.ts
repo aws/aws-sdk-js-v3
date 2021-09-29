@@ -1,10 +1,11 @@
-import { ConnectContactLensClient } from "./ConnectContactLensClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ListRealtimeContactAnalysisSegmentsCommand,
   ListRealtimeContactAnalysisSegmentsCommandInput,
   ListRealtimeContactAnalysisSegmentsCommandOutput,
 } from "./commands/ListRealtimeContactAnalysisSegmentsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ConnectContactLensClient } from "./ConnectContactLensClient";
 
 /**
  * <p>Contact Lens for Amazon Connect enables you to analyze conversations between customer and agents,

@@ -1,4 +1,5 @@
-import { PersonalizeRuntimeClient } from "./PersonalizeRuntimeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetPersonalizedRankingCommand,
   GetPersonalizedRankingCommandInput,
@@ -9,7 +10,7 @@ import {
   GetRecommendationsCommandInput,
   GetRecommendationsCommandOutput,
 } from "./commands/GetRecommendationsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PersonalizeRuntimeClient } from "./PersonalizeRuntimeClient";
 
 /**
  * <p></p>

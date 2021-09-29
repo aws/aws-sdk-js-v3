@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
-import {
-  deserializeAws_restXmlListObjectsV2Command,
-  serializeAws_restXmlListObjectsV2Command,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ListObjectsV2Output, ListObjectsV2Request } from "../models/models_0";
+import {
+  deserializeAws_restXmlListObjectsV2Command,
+  serializeAws_restXmlListObjectsV2Command,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface ListObjectsV2CommandInput extends ListObjectsV2Request {}
 export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __MetadataBearer {}

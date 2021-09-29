@@ -1,9 +1,3 @@
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
-import {
-  deserializeAws_queryCopyDBSnapshotCommand,
-  serializeAws_queryCopyDBSnapshotCommand,
-} from "../protocols/Aws_query";
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
+import {
+  deserializeAws_queryCopyDBSnapshotCommand,
+  serializeAws_queryCopyDBSnapshotCommand,
+} from "../protocols/Aws_query";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 export interface CopyDBSnapshotCommandInput extends CopyDBSnapshotMessage {}
 export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __MetadataBearer {}

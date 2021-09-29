@@ -1,12 +1,13 @@
-import { Organizations } from "../Organizations";
-import { OrganizationsClient } from "../OrganizationsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListChildrenCommand,
   ListChildrenCommandInput,
   ListChildrenCommandOutput,
 } from "../commands/ListChildrenCommand";
+import { Organizations } from "../Organizations";
+import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

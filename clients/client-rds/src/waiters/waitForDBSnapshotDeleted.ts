@@ -1,14 +1,15 @@
-import { RDSClient } from "../RDSClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeDBSnapshotsCommand, DescribeDBSnapshotsCommandInput } from "../commands/DescribeDBSnapshotsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { RDSClient } from "../RDSClient";
 
 const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeDBSnapshotsCommand(input));
+    const result: any = await client.send(new DescribeDBSnapshotsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.DBSnapshots.length == 0.0;
       };
       if (returnComparator() == true) {
@@ -16,56 +17,56 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.DBSnapshots);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.DBSnapshots);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "creating") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.DBSnapshots);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.DBSnapshots);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "modifying") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.DBSnapshots);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.DBSnapshots);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "rebooting") {
           return { state: WaiterState.FAILURE, reason };
         }
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
-        let flat_1: any[] = [].concat(...result.DBSnapshots);
-        let projection_3 = flat_1.map((element_2: any) => {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.DBSnapshots);
+        const projection_3 = flat_1.map((element_2: any) => {
           return element_2.Status;
         });
         return projection_3;
       };
-      for (let anyStringEq_4 of returnComparator()) {
+      for (const anyStringEq_4 of returnComparator()) {
         if (anyStringEq_4 == "resetting-master-credentials") {
           return { state: WaiterState.FAILURE, reason };
         }

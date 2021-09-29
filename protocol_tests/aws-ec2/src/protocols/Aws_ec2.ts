@@ -1,4 +1,38 @@
 import {
+  HttpRequest as __HttpRequest,
+  HttpResponse as __HttpResponse,
+  isValidHostname as __isValidHostname,
+} from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  parseRfc7231DateTime as __parseRfc7231DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseByte as __strictParseByte,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+  strictParseShort as __strictParseShort,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+import { v4 as generateIdempotencyToken } from "uuid";
+
+import {
   EmptyInputAndEmptyOutputCommandInput,
   EmptyInputAndEmptyOutputCommandOutput,
 } from "../commands/EmptyInputAndEmptyOutputCommand";
@@ -44,8 +78,8 @@ import {
   HostLabelInput,
   IgnoresWrappingXmlNameOutput,
   InvalidGreeting,
-  NestedStructWithList,
   NestedStructuresInput,
+  NestedStructWithList,
   NoInputAndOutputOutput,
   QueryIdempotencyTokenAutoFillInput,
   QueryListsInput,
@@ -64,39 +98,6 @@ import {
   XmlNamespacesOutput,
   XmlTimestampsOutput,
 } from "../models/models_0";
-import {
-  HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
-  isValidHostname as __isValidHostname,
-} from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseEpochTimestamp as __parseEpochTimestamp,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  parseRfc7231DateTime as __parseRfc7231DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseByte as __strictParseByte,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-  strictParseShort as __strictParseShort,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "uuid";
 
 export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
@@ -436,7 +437,7 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -479,7 +480,7 @@ const deserializeAws_ec2EndpointOperationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -522,7 +523,7 @@ const deserializeAws_ec2EndpointWithHostLabelOperationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -568,7 +569,7 @@ const deserializeAws_ec2GreetingWithErrorsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ComplexError":
@@ -630,7 +631,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -673,7 +674,7 @@ const deserializeAws_ec2NestedStructuresCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -719,7 +720,7 @@ const deserializeAws_ec2NoInputAndOutputCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -762,7 +763,7 @@ const deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -805,7 +806,7 @@ const deserializeAws_ec2QueryListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -848,7 +849,7 @@ const deserializeAws_ec2QueryTimestampsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -894,7 +895,7 @@ const deserializeAws_ec2RecursiveXmlShapesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -937,7 +938,7 @@ const deserializeAws_ec2SimpleInputParamsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -983,7 +984,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1029,7 +1030,7 @@ const deserializeAws_ec2XmlBlobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1075,7 +1076,7 @@ const deserializeAws_ec2XmlEmptyBlobsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1121,7 +1122,7 @@ const deserializeAws_ec2XmlEmptyListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1167,7 +1168,7 @@ const deserializeAws_ec2XmlEnumsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1213,7 +1214,7 @@ const deserializeAws_ec2XmlListsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1259,7 +1260,7 @@ const deserializeAws_ec2XmlNamespacesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1305,7 +1306,7 @@ const deserializeAws_ec2XmlTimestampsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadEc2ErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -1374,7 +1375,7 @@ const serializeAws_ec2HostLabelInput = (input: HostLabelInput, context: __SerdeC
 const serializeAws_ec2ListWithXmlName = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1535,7 +1536,7 @@ const serializeAws_ec2StructArg = (input: StructArg, context: __SerdeContext): a
 const serializeAws_ec2GreetingList = (input: GreetingStruct[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1559,7 +1560,7 @@ const serializeAws_ec2GreetingStruct = (input: GreetingStruct, context: __SerdeC
 const serializeAws_ec2StringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -1570,7 +1571,7 @@ const serializeAws_ec2StringList = (input: string[], context: __SerdeContext): a
 };
 
 const deserializeAws_ec2ComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  let contents: any = {
+  const contents: any = {
     TopLevel: undefined,
     Nested: undefined,
   };
@@ -1584,7 +1585,7 @@ const deserializeAws_ec2ComplexError = (output: any, context: __SerdeContext): C
 };
 
 const deserializeAws_ec2ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  let contents: any = {
+  const contents: any = {
     Foo: undefined,
   };
   if (output["Foo"] !== undefined) {
@@ -1597,12 +1598,12 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputOutput = (
   output: any,
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_ec2GreetingWithErrorsOutput = (output: any, context: __SerdeContext): GreetingWithErrorsOutput => {
-  let contents: any = {
+  const contents: any = {
     greeting: undefined,
   };
   if (output["greeting"] !== undefined) {
@@ -1615,7 +1616,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
   };
   if (output["foo"] !== undefined) {
@@ -1625,7 +1626,7 @@ const deserializeAws_ec2IgnoresWrappingXmlNameOutput = (
 };
 
 const deserializeAws_ec2InvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -1657,12 +1658,12 @@ const deserializeAws_ec2ListWithNamespace = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2NoInputAndOutputOutput = (output: any, context: __SerdeContext): NoInputAndOutputOutput => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_ec2RecursiveXmlShapesOutput = (output: any, context: __SerdeContext): RecursiveXmlShapesOutput => {
-  let contents: any = {
+  const contents: any = {
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -1675,7 +1676,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
     nested: undefined,
   };
@@ -1692,7 +1693,7 @@ const deserializeAws_ec2RecursiveXmlShapesOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
-  let contents: any = {
+  const contents: any = {
     bar: undefined,
     recursiveMember: undefined,
   };
@@ -1720,7 +1721,7 @@ const deserializeAws_ec2SimpleScalarXmlPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
-  let contents: any = {
+  const contents: any = {
     stringValue: undefined,
     emptyStringValue: undefined,
     trueBooleanValue: undefined,
@@ -1777,7 +1778,7 @@ const deserializeAws_ec2StructureList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_ec2StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  let contents: any = {
+  const contents: any = {
     a: undefined,
     b: undefined,
   };
@@ -1791,7 +1792,7 @@ const deserializeAws_ec2StructureListMember = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2XmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
-  let contents: any = {
+  const contents: any = {
     data: undefined,
   };
   if (output["data"] !== undefined) {
@@ -1801,7 +1802,7 @@ const deserializeAws_ec2XmlBlobsOutput = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
-  let contents: any = {
+  const contents: any = {
     fooEnum1: undefined,
     fooEnum2: undefined,
     fooEnum3: undefined,
@@ -1843,7 +1844,7 @@ const deserializeAws_ec2XmlEnumsOutput = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_ec2XmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
-  let contents: any = {
+  const contents: any = {
     stringList: undefined,
     stringSet: undefined,
     integerList: undefined,
@@ -1981,7 +1982,7 @@ const deserializeAws_ec2XmlNamespacedList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_ec2XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
-  let contents: any = {
+  const contents: any = {
     foo: undefined,
     values: undefined,
   };
@@ -1998,7 +1999,7 @@ const deserializeAws_ec2XmlNamespaceNested = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_ec2XmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
-  let contents: any = {
+  const contents: any = {
     nested: undefined,
   };
   if (output["nested"] !== undefined) {
@@ -2008,7 +2009,7 @@ const deserializeAws_ec2XmlNamespacesOutput = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_ec2XmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
-  let contents: any = {
+  const contents: any = {
     normal: undefined,
     dateTime: undefined,
     epochSeconds: undefined,

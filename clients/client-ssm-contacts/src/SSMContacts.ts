@@ -1,4 +1,5 @@
-import { SSMContactsClient } from "./SSMContactsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AcceptPageCommand, AcceptPageCommandInput, AcceptPageCommandOutput } from "./commands/AcceptPageCommand";
 import {
   ActivateContactChannelCommand,
@@ -122,7 +123,7 @@ import {
   UpdateContactCommandInput,
   UpdateContactCommandOutput,
 } from "./commands/UpdateContactCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSMContactsClient } from "./SSMContactsClient";
 
 /**
  * <p>Systems Manager Incident Manager is an incident management console designed to help users

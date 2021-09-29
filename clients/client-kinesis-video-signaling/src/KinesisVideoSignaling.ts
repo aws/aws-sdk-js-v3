@@ -1,4 +1,5 @@
-import { KinesisVideoSignalingClient } from "./KinesisVideoSignalingClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetIceServerConfigCommand,
   GetIceServerConfigCommandInput,
@@ -9,7 +10,7 @@ import {
   SendAlexaOfferToMasterCommandInput,
   SendAlexaOfferToMasterCommandOutput,
 } from "./commands/SendAlexaOfferToMasterCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { KinesisVideoSignalingClient } from "./KinesisVideoSignalingClient";
 
 /**
  * <p>Kinesis Video Streams Signaling Service is a intermediate service that establishes a

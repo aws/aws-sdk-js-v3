@@ -1,4 +1,5 @@
-import { ElastiCacheClient } from "./ElastiCacheClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
@@ -312,7 +313,7 @@ import {
   TestFailoverCommandInput,
   TestFailoverCommandOutput,
 } from "./commands/TestFailoverCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ElastiCacheClient } from "./ElastiCacheClient";
 
 /**
  * <fullname>Amazon ElastiCache</fullname>

@@ -1,4 +1,5 @@
-import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
@@ -100,6 +101,11 @@ import {
   DescribeConnectionsCommandOutput,
 } from "./commands/DescribeConnectionsCommand";
 import {
+  DescribeEndpointsCommand,
+  DescribeEndpointsCommandInput,
+  DescribeEndpointsCommandOutput,
+} from "./commands/DescribeEndpointsCommand";
+import {
   DescribeEndpointSettingsCommand,
   DescribeEndpointSettingsCommandInput,
   DescribeEndpointSettingsCommandOutput,
@@ -110,25 +116,20 @@ import {
   DescribeEndpointTypesCommandOutput,
 } from "./commands/DescribeEndpointTypesCommand";
 import {
-  DescribeEndpointsCommand,
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
-} from "./commands/DescribeEndpointsCommand";
-import {
   DescribeEventCategoriesCommand,
   DescribeEventCategoriesCommandInput,
   DescribeEventCategoriesCommandOutput,
 } from "./commands/DescribeEventCategoriesCommand";
 import {
-  DescribeEventSubscriptionsCommand,
-  DescribeEventSubscriptionsCommandInput,
-  DescribeEventSubscriptionsCommandOutput,
-} from "./commands/DescribeEventSubscriptionsCommand";
-import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
   DescribeEventsCommandOutput,
 } from "./commands/DescribeEventsCommand";
+import {
+  DescribeEventSubscriptionsCommand,
+  DescribeEventSubscriptionsCommandInput,
+  DescribeEventSubscriptionsCommandOutput,
+} from "./commands/DescribeEventSubscriptionsCommand";
 import {
   DescribeOrderableReplicationInstancesCommand,
   DescribeOrderableReplicationInstancesCommandInput,
@@ -145,15 +146,15 @@ import {
   DescribeRefreshSchemasStatusCommandOutput,
 } from "./commands/DescribeRefreshSchemasStatusCommand";
 import {
-  DescribeReplicationInstanceTaskLogsCommand,
-  DescribeReplicationInstanceTaskLogsCommandInput,
-  DescribeReplicationInstanceTaskLogsCommandOutput,
-} from "./commands/DescribeReplicationInstanceTaskLogsCommand";
-import {
   DescribeReplicationInstancesCommand,
   DescribeReplicationInstancesCommandInput,
   DescribeReplicationInstancesCommandOutput,
 } from "./commands/DescribeReplicationInstancesCommand";
+import {
+  DescribeReplicationInstanceTaskLogsCommand,
+  DescribeReplicationInstanceTaskLogsCommandInput,
+  DescribeReplicationInstanceTaskLogsCommandOutput,
+} from "./commands/DescribeReplicationInstanceTaskLogsCommand";
 import {
   DescribeReplicationSubnetGroupsCommand,
   DescribeReplicationSubnetGroupsCommandInput,
@@ -274,7 +275,7 @@ import {
   TestConnectionCommandInput,
   TestConnectionCommandOutput,
 } from "./commands/TestConnectionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DatabaseMigrationServiceClient } from "./DatabaseMigrationServiceClient";
 
 /**
  * <fullname>Database Migration Service</fullname>

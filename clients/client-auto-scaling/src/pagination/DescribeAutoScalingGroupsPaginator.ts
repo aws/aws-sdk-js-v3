@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AutoScaling } from "../AutoScaling";
 import { AutoScalingClient } from "../AutoScalingClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeAutoScalingGroupsCommandOutput,
 } from "../commands/DescribeAutoScalingGroupsCommand";
 import { AutoScalingPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

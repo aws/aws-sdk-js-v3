@@ -1,12 +1,13 @@
-import { ConnectParticipant } from "../ConnectParticipant";
-import { ConnectParticipantClient } from "../ConnectParticipantClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetTranscriptCommand,
   GetTranscriptCommandInput,
   GetTranscriptCommandOutput,
 } from "../commands/GetTranscriptCommand";
+import { ConnectParticipant } from "../ConnectParticipant";
+import { ConnectParticipantClient } from "../ConnectParticipantClient";
 import { ConnectParticipantPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

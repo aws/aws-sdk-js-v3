@@ -1,9 +1,10 @@
-import { SESClient } from "../SESClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetIdentityVerificationAttributesCommand,
   GetIdentityVerificationAttributesCommandInput,
 } from "../commands/GetIdentityVerificationAttributesCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SESClient } from "../SESClient";
 
 const checkState = async (
   client: SESClient,
@@ -11,17 +12,17 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
+    const result: any = await client.send(new GetIdentityVerificationAttributesCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
-        let objectProjection_2 = Object.values(result.VerificationAttributes).map((element_1: any) => {
+      const returnComparator = () => {
+        const objectProjection_2 = Object.values(result.VerificationAttributes).map((element_1: any) => {
           return element_1.VerificationStatus;
         });
         return objectProjection_2;
       };
       let allStringEq_4 = returnComparator().length > 0;
-      for (let element_3 of returnComparator()) {
+      for (const element_3 of returnComparator()) {
         allStringEq_4 = allStringEq_4 && element_3 == "Success";
       }
       if (allStringEq_4) {

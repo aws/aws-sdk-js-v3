@@ -1,12 +1,13 @@
-import { Mgn } from "../Mgn";
-import { MgnClient } from "../MgnClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeJobLogItemsCommand,
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
 } from "../commands/DescribeJobLogItemsCommand";
+import { Mgn } from "../Mgn";
+import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

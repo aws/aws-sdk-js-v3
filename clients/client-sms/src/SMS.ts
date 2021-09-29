@@ -1,4 +1,5 @@
-import { SMSClient } from "./SMSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
 import {
   CreateReplicationJobCommand,
@@ -146,7 +147,7 @@ import {
   UpdateReplicationJobCommandInput,
   UpdateReplicationJobCommandOutput,
 } from "./commands/UpdateReplicationJobCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SMSClient } from "./SMSClient";
 
 /**
  * <fullname>AWS Server Migration Service</fullname>

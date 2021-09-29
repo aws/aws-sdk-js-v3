@@ -1,13 +1,3 @@
-import {
-  ResourceGroupsTaggingAPIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsTaggingAPIClient";
-import { GetResourcesInput, GetResourcesOutput } from "../models/models_0";
-import {
-  deserializeAws_json1_1GetResourcesCommand,
-  serializeAws_json1_1GetResourcesCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetResourcesInput, GetResourcesOutput } from "../models/models_0";
+import {
+  deserializeAws_json1_1GetResourcesCommand,
+  serializeAws_json1_1GetResourcesCommand,
+} from "../protocols/Aws_json1_1";
+import {
+  ResourceGroupsTaggingAPIClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../ResourceGroupsTaggingAPIClient";
 
 export interface GetResourcesCommandInput extends GetResourcesInput {}
 export interface GetResourcesCommandOutput extends GetResourcesOutput, __MetadataBearer {}

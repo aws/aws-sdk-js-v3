@@ -1,13 +1,3 @@
-import {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
-import { DescribeRoutingControlRequest, DescribeRoutingControlResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1DescribeRoutingControlCommand,
-  serializeAws_restJson1DescribeRoutingControlCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -15,11 +5,22 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DescribeRoutingControlRequest, DescribeRoutingControlResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1DescribeRoutingControlCommand,
+  serializeAws_restJson1DescribeRoutingControlCommand,
+} from "../protocols/Aws_restJson1";
+import {
+  Route53RecoveryControlConfigClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../Route53RecoveryControlConfigClient";
 
 export interface DescribeRoutingControlCommandInput extends DescribeRoutingControlRequest {}
 export interface DescribeRoutingControlCommandOutput extends DescribeRoutingControlResponse, __MetadataBearer {}

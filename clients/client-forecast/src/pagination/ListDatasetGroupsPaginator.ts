@@ -1,12 +1,13 @@
-import { Forecast } from "../Forecast";
-import { ForecastClient } from "../ForecastClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListDatasetGroupsCommand,
   ListDatasetGroupsCommandInput,
   ListDatasetGroupsCommandOutput,
 } from "../commands/ListDatasetGroupsCommand";
+import { Forecast } from "../Forecast";
+import { ForecastClient } from "../ForecastClient";
 import { ForecastPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

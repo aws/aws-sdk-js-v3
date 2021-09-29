@@ -1,4 +1,5 @@
-import { FisClient } from "./FisClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateExperimentTemplateCommand,
   CreateExperimentTemplateCommandInput,
@@ -22,15 +23,15 @@ import {
 } from "./commands/GetExperimentTemplateCommand";
 import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
-  ListExperimentTemplatesCommand,
-  ListExperimentTemplatesCommandInput,
-  ListExperimentTemplatesCommandOutput,
-} from "./commands/ListExperimentTemplatesCommand";
-import {
   ListExperimentsCommand,
   ListExperimentsCommandInput,
   ListExperimentsCommandOutput,
 } from "./commands/ListExperimentsCommand";
+import {
+  ListExperimentTemplatesCommand,
+  ListExperimentTemplatesCommandInput,
+  ListExperimentTemplatesCommandOutput,
+} from "./commands/ListExperimentTemplatesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -57,7 +58,7 @@ import {
   UpdateExperimentTemplateCommandInput,
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { FisClient } from "./FisClient";
 
 /**
  * <p>AWS Fault Injection Simulator is a managed service that enables you to perform fault injection

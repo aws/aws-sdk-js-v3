@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppConfigClient } from "./AppConfigClient";
 import {
   CreateApplicationCommand,
@@ -95,15 +97,15 @@ import {
   ListConfigurationProfilesCommandOutput,
 } from "./commands/ListConfigurationProfilesCommand";
 import {
-  ListDeploymentStrategiesCommand,
-  ListDeploymentStrategiesCommandInput,
-  ListDeploymentStrategiesCommandOutput,
-} from "./commands/ListDeploymentStrategiesCommand";
-import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
   ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
+import {
+  ListDeploymentStrategiesCommand,
+  ListDeploymentStrategiesCommandInput,
+  ListDeploymentStrategiesCommandOutput,
+} from "./commands/ListDeploymentStrategiesCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
@@ -160,7 +162,6 @@ import {
   ValidateConfigurationCommandInput,
   ValidateConfigurationCommandOutput,
 } from "./commands/ValidateConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>AWS AppConfig</fullname>

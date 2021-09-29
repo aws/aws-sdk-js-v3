@@ -1,9 +1,6 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ChimeClient } from "./ChimeClient";
-import {
-  AssociatePhoneNumberWithUserCommand,
-  AssociatePhoneNumberWithUserCommandInput,
-  AssociatePhoneNumberWithUserCommandOutput,
-} from "./commands/AssociatePhoneNumberWithUserCommand";
 import {
   AssociatePhoneNumbersWithVoiceConnectorCommand,
   AssociatePhoneNumbersWithVoiceConnectorCommandInput,
@@ -14,6 +11,11 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
   AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
 } from "./commands/AssociatePhoneNumbersWithVoiceConnectorGroupCommand";
+import {
+  AssociatePhoneNumberWithUserCommand,
+  AssociatePhoneNumberWithUserCommandInput,
+  AssociatePhoneNumberWithUserCommandOutput,
+} from "./commands/AssociatePhoneNumberWithUserCommand";
 import {
   AssociateSigninDelegateGroupsWithAccountCommand,
   AssociateSigninDelegateGroupsWithAccountCommandInput,
@@ -512,25 +514,25 @@ import {
   ListAppInstanceAdminsCommandOutput,
 } from "./commands/ListAppInstanceAdminsCommand";
 import {
-  ListAppInstanceUsersCommand,
-  ListAppInstanceUsersCommandInput,
-  ListAppInstanceUsersCommandOutput,
-} from "./commands/ListAppInstanceUsersCommand";
-import {
   ListAppInstancesCommand,
   ListAppInstancesCommandInput,
   ListAppInstancesCommandOutput,
 } from "./commands/ListAppInstancesCommand";
 import {
-  ListAttendeeTagsCommand,
-  ListAttendeeTagsCommandInput,
-  ListAttendeeTagsCommandOutput,
-} from "./commands/ListAttendeeTagsCommand";
+  ListAppInstanceUsersCommand,
+  ListAppInstanceUsersCommandInput,
+  ListAppInstanceUsersCommandOutput,
+} from "./commands/ListAppInstanceUsersCommand";
 import {
   ListAttendeesCommand,
   ListAttendeesCommandInput,
   ListAttendeesCommandOutput,
 } from "./commands/ListAttendeesCommand";
+import {
+  ListAttendeeTagsCommand,
+  ListAttendeeTagsCommandInput,
+  ListAttendeeTagsCommandOutput,
+} from "./commands/ListAttendeeTagsCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListChannelBansCommand,
@@ -573,15 +575,15 @@ import {
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
 import {
-  ListMeetingTagsCommand,
-  ListMeetingTagsCommandInput,
-  ListMeetingTagsCommandOutput,
-} from "./commands/ListMeetingTagsCommand";
-import {
   ListMeetingsCommand,
   ListMeetingsCommandInput,
   ListMeetingsCommandOutput,
 } from "./commands/ListMeetingsCommand";
+import {
+  ListMeetingTagsCommand,
+  ListMeetingTagsCommandInput,
+  ListMeetingTagsCommandOutput,
+} from "./commands/ListMeetingTagsCommand";
 import {
   ListPhoneNumberOrdersCommand,
   ListPhoneNumberOrdersCommandInput,
@@ -630,15 +632,15 @@ import {
   ListVoiceConnectorGroupsCommandOutput,
 } from "./commands/ListVoiceConnectorGroupsCommand";
 import {
-  ListVoiceConnectorTerminationCredentialsCommand,
-  ListVoiceConnectorTerminationCredentialsCommandInput,
-  ListVoiceConnectorTerminationCredentialsCommandOutput,
-} from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
-import {
   ListVoiceConnectorsCommand,
   ListVoiceConnectorsCommandInput,
   ListVoiceConnectorsCommandOutput,
 } from "./commands/ListVoiceConnectorsCommand";
+import {
+  ListVoiceConnectorTerminationCredentialsCommand,
+  ListVoiceConnectorTerminationCredentialsCommandInput,
+  ListVoiceConnectorTerminationCredentialsCommandOutput,
+} from "./commands/ListVoiceConnectorTerminationCredentialsCommand";
 import { LogoutUserCommand, LogoutUserCommandInput, LogoutUserCommandOutput } from "./commands/LogoutUserCommand";
 import {
   PutAppInstanceRetentionSettingsCommand,
@@ -861,7 +863,6 @@ import {
   UpdateVoiceConnectorGroupCommandInput,
   UpdateVoiceConnectorGroupCommandOutput,
 } from "./commands/UpdateVoiceConnectorGroupCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>The Amazon Chime API (application programming interface) is designed for developers to

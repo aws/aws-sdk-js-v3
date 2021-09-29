@@ -1,12 +1,13 @@
-import { LexModelsV2 } from "../LexModelsV2";
-import { LexModelsV2Client } from "../LexModelsV2Client";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListBotAliasesCommand,
   ListBotAliasesCommandInput,
   ListBotAliasesCommandOutput,
 } from "../commands/ListBotAliasesCommand";
+import { LexModelsV2 } from "../LexModelsV2";
+import { LexModelsV2Client } from "../LexModelsV2Client";
 import { LexModelsV2PaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

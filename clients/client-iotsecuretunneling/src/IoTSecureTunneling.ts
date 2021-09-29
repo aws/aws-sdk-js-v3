@@ -1,4 +1,5 @@
-import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand";
 import {
   DescribeTunnelCommand,
@@ -18,7 +19,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient";
 
 /**
  * <fullname>AWS IoT Secure Tunneling</fullname>

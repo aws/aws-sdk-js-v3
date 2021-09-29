@@ -1,12 +1,13 @@
-import { MediaConvert } from "../MediaConvert";
-import { MediaConvertClient } from "../MediaConvertClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListJobTemplatesCommand,
   ListJobTemplatesCommandInput,
   ListJobTemplatesCommandOutput,
 } from "../commands/ListJobTemplatesCommand";
+import { MediaConvert } from "../MediaConvert";
+import { MediaConvertClient } from "../MediaConvertClient";
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

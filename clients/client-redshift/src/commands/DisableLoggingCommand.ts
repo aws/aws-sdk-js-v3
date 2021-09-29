@@ -1,9 +1,3 @@
-import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
-import { DisableLoggingMessage, LoggingStatus } from "../models/models_1";
-import {
-  deserializeAws_queryDisableLoggingCommand,
-  serializeAws_queryDisableLoggingCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DisableLoggingMessage, LoggingStatus } from "../models/models_1";
+import {
+  deserializeAws_queryDisableLoggingCommand,
+  serializeAws_queryDisableLoggingCommand,
+} from "../protocols/Aws_query";
+import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 export interface DisableLoggingCommandInput extends DisableLoggingMessage {}
 export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBearer {}

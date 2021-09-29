@@ -1,4 +1,5 @@
-import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchMeterUsageCommand,
   BatchMeterUsageCommandInput,
@@ -15,7 +16,7 @@ import {
   ResolveCustomerCommandInput,
   ResolveCustomerCommandOutput,
 } from "./commands/ResolveCustomerCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
 
 /**
  * <fullname>AWS Marketplace Metering Service</fullname>

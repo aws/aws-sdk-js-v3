@@ -1,4 +1,5 @@
 import {
+  _InstanceType,
   ActiveInstance,
   ActivityStatus,
   AllocationStrategy,
@@ -31,7 +32,6 @@ import {
   TrunkInterfaceAssociation,
   UserIdGroupPair,
   VolumeType,
-  _InstanceType,
 } from "./models_0";
 import {
   CapacityReservationPreference,

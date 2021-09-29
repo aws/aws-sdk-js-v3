@@ -1,4 +1,5 @@
-import { ConnectClient } from "./ConnectClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateApprovedOriginCommand,
   AssociateApprovedOriginCommandInput,
@@ -264,15 +265,15 @@ import {
   ListInstanceAttributesCommandOutput,
 } from "./commands/ListInstanceAttributesCommand";
 import {
-  ListInstanceStorageConfigsCommand,
-  ListInstanceStorageConfigsCommandInput,
-  ListInstanceStorageConfigsCommandOutput,
-} from "./commands/ListInstanceStorageConfigsCommand";
-import {
   ListInstancesCommand,
   ListInstancesCommandInput,
   ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
+import {
+  ListInstanceStorageConfigsCommand,
+  ListInstanceStorageConfigsCommandInput,
+  ListInstanceStorageConfigsCommandOutput,
+} from "./commands/ListInstanceStorageConfigsCommand";
 import {
   ListIntegrationAssociationsCommand,
   ListIntegrationAssociationsCommandInput,
@@ -504,7 +505,7 @@ import {
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
 } from "./commands/UpdateUserSecurityProfilesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ConnectClient } from "./ConnectClient";
 
 /**
  * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and manage a customer

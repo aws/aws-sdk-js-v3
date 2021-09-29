@@ -1,12 +1,13 @@
-import { Location } from "../Location";
-import { LocationClient } from "../LocationClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListGeofenceCollectionsCommand,
   ListGeofenceCollectionsCommandInput,
   ListGeofenceCollectionsCommandOutput,
 } from "../commands/ListGeofenceCollectionsCommand";
+import { Location } from "../Location";
+import { LocationClient } from "../LocationClient";
 import { LocationPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,3 +1,6 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AssociationComplianceSeverity,
   AssociationDescription,
@@ -51,8 +54,6 @@ import {
   Target,
   TargetLocation,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export interface DescribeParametersResult {
   /**

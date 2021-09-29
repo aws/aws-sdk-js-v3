@@ -1,14 +1,15 @@
-import { SageMakerClient } from "../SageMakerClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeImageCommand, DescribeImageCommandInput } from "../commands/DescribeImageCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { SageMakerClient } from "../SageMakerClient";
 
 const checkState = async (client: SageMakerClient, input: DescribeImageCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImageCommand(input));
+    const result: any = await client.send(new DescribeImageCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ImageStatus;
       };
       if (returnComparator() === "CREATED") {
@@ -16,7 +17,7 @@ const checkState = async (client: SageMakerClient, input: DescribeImageCommandIn
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.ImageStatus;
       };
       if (returnComparator() === "CREATE_FAILED") {

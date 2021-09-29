@@ -1,4 +1,5 @@
-import { EventBridgeClient } from "./EventBridgeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   ActivateEventSourceCommand,
   ActivateEventSourceCommandInput,
@@ -214,7 +215,7 @@ import {
   UpdateConnectionCommandInput,
   UpdateConnectionCommandOutput,
 } from "./commands/UpdateConnectionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EventBridgeClient } from "./EventBridgeClient";
 
 /**
  * <p>Amazon EventBridge helps you to respond to state changes in your Amazon Web Services resources. When your

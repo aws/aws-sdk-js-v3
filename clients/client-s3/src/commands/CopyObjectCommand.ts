@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { CopyObjectOutput, CopyObjectRequest } from "../models/models_0";
-import {
-  deserializeAws_restXmlCopyObjectCommand,
-  serializeAws_restXmlCopyObjectCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -14,11 +8,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { CopyObjectOutput, CopyObjectRequest } from "../models/models_0";
+import {
+  deserializeAws_restXmlCopyObjectCommand,
+  serializeAws_restXmlCopyObjectCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface CopyObjectCommandInput extends CopyObjectRequest {}
 export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBearer {}

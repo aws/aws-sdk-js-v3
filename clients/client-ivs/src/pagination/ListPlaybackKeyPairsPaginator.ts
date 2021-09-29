@@ -1,12 +1,13 @@
-import { Ivs } from "../Ivs";
-import { IvsClient } from "../IvsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPlaybackKeyPairsCommand,
   ListPlaybackKeyPairsCommandInput,
   ListPlaybackKeyPairsCommandOutput,
 } from "../commands/ListPlaybackKeyPairsCommand";
+import { Ivs } from "../Ivs";
+import { IvsClient } from "../IvsClient";
 import { IvsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

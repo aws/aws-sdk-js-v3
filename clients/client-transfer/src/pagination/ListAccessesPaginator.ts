@@ -1,12 +1,13 @@
-import { Transfer } from "../Transfer";
-import { TransferClient } from "../TransferClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListAccessesCommand,
   ListAccessesCommandInput,
   ListAccessesCommandOutput,
 } from "../commands/ListAccessesCommand";
+import { Transfer } from "../Transfer";
+import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

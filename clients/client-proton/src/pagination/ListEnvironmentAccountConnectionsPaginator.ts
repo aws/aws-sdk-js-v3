@@ -1,12 +1,13 @@
-import { Proton } from "../Proton";
-import { ProtonClient } from "../ProtonClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListEnvironmentAccountConnectionsCommand,
   ListEnvironmentAccountConnectionsCommandInput,
   ListEnvironmentAccountConnectionsCommandOutput,
 } from "../commands/ListEnvironmentAccountConnectionsCommand";
+import { Proton } from "../Proton";
+import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

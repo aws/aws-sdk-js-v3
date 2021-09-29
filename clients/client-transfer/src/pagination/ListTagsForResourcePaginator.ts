@@ -1,12 +1,13 @@
-import { Transfer } from "../Transfer";
-import { TransferClient } from "../TransferClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { Transfer } from "../Transfer";
+import { TransferClient } from "../TransferClient";
 import { TransferPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

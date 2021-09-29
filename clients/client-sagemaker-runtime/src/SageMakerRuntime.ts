@@ -1,4 +1,5 @@
-import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   InvokeEndpointAsyncCommand,
   InvokeEndpointAsyncCommandInput,
@@ -9,7 +10,7 @@ import {
   InvokeEndpointCommandInput,
   InvokeEndpointCommandOutput,
 } from "./commands/InvokeEndpointCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
 
 /**
  * <p> The Amazon SageMaker runtime API. </p>

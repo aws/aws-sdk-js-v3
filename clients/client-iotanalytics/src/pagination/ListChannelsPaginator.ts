@@ -1,12 +1,13 @@
-import { IoTAnalytics } from "../IoTAnalytics";
-import { IoTAnalyticsClient } from "../IoTAnalyticsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
+import { IoTAnalytics } from "../IoTAnalytics";
+import { IoTAnalyticsClient } from "../IoTAnalyticsClient";
 import { IoTAnalyticsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,6 +1,7 @@
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import { DescribeCodeReviewCommand, DescribeCodeReviewCommandInput } from "../commands/DescribeCodeReviewCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
 
 const checkState = async (
   client: CodeGuruReviewerClient,
@@ -8,10 +9,10 @@ const checkState = async (
 ): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeCodeReviewCommand(input));
+    const result: any = await client.send(new DescribeCodeReviewCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.CodeReview.State;
       };
       if (returnComparator() === "Completed") {
@@ -19,7 +20,7 @@ const checkState = async (
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.CodeReview.State;
       };
       if (returnComparator() === "Pending") {

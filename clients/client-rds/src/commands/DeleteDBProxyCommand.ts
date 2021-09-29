@@ -1,9 +1,3 @@
-import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
-import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
-import {
-  deserializeAws_queryDeleteDBProxyCommand,
-  serializeAws_queryDeleteDBProxyCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0";
+import {
+  deserializeAws_queryDeleteDBProxyCommand,
+  serializeAws_queryDeleteDBProxyCommand,
+} from "../protocols/Aws_query";
+import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
 export interface DeleteDBProxyCommandInput extends DeleteDBProxyRequest {}
 export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __MetadataBearer {}

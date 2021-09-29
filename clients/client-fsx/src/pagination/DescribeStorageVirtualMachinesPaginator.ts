@@ -1,12 +1,13 @@
-import { FSx } from "../FSx";
-import { FSxClient } from "../FSxClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeStorageVirtualMachinesCommand,
   DescribeStorageVirtualMachinesCommandInput,
   DescribeStorageVirtualMachinesCommandOutput,
 } from "../commands/DescribeStorageVirtualMachinesCommand";
+import { FSx } from "../FSx";
+import { FSxClient } from "../FSxClient";
 import { FSxPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

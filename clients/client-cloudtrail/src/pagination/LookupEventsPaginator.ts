@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CloudTrail } from "../CloudTrail";
 import { CloudTrailClient } from "../CloudTrailClient";
 import {
@@ -6,7 +8,6 @@ import {
   LookupEventsCommandOutput,
 } from "../commands/LookupEventsCommand";
 import { CloudTrailPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

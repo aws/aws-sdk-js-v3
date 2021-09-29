@@ -1,4 +1,5 @@
-import { CustomerProfilesClient } from "./CustomerProfilesClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddProfileKeyCommand,
   AddProfileKeyCommandInput,
@@ -73,20 +74,20 @@ import {
   ListIntegrationsCommandOutput,
 } from "./commands/ListIntegrationsCommand";
 import {
-  ListProfileObjectTypeTemplatesCommand,
-  ListProfileObjectTypeTemplatesCommandInput,
-  ListProfileObjectTypeTemplatesCommandOutput,
-} from "./commands/ListProfileObjectTypeTemplatesCommand";
+  ListProfileObjectsCommand,
+  ListProfileObjectsCommandInput,
+  ListProfileObjectsCommandOutput,
+} from "./commands/ListProfileObjectsCommand";
 import {
   ListProfileObjectTypesCommand,
   ListProfileObjectTypesCommandInput,
   ListProfileObjectTypesCommandOutput,
 } from "./commands/ListProfileObjectTypesCommand";
 import {
-  ListProfileObjectsCommand,
-  ListProfileObjectsCommandInput,
-  ListProfileObjectsCommandOutput,
-} from "./commands/ListProfileObjectsCommand";
+  ListProfileObjectTypeTemplatesCommand,
+  ListProfileObjectTypeTemplatesCommandInput,
+  ListProfileObjectTypeTemplatesCommandOutput,
+} from "./commands/ListProfileObjectTypeTemplatesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -133,7 +134,7 @@ import {
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { CustomerProfilesClient } from "./CustomerProfilesClient";
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>

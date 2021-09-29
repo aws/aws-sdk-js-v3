@@ -1,4 +1,5 @@
-import { GroundStationClient } from "./GroundStationClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelContactCommand,
   CancelContactCommandInput,
@@ -112,7 +113,7 @@ import {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
 } from "./commands/UpdateMissionProfileCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GroundStationClient } from "./GroundStationClient";
 
 /**
  * <p>Welcome to the AWS Ground Station API Reference. AWS Ground Station is a fully managed service that

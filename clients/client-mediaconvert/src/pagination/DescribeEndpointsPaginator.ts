@@ -1,12 +1,13 @@
-import { MediaConvert } from "../MediaConvert";
-import { MediaConvertClient } from "../MediaConvertClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
   DescribeEndpointsCommandOutput,
 } from "../commands/DescribeEndpointsCommand";
+import { MediaConvert } from "../MediaConvert";
+import { MediaConvertClient } from "../MediaConvertClient";
 import { MediaConvertPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

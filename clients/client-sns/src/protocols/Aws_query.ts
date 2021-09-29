@@ -1,3 +1,24 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "../commands/AddPermissionCommand";
 import {
   CheckIfPhoneNumberIsOptedOutCommandInput,
@@ -170,9 +191,9 @@ import {
   MessageAttributeValue,
   NotFoundException,
   NumberCapability,
+  OptedOutException,
   OptInPhoneNumberInput,
   OptInPhoneNumberResponse,
-  OptedOutException,
   PhoneNumberInformation,
   PlatformApplication,
   PlatformApplicationDisabledException,
@@ -180,13 +201,13 @@ import {
   PublishResponse,
   RemovePermissionInput,
   ResourceNotFoundException,
-  SMSSandboxPhoneNumber,
   SetEndpointAttributesInput,
   SetPlatformApplicationAttributesInput,
   SetSMSAttributesInput,
   SetSMSAttributesResponse,
   SetSubscriptionAttributesInput,
   SetTopicAttributesInput,
+  SMSSandboxPhoneNumber,
   StaleTagException,
   SubscribeInput,
   SubscribeResponse,
@@ -209,26 +230,6 @@ import {
   VerifySMSSandboxPhoneNumberInput,
   VerifySMSSandboxPhoneNumberResult,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryAddPermissionCommand = async (
   input: AddPermissionCommandInput,
@@ -877,7 +878,7 @@ const deserializeAws_queryAddPermissionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -955,7 +956,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1033,7 +1034,7 @@ const deserializeAws_queryConfirmSubscriptionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1127,7 +1128,7 @@ const deserializeAws_queryCreatePlatformApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1197,7 +1198,7 @@ const deserializeAws_queryCreatePlatformEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1275,7 +1276,7 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1369,7 +1370,7 @@ const deserializeAws_queryCreateTopicCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1484,7 +1485,7 @@ const deserializeAws_queryDeleteEndpointCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1551,7 +1552,7 @@ const deserializeAws_queryDeletePlatformApplicationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1621,7 +1622,7 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1712,7 +1713,7 @@ const deserializeAws_queryDeleteTopicCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1814,7 +1815,7 @@ const deserializeAws_queryGetEndpointAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1895,7 +1896,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -1973,7 +1974,7 @@ const deserializeAws_queryGetSMSAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2051,7 +2052,7 @@ const deserializeAws_queryGetSMSSandboxAccountStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2121,7 +2122,7 @@ const deserializeAws_queryGetSubscriptionAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2199,7 +2200,7 @@ const deserializeAws_queryGetTopicAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2288,7 +2289,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2366,7 +2367,7 @@ const deserializeAws_queryListOriginationNumbersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2452,7 +2453,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2530,7 +2531,7 @@ const deserializeAws_queryListPlatformApplicationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2600,7 +2601,7 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2686,7 +2687,7 @@ const deserializeAws_queryListSubscriptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2756,7 +2757,7 @@ const deserializeAws_queryListSubscriptionsByTopicCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2834,7 +2835,7 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2920,7 +2921,7 @@ const deserializeAws_queryListTopicsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -2990,7 +2991,7 @@ const deserializeAws_queryOptInPhoneNumberCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3068,7 +3069,7 @@ const deserializeAws_queryPublishCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3223,7 +3224,7 @@ const deserializeAws_queryRemovePermissionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3298,7 +3299,7 @@ const deserializeAws_querySetEndpointAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3373,7 +3374,7 @@ const deserializeAws_querySetPlatformApplicationAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3451,7 +3452,7 @@ const deserializeAws_querySetSMSAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3526,7 +3527,7 @@ const deserializeAws_querySetSubscriptionAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3609,7 +3610,7 @@ const deserializeAws_querySetTopicAttributesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3695,7 +3696,7 @@ const deserializeAws_querySubscribeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3797,7 +3798,7 @@ const deserializeAws_queryTagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3896,7 +3897,7 @@ const deserializeAws_queryUnsubscribeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -3982,7 +3983,7 @@ const deserializeAws_queryUntagResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -4084,7 +4085,7 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthorizationErrorException":
@@ -4560,7 +4561,7 @@ const deserializeAws_queryVerificationExceptionResponse = async (
 const serializeAws_queryActionsList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4704,7 +4705,7 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
 const serializeAws_queryDelegatesList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -4880,7 +4881,7 @@ const serializeAws_queryListSMSSandboxPhoneNumbersInput = (
 const serializeAws_queryListString = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5165,7 +5166,7 @@ const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
 const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5178,7 +5179,7 @@ const serializeAws_queryTagKeyList = (input: string[], context: __SerdeContext):
 const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -5260,7 +5261,7 @@ const deserializeAws_queryAuthorizationErrorException = (
   output: any,
   context: __SerdeContext
 ): AuthorizationErrorException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5273,7 +5274,7 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): CheckIfPhoneNumberIsOptedOutResponse => {
-  let contents: any = {
+  const contents: any = {
     isOptedOut: undefined,
   };
   if (output["isOptedOut"] !== undefined) {
@@ -5286,7 +5287,7 @@ const deserializeAws_queryConcurrentAccessException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentAccessException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5299,7 +5300,7 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): ConfirmSubscriptionResponse => {
-  let contents: any = {
+  const contents: any = {
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
@@ -5309,7 +5310,7 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
 };
 
 const deserializeAws_queryCreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
-  let contents: any = {
+  const contents: any = {
     EndpointArn: undefined,
   };
   if (output["EndpointArn"] !== undefined) {
@@ -5322,7 +5323,7 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePlatformApplicationResponse => {
-  let contents: any = {
+  const contents: any = {
     PlatformApplicationArn: undefined,
   };
   if (output["PlatformApplicationArn"] !== undefined) {
@@ -5335,12 +5336,12 @@ const deserializeAws_queryCreateSMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): CreateSMSSandboxPhoneNumberResult => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
@@ -5353,12 +5354,12 @@ const deserializeAws_queryDeleteSMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): DeleteSMSSandboxPhoneNumberResult => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
-  let contents: any = {
+  const contents: any = {
     EndpointArn: undefined,
     Attributes: undefined,
   };
@@ -5381,7 +5382,7 @@ const deserializeAws_queryEndpointDisabledException = (
   output: any,
   context: __SerdeContext
 ): EndpointDisabledException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5394,7 +5395,7 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): FilterPolicyLimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5407,7 +5408,7 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetEndpointAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -5426,7 +5427,7 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetPlatformApplicationAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -5445,7 +5446,7 @@ const deserializeAws_queryGetSMSAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetSMSAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     attributes: undefined,
   };
   if (output.attributes === "") {
@@ -5464,7 +5465,7 @@ const deserializeAws_queryGetSMSSandboxAccountStatusResult = (
   output: any,
   context: __SerdeContext
 ): GetSMSSandboxAccountStatusResult => {
-  let contents: any = {
+  const contents: any = {
     IsInSandbox: undefined,
   };
   if (output["IsInSandbox"] !== undefined) {
@@ -5477,7 +5478,7 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetSubscriptionAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -5496,7 +5497,7 @@ const deserializeAws_queryGetTopicAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetTopicAttributesResponse => {
-  let contents: any = {
+  const contents: any = {
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -5512,7 +5513,7 @@ const deserializeAws_queryGetTopicAttributesResponse = (
 };
 
 const deserializeAws_queryInternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5525,7 +5526,7 @@ const deserializeAws_queryInvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5538,7 +5539,7 @@ const deserializeAws_queryInvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5551,7 +5552,7 @@ const deserializeAws_queryInvalidSecurityException = (
   output: any,
   context: __SerdeContext
 ): InvalidSecurityException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5564,7 +5565,7 @@ const deserializeAws_queryKMSAccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): KMSAccessDeniedException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5574,7 +5575,7 @@ const deserializeAws_queryKMSAccessDeniedException = (
 };
 
 const deserializeAws_queryKMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5587,7 +5588,7 @@ const deserializeAws_queryKMSInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): KMSInvalidStateException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5597,7 +5598,7 @@ const deserializeAws_queryKMSInvalidStateException = (
 };
 
 const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5607,7 +5608,7 @@ const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5617,7 +5618,7 @@ const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryKMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5630,7 +5631,7 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
-  let contents: any = {
+  const contents: any = {
     Endpoints: undefined,
     NextToken: undefined,
   };
@@ -5678,7 +5679,7 @@ const deserializeAws_queryListOriginationNumbersResult = (
   output: any,
   context: __SerdeContext
 ): ListOriginationNumbersResult => {
-  let contents: any = {
+  const contents: any = {
     NextToken: undefined,
     PhoneNumbers: undefined,
   };
@@ -5701,7 +5702,7 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   output: any,
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
-  let contents: any = {
+  const contents: any = {
     phoneNumbers: undefined,
     nextToken: undefined,
   };
@@ -5724,7 +5725,7 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
-  let contents: any = {
+  const contents: any = {
     PlatformApplications: undefined,
     NextToken: undefined,
   };
@@ -5747,7 +5748,7 @@ const deserializeAws_queryListSMSSandboxPhoneNumbersResult = (
   output: any,
   context: __SerdeContext
 ): ListSMSSandboxPhoneNumbersResult => {
-  let contents: any = {
+  const contents: any = {
     PhoneNumbers: undefined,
     NextToken: undefined,
   };
@@ -5770,7 +5771,7 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
-  let contents: any = {
+  const contents: any = {
     Subscriptions: undefined,
     NextToken: undefined,
   };
@@ -5793,7 +5794,7 @@ const deserializeAws_queryListSubscriptionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscriptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     Subscriptions: undefined,
     NextToken: undefined,
   };
@@ -5816,7 +5817,7 @@ const deserializeAws_queryListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  const contents: any = {
     Tags: undefined,
   };
   if (output.Tags === "") {
@@ -5829,7 +5830,7 @@ const deserializeAws_queryListTagsForResourceResponse = (
 };
 
 const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
-  let contents: any = {
+  const contents: any = {
     Topics: undefined,
     NextToken: undefined,
   };
@@ -5858,7 +5859,7 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryNotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5882,7 +5883,7 @@ const deserializeAws_queryNumberCapabilityList = (
 };
 
 const deserializeAws_queryOptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5895,12 +5896,12 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
   output: any,
   context: __SerdeContext
 ): OptInPhoneNumberResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryPhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
-  let contents: any = {
+  const contents: any = {
     CreatedAt: undefined,
     PhoneNumber: undefined,
     Status: undefined,
@@ -5961,7 +5962,7 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
-  let contents: any = {
+  const contents: any = {
     PlatformApplicationArn: undefined,
     Attributes: undefined,
   };
@@ -5984,7 +5985,7 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
   output: any,
   context: __SerdeContext
 ): PlatformApplicationDisabledException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5994,7 +5995,7 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
 };
 
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
-  let contents: any = {
+  const contents: any = {
     MessageId: undefined,
     SequenceNumber: undefined,
   };
@@ -6011,7 +6012,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6024,12 +6025,12 @@ const deserializeAws_querySetSMSAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): SetSMSAttributesResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_querySMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
-  let contents: any = {
+  const contents: any = {
     PhoneNumber: undefined,
     Status: undefined,
   };
@@ -6057,7 +6058,7 @@ const deserializeAws_querySMSSandboxPhoneNumberList = (
 };
 
 const deserializeAws_queryStaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6067,7 +6068,7 @@ const deserializeAws_queryStaleTagException = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
-  let contents: any = {
+  const contents: any = {
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
@@ -6077,7 +6078,7 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
-  let contents: any = {
+  const contents: any = {
     SubscriptionArn: undefined,
     Owner: undefined,
     Protocol: undefined,
@@ -6121,7 +6122,7 @@ const deserializeAws_querySubscriptionLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): SubscriptionLimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6142,7 +6143,7 @@ const deserializeAws_querySubscriptionsList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -6159,7 +6160,7 @@ const deserializeAws_queryTagLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagLimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6180,7 +6181,7 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 };
 
 const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6190,12 +6191,12 @@ const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6205,7 +6206,7 @@ const deserializeAws_queryThrottledException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic => {
-  let contents: any = {
+  const contents: any = {
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
@@ -6230,7 +6231,7 @@ const deserializeAws_queryTopicLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TopicLimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6251,12 +6252,12 @@ const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_queryUntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryUserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
-  let contents: any = {
+  const contents: any = {
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -6266,7 +6267,7 @@ const deserializeAws_queryUserErrorException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6276,7 +6277,7 @@ const deserializeAws_queryValidationException = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryVerificationException = (output: any, context: __SerdeContext): VerificationException => {
-  let contents: any = {
+  const contents: any = {
     Message: undefined,
     Status: undefined,
   };
@@ -6293,7 +6294,7 @@ const deserializeAws_queryVerifySMSSandboxPhoneNumberResult = (
   output: any,
   context: __SerdeContext
 ): VerifySMSSandboxPhoneNumberResult => {
-  let contents: any = {};
+  const contents: any = {};
   return contents;
 };
 

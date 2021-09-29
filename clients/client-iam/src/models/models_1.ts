@@ -1,6 +1,7 @@
-import { Role, SSHPublicKey, ServerCertificateMetadata, SigningCertificate, StatusType, Tag } from "./models_0";
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
+import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, StatusType, Tag } from "./models_0";
 
 export interface UntagPolicyRequest {
   /**

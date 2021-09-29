@@ -1,9 +1,3 @@
-import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
-import { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/models_1";
-import {
-  deserializeAws_restXmlUploadPartCopyCommand,
-  serializeAws_restXmlUploadPartCopyCommand,
-} from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
 import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
@@ -14,11 +8,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/models_1";
+import {
+  deserializeAws_restXmlUploadPartCopyCommand,
+  serializeAws_restXmlUploadPartCopyCommand,
+} from "../protocols/Aws_restXml";
+import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 export interface UploadPartCopyCommandInput extends UploadPartCopyRequest {}
 export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __MetadataBearer {}

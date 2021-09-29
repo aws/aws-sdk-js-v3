@@ -1,12 +1,13 @@
-import { ResourceGroupsTaggingAPI } from "../ResourceGroupsTaggingAPI";
-import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetTagValuesCommand,
   GetTagValuesCommandInput,
   GetTagValuesCommandOutput,
 } from "../commands/GetTagValuesCommand";
+import { ResourceGroupsTaggingAPI } from "../ResourceGroupsTaggingAPI";
+import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClient";
 import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

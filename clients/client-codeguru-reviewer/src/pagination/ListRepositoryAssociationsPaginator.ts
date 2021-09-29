@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { CodeGuruReviewer } from "../CodeGuruReviewer";
 import { CodeGuruReviewerClient } from "../CodeGuruReviewerClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListRepositoryAssociationsCommandOutput,
 } from "../commands/ListRepositoryAssociationsCommand";
 import { CodeGuruReviewerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { IoTClient } from "./IoTClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptCertificateTransferCommand,
   AcceptCertificateTransferCommandInput,
@@ -722,12 +723,12 @@ import {
   ListJobExecutionsForThingCommandInput,
   ListJobExecutionsForThingCommandOutput,
 } from "./commands/ListJobExecutionsForThingCommand";
+import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListJobTemplatesCommand,
   ListJobTemplatesCommandInput,
   ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand";
-import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMitigationActionsCommand,
   ListMitigationActionsCommandInput,
@@ -769,15 +770,15 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
-  ListProvisioningTemplateVersionsCommand,
-  ListProvisioningTemplateVersionsCommandInput,
-  ListProvisioningTemplateVersionsCommandOutput,
-} from "./commands/ListProvisioningTemplateVersionsCommand";
-import {
   ListProvisioningTemplatesCommand,
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand";
+import {
+  ListProvisioningTemplateVersionsCommand,
+  ListProvisioningTemplateVersionsCommandInput,
+  ListProvisioningTemplateVersionsCommandOutput,
+} from "./commands/ListProvisioningTemplateVersionsCommand";
 import {
   ListRoleAliasesCommand,
   ListRoleAliasesCommandInput,
@@ -839,11 +840,6 @@ import {
   ListThingRegistrationTasksCommandInput,
   ListThingRegistrationTasksCommandOutput,
 } from "./commands/ListThingRegistrationTasksCommand";
-import {
-  ListThingTypesCommand,
-  ListThingTypesCommandInput,
-  ListThingTypesCommandOutput,
-} from "./commands/ListThingTypesCommand";
 import { ListThingsCommand, ListThingsCommandInput, ListThingsCommandOutput } from "./commands/ListThingsCommand";
 import {
   ListThingsInBillingGroupCommand,
@@ -855,6 +851,11 @@ import {
   ListThingsInThingGroupCommandInput,
   ListThingsInThingGroupCommandOutput,
 } from "./commands/ListThingsInThingGroupCommand";
+import {
+  ListThingTypesCommand,
+  ListThingTypesCommandInput,
+  ListThingTypesCommandOutput,
+} from "./commands/ListThingTypesCommand";
 import {
   ListTopicRuleDestinationsCommand,
   ListTopicRuleDestinationsCommandInput,
@@ -1109,7 +1110,7 @@ import {
   ValidateSecurityProfileBehaviorsCommandInput,
   ValidateSecurityProfileBehaviorsCommandOutput,
 } from "./commands/ValidateSecurityProfileBehaviorsCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { IoTClient } from "./IoTClient";
 
 /**
  * <fullname>IoT</fullname>

@@ -1,12 +1,13 @@
-import { MediaStore } from "../MediaStore";
-import { MediaStoreClient } from "../MediaStoreClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListContainersCommand,
   ListContainersCommandInput,
   ListContainersCommandOutput,
 } from "../commands/ListContainersCommand";
+import { MediaStore } from "../MediaStore";
+import { MediaStoreClient } from "../MediaStoreClient";
 import { MediaStorePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

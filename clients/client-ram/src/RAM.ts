@@ -1,4 +1,5 @@
-import { RAMClient } from "./RAMClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptResourceShareInvitationCommand,
   AcceptResourceShareInvitationCommandInput,
@@ -80,6 +81,11 @@ import {
   ListPrincipalsCommandOutput,
 } from "./commands/ListPrincipalsCommand";
 import {
+  ListResourcesCommand,
+  ListResourcesCommandInput,
+  ListResourcesCommandOutput,
+} from "./commands/ListResourcesCommand";
+import {
   ListResourceSharePermissionsCommand,
   ListResourceSharePermissionsCommandInput,
   ListResourceSharePermissionsCommandOutput,
@@ -89,11 +95,6 @@ import {
   ListResourceTypesCommandInput,
   ListResourceTypesCommandOutput,
 } from "./commands/ListResourceTypesCommand";
-import {
-  ListResourcesCommand,
-  ListResourcesCommandInput,
-  ListResourcesCommandOutput,
-} from "./commands/ListResourcesCommand";
 import {
   PromoteResourceShareCreatedFromPolicyCommand,
   PromoteResourceShareCreatedFromPolicyCommandInput,
@@ -115,7 +116,7 @@ import {
   UpdateResourceShareCommandInput,
   UpdateResourceShareCommandOutput,
 } from "./commands/UpdateResourceShareCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { RAMClient } from "./RAMClient";
 
 /**
  * <p>This is the <i>Resource Access Manager API Reference</i>. This documentation provides

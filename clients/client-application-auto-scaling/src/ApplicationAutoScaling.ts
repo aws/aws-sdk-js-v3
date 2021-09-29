@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ApplicationAutoScalingClient } from "./ApplicationAutoScalingClient";
 import {
   DeleteScalingPolicyCommand,
@@ -49,7 +51,6 @@ import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following

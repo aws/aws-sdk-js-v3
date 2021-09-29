@@ -1,9 +1,3 @@
-import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { RegisterClusterRequest, RegisterClusterResponse } from "../models/models_0";
-import {
-  deserializeAws_restJson1RegisterClusterCommand,
-  serializeAws_restJson1RegisterClusterCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { RegisterClusterRequest, RegisterClusterResponse } from "../models/models_0";
+import {
+  deserializeAws_restJson1RegisterClusterCommand,
+  serializeAws_restJson1RegisterClusterCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface RegisterClusterCommandInput extends RegisterClusterRequest {}
 export interface RegisterClusterCommandOutput extends RegisterClusterResponse, __MetadataBearer {}

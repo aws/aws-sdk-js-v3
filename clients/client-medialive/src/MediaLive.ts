@@ -1,4 +1,5 @@
-import { MediaLiveClient } from "./MediaLiveClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AcceptInputDeviceTransferCommand,
   AcceptInputDeviceTransferCommandInput,
@@ -132,31 +133,31 @@ import {
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
 import {
-  ListInputDeviceTransfersCommand,
-  ListInputDeviceTransfersCommandInput,
-  ListInputDeviceTransfersCommandOutput,
-} from "./commands/ListInputDeviceTransfersCommand";
-import {
   ListInputDevicesCommand,
   ListInputDevicesCommandInput,
   ListInputDevicesCommandOutput,
 } from "./commands/ListInputDevicesCommand";
 import {
+  ListInputDeviceTransfersCommand,
+  ListInputDeviceTransfersCommandInput,
+  ListInputDeviceTransfersCommandOutput,
+} from "./commands/ListInputDeviceTransfersCommand";
+import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
+import {
   ListInputSecurityGroupsCommand,
   ListInputSecurityGroupsCommandInput,
   ListInputSecurityGroupsCommandOutput,
 } from "./commands/ListInputSecurityGroupsCommand";
-import { ListInputsCommand, ListInputsCommandInput, ListInputsCommandOutput } from "./commands/ListInputsCommand";
-import {
-  ListMultiplexProgramsCommand,
-  ListMultiplexProgramsCommandInput,
-  ListMultiplexProgramsCommandOutput,
-} from "./commands/ListMultiplexProgramsCommand";
 import {
   ListMultiplexesCommand,
   ListMultiplexesCommandInput,
   ListMultiplexesCommandOutput,
 } from "./commands/ListMultiplexesCommand";
+import {
+  ListMultiplexProgramsCommand,
+  ListMultiplexProgramsCommandInput,
+  ListMultiplexProgramsCommandOutput,
+} from "./commands/ListMultiplexProgramsCommand";
 import {
   ListOfferingsCommand,
   ListOfferingsCommandInput,
@@ -239,7 +240,7 @@ import {
   UpdateReservationCommandInput,
   UpdateReservationCommandOutput,
 } from "./commands/UpdateReservationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MediaLiveClient } from "./MediaLiveClient";
 
 /**
  * API for AWS Elemental MediaLive

@@ -1,12 +1,13 @@
-import { Honeycode } from "../Honeycode";
-import { HoneycodeClient } from "../HoneycodeClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   QueryTableRowsCommand,
   QueryTableRowsCommandInput,
   QueryTableRowsCommandOutput,
 } from "../commands/QueryTableRowsCommand";
+import { Honeycode } from "../Honeycode";
+import { HoneycodeClient } from "../HoneycodeClient";
 import { HoneycodePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

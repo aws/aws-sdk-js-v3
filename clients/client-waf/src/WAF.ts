@@ -1,4 +1,5 @@
-import { WAFClient } from "./WAFClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateByteMatchSetCommand,
   CreateByteMatchSetCommandInput,
@@ -332,7 +333,7 @@ import {
   UpdateXssMatchSetCommandInput,
   UpdateXssMatchSetCommandOutput,
 } from "./commands/UpdateXssMatchSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WAFClient } from "./WAFClient";
 
 /**
  * <note>

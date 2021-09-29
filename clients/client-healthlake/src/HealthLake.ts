@@ -1,4 +1,5 @@
-import { HealthLakeClient } from "./HealthLakeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateFHIRDatastoreCommand,
   CreateFHIRDatastoreCommandInput,
@@ -60,7 +61,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { HealthLakeClient } from "./HealthLakeClient";
 
 /**
  * <p>Amazon HealthLake is a HIPAA eligibile service that allows customers to store,

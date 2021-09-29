@@ -58,6 +58,7 @@ import {
   VpcConfig,
 } from "./models_0";
 import {
+  _InstanceType,
   DataCaptureConfigSummary,
   DataProcessing,
   DebugHookConfig,
@@ -124,7 +125,6 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  _InstanceType,
 } from "./models_1";
 
 export enum SecondaryStatus {

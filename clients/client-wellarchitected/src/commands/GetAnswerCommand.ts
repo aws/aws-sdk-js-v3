@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
-import { GetAnswerInput, GetAnswerOutput } from "../models/models_0";
-import {
-  deserializeAws_restJson1GetAnswerCommand,
-  serializeAws_restJson1GetAnswerCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { GetAnswerInput, GetAnswerOutput } from "../models/models_0";
+import {
+  deserializeAws_restJson1GetAnswerCommand,
+  serializeAws_restJson1GetAnswerCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
 export interface GetAnswerCommandInput extends GetAnswerInput {}
 export interface GetAnswerCommandOutput extends GetAnswerOutput, __MetadataBearer {}

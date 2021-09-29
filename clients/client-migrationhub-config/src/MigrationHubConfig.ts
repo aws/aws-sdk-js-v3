@@ -1,4 +1,5 @@
-import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateHomeRegionControlCommand,
   CreateHomeRegionControlCommandInput,
@@ -14,7 +15,7 @@ import {
   GetHomeRegionCommandInput,
   GetHomeRegionCommandOutput,
 } from "./commands/GetHomeRegionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { MigrationHubConfigClient } from "./MigrationHubConfigClient";
 
 /**
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your

@@ -1,12 +1,13 @@
-import { NetworkManager } from "../NetworkManager";
-import { NetworkManagerClient } from "../NetworkManagerClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetTransitGatewayRegistrationsCommand,
   GetTransitGatewayRegistrationsCommandInput,
   GetTransitGatewayRegistrationsCommandOutput,
 } from "../commands/GetTransitGatewayRegistrationsCommand";
+import { NetworkManager } from "../NetworkManager";
+import { NetworkManagerClient } from "../NetworkManagerClient";
 import { NetworkManagerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

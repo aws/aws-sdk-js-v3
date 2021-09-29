@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { SnowDeviceManagementClientConfig } from "./SnowDeviceManagementClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { SnowDeviceManagementClientConfig } from "./SnowDeviceManagementClient";
 
 /**
  * @internal

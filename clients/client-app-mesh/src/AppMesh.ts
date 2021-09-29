@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AppMeshClient } from "./AppMeshClient";
 import {
   CreateGatewayRouteCommand,
@@ -153,7 +155,6 @@ import {
   UpdateVirtualServiceCommandInput,
   UpdateVirtualServiceCommandOutput,
 } from "./commands/UpdateVirtualServiceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>App Mesh is a service mesh based on the Envoy proxy that makes it easy to monitor and

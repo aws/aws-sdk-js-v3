@@ -1,12 +1,13 @@
-import { Kafka } from "../Kafka";
-import { KafkaClient } from "../KafkaClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListScramSecretsCommand,
   ListScramSecretsCommandInput,
   ListScramSecretsCommandOutput,
 } from "../commands/ListScramSecretsCommand";
+import { Kafka } from "../Kafka";
+import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

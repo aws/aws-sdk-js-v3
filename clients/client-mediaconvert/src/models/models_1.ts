@@ -1,3 +1,5 @@
+import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
+
 import {
   AccelerationSettings,
   AccelerationStatus,
@@ -35,7 +37,6 @@ import {
   QueueTransition,
   Rectangle,
 } from "./models_0";
-import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 export enum MovMpeg2FourCCControl {
   MPEG = "MPEG",

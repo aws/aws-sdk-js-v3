@@ -1,12 +1,13 @@
-import { IAM } from "../IAM";
-import { IAMClient } from "../IAMClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetAccountAuthorizationDetailsCommand,
   GetAccountAuthorizationDetailsCommandInput,
   GetAccountAuthorizationDetailsCommandOutput,
 } from "../commands/GetAccountAuthorizationDetailsCommand";
+import { IAM } from "../IAM";
+import { IAMClient } from "../IAMClient";
 import { IAMPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

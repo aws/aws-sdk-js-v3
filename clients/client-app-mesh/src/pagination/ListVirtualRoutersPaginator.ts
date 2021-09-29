@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { AppMesh } from "../AppMesh";
 import { AppMeshClient } from "../AppMeshClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListVirtualRoutersCommandOutput,
 } from "../commands/ListVirtualRoutersCommand";
 import { AppMeshPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

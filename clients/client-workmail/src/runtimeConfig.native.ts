@@ -1,6 +1,7 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
-import { WorkMailClientConfig } from "./WorkMailClient";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
+import { WorkMailClientConfig } from "./WorkMailClient";
 
 /**
  * @internal

@@ -1,12 +1,13 @@
-import { DevOpsGuru } from "../DevOpsGuru";
-import { DevOpsGuruClient } from "../DevOpsGuruClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListNotificationChannelsCommand,
   ListNotificationChannelsCommandInput,
   ListNotificationChannelsCommandOutput,
 } from "../commands/ListNotificationChannelsCommand";
+import { DevOpsGuru } from "../DevOpsGuru";
+import { DevOpsGuruClient } from "../DevOpsGuruClient";
 import { DevOpsGuruPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

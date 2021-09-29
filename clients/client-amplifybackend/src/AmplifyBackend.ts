@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AmplifyBackendClient } from "./AmplifyBackendClient";
 import {
   CloneBackendCommand,
@@ -108,7 +110,6 @@ import {
   UpdateBackendJobCommandInput,
   UpdateBackendJobCommandOutput,
 } from "./commands/UpdateBackendJobCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>AWS Amplify Admin API</p>

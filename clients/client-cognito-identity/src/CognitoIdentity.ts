@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { CognitoIdentityClient } from "./CognitoIdentityClient";
 import {
   CreateIdentityPoolCommand,
@@ -106,7 +108,6 @@ import {
   UpdateIdentityPoolCommandInput,
   UpdateIdentityPoolCommandOutput,
 } from "./commands/UpdateIdentityPoolCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <fullname>Amazon Cognito Federated Identities</fullname>

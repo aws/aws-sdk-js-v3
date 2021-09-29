@@ -1,12 +1,13 @@
-import { Shield } from "../Shield";
-import { ShieldClient } from "../ShieldClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListResourcesInProtectionGroupCommand,
   ListResourcesInProtectionGroupCommandInput,
   ListResourcesInProtectionGroupCommandOutput,
 } from "../commands/ListResourcesInProtectionGroupCommand";
+import { Shield } from "../Shield";
+import { ShieldClient } from "../ShieldClient";
 import { ShieldPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

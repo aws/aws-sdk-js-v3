@@ -1,9 +1,3 @@
-import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
-import { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
-import {
-  deserializeAws_json1_1UpdateByteMatchSetCommand,
-  serializeAws_json1_1UpdateByteMatchSetCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateByteMatchSetRequest, UpdateByteMatchSetResponse } from "../models/models_0";
+import {
+  deserializeAws_json1_1UpdateByteMatchSetCommand,
+  serializeAws_json1_1UpdateByteMatchSetCommand,
+} from "../protocols/Aws_json1_1";
+import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 export interface UpdateByteMatchSetCommandInput extends UpdateByteMatchSetRequest {}
 export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetResponse, __MetadataBearer {}

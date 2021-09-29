@@ -1,4 +1,5 @@
-import { SyntheticsClient } from "./SyntheticsClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateCanaryCommand,
   CreateCanaryCommandInput,
@@ -48,7 +49,7 @@ import {
   UpdateCanaryCommandInput,
   UpdateCanaryCommandOutput,
 } from "./commands/UpdateCanaryCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SyntheticsClient } from "./SyntheticsClient";
 
 /**
  * <fullname>Amazon CloudWatch Synthetics</fullname>

@@ -1,4 +1,5 @@
-import { SSMClient } from "./SSMClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
@@ -145,15 +146,15 @@ import {
   DescribeAssociationCommandOutput,
 } from "./commands/DescribeAssociationCommand";
 import {
-  DescribeAssociationExecutionTargetsCommand,
-  DescribeAssociationExecutionTargetsCommandInput,
-  DescribeAssociationExecutionTargetsCommandOutput,
-} from "./commands/DescribeAssociationExecutionTargetsCommand";
-import {
   DescribeAssociationExecutionsCommand,
   DescribeAssociationExecutionsCommandInput,
   DescribeAssociationExecutionsCommandOutput,
 } from "./commands/DescribeAssociationExecutionsCommand";
+import {
+  DescribeAssociationExecutionTargetsCommand,
+  DescribeAssociationExecutionTargetsCommandInput,
+  DescribeAssociationExecutionTargetsCommandOutput,
+} from "./commands/DescribeAssociationExecutionTargetsCommand";
 import {
   DescribeAutomationExecutionsCommand,
   DescribeAutomationExecutionsCommandInput,
@@ -200,6 +201,11 @@ import {
   DescribeInstanceInformationCommandOutput,
 } from "./commands/DescribeInstanceInformationCommand";
 import {
+  DescribeInstancePatchesCommand,
+  DescribeInstancePatchesCommandInput,
+  DescribeInstancePatchesCommandOutput,
+} from "./commands/DescribeInstancePatchesCommand";
+import {
   DescribeInstancePatchStatesCommand,
   DescribeInstancePatchStatesCommandInput,
   DescribeInstancePatchStatesCommandOutput,
@@ -210,15 +216,15 @@ import {
   DescribeInstancePatchStatesForPatchGroupCommandOutput,
 } from "./commands/DescribeInstancePatchStatesForPatchGroupCommand";
 import {
-  DescribeInstancePatchesCommand,
-  DescribeInstancePatchesCommandInput,
-  DescribeInstancePatchesCommandOutput,
-} from "./commands/DescribeInstancePatchesCommand";
-import {
   DescribeInventoryDeletionsCommand,
   DescribeInventoryDeletionsCommandInput,
   DescribeInventoryDeletionsCommandOutput,
 } from "./commands/DescribeInventoryDeletionsCommand";
+import {
+  DescribeMaintenanceWindowExecutionsCommand,
+  DescribeMaintenanceWindowExecutionsCommandInput,
+  DescribeMaintenanceWindowExecutionsCommandOutput,
+} from "./commands/DescribeMaintenanceWindowExecutionsCommand";
 import {
   DescribeMaintenanceWindowExecutionTaskInvocationsCommand,
   DescribeMaintenanceWindowExecutionTaskInvocationsCommandInput,
@@ -230,25 +236,10 @@ import {
   DescribeMaintenanceWindowExecutionTasksCommandOutput,
 } from "./commands/DescribeMaintenanceWindowExecutionTasksCommand";
 import {
-  DescribeMaintenanceWindowExecutionsCommand,
-  DescribeMaintenanceWindowExecutionsCommandInput,
-  DescribeMaintenanceWindowExecutionsCommandOutput,
-} from "./commands/DescribeMaintenanceWindowExecutionsCommand";
-import {
   DescribeMaintenanceWindowScheduleCommand,
   DescribeMaintenanceWindowScheduleCommandInput,
   DescribeMaintenanceWindowScheduleCommandOutput,
 } from "./commands/DescribeMaintenanceWindowScheduleCommand";
-import {
-  DescribeMaintenanceWindowTargetsCommand,
-  DescribeMaintenanceWindowTargetsCommandInput,
-  DescribeMaintenanceWindowTargetsCommandOutput,
-} from "./commands/DescribeMaintenanceWindowTargetsCommand";
-import {
-  DescribeMaintenanceWindowTasksCommand,
-  DescribeMaintenanceWindowTasksCommandInput,
-  DescribeMaintenanceWindowTasksCommandOutput,
-} from "./commands/DescribeMaintenanceWindowTasksCommand";
 import {
   DescribeMaintenanceWindowsCommand,
   DescribeMaintenanceWindowsCommandInput,
@@ -259,6 +250,16 @@ import {
   DescribeMaintenanceWindowsForTargetCommandInput,
   DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "./commands/DescribeMaintenanceWindowsForTargetCommand";
+import {
+  DescribeMaintenanceWindowTargetsCommand,
+  DescribeMaintenanceWindowTargetsCommandInput,
+  DescribeMaintenanceWindowTargetsCommandOutput,
+} from "./commands/DescribeMaintenanceWindowTargetsCommand";
+import {
+  DescribeMaintenanceWindowTasksCommand,
+  DescribeMaintenanceWindowTasksCommandInput,
+  DescribeMaintenanceWindowTasksCommandOutput,
+} from "./commands/DescribeMaintenanceWindowTasksCommand";
 import {
   DescribeOpsItemsCommand,
   DescribeOpsItemsCommandInput,
@@ -275,15 +276,15 @@ import {
   DescribePatchBaselinesCommandOutput,
 } from "./commands/DescribePatchBaselinesCommand";
 import {
-  DescribePatchGroupStateCommand,
-  DescribePatchGroupStateCommandInput,
-  DescribePatchGroupStateCommandOutput,
-} from "./commands/DescribePatchGroupStateCommand";
-import {
   DescribePatchGroupsCommand,
   DescribePatchGroupsCommandInput,
   DescribePatchGroupsCommandOutput,
 } from "./commands/DescribePatchGroupsCommand";
+import {
+  DescribePatchGroupStateCommand,
+  DescribePatchGroupStateCommandInput,
+  DescribePatchGroupStateCommandOutput,
+} from "./commands/DescribePatchGroupStateCommand";
 import {
   DescribePatchPropertiesCommand,
   DescribePatchPropertiesCommandInput,
@@ -417,15 +418,15 @@ import {
   LabelParameterVersionCommandOutput,
 } from "./commands/LabelParameterVersionCommand";
 import {
-  ListAssociationVersionsCommand,
-  ListAssociationVersionsCommandInput,
-  ListAssociationVersionsCommandOutput,
-} from "./commands/ListAssociationVersionsCommand";
-import {
   ListAssociationsCommand,
   ListAssociationsCommandInput,
   ListAssociationsCommandOutput,
 } from "./commands/ListAssociationsCommand";
+import {
+  ListAssociationVersionsCommand,
+  ListAssociationVersionsCommandInput,
+  ListAssociationVersionsCommandOutput,
+} from "./commands/ListAssociationVersionsCommand";
 import {
   ListCommandInvocationsCommand,
   ListCommandInvocationsCommandInput,
@@ -452,15 +453,15 @@ import {
   ListDocumentMetadataHistoryCommandOutput,
 } from "./commands/ListDocumentMetadataHistoryCommand";
 import {
-  ListDocumentVersionsCommand,
-  ListDocumentVersionsCommandInput,
-  ListDocumentVersionsCommandOutput,
-} from "./commands/ListDocumentVersionsCommand";
-import {
   ListDocumentsCommand,
   ListDocumentsCommandInput,
   ListDocumentsCommandOutput,
 } from "./commands/ListDocumentsCommand";
+import {
+  ListDocumentVersionsCommand,
+  ListDocumentVersionsCommandInput,
+  ListDocumentVersionsCommandOutput,
+} from "./commands/ListDocumentVersionsCommand";
 import {
   ListInventoryEntriesCommand,
   ListInventoryEntriesCommandInput,
@@ -662,7 +663,7 @@ import {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SSMClient } from "./SSMClient";
 
 /**
  * <p>Amazon Web Services Systems Manager is a collection of capabilities that helps you automate management tasks such as

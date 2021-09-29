@@ -1,12 +1,13 @@
-import { Organizations } from "../Organizations";
-import { OrganizationsClient } from "../OrganizationsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListHandshakesForOrganizationCommand,
   ListHandshakesForOrganizationCommandInput,
   ListHandshakesForOrganizationCommandOutput,
 } from "../commands/ListHandshakesForOrganizationCommand";
+import { Organizations } from "../Organizations";
+import { OrganizationsClient } from "../OrganizationsClient";
 import { OrganizationsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

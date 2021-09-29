@@ -1,12 +1,13 @@
-import { NetworkFirewall } from "../NetworkFirewall";
-import { NetworkFirewallClient } from "../NetworkFirewallClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
   ListRuleGroupsCommandOutput,
 } from "../commands/ListRuleGroupsCommand";
+import { NetworkFirewall } from "../NetworkFirewall";
+import { NetworkFirewallClient } from "../NetworkFirewallClient";
 import { NetworkFirewallPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

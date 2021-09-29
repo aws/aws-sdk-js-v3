@@ -1,4 +1,5 @@
-import { EMRContainersClient } from "./EMRContainersClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CancelJobRunCommand,
   CancelJobRunCommandInput,
@@ -62,7 +63,7 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EMRContainersClient } from "./EMRContainersClient";
 
 /**
  * <p>Amazon EMR on EKS provides a deployment option for Amazon EMR that allows you to run

@@ -1,3 +1,5 @@
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
 import { CreateApiCommand, CreateApiCommandInput, CreateApiCommandOutput } from "./commands/CreateApiCommand";
 import {
@@ -171,12 +173,12 @@ import {
   GetIntegrationsCommandOutput,
 } from "./commands/GetIntegrationsCommand";
 import { GetModelCommand, GetModelCommandInput, GetModelCommandOutput } from "./commands/GetModelCommand";
+import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import {
   GetModelTemplateCommand,
   GetModelTemplateCommandInput,
   GetModelTemplateCommandOutput,
 } from "./commands/GetModelTemplateCommand";
-import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand";
 import { GetRouteCommand, GetRouteCommandInput, GetRouteCommandOutput } from "./commands/GetRouteCommand";
 import {
   GetRouteResponseCommand,
@@ -251,7 +253,6 @@ import {
   UpdateVpcLinkCommandInput,
   UpdateVpcLinkCommandOutput,
 } from "./commands/UpdateVpcLinkCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 /**
  * <p>Amazon API Gateway V2</p>

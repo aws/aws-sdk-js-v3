@@ -1,9 +1,3 @@
-import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
-import {
-  deserializeAws_queryCompleteMigrationCommand,
-  serializeAws_queryCompleteMigrationCommand,
-} from "../protocols/Aws_query";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
+import {
+  deserializeAws_queryCompleteMigrationCommand,
+  serializeAws_queryCompleteMigrationCommand,
+} from "../protocols/Aws_query";
 
 export interface CompleteMigrationCommandInput extends CompleteMigrationMessage {}
 export interface CompleteMigrationCommandOutput extends CompleteMigrationResponse, __MetadataBearer {}

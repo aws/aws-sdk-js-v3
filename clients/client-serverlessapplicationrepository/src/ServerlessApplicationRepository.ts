@@ -1,4 +1,5 @@
-import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRepositoryClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
@@ -45,15 +46,15 @@ import {
   ListApplicationDependenciesCommandOutput,
 } from "./commands/ListApplicationDependenciesCommand";
 import {
-  ListApplicationVersionsCommand,
-  ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput,
-} from "./commands/ListApplicationVersionsCommand";
-import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
+import {
+  ListApplicationVersionsCommand,
+  ListApplicationVersionsCommandInput,
+  ListApplicationVersionsCommandOutput,
+} from "./commands/ListApplicationVersionsCommand";
 import {
   PutApplicationPolicyCommand,
   PutApplicationPolicyCommandInput,
@@ -69,7 +70,7 @@ import {
   UpdateApplicationCommandInput,
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRepositoryClient";
 
 /**
  * <p>The AWS Serverless Application Repository makes it easy for developers and enterprises to quickly find

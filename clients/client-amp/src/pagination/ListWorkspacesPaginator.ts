@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Amp } from "../Amp";
 import { AmpClient } from "../AmpClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListWorkspacesCommandOutput,
 } from "../commands/ListWorkspacesCommand";
 import { AmpPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

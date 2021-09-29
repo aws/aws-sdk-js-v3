@@ -1,12 +1,13 @@
-import { Route53Domains } from "../Route53Domains";
-import { Route53DomainsClient } from "../Route53DomainsClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
   ListOperationsCommandOutput,
 } from "../commands/ListOperationsCommand";
+import { Route53Domains } from "../Route53Domains";
+import { Route53DomainsClient } from "../Route53DomainsClient";
 import { Route53DomainsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

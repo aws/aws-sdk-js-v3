@@ -1,12 +1,13 @@
-import { MigrationHub } from "../MigrationHub";
-import { MigrationHubClient } from "../MigrationHubClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListProgressUpdateStreamsCommand,
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
 } from "../commands/ListProgressUpdateStreamsCommand";
+import { MigrationHub } from "../MigrationHub";
+import { MigrationHubClient } from "../MigrationHubClient";
 import { MigrationHubPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ApplicationCostProfiler } from "../ApplicationCostProfiler";
 import { ApplicationCostProfilerClient } from "../ApplicationCostProfilerClient";
 import {
@@ -6,7 +8,6 @@ import {
   ListReportDefinitionsCommandOutput,
 } from "../commands/ListReportDefinitionsCommand";
 import { ApplicationCostProfilerPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

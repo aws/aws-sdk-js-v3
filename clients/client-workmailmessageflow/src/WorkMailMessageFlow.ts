@@ -1,4 +1,5 @@
-import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetRawMessageContentCommand,
   GetRawMessageContentCommandInput,
@@ -9,7 +10,7 @@ import {
   PutRawMessageContentCommandInput,
   PutRawMessageContentCommandOutput,
 } from "./commands/PutRawMessageContentCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
 
 /**
  * <p>The WorkMail Message Flow API provides access to email messages as they are

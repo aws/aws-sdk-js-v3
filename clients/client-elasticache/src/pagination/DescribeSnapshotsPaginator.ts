@@ -1,12 +1,13 @@
-import { ElastiCache } from "../ElastiCache";
-import { ElastiCacheClient } from "../ElastiCacheClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   DescribeSnapshotsCommand,
   DescribeSnapshotsCommandInput,
   DescribeSnapshotsCommandOutput,
 } from "../commands/DescribeSnapshotsCommand";
+import { ElastiCache } from "../ElastiCache";
+import { ElastiCacheClient } from "../ElastiCacheClient";
 import { ElastiCachePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

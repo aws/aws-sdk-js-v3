@@ -1,12 +1,13 @@
-import { ElasticTranscoder } from "../ElasticTranscoder";
-import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPipelinesCommand,
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
 } from "../commands/ListPipelinesCommand";
+import { ElasticTranscoder } from "../ElasticTranscoder";
+import { ElasticTranscoderClient } from "../ElasticTranscoderClient";
 import { ElasticTranscoderPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

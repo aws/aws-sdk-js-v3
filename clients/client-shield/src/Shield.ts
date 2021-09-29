@@ -1,4 +1,5 @@
-import { ShieldClient } from "./ShieldClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateDRTLogBucketCommand,
   AssociateDRTLogBucketCommandInput,
@@ -156,7 +157,7 @@ import {
   UpdateSubscriptionCommandInput,
   UpdateSubscriptionCommandOutput,
 } from "./commands/UpdateSubscriptionCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ShieldClient } from "./ShieldClient";
 
 /**
  * <fullname>Shield Advanced</fullname>

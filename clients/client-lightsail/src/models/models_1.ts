@@ -1,3 +1,5 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+
 import {
   AccessRules,
   AddOn,
@@ -33,7 +35,6 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 /**
  * <p>Describes the virtual private server (or <i>instance</i>) status.</p>

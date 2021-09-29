@@ -1,12 +1,13 @@
-import { Inspector } from "../Inspector";
-import { InspectorClient } from "../InspectorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListRulesPackagesCommand,
   ListRulesPackagesCommandInput,
   ListRulesPackagesCommandOutput,
 } from "../commands/ListRulesPackagesCommand";
+import { Inspector } from "../Inspector";
+import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

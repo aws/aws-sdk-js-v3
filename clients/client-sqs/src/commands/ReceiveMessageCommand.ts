@@ -1,9 +1,3 @@
-import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient";
-import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
-import {
-  deserializeAws_queryReceiveMessageCommand,
-  serializeAws_queryReceiveMessageCommand,
-} from "../protocols/Aws_query";
 import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -12,11 +6,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
+import {
+  deserializeAws_queryReceiveMessageCommand,
+  serializeAws_queryReceiveMessageCommand,
+} from "../protocols/Aws_query";
+import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 export interface ReceiveMessageCommandInput extends ReceiveMessageRequest {}
 export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __MetadataBearer {}

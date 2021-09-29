@@ -1,7 +1,8 @@
-import { defaultRegionInfoProvider } from "./endpoints";
 import { Logger as __Logger } from "@aws-sdk/types";
 import { parseUrl } from "@aws-sdk/url-parser";
+
 import { CloudHSMV2ClientConfig } from "./CloudHSMV2Client";
+import { defaultRegionInfoProvider } from "./endpoints";
 
 /**
  * @internal

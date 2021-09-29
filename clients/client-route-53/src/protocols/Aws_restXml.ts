@@ -1,3 +1,28 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import {
   ActivateKeySigningKeyCommandInput,
   ActivateKeySigningKeyCommandOutput,
@@ -208,8 +233,6 @@ import {
   ConcurrentModification,
   ConflictingDomainExists,
   ConflictingTypes,
-  DNSSECNotFound,
-  DNSSECStatus,
   DelegationSet,
   DelegationSetAlreadyCreated,
   DelegationSetAlreadyReusable,
@@ -217,6 +240,8 @@ import {
   DelegationSetNotAvailable,
   DelegationSetNotReusable,
   Dimension,
+  DNSSECNotFound,
+  DNSSECStatus,
   GeoLocation,
   GeoLocationDetails,
   HealthCheck,
@@ -242,9 +267,9 @@ import {
   InvalidChangeBatch,
   InvalidDomainName,
   InvalidInput,
-  InvalidKMSArn,
   InvalidKeySigningKeyName,
   InvalidKeySigningKeyStatus,
+  InvalidKMSArn,
   InvalidPaginationToken,
   InvalidSigningStatus,
   InvalidTrafficPolicyDocument,
@@ -289,38 +314,14 @@ import {
   TooManyVPCAssociationAuthorizations,
   TrafficPolicy,
   TrafficPolicyAlreadyExists,
-  TrafficPolicyInUse,
   TrafficPolicyInstance,
   TrafficPolicyInstanceAlreadyExists,
+  TrafficPolicyInUse,
   TrafficPolicySummary,
   VPC,
   VPCAssociationAuthorizationNotFound,
   VPCAssociationNotFound,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectObject as __expectObject,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_restXmlActivateKeySigningKeyCommand = async (
   input: ActivateKeySigningKeyCommandInput,
@@ -514,7 +515,8 @@ export const serializeAws_restXmlCreateHealthCheckCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateHealthCheckRequest");
@@ -549,7 +551,7 @@ export const serializeAws_restXmlCreateHostedZoneCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
   const bodyNode = new __XmlNode("CreateHostedZoneRequest");
@@ -596,7 +598,7 @@ export const serializeAws_restXmlCreateKeySigningKeyCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/keysigningkey";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -644,7 +646,7 @@ export const serializeAws_restXmlCreateQueryLoggingConfigCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -680,7 +682,7 @@ export const serializeAws_restXmlCreateReusableDelegationSetCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -714,7 +716,7 @@ export const serializeAws_restXmlCreateTrafficPolicyCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicy";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -754,7 +756,7 @@ export const serializeAws_restXmlCreateTrafficPolicyInstanceCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstance";
   let body: any;
   body = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -1351,7 +1353,7 @@ export const serializeAws_restXmlGetCheckerIpRangesCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/checkeripranges";
   let body: any;
   body = "";
@@ -1402,7 +1404,8 @@ export const serializeAws_restXmlGetGeoLocationCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocation";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocation";
   const query: any = {
     ...(input.ContinentCode !== undefined && { continentcode: input.ContinentCode }),
     ...(input.CountryCode !== undefined && { countrycode: input.CountryCode }),
@@ -1458,7 +1461,7 @@ export const serializeAws_restXmlGetHealthCheckCountCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheckcount";
   let body: any;
   body = "";
@@ -1570,7 +1573,7 @@ export const serializeAws_restXmlGetHostedZoneCountCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonecount";
   let body: any;
   body = "";
@@ -1796,7 +1799,7 @@ export const serializeAws_restXmlGetTrafficPolicyInstanceCountCommand = async (
   const headers: any = {
     "content-type": "application/xml",
   };
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstancecount";
   let body: any;
   body = "";
@@ -1817,7 +1820,8 @@ export const serializeAws_restXmlListGeoLocationsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocations";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/geolocations";
   const query: any = {
     ...(input.StartContinentCode !== undefined && { startcontinentcode: input.StartContinentCode }),
     ...(input.StartCountryCode !== undefined && { startcountrycode: input.StartCountryCode }),
@@ -1843,7 +1847,8 @@ export const serializeAws_restXmlListHealthChecksCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/healthcheck";
   const query: any = {
     ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems.toString() }),
@@ -1867,7 +1872,7 @@ export const serializeAws_restXmlListHostedZonesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzone";
   const query: any = {
     ...(input.Marker !== undefined && { marker: input.Marker }),
     ...(input.MaxItems !== undefined && { maxitems: input.MaxItems.toString() }),
@@ -1892,7 +1897,7 @@ export const serializeAws_restXmlListHostedZonesByNameCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonesbyname";
   const query: any = {
     ...(input.DNSName !== undefined && { dnsname: input.DNSName }),
@@ -1918,7 +1923,7 @@ export const serializeAws_restXmlListHostedZonesByVPCCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonesbyvpc";
   const query: any = {
     ...(input.VPCId !== undefined && { vpcid: input.VPCId }),
@@ -1945,7 +1950,7 @@ export const serializeAws_restXmlListQueryLoggingConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/queryloggingconfig";
   const query: any = {
     ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
@@ -2008,7 +2013,7 @@ export const serializeAws_restXmlListReusableDelegationSetsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/delegationset";
   const query: any = {
     ...(input.Marker !== undefined && { marker: input.Marker }),
@@ -2115,7 +2120,7 @@ export const serializeAws_restXmlListTrafficPoliciesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicies";
   const query: any = {
     ...(input.TrafficPolicyIdMarker !== undefined && { trafficpolicyid: input.TrafficPolicyIdMarker }),
@@ -2140,7 +2145,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/trafficpolicyinstances";
   const query: any = {
     ...(input.HostedZoneIdMarker !== undefined && { hostedzoneid: input.HostedZoneIdMarker }),
@@ -2171,7 +2176,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand =
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = {
@@ -2203,7 +2208,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = {
@@ -2306,7 +2311,7 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
-  let resolvedPath =
+  const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/testdnsanswer";
   const query: any = {
     ...(input.HostedZoneId !== undefined && { hostedzoneid: input.HostedZoneId }),
@@ -2615,7 +2620,7 @@ const deserializeAws_restXmlActivateKeySigningKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -2710,7 +2715,7 @@ const deserializeAws_restXmlAssociateVPCWithHostedZoneCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
@@ -2821,7 +2826,7 @@ const deserializeAws_restXmlChangeResourceRecordSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidChangeBatch":
@@ -2904,7 +2909,7 @@ const deserializeAws_restXmlChangeTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -2995,7 +3000,7 @@ const deserializeAws_restXmlCreateHealthCheckCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckAlreadyExists":
@@ -3082,7 +3087,7 @@ const deserializeAws_restXmlCreateHostedZoneCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingDomainExists":
@@ -3209,7 +3214,7 @@ const deserializeAws_restXmlCreateKeySigningKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3340,7 +3345,7 @@ const deserializeAws_restXmlCreateQueryLoggingConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3439,7 +3444,7 @@ const deserializeAws_restXmlCreateReusableDelegationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetAlreadyCreated":
@@ -3546,7 +3551,7 @@ const deserializeAws_restXmlCreateTrafficPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -3632,7 +3637,7 @@ const deserializeAws_restXmlCreateTrafficPolicyInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -3723,7 +3728,7 @@ const deserializeAws_restXmlCreateTrafficPolicyVersionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3814,7 +3819,7 @@ const deserializeAws_restXmlCreateVPCAssociationAuthorizationCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -3901,7 +3906,7 @@ const deserializeAws_restXmlDeactivateKeySigningKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4000,7 +4005,7 @@ const deserializeAws_restXmlDeleteHealthCheckCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckInUse":
@@ -4071,7 +4076,7 @@ const deserializeAws_restXmlDeleteHostedZoneCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotEmpty":
@@ -4158,7 +4163,7 @@ const deserializeAws_restXmlDeleteKeySigningKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4249,7 +4254,7 @@ const deserializeAws_restXmlDeleteQueryLoggingConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4316,7 +4321,7 @@ const deserializeAws_restXmlDeleteReusableDelegationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetInUse":
@@ -4391,7 +4396,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4466,7 +4471,7 @@ const deserializeAws_restXmlDeleteTrafficPolicyInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4533,7 +4538,7 @@ const deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommandError = asyn
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4620,7 +4625,7 @@ const deserializeAws_restXmlDisableHostedZoneDNSSECCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4731,7 +4736,7 @@ const deserializeAws_restXmlDisassociateVPCFromHostedZoneCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4818,7 +4823,7 @@ const deserializeAws_restXmlEnableHostedZoneDNSSECCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -4941,7 +4946,7 @@ const deserializeAws_restXmlGetAccountLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -4996,7 +5001,7 @@ const deserializeAws_restXmlGetChangeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5065,7 +5070,7 @@ const deserializeAws_restXmlGetCheckerIpRangesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5122,7 +5127,7 @@ const deserializeAws_restXmlGetDNSSECCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidArgument":
@@ -5193,7 +5198,7 @@ const deserializeAws_restXmlGetGeoLocationCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5256,7 +5261,7 @@ const deserializeAws_restXmlGetHealthCheckCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
@@ -5327,7 +5332,7 @@ const deserializeAws_restXmlGetHealthCheckCountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -5383,7 +5388,7 @@ const deserializeAws_restXmlGetHealthCheckLastFailureReasonCommandError = async 
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5455,7 +5460,7 @@ const deserializeAws_restXmlGetHealthCheckStatusCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5529,7 +5534,7 @@ const deserializeAws_restXmlGetHostedZoneCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5592,7 +5597,7 @@ const deserializeAws_restXmlGetHostedZoneCountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5651,7 +5656,7 @@ const deserializeAws_restXmlGetHostedZoneLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HostedZoneNotPrivate":
@@ -5722,7 +5727,7 @@ const deserializeAws_restXmlGetQueryLoggingConfigCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5785,7 +5790,7 @@ const deserializeAws_restXmlGetReusableDelegationSetCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
@@ -5860,7 +5865,7 @@ const deserializeAws_restXmlGetReusableDelegationSetLimitCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5923,7 +5928,7 @@ const deserializeAws_restXmlGetTrafficPolicyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -5989,7 +5994,7 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6052,7 +6057,7 @@ const deserializeAws_restXmlGetTrafficPolicyInstanceCountCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     default:
@@ -6128,7 +6133,7 @@ const deserializeAws_restXmlListGeoLocationsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6205,7 +6210,7 @@ const deserializeAws_restXmlListHealthChecksCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "IncompatibleVersion":
@@ -6290,7 +6295,7 @@ const deserializeAws_restXmlListHostedZonesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "DelegationSetNotReusable":
@@ -6391,7 +6396,7 @@ const deserializeAws_restXmlListHostedZonesByNameCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidDomainName":
@@ -6468,7 +6473,7 @@ const deserializeAws_restXmlListHostedZonesByVPCCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6541,7 +6546,7 @@ const deserializeAws_restXmlListQueryLoggingConfigsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6638,7 +6643,7 @@ const deserializeAws_restXmlListResourceRecordSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6723,7 +6728,7 @@ const deserializeAws_restXmlListReusableDelegationSetsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6778,7 +6783,7 @@ const deserializeAws_restXmlListTagsForResourceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6871,7 +6876,7 @@ const deserializeAws_restXmlListTagsForResourcesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -6979,7 +6984,7 @@ const deserializeAws_restXmlListTrafficPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7063,7 +7068,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7151,7 +7156,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommandError =
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7251,7 +7256,7 @@ const deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommandError = asy
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7340,7 +7345,7 @@ const deserializeAws_restXmlListTrafficPolicyVersionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7414,7 +7419,7 @@ const deserializeAws_restXmlListVPCAssociationAuthorizationsCommandError = async
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7511,7 +7516,7 @@ const deserializeAws_restXmlTestDNSAnswerCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7574,7 +7579,7 @@ const deserializeAws_restXmlUpdateHealthCheckCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "HealthCheckVersionMismatch":
@@ -7645,7 +7650,7 @@ const deserializeAws_restXmlUpdateHostedZoneCommentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "InvalidInput":
@@ -7708,7 +7713,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyCommentCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConcurrentModification":
@@ -7782,7 +7787,7 @@ const deserializeAws_restXmlUpdateTrafficPolicyInstanceCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "ConflictingTypes":
@@ -9333,7 +9338,7 @@ const serializeAws_restXmlVPC = (input: VPC, context: __SerdeContext): any => {
 };
 
 const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     Value: undefined,
   };
@@ -9347,7 +9352,7 @@ const deserializeAws_restXmlAccountLimit = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeContext): AlarmIdentifier => {
-  let contents: any = {
+  const contents: any = {
     Region: undefined,
     Name: undefined,
   };
@@ -9361,7 +9366,7 @@ const deserializeAws_restXmlAlarmIdentifier = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext): AliasTarget => {
-  let contents: any = {
+  const contents: any = {
     HostedZoneId: undefined,
     DNSName: undefined,
     EvaluateTargetHealth: undefined,
@@ -9379,7 +9384,7 @@ const deserializeAws_restXmlAliasTarget = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlChangeInfo = (output: any, context: __SerdeContext): ChangeInfo => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Status: undefined,
     SubmittedAt: undefined,
@@ -9426,7 +9431,7 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchAlarmConfiguration => {
-  let contents: any = {
+  const contents: any = {
     EvaluationPeriods: undefined,
     Threshold: undefined,
     ComparisonOperator: undefined,
@@ -9470,7 +9475,7 @@ const deserializeAws_restXmlCloudWatchAlarmConfiguration = (
 };
 
 const deserializeAws_restXmlDelegationSet = (output: any, context: __SerdeContext): DelegationSet => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     CallerReference: undefined,
     NameServers: undefined,
@@ -9516,7 +9521,7 @@ const deserializeAws_restXmlDelegationSets = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlDimension = (output: any, context: __SerdeContext): Dimension => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Value: undefined,
   };
@@ -9541,7 +9546,7 @@ const deserializeAws_restXmlDimensionList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlDNSSECStatus = (output: any, context: __SerdeContext): DNSSECStatus => {
-  let contents: any = {
+  const contents: any = {
     ServeSignature: undefined,
     StatusMessage: undefined,
   };
@@ -9566,7 +9571,7 @@ const deserializeAws_restXmlErrorMessages = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
-  let contents: any = {
+  const contents: any = {
     ContinentCode: undefined,
     CountryCode: undefined,
     SubdivisionCode: undefined,
@@ -9584,7 +9589,7 @@ const deserializeAws_restXmlGeoLocation = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlGeoLocationDetails = (output: any, context: __SerdeContext): GeoLocationDetails => {
-  let contents: any = {
+  const contents: any = {
     ContinentCode: undefined,
     ContinentName: undefined,
     CountryCode: undefined,
@@ -9625,7 +9630,7 @@ const deserializeAws_restXmlGeoLocationDetailsList = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     CallerReference: undefined,
     LinkedService: undefined,
@@ -9658,7 +9663,7 @@ const deserializeAws_restXmlHealthCheck = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
-  let contents: any = {
+  const contents: any = {
     IPAddress: undefined,
     Port: undefined,
     Type: undefined,
@@ -9748,7 +9753,7 @@ const deserializeAws_restXmlHealthCheckConfig = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlHealthCheckObservation = (output: any, context: __SerdeContext): HealthCheckObservation => {
-  let contents: any = {
+  const contents: any = {
     Region: undefined,
     IPAddress: undefined,
     StatusReport: undefined,
@@ -9805,7 +9810,7 @@ const deserializeAws_restXmlHealthChecks = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext): HostedZone => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Name: undefined,
     CallerReference: undefined,
@@ -9835,7 +9840,7 @@ const deserializeAws_restXmlHostedZone = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeContext): HostedZoneConfig => {
-  let contents: any = {
+  const contents: any = {
     Comment: undefined,
     PrivateZone: undefined,
   };
@@ -9849,7 +9854,7 @@ const deserializeAws_restXmlHostedZoneConfig = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeContext): HostedZoneLimit => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     Value: undefined,
   };
@@ -9863,7 +9868,7 @@ const deserializeAws_restXmlHostedZoneLimit = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlHostedZoneOwner = (output: any, context: __SerdeContext): HostedZoneOwner => {
-  let contents: any = {
+  const contents: any = {
     OwningAccount: undefined,
     OwningService: undefined,
   };
@@ -9899,7 +9904,7 @@ const deserializeAws_restXmlHostedZoneSummaries = (output: any, context: __Serde
 };
 
 const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeContext): HostedZoneSummary => {
-  let contents: any = {
+  const contents: any = {
     HostedZoneId: undefined,
     Name: undefined,
     Owner: undefined,
@@ -9917,7 +9922,7 @@ const deserializeAws_restXmlHostedZoneSummary = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlKeySigningKey = (output: any, context: __SerdeContext): KeySigningKey => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     KmsArn: undefined,
     Flag: undefined,
@@ -9998,7 +10003,7 @@ const deserializeAws_restXmlKeySigningKeys = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContext): LinkedService => {
-  let contents: any = {
+  const contents: any = {
     ServicePrincipal: undefined,
     Description: undefined,
   };
@@ -10012,7 +10017,7 @@ const deserializeAws_restXmlLinkedService = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlQueryLoggingConfig = (output: any, context: __SerdeContext): QueryLoggingConfig => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     HostedZoneId: undefined,
     CloudWatchLogsLogGroupArn: undefined,
@@ -10052,7 +10057,7 @@ const deserializeAws_restXmlRecordData = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlResourceRecord = (output: any, context: __SerdeContext): ResourceRecord => {
-  let contents: any = {
+  const contents: any = {
     Value: undefined,
   };
   if (output["Value"] !== undefined) {
@@ -10073,7 +10078,7 @@ const deserializeAws_restXmlResourceRecords = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlResourceRecordSet = (output: any, context: __SerdeContext): ResourceRecordSet => {
-  let contents: any = {
+  const contents: any = {
     Name: undefined,
     Type: undefined,
     SetIdentifier: undefined,
@@ -10148,7 +10153,7 @@ const deserializeAws_restXmlResourceRecordSets = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlResourceTagSet = (output: any, context: __SerdeContext): ResourceTagSet => {
-  let contents: any = {
+  const contents: any = {
     ResourceType: undefined,
     ResourceId: undefined,
     Tags: undefined,
@@ -10183,7 +10188,7 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
   output: any,
   context: __SerdeContext
 ): ReusableDelegationSetLimit => {
-  let contents: any = {
+  const contents: any = {
     Type: undefined,
     Value: undefined,
   };
@@ -10197,7 +10202,7 @@ const deserializeAws_restXmlReusableDelegationSetLimit = (
 };
 
 const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext): StatusReport => {
-  let contents: any = {
+  const contents: any = {
     Status: undefined,
     CheckedTime: undefined,
   };
@@ -10211,7 +10216,7 @@ const deserializeAws_restXmlStatusReport = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
-  let contents: any = {
+  const contents: any = {
     Key: undefined,
     Value: undefined,
   };
@@ -10247,7 +10252,7 @@ const deserializeAws_restXmlTrafficPolicies = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContext): TrafficPolicy => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Version: undefined,
     Name: undefined,
@@ -10277,7 +10282,7 @@ const deserializeAws_restXmlTrafficPolicy = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlTrafficPolicyInstance = (output: any, context: __SerdeContext): TrafficPolicyInstance => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     HostedZoneId: undefined,
     Name: undefined,
@@ -10344,7 +10349,7 @@ const deserializeAws_restXmlTrafficPolicySummaries = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __SerdeContext): TrafficPolicySummary => {
-  let contents: any = {
+  const contents: any = {
     Id: undefined,
     Name: undefined,
     Type: undefined,
@@ -10370,7 +10375,7 @@ const deserializeAws_restXmlTrafficPolicySummary = (output: any, context: __Serd
 };
 
 const deserializeAws_restXmlVPC = (output: any, context: __SerdeContext): VPC => {
-  let contents: any = {
+  const contents: any = {
     VPCRegion: undefined,
     VPCId: undefined,
   };

@@ -1,12 +1,13 @@
-import { LexModelBuildingService } from "../LexModelBuildingService";
-import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   GetBotAliasesCommand,
   GetBotAliasesCommandInput,
   GetBotAliasesCommandOutput,
 } from "../commands/GetBotAliasesCommand";
+import { LexModelBuildingService } from "../LexModelBuildingService";
+import { LexModelBuildingServiceClient } from "../LexModelBuildingServiceClient";
 import { LexModelBuildingServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

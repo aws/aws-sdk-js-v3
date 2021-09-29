@@ -1,17 +1,18 @@
-import { ECRClient } from "../ECRClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   DescribeImageScanFindingsCommand,
   DescribeImageScanFindingsCommandInput,
 } from "../commands/DescribeImageScanFindingsCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { ECRClient } from "../ECRClient";
 
 const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeImageScanFindingsCommand(input));
+    const result: any = await client.send(new DescribeImageScanFindingsCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.imageScanStatus.status;
       };
       if (returnComparator() === "COMPLETE") {
@@ -19,7 +20,7 @@ const checkState = async (client: ECRClient, input: DescribeImageScanFindingsCom
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.imageScanStatus.status;
       };
       if (returnComparator() === "FAILED") {

@@ -1,12 +1,13 @@
-import { ElasticBeanstalk } from "../ElasticBeanstalk";
-import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListPlatformBranchesCommand,
   ListPlatformBranchesCommandInput,
   ListPlatformBranchesCommandOutput,
 } from "../commands/ListPlatformBranchesCommand";
+import { ElasticBeanstalk } from "../ElasticBeanstalk";
+import { ElasticBeanstalkClient } from "../ElasticBeanstalkClient";
 import { ElasticBeanstalkPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

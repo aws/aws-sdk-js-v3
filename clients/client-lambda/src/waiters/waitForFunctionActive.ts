@@ -1,17 +1,18 @@
-import { LambdaClient } from "../LambdaClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import {
   GetFunctionConfigurationCommand,
   GetFunctionConfigurationCommandInput,
 } from "../commands/GetFunctionConfigurationCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { LambdaClient } from "../LambdaClient";
 
 const checkState = async (client: LambdaClient, input: GetFunctionConfigurationCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new GetFunctionConfigurationCommand(input));
+    const result: any = await client.send(new GetFunctionConfigurationCommand(input));
     reason = result;
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "Active") {
@@ -19,7 +20,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "Failed") {
@@ -27,7 +28,7 @@ const checkState = async (client: LambdaClient, input: GetFunctionConfigurationC
       }
     } catch (e) {}
     try {
-      let returnComparator = () => {
+      const returnComparator = () => {
         return result.State;
       };
       if (returnComparator() === "Pending") {

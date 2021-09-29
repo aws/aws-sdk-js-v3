@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { ApplicationDiscoveryService } from "../ApplicationDiscoveryService";
 import { ApplicationDiscoveryServiceClient } from "../ApplicationDiscoveryServiceClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeImportTasksCommandOutput,
 } from "../commands/DescribeImportTasksCommand";
 import { ApplicationDiscoveryServicePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

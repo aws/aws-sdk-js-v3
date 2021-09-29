@@ -1,9 +1,3 @@
-import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateWorkforceRequest, UpdateWorkforceResponse } from "../models/models_3";
-import {
-  deserializeAws_json1_1UpdateWorkforceCommand,
-  serializeAws_json1_1UpdateWorkforceCommand,
-} from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { UpdateWorkforceRequest, UpdateWorkforceResponse } from "../models/models_3";
+import {
+  deserializeAws_json1_1UpdateWorkforceCommand,
+  serializeAws_json1_1UpdateWorkforceCommand,
+} from "../protocols/Aws_json1_1";
+import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 export interface UpdateWorkforceCommandInput extends UpdateWorkforceRequest {}
 export interface UpdateWorkforceCommandOutput extends UpdateWorkforceResponse, __MetadataBearer {}

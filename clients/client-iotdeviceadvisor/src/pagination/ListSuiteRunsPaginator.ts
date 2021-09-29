@@ -1,12 +1,13 @@
-import { IotDeviceAdvisor } from "../IotDeviceAdvisor";
-import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListSuiteRunsCommand,
   ListSuiteRunsCommandInput,
   ListSuiteRunsCommandOutput,
 } from "../commands/ListSuiteRunsCommand";
+import { IotDeviceAdvisor } from "../IotDeviceAdvisor";
+import { IotDeviceAdvisorClient } from "../IotDeviceAdvisorClient";
 import { IotDeviceAdvisorPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

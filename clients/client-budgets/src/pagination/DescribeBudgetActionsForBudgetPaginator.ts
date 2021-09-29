@@ -1,3 +1,5 @@
+import { Paginator } from "@aws-sdk/types";
+
 import { Budgets } from "../Budgets";
 import { BudgetsClient } from "../BudgetsClient";
 import {
@@ -6,7 +8,6 @@ import {
   DescribeBudgetActionsForBudgetCommandOutput,
 } from "../commands/DescribeBudgetActionsForBudgetCommand";
 import { BudgetsPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

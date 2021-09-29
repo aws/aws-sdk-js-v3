@@ -1,4 +1,5 @@
-import { SQSClient } from "./SQSClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddPermissionCommand,
   AddPermissionCommandInput,
@@ -37,12 +38,12 @@ import {
   ListDeadLetterSourceQueuesCommandInput,
   ListDeadLetterSourceQueuesCommandOutput,
 } from "./commands/ListDeadLetterSourceQueuesCommand";
+import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import {
   ListQueueTagsCommand,
   ListQueueTagsCommandInput,
   ListQueueTagsCommandOutput,
 } from "./commands/ListQueueTagsCommand";
-import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
 import { PurgeQueueCommand, PurgeQueueCommandInput, PurgeQueueCommandOutput } from "./commands/PurgeQueueCommand";
 import {
   ReceiveMessageCommand,
@@ -67,7 +68,7 @@ import {
 } from "./commands/SetQueueAttributesCommand";
 import { TagQueueCommand, TagQueueCommandInput, TagQueueCommandOutput } from "./commands/TagQueueCommand";
 import { UntagQueueCommand, UntagQueueCommandInput, UntagQueueCommandOutput } from "./commands/UntagQueueCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SQSClient } from "./SQSClient";
 
 /**
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>

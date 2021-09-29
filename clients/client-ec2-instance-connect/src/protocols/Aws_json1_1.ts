@@ -1,23 +1,3 @@
-import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "../commands/SendSSHPublicKeyCommand";
-import {
-  SendSerialConsoleSSHPublicKeyCommandInput,
-  SendSerialConsoleSSHPublicKeyCommandOutput,
-} from "../commands/SendSerialConsoleSSHPublicKeyCommand";
-import {
-  AuthException,
-  EC2InstanceNotFoundException,
-  EC2InstanceTypeInvalidException,
-  InvalidArgsException,
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyResponse,
-  SendSerialConsoleSSHPublicKeyRequest,
-  SendSerialConsoleSSHPublicKeyResponse,
-  SerialConsoleAccessDisabledException,
-  SerialConsoleSessionLimitExceededException,
-  SerialConsoleSessionUnavailableException,
-  ServiceException,
-  ThrottlingException,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { expectBoolean as __expectBoolean, expectString as __expectString } from "@aws-sdk/smithy-client";
 import {
@@ -28,6 +8,27 @@ import {
   SerdeContext as __SerdeContext,
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
+
+import {
+  SendSerialConsoleSSHPublicKeyCommandInput,
+  SendSerialConsoleSSHPublicKeyCommandOutput,
+} from "../commands/SendSerialConsoleSSHPublicKeyCommand";
+import { SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput } from "../commands/SendSSHPublicKeyCommand";
+import {
+  AuthException,
+  EC2InstanceNotFoundException,
+  EC2InstanceTypeInvalidException,
+  InvalidArgsException,
+  SendSerialConsoleSSHPublicKeyRequest,
+  SendSerialConsoleSSHPublicKeyResponse,
+  SendSSHPublicKeyRequest,
+  SendSSHPublicKeyResponse,
+  SerialConsoleAccessDisabledException,
+  SerialConsoleSessionLimitExceededException,
+  SerialConsoleSessionUnavailableException,
+  ServiceException,
+  ThrottlingException,
+} from "../models/models_0";
 
 export const serializeAws_json1_1SendSerialConsoleSSHPublicKeyCommand = async (
   input: SendSerialConsoleSSHPublicKeyCommandInput,
@@ -81,7 +82,7 @@ const deserializeAws_json1_1SendSerialConsoleSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthException":
@@ -199,7 +200,7 @@ const deserializeAws_json1_1SendSSHPublicKeyCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AuthException":

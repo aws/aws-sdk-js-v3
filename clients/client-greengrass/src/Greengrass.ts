@@ -1,4 +1,5 @@
-import { GreengrassClient } from "./GreengrassClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AssociateRoleToGroupCommand,
   AssociateRoleToGroupCommandInput,
@@ -273,91 +274,91 @@ import {
   ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand";
 import {
-  ListConnectorDefinitionVersionsCommand,
-  ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput,
-} from "./commands/ListConnectorDefinitionVersionsCommand";
-import {
   ListConnectorDefinitionsCommand,
   ListConnectorDefinitionsCommandInput,
   ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand";
 import {
-  ListCoreDefinitionVersionsCommand,
-  ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput,
-} from "./commands/ListCoreDefinitionVersionsCommand";
+  ListConnectorDefinitionVersionsCommand,
+  ListConnectorDefinitionVersionsCommandInput,
+  ListConnectorDefinitionVersionsCommandOutput,
+} from "./commands/ListConnectorDefinitionVersionsCommand";
 import {
   ListCoreDefinitionsCommand,
   ListCoreDefinitionsCommandInput,
   ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand";
 import {
+  ListCoreDefinitionVersionsCommand,
+  ListCoreDefinitionVersionsCommandInput,
+  ListCoreDefinitionVersionsCommandOutput,
+} from "./commands/ListCoreDefinitionVersionsCommand";
+import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
   ListDeploymentsCommandOutput,
 } from "./commands/ListDeploymentsCommand";
-import {
-  ListDeviceDefinitionVersionsCommand,
-  ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput,
-} from "./commands/ListDeviceDefinitionVersionsCommand";
 import {
   ListDeviceDefinitionsCommand,
   ListDeviceDefinitionsCommandInput,
   ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand";
 import {
-  ListFunctionDefinitionVersionsCommand,
-  ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput,
-} from "./commands/ListFunctionDefinitionVersionsCommand";
+  ListDeviceDefinitionVersionsCommand,
+  ListDeviceDefinitionVersionsCommandInput,
+  ListDeviceDefinitionVersionsCommandOutput,
+} from "./commands/ListDeviceDefinitionVersionsCommand";
 import {
   ListFunctionDefinitionsCommand,
   ListFunctionDefinitionsCommandInput,
   ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand";
 import {
+  ListFunctionDefinitionVersionsCommand,
+  ListFunctionDefinitionVersionsCommandInput,
+  ListFunctionDefinitionVersionsCommandOutput,
+} from "./commands/ListFunctionDefinitionVersionsCommand";
+import {
   ListGroupCertificateAuthoritiesCommand,
   ListGroupCertificateAuthoritiesCommandInput,
   ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
+import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
 import {
   ListGroupVersionsCommand,
   ListGroupVersionsCommandInput,
   ListGroupVersionsCommandOutput,
 } from "./commands/ListGroupVersionsCommand";
-import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import {
-  ListLoggerDefinitionVersionsCommand,
-  ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput,
-} from "./commands/ListLoggerDefinitionVersionsCommand";
 import {
   ListLoggerDefinitionsCommand,
   ListLoggerDefinitionsCommandInput,
   ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand";
 import {
-  ListResourceDefinitionVersionsCommand,
-  ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput,
-} from "./commands/ListResourceDefinitionVersionsCommand";
+  ListLoggerDefinitionVersionsCommand,
+  ListLoggerDefinitionVersionsCommandInput,
+  ListLoggerDefinitionVersionsCommandOutput,
+} from "./commands/ListLoggerDefinitionVersionsCommand";
 import {
   ListResourceDefinitionsCommand,
   ListResourceDefinitionsCommandInput,
   ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand";
 import {
-  ListSubscriptionDefinitionVersionsCommand,
-  ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput,
-} from "./commands/ListSubscriptionDefinitionVersionsCommand";
+  ListResourceDefinitionVersionsCommand,
+  ListResourceDefinitionVersionsCommandInput,
+  ListResourceDefinitionVersionsCommandOutput,
+} from "./commands/ListResourceDefinitionVersionsCommand";
 import {
   ListSubscriptionDefinitionsCommand,
   ListSubscriptionDefinitionsCommandInput,
   ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand";
+import {
+  ListSubscriptionDefinitionVersionsCommand,
+  ListSubscriptionDefinitionVersionsCommandInput,
+  ListSubscriptionDefinitionVersionsCommandOutput,
+} from "./commands/ListSubscriptionDefinitionVersionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -435,7 +436,7 @@ import {
   UpdateThingRuntimeConfigurationCommandInput,
   UpdateThingRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateThingRuntimeConfigurationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GreengrassClient } from "./GreengrassClient";
 
 /**
  * AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.

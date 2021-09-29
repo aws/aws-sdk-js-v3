@@ -1,18 +1,3 @@
-import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "../commands/BatchGetRecordCommand";
-import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "../commands/DeleteRecordCommand";
-import { GetRecordCommandInput, GetRecordCommandOutput } from "../commands/GetRecordCommand";
-import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
-import {
-  AccessForbidden,
-  BatchGetRecordError,
-  BatchGetRecordIdentifier,
-  BatchGetRecordResultDetail,
-  FeatureValue,
-  InternalFailure,
-  ResourceNotFound,
-  ServiceUnavailable,
-  ValidationError,
-} from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectNonNull as __expectNonNull,
@@ -28,6 +13,22 @@ import {
   SmithyException as __SmithyException,
 } from "@aws-sdk/types";
 
+import { BatchGetRecordCommandInput, BatchGetRecordCommandOutput } from "../commands/BatchGetRecordCommand";
+import { DeleteRecordCommandInput, DeleteRecordCommandOutput } from "../commands/DeleteRecordCommand";
+import { GetRecordCommandInput, GetRecordCommandOutput } from "../commands/GetRecordCommand";
+import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
+import {
+  AccessForbidden,
+  BatchGetRecordError,
+  BatchGetRecordIdentifier,
+  BatchGetRecordResultDetail,
+  FeatureValue,
+  InternalFailure,
+  ResourceNotFound,
+  ServiceUnavailable,
+  ValidationError,
+} from "../models/models_0";
+
 export const serializeAws_restJson1BatchGetRecordCommand = async (
   input: BatchGetRecordCommandInput,
   context: __SerdeContext
@@ -36,7 +37,7 @@ export const serializeAws_restJson1BatchGetRecordCommand = async (
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchGetRecord";
   let body: any;
   body = JSON.stringify({
     ...(input.Identifiers !== undefined &&
@@ -200,7 +201,7 @@ const deserializeAws_restJson1BatchGetRecordCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
@@ -275,7 +276,7 @@ const deserializeAws_restJson1DeleteRecordCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
@@ -354,7 +355,7 @@ const deserializeAws_restJson1GetRecordCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":
@@ -437,7 +438,7 @@ const deserializeAws_restJson1PutRecordCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "AccessForbidden":

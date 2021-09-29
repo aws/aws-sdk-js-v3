@@ -1,12 +1,13 @@
-import { Proton } from "../Proton";
-import { ProtonClient } from "../ProtonClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListServiceTemplateVersionsCommand,
   ListServiceTemplateVersionsCommandInput,
   ListServiceTemplateVersionsCommandOutput,
 } from "../commands/ListServiceTemplateVersionsCommand";
+import { Proton } from "../Proton";
+import { ProtonClient } from "../ProtonClient";
 import { ProtonPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

@@ -1,4 +1,5 @@
-import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
@@ -39,7 +40,7 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { PinpointSMSVoiceClient } from "./PinpointSMSVoiceClient";
 
 /**
  * Pinpoint SMS and Voice Messaging public facing APIs

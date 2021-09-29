@@ -1,4 +1,55 @@
 import {
+  EndpointsInputConfig,
+  EndpointsResolvedConfig,
+  RegionInputConfig,
+  RegionResolvedConfig,
+  resolveEndpointsConfig,
+  resolveRegionConfig,
+} from "@aws-sdk/config-resolver";
+import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
+import {
+  getHostHeaderPlugin,
+  HostHeaderInputConfig,
+  HostHeaderResolvedConfig,
+  resolveHostHeaderConfig,
+} from "@aws-sdk/middleware-host-header";
+import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
+import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
+import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
+  getUserAgentPlugin,
+  resolveUserAgentConfig,
+  UserAgentInputConfig,
+  UserAgentResolvedConfig,
+} from "@aws-sdk/middleware-user-agent";
+import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
+import {
+  Client as __Client,
+  SmithyConfiguration as __SmithyConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+} from "@aws-sdk/smithy-client";
+import {
+  Credentials as __Credentials,
+  Decoder as __Decoder,
+  Encoder as __Encoder,
+  Hash as __Hash,
+  HashConstructor as __HashConstructor,
+  HttpHandlerOptions as __HttpHandlerOptions,
+  Logger as __Logger,
+  Provider as __Provider,
+  Provider,
+  RegionInfoProvider,
+  StreamCollector as __StreamCollector,
+  UrlParser as __UrlParser,
+  UserAgent as __UserAgent,
+} from "@aws-sdk/types";
+
+import {
   AssociateRoleToGroupCommandInput,
   AssociateRoleToGroupCommandOutput,
 } from "./commands/AssociateRoleToGroupCommand";
@@ -203,68 +254,68 @@ import {
   ListBulkDeploymentsCommandOutput,
 } from "./commands/ListBulkDeploymentsCommand";
 import {
-  ListConnectorDefinitionVersionsCommandInput,
-  ListConnectorDefinitionVersionsCommandOutput,
-} from "./commands/ListConnectorDefinitionVersionsCommand";
-import {
   ListConnectorDefinitionsCommandInput,
   ListConnectorDefinitionsCommandOutput,
 } from "./commands/ListConnectorDefinitionsCommand";
 import {
-  ListCoreDefinitionVersionsCommandInput,
-  ListCoreDefinitionVersionsCommandOutput,
-} from "./commands/ListCoreDefinitionVersionsCommand";
+  ListConnectorDefinitionVersionsCommandInput,
+  ListConnectorDefinitionVersionsCommandOutput,
+} from "./commands/ListConnectorDefinitionVersionsCommand";
 import {
   ListCoreDefinitionsCommandInput,
   ListCoreDefinitionsCommandOutput,
 } from "./commands/ListCoreDefinitionsCommand";
-import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
-  ListDeviceDefinitionVersionsCommandInput,
-  ListDeviceDefinitionVersionsCommandOutput,
-} from "./commands/ListDeviceDefinitionVersionsCommand";
+  ListCoreDefinitionVersionsCommandInput,
+  ListCoreDefinitionVersionsCommandOutput,
+} from "./commands/ListCoreDefinitionVersionsCommand";
+import { ListDeploymentsCommandInput, ListDeploymentsCommandOutput } from "./commands/ListDeploymentsCommand";
 import {
   ListDeviceDefinitionsCommandInput,
   ListDeviceDefinitionsCommandOutput,
 } from "./commands/ListDeviceDefinitionsCommand";
 import {
-  ListFunctionDefinitionVersionsCommandInput,
-  ListFunctionDefinitionVersionsCommandOutput,
-} from "./commands/ListFunctionDefinitionVersionsCommand";
+  ListDeviceDefinitionVersionsCommandInput,
+  ListDeviceDefinitionVersionsCommandOutput,
+} from "./commands/ListDeviceDefinitionVersionsCommand";
 import {
   ListFunctionDefinitionsCommandInput,
   ListFunctionDefinitionsCommandOutput,
 } from "./commands/ListFunctionDefinitionsCommand";
 import {
+  ListFunctionDefinitionVersionsCommandInput,
+  ListFunctionDefinitionVersionsCommandOutput,
+} from "./commands/ListFunctionDefinitionVersionsCommand";
+import {
   ListGroupCertificateAuthoritiesCommandInput,
   ListGroupCertificateAuthoritiesCommandOutput,
 } from "./commands/ListGroupCertificateAuthoritiesCommand";
-import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
-import {
-  ListLoggerDefinitionVersionsCommandInput,
-  ListLoggerDefinitionVersionsCommandOutput,
-} from "./commands/ListLoggerDefinitionVersionsCommand";
+import { ListGroupVersionsCommandInput, ListGroupVersionsCommandOutput } from "./commands/ListGroupVersionsCommand";
 import {
   ListLoggerDefinitionsCommandInput,
   ListLoggerDefinitionsCommandOutput,
 } from "./commands/ListLoggerDefinitionsCommand";
 import {
-  ListResourceDefinitionVersionsCommandInput,
-  ListResourceDefinitionVersionsCommandOutput,
-} from "./commands/ListResourceDefinitionVersionsCommand";
+  ListLoggerDefinitionVersionsCommandInput,
+  ListLoggerDefinitionVersionsCommandOutput,
+} from "./commands/ListLoggerDefinitionVersionsCommand";
 import {
   ListResourceDefinitionsCommandInput,
   ListResourceDefinitionsCommandOutput,
 } from "./commands/ListResourceDefinitionsCommand";
 import {
-  ListSubscriptionDefinitionVersionsCommandInput,
-  ListSubscriptionDefinitionVersionsCommandOutput,
-} from "./commands/ListSubscriptionDefinitionVersionsCommand";
+  ListResourceDefinitionVersionsCommandInput,
+  ListResourceDefinitionVersionsCommandOutput,
+} from "./commands/ListResourceDefinitionVersionsCommand";
 import {
   ListSubscriptionDefinitionsCommandInput,
   ListSubscriptionDefinitionsCommandOutput,
 } from "./commands/ListSubscriptionDefinitionsCommand";
+import {
+  ListSubscriptionDefinitionVersionsCommandInput,
+  ListSubscriptionDefinitionVersionsCommandOutput,
+} from "./commands/ListSubscriptionDefinitionVersionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -319,56 +370,6 @@ import {
   UpdateThingRuntimeConfigurationCommandOutput,
 } from "./commands/UpdateThingRuntimeConfigurationCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
-import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@aws-sdk/config-resolver";
-import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
-import {
-  HostHeaderInputConfig,
-  HostHeaderResolvedConfig,
-  getHostHeaderPlugin,
-  resolveHostHeaderConfig,
-} from "@aws-sdk/middleware-host-header";
-import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
-import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@aws-sdk/middleware-retry";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
-  UserAgentInputConfig,
-  UserAgentResolvedConfig,
-  getUserAgentPlugin,
-  resolveUserAgentConfig,
-} from "@aws-sdk/middleware-user-agent";
-import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
-import {
-  Client as __Client,
-  SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
-} from "@aws-sdk/smithy-client";
-import {
-  Provider,
-  RegionInfoProvider,
-  Credentials as __Credentials,
-  Decoder as __Decoder,
-  Encoder as __Encoder,
-  Hash as __Hash,
-  HashConstructor as __HashConstructor,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  Logger as __Logger,
-  Provider as __Provider,
-  StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
-  UserAgent as __UserAgent,
-} from "@aws-sdk/types";
 
 export type ServiceInputTypes =
   | AssociateRoleToGroupCommandInput
@@ -711,13 +712,13 @@ export class GreengrassClient extends __Client<
   readonly config: GreengrassClientResolvedConfig;
 
   constructor(configuration: GreengrassClientConfig) {
-    let _config_0 = __getRuntimeConfig(configuration);
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveEndpointsConfig(_config_1);
-    let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveAwsAuthConfig(_config_4);
-    let _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_0 = __getRuntimeConfig(configuration);
+    const _config_1 = resolveRegionConfig(_config_0);
+    const _config_2 = resolveEndpointsConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveHostHeaderConfig(_config_3);
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
     this.middlewareStack.use(getRetryPlugin(this.config));

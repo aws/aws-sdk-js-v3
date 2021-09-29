@@ -1,9 +1,3 @@
-import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_1";
-import {
-  deserializeAws_restJson1UpdateAccountCommand,
-  serializeAws_restJson1UpdateAccountCommand,
-} from "../protocols/Aws_restJson1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -11,11 +5,18 @@ import {
   FinalizeHandlerArguments,
   Handler,
   HandlerExecutionContext,
-  MiddlewareStack,
   HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
+  MiddlewareStack,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+
+import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_1";
+import {
+  deserializeAws_restJson1UpdateAccountCommand,
+  serializeAws_restJson1UpdateAccountCommand,
+} from "../protocols/Aws_restJson1";
 
 export interface UpdateAccountCommandInput extends UpdateAccountRequest {}
 export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __MetadataBearer {}

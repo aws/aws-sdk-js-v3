@@ -1,12 +1,13 @@
-import { Kafka } from "../Kafka";
-import { KafkaClient } from "../KafkaClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListConfigurationRevisionsCommand,
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
 } from "../commands/ListConfigurationRevisionsCommand";
+import { Kafka } from "../Kafka";
+import { KafkaClient } from "../KafkaClient";
 import { KafkaPaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

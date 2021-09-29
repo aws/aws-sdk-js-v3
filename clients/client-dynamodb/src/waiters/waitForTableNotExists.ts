@@ -1,11 +1,12 @@
-import { DynamoDBClient } from "../DynamoDBClient";
+import { checkExceptions, createWaiter, WaiterConfiguration, WaiterResult, WaiterState } from "@aws-sdk/util-waiter";
+
 import { DescribeTableCommand, DescribeTableCommandInput } from "../commands/DescribeTableCommand";
-import { WaiterConfiguration, WaiterResult, WaiterState, checkExceptions, createWaiter } from "@aws-sdk/util-waiter";
+import { DynamoDBClient } from "../DynamoDBClient";
 
 const checkState = async (client: DynamoDBClient, input: DescribeTableCommandInput): Promise<WaiterResult> => {
   let reason;
   try {
-    let result: any = await client.send(new DescribeTableCommand(input));
+    const result: any = await client.send(new DescribeTableCommand(input));
     reason = result;
   } catch (exception) {
     reason = exception;

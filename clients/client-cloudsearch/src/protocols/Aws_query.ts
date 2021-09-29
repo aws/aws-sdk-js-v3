@@ -1,3 +1,28 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectNonNull as __expectNonNull,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  getArrayIfSingleItem as __getArrayIfSingleItem,
+  getValueFromTextNode as __getValueFromTextNode,
+  parseBoolean as __parseBoolean,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
+  serializeFloat as __serializeFloat,
+  strictParseFloat as __strictParseFloat,
+  strictParseInt32 as __strictParseInt32,
+  strictParseLong as __strictParseLong,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  HeaderBag as __HeaderBag,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { decodeHTML } from "entities";
+import { parse as xmlParse } from "fast-xml-parser";
+
 import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "../commands/BuildSuggestersCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
@@ -126,8 +151,8 @@ import {
   IndexField,
   IndexFieldStatus,
   IntArrayOptions,
-  IntOptions,
   InternalException,
+  IntOptions,
   InvalidTypeException,
   LatLonOptions,
   LimitExceededException,
@@ -155,30 +180,6 @@ import {
   UpdateServiceAccessPoliciesResponse,
   ValidationException,
 } from "../models/models_0";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
-import {
-  expectNonNull as __expectNonNull,
-  expectString as __expectString,
-  extendedEncodeURIComponent as __extendedEncodeURIComponent,
-  getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
-  parseBoolean as __parseBoolean,
-  parseRfc3339DateTime as __parseRfc3339DateTime,
-  serializeFloat as __serializeFloat,
-  strictParseFloat as __strictParseFloat,
-  strictParseInt32 as __strictParseInt32,
-  strictParseLong as __strictParseLong,
-} from "@aws-sdk/smithy-client";
-import {
-  Endpoint as __Endpoint,
-  HeaderBag as __HeaderBag,
-  MetadataBearer as __MetadataBearer,
-  ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
-  SmithyException as __SmithyException,
-} from "@aws-sdk/types";
-import { decodeHTML } from "entities";
-import { parse as xmlParse } from "fast-xml-parser";
 
 export const serializeAws_queryBuildSuggestersCommand = async (
   input: BuildSuggestersCommandInput,
@@ -620,7 +621,7 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -690,7 +691,7 @@ const deserializeAws_queryCreateDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -776,7 +777,7 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -862,7 +863,7 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -948,7 +949,7 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1034,7 +1035,7 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1120,7 +1121,7 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1198,7 +1199,7 @@ const deserializeAws_queryDeleteDomainCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1260,7 +1261,7 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1338,7 +1339,7 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1416,7 +1417,7 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1494,7 +1495,7 @@ const deserializeAws_queryDescribeAnalysisSchemesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1564,7 +1565,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1661,7 +1662,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1747,7 +1748,7 @@ const deserializeAws_queryDescribeDomainsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1809,7 +1810,7 @@ const deserializeAws_queryDescribeExpressionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1879,7 +1880,7 @@ const deserializeAws_queryDescribeIndexFieldsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -1949,7 +1950,7 @@ const deserializeAws_queryDescribeScalingParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2022,7 +2023,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2092,7 +2093,7 @@ const deserializeAws_queryDescribeSuggestersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2162,7 +2163,7 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2232,7 +2233,7 @@ const deserializeAws_queryListDomainNamesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2286,7 +2287,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2388,7 +2389,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2490,7 +2491,7 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -2576,7 +2577,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     body: await parseBody(output.body, context),
   };
   let response: __SmithyException & __MetadataBearer & { [key: string]: any };
-  let errorCode: string = "UnknownError";
+  let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
     case "BaseException":
@@ -3148,7 +3149,7 @@ const serializeAws_queryDomainEndpointOptions = (input: DomainEndpointOptions, c
 const serializeAws_queryDomainNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -3204,7 +3205,7 @@ const serializeAws_queryDoubleOptions = (input: DoubleOptions, context: __SerdeC
 const serializeAws_queryDynamicFieldNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -3447,7 +3448,7 @@ const serializeAws_queryScalingParameters = (input: ScalingParameters, context: 
 const serializeAws_queryStandardNameList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
-  for (let entry of input) {
+  for (const entry of input) {
     if (entry === null) {
       continue;
     }
@@ -3580,7 +3581,7 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
 };
 
 const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -3594,7 +3595,7 @@ const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
-  let contents: any = {
+  const contents: any = {
     Synonyms: undefined,
     Stopwords: undefined,
     StemmingDictionary: undefined,
@@ -3620,7 +3621,7 @@ const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
-  let contents: any = {
+  const contents: any = {
     AnalysisSchemeName: undefined,
     AnalysisSchemeLanguage: undefined,
     AnalysisOptions: undefined,
@@ -3638,7 +3639,7 @@ const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -3666,7 +3667,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): AvailabilityOptionsStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -3680,7 +3681,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
 };
 
 const deserializeAws_queryBaseException = (output: any, context: __SerdeContext): BaseException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -3694,7 +3695,7 @@ const deserializeAws_queryBaseException = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
-  let contents: any = {
+  const contents: any = {
     FieldNames: undefined,
   };
   if (output.FieldNames === "") {
@@ -3710,7 +3711,7 @@ const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
@@ -3720,7 +3721,7 @@ const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
@@ -3746,7 +3747,7 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
@@ -3779,7 +3780,7 @@ const deserializeAws_queryDefineAnalysisSchemeResponse = (
   output: any,
   context: __SerdeContext
 ): DefineAnalysisSchemeResponse => {
-  let contents: any = {
+  const contents: any = {
     AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
@@ -3792,7 +3793,7 @@ const deserializeAws_queryDefineExpressionResponse = (
   output: any,
   context: __SerdeContext
 ): DefineExpressionResponse => {
-  let contents: any = {
+  const contents: any = {
     Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
@@ -3805,7 +3806,7 @@ const deserializeAws_queryDefineIndexFieldResponse = (
   output: any,
   context: __SerdeContext
 ): DefineIndexFieldResponse => {
-  let contents: any = {
+  const contents: any = {
     IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
@@ -3815,7 +3816,7 @@ const deserializeAws_queryDefineIndexFieldResponse = (
 };
 
 const deserializeAws_queryDefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
-  let contents: any = {
+  const contents: any = {
     Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
@@ -3828,7 +3829,7 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAnalysisSchemeResponse => {
-  let contents: any = {
+  const contents: any = {
     AnalysisScheme: undefined,
   };
   if (output["AnalysisScheme"] !== undefined) {
@@ -3838,7 +3839,7 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
 };
 
 const deserializeAws_queryDeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainStatus: undefined,
   };
   if (output["DomainStatus"] !== undefined) {
@@ -3851,7 +3852,7 @@ const deserializeAws_queryDeleteExpressionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteExpressionResponse => {
-  let contents: any = {
+  const contents: any = {
     Expression: undefined,
   };
   if (output["Expression"] !== undefined) {
@@ -3864,7 +3865,7 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteIndexFieldResponse => {
-  let contents: any = {
+  const contents: any = {
     IndexField: undefined,
   };
   if (output["IndexField"] !== undefined) {
@@ -3874,7 +3875,7 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
 };
 
 const deserializeAws_queryDeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
-  let contents: any = {
+  const contents: any = {
     Suggester: undefined,
   };
   if (output["Suggester"] !== undefined) {
@@ -3887,7 +3888,7 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAnalysisSchemesResponse => {
-  let contents: any = {
+  const contents: any = {
     AnalysisSchemes: undefined,
   };
   if (output.AnalysisSchemes === "") {
@@ -3906,7 +3907,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityOptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
@@ -3922,7 +3923,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDomainEndpointOptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
@@ -3935,7 +3936,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
 };
 
 const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainStatusList: undefined,
   };
   if (output.DomainStatusList === "") {
@@ -3954,7 +3955,7 @@ const deserializeAws_queryDescribeExpressionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeExpressionsResponse => {
-  let contents: any = {
+  const contents: any = {
     Expressions: undefined,
   };
   if (output.Expressions === "") {
@@ -3973,7 +3974,7 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeIndexFieldsResponse => {
-  let contents: any = {
+  const contents: any = {
     IndexFields: undefined,
   };
   if (output.IndexFields === "") {
@@ -3992,7 +3993,7 @@ const deserializeAws_queryDescribeScalingParametersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeScalingParametersResponse => {
-  let contents: any = {
+  const contents: any = {
     ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
@@ -4005,7 +4006,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeServiceAccessPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
@@ -4018,7 +4019,7 @@ const deserializeAws_queryDescribeSuggestersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSuggestersResponse => {
-  let contents: any = {
+  const contents: any = {
     Suggesters: undefined,
   };
   if (output.Suggesters === "") {
@@ -4037,7 +4038,7 @@ const deserializeAws_queryDisabledOperationException = (
   output: any,
   context: __SerdeContext
 ): DisabledOperationException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4054,7 +4055,7 @@ const deserializeAws_queryDocumentSuggesterOptions = (
   output: any,
   context: __SerdeContext
 ): DocumentSuggesterOptions => {
-  let contents: any = {
+  const contents: any = {
     SourceField: undefined,
     FuzzyMatching: undefined,
     SortExpression: undefined,
@@ -4072,7 +4073,7 @@ const deserializeAws_queryDocumentSuggesterOptions = (
 };
 
 const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
-  let contents: any = {
+  const contents: any = {
     EnforceHTTPS: undefined,
     TLSSecurityPolicy: undefined,
   };
@@ -4089,7 +4090,7 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): DomainEndpointOptionsStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -4115,7 +4116,7 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
-  let contents: any = {
+  const contents: any = {
     DomainId: undefined,
     DomainName: undefined,
     ARN: undefined,
@@ -4184,7 +4185,7 @@ const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
@@ -4210,7 +4211,7 @@ const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
@@ -4240,7 +4241,7 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
-  let contents: any = {
+  const contents: any = {
     ExpressionName: undefined,
     ExpressionValue: undefined,
   };
@@ -4254,7 +4255,7 @@ const deserializeAws_queryExpression = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -4290,7 +4291,7 @@ const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
-  let contents: any = {
+  const contents: any = {
     FieldNames: undefined,
   };
   if (output.FieldNames === "") {
@@ -4306,7 +4307,7 @@ const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
-  let contents: any = {
+  const contents: any = {
     IndexFieldName: undefined,
     IndexFieldType: undefined,
     IntOptions: undefined,
@@ -4364,7 +4365,7 @@ const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -4389,7 +4390,7 @@ const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
@@ -4415,7 +4416,7 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4429,7 +4430,7 @@ const deserializeAws_queryInternalException = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
@@ -4459,7 +4460,7 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4473,7 +4474,7 @@ const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
@@ -4503,7 +4504,7 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4517,7 +4518,7 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
-  let contents: any = {
+  const contents: any = {
     MaximumReplicationCount: undefined,
     MaximumPartitionCount: undefined,
   };
@@ -4531,7 +4532,7 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 };
 
 const deserializeAws_queryListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainNames: undefined,
   };
   if (output.DomainNames === "") {
@@ -4547,7 +4548,7 @@ const deserializeAws_queryListDomainNamesResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceFields: undefined,
     FacetEnabled: undefined,
@@ -4573,7 +4574,7 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     FacetEnabled: undefined,
@@ -4603,7 +4604,7 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
-  let contents: any = {
+  const contents: any = {
     CreationDate: undefined,
     UpdateDate: undefined,
     UpdateVersion: undefined,
@@ -4632,7 +4633,7 @@ const deserializeAws_queryResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4649,7 +4650,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };
@@ -4663,7 +4664,7 @@ const deserializeAws_queryResourceNotFoundException = (
 };
 
 const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
-  let contents: any = {
+  const contents: any = {
     DesiredInstanceType: undefined,
     DesiredReplicationCount: undefined,
     DesiredPartitionCount: undefined,
@@ -4681,7 +4682,7 @@ const deserializeAws_queryScalingParameters = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -4695,7 +4696,7 @@ const deserializeAws_queryScalingParametersStatus = (output: any, context: __Ser
 };
 
 const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
-  let contents: any = {
+  const contents: any = {
     Endpoint: undefined,
   };
   if (output["Endpoint"] !== undefined) {
@@ -4705,7 +4706,7 @@ const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
-  let contents: any = {
+  const contents: any = {
     SuggesterName: undefined,
     DocumentSuggesterOptions: undefined,
   };
@@ -4722,7 +4723,7 @@ const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Su
 };
 
 const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
-  let contents: any = {
+  const contents: any = {
     Options: undefined,
     Status: undefined,
   };
@@ -4747,7 +4748,7 @@ const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceFields: undefined,
     ReturnEnabled: undefined,
@@ -4773,7 +4774,7 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
-  let contents: any = {
+  const contents: any = {
     DefaultValue: undefined,
     SourceField: undefined,
     ReturnEnabled: undefined,
@@ -4806,7 +4807,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAvailabilityOptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     AvailabilityOptions: undefined,
   };
   if (output["AvailabilityOptions"] !== undefined) {
@@ -4822,7 +4823,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainEndpointOptionsResponse => {
-  let contents: any = {
+  const contents: any = {
     DomainEndpointOptions: undefined,
   };
   if (output["DomainEndpointOptions"] !== undefined) {
@@ -4838,7 +4839,7 @@ const deserializeAws_queryUpdateScalingParametersResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateScalingParametersResponse => {
-  let contents: any = {
+  const contents: any = {
     ScalingParameters: undefined,
   };
   if (output["ScalingParameters"] !== undefined) {
@@ -4851,7 +4852,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceAccessPoliciesResponse => {
-  let contents: any = {
+  const contents: any = {
     AccessPolicies: undefined,
   };
   if (output["AccessPolicies"] !== undefined) {
@@ -4861,7 +4862,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
 };
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  let contents: any = {
+  const contents: any = {
     Code: undefined,
     Message: undefined,
   };

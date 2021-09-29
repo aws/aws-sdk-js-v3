@@ -1,4 +1,5 @@
-import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   DescribeReportCreationCommand,
   DescribeReportCreationCommandInput,
@@ -35,7 +36,7 @@ import {
   UntagResourcesCommandInput,
   UntagResourcesCommandOutput,
 } from "./commands/UntagResourcesCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { ResourceGroupsTaggingAPIClient } from "./ResourceGroupsTaggingAPIClient";
 
 /**
  * <fullname>Resource Groups Tagging API</fullname>

@@ -1,4 +1,5 @@
-import { GameLiftClient } from "./GameLiftClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand";
 import {
   ClaimGameServerCommand,
@@ -418,7 +419,7 @@ import {
   ValidateMatchmakingRuleSetCommandInput,
   ValidateMatchmakingRuleSetCommandOutput,
 } from "./commands/ValidateMatchmakingRuleSetCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GameLiftClient } from "./GameLiftClient";
 
 /**
  * <fullname>Amazon GameLift Service</fullname>

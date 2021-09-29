@@ -1,5 +1,6 @@
 import { BooleanOperator, EdgeOutputConfig, UserSettings } from "./models_0";
 import {
+  _InstanceType,
   DeploymentConfig,
   MemberDefinition,
   ModelApprovalStatus,
@@ -14,7 +15,6 @@ import {
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
-  _InstanceType,
 } from "./models_1";
 import {
   DesiredWeightAndCapacity,

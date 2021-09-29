@@ -1,12 +1,13 @@
-import { MediaPackage } from "../MediaPackage";
-import { MediaPackageClient } from "../MediaPackageClient";
+import { Paginator } from "@aws-sdk/types";
+
 import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "../commands/ListChannelsCommand";
+import { MediaPackage } from "../MediaPackage";
+import { MediaPackageClient } from "../MediaPackageClient";
 import { MediaPackagePaginationConfiguration } from "./Interfaces";
-import { Paginator } from "@aws-sdk/types";
 
 /**
  * @private

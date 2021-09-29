@@ -1,4 +1,5 @@
-import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddCustomRoutingEndpointsCommand,
   AddCustomRoutingEndpointsCommandInput,
@@ -230,7 +231,7 @@ import {
   WithdrawByoipCidrCommandInput,
   WithdrawByoipCidrCommandOutput,
 } from "./commands/WithdrawByoipCidrCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient";
 
 /**
  * <fullname>AWS Global Accelerator</fullname>

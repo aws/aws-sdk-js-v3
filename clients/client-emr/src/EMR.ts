@@ -1,4 +1,5 @@
-import { EMRClient } from "./EMRClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   AddInstanceFleetCommand,
   AddInstanceFleetCommandInput,
@@ -142,12 +143,12 @@ import {
   ListSecurityConfigurationsCommandOutput,
 } from "./commands/ListSecurityConfigurationsCommand";
 import { ListStepsCommand, ListStepsCommandInput, ListStepsCommandOutput } from "./commands/ListStepsCommand";
+import { ListStudiosCommand, ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
 import {
   ListStudioSessionMappingsCommand,
   ListStudioSessionMappingsCommandInput,
   ListStudioSessionMappingsCommandOutput,
 } from "./commands/ListStudioSessionMappingsCommand";
-import { ListStudiosCommand, ListStudiosCommandInput, ListStudiosCommandOutput } from "./commands/ListStudiosCommand";
 import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
@@ -235,7 +236,7 @@ import {
   UpdateStudioSessionMappingCommandInput,
   UpdateStudioSessionMappingCommandOutput,
 } from "./commands/UpdateStudioSessionMappingCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { EMRClient } from "./EMRClient";
 
 /**
  * <p>Amazon EMR is a web service that makes it easier to process large amounts of data

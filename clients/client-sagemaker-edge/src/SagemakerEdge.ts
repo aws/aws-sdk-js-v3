@@ -1,4 +1,5 @@
-import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   GetDeviceRegistrationCommand,
   GetDeviceRegistrationCommandInput,
@@ -9,7 +10,7 @@ import {
   SendHeartbeatCommandInput,
   SendHeartbeatCommandOutput,
 } from "./commands/SendHeartbeatCommand";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { SagemakerEdgeClient } from "./SagemakerEdgeClient";
 
 /**
  * <p>SageMaker Edge Manager dataplane service for communicating with active agents.</p>

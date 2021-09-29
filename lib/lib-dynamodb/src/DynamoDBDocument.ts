@@ -1,4 +1,6 @@
-import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+
 import {
   BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput,
@@ -28,8 +30,7 @@ import {
   TransactWriteCommandOutput,
 } from "./commands/TransactWriteCommand";
 import { UpdateCommand, UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
+import { DynamoDBDocumentClient, TranslateConfig } from "./DynamoDBDocumentClient";
 
 /**
  * The document client simplifies working with items in Amazon DynamoDB by
