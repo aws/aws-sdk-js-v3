@@ -15,10 +15,11 @@ jest.mock("@aws-sdk/node-http-handler", () => ({
   streamCollector: jest.fn(),
 }));
 
-import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "./defaultRoleAssumers";
-import type { AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { AssumeRoleWithWebIdentityCommandInput } from "./commands/AssumeRoleWithWebIdentityCommand";
+
+import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
+import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
+import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "../src/defaultRoleAssumers";
 const mockConstructorInput = jest.fn();
 jest.mock("./STSClient", () => ({
   STSClient: function (params: any) {
