@@ -23,11 +23,11 @@ import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
 import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "../src/defaultRoleAssumers";
 const mockConstructorInput = jest.fn();
-jest.mock("./STSClient", () => ({
+jest.mock("../src/STSClient", () => ({
   STSClient: function (params: any) {
     mockConstructorInput(params);
     //@ts-ignore
-    return new (jest.requireActual("./STSClient").STSClient)(params);
+    return new (jest.requireActual("../src/STSClient").STSClient)(params);
   },
 }));
 
