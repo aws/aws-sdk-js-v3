@@ -72,7 +72,7 @@
     "jest": "^26.1.0",
     "jmespath": "^0.15.0",
     "json5": "^2.2.0",
-    "karma": "^5.1.0",
+    "karma": "^6.3.4",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.2",
