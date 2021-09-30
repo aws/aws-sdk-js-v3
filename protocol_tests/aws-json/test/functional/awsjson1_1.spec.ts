@@ -1,4 +1,8 @@
-import { JsonProtocolClient } from "../../src/JsonProtocolClient";
+import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { Encoder as __Encoder } from "@aws-sdk/types";
+import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
+import { Readable } from "stream";
+
 import { EmptyOperationCommand } from "../../src/commands/EmptyOperationCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
@@ -10,11 +14,8 @@ import { NullOperationCommand } from "../../src/commands/NullOperationCommand";
 import { OperationWithOptionalInputOutputCommand } from "../../src/commands/OperationWithOptionalInputOutputCommand";
 import { PutAndGetInlineDocumentsCommand } from "../../src/commands/PutAndGetInlineDocumentsCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
+import { JsonProtocolClient } from "../../src/JsonProtocolClient";
 import { ComplexError, FooError, InvalidGreeting } from "../../src/models/models_0";
-import { Encoder as __Encoder } from "@aws-sdk/types";
-import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
-import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
-import { Readable } from "stream";
 
 /**
  * Throws an expected exception that contains the serialized request.
@@ -104,7 +105,7 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
-  let localExpected = expected;
+  const localExpected = expected;
 
   // Short circuit on equality.
   if (localExpected == generated) {
@@ -128,7 +129,7 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   }
 
   // Compare properties directly.
-  for (var index = 0; index < expectedProperties.length; index++) {
+  for (let index = 0; index < expectedProperties.length; index++) {
     const propertyName = expectedProperties[index];
     if (!equivalentContents(localExpected[propertyName], generated[propertyName])) {
       return false;
