@@ -46,6 +46,7 @@ const {
   try {
     if (serverOnly === true) {
       await generateProtocolTests();
+      await eslintFixCode();
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
