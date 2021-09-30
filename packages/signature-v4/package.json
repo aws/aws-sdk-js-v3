@@ -2,15 +2,15 @@
   "name": "@aws-sdk/signature-v4",
   "version": "3.34.0",
   "description": "A standalone implementation of the AWS Signature V4 request signing algorithm",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "pretest": "yarn build",
     "test": "jest --coverage"
   },
@@ -39,8 +39,8 @@
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },

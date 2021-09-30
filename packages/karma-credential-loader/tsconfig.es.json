@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "lib": ["es2015"],
-    "outDir": "dist/es",
+    "outDir": "dist-es",
     "rootDir": "src",
     "strict": false
   },

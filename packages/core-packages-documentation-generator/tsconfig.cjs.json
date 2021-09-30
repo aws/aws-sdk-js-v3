@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "experimentalDecorators": true,
-    "outDir": "dist/cjs",
+    "outDir": "dist-cjs",
     "pretty": true,
     "rootDir": "src",
     "strict": false

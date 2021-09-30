@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/types",
   "version": "3.34.0",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "description": "Types for the AWS SDK",
   "devDependencies": {
     "typescript": "~4.3.5"
@@ -13,7 +13,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "exit 0"
   },
   "author": {
@@ -26,8 +26,8 @@
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },

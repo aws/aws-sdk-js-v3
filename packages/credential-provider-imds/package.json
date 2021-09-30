@@ -2,14 +2,14 @@
   "name": "@aws-sdk/credential-provider-imds",
   "version": "3.34.0",
   "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/es/index.js",
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "downlevel-dts": "downlevel-dts dist/types dist/types/ts3.4",
+    "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
   "keywords": [
@@ -35,14 +35,14 @@
     "nock": "^13.0.2",
     "typescript": "~4.3.5"
   },
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">= 10.0.0"
   },
   "typesVersions": {
     "<4.0": {
-      "dist/types/*": [
-        "dist/types/ts3.4/*"
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
       ]
     }
   },
