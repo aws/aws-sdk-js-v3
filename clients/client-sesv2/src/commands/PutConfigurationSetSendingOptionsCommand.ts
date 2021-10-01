@@ -28,7 +28,7 @@ export interface PutConfigurationSetSendingOptionsCommandOutput
 
 /**
  * <p>Enable or disable email sending for messages that use a particular configuration set
- *             in a specific AWS Region.</p>
+ *             in a specific Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

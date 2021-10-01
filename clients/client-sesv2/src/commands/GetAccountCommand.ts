@@ -23,7 +23,7 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
 
 /**
  * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
- *             account in the current AWS Region.</p>
+ *             account in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

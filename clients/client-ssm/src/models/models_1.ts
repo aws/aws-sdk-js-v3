@@ -4352,7 +4352,9 @@ export interface Association {
   DocumentVersion?: string;
 
   /**
-   * <p>The instances targeted by the request to create an association. </p>
+   * <p>The instances targeted by the request to create an association. You can target all instances
+   *    in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
+   *    <code>*</code>.</p>
    */
   Targets?: Target[];
 
@@ -9567,6 +9569,21 @@ export interface StartChangeRequestExecutionRequest {
    *    the UUID format, and can't be reused.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>Indicates whether the change request can be approved automatically without the need for
+   *    manual approvals.</p>
+   *          <p>If <code>AutoApprovable</code> is enabled in a change template, then setting
+   *     <code>AutoApprove</code> to <code>true</code> in <code>StartChangeRequestExecution</code>
+   *    creates a change request that bypasses approver review.</p>
+   *          <note>
+   *             <p>Change Calendar restrictions are not bypassed in this scenario. If the state of an
+   *     associated calendar is <code>CLOSED</code>, change freeze approvers must still grant permission
+   *     for this change request to run. If they don't, the change won't be processed until the calendar
+   *     state is again <code>OPEN</code>. </p>
+   *          </note>
+   */
+  AutoApprove?: boolean;
 
   /**
    * <p>Information about the Automation runbooks that are run during the runbook workflow.</p>

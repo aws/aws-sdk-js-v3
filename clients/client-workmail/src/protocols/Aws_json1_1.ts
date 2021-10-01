@@ -50,6 +50,10 @@ import {
   DeleteMailboxPermissionsCommandOutput,
 } from "../commands/DeleteMailboxPermissionsCommand";
 import {
+  DeleteMobileDeviceAccessOverrideCommandInput,
+  DeleteMobileDeviceAccessOverrideCommandOutput,
+} from "../commands/DeleteMobileDeviceAccessOverrideCommand";
+import {
   DeleteMobileDeviceAccessRuleCommandInput,
   DeleteMobileDeviceAccessRuleCommandOutput,
 } from "../commands/DeleteMobileDeviceAccessRuleCommand";
@@ -97,6 +101,10 @@ import {
   GetMobileDeviceAccessEffectCommandOutput,
 } from "../commands/GetMobileDeviceAccessEffectCommand";
 import {
+  GetMobileDeviceAccessOverrideCommandInput,
+  GetMobileDeviceAccessOverrideCommandOutput,
+} from "../commands/GetMobileDeviceAccessOverrideCommand";
+import {
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
 } from "../commands/ListAccessControlRulesCommand";
@@ -111,6 +119,10 @@ import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "../commands/ListMailboxPermissionsCommand";
+import {
+  ListMobileDeviceAccessOverridesCommandInput,
+  ListMobileDeviceAccessOverridesCommandOutput,
+} from "../commands/ListMobileDeviceAccessOverridesCommand";
 import {
   ListMobileDeviceAccessRulesCommandInput,
   ListMobileDeviceAccessRulesCommandOutput,
@@ -134,6 +146,10 @@ import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "../commands/PutMailboxPermissionsCommand";
+import {
+  PutMobileDeviceAccessOverrideCommandInput,
+  PutMobileDeviceAccessOverrideCommandOutput,
+} from "../commands/PutMobileDeviceAccessOverrideCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "../commands/PutRetentionPolicyCommand";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "../commands/RegisterToWorkMailCommand";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "../commands/ResetPasswordCommand";
@@ -183,6 +199,8 @@ import {
   DeleteGroupResponse,
   DeleteMailboxPermissionsRequest,
   DeleteMailboxPermissionsResponse,
+  DeleteMobileDeviceAccessOverrideRequest,
+  DeleteMobileDeviceAccessOverrideResponse,
   DeleteMobileDeviceAccessRuleRequest,
   DeleteMobileDeviceAccessRuleResponse,
   DeleteOrganizationRequest,
@@ -226,6 +244,8 @@ import {
   GetMailboxDetailsResponse,
   GetMobileDeviceAccessEffectRequest,
   GetMobileDeviceAccessEffectResponse,
+  GetMobileDeviceAccessOverrideRequest,
+  GetMobileDeviceAccessOverrideResponse,
   Group,
   InvalidConfigurationException,
   InvalidParameterException,
@@ -243,6 +263,8 @@ import {
   ListMailboxExportJobsResponse,
   ListMailboxPermissionsRequest,
   ListMailboxPermissionsResponse,
+  ListMobileDeviceAccessOverridesRequest,
+  ListMobileDeviceAccessOverridesResponse,
   ListMobileDeviceAccessRulesRequest,
   ListMobileDeviceAccessRulesResponse,
   ListOrganizationsRequest,
@@ -260,6 +282,7 @@ import {
   MailDomainStateException,
   Member,
   MobileDeviceAccessMatchedRule,
+  MobileDeviceAccessOverride,
   MobileDeviceAccessRule,
   NameAvailabilityException,
   OrganizationNotFoundException,
@@ -271,6 +294,8 @@ import {
   PutAccessControlRuleResponse,
   PutMailboxPermissionsRequest,
   PutMailboxPermissionsResponse,
+  PutMobileDeviceAccessOverrideRequest,
+  PutMobileDeviceAccessOverrideResponse,
   PutRetentionPolicyRequest,
   PutRetentionPolicyResponse,
   RegisterToWorkMailRequest,
@@ -466,6 +491,19 @@ export const serializeAws_json1_1DeleteMailboxPermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteMailboxPermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = async (
+  input: DeleteMobileDeviceAccessOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DeleteMobileDeviceAccessOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -690,6 +728,19 @@ export const serializeAws_json1_1GetMobileDeviceAccessEffectCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async (
+  input: GetMobileDeviceAccessOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.GetMobileDeviceAccessOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetMobileDeviceAccessOverrideRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListAccessControlRulesCommand = async (
   input: ListAccessControlRulesCommandInput,
   context: __SerdeContext
@@ -765,6 +816,19 @@ export const serializeAws_json1_1ListMailboxPermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListMailboxPermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListMobileDeviceAccessOverridesCommand = async (
+  input: ListMobileDeviceAccessOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.ListMobileDeviceAccessOverrides",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListMobileDeviceAccessOverridesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -869,6 +933,19 @@ export const serializeAws_json1_1PutMailboxPermissionsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutMailboxPermissionsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async (
+  input: PutMobileDeviceAccessOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.PutMobileDeviceAccessOverride",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutMobileDeviceAccessOverrideRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2179,6 +2256,84 @@ const deserializeAws_json1_1DeleteMailboxPermissionsCommandError = async (
     case "com.amazonaws.workmail#EntityStateException":
       response = {
         ...(await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteMobileDeviceAccessOverrideResponse(data, context);
+  const response: DeleteMobileDeviceAccessOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3566,6 +3721,92 @@ const deserializeAws_json1_1GetMobileDeviceAccessEffectCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse(data, context);
+  const response: GetMobileDeviceAccessOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetMobileDeviceAccessOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMobileDeviceAccessOverrideCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmail#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListAccessControlRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3969,6 +4210,84 @@ const deserializeAws_json1_1ListMailboxPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMailboxPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse(data, context);
+  const response: ListMobileDeviceAccessOverridesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListMobileDeviceAccessOverridesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMobileDeviceAccessOverridesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4537,6 +4856,92 @@ const deserializeAws_json1_1PutMailboxPermissionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMailboxPermissionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EntityNotFoundException":
+    case "com.amazonaws.workmail#EntityNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1EntityNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "EntityStateException":
+    case "com.amazonaws.workmail#EntityStateException":
+      response = {
+        ...(await deserializeAws_json1_1EntityStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.workmail#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutMobileDeviceAccessOverrideResponse(data, context);
+  const response: PutMobileDeviceAccessOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutMobileDeviceAccessOverrideCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMobileDeviceAccessOverrideCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6067,6 +6472,18 @@ const serializeAws_json1_1DeleteMailboxPermissionsRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteMobileDeviceAccessOverrideRequest = (
+  input: DeleteMobileDeviceAccessOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+  };
+};
+
 const serializeAws_json1_1DeleteMobileDeviceAccessRuleRequest = (
   input: DeleteMobileDeviceAccessRuleRequest,
   context: __SerdeContext
@@ -6330,6 +6747,18 @@ const serializeAws_json1_1GetMobileDeviceAccessEffectRequest = (
   };
 };
 
+const serializeAws_json1_1GetMobileDeviceAccessOverrideRequest = (
+  input: GetMobileDeviceAccessOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+  };
+};
+
 const serializeAws_json1_1IpRangeList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -6402,6 +6831,20 @@ const serializeAws_json1_1ListMailboxPermissionsRequest = (
     ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
     ...(input.OrganizationId !== undefined &&
       input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
+const serializeAws_json1_1ListMobileDeviceAccessOverridesRequest = (
+  input: ListMobileDeviceAccessOverridesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -6514,6 +6957,20 @@ const serializeAws_json1_1PutMailboxPermissionsRequest = (
       input.PermissionValues !== null && {
         PermissionValues: serializeAws_json1_1PermissionValues(input.PermissionValues, context),
       }),
+  };
+};
+
+const serializeAws_json1_1PutMobileDeviceAccessOverrideRequest = (
+  input: PutMobileDeviceAccessOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.DeviceId !== undefined && input.DeviceId !== null && { DeviceId: input.DeviceId }),
+    ...(input.Effect !== undefined && input.Effect !== null && { Effect: input.Effect }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+    ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
   };
 };
 
@@ -6894,6 +7351,13 @@ const deserializeAws_json1_1DeleteMailboxPermissionsResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteMobileDeviceAccessOverrideResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteMobileDeviceAccessOverrideResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteMobileDeviceAccessRuleResponse = (
   output: any,
   context: __SerdeContext
@@ -7228,6 +7692,26 @@ const deserializeAws_json1_1GetMobileDeviceAccessEffectResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1GetMobileDeviceAccessOverrideResponse = (
+  output: any,
+  context: __SerdeContext
+): GetMobileDeviceAccessOverrideResponse => {
+  return {
+    DateCreated:
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
+        : undefined,
+    DateModified:
+      output.DateModified !== undefined && output.DateModified !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
+        : undefined,
+    Description: __expectString(output.Description),
+    DeviceId: __expectString(output.DeviceId),
+    Effect: __expectString(output.Effect),
+    UserId: __expectString(output.UserId),
+  } as any;
+};
+
 const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
     DisabledDate:
@@ -7376,6 +7860,19 @@ const deserializeAws_json1_1ListMailboxPermissionsResponse = (
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1Permissions(output.Permissions, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListMobileDeviceAccessOverridesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListMobileDeviceAccessOverridesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Overrides:
+      output.Overrides !== undefined && output.Overrides !== null
+        ? deserializeAws_json1_1MobileDeviceAccessOverridesList(output.Overrides, context)
         : undefined,
   } as any;
 };
@@ -7540,6 +8037,40 @@ const deserializeAws_json1_1MobileDeviceAccessMatchedRuleList = (
     });
 };
 
+const deserializeAws_json1_1MobileDeviceAccessOverride = (
+  output: any,
+  context: __SerdeContext
+): MobileDeviceAccessOverride => {
+  return {
+    DateCreated:
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateCreated)))
+        : undefined,
+    DateModified:
+      output.DateModified !== undefined && output.DateModified !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.DateModified)))
+        : undefined,
+    Description: __expectString(output.Description),
+    DeviceId: __expectString(output.DeviceId),
+    Effect: __expectString(output.Effect),
+    UserId: __expectString(output.UserId),
+  } as any;
+};
+
+const deserializeAws_json1_1MobileDeviceAccessOverridesList = (
+  output: any,
+  context: __SerdeContext
+): MobileDeviceAccessOverride[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1MobileDeviceAccessOverride(entry, context);
+    });
+};
+
 const deserializeAws_json1_1MobileDeviceAccessRule = (output: any, context: __SerdeContext): MobileDeviceAccessRule => {
   return {
     DateCreated:
@@ -7695,6 +8226,13 @@ const deserializeAws_json1_1PutMailboxPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): PutMailboxPermissionsResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1PutMobileDeviceAccessOverrideResponse = (
+  output: any,
+  context: __SerdeContext
+): PutMobileDeviceAccessOverrideResponse => {
   return {} as any;
 };
 

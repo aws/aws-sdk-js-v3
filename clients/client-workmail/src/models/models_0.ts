@@ -1040,6 +1040,57 @@ export namespace DeleteMailboxPermissionsResponse {
   });
 }
 
+export interface DeleteMobileDeviceAccessOverrideRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the access override will be deleted.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The WorkMail user for which you want to delete the override. Accepts the following types of user identities:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID:  <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: <code>user@domain.tld</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>User name: <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The mobile device for which you delete the override. <code>DeviceId</code> is case insensitive.</p>
+   */
+  DeviceId: string | undefined;
+}
+
+export namespace DeleteMobileDeviceAccessOverrideRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessOverrideRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMobileDeviceAccessOverrideResponse {}
+
+export namespace DeleteMobileDeviceAccessOverrideResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMobileDeviceAccessOverrideResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteMobileDeviceAccessRuleRequest {
   /**
    * <p>The Amazon WorkMail organization under which the rule will be deleted.</p>
@@ -2022,6 +2073,105 @@ export namespace GetMobileDeviceAccessEffectResponse {
   });
 }
 
+export interface GetMobileDeviceAccessOverrideRequest {
+  /**
+   * <p>The Amazon WorkMail organization to which you want to apply the override.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>Identifies the WorkMail user for the override. Accepts the following types of user identities: </p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: <code>user@domain.tld</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>User name: <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The mobile device to which the override applies. <code>DeviceId</code> is case insensitive.</p>
+   */
+  DeviceId: string | undefined;
+}
+
+export namespace GetMobileDeviceAccessOverrideRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMobileDeviceAccessOverrideRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMobileDeviceAccessOverrideResponse {
+  /**
+   * <p>The WorkMail user to which the access override applies.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The device to which the access override applies.</p>
+   */
+  DeviceId?: string;
+
+  /**
+   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   */
+  Effect?: MobileDeviceAccessRuleEffect | string;
+
+  /**
+   * <p>A description of the override.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date the override was first created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>The date the description was last modified.</p>
+   */
+  DateModified?: Date;
+}
+
+export namespace GetMobileDeviceAccessOverrideResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMobileDeviceAccessOverrideResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource cannot be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The representation of an Amazon WorkMail group.</p>
  */
@@ -2525,6 +2675,121 @@ export namespace ListMailboxPermissionsResponse {
   });
 }
 
+export interface ListMobileDeviceAccessOverridesRequest {
+  /**
+   * <p>The Amazon WorkMail organization under which to list mobile device access overrides.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The WorkMail user under which you list the mobile device access overrides. Accepts the following types of user identities:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: <code>user@domain.tld</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>User name: <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The mobile device to which the access override applies.</p>
+   */
+  DeviceId?: string;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListMobileDeviceAccessOverridesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMobileDeviceAccessOverridesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The override object.</p>
+ */
+export interface MobileDeviceAccessOverride {
+  /**
+   * <p>The WorkMail user to which the access override applies.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The device to which the override applies.</p>
+   */
+  DeviceId?: string;
+
+  /**
+   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   */
+  Effect?: MobileDeviceAccessRuleEffect | string;
+
+  /**
+   * <p>A description of the override.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date the override was first created.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>The date the override was last modified.</p>
+   */
+  DateModified?: Date;
+}
+
+export namespace MobileDeviceAccessOverride {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MobileDeviceAccessOverride): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMobileDeviceAccessOverridesResponse {
+  /**
+   * <p>The list of mobile device access overrides that exist for the specified Amazon WorkMail organization and user.</p>
+   */
+  Overrides?: MobileDeviceAccessOverride[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is “null” when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMobileDeviceAccessOverridesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMobileDeviceAccessOverridesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListMobileDeviceAccessRulesRequest {
   /**
    * <p>The Amazon WorkMail organization for which to list the rules.</p>
@@ -2938,24 +3203,6 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
-/**
- * <p>The resource cannot be found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface ListUsersRequest {
   /**
    * <p>The identifier for the organization under which the users exist.</p>
@@ -3181,6 +3428,67 @@ export namespace PutMailboxPermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutMailboxPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutMobileDeviceAccessOverrideRequest {
+  /**
+   * <p>Identifies the Amazon WorkMail organization for which you create the override.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The WorkMail user for which you create the override. Accepts the following types of user identities:</p>
+   *          <ul>
+   *             <li>
+   *                <p>User ID: <code>12345678-1234-1234-1234-123456789012</code> or <code>S-1-1-12-1234567890-123456789-123456789-1234</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Email address: <code>user@domain.tld</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>User name: <code>user</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>The mobile device for which you create the override. <code>DeviceId</code> is case insensitive.</p>
+   */
+  DeviceId: string | undefined;
+
+  /**
+   * <p>The effect of the override, <code>ALLOW</code> or <code>DENY</code>.</p>
+   */
+  Effect: MobileDeviceAccessRuleEffect | string | undefined;
+
+  /**
+   * <p>A description of the override.</p>
+   */
+  Description?: string;
+}
+
+export namespace PutMobileDeviceAccessOverrideRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutMobileDeviceAccessOverrideRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutMobileDeviceAccessOverrideResponse {}
+
+export namespace PutMobileDeviceAccessOverrideResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutMobileDeviceAccessOverrideResponse): any => ({
     ...obj,
   });
 }

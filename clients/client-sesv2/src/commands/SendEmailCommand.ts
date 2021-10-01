@@ -22,7 +22,7 @@ export interface SendEmailCommandInput extends SendEmailRequest {}
 export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBearer {}
 
 /**
- * <p>Sends an email message. You can use the Amazon SES API v2 to send two types of
+ * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
  *             messages:</p>
  *         <ul>
  *             <li>

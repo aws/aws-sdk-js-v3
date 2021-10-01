@@ -23,8 +23,9 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
 
 /**
  * <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
- *       mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
- *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
+ *         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+ *          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
+ *       deleted for several seconds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

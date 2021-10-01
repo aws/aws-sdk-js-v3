@@ -22,7 +22,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List tags that are associated with for an AWS App Runner resource. The response contains a list of tag key-value pairs.</p>
+ * <p>List tags that are associated with for an App Runner resource. The response contains a list of tag key-value pairs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

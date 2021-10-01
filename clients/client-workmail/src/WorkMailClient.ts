@@ -81,6 +81,10 @@ import {
   DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand";
 import {
+  DeleteMobileDeviceAccessOverrideCommandInput,
+  DeleteMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/DeleteMobileDeviceAccessOverrideCommand";
+import {
   DeleteMobileDeviceAccessRuleCommandInput,
   DeleteMobileDeviceAccessRuleCommandOutput,
 } from "./commands/DeleteMobileDeviceAccessRuleCommand";
@@ -128,6 +132,10 @@ import {
   GetMobileDeviceAccessEffectCommandOutput,
 } from "./commands/GetMobileDeviceAccessEffectCommand";
 import {
+  GetMobileDeviceAccessOverrideCommandInput,
+  GetMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/GetMobileDeviceAccessOverrideCommand";
+import {
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
 } from "./commands/ListAccessControlRulesCommand";
@@ -142,6 +150,10 @@ import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
+import {
+  ListMobileDeviceAccessOverridesCommandInput,
+  ListMobileDeviceAccessOverridesCommandOutput,
+} from "./commands/ListMobileDeviceAccessOverridesCommand";
 import {
   ListMobileDeviceAccessRulesCommandInput,
   ListMobileDeviceAccessRulesCommandOutput,
@@ -165,6 +177,10 @@ import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
+import {
+  PutMobileDeviceAccessOverrideCommandInput,
+  PutMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/PutMobileDeviceAccessOverrideCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
@@ -200,6 +216,7 @@ export type ServiceInputTypes =
   | DeleteAliasCommandInput
   | DeleteGroupCommandInput
   | DeleteMailboxPermissionsCommandInput
+  | DeleteMobileDeviceAccessOverrideCommandInput
   | DeleteMobileDeviceAccessRuleCommandInput
   | DeleteOrganizationCommandInput
   | DeleteResourceCommandInput
@@ -217,12 +234,14 @@ export type ServiceInputTypes =
   | GetDefaultRetentionPolicyCommandInput
   | GetMailboxDetailsCommandInput
   | GetMobileDeviceAccessEffectCommandInput
+  | GetMobileDeviceAccessOverrideCommandInput
   | ListAccessControlRulesCommandInput
   | ListAliasesCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
   | ListMailboxExportJobsCommandInput
   | ListMailboxPermissionsCommandInput
+  | ListMobileDeviceAccessOverridesCommandInput
   | ListMobileDeviceAccessRulesCommandInput
   | ListOrganizationsCommandInput
   | ListResourceDelegatesCommandInput
@@ -231,6 +250,7 @@ export type ServiceInputTypes =
   | ListUsersCommandInput
   | PutAccessControlRuleCommandInput
   | PutMailboxPermissionsCommandInput
+  | PutMobileDeviceAccessOverrideCommandInput
   | PutRetentionPolicyCommandInput
   | RegisterToWorkMailCommandInput
   | ResetPasswordCommandInput
@@ -256,6 +276,7 @@ export type ServiceOutputTypes =
   | DeleteAliasCommandOutput
   | DeleteGroupCommandOutput
   | DeleteMailboxPermissionsCommandOutput
+  | DeleteMobileDeviceAccessOverrideCommandOutput
   | DeleteMobileDeviceAccessRuleCommandOutput
   | DeleteOrganizationCommandOutput
   | DeleteResourceCommandOutput
@@ -273,12 +294,14 @@ export type ServiceOutputTypes =
   | GetDefaultRetentionPolicyCommandOutput
   | GetMailboxDetailsCommandOutput
   | GetMobileDeviceAccessEffectCommandOutput
+  | GetMobileDeviceAccessOverrideCommandOutput
   | ListAccessControlRulesCommandOutput
   | ListAliasesCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
   | ListMailboxExportJobsCommandOutput
   | ListMailboxPermissionsCommandOutput
+  | ListMobileDeviceAccessOverridesCommandOutput
   | ListMobileDeviceAccessRulesCommandOutput
   | ListOrganizationsCommandOutput
   | ListResourceDelegatesCommandOutput
@@ -287,6 +310,7 @@ export type ServiceOutputTypes =
   | ListUsersCommandOutput
   | PutAccessControlRuleCommandOutput
   | PutMailboxPermissionsCommandOutput
+  | PutMobileDeviceAccessOverrideCommandOutput
   | PutRetentionPolicyCommandOutput
   | RegisterToWorkMailCommandOutput
   | ResetPasswordCommandOutput

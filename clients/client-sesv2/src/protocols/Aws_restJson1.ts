@@ -9533,6 +9533,8 @@ const serializeAws_restJson1DkimSigningAttributes = (input: DkimSigningAttribute
       input.DomainSigningPrivateKey !== null && { DomainSigningPrivateKey: input.DomainSigningPrivateKey }),
     ...(input.DomainSigningSelector !== undefined &&
       input.DomainSigningSelector !== null && { DomainSigningSelector: input.DomainSigningSelector }),
+    ...(input.NextSigningKeyLength !== undefined &&
+      input.NextSigningKeyLength !== null && { NextSigningKeyLength: input.NextSigningKeyLength }),
   };
 };
 
@@ -10197,6 +10199,12 @@ const deserializeAws_restJson1DeliveryOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1DkimAttributes = (output: any, context: __SerdeContext): DkimAttributes => {
   return {
+    CurrentSigningKeyLength: __expectString(output.CurrentSigningKeyLength),
+    LastKeyGenerationTimestamp:
+      output.LastKeyGenerationTimestamp !== undefined && output.LastKeyGenerationTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastKeyGenerationTimestamp)))
+        : undefined,
+    NextSigningKeyLength: __expectString(output.NextSigningKeyLength),
     SigningAttributesOrigin: __expectString(output.SigningAttributesOrigin),
     SigningEnabled: __expectBoolean(output.SigningEnabled),
     Status: __expectString(output.Status),

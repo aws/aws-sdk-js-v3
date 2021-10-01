@@ -22,7 +22,7 @@ export interface GetDedicatedIpsCommandInput extends GetDedicatedIpsRequest {}
 export interface GetDedicatedIpsCommandOutput extends GetDedicatedIpsResponse, __MetadataBearer {}
 
 /**
- * <p>List the dedicated IP addresses that are associated with your AWS
+ * <p>List the dedicated IP addresses that are associated with your Amazon Web Services
  *             account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

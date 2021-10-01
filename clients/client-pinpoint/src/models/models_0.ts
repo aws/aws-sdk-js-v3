@@ -615,6 +615,22 @@ export namespace ConditionalSplitActivity {
   });
 }
 
+export interface ContactCenterActivity {
+  /**
+   * <p>The unique identifier for the next activity to perform after the this activity.</p>
+   */
+  NextActivity?: string;
+}
+
+export namespace ContactCenterActivity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContactCenterActivity): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Specifies the message content for a custom channel message that's sent to participants in a journey.</p>
  */
@@ -1059,6 +1075,11 @@ export interface Activity {
    * <p>The settings for a wait activity. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.</p>
    */
   Wait?: WaitActivity;
+
+  /**
+   * <p>The settings for a connect activity. This type of activity initiates a contact center call to participants.</p>
+   */
+  ContactCenter?: ContactCenterActivity;
 }
 
 export namespace Activity {
@@ -4953,6 +4974,30 @@ export namespace CreateJourneyRequest {
 }
 
 /**
+ * <p>The channel-specific configurations for the journey.</p>
+ */
+export interface JourneyChannelSettings {
+  /**
+   * <p>Amazon Resource Name (ARN) of the Connect Campaign.</p>
+   */
+  ConnectCampaignArn?: string;
+
+  /**
+   * <p>IAM role ARN to be assumed when invoking Connect campaign execution APIs for dialing.</p>
+   */
+  ConnectCampaignExecutionRoleArn?: string;
+}
+
+export namespace JourneyChannelSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: JourneyChannelSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides information about the status, configuration, and other settings for a journey.</p>
  */
 export interface JourneyResponse {
@@ -5040,6 +5085,11 @@ export interface JourneyResponse {
    * <p>Specifies whether a journey should be refreshed on segment update.</p>
    */
   RefreshOnSegmentUpdate?: boolean;
+
+  /**
+   * <p>The channel-specific configurations for the journey.</p>
+   */
+  JourneyChannelSettings?: JourneyChannelSettings;
 }
 
 export namespace JourneyResponse {
@@ -9098,43 +9148,6 @@ export namespace GetEmailTemplateRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEmailTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEmailTemplateResponse {
-  /**
-   * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
-   */
-  EmailTemplateResponse: EmailTemplateResponse | undefined;
-}
-
-export namespace GetEmailTemplateResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEndpointRequest {
-  /**
-   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
-   */
-  ApplicationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the endpoint.</p>
-   */
-  EndpointId: string | undefined;
-}
-
-export namespace GetEndpointRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
     ...obj,
   });
 }

@@ -1,5 +1,90 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum EncryptionMode {
+  SSE_KMS = "SSE_KMS",
+  SSE_S3 = "SSE_S3",
+}
+
+/**
+ * <p>A structure that contains the configuration of encryption-at-rest settings for canary artifacts that the canary
+ *          uploads to Amazon S3. </p>
+ *          <p>For more information, see
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html">Encrypting canary artifacts</a>
+ *             </p>
+ */
+export interface S3EncryptionConfig {
+  /**
+   * <p> The encryption method to use for artifacts created by this canary. Specify <code>SSE_S3</code> to use
+   *          server-side encryption (SSE) with an Amazon S3-managed
+   *          key. Specify <code>SSE-KMS</code> to use server-side encryption with a customer-managed KMS key.</p>
+   *          <p>If you omit this parameter, an
+   *             Amazon Web Services-managed KMS key is used.
+   *         </p>
+   */
+  EncryptionMode?: EncryptionMode | string;
+
+  /**
+   * <p>The ARN of the customer-managed KMS key to use, if you specify <code>SSE-KMS</code>
+   *          for <code>EncryptionMode</code>
+   *          </p>
+   */
+  KmsKeyArn?: string;
+}
+
+export namespace S3EncryptionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3EncryptionConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that contains the configuration for canary artifacts, including the
+ *          encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+ */
+export interface ArtifactConfigInput {
+  /**
+   * <p>A structure that contains the configuration of the encryption-at-rest settings for artifacts that the canary uploads
+   *          to Amazon S3.
+   *          Artifact encryption functionality is available only for canaries that use Synthetics runtime version
+   *          syn-nodejs-puppeteer-3.3 or later. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html">Encrypting canary artifacts</a>
+   *          </p>
+   */
+  S3Encryption?: S3EncryptionConfig;
+}
+
+export namespace ArtifactConfigInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ArtifactConfigInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A structure that contains the configuration for canary artifacts, including
+ *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+ */
+export interface ArtifactConfigOutput {
+  /**
+   * <p>A structure that contains the configuration of encryption settings for canary artifacts that are stored in Amazon S3. </p>
+   */
+  S3Encryption?: S3EncryptionConfig;
+}
+
+export namespace ArtifactConfigOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ArtifactConfigOutput): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A structure representing a screenshot that is used as a baseline during visual monitoring comparisons made by the canary.</p>
  */
@@ -353,6 +438,12 @@ export interface Canary {
    * <p>The list of key-value pairs that are associated with the canary.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A structure that contains the configuration for canary artifacts, including
+   *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+   */
+  ArtifactConfig?: ArtifactConfigOutput;
 }
 
 export namespace Canary {
@@ -796,6 +887,12 @@ export interface CreateCanaryRequest {
    *          certain tag values.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>A structure that contains the configuration for canary artifacts, including
+   *          the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3.</p>
+   */
+  ArtifactConfig?: ArtifactConfigInput;
 }
 
 export namespace CreateCanaryRequest {
@@ -1475,6 +1572,20 @@ export interface UpdateCanaryRequest {
    *          </p>
    */
   VisualReference?: VisualReferenceInput;
+
+  /**
+   * <p>The location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+   *          Artifacts include the log file, screenshots, and HAR files. The name of the
+   *          S3 bucket can't include a period (.).</p>
+   */
+  ArtifactS3Location?: string;
+
+  /**
+   * <p>A structure that contains the configuration for canary artifacts,
+   *          including the encryption-at-rest settings for artifacts that
+   *          the canary uploads to Amazon S3.</p>
+   */
+  ArtifactConfig?: ArtifactConfigInput;
 }
 
 export namespace UpdateCanaryRequest {

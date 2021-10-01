@@ -22,7 +22,7 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an AWS App Runner service.</p>
+ * <p>Delete an App Runner service.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
  *       call to track the operation's progress.</p>
  * @example

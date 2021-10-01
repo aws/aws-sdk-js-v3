@@ -887,10 +887,26 @@ const deserializeAws_queryAddTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ListenerNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
+      response = {
+        ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LoadBalancerNotFoundException":
     case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       response = {
         ...(await deserializeAws_queryLoadBalancerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "RuleNotFoundException":
+    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
+      response = {
+        ...(await deserializeAws_queryRuleNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1545,6 +1561,14 @@ const deserializeAws_queryDeleteListenerCommandError = async (
     case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
       response = {
         ...(await deserializeAws_queryListenerNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_queryResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

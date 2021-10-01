@@ -84,7 +84,7 @@ export enum CustomDomainAssociationStatus {
 }
 
 /**
- * <p>Describes a custom domain that's associated with an AWS App Runner service.</p>
+ * <p>Describes a custom domain that's associated with an App Runner service.</p>
  */
 export interface CustomDomain {
   /**
@@ -201,7 +201,7 @@ export namespace InvalidStateException {
 }
 
 /**
- * <p>Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.</p>
+ * <p>Describes a tag that is applied to an App Runner resource. A tag is a metadata item consisting of a key-value pair.</p>
  */
 export interface Tag {
   /**
@@ -226,7 +226,7 @@ export namespace Tag {
 
 export interface CreateAutoScalingConfigurationRequest {
   /**
-   * <p>A name for the auto scaling configuration. When you use it for the first time in an AWS Region, App Runner creates revision number <code>1</code> of this
+   * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
    *       name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
    */
   AutoScalingConfigurationName: string | undefined;
@@ -277,9 +277,9 @@ export enum AutoScalingConfigurationStatus {
 }
 
 /**
- * <p>Describes an AWS App Runner automatic scaling configuration resource. Multiple revisions of a configuration have the same
+ * <p>Describes an App Runner automatic scaling configuration resource. Multiple revisions of a configuration have the same
  *         <code>AutoScalingConfigurationName</code> and different <code>AutoScalingConfigurationRevision</code> values.</p>
- *          <p>A higher <code>MinSize</code> increases the spread of your App Runner service over more Availability Zones in the AWS Region. The tradeoff is a higher
+ *          <p>A higher <code>MinSize</code> increases the spread of your App Runner service over more Availability Zones in the Amazon Web Services Region. The tradeoff is a higher
  *       minimal cost.</p>
  *          <p>A lower <code>MaxSize</code> controls your cost. The tradeoff is lower responsiveness during peak demand.</p>
  */
@@ -369,8 +369,8 @@ export namespace CreateAutoScalingConfigurationResponse {
 
 /**
  * <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
- *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">AWS App Runner endpoints and quotas</a> in the
- *         <i>AWS General Reference</i>.</p>
+ *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
+ *         <i>Amazon Web Services General Reference</i>.</p>
  */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
@@ -393,7 +393,7 @@ export enum ProviderType {
 
 export interface CreateConnectionRequest {
   /**
-   * <p>A name for the new connection. It must be unique across all App Runner connections for the AWS account in the AWS Region.</p>
+   * <p>A name for the new connection. It must be unique across all App Runner connections for the Amazon Web Services account in the Amazon Web Services Region.</p>
    */
   ConnectionName: string | undefined;
 
@@ -425,7 +425,7 @@ export enum ConnectionStatus {
 }
 
 /**
- * <p>Describes an AWS App Runner connection resource.</p>
+ * <p>Describes an App Runner connection resource.</p>
  */
 export interface Connection {
   /**
@@ -480,7 +480,7 @@ export namespace CreateConnectionResponse {
 }
 
 /**
- * <p>Describes a custom encryption key that AWS App Runner uses to encrypt copies of the source repository and service logs.</p>
+ * <p>Describes a custom encryption key that App Runner uses to encrypt copies of the source repository and service logs.</p>
  */
 export interface EncryptionConfiguration {
   /**
@@ -504,7 +504,7 @@ export enum HealthCheckProtocol {
 }
 
 /**
- * <p>Describes the settings for the health check that AWS App Runner performs to monitor the health of a service.</p>
+ * <p>Describes the settings for the health check that App Runner performs to monitor the health of a service.</p>
  */
 export interface HealthCheckConfiguration {
   /**
@@ -540,14 +540,14 @@ export interface HealthCheckConfiguration {
 
   /**
    * <p>The number of consecutive checks that must succeed before App Runner decides that the service is healthy.</p>
-   *          <p>Default: <code>3</code>
+   *          <p>Default: <code>1</code>
    *          </p>
    */
   HealthyThreshold?: number;
 
   /**
    * <p>The number of consecutive checks that must fail before App Runner decides that the service is unhealthy.</p>
-   *          <p>Default: <code>3</code>
+   *          <p>Default: <code>5</code>
    *          </p>
    */
   UnhealthyThreshold?: number;
@@ -563,7 +563,7 @@ export namespace HealthCheckConfiguration {
 }
 
 /**
- * <p>Describes the runtime configuration of an AWS App Runner service instance (scaling unit).</p>
+ * <p>Describes the runtime configuration of an App Runner service instance (scaling unit).</p>
  */
 export interface InstanceConfiguration {
   /**
@@ -582,7 +582,7 @@ export interface InstanceConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls
-   *       any AWS APIs.</p>
+   *       any Amazon Web Services APIs.</p>
    */
   InstanceRoleArn?: string;
 }
@@ -628,7 +628,7 @@ export enum Runtime {
 }
 
 /**
- * <p>Describes the basic configuration needed for building and running an AWS App Runner service. This type doesn't support the full set of possible
+ * <p>Describes the basic configuration needed for building and running an App Runner service. This type doesn't support the full set of possible
  *       configuration options. Fur full configuration capabilities, use a <code>apprunner.yaml</code> file in the source code repository.</p>
  */
 export interface CodeConfigurationValues {
@@ -681,7 +681,7 @@ export enum ConfigurationSource {
 }
 
 /**
- * <p>Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.</p>
+ * <p>Describes the configuration that App Runner uses to build and run an App Runner service from a source code repository.</p>
  */
 export interface CodeConfiguration {
   /**
@@ -725,7 +725,7 @@ export enum SourceCodeVersionType {
 }
 
 /**
- * <p>Identifies a version of code that AWS App Runner refers to within a source code repository.</p>
+ * <p>Identifies a version of code that App Runner refers to within a source code repository.</p>
  */
 export interface SourceCodeVersion {
   /**
@@ -781,7 +781,7 @@ export namespace CodeRepository {
 }
 
 /**
- * <p>Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.</p>
+ * <p>Describes the configuration that App Runner uses to run an App Runner service using an image pulled from a source image repository.</p>
  */
 export interface ImageConfiguration {
   /**
@@ -853,7 +853,7 @@ export namespace ImageRepository {
 }
 
 /**
- * <p>Describes the source deployed to an AWS App Runner service. It can be a code or an image repository.</p>
+ * <p>Describes the source deployed to an App Runner service. It can be a code or an image repository.</p>
  */
 export interface SourceConfiguration {
   /**
@@ -870,10 +870,10 @@ export interface SourceConfiguration {
   ImageRepository?: ImageRepository;
 
   /**
-   * <p>If <code>true</code>, continuous integration from the source repository is enabled for the App Runner service. Each repository change (source code commit or
-   *       new image version) starts a deployment.</p>
-   *          <p>Default: <code>true</code>
-   *          </p>
+   * <p>If <code>true</code>, continuous integration from the source repository is enabled for the App Runner service. Each repository change (including any source
+   *       code commit or new image version) starts a deployment.</p>
+   *          <p>Default: App Runner sets to <code>false</code> for a source image that uses an ECR Public repository or an ECR repository that's in an Amazon Web Services account other than the one that the service is in. App Runner sets to <code>true</code> in all other cases (which currently include a source code
+   *       repository or a source image using a same-account ECR repository).</p>
    */
   AutoDeploymentsEnabled?: boolean;
 
@@ -896,7 +896,7 @@ export namespace SourceConfiguration {
 
 export interface CreateServiceRequest {
   /**
-   * <p>A name for the new service. It must be unique across all the running App Runner services in your AWS account in the AWS Region.</p>
+   * <p>A name for the new service. It must be unique across all the running App Runner services in your Amazon Web Services account in the Amazon Web Services Region.</p>
    */
   ServiceName: string | undefined;
 
@@ -917,12 +917,12 @@ export interface CreateServiceRequest {
 
   /**
    * <p>An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default,
-   *       App Runner uses an AWS managed CMK.</p>
+   *       App Runner uses an Amazon Web Services managed CMK.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
   /**
-   * <p>The settings for the health check that AWS App Runner performs to monitor the health of your service.</p>
+   * <p>The settings for the health check that App Runner performs to monitor the health of your service.</p>
    */
   HealthCheckConfiguration?: HealthCheckConfiguration;
 
@@ -946,7 +946,7 @@ export namespace CreateServiceRequest {
 }
 
 /**
- * <p>Provides summary information about an AWS App Runner automatic scaling configuration resource.</p>
+ * <p>Provides summary information about an App Runner automatic scaling configuration resource.</p>
  *          <p>This type contains limited information about an auto scaling configuration. It includes only identification information, without configuration
  *       details. It's returned by the <a>ListAutoScalingConfigurations</a> action. Complete configuration information is returned by the <a>CreateAutoScalingConfiguration</a>, <a>DescribeAutoScalingConfiguration</a>, and <a>DeleteAutoScalingConfiguration</a>
  *       actions using the <a>AutoScalingConfiguration</a> type.</p>
@@ -988,7 +988,7 @@ export enum ServiceStatus {
 }
 
 /**
- * <p>Describes an AWS App Runner service. It can describe a service in any state, including deleted services.</p>
+ * <p>Describes an App Runner service. It can describe a service in any state, including deleted services.</p>
  *          <p>This type contains the full information about a service, including configuration details. It's returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">CreateService</a>, <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html">DescribeService</a>, and <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html">DeleteService</a> actions. A subset of this
  *       information is returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html">ListServices</a> action using the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ServiceSummary.html">ServiceSummary</a> type.</p>
  */
@@ -999,7 +999,7 @@ export interface Service {
   ServiceName: string | undefined;
 
   /**
-   * <p>An ID that App Runner generated for this service. It's unique within the AWS Region.</p>
+   * <p>An ID that App Runner generated for this service. It's unique within the Amazon Web Services Region.</p>
    */
   ServiceId: string | undefined;
 
@@ -1058,7 +1058,7 @@ export interface Service {
 
   /**
    * <p>The encryption key that App Runner uses to encrypt the service logs and the copy of the source repository that App Runner maintains for the service. It can be
-   *       either a customer-provided encryption key or an AWS managed CMK.</p>
+   *       either a customer-provided encryption key or an Amazon Web Services managed CMK.</p>
    */
   EncryptionConfiguration?: EncryptionConfiguration;
 
@@ -1144,7 +1144,7 @@ export namespace DeleteAutoScalingConfigurationResponse {
 }
 
 /**
- * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your AWS account.</p>
+ * <p>A resource doesn't exist for the specified Amazon Resource Name (ARN) in your Amazon Web Services account.</p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -1500,7 +1500,7 @@ export namespace ListConnectionsRequest {
 }
 
 /**
- * <p>Provides summary information about an AWS App Runner connection resource.</p>
+ * <p>Provides summary information about an App Runner connection resource.</p>
  */
 export interface ConnectionSummary {
   /**
@@ -1608,7 +1608,7 @@ export enum OperationType {
 }
 
 /**
- * <p>Provides summary information for an operation that occurred on an AWS App Runner service.</p>
+ * <p>Provides summary information for an operation that occurred on an App Runner service.</p>
  */
 export interface OperationSummary {
   /**
@@ -1703,7 +1703,7 @@ export namespace ListServicesRequest {
 }
 
 /**
- * <p>Provides summary information for an AWS App Runner service.</p>
+ * <p>Provides summary information for an App Runner service.</p>
  *          <p>This type contains limited information about a service. It doesn't include configuration details. It's returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListServices.html">ListServices</a> action. Complete service information is returned by the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_CreateService.html">CreateService</a>, <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DescribeService.html">DescribeService</a>, and <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_DeleteService.html">DeleteService</a> actions using the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_Service.html">Service</a> type.</p>
  */
 export interface ServiceSummary {
@@ -1713,7 +1713,7 @@ export interface ServiceSummary {
   ServiceName?: string;
 
   /**
-   * <p>An ID that App Runner generated for this service. It's unique within the AWS Region.</p>
+   * <p>An ID that App Runner generated for this service. It's unique within the Amazon Web Services Region.</p>
    */
   ServiceId?: string;
 
@@ -2023,7 +2023,7 @@ export interface UpdateServiceRequest {
   AutoScalingConfigurationArn?: string;
 
   /**
-   * <p>The settings for the health check that AWS App Runner performs to monitor the health of your service.</p>
+   * <p>The settings for the health check that App Runner performs to monitor the health of your service.</p>
    */
   HealthCheckConfiguration?: HealthCheckConfiguration;
 }

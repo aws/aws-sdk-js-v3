@@ -22,7 +22,7 @@ export interface PauseServiceCommandInput extends PauseServiceRequest {}
 export interface PauseServiceCommandOutput extends PauseServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Pause an active AWS App Runner service. App Runner reduces compute capacity for the service to zero and loses state (for example, ephemeral storage is
+ * <p>Pause an active App Runner service. App Runner reduces compute capacity for the service to zero and loses state (for example, ephemeral storage is
  *       removed).</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
  *       call to track the operation's progress.</p>

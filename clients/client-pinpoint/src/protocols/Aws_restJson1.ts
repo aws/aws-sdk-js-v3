@@ -299,6 +299,7 @@ import {
   Condition,
   ConditionalSplitActivity,
   ConflictException,
+  ContactCenterActivity,
   CreateApplicationRequest,
   CreateRecommenderConfigurationShape,
   CreateTemplateMessageBody,
@@ -357,6 +358,7 @@ import {
   InAppTemplateRequest,
   InternalServerErrorException,
   ItemResponse,
+  JourneyChannelSettings,
   JourneyCustomMessage,
   JourneyEmailMessage,
   JourneyLimits,
@@ -16474,6 +16476,10 @@ const serializeAws_restJson1Activity = (input: Activity, context: __SerdeContext
       input.ConditionalSplit !== null && {
         ConditionalSplit: serializeAws_restJson1ConditionalSplitActivity(input.ConditionalSplit, context),
       }),
+    ...(input.ContactCenter !== undefined &&
+      input.ContactCenter !== null && {
+        ContactCenter: serializeAws_restJson1ContactCenterActivity(input.ContactCenter, context),
+      }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.EMAIL !== undefined &&
       input.EMAIL !== null && { EMAIL: serializeAws_restJson1EmailMessageActivity(input.EMAIL, context) }),
@@ -16803,6 +16809,12 @@ const serializeAws_restJson1ConditionalSplitActivity = (
       }),
     ...(input.FalseActivity !== undefined && input.FalseActivity !== null && { FalseActivity: input.FalseActivity }),
     ...(input.TrueActivity !== undefined && input.TrueActivity !== null && { TrueActivity: input.TrueActivity }),
+  };
+};
+
+const serializeAws_restJson1ContactCenterActivity = (input: ContactCenterActivity, context: __SerdeContext): any => {
+  return {
+    ...(input.NextActivity !== undefined && input.NextActivity !== null && { NextActivity: input.NextActivity }),
   };
 };
 
@@ -18455,6 +18467,10 @@ const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext):
       output.ConditionalSplit !== undefined && output.ConditionalSplit !== null
         ? deserializeAws_restJson1ConditionalSplitActivity(output.ConditionalSplit, context)
         : undefined,
+    ContactCenter:
+      output.ContactCenter !== undefined && output.ContactCenter !== null
+        ? deserializeAws_restJson1ContactCenterActivity(output.ContactCenter, context)
+        : undefined,
     Description: __expectString(output.Description),
     EMAIL:
       output.EMAIL !== undefined && output.EMAIL !== null
@@ -18959,6 +18975,12 @@ const deserializeAws_restJson1ConditionalSplitActivity = (
         : undefined,
     FalseActivity: __expectString(output.FalseActivity),
     TrueActivity: __expectString(output.TrueActivity),
+  } as any;
+};
+
+const deserializeAws_restJson1ContactCenterActivity = (output: any, context: __SerdeContext): ContactCenterActivity => {
+  return {
+    NextActivity: __expectString(output.NextActivity),
   } as any;
 };
 
@@ -19543,6 +19565,16 @@ const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1JourneyChannelSettings = (
+  output: any,
+  context: __SerdeContext
+): JourneyChannelSettings => {
+  return {
+    ConnectCampaignArn: __expectString(output.ConnectCampaignArn),
+    ConnectCampaignExecutionRoleArn: __expectString(output.ConnectCampaignExecutionRoleArn),
+  } as any;
+};
+
 const deserializeAws_restJson1JourneyCustomMessage = (output: any, context: __SerdeContext): JourneyCustomMessage => {
   return {
     Data: __expectString(output.Data),
@@ -19635,6 +19667,10 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
     ApplicationId: __expectString(output.ApplicationId),
     CreationDate: __expectString(output.CreationDate),
     Id: __expectString(output.Id),
+    JourneyChannelSettings:
+      output.JourneyChannelSettings !== undefined && output.JourneyChannelSettings !== null
+        ? deserializeAws_restJson1JourneyChannelSettings(output.JourneyChannelSettings, context)
+        : undefined,
     LastModifiedDate: __expectString(output.LastModifiedDate),
     Limits:
       output.Limits !== undefined && output.Limits !== null

@@ -14,6 +14,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "api",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -43,7 +44,7 @@ const partitionHash: PartitionHash = {
     hostname: "quicksight.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["api", "us-gov-east-1", "us-gov-west-1"],
     hostname: "quicksight.{region}.amazonaws.com",
   },
 };

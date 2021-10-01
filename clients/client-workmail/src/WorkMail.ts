@@ -46,6 +46,11 @@ import {
   DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand";
 import {
+  DeleteMobileDeviceAccessOverrideCommand,
+  DeleteMobileDeviceAccessOverrideCommandInput,
+  DeleteMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/DeleteMobileDeviceAccessOverrideCommand";
+import {
   DeleteMobileDeviceAccessRuleCommand,
   DeleteMobileDeviceAccessRuleCommandInput,
   DeleteMobileDeviceAccessRuleCommandOutput,
@@ -127,6 +132,11 @@ import {
   GetMobileDeviceAccessEffectCommandOutput,
 } from "./commands/GetMobileDeviceAccessEffectCommand";
 import {
+  GetMobileDeviceAccessOverrideCommand,
+  GetMobileDeviceAccessOverrideCommandInput,
+  GetMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/GetMobileDeviceAccessOverrideCommand";
+import {
   ListAccessControlRulesCommand,
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
@@ -148,6 +158,11 @@ import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
+import {
+  ListMobileDeviceAccessOverridesCommand,
+  ListMobileDeviceAccessOverridesCommandInput,
+  ListMobileDeviceAccessOverridesCommandOutput,
+} from "./commands/ListMobileDeviceAccessOverridesCommand";
 import {
   ListMobileDeviceAccessRulesCommand,
   ListMobileDeviceAccessRulesCommandInput,
@@ -184,6 +199,11 @@ import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
+import {
+  PutMobileDeviceAccessOverrideCommand,
+  PutMobileDeviceAccessOverrideCommandInput,
+  PutMobileDeviceAccessOverrideCommandOutput,
+} from "./commands/PutMobileDeviceAccessOverrideCommand";
 import {
   PutRetentionPolicyCommand,
   PutRetentionPolicyCommandInput,
@@ -656,6 +676,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DeleteMailboxPermissionsCommandOutput) => void
   ): Promise<DeleteMailboxPermissionsCommandOutput> | void {
     const command = new DeleteMailboxPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
+   */
+  public deleteMobileDeviceAccessOverride(
+    args: DeleteMobileDeviceAccessOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput>;
+  public deleteMobileDeviceAccessOverride(
+    args: DeleteMobileDeviceAccessOverrideCommandInput,
+    cb: (err: any, data?: DeleteMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public deleteMobileDeviceAccessOverride(
+    args: DeleteMobileDeviceAccessOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public deleteMobileDeviceAccessOverride(
+    args: DeleteMobileDeviceAccessOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMobileDeviceAccessOverrideCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMobileDeviceAccessOverrideCommandOutput) => void
+  ): Promise<DeleteMobileDeviceAccessOverrideCommandOutput> | void {
+    const command = new DeleteMobileDeviceAccessOverrideCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1212,6 +1264,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Gets the mobile device access override for the given WorkMail organization, user, and device.</p>
+   */
+  public getMobileDeviceAccessOverride(
+    args: GetMobileDeviceAccessOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMobileDeviceAccessOverrideCommandOutput>;
+  public getMobileDeviceAccessOverride(
+    args: GetMobileDeviceAccessOverrideCommandInput,
+    cb: (err: any, data?: GetMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public getMobileDeviceAccessOverride(
+    args: GetMobileDeviceAccessOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public getMobileDeviceAccessOverride(
+    args: GetMobileDeviceAccessOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMobileDeviceAccessOverrideCommandOutput) => void),
+    cb?: (err: any, data?: GetMobileDeviceAccessOverrideCommandOutput) => void
+  ): Promise<GetMobileDeviceAccessOverrideCommandOutput> | void {
+    const command = new GetMobileDeviceAccessOverrideCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the access control rules for the specified organization.</p>
    */
   public listAccessControlRules(
@@ -1385,6 +1469,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: ListMailboxPermissionsCommandOutput) => void
   ): Promise<ListMailboxPermissionsCommandOutput> | void {
     const command = new ListMailboxPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the mobile device access overrides for any given combination of WorkMail organization, user, or device.</p>
+   */
+  public listMobileDeviceAccessOverrides(
+    args: ListMobileDeviceAccessOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMobileDeviceAccessOverridesCommandOutput>;
+  public listMobileDeviceAccessOverrides(
+    args: ListMobileDeviceAccessOverridesCommandInput,
+    cb: (err: any, data?: ListMobileDeviceAccessOverridesCommandOutput) => void
+  ): void;
+  public listMobileDeviceAccessOverrides(
+    args: ListMobileDeviceAccessOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMobileDeviceAccessOverridesCommandOutput) => void
+  ): void;
+  public listMobileDeviceAccessOverrides(
+    args: ListMobileDeviceAccessOverridesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMobileDeviceAccessOverridesCommandOutput) => void),
+    cb?: (err: any, data?: ListMobileDeviceAccessOverridesCommandOutput) => void
+  ): Promise<ListMobileDeviceAccessOverridesCommandOutput> | void {
+    const command = new ListMobileDeviceAccessOverridesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1640,6 +1756,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: PutMailboxPermissionsCommandOutput) => void
   ): Promise<PutMailboxPermissionsCommandOutput> | void {
     const command = new PutMailboxPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a mobile device access override for the given WorkMail organization, user, and device.</p>
+   */
+  public putMobileDeviceAccessOverride(
+    args: PutMobileDeviceAccessOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMobileDeviceAccessOverrideCommandOutput>;
+  public putMobileDeviceAccessOverride(
+    args: PutMobileDeviceAccessOverrideCommandInput,
+    cb: (err: any, data?: PutMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public putMobileDeviceAccessOverride(
+    args: PutMobileDeviceAccessOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMobileDeviceAccessOverrideCommandOutput) => void
+  ): void;
+  public putMobileDeviceAccessOverride(
+    args: PutMobileDeviceAccessOverrideCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutMobileDeviceAccessOverrideCommandOutput) => void),
+    cb?: (err: any, data?: PutMobileDeviceAccessOverrideCommandOutput) => void
+  ): Promise<PutMobileDeviceAccessOverrideCommandOutput> | void {
+    const command = new PutMobileDeviceAccessOverrideCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -22,7 +22,7 @@ export interface DeleteUseCaseCommandInput extends DeleteUseCaseRequest {}
 export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a use case from an AppIntegration association.</p>
+ * <p>Deletes a use case from an integration association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

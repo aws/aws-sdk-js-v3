@@ -6,6 +6,11 @@ import {
   CreateDataSetCommandInput,
   CreateDataSetCommandOutput,
 } from "./commands/CreateDataSetCommand";
+import {
+  CreateEventActionCommand,
+  CreateEventActionCommandInput,
+  CreateEventActionCommandOutput,
+} from "./commands/CreateEventActionCommand";
 import { CreateJobCommand, CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import {
   CreateRevisionCommand,
@@ -19,12 +24,22 @@ import {
   DeleteDataSetCommandOutput,
 } from "./commands/DeleteDataSetCommand";
 import {
+  DeleteEventActionCommand,
+  DeleteEventActionCommandInput,
+  DeleteEventActionCommandOutput,
+} from "./commands/DeleteEventActionCommand";
+import {
   DeleteRevisionCommand,
   DeleteRevisionCommandInput,
   DeleteRevisionCommandOutput,
 } from "./commands/DeleteRevisionCommand";
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetDataSetCommand, GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
+import {
+  GetEventActionCommand,
+  GetEventActionCommandInput,
+  GetEventActionCommandOutput,
+} from "./commands/GetEventActionCommand";
 import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetRevisionCommand, GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
@@ -37,6 +52,11 @@ import {
   ListDataSetsCommandInput,
   ListDataSetsCommandOutput,
 } from "./commands/ListDataSetsCommand";
+import {
+  ListEventActionsCommand,
+  ListEventActionsCommandInput,
+  ListEventActionsCommandOutput,
+} from "./commands/ListEventActionsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListRevisionAssetsCommand,
@@ -61,6 +81,11 @@ import {
   UpdateDataSetCommandInput,
   UpdateDataSetCommandOutput,
 } from "./commands/UpdateDataSetCommand";
+import {
+  UpdateEventActionCommand,
+  UpdateEventActionCommandInput,
+  UpdateEventActionCommandOutput,
+} from "./commands/UpdateEventActionCommand";
 import {
   UpdateRevisionCommand,
   UpdateRevisionCommandInput,
@@ -120,6 +145,38 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: CreateDataSetCommandOutput) => void
   ): Promise<CreateDataSetCommandOutput> | void {
     const command = new CreateDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation creates an event action.</p>
+   */
+  public createEventAction(
+    args: CreateEventActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventActionCommandOutput>;
+  public createEventAction(
+    args: CreateEventActionCommandInput,
+    cb: (err: any, data?: CreateEventActionCommandOutput) => void
+  ): void;
+  public createEventAction(
+    args: CreateEventActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventActionCommandOutput) => void
+  ): void;
+  public createEventAction(
+    args: CreateEventActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventActionCommandOutput) => void),
+    cb?: (err: any, data?: CreateEventActionCommandOutput) => void
+  ): Promise<CreateEventActionCommandOutput> | void {
+    const command = new CreateEventActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -247,6 +304,38 @@ export class DataExchange extends DataExchangeClient {
   }
 
   /**
+   * <p>This operation deletes the event action.</p>
+   */
+  public deleteEventAction(
+    args: DeleteEventActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventActionCommandOutput>;
+  public deleteEventAction(
+    args: DeleteEventActionCommandInput,
+    cb: (err: any, data?: DeleteEventActionCommandOutput) => void
+  ): void;
+  public deleteEventAction(
+    args: DeleteEventActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventActionCommandOutput) => void
+  ): void;
+  public deleteEventAction(
+    args: DeleteEventActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventActionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventActionCommandOutput) => void
+  ): Promise<DeleteEventActionCommandOutput> | void {
+    const command = new DeleteEventActionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This operation deletes a revision.</p>
    */
   public deleteRevision(
@@ -320,6 +409,38 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: GetDataSetCommandOutput) => void
   ): Promise<GetDataSetCommandOutput> | void {
     const command = new GetDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation retrieves information about an event action.</p>
+   */
+  public getEventAction(
+    args: GetEventActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventActionCommandOutput>;
+  public getEventAction(
+    args: GetEventActionCommandInput,
+    cb: (err: any, data?: GetEventActionCommandOutput) => void
+  ): void;
+  public getEventAction(
+    args: GetEventActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventActionCommandOutput) => void
+  ): void;
+  public getEventAction(
+    args: GetEventActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventActionCommandOutput) => void),
+    cb?: (err: any, data?: GetEventActionCommandOutput) => void
+  ): Promise<GetEventActionCommandOutput> | void {
+    const command = new GetEventActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -433,6 +554,38 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: ListDataSetsCommandOutput) => void
   ): Promise<ListDataSetsCommandOutput> | void {
     const command = new ListDataSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists your event actions.</p>
+   */
+  public listEventActions(
+    args: ListEventActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventActionsCommandOutput>;
+  public listEventActions(
+    args: ListEventActionsCommandInput,
+    cb: (err: any, data?: ListEventActionsCommandOutput) => void
+  ): void;
+  public listEventActions(
+    args: ListEventActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventActionsCommandOutput) => void
+  ): void;
+  public listEventActions(
+    args: ListEventActionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventActionsCommandOutput) => void),
+    cb?: (err: any, data?: ListEventActionsCommandOutput) => void
+  ): Promise<ListEventActionsCommandOutput> | void {
+    const command = new ListEventActionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -665,6 +818,38 @@ export class DataExchange extends DataExchangeClient {
     cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): Promise<UpdateDataSetCommandOutput> | void {
     const command = new UpdateDataSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation updates the event action.</p>
+   */
+  public updateEventAction(
+    args: UpdateEventActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventActionCommandOutput>;
+  public updateEventAction(
+    args: UpdateEventActionCommandInput,
+    cb: (err: any, data?: UpdateEventActionCommandOutput) => void
+  ): void;
+  public updateEventAction(
+    args: UpdateEventActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventActionCommandOutput) => void
+  ): void;
+  public updateEventAction(
+    args: UpdateEventActionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventActionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEventActionCommandOutput) => void
+  ): Promise<UpdateEventActionCommandOutput> | void {
+    const command = new UpdateEventActionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

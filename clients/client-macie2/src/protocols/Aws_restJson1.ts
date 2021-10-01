@@ -8974,6 +8974,8 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
     bucketName: __expectString(output.bucketName),
     classifiableObjectCount: __expectLong(output.classifiableObjectCount),
     classifiableSizeInBytes: __expectLong(output.classifiableSizeInBytes),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     jobDetails:
       output.jobDetails !== undefined && output.jobDetails !== null
         ? deserializeAws_restJson1JobDetails(output.jobDetails, context)
@@ -9586,6 +9588,8 @@ const deserializeAws_restJson1MatchingBucket = (output: any, context: __SerdeCon
     bucketName: __expectString(output.bucketName),
     classifiableObjectCount: __expectLong(output.classifiableObjectCount),
     classifiableSizeInBytes: __expectLong(output.classifiableSizeInBytes),
+    errorCode: __expectString(output.errorCode),
+    errorMessage: __expectString(output.errorMessage),
     jobDetails:
       output.jobDetails !== undefined && output.jobDetails !== null
         ? deserializeAws_restJson1JobDetails(output.jobDetails, context)

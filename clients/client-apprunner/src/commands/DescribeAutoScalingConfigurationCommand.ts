@@ -24,7 +24,7 @@ export interface DescribeAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Return a full description of an AWS App Runner automatic scaling configuration resource.</p>
+ * <p>Return a full description of an App Runner automatic scaling configuration resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface ListConnectionsCommandInput extends ListConnectionsRequest {}
 export interface ListConnectionsCommandOutput extends ListConnectionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of AWS App Runner connections that are associated with your AWS account.</p>
+ * <p>Returns a list of App Runner connections that are associated with your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

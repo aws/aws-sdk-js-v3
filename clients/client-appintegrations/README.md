@@ -7,8 +7,11 @@
 
 AWS SDK for JavaScript AppIntegrations Client for Node.js, Browser and React Native.
 
-<p>The Amazon AppIntegrations service enables you to configure and reuse connections to external applications.</p>
-<p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built integrations</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+<p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
+applications.</p>
+<p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
+integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents using Amazon Connect Wisdom</a>
+in the <i>Amazon Connect Administrator Guide</i>.</p>
 
 ## Installing
 
@@ -25,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AppIntegrationsClient` and
-the commands you need, for example `CreateEventIntegrationCommand`:
+the commands you need, for example `CreateDataIntegrationCommand`:
 
 ```js
 // ES5 example
-const { AppIntegrationsClient, CreateEventIntegrationCommand } = require("@aws-sdk/client-appintegrations");
+const { AppIntegrationsClient, CreateDataIntegrationCommand } = require("@aws-sdk/client-appintegrations");
 ```
 
 ```ts
 // ES6+ example
-import { AppIntegrationsClient, CreateEventIntegrationCommand } from "@aws-sdk/client-appintegrations";
+import { AppIntegrationsClient, CreateDataIntegrationCommand } from "@aws-sdk/client-appintegrations";
 ```
 
 ### Usage
@@ -53,7 +56,7 @@ const client = new AppIntegrationsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateEventIntegrationCommand(params);
+const command = new CreateDataIntegrationCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +135,7 @@ const client = new AWS.AppIntegrations({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createEventIntegration(params);
+  const data = await client.createDataIntegration(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createEventIntegration(params)
+  .createDataIntegration(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createEventIntegration(params, (err, data) => {
+client.createDataIntegration(params, (err, data) => {
   // proccess err and data.
 });
 ```

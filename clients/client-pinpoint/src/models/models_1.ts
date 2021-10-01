@@ -27,6 +27,7 @@ import {
   EmailChannelRequest,
   EmailChannelResponse,
   EmailTemplateRequest,
+  EmailTemplateResponse,
   EndpointBatchRequest,
   EndpointMessageResult,
   EndpointRequest,
@@ -61,6 +62,43 @@ import {
   WriteJourneyRequest,
   WriteSegmentRequest,
 } from "./models_0";
+
+export interface GetEmailTemplateResponse {
+  /**
+   * <p>Provides information about the content and settings for a message template that can be used in messages that are sent through the email channel.</p>
+   */
+  EmailTemplateResponse: EmailTemplateResponse | undefined;
+}
+
+export namespace GetEmailTemplateResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEmailTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEndpointRequest {
+  /**
+   * <p>The unique identifier for the application. This identifier is displayed as the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the endpoint.</p>
+   */
+  EndpointId: string | undefined;
+}
+
+export namespace GetEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEndpointRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface GetEndpointResponse {
   /**

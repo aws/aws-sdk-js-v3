@@ -24,7 +24,8 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
 /**
  * <p>Grants an Amazon Web Services service or another account permission to use a function. You can apply the policy at the
  *       function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
- *       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p>
+ *       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+ *       Note: Lambda does not support adding policies to version $LATEST.</p>
  *
  *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For Amazon Web Services
  *       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or

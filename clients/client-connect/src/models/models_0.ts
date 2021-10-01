@@ -410,7 +410,10 @@ export interface EncryptionConfig {
   EncryptionType: EncryptionType | string | undefined;
 
   /**
-   * <p>The identifier of the encryption key.</p>
+   * <p>The full ARN of the encryption key. </p>
+   *          <note>
+   *             <p>Be sure to provide the full ARN of the encryption key, not just the ID.</p>
+   *          </note>
    */
   KeyId: string | undefined;
 }
@@ -1166,6 +1169,10 @@ export namespace CreateInstanceResponse {
 
 export enum IntegrationType {
   EVENT = "EVENT",
+  PINPOINT_APP = "PINPOINT_APP",
+  VOICE_ID = "VOICE_ID",
+  WISDOM_ASSISTANT = "WISDOM_ASSISTANT",
+  WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE",
 }
 
 export enum SourceType {
@@ -1190,19 +1197,19 @@ export interface CreateIntegrationAssociationRequest {
   IntegrationArn: string | undefined;
 
   /**
-   * <p>The URL for the external application.</p>
+   * <p>The URL for the external application. This field is only required for the EVENT integration type.</p>
    */
-  SourceApplicationUrl: string | undefined;
+  SourceApplicationUrl?: string;
 
   /**
-   * <p>The name of the external application.</p>
+   * <p>The name of the external application. This field is only required for the EVENT integration type.</p>
    */
-  SourceApplicationName: string | undefined;
+  SourceApplicationName?: string;
 
   /**
-   * <p>The type of the data source.</p>
+   * <p>The type of the data source. This field is only required for the EVENT integration type.</p>
    */
-  SourceType: SourceType | string | undefined;
+  SourceType?: SourceType | string;
 
   /**
    * <p>One or more tags.</p>
@@ -1221,7 +1228,7 @@ export namespace CreateIntegrationAssociationRequest {
 
 export interface CreateIntegrationAssociationResponse {
   /**
-   * <p>The identifier for the association.</p>
+   * <p>The identifier for the integration association.</p>
    */
   IntegrationAssociationId?: string;
 
@@ -1607,6 +1614,7 @@ export namespace CreateRoutingProfileResponse {
 }
 
 export enum UseCaseType {
+  CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
   RULES_EVALUATION = "RULES_EVALUATION",
 }
 
@@ -1617,12 +1625,12 @@ export interface CreateUseCaseRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier for the AppIntegration association.</p>
+   * <p>The identifier for the integration association.</p>
    */
   IntegrationAssociationId: string | undefined;
 
   /**
-   * <p>The type of use case to associate to the AppIntegration association. Each AppIntegration
+   * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
   UseCaseType: UseCaseType | string | undefined;
@@ -1917,7 +1925,7 @@ export interface DeleteIntegrationAssociationRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier for the AppIntegration association.</p>
+   * <p>The identifier for the integration association.</p>
    */
   IntegrationAssociationId: string | undefined;
 }
@@ -1959,7 +1967,7 @@ export interface DeleteUseCaseRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier for the AppIntegration association.</p>
+   * <p>The identifier for the integration association.</p>
    */
   IntegrationAssociationId: string | undefined;
 
@@ -3547,11 +3555,12 @@ export interface GetCurrentMetricDataRequest {
    *             <dt>OLDEST_CONTACT_AGE</dt>
    *             <dd>
    *                <p>Unit: SECONDS</p>
-   *                <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For
+   *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
+   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For
    *       example, if you get a response like this:</p>
    *                <p>
    *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
-   *       </code>}</p>
+   *      </code>}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
    *
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
@@ -4748,6 +4757,11 @@ export interface ListIntegrationAssociationsRequest {
   InstanceId: string | undefined;
 
   /**
+   * <p></p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    */
@@ -4824,7 +4838,7 @@ export namespace IntegrationAssociationSummary {
 
 export interface ListIntegrationAssociationsResponse {
   /**
-   * <p>The AppIntegration associations.</p>
+   * <p>The associations.</p>
    */
   IntegrationAssociationSummaryList?: IntegrationAssociationSummary[];
 
@@ -5957,7 +5971,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 /**
- * <p>Provides summary information about the use cases for the specified Amazon Connect AppIntegration
+ * <p>Provides summary information about the use cases for the specified integration
  *    association.</p>
  */
 export interface ListUseCasesRequest {
@@ -6009,7 +6023,7 @@ export interface UseCase {
   UseCaseArn?: string;
 
   /**
-   * <p>The type of use case to associate to the AppIntegration association. Each AppIntegration
+   * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    */
   UseCaseType?: UseCaseType | string;
@@ -6440,6 +6454,37 @@ export namespace OutboundContactNotPermittedException {
   });
 }
 
+/**
+ * <p>Configuration of the answering machine detection.</p>
+ */
+export interface AnswerMachineDetectionConfig {
+  /**
+   * <p>The flag to indicate if answer machine detection analysis needs to be performed for a voice
+   *    call. If set to <code>true</code>, <code>TrafficType</code> must be set as <code>CAMPAIGN</code>.
+   *   </p>
+   */
+  EnableAnswerMachineDetection?: boolean;
+
+  /**
+   * <p>Wait for the answering machine prompt.</p>
+   */
+  AwaitAnswerMachinePrompt?: boolean;
+}
+
+export namespace AnswerMachineDetectionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AnswerMachineDetectionConfig): any => ({
+    ...obj,
+  });
+}
+
+export enum TrafficType {
+  CAMPAIGN = "CAMPAIGN",
+  GENERAL = "GENERAL",
+}
+
 export interface StartOutboundVoiceContactRequest {
   /**
    * <p>The phone number of the customer, in E.164 format.</p>
@@ -6492,6 +6537,24 @@ export interface StartOutboundVoiceContactRequest {
    *    can include only alphanumeric, dash, and underscore characters.</p>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Configuration of the answering machine detection for this outbound call. </p>
+   */
+  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
+
+  /**
+   * <p>The campaign identifier of the outbound communication.</p>
+   */
+  CampaignId?: string;
+
+  /**
+   * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
+   *    Amazon Connect. The default value is <code>GENERAL</code>. Use <code>CAMPAIGN</code> if
+   *    <code>EnableAnswerMachineDetection</code> is set to <code>true</code>. For all other cases, use
+   *    <code>GENERAL</code>. </p>
+   */
+  TrafficType?: TrafficType | string;
 }
 
 export namespace StartOutboundVoiceContactRequest {
@@ -6993,6 +7056,9 @@ export interface UpdateInstanceAttributeRequest {
 
   /**
    * <p>The type of attribute.</p>
+   *          <note>
+   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p>
+   *          </note>
    */
   AttributeType: InstanceAttributeType | string | undefined;
 

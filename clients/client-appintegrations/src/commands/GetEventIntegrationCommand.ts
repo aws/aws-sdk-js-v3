@@ -22,7 +22,7 @@ export interface GetEventIntegrationCommandInput extends GetEventIntegrationRequ
 export interface GetEventIntegrationCommandOutput extends GetEventIntegrationResponse, __MetadataBearer {}
 
 /**
- * <p>Return information about the event integration.</p>
+ * <p>Returns information about the event integration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

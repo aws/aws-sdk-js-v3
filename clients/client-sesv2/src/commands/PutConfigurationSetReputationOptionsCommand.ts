@@ -28,7 +28,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
 
 /**
  * <p>Enable or disable collection of reputation metrics for emails that you send using a
- *             particular configuration set in a specific AWS Region.</p>
+ *             particular configuration set in a specific Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

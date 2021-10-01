@@ -22,7 +22,7 @@ export interface ListOperationsCommandInput extends ListOperationsRequest {}
 export interface ListOperationsCommandOutput extends ListOperationsResponse, __MetadataBearer {}
 
 /**
- * <p>Return a list of operations that occurred on an AWS App Runner service.</p>
+ * <p>Return a list of operations that occurred on an App Runner service.</p>
  *          <p>The resulting list of <a>OperationSummary</a> objects is sorted in reverse chronological order. The first object on the list represents the
  *       last started operation.</p>
  * @example

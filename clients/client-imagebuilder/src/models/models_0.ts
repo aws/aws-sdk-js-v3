@@ -41,7 +41,7 @@ export interface AdditionalInstanceConfiguration {
    * 			         <p>The userDataOverride property replaces any commands that Image Builder might have added to ensure
    * 				that Systems Manager is installed on your Linux build instance. If you override the user data,
    * 				make sure that you add commands to install Systems Manager, if it is not pre-installed on your
-   * 				source image.</p>
+   * 				base image.</p>
    * 		       </note>
    */
   userDataOverride?: string;
@@ -171,7 +171,7 @@ export namespace LaunchPermissionConfiguration {
  */
 export interface AmiDistributionConfiguration {
   /**
-   * <p>The name of the distribution configuration.</p>
+   * <p>The name of the output AMI.</p>
    */
   name?: string;
 
@@ -521,7 +521,7 @@ export interface Component {
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			available, a prefix match is performed against the base image OS version during image recipe
    * 			creation.</p>
    */
   supportedOsVersions?: string[];
@@ -655,7 +655,7 @@ export interface ComponentSummary {
 
   /**
    * <p>The operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			available, a prefix match is performed against the base image OS version during image recipe
    * 			creation.</p>
    */
   supportedOsVersions?: string[];
@@ -751,7 +751,7 @@ export interface ComponentVersion {
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>
@@ -770,7 +770,7 @@ export interface ComponentVersion {
 
   /**
    * <p>he operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			available, a prefix match is performed against the base image OS version during image recipe
    * 			creation.</p>
    */
   supportedOsVersions?: string[];
@@ -972,7 +972,7 @@ export interface InstanceBlockDeviceMapping {
   virtualName?: string;
 
   /**
-   * <p>Use to remove a mapping from the parent image.</p>
+   * <p>Use to remove a mapping from the base image.</p>
    */
   noDevice?: string;
 }
@@ -987,7 +987,7 @@ export namespace InstanceBlockDeviceMapping {
 }
 
 /**
- * <p>Defines a custom source AMI and block device mapping configurations of an instance
+ * <p>Defines a custom base AMI and block device mapping configurations of an instance
  * 			used for building and testing container images.</p>
  */
 export interface InstanceConfiguration {
@@ -1077,7 +1077,7 @@ export interface ContainerRecipe {
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>
@@ -1110,7 +1110,7 @@ export interface ContainerRecipe {
   encrypted?: boolean;
 
   /**
-   * <p>The source image for the container recipe.</p>
+   * <p>The base image for the container recipe.</p>
    */
   parentImage?: string;
 
@@ -1174,7 +1174,7 @@ export interface ContainerRecipeSummary {
   owner?: string;
 
   /**
-   * <p>The source image for the container recipe.</p>
+   * <p>The base image for the container recipe.</p>
    */
   parentImage?: string;
 
@@ -1239,7 +1239,7 @@ export interface CreateComponentRequest {
 
   /**
    * <p> The operating system (OS) version supported by the component. If the OS information is
-   * 			available, a prefix match is performed against the parent image OS version during image recipe
+   * 			available, a prefix match is performed against the base image OS version during image recipe
    * 			creation.</p>
    */
   supportedOsVersions?: string[];
@@ -1418,17 +1418,17 @@ export interface CreateContainerRecipeRequest {
   dockerfileTemplateUri?: string;
 
   /**
-   * <p>Specifies the operating system platform when you use a custom source image.</p>
+   * <p>Specifies the operating system platform when you use a custom base image.</p>
    */
   platformOverride?: Platform | string;
 
   /**
-   * <p>Specifies the operating system version for the source image.</p>
+   * <p>Specifies the operating system version for the base image.</p>
    */
   imageOsVersionOverride?: string;
 
   /**
-   * <p>The source image for the container recipe.</p>
+   * <p>The base image for the container recipe.</p>
    */
   parentImage: string | undefined;
 
@@ -1779,7 +1779,7 @@ export interface Schedule {
    * <p>The condition configures when the pipeline should trigger a new image build. When the
    * 			<code>pipelineExecutionStartCondition</code> is set to
    * 			<code>EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE</code>, and you use semantic version
-   * 			filters on the source image or components in your image recipe, EC2 Image Builder will build a
+   * 			filters on the base image or components in your image recipe, EC2 Image Builder will build a
    * 			new image only when there are new versions of the image or components in your recipe that
    * 			match the semantic version filter. When it is set to <code>EXPRESSION_MATCH_ONLY</code>, it
    * 			will build a new image every time the CRON expression matches the current time. For semantic
@@ -1939,7 +1939,7 @@ export interface CreateImageRecipeRequest {
   components: ComponentConfiguration[] | undefined;
 
   /**
-   * <p>The parent image of the image recipe. The value of the string can be the ARN of the parent
+   * <p>The base image of the image recipe. The value of the string can be the ARN of the base
    * 			image or an AMI ID. The format for the ARN follows this example:
    * 			<code>arn:aws:imagebuilder:us-west-2:aws:image/windows-server-2016-english-full-base-x86/x.x.x</code>.
    * 			You can provide the specific version that you want to use, or you can use a wildcard in
@@ -2115,27 +2115,9 @@ export interface CreateInfrastructureConfigurationRequest {
   description?: string;
 
   /**
-   * <p>The instance metadata options that you can set for the HTTP requests that pipeline builds
-   * 			use to launch EC2 build and test instances. For more information about instance metadata
-   * 			options, see one of the following links:</p>
-   * 		       <ul>
-   *             <li>
-   * 				           <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure
-   * 					the instance metadata options</a> in the <i>
-   *                      <i>Amazon EC2 User Guide</i>
-   *                   </i>
-   * 					for Linux instances.</p>
-   * 			         </li>
-   *             <li>
-   * 				           <p>
-   *                   <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/configuring-instance-metadata-options.html">Configure
-   * 					the instance metadata options</a> in the <i>
-   *                      <i>Amazon EC2 Windows Guide</i>
-   *                   </i>
-   * 					for Windows instances.</p>
-   * 			         </li>
-   *          </ul>
+   * <p>The instance types of the infrastructure configuration. You can specify one or more
+   * 			instance types to use for this build. The service will pick one of these instance types based
+   * 			on availability.</p>
    */
   instanceTypes?: string[];
 
@@ -2915,7 +2897,7 @@ export interface ImageRecipe {
   components?: ComponentConfiguration[];
 
   /**
-   * <p>The parent image of the image recipe.</p>
+   * <p>The base image of the image recipe.</p>
    */
   parentImage?: string;
 
@@ -3128,7 +3110,7 @@ export interface Image {
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>
@@ -3548,7 +3530,7 @@ export interface ImportComponentRequest {
    * 	You can assign values for the first three, and can filter on all of them.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>
@@ -4433,7 +4415,7 @@ export interface ImageRecipeSummary {
   owner?: string;
 
   /**
-   * <p>The parent image of the image recipe.</p>
+   * <p>The base image of the image recipe.</p>
    */
   parentImage?: string;
 
@@ -4607,7 +4589,7 @@ export interface ImageVersion {
    * 	a date, such as 2021.01.01.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>
@@ -4658,7 +4640,7 @@ export interface ListImagesResponse {
    * 	You can assign values for the first three, and can filter on all of them.</p>
    * 			         <p>
    *                <b>Filtering:</b> With semantic versioning, you have the flexibility to use wildcards (x)
-   * 	to specify the most recent versions or nodes when selecting the source image or components for your
+   * 	to specify the most recent versions or nodes when selecting the base image or components for your
    * 	recipe. When you use a wildcard in any node, all nodes to the right of the first wildcard must also be
    * 	wildcards.</p>
    * 		       </note>

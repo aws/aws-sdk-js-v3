@@ -930,7 +930,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Create an AppIntegration association with an Amazon Connect instance.</p>
+   * <p>Creates an AWS resource association with an Amazon Connect instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -1053,7 +1053,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates a use case for an AppIntegration association.</p>
+   * <p>Creates a use case for an integration association.</p>
    */
   public createUseCase(
     args: CreateUseCaseCommandInput,
@@ -1214,7 +1214,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have
+   * <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have
    *    any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
@@ -1279,7 +1279,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes a use case from an AppIntegration association.</p>
+   * <p>Deletes a use case from an integration association.</p>
    */
   public deleteUseCase(
     args: DeleteUseCaseCommandInput,
@@ -2443,7 +2443,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect
+   * <p>Provides summary information about the AWS resource associations for the specified Amazon Connect
    *    instance.</p>
    */
   public listIntegrationAssociations(
@@ -2864,7 +2864,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Lists the use cases. </p>
+   * <p>Lists the use cases for the integration association. </p>
    */
   public listUseCases(
     args: ListUseCasesCommandInput,
@@ -3093,6 +3093,11 @@ export class Connect extends ConnectClient {
    *             <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK
    *     mobile numbers, you must submit a service quota increase request. For more information, see
    *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+   *          </note>
+   *          <note>
+   *             <p>Campaign calls are not allowed by default. Before you can make a call with
+   *     <code>TrafficType</code> = <code>CAMPAIGN</code>, you must submit a service quota increase request. For more information, see
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
    *          </note>
    */
   public startOutboundVoiceContact(

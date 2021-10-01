@@ -333,6 +333,14 @@ export namespace BulkEmailContent {
 
 /**
  * <p>An object that describes the recipients for an email.</p>
+ *         <note>
+ *             <p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the
+ *                     <i>local part</i> of a destination email address (the part of the
+ *                 email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII
+ *                     characters</a>. If the <i>domain part</i> of an address (the
+ *                 part after the @ sign) contains non-ASCII characters, they must be encoded using
+ *                 Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p>
+ *         </note>
  */
 export interface Destination {
   /**
@@ -628,12 +636,11 @@ export interface CloudWatchDimensionConfiguration {
   DimensionName: string | undefined;
 
   /**
-   * <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. If
-   *             you want to use the message tags that you specify using an
-   *                 <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code>
-   *             or <code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want to use
-   *             your own email headers, choose <code>emailHeader</code>. If you want to use link tags,
-   *             choose <code>linkTags</code>.</p>
+   * <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. To
+   *             use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or
+   *             a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose
+   *                 <code>messageTag</code>. To use your own email headers, choose
+   *                 <code>emailHeader</code>. To use link tags, choose <code>linkTags</code>.</p>
    */
   DimensionValueSource: DimensionValueSource | string | undefined;
 
@@ -830,8 +837,8 @@ export interface ContactListDestination {
   ContactListName: string | undefined;
 
   /**
-   * <p>>The type of action that you want to perform on the addresses. Acceptable
-   *             values:</p>
+   * <p>>The type of action to perform on the addresses. The following are the
+   *             possible values:</p>
    *         <ul>
    *             <li>
    *                 <p>PUT: add the addresses to the contact list. If the record already exists, it
@@ -872,8 +879,7 @@ export interface DeliveryOptions {
   TlsPolicy?: TlsPolicy | string;
 
   /**
-   * <p>The name of the dedicated IP pool that you want to associate with the configuration
-   *             set.</p>
+   * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
    */
   SendingPoolName?: string;
 }
@@ -889,7 +895,7 @@ export namespace DeliveryOptions {
 
 /**
  * <p>Enable or disable collection of reputation metrics for emails that you send using this
- *             configuration set in the current AWS Region. </p>
+ *             configuration set in the current Amazon Web Services Region. </p>
  */
 export interface ReputationOptions {
   /**
@@ -918,7 +924,7 @@ export namespace ReputationOptions {
 
 /**
  * <p>Used to enable or disable email sending for messages that use this configuration set
- *             in the current AWS Region.</p>
+ *             in the current Amazon Web Services Region.</p>
  */
 export interface SendingOptions {
   /**
@@ -1000,16 +1006,16 @@ export namespace SuppressionOptions {
  *                     one value.</p>
  *             </li>
  *             <li>
- *                 <p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in
+ *                 <p>The <code>aws:</code> prefix is reserved for use by Amazon Web Services; you can’t use it in
  *                     any tag keys or values that you define. In addition, you can't edit or remove
  *                     tag keys or values that use this prefix. Tags that use this prefix don’t count
  *                     against the limit of 50 tags per resource.</p>
  *             </li>
  *             <li>
  *                 <p>You can associate tags with public or shared resources, but the tags are
- *                     available only for your AWS account, not any other accounts that share the
+ *                     available only for your Amazon Web Services account, not any other accounts that share the
  *                     resource. In addition, the tags are available only for resources that are
- *                     located in the specified AWS Region for your AWS account.</p>
+ *                     located in the specified Amazon Web Services Region for your Amazon Web Services account.</p>
  *             </li>
  *          </ul>
  */
@@ -1043,13 +1049,13 @@ export namespace Tag {
  *             Amazon SES API v2 to send an email, it contains an invisible image that's used to track when
  *             recipients open your email. If your email contains links, those links are changed
  *             slightly in order to track when recipients click them.</p>
- *         <p>These images and links include references to a domain operated by AWS. You can
+ *         <p>These images and links include references to a domain operated by Amazon Web Services. You can
  *             optionally configure the Amazon SES to use a domain that you operate for these images and
  *             links.</p>
  */
 export interface TrackingOptions {
   /**
-   * <p>The domain that you want to use for tracking open and click events.</p>
+   * <p>The domain to use for tracking open and click events.</p>
    */
   CustomRedirectDomain: string | undefined;
 }
@@ -1068,7 +1074,8 @@ export namespace TrackingOptions {
  */
 export interface CreateConfigurationSetRequest {
   /**
-   * <p>The name of the configuration set.</p>
+   * <p>The name of the configuration set. The name can contain up to 64 alphanumeric
+   *             characters, including letters, numbers, hyphens (-) and underscores (_) only.</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -1097,8 +1104,8 @@ export interface CreateConfigurationSetRequest {
   SendingOptions?: SendingOptions;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that you want to associate
-   *             with the configuration set.</p>
+   * <p>An array of objects that define the tags (keys and values) to associate with the
+   *             configuration set.</p>
    */
   Tags?: Tag[];
 
@@ -1235,8 +1242,7 @@ export enum EventType {
  */
 export interface PinpointDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email
-   *             events to.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project to send email events to.</p>
    */
   ApplicationArn?: string;
 }
@@ -1256,9 +1262,8 @@ export namespace PinpointDestination {
  */
 export interface SnsDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email
-   *             events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer
-   *                 Guide</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to. For
+   *             more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
    */
   TopicArn: string | undefined;
 }
@@ -1335,7 +1340,7 @@ export namespace EventDestinationDefinition {
  */
 export interface CreateConfigurationSetEventDestinationRequest {
   /**
-   * <p>The name of the configuration set that you want to add an event destination to.</p>
+   * <p>The name of the configuration set .</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -1870,23 +1875,32 @@ export namespace SendingPausedException {
   });
 }
 
+export enum DkimSigningKeyLength {
+  RSA_1024_BIT = "RSA_1024_BIT",
+  RSA_2048_BIT = "RSA_2048_BIT",
+}
+
 /**
- * <p>An object that contains information about the tokens used for setting up Bring Your
- *             Own DKIM (BYODKIM).</p>
+ * <p>An object that contains configuration for Bring Your Own DKIM (BYODKIM), or, for Easy DKIM</p>
  */
 export interface DkimSigningAttributes {
   /**
-   * <p>A string that's used to identify a public key in the DNS configuration for a
+   * <p>[Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a
    *             domain.</p>
    */
-  DomainSigningSelector: string | undefined;
+  DomainSigningSelector?: string;
 
   /**
-   * <p>A private key that's used to generate a DKIM signature.</p>
-   *         <p>The private key must use 1024-bit RSA encryption, and must be encoded using base64
-   *             encoding.</p>
+   * <p>[Bring Your Own DKIM] A private key that's used to generate a DKIM signature.</p>
+   *         <p>The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using
+   *             base64 encoding.</p>
    */
-  DomainSigningPrivateKey: string | undefined;
+  DomainSigningPrivateKey?: string;
+
+  /**
+   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
+   */
+  NextSigningKeyLength?: DkimSigningKeyLength | string;
 }
 
 export namespace DkimSigningAttributes {
@@ -1905,30 +1919,28 @@ export namespace DkimSigningAttributes {
  */
 export interface CreateEmailIdentityRequest {
   /**
-   * <p>The email address or domain that you want to verify.</p>
+   * <p>The email address or domain to verify.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
-   * <p>An array of objects that define the tags (keys and values) that you want to associate
-   *             with the email identity.</p>
+   * <p>An array of objects that define the tags (keys and values) to associate with the email
+   *             identity.</p>
    */
   Tags?: Tag[];
 
   /**
    * <p>If your request includes this object, Amazon SES configures the identity to use Bring Your
-   *             Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method,
-   *                 <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                 DKIM</a>.</p>
+   *             Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for
+   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
    *         <p>You can only specify this object if the email identity is a domain, as opposed to an
    *             address.</p>
    */
   DkimSigningAttributes?: DkimSigningAttributes;
 
   /**
-   * <p>The configuration set to use by default when sending from this identity.
-   *             Note that any configuration set defined in the email sending request takes precedence.
-   *         </p>
+   * <p>The configuration set to use by default when sending from this identity. Note that any
+   *             configuration set defined in the email sending request takes precedence. </p>
    */
   ConfigurationSetName?: string;
 }
@@ -2026,7 +2038,7 @@ export interface DkimAttributes {
   Tokens?: string[];
 
   /**
-   * <p>A string that indicates how DKIM was configured for the identity. There are two
+   * <p>A string that indicates how DKIM was configured for the identity. These are the
    *             possible values:</p>
    *         <ul>
    *             <li>
@@ -2042,6 +2054,21 @@ export interface DkimAttributes {
    *          </ul>
    */
   SigningAttributesOrigin?: DkimSigningAttributesOrigin | string;
+
+  /**
+   * <p>[Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.</p>
+   */
+  NextSigningKeyLength?: DkimSigningKeyLength | string;
+
+  /**
+   * <p>[Easy DKIM] The key length of the DKIM key pair in use.</p>
+   */
+  CurrentSigningKeyLength?: DkimSigningKeyLength | string;
+
+  /**
+   * <p>[Easy DKIM] The last time a key pair was generated for this identity.</p>
+   */
+  LastKeyGenerationTimestamp?: Date;
 }
 
 export namespace DkimAttributes {
@@ -2066,7 +2093,8 @@ export enum IdentityType {
  */
 export interface CreateEmailIdentityResponse {
   /**
-   * <p>The email identity type.</p>
+   * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
+   *             supported.</p>
    */
   IdentityType?: IdentityType | string;
 
@@ -2099,7 +2127,7 @@ export namespace CreateEmailIdentityResponse {
  */
 export interface CreateEmailIdentityPolicyRequest {
   /**
-   * <p>The email identity for which you want to create a policy.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -2180,7 +2208,7 @@ export namespace EmailTemplateContent {
  */
 export interface CreateEmailTemplateRequest {
   /**
-   * <p>The name of the template you want to create.</p>
+   * <p>The name of the template.</p>
    */
   TemplateName: string | undefined;
 
@@ -2255,7 +2283,7 @@ export enum SuppressionListImportAction {
  */
 export interface SuppressionListDestination {
   /**
-   * <p>The type of action that you want to perform on the address. Acceptable values:</p>
+   * <p>The type of action to perform on the address. The following are possible values:</p>
    *         <ul>
    *             <li>
    *                 <p>PUT: add the addresses to the suppression list. If the record already exists,
@@ -2565,7 +2593,7 @@ export namespace DedicatedIp {
  */
 export interface DeleteConfigurationSetRequest {
   /**
-   * <p>The name of the configuration set that you want to delete.</p>
+   * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName: string | undefined;
 }
@@ -2599,13 +2627,13 @@ export namespace DeleteConfigurationSetResponse {
  */
 export interface DeleteConfigurationSetEventDestinationRequest {
   /**
-   * <p>The name of the configuration set that contains the event destination that you want to
+   * <p>The name of the configuration set that contains the event destination to
    *             delete.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The name of the event destination that you want to delete.</p>
+   * <p>The name of the event destination to delete.</p>
    */
   EventDestinationName: string | undefined;
 }
@@ -2768,7 +2796,7 @@ export namespace DeleteDedicatedIpPoolResponse {
  */
 export interface DeleteEmailIdentityRequest {
   /**
-   * <p>The identity (that is, the email address or domain) that you want to delete.</p>
+   * <p>The identity (that is, the email address or domain) to delete.</p>
    */
   EmailIdentity: string | undefined;
 }
@@ -2804,7 +2832,7 @@ export namespace DeleteEmailIdentityResponse {
  */
 export interface DeleteEmailIdentityPolicyRequest {
   /**
-   * <p>The email identity for which you want to delete a policy.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -3066,7 +3094,7 @@ export namespace DomainDeliverabilityCampaign {
 
 /**
  * <p>An object that contains information about the inbox placement data settings for a
- *             verified domain that’s associated with your AWS account. This data is available only
+ *             verified domain that’s associated with your Amazon Web Services account. This data is available only
  *             if you enabled the Deliverability dashboard for the domain.</p>
  */
 export interface InboxPlacementTrackingOption {
@@ -3099,7 +3127,7 @@ export namespace InboxPlacementTrackingOption {
  */
 export interface DomainDeliverabilityTrackingOption {
   /**
-   * <p>A verified domain that’s associated with your AWS account and currently has an
+   * <p>A verified domain that’s associated with your Amazon Web Services account and currently has an
    *             active Deliverability dashboard subscription.</p>
    */
   Domain?: string;
@@ -3152,10 +3180,10 @@ export namespace EmailTemplateMetadata {
 
 /**
  * <p>In the Amazon SES API v2, <i>events</i> include message sends, deliveries, opens,
- *             clicks, bounces, complaints and delivery delays. <i>Event destinations</i> are places that
- *             you can send information about these events to. For example, you can send event data to
- *             Amazon SNS to receive notifications when you receive bounces or complaints, or you can use
- *             Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
+ *             clicks, bounces, complaints and delivery delays. <i>Event destinations</i>
+ *             are places that you can send information about these events to. For example, you can
+ *             send event data to Amazon SNS to receive notifications when you receive bounces or
+ *             complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
  */
 export interface EventDestination {
   /**
@@ -3255,25 +3283,25 @@ export namespace GetAccountRequest {
 
 /**
  * <p>An object that contains information about the per-day and per-second sending limits
- *             for your Amazon SES account in the current AWS Region.</p>
+ *             for your Amazon SES account in the current Amazon Web Services Region.</p>
  */
 export interface SendQuota {
   /**
-   * <p>The maximum number of emails that you can send in the current AWS Region over a
+   * <p>The maximum number of emails that you can send in the current Amazon Web Services Region over a
    *             24-hour period. This value is also called your <i>sending
    *             quota</i>.</p>
    */
   Max24HourSend?: number;
 
   /**
-   * <p>The maximum number of emails that you can send per second in the current AWS Region.
+   * <p>The maximum number of emails that you can send per second in the current Amazon Web Services Region.
    *             This value is also called your <i>maximum sending rate</i> or your
    *                 <i>maximum TPS (transactions per second) rate</i>.</p>
    */
   MaxSendRate?: number;
 
   /**
-   * <p>The number of emails sent from your Amazon SES account in the current AWS Region over the
+   * <p>The number of emails sent from your Amazon SES account in the current Amazon Web Services Region over the
    *             past 24 hours.</p>
    */
   SentLast24Hours?: number;
@@ -3290,7 +3318,7 @@ export namespace SendQuota {
 
 /**
  * <p>An object that contains information about the email address suppression preferences
- *             for your account in the current AWS Region.</p>
+ *             for your account in the current Amazon Web Services Region.</p>
  */
 export interface SuppressionAttributes {
   /**
@@ -3326,7 +3354,7 @@ export namespace SuppressionAttributes {
 
 /**
  * <p>A list of details about the email-sending capabilities of your Amazon SES account in the
- *             current AWS Region.</p>
+ *             current Amazon Web Services Region.</p>
  */
 export interface GetAccountResponse {
   /**
@@ -3362,7 +3390,7 @@ export interface GetAccountResponse {
   EnforcementStatus?: string;
 
   /**
-   * <p>Indicates whether or not your account has production access in the current AWS
+   * <p>Indicates whether or not your account has production access in the current Amazon Web Services
    *             Region.</p>
    *         <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
@@ -3377,19 +3405,19 @@ export interface GetAccountResponse {
 
   /**
    * <p>An object that contains information about the per-day and per-second sending limits
-   *             for your Amazon SES account in the current AWS Region.</p>
+   *             for your Amazon SES account in the current Amazon Web Services Region.</p>
    */
   SendQuota?: SendQuota;
 
   /**
    * <p>Indicates whether or not email sending is enabled for your Amazon SES account in the
-   *             current AWS Region.</p>
+   *             current Amazon Web Services Region.</p>
    */
   SendingEnabled?: boolean;
 
   /**
    * <p>An object that contains information about the email address suppression preferences
-   *             for your account in the current AWS Region.</p>
+   *             for your account in the current Amazon Web Services Region.</p>
    */
   SuppressionAttributes?: SuppressionAttributes;
 
@@ -3456,8 +3484,7 @@ export namespace GetBlacklistReportsResponse {
  */
 export interface GetConfigurationSetRequest {
   /**
-   * <p>The name of the configuration set that you want to obtain more information
-   *             about.</p>
+   * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName: string | undefined;
 }
@@ -3769,7 +3796,7 @@ export namespace GetCustomVerificationEmailTemplateResponse {
 export interface GetDedicatedIpRequest {
   /**
    * <p>The IP address that you want to obtain more information about. The value you specify
-   *             has to be a dedicated IP address that's assocaited with your AWS account.</p>
+   *             has to be a dedicated IP address that's assocaited with your Amazon Web Services account.</p>
    */
   Ip: string | undefined;
 }
@@ -3836,12 +3863,12 @@ export namespace GetDedicatedIpsRequest {
 }
 
 /**
- * <p>Information about the dedicated IP addresses that are associated with your AWS
+ * <p>Information about the dedicated IP addresses that are associated with your Amazon Web Services
  *             account.</p>
  */
 export interface GetDedicatedIpsResponse {
   /**
-   * <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
+   * <p>A list of dedicated IP addresses that are associated with your Amazon Web Services account.</p>
    */
   DedicatedIps?: DedicatedIp[];
 
@@ -3863,12 +3890,12 @@ export namespace GetDedicatedIpsResponse {
 }
 
 /**
- * <p>Retrieve information about the status of the Deliverability dashboard for your AWS account.
+ * <p>Retrieve information about the status of the Deliverability dashboard for your Amazon Web Services account.
  *             When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and
  *             other metrics for your domains. You also gain the ability to perform predictive inbox placement tests.</p>
  *
  *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
- *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
 export interface GetDeliverabilityDashboardOptionsRequest {}
@@ -4205,7 +4232,7 @@ export namespace GetDomainStatisticsReportResponse {
  */
 export interface GetEmailIdentityRequest {
   /**
-   * <p>The email identity that you want to retrieve details for.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 }
@@ -4263,10 +4290,10 @@ export interface MailFromAttributes {
   MailFromDomainStatus: MailFromDomainStatus | string | undefined;
 
   /**
-   * <p>The action that you want to take if the required MX record can't be found when you
-   *             send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
-   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
-   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   * <p>The action to take if the required MX record can't be found when you send an email.
+   *             When you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
+   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
@@ -4290,7 +4317,8 @@ export namespace MailFromAttributes {
  */
 export interface GetEmailIdentityResponse {
   /**
-   * <p>The email identity type.</p>
+   * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> identity type is not
+   *             supported.</p>
    */
   IdentityType?: IdentityType | string;
 
@@ -4355,7 +4383,7 @@ export namespace GetEmailIdentityResponse {
  */
 export interface GetEmailIdentityPoliciesRequest {
   /**
-   * <p>The email identity that you want to retrieve policies for.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 }
@@ -4394,7 +4422,7 @@ export namespace GetEmailIdentityPoliciesResponse {
  */
 export interface GetEmailTemplateRequest {
   /**
-   * <p>The name of the template you want to retrieve.</p>
+   * <p>The name of the template.</p>
    */
   TemplateName: string | undefined;
 }
@@ -4413,7 +4441,7 @@ export namespace GetEmailTemplateRequest {
  */
 export interface GetEmailTemplateResponse {
   /**
-   * <p>The name of the template you want to retrieve.</p>
+   * <p>The name of the template.</p>
    */
   TemplateName: string | undefined;
 
@@ -4629,22 +4657,8 @@ export namespace GetSuppressedDestinationResponse {
  */
 export interface IdentityInfo {
   /**
-   * <p>The email identity type. The identity type can be one of the following:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>EMAIL_ADDRESS</code> – The identity is an email address.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>DOMAIN</code> – The identity is a domain.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>MANAGED_DOMAIN</code> – The identity is a domain that is managed
-   *                     by AWS.</p>
-   *             </li>
-   *          </ul>
+   * <p>The email identity type. Note: the <code>MANAGED_DOMAIN</code> type is not supported
+   *             for email identity types.</p>
    */
   IdentityType?: IdentityType | string;
 
@@ -4731,7 +4745,7 @@ export namespace InvalidNextTokenException {
 
 /**
  * <p>A request to obtain a list of configuration sets for your Amazon SES account in the current
- *             AWS Region.</p>
+ *             Amazon Web Services Region.</p>
  */
 export interface ListConfigurationSetsRequest {
   /**
@@ -4759,12 +4773,12 @@ export namespace ListConfigurationSetsRequest {
 }
 
 /**
- * <p>A list of configuration sets in your Amazon SES account in the current AWS Region.</p>
+ * <p>A list of configuration sets in your Amazon SES account in the current Amazon Web Services Region.</p>
  */
 export interface ListConfigurationSetsResponse {
   /**
    * <p>An array that contains all of the configuration sets in your Amazon SES account in the
-   *             current AWS Region.</p>
+   *             current Amazon Web Services Region.</p>
    */
   ConfigurationSets?: string[];
 
@@ -5040,7 +5054,7 @@ export namespace ListDedicatedIpPoolsRequest {
  */
 export interface ListDedicatedIpPoolsResponse {
   /**
-   * <p>A list of all of the dedicated IP pools that are associated with your AWS account in
+   * <p>A list of all of the dedicated IP pools that are associated with your Amazon Web Services account in
    *             the current Region.</p>
    */
   DedicatedIpPools?: string[];
@@ -5199,7 +5213,7 @@ export namespace ListDomainDeliverabilityCampaignsResponse {
 }
 
 /**
- * <p>A request to list all of the email identities associated with your AWS account. This
+ * <p>A request to list all of the email identities associated with your Amazon Web Services account. This
  *             list includes identities that you've already verified, identities that are unverified,
  *             and identities that were verified in the past, but are no longer verified.</p>
  */
@@ -5235,7 +5249,7 @@ export namespace ListEmailIdentitiesRequest {
  */
 export interface ListEmailIdentitiesResponse {
   /**
-   * <p>An array that includes all of the email identities associated with your AWS
+   * <p>An array that includes all of the email identities associated with your Amazon Web Services
    *             account.</p>
    */
   EmailIdentities?: IdentityInfo[];
@@ -5260,7 +5274,7 @@ export namespace ListEmailIdentitiesResponse {
 
 /**
  * <p>Represents a request to list the email templates present in your Amazon SES account in the
- *             current AWS Region. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+ *             current Amazon Web Services Region. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
  *                 Guide</a>.</p>
  */
 export interface ListEmailTemplatesRequest {
@@ -5552,7 +5566,7 @@ export namespace ListTagsForResourceResponse {
 export interface PutAccountDedicatedIpWarmupAttributesRequest {
   /**
    * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are
-   *             associated with your Amazon SES account in the current AWS Region. Set to <code>true</code>
+   *             associated with your Amazon SES account in the current Amazon Web Services Region. Set to <code>true</code>
    *             to enable the automatic warm-up feature, or set to <code>false</code> to disable
    *             it.</p>
    */
@@ -5616,7 +5630,7 @@ export interface PutAccountDetailsRequest {
 
   /**
    * <p>Indicates whether or not your account should have production access in the current
-   *             AWS Region.</p>
+   *             Amazon Web Services Region.</p>
    *         <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
    *             email to verified identities. Additionally, the maximum number of emails you can send in
@@ -5664,7 +5678,7 @@ export interface PutAccountSendingAttributesRequest {
    * <p>Enables or disables your account's ability to send email. Set to <code>true</code> to
    *             enable email sending, or set to <code>false</code> to disable email sending.</p>
    *         <note>
-   *             <p>If AWS paused your account's ability to send email, you can't use this operation
+   *             <p>If Amazon Web Services paused your account's ability to send email, you can't use this operation
    *                 to resume your account's ability to send email.</p>
    *         </note>
    */
@@ -5750,8 +5764,7 @@ export namespace PutAccountSuppressionAttributesResponse {
  */
 export interface PutConfigurationSetDeliveryOptionsRequest {
   /**
-   * <p>The name of the configuration set that you want to associate with a dedicated IP
-   *             pool.</p>
+   * <p>The name of the configuration set to associate with a dedicated IP pool.</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -5764,8 +5777,7 @@ export interface PutConfigurationSetDeliveryOptionsRequest {
   TlsPolicy?: TlsPolicy | string;
 
   /**
-   * <p>The name of the dedicated IP pool that you want to associate with the configuration
-   *             set.</p>
+   * <p>The name of the dedicated IP pool to associate with the configuration set.</p>
    */
   SendingPoolName?: string;
 }
@@ -5800,8 +5812,7 @@ export namespace PutConfigurationSetDeliveryOptionsResponse {
  */
 export interface PutConfigurationSetReputationOptionsRequest {
   /**
-   * <p>The name of the configuration set that you want to enable or disable reputation metric
-   *             tracking for.</p>
+   * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -5843,8 +5854,7 @@ export namespace PutConfigurationSetReputationOptionsResponse {
  */
 export interface PutConfigurationSetSendingOptionsRequest {
   /**
-   * <p>The name of the configuration set that you want to enable or disable email sending
-   *             for.</p>
+   * <p>The name of the configuration set to enable or disable email sending for.</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -5885,8 +5895,8 @@ export namespace PutConfigurationSetSendingOptionsResponse {
  */
 export interface PutConfigurationSetSuppressionOptionsRequest {
   /**
-   * <p>The name of the configuration set that you want to change the suppression list
-   *             preferences for.</p>
+   * <p>The name of the configuration set to change the suppression list preferences
+   *             for.</p>
    */
   ConfigurationSetName: string | undefined;
 
@@ -5904,8 +5914,8 @@ export interface PutConfigurationSetSuppressionOptionsRequest {
    *             <li>
    *                 <p>
    *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
-   *                     list for your account when a message sent to that address results in a
-   *                     hard bounce.</p>
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
    *             </li>
    *          </ul>
    */
@@ -5942,13 +5952,12 @@ export namespace PutConfigurationSetSuppressionOptionsResponse {
  */
 export interface PutConfigurationSetTrackingOptionsRequest {
   /**
-   * <p>The name of the configuration set that you want to add a custom tracking domain
-   *             to.</p>
+   * <p>The name of the configuration set.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The domain that you want to use to track open and click events.</p>
+   * <p>The domain to use to track open and click events.</p>
    */
   CustomRedirectDomain?: string;
 }
@@ -5983,7 +5992,7 @@ export namespace PutConfigurationSetTrackingOptionsResponse {
 export interface PutDedicatedIpInPoolRequest {
   /**
    * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
-   *             has to be a dedicated IP address that's associated with your AWS account.</p>
+   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
    */
   Ip: string | undefined;
 
@@ -6064,7 +6073,7 @@ export namespace PutDedicatedIpWarmupAttributesResponse {
  *             access to reputation, deliverability, and other metrics for the domains that you use to
  *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
  *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
- *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
  *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
  */
 export interface PutDeliverabilityDashboardOptionRequest {
@@ -6109,12 +6118,12 @@ export namespace PutDeliverabilityDashboardOptionResponse {
  */
 export interface PutEmailIdentityConfigurationSetAttributesRequest {
   /**
-   * <p>The email address or domain that you want to associate with a configuration set.</p>
+   * <p>The email address or domain to associate with a configuration set.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
-   * <p>The configuration set that you want to associate with an email identity.</p>
+   * <p>The configuration set to associate with an email identity.</p>
    */
   ConfigurationSetName?: string;
 }
@@ -6129,7 +6138,8 @@ export namespace PutEmailIdentityConfigurationSetAttributesRequest {
 }
 
 /**
- * <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
  */
 export interface PutEmailIdentityConfigurationSetAttributesResponse {}
 
@@ -6148,7 +6158,7 @@ export namespace PutEmailIdentityConfigurationSetAttributesResponse {
  */
 export interface PutEmailIdentityDkimAttributesRequest {
   /**
-   * <p>The email identity that you want to change the DKIM settings for.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -6190,13 +6200,13 @@ export namespace PutEmailIdentityDkimAttributesResponse {
  */
 export interface PutEmailIdentityDkimSigningAttributesRequest {
   /**
-   * <p>The email identity that you want to configure DKIM for.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
   /**
-   * <p>The method that you want to use to configure DKIM for the identity. There are two
-   *             possible values:</p>
+   * <p>The method to use to configure DKIM for the identity. There are the following possible
+   *             values:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -6214,8 +6224,9 @@ export interface PutEmailIdentityDkimSigningAttributesRequest {
 
   /**
    * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity. This object is only required if you want to
-   *             configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the identity, or,
+   *             configures the key length to be used for
+   *             <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
    */
   SigningAttributes?: DkimSigningAttributes;
 }
@@ -6309,8 +6320,7 @@ export namespace PutEmailIdentityDkimSigningAttributesResponse {
  */
 export interface PutEmailIdentityFeedbackAttributesRequest {
   /**
-   * <p>The email identity that you want to configure bounce and complaint feedback forwarding
-   *             for.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -6356,8 +6366,7 @@ export namespace PutEmailIdentityFeedbackAttributesResponse {
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
   /**
-   * <p>The verified email identity that you want to set up the custom MAIL FROM domain
-   *             for.</p>
+   * <p>The verified email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -6380,10 +6389,10 @@ export interface PutEmailIdentityMailFromAttributesRequest {
   MailFromDomain?: string;
 
   /**
-   * <p>The action that you want to take if the required MX record isn't found when you send
-   *             an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent
-   *             using <i>amazonses.com</i> as the MAIL FROM domain. When you set this
-   *             value to <code>RejectMessage</code>, the Amazon SES API v2 returns a
+   * <p>The action to take if the required MX record isn't found when you send an email. When
+   *             you set this value to <code>UseDefaultValue</code>, the mail is sent using
+   *                 <i>amazonses.com</i> as the MAIL FROM domain. When you set this value
+   *             to <code>RejectMessage</code>, the Amazon SES API v2 returns a
    *                 <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the
    *             email.</p>
    *         <p>These behaviors are taken when the custom MAIL FROM domain configuration is in the
@@ -6465,7 +6474,7 @@ export namespace PutSuppressedDestinationResponse {
  */
 export interface SendBulkEmailRequest {
   /**
-   * <p>The email address that you want to use as the "From" address for the email. The
+   * <p>The email address to use as the "From" address for the email. The
    *             address that you specify has to be verified.</p>
    */
   FromEmailAddress?: string;
@@ -6531,7 +6540,7 @@ export interface SendBulkEmailRequest {
   BulkEmailEntries: BulkEmailEntry[] | undefined;
 
   /**
-   * <p>The name of the configuration set that you want to use when sending the email.</p>
+   * <p>The name of the configuration set to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
 }
@@ -6550,7 +6559,8 @@ export namespace SendBulkEmailRequest {
  */
 export interface SendBulkEmailResponse {
   /**
-   * <p>A list of <code>BulkMailEntry</code> objects.</p>
+   * <p>One object per intended recipient. Check each response object and retry any messages
+   *             with a failure status.</p>
    */
   BulkEmailEntryResults: BulkEmailEntryResult[] | undefined;
 }
@@ -6622,7 +6632,7 @@ export namespace SendCustomVerificationEmailResponse {
  */
 export interface SendEmailRequest {
   /**
-   * <p>The email address that you want to use as the "From" address for the email. The
+   * <p>The email address to use as the "From" address for the email. The
    *             address that you specify has to be verified.
    *             </p>
    */
@@ -6692,7 +6702,7 @@ export interface SendEmailRequest {
   EmailTags?: MessageTag[];
 
   /**
-   * <p>The name of the configuration set that you want to use when sending the email.</p>
+   * <p>The name of the configuration set to use when sending the email.</p>
    */
   ConfigurationSetName?: string;
 
@@ -6780,7 +6790,7 @@ export namespace TagResourceResponse {
  */
 export interface TestRenderEmailTemplateRequest {
   /**
-   * <p>The name of the template that you want to render.</p>
+   * <p>The name of the template.</p>
    */
   TemplateName: string | undefined;
 
@@ -6867,13 +6877,13 @@ export namespace UntagResourceResponse {
  */
 export interface UpdateConfigurationSetEventDestinationRequest {
   /**
-   * <p>The name of the configuration set that contains the event destination that you want to
+   * <p>The name of the configuration set that contains the event destination to
    *             modify.</p>
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The name of the event destination that you want to modify.</p>
+   * <p>The name of the event destination.</p>
    */
   EventDestinationName: string | undefined;
 
@@ -7064,7 +7074,7 @@ export namespace UpdateCustomVerificationEmailTemplateResponse {
  */
 export interface UpdateEmailIdentityPolicyRequest {
   /**
-   * <p>The email identity for which you want to update policy.</p>
+   * <p>The email identity.</p>
    */
   EmailIdentity: string | undefined;
 
@@ -7114,7 +7124,7 @@ export namespace UpdateEmailIdentityPolicyResponse {
  */
 export interface UpdateEmailTemplateRequest {
   /**
-   * <p>The name of the template you want to update.</p>
+   * <p>The name of the template.</p>
    */
   TemplateName: string | undefined;
 

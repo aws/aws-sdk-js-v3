@@ -1,7 +1,12 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "fips-us-gov-west-1": {
+    hostname: "identitystore.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -43,7 +48,7 @@ const partitionHash: PartitionHash = {
     hostname: "identitystore.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "identitystore.{region}.amazonaws.com",
   },
 };

@@ -186,6 +186,7 @@ import {
   AliasConfiguration,
   AliasRoutingConfiguration,
   AllowedPublishers,
+  Architecture,
   CodeSigningConfig,
   CodeSigningConfigNotFoundException,
   CodeSigningPolicies,
@@ -512,6 +513,10 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-03-31/functions";
   let body: any;
   body = JSON.stringify({
+    ...(input.Architectures !== undefined &&
+      input.Architectures !== null && {
+        Architectures: serializeAws_restJson1ArchitecturesList(input.Architectures, context),
+      }),
     ...(input.Code !== undefined &&
       input.Code !== null && { Code: serializeAws_restJson1FunctionCode(input.Code, context) }),
     ...(input.CodeSigningConfigArn !== undefined &&
@@ -1581,6 +1586,7 @@ export const serializeAws_restJson1ListLayersCommand = async (
     ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.CompatibleArchitecture !== undefined && { CompatibleArchitecture: input.CompatibleArchitecture }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1616,6 +1622,7 @@ export const serializeAws_restJson1ListLayerVersionsCommand = async (
     ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+    ...(input.CompatibleArchitecture !== undefined && { CompatibleArchitecture: input.CompatibleArchitecture }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1751,6 +1758,10 @@ export const serializeAws_restJson1PublishLayerVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.CompatibleArchitectures !== undefined &&
+      input.CompatibleArchitectures !== null && {
+        CompatibleArchitectures: serializeAws_restJson1CompatibleArchitectures(input.CompatibleArchitectures, context),
+      }),
     ...(input.CompatibleRuntimes !== undefined &&
       input.CompatibleRuntimes !== null && {
         CompatibleRuntimes: serializeAws_restJson1CompatibleRuntimes(input.CompatibleRuntimes, context),
@@ -2313,6 +2324,10 @@ export const serializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.Architectures !== undefined &&
+      input.Architectures !== null && {
+        Architectures: serializeAws_restJson1ArchitecturesList(input.Architectures, context),
+      }),
     ...(input.DryRun !== undefined && input.DryRun !== null && { DryRun: input.DryRun }),
     ...(input.ImageUri !== undefined && input.ImageUri !== null && { ImageUri: input.ImageUri }),
     ...(input.Publish !== undefined && input.Publish !== null && { Publish: input.Publish }),
@@ -3013,6 +3028,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   const contents: CreateFunctionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Architectures: undefined,
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -3046,6 +3062,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
     VpcConfig: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Architectures !== undefined && data.Architectures !== null) {
+    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+  }
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -4730,6 +4749,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   }
   const contents: GetFunctionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Architectures: undefined,
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -4763,6 +4783,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
     VpcConfig: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Architectures !== undefined && data.Architectures !== null) {
+    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+  }
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -5024,6 +5047,7 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
   }
   const contents: GetLayerVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CompatibleArchitectures: undefined,
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -5034,6 +5058,12 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
     Version: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(
+      data.CompatibleArchitectures,
+      context
+    );
+  }
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -5131,6 +5161,7 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
   }
   const contents: GetLayerVersionByArnCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CompatibleArchitectures: undefined,
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -5141,6 +5172,12 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
     Version: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(
+      data.CompatibleArchitectures,
+      context
+    );
+  }
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -6751,6 +6788,7 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
   }
   const contents: PublishLayerVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    CompatibleArchitectures: undefined,
     CompatibleRuntimes: undefined,
     Content: undefined,
     CreatedDate: undefined,
@@ -6761,6 +6799,12 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
     Version: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CompatibleArchitectures !== undefined && data.CompatibleArchitectures !== null) {
+    contents.CompatibleArchitectures = deserializeAws_restJson1CompatibleArchitectures(
+      data.CompatibleArchitectures,
+      context
+    );
+  }
   if (data.CompatibleRuntimes !== undefined && data.CompatibleRuntimes !== null) {
     contents.CompatibleRuntimes = deserializeAws_restJson1CompatibleRuntimes(data.CompatibleRuntimes, context);
   }
@@ -6866,6 +6910,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   }
   const contents: PublishVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Architectures: undefined,
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -6899,6 +6944,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
     VpcConfig: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Architectures !== undefined && data.Architectures !== null) {
+    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+  }
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -8202,6 +8250,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   }
   const contents: UpdateFunctionCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Architectures: undefined,
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -8235,6 +8284,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
     VpcConfig: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Architectures !== undefined && data.Architectures !== null) {
+    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+  }
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -8449,6 +8501,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   const contents: UpdateFunctionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Architectures: undefined,
     CodeSha256: undefined,
     CodeSize: undefined,
     DeadLetterConfig: undefined,
@@ -8482,6 +8535,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
     VpcConfig: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Architectures !== undefined && data.Architectures !== null) {
+    contents.Architectures = deserializeAws_restJson1ArchitecturesList(data.Architectures, context);
+  }
   if (data.CodeSha256 !== undefined && data.CodeSha256 !== null) {
     contents.CodeSha256 = __expectString(data.CodeSha256);
   }
@@ -9550,6 +9606,17 @@ const serializeAws_restJson1AllowedPublishers = (input: AllowedPublishers, conte
   };
 };
 
+const serializeAws_restJson1ArchitecturesList = (input: (Architecture | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1CodeSigningPolicies = (input: CodeSigningPolicies, context: __SerdeContext): any => {
   return {
     ...(input.UntrustedArtifactOnDeployment !== undefined &&
@@ -9557,6 +9624,20 @@ const serializeAws_restJson1CodeSigningPolicies = (input: CodeSigningPolicies, c
         UntrustedArtifactOnDeployment: input.UntrustedArtifactOnDeployment,
       }),
   };
+};
+
+const serializeAws_restJson1CompatibleArchitectures = (
+  input: (Architecture | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1CompatibleRuntimes = (input: (Runtime | string)[], context: __SerdeContext): any => {
@@ -9922,6 +10003,17 @@ const deserializeAws_restJson1AllowedPublishers = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1ArchitecturesList = (output: any, context: __SerdeContext): (Architecture | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1CodeSigningConfig = (output: any, context: __SerdeContext): CodeSigningConfig => {
   return {
     AllowedPublishers:
@@ -9954,6 +10046,20 @@ const deserializeAws_restJson1CodeSigningPolicies = (output: any, context: __Ser
   return {
     UntrustedArtifactOnDeployment: __expectString(output.UntrustedArtifactOnDeployment),
   } as any;
+};
+
+const deserializeAws_restJson1CompatibleArchitectures = (
+  output: any,
+  context: __SerdeContext
+): (Architecture | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1CompatibleRuntimes = (output: any, context: __SerdeContext): (Runtime | string)[] => {
@@ -10161,6 +10267,10 @@ const deserializeAws_restJson1FunctionCodeLocation = (output: any, context: __Se
 
 const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __SerdeContext): FunctionConfiguration => {
   return {
+    Architectures:
+      output.Architectures !== undefined && output.Architectures !== null
+        ? deserializeAws_restJson1ArchitecturesList(output.Architectures, context)
+        : undefined,
     CodeSha256: __expectString(output.CodeSha256),
     CodeSize: __expectLong(output.CodeSize),
     DeadLetterConfig:
@@ -10376,6 +10486,10 @@ const deserializeAws_restJson1LayerVersionsList = (output: any, context: __Serde
 
 const deserializeAws_restJson1LayerVersionsListItem = (output: any, context: __SerdeContext): LayerVersionsListItem => {
   return {
+    CompatibleArchitectures:
+      output.CompatibleArchitectures !== undefined && output.CompatibleArchitectures !== null
+        ? deserializeAws_restJson1CompatibleArchitectures(output.CompatibleArchitectures, context)
+        : undefined,
     CompatibleRuntimes:
       output.CompatibleRuntimes !== undefined && output.CompatibleRuntimes !== null
         ? deserializeAws_restJson1CompatibleRuntimes(output.CompatibleRuntimes, context)

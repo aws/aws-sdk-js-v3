@@ -36,6 +36,9 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  *                     (BYODKIM).</p>
  *             </li>
  *             <li>
+ *                 <p>Update the key length that should be used for Easy DKIM.</p>
+ *             </li>
+ *             <li>
  *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
  *             </li>
  *             <li>

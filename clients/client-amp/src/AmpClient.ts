@@ -49,14 +49,50 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  CreateAlertManagerDefinitionCommandInput,
+  CreateAlertManagerDefinitionCommandOutput,
+} from "./commands/CreateAlertManagerDefinitionCommand";
+import {
+  CreateRuleGroupsNamespaceCommandInput,
+  CreateRuleGroupsNamespaceCommandOutput,
+} from "./commands/CreateRuleGroupsNamespaceCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
+import {
+  DeleteAlertManagerDefinitionCommandInput,
+  DeleteAlertManagerDefinitionCommandOutput,
+} from "./commands/DeleteAlertManagerDefinitionCommand";
+import {
+  DeleteRuleGroupsNamespaceCommandInput,
+  DeleteRuleGroupsNamespaceCommandOutput,
+} from "./commands/DeleteRuleGroupsNamespaceCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import {
+  DescribeAlertManagerDefinitionCommandInput,
+  DescribeAlertManagerDefinitionCommandOutput,
+} from "./commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeRuleGroupsNamespaceCommandInput,
+  DescribeRuleGroupsNamespaceCommandOutput,
+} from "./commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
+import {
+  ListRuleGroupsNamespacesCommandInput,
+  ListRuleGroupsNamespacesCommandOutput,
+} from "./commands/ListRuleGroupsNamespacesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
+import {
+  PutAlertManagerDefinitionCommandInput,
+  PutAlertManagerDefinitionCommandOutput,
+} from "./commands/PutAlertManagerDefinitionCommand";
+import {
+  PutRuleGroupsNamespaceCommandInput,
+  PutRuleGroupsNamespaceCommandOutput,
+} from "./commands/PutRuleGroupsNamespaceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -66,21 +102,39 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CreateAlertManagerDefinitionCommandInput
+  | CreateRuleGroupsNamespaceCommandInput
   | CreateWorkspaceCommandInput
+  | DeleteAlertManagerDefinitionCommandInput
+  | DeleteRuleGroupsNamespaceCommandInput
   | DeleteWorkspaceCommandInput
+  | DescribeAlertManagerDefinitionCommandInput
+  | DescribeRuleGroupsNamespaceCommandInput
   | DescribeWorkspaceCommandInput
+  | ListRuleGroupsNamespacesCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkspacesCommandInput
+  | PutAlertManagerDefinitionCommandInput
+  | PutRuleGroupsNamespaceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateWorkspaceAliasCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAlertManagerDefinitionCommandOutput
+  | CreateRuleGroupsNamespaceCommandOutput
   | CreateWorkspaceCommandOutput
+  | DeleteAlertManagerDefinitionCommandOutput
+  | DeleteRuleGroupsNamespaceCommandOutput
   | DeleteWorkspaceCommandOutput
+  | DescribeAlertManagerDefinitionCommandOutput
+  | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeWorkspaceCommandOutput
+  | ListRuleGroupsNamespacesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkspacesCommandOutput
+  | PutAlertManagerDefinitionCommandOutput
+  | PutRuleGroupsNamespaceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateWorkspaceAliasCommandOutput;

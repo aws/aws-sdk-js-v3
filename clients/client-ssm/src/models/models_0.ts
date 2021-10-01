@@ -758,8 +758,7 @@ export enum AssociationComplianceSeverity {
  */
 export interface S3OutputLocation {
   /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
-   *    Amazon Web Services Systems Manager automatically determines the Region of the S3 bucket.</p>
+   * <p>The Amazon Web Services Region of the S3 bucket.</p>
    */
   OutputS3Region?: string;
 
@@ -1034,8 +1033,9 @@ export interface CreateAssociationRequest {
 
   /**
    * <p>The targets for the association. You can target instances by using tags, Amazon Web Services resource
-   *    groups, all instances in an Amazon Web Services account, or individual instance IDs. For more information about
-   *    choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
+   *    groups, all instances in an Amazon Web Services account, or individual instance IDs. You can target all
+   *    instances in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
+   *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Targets?: Target[];

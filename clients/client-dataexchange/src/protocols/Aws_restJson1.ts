@@ -18,13 +18,16 @@ import {
 
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
+import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "../commands/CreateEventActionCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
 import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "../commands/CreateRevisionCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
+import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "../commands/DeleteEventActionCommand";
 import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "../commands/DeleteRevisionCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "../commands/GetAssetCommand";
 import { GetDataSetCommandInput, GetDataSetCommandOutput } from "../commands/GetDataSetCommand";
+import { GetEventActionCommandInput, GetEventActionCommandOutput } from "../commands/GetEventActionCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "../commands/GetJobCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "../commands/GetRevisionCommand";
 import {
@@ -32,6 +35,7 @@ import {
   ListDataSetRevisionsCommandOutput,
 } from "../commands/ListDataSetRevisionsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "../commands/ListDataSetsCommand";
+import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "../commands/ListEventActionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
 import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "../commands/ListRevisionAssetsCommand";
 import {
@@ -43,16 +47,22 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "../commands/UpdateAssetCommand";
 import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "../commands/UpdateDataSetCommand";
+import { UpdateEventActionCommandInput, UpdateEventActionCommandOutput } from "../commands/UpdateEventActionCommand";
 import { UpdateRevisionCommandInput, UpdateRevisionCommandOutput } from "../commands/UpdateRevisionCommand";
 import {
   AccessDeniedException,
+  Action,
   AssetDestinationEntry,
   AssetDetails,
   AssetEntry,
   AssetSourceEntry,
+  AutoExportRevisionDestinationEntry,
+  AutoExportRevisionToS3RequestDetails,
   ConflictException,
   DataSetEntry,
   Details,
+  Event,
+  EventActionEntry,
   ExportAssetsToS3RequestDetails,
   ExportAssetsToS3ResponseDetails,
   ExportAssetToSignedUrlRequestDetails,
@@ -74,6 +84,7 @@ import {
   ResponseDetails,
   RevisionDestinationEntry,
   RevisionEntry,
+  RevisionPublished,
   S3SnapshotAsset,
   ServiceLimitExceededException,
   ThrottlingException,
@@ -124,6 +135,33 @@ export const serializeAws_restJson1CreateDataSetCommand = async (
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1MapOf__string(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateEventActionCommand = async (
+  input: CreateEventActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Action !== undefined &&
+      input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
+    ...(input.Event !== undefined &&
+      input.Event !== null && { Event: serializeAws_restJson1Event(input.Event, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -275,6 +313,35 @@ export const serializeAws_restJson1DeleteDataSetCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteEventActionCommand = async (
+  input: DeleteEventActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
+  if (input.EventActionId !== undefined) {
+    const labelValue: string = input.EventActionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EventActionId.");
+    }
+    resolvedPath = resolvedPath.replace("{EventActionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EventActionId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteRevisionCommand = async (
   input: DeleteRevisionCommandInput,
   context: __SerdeContext
@@ -378,6 +445,35 @@ export const serializeAws_restJson1GetDataSetCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetEventActionCommand = async (
+  input: GetEventActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
+  if (input.EventActionId !== undefined) {
+    const labelValue: string = input.EventActionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EventActionId.");
+    }
+    resolvedPath = resolvedPath.replace("{EventActionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EventActionId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -503,6 +599,31 @@ export const serializeAws_restJson1ListDataSetsCommand = async (
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.Origin !== undefined && { origin: input.Origin }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListEventActionsCommand = async (
+  input: ListEventActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions";
+  const query: any = {
+    ...(input.EventSourceId !== undefined && { eventSourceId: input.EventSourceId }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   return new __HttpRequest({
@@ -797,6 +918,41 @@ export const serializeAws_restJson1UpdateDataSetCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateEventActionCommand = async (
+  input: UpdateEventActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/event-actions/{EventActionId}";
+  if (input.EventActionId !== undefined) {
+    const labelValue: string = input.EventActionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EventActionId.");
+    }
+    resolvedPath = resolvedPath.replace("{EventActionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EventActionId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Action !== undefined &&
+      input.Action !== null && { Action: serializeAws_restJson1Action(input.Action, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateRevisionCommand = async (
   input: UpdateRevisionCommandInput,
   context: __SerdeContext
@@ -987,6 +1143,113 @@ const deserializeAws_restJson1CreateDataSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceLimitExceededException":
+    case "com.amazonaws.dataexchange#ServiceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateEventActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventActionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateEventActionCommandError(output, context);
+  }
+  const contents: CreateEventActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Action: undefined,
+    Arn: undefined,
+    CreatedAt: undefined,
+    Event: undefined,
+    Id: undefined,
+    UpdatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Action !== undefined && data.Action !== null) {
+    contents.Action = deserializeAws_restJson1Action(data.Action, context);
+  }
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+  }
+  if (data.Event !== undefined && data.Event !== null) {
+    contents.Event = deserializeAws_restJson1Event(data.Event, context);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateEventActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1468,6 +1731,81 @@ const deserializeAws_restJson1DeleteDataSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteEventActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventActionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteEventActionCommandError(output, context);
+  }
+  const contents: DeleteEventActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteEventActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1736,6 +2074,105 @@ const deserializeAws_restJson1GetDataSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetEventActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetEventActionCommandError(output, context);
+  }
+  const contents: GetEventActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Action: undefined,
+    Arn: undefined,
+    CreatedAt: undefined,
+    Event: undefined,
+    Id: undefined,
+    UpdatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Action !== undefined && data.Action !== null) {
+    contents.Action = deserializeAws_restJson1Action(data.Action, context);
+  }
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+  }
+  if (data.Event !== undefined && data.Event !== null) {
+    contents.Event = deserializeAws_restJson1Event(data.Event, context);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetEventActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventActionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2120,6 +2557,89 @@ const deserializeAws_restJson1ListDataSetsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListEventActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListEventActionsCommandError(output, context);
+  }
+  const contents: ListEventActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    EventActions: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.EventActions !== undefined && data.EventActions !== null) {
+    contents.EventActions = deserializeAws_restJson1ListOfEventActionEntry(data.EventActions, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListEventActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEventActionsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2821,6 +3341,113 @@ const deserializeAws_restJson1UpdateDataSetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateEventActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateEventActionCommandError(output, context);
+  }
+  const contents: UpdateEventActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Action: undefined,
+    Arn: undefined,
+    CreatedAt: undefined,
+    Event: undefined,
+    Id: undefined,
+    UpdatedAt: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Action !== undefined && data.Action !== null) {
+    contents.Action = deserializeAws_restJson1Action(data.Action, context);
+  }
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTime(data.CreatedAt));
+  }
+  if (data.Event !== undefined && data.Event !== null) {
+    contents.Event = deserializeAws_restJson1Event(data.Event, context);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.UpdatedAt !== undefined && data.UpdatedAt !== null) {
+    contents.UpdatedAt = __expectNonNull(__parseRfc3339DateTime(data.UpdatedAt));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateEventActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.dataexchange#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.dataexchange#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dataexchange#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.dataexchange#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.dataexchange#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3078,13 +3705,29 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
     name: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
+    ExceptionCause: undefined,
     Message: undefined,
   };
   const data: any = parsedOutput.body;
+  if (data.ExceptionCause !== undefined && data.ExceptionCause !== null) {
+    contents.ExceptionCause = __expectString(data.ExceptionCause);
+  }
   if (data.Message !== undefined && data.Message !== null) {
     contents.Message = __expectString(data.Message);
   }
   return contents;
+};
+
+const serializeAws_restJson1Action = (input: Action, context: __SerdeContext): any => {
+  return {
+    ...(input.ExportRevisionToS3 !== undefined &&
+      input.ExportRevisionToS3 !== null && {
+        ExportRevisionToS3: serializeAws_restJson1AutoExportRevisionToS3RequestDetails(
+          input.ExportRevisionToS3,
+          context
+        ),
+      }),
+  };
 };
 
 const serializeAws_restJson1AssetDestinationEntry = (input: AssetDestinationEntry, context: __SerdeContext): any => {
@@ -3099,6 +3742,44 @@ const serializeAws_restJson1AssetSourceEntry = (input: AssetSourceEntry, context
   return {
     ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
+  };
+};
+
+const serializeAws_restJson1AutoExportRevisionDestinationEntry = (
+  input: AutoExportRevisionDestinationEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Bucket !== undefined && input.Bucket !== null && { Bucket: input.Bucket }),
+    ...(input.KeyPattern !== undefined && input.KeyPattern !== null && { KeyPattern: input.KeyPattern }),
+  };
+};
+
+const serializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
+  input: AutoExportRevisionToS3RequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Encryption !== undefined &&
+      input.Encryption !== null && {
+        Encryption: serializeAws_restJson1ExportServerSideEncryption(input.Encryption, context),
+      }),
+    ...(input.RevisionDestination !== undefined &&
+      input.RevisionDestination !== null && {
+        RevisionDestination: serializeAws_restJson1AutoExportRevisionDestinationEntry(
+          input.RevisionDestination,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
+  return {
+    ...(input.RevisionPublished !== undefined &&
+      input.RevisionPublished !== null && {
+        RevisionPublished: serializeAws_restJson1RevisionPublished(input.RevisionPublished, context),
+      }),
   };
 };
 
@@ -3280,6 +3961,21 @@ const serializeAws_restJson1RevisionDestinationEntry = (
   };
 };
 
+const serializeAws_restJson1RevisionPublished = (input: RevisionPublished, context: __SerdeContext): any => {
+  return {
+    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+  };
+};
+
+const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
+  return {
+    ExportRevisionToS3:
+      output.ExportRevisionToS3 !== undefined && output.ExportRevisionToS3 !== null
+        ? deserializeAws_restJson1AutoExportRevisionToS3RequestDetails(output.ExportRevisionToS3, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __SerdeContext): AssetDestinationEntry => {
   return {
     AssetId: __expectString(output.AssetId),
@@ -3328,6 +4024,32 @@ const deserializeAws_restJson1AssetSourceEntry = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1AutoExportRevisionDestinationEntry = (
+  output: any,
+  context: __SerdeContext
+): AutoExportRevisionDestinationEntry => {
+  return {
+    Bucket: __expectString(output.Bucket),
+    KeyPattern: __expectString(output.KeyPattern),
+  } as any;
+};
+
+const deserializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
+  output: any,
+  context: __SerdeContext
+): AutoExportRevisionToS3RequestDetails => {
+  return {
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
+        : undefined,
+    RevisionDestination:
+      output.RevisionDestination !== undefined && output.RevisionDestination !== null
+        ? deserializeAws_restJson1AutoExportRevisionDestinationEntry(output.RevisionDestination, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1DataSetEntry = (output: any, context: __SerdeContext): DataSetEntry => {
   return {
     Arn: __expectString(output.Arn),
@@ -3365,6 +4087,38 @@ const deserializeAws_restJson1Details = (output: any, context: __SerdeContext): 
     ImportAssetsFromS3JobErrorDetails:
       output.ImportAssetsFromS3JobErrorDetails !== undefined && output.ImportAssetsFromS3JobErrorDetails !== null
         ? deserializeAws_restJson1ListOfAssetSourceEntry(output.ImportAssetsFromS3JobErrorDetails, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Event => {
+  return {
+    RevisionPublished:
+      output.RevisionPublished !== undefined && output.RevisionPublished !== null
+        ? deserializeAws_restJson1RevisionPublished(output.RevisionPublished, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EventActionEntry = (output: any, context: __SerdeContext): EventActionEntry => {
+  return {
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_restJson1Action(output.Action, context)
+        : undefined,
+    Arn: __expectString(output.Arn),
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.CreatedAt))
+        : undefined,
+    Event:
+      output.Event !== undefined && output.Event !== null
+        ? deserializeAws_restJson1Event(output.Event, context)
+        : undefined,
+    Id: __expectString(output.Id),
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
         : undefined,
   } as any;
 };
@@ -3557,6 +4311,17 @@ const deserializeAws_restJson1ListOfDataSetEntry = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_restJson1ListOfEventActionEntry = (output: any, context: __SerdeContext): EventActionEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventActionEntry(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ListOfJobEntry = (output: any, context: __SerdeContext): JobEntry[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3674,6 +4439,12 @@ const deserializeAws_restJson1RevisionEntry = (output: any, context: __SerdeCont
       output.UpdatedAt !== undefined && output.UpdatedAt !== null
         ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedAt))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RevisionPublished = (output: any, context: __SerdeContext): RevisionPublished => {
+  return {
+    DataSetId: __expectString(output.DataSetId),
   } as any;
 };
 
