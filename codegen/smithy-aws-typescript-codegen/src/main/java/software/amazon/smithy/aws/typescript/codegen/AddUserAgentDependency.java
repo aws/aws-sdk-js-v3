@@ -73,7 +73,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName);
-                            writer.addDefaultImport("packageInfo", "./package.json");
                             writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
@@ -83,7 +82,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.packageName);
-                            writer.addDefaultImport("packageInfo", "./package.json");
                             writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
@@ -96,6 +94,6 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
         writer.write("defaultUserAgent({"
                 // serviceId is optional in defaultUserAgent. serviceId exists only for AWS services
                 + (isAwsService(settings, model) ? "serviceId: clientSharedValues.serviceId, " : "")
-                + "clientVersion: packageInfo.version})");
+                + "clientVersion: $S})", settings.getPackageVersion());
     }
 }

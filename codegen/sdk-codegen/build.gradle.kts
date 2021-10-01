@@ -79,13 +79,17 @@ tasks.register("generate-smithy-build") {
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
+
+            val rootPackageVersion = Node.parse(File("../package.json").readText()).expectObjectNode()
+                    .expectStringMember("version").getValue()
+
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
                             .withMember("typescript-codegen", Node.objectNodeBuilder()
                                     .withMember("package", "@aws-sdk/client-" + sdkId.toLowerCase())
                                     // Note that this version is replaced by Lerna when publishing.
-                                    .withMember("packageVersion", "3.0.0")
+                                    .withMember("packageVersion", rootPackageVersion)
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")

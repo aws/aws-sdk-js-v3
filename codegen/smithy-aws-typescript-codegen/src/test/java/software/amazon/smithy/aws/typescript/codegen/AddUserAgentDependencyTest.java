@@ -42,12 +42,15 @@ public class AddUserAgentDependencyTest {
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("clientVersion: \"1.0.0\""));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("clientSharedValues.serviceId"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("import packageInfo")));
+
 
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("clientVersion: \"1.0.0\""));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("clientSharedValues.serviceId"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("import packageInfo")));
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("resolveUserAgentConfig"));
@@ -83,12 +86,14 @@ public class AddUserAgentDependencyTest {
 
         // Check config files
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), containsString("clientVersion: \"1.0.0\""));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("ClientSharedValues.serviceId")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.ts").get(), not(containsString("import packageInfo")));
 
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("defaultUserAgent"));
-        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("packageInfo.version"));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), containsString("clientVersion: \"1.0.0\""));
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("ClientSharedValues.serviceId")));
+        assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/runtimeConfig.browser.ts").get(), not(containsString("import packageInfo")));
 
         // Check the config resolution and middleware plugin
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/ExampleServiceClient.ts").get(), containsString("resolveUserAgentConfig"));
