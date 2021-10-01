@@ -4,7 +4,8 @@
  * in NodeJS, Chromium and Firefox. This test is written in mocha.
  */
 import { expect } from "chai";
-import { CognitoIdentity } from "../index";
+
+import { CognitoIdentity } from "../../src/index";
 // There will be default values of defaultRegion, credentials, and isBrowser variable in browser tests.
 // Define the values for Node.js tests
 const region: string | undefined = (globalThis as any).defaultRegion || process?.env?.AWS_SMOKE_TEST_REGION;
