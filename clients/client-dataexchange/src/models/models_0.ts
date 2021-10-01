@@ -21,6 +21,99 @@ export namespace AccessDeniedException {
   });
 }
 
+export enum ServerSideEncryptionTypes {
+  AES256 = "AES256",
+  aws_kms = "aws:kms",
+}
+
+/**
+ * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption. type.</p>
+ */
+export interface ExportServerSideEncryption {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
+   */
+  Type: ServerSideEncryptionTypes | string | undefined;
+}
+
+export namespace ExportServerSideEncryption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
+ */
+export interface AutoExportRevisionDestinationEntry {
+  /**
+   * <p>The S3 bucket that is the destination for the event action.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>A string representing the pattern for generated names of the individual assets in the revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
+   */
+  KeyPattern?: string;
+}
+
+export namespace AutoExportRevisionDestinationEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoExportRevisionDestinationEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details of the operation to be performed by the job.</p>
+ */
+export interface AutoExportRevisionToS3RequestDetails {
+  /**
+   * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption. type.</p>
+   */
+  Encryption?: ExportServerSideEncryption;
+
+  /**
+   * <p>A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.</p>
+   */
+  RevisionDestination: AutoExportRevisionDestinationEntry | undefined;
+}
+
+export namespace AutoExportRevisionToS3RequestDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AutoExportRevisionToS3RequestDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface Action {
+  /**
+   * <p>Details of the operation to be performed by the job.</p>
+   */
+  ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
+}
+
+export namespace Action {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Action): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The destination for the asset.</p>
  */
@@ -196,6 +289,7 @@ export namespace CancelJobRequest {
 export enum ResourceType {
   ASSET = "ASSET",
   DATA_SET = "DATA_SET",
+  EVENT_ACTION = "EVENT_ACTION",
   JOB = "JOB",
   REVISION = "REVISION",
 }
@@ -304,6 +398,11 @@ export namespace ThrottlingException {
   });
 }
 
+export enum ExceptionCause {
+  InsufficientS3BucketPolicy = "InsufficientS3BucketPolicy",
+  S3AccessDenied = "S3AccessDenied",
+}
+
 /**
  * <p>The request was invalid.</p>
  */
@@ -314,6 +413,11 @@ export interface ValidationException extends __SmithyException, $MetadataBearer 
    * <p>The message that informs you about what was invalid about the request.</p>
    */
   Message: string | undefined;
+
+  /**
+   * <p>The message that informs you about what the exception was.</p>
+   */
+  ExceptionCause?: ExceptionCause | string;
 }
 
 export namespace ValidationException {
@@ -458,12 +562,15 @@ export enum LimitName {
   Asset_size_in_GB = "Asset size in GB",
   Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
   Assets_per_revision = "Assets per revision",
+  Auto_export_event_actions_per_data_set = "Auto export event actions per data set",
   Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
   Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
+  Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3 = "Concurrent in progress jobs to export revisions to Amazon S3",
   Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
   Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
+  Event_actions_per_account = "Event actions per account",
   Products_per_account = "Products per account",
   Revisions_per_data_set = "Revisions per data set",
 }
@@ -499,31 +606,96 @@ export namespace ServiceLimitExceededException {
   });
 }
 
-export enum ServerSideEncryptionTypes {
-  AES256 = "AES256",
-  aws_kms = "aws:kms",
+export interface RevisionPublished {
+  /**
+   * <p>A unique identifier.</p>
+   */
+  DataSetId: string | undefined;
 }
 
-/**
- * <p>Encryption configuration of the export job. Includes the encryption type as well as the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption type.</p>
- */
-export interface ExportServerSideEncryption {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the the AWS KMS key you want to use to encrypt the Amazon S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
-   */
-  KmsKeyArn?: string;
-
-  /**
-   * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
-   */
-  Type: ServerSideEncryptionTypes | string | undefined;
-}
-
-export namespace ExportServerSideEncryption {
+export namespace RevisionPublished {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ExportServerSideEncryption): any => ({
+  export const filterSensitiveLog = (obj: RevisionPublished): any => ({
+    ...obj,
+  });
+}
+
+export interface Event {
+  RevisionPublished?: RevisionPublished;
+}
+
+export namespace Event {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Event): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for CreateEventAction.</p>
+ */
+export interface CreateEventActionRequest {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action: Action | undefined;
+
+  /**
+   * <p>What occurs to start an action.</p>
+   */
+  Event: Event | undefined;
+}
+
+export namespace CreateEventActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEventActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateEventActionResponse {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>The ARN for the event action.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>What occurs to start an action.</p>
+   */
+  Event?: Event;
+
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace CreateEventActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateEventActionResponse): any => ({
     ...obj,
   });
 }
@@ -1037,6 +1209,7 @@ export enum JobErrorLimitName {
 
 export enum JobErrorResourceTypes {
   ASSET = "ASSET",
+  DATA_SET = "DATA_SET",
   REVISION = "REVISION",
 }
 
@@ -1272,6 +1445,22 @@ export namespace DeleteDataSetRequest {
   });
 }
 
+export interface DeleteEventActionRequest {
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  EventActionId: string | undefined;
+}
+
+export namespace DeleteEventActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventActionRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteRevisionRequest {
   /**
    * <p>The unique identifier for a data set.</p>
@@ -1458,6 +1647,63 @@ export namespace GetDataSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDataSetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventActionRequest {
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  EventActionId: string | undefined;
+}
+
+export namespace GetEventActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetEventActionResponse {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>The ARN for the event action.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>What occurs to start an action.</p>
+   */
+  Event?: Event;
+
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace GetEventActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventActionResponse): any => ({
     ...obj,
   });
 }
@@ -1814,6 +2060,97 @@ export namespace ListDataSetsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDataSetsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventActionsRequest {
+  /**
+   * <p>The unique identifier for the event source.</p>
+   */
+  EventSourceId?: string;
+
+  /**
+   * <p>The maximum number of results returned by a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEventActionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventActionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An event action is an object that defines the relationship between a specific event and an automated action that will be taken on behalf of the customer.</p>
+ */
+export interface EventActionEntry {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action: Action | undefined;
+
+  /**
+   * <p>The ARN for the event action.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>What occurs to start an action.</p>
+   */
+  Event: Event | undefined;
+
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt: Date | undefined;
+}
+
+export namespace EventActionEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EventActionEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface ListEventActionsResponse {
+  /**
+   * <p>The event action objects listed by the request.</p>
+   */
+  EventActions?: EventActionEntry[];
+
+  /**
+   * <p>The token value retrieved from a previous call to access the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListEventActionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEventActionsResponse): any => ({
     ...obj,
   });
 }
@@ -2261,6 +2598,71 @@ export namespace UpdateDataSetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateDataSetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request body for UpdateEventAction.</p>
+ */
+export interface UpdateEventActionRequest {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  EventActionId: string | undefined;
+}
+
+export namespace UpdateEventActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventActionResponse {
+  /**
+   * <p>What occurs after a certain event.</p>
+   */
+  Action?: Action;
+
+  /**
+   * <p>The ARN for the event action.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The date and time that the event action was created, in ISO 8601 format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * <p>What occurs to start an action.</p>
+   */
+  Event?: Event;
+
+  /**
+   * <p>The unique identifier for the event action.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+export namespace UpdateEventActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventActionResponse): any => ({
     ...obj,
   });
 }

@@ -24,18 +24,15 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Shares or unshares an image with one account in the same AWS Region by specifying whether that account has
+ * <p>Shares or unshares an image with one account in the same Amazon Web Services Region by specifying whether that account has
  *          permission to copy the image. If the copy image permission is granted, the image is shared with that account.
  *          If the copy image permission is revoked, the image is unshared with the account.</p>
  *
- *          <p>After an image has been shared, the recipient account can copy the image to other AWS Regions as needed.</p>
+ *          <p>After an image has been shared, the recipient account can copy the image to other Regions as needed.</p>
  *
- *          <note>
- *             <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
+ *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
  *
- *             <p>In the AWS GovCloud (US-West) Region, to copy images to and from other AWS Regions,
- *             contact AWS Support.</p>
- *          </note>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
  *
  *          <p>For more information about sharing images, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
@@ -47,9 +44,9 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  *                   <p>To delete an image that has been shared, you must unshare the image before you delete it.</p>
  *                </li>
  *                <li>
- *                   <p>Sharing Bring Your Own License (BYOL) images across AWS accounts isn't supported at
- *                   this time in the AWS GovCloud (US-West) Region. To share BYOL images across accounts in
- *                   the AWS GovCloud (US-West) Region, contact AWS Support.</p>
+ *                   <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts isn't supported at
+ *                   this time in Amazon Web Services GovCloud (US). To share BYOL images across accounts in
+ *                   Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>
  *                </li>
  *             </ul>
  *          </note>

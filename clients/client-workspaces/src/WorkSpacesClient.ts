@@ -63,6 +63,10 @@ import {
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "./commands/CreateIpGroupCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
+  CreateUpdatedWorkspaceImageCommandInput,
+  CreateUpdatedWorkspaceImageCommandOutput,
+} from "./commands/CreateUpdatedWorkspaceImageCommand";
+import {
   CreateWorkspaceBundleCommandInput,
   CreateWorkspaceBundleCommandOutput,
 } from "./commands/CreateWorkspaceBundleCommand";
@@ -211,6 +215,7 @@ export type ServiceInputTypes =
   | CreateConnectionAliasCommandInput
   | CreateIpGroupCommandInput
   | CreateTagsCommandInput
+  | CreateUpdatedWorkspaceImageCommandInput
   | CreateWorkspaceBundleCommandInput
   | CreateWorkspacesCommandInput
   | DeleteConnectionAliasCommandInput
@@ -266,6 +271,7 @@ export type ServiceOutputTypes =
   | CreateConnectionAliasCommandOutput
   | CreateIpGroupCommandOutput
   | CreateTagsCommandOutput
+  | CreateUpdatedWorkspaceImageCommandOutput
   | CreateWorkspaceBundleCommandOutput
   | CreateWorkspacesCommandOutput
   | DeleteConnectionAliasCommandOutput

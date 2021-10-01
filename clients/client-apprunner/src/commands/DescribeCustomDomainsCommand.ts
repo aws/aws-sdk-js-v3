@@ -22,7 +22,7 @@ export interface DescribeCustomDomainsCommandInput extends DescribeCustomDomains
 export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Return a description of custom domain names that are associated with an AWS App Runner service.</p>
+ * <p>Return a description of custom domain names that are associated with an App Runner service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

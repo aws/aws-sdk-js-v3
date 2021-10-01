@@ -22,7 +22,7 @@ export interface ListUseCasesCommandInput extends ListUseCasesRequest {}
 export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the use cases. </p>
+ * <p>Lists the use cases for the integration association. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

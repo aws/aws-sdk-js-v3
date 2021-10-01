@@ -40,17 +40,10 @@ export namespace ConflictException {
 }
 
 /**
- * <p>Specifies the details for the file location for the file being used in the workflow. Only applicable if you are using Amazon EFS for storage.</p>
+ * <p>Reserved for future use.</p>
  *          <p>
- *      You need to provide the file system ID and the pathname.
- *       The pathname can represent either a path or a file.
- *       This is determined by whether or not you end the path value with the forward slash (/) character.
- *       If the final character is "/", then your file is copied to the folder, and its name does not change.
- *       If, rather, the final character is alphanumeric, your uploaded file is renamed to the path value. In this case, if a file with that name already exists, it is overwritten.
+ *
  *     </p>
- *          <p>For example, if your path is <code>shared-files/bob/</code>, your uploaded files are copied to the <code>shared-files/bob/</code>, folder.
- *       If your path is <code>shared-files/today</code>, each uploaded file is copied to the <code>shared-files</code> folder and named <code>today</code>:
- *       each upload overwrites the previous version of the <code>bob</code> file.</p>
  */
 export interface EfsFileLocation {
   /**
@@ -74,11 +67,21 @@ export namespace EfsFileLocation {
 }
 
 /**
- * <p>Specifies the details for the S3 file being copied.</p>
+ * <p>Specifies the customer input S3 file location. If it is used inside <code>copyStepDetails.DestinationFileLocation</code>, it should be the S3 copy destination.</p>
+ *          <p>
+ *       You need to provide the bucket and key.
+ *       The key can represent either a path or a file.
+ *       This is determined by whether or not you end the key value with the forward slash (/) character.
+ *       If the final character is "/", then your file is copied to the folder, and its name does not change.
+ *       If, rather, the final character is alphanumeric, your uploaded file is renamed to the path value. In this case, if a file with that name already exists, it is overwritten.
+ *     </p>
+ *          <p>For example, if your path is <code>shared-files/bob/</code>, your uploaded files are copied to the <code>shared-files/bob/</code>, folder.
+ *       If your path is <code>shared-files/today</code>, each uploaded file is copied to the <code>shared-files</code> folder and named <code>today</code>:
+ *       each upload overwrites the previous version of the <i>bob</i> file.</p>
  */
 export interface S3InputFileLocation {
   /**
-   * <p>Specifies the S3 bucket that contains the file being copied.</p>
+   * <p>Specifies the S3 bucket for the customer input file.</p>
    */
   Bucket?: string;
 
@@ -107,7 +110,7 @@ export interface InputFileLocation {
   S3FileLocation?: S3InputFileLocation;
 
   /**
-   * <p>Specifies the details for the Amazon EFS file being copied.</p>
+   * <p>Reserved for future use.</p>
    */
   EfsFileLocation?: EfsFileLocation;
 }
@@ -258,7 +261,7 @@ export interface CreateAccessRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *       user to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -945,8 +948,8 @@ export interface CreateUserRequest {
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *
    *          <p>
-   *             <code>[ { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target":
+   *         "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the session policy to lock your user
@@ -1097,7 +1100,7 @@ export namespace CustomStepDetails {
 }
 
 /**
- * <p>The name of the step, used to identify the step that is being deleted.</p>
+ * <p>The name of the step, used to identify the delete step.</p>
  */
 export interface DeleteStepDetails {
   /**
@@ -1210,7 +1213,7 @@ export interface WorkflowStep {
    *                <p>A description</p>
    *             </li>
    *             <li>
-   *                <p>An S3 or EFS location for the destination of the file copy.</p>
+   *                <p>An S3 location for the destination of the file copy.</p>
    *             </li>
    *             <li>
    *                <p>A flag that indicates whether or not to overwrite an existing file of the same name.
@@ -1229,7 +1232,7 @@ export interface WorkflowStep {
   CustomStepDetails?: CustomStepDetails;
 
   /**
-   * <p>You need to specify the name of the file to be deleted.</p>
+   * <p>Details for a step that deletes the file.</p>
    */
   DeleteStepDetails?: DeleteStepDetails;
 
@@ -1278,6 +1281,11 @@ export interface CreateWorkflowRequest {
    *                   <i>Tag</i>: add a tag to the file</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>
+   *         Currently, copying and tagging are supported only on S3.
+   *       </p>
+   *          </note>
    *          <p>
    *       For file location, you specify either the S3 bucket and key, or the EFS filesystem ID and path.
    *     </p>
@@ -1285,7 +1293,12 @@ export interface CreateWorkflowRequest {
   Steps: WorkflowStep[] | undefined;
 
   /**
-   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   * <p>Specifies the steps (actions) to take if errors are encountered during execution of the workflow.</p>
+   *          <note>
+   *             <p>For custom steps, the lambda function needs to send <code>FAILURE</code> to the call
+   *         back API to kick off the exception steps. Additionally, if the lambda does not send
+   *           <code>SUCCESS</code> before it times out, the exception steps are executed.</p>
+   *          </note>
    */
   OnExceptionSteps?: WorkflowStep[];
 
@@ -1582,16 +1595,6 @@ export namespace DescribeAccessResponse {
 
 /**
  * <p>Specifies the details for the file location for the file being used in the workflow. Only applicable if you are using S3 storage.</p>
- *          <p>
- *       You need to provide the bucket and key.
- *       The key can represent either a path or a file.
- *       This is determined by whether or not you end the key value with the forward slash (/) character.
- *       If the final character is "/", then your file is copied to the folder, and its name does not change.
- *       If, rather, the final character is alphanumeric, your uploaded file is renamed to the path value. In this case, if a file with that name already exists, it is overwritten.
- *     </p>
- *          <p>For example, if your path is <code>shared-files/bob/</code>, your uploaded files are copied to the <code>shared-files/bob/</code>, folder.
- *       If your path is <code>shared-files/today</code>, each uploaded file is copied to the <code>shared-files</code> folder and named <code>today</code>:
- *       each upload overwrites the previous version of the <i>bob</i> file.</p>
  */
 export interface S3FileLocation {
   /**
@@ -1760,7 +1763,7 @@ export interface ExecutionResults {
   Steps?: ExecutionStepResult[];
 
   /**
-   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   * <p>Specifies the steps (actions) to take if errors are encountered during execution of the workflow.</p>
    */
   OnExceptionSteps?: ExecutionStepResult[];
 }
@@ -2299,7 +2302,7 @@ export interface DescribedWorkflow {
   Steps?: WorkflowStep[];
 
   /**
-   * <p>Specifies the steps (actions) to take if any errors are encountered during execution of the workflow.</p>
+   * <p>Specifies the steps (actions) to take if errors are encountered during execution of the workflow.</p>
    */
   OnExceptionSteps?: WorkflowStep[];
 
@@ -3485,7 +3488,7 @@ export interface UpdateAccessRequest {
    *       <i>LOGICAL</i>.</p>
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "your-personal-report.pdf", "Target": "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target": "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *          <p>In most cases, you can use this value instead of the session policy to lock down your
    *         user to the designated home directory ("<code>chroot</code>"). To do this, you can set
@@ -3820,8 +3823,8 @@ export interface UpdateUserRequest {
    *
    *          <p>The following is an <code>Entry</code> and <code>Target</code> pair example.</p>
    *          <p>
-   *             <code>[ { "Entry": "your-personal-report.pdf", "Target":
-   *         "/bucket3/customized-reports/${transfer:UserName}.pdf" } ]</code>
+   *             <code>[ { "Entry": "/directory1", "Target":
+   *         "/bucket_name/home/mydirectory" } ]</code>
    *          </p>
    *
    *          <p>In most cases, you can use this value instead of the session policy to lock down your

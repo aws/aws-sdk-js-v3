@@ -7,6 +7,7 @@ export * from "./commands/CopyWorkspaceImageCommand";
 export * from "./commands/CreateConnectionAliasCommand";
 export * from "./commands/CreateIpGroupCommand";
 export * from "./commands/CreateTagsCommand";
+export * from "./commands/CreateUpdatedWorkspaceImageCommand";
 export * from "./commands/CreateWorkspaceBundleCommand";
 export * from "./commands/CreateWorkspacesCommand";
 export * from "./commands/DeleteConnectionAliasCommand";

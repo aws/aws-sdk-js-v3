@@ -22,7 +22,8 @@ export interface DeleteFirewallCommandInput extends DeleteFirewallRequest {}
 export interface DeleteFirewallCommandOutput extends DeleteFirewallResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>. This operation requires the firewall's <code>DeleteProtection</code> flag to be
+ * <p>Deletes the specified <a>Firewall</a> and its <a>FirewallStatus</a>.
+ *        This operation requires the firewall's <code>DeleteProtection</code> flag to be
  *             <code>FALSE</code>. You can't revert this operation. </p>
  *          <p>You can check whether a firewall is
  *          in use by reviewing the route tables for the Availability Zones where you have

@@ -425,7 +425,7 @@ export interface WorkspaceBundle {
 
   /**
    * <p>The owner of the bundle. This is the account identifier of the owner, or
-   *          <code>AMAZON</code> if the bundle is provided by AWS.</p>
+   *          <code>AMAZON</code> if the bundle is provided by Amazon Web Services.</p>
    */
   Owner?: string;
 
@@ -537,7 +537,7 @@ export interface ConnectionAliasAssociation {
   AssociationStatus?: AssociationStatus | string;
 
   /**
-   * <p>The identifier of the AWS account that associated the connection alias with a directory.</p>
+   * <p>The identifier of the Amazon Web Services account that associated the connection alias with a directory.</p>
    */
   AssociatedAccountId?: string;
 
@@ -591,7 +591,7 @@ export interface ConnectionAlias {
   State?: ConnectionAliasState | string;
 
   /**
-   * <p>The identifier of the AWS account that owns the connection alias.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the connection alias.</p>
    */
   OwnerAccountId?: string;
 
@@ -617,12 +617,12 @@ export namespace ConnectionAlias {
  */
 export interface ConnectionAliasPermission {
   /**
-   * <p>The identifier of the AWS account that the connection alias is shared with.</p>
+   * <p>The identifier of the Amazon Web Services account that the connection alias is shared with.</p>
    */
   SharedAccountId: string | undefined;
 
   /**
-   * <p>Indicates whether the specified AWS account is allowed to associate the connection alias with a directory.</p>
+   * <p>Indicates whether the specified Amazon Web Services account is allowed to associate the connection alias with a directory.</p>
    */
   AllowAssociation: boolean | undefined;
 }
@@ -767,7 +767,7 @@ export interface CreateConnectionAliasRequest {
    * <p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p>
    *
    *          <important>
-   *             <p>After you create a connection string, it is always associated to your AWS account. You cannot recreate the same
+   *             <p>After you create a connection string, it is always associated to your Amazon Web Services account. You cannot recreate the same
    *             connection string with a different account, even if you delete all instances of it from the original account. The
    *          connection string is globally reserved for your account.</p>
    *          </important>
@@ -903,6 +903,58 @@ export namespace CreateTagsResult {
   });
 }
 
+export interface CreateUpdatedWorkspaceImageRequest {
+  /**
+   * <p>The name of the new updated WorkSpace image.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of whether updates for the WorkSpace image are available.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The identifier of the source WorkSpace image.</p>
+   */
+  SourceImageId: string | undefined;
+
+  /**
+   * <p>The tags that you want to add to the new updated WorkSpace image.</p>
+   *
+   *          <note>
+   *             <p>To add tags at the same time when you're creating the updated image, you must create
+   *             an IAM policy that grants your IAM user permissions to use <code>workspaces:CreateTags</code>. </p>
+   *          </note>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateUpdatedWorkspaceImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUpdatedWorkspaceImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateUpdatedWorkspaceImageResult {
+  /**
+   * <p>The identifier of the new updated WorkSpace image.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace CreateUpdatedWorkspaceImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateUpdatedWorkspaceImageResult): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateWorkspaceBundleRequest {
   /**
    * <p>The name of the bundle.</p>
@@ -1023,14 +1075,14 @@ export namespace WorkspaceProperties {
  */
 export interface WorkspaceRequest {
   /**
-   * <p>The identifier of the AWS Directory Service directory for the WorkSpace. You can use
+   * <p>The identifier of the Directory Service directory for the WorkSpace. You can use
    *             <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>The user name of the user for the WorkSpace. This user name must exist in the AWS
-   *          Directory Service directory for the WorkSpace.</p>
+   * <p>The user name of the user for the WorkSpace. This user name must exist in the Directory Service
+   *          directory for the WorkSpace.</p>
    */
   UserName: string | undefined;
 
@@ -1040,8 +1092,8 @@ export interface WorkspaceRequest {
   BundleId: string | undefined;
 
   /**
-   * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
-   *          Amazon WorkSpaces does not support asymmetric CMKs.</p>
+   * <p>The symmetric KMS key used to encrypt data stored on your WorkSpace.
+   *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    */
   VolumeEncryptionKey?: string;
 
@@ -1186,7 +1238,7 @@ export interface Workspace {
   WorkspaceId?: string;
 
   /**
-   * <p>The identifier of the AWS Directory Service directory for the WorkSpace.</p>
+   * <p>The identifier of the Directory Service directory for the WorkSpace.</p>
    */
   DirectoryId?: string;
 
@@ -1243,8 +1295,8 @@ export interface Workspace {
   ComputerName?: string;
 
   /**
-   * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace.
-   *          Amazon WorkSpaces does not support asymmetric CMKs.</p>
+   * <p>The symmetric KMS key used to encrypt data stored on your WorkSpace.
+   *          Amazon WorkSpaces does not support asymmetric KMS keys.</p>
    */
   VolumeEncryptionKey?: string;
 
@@ -1868,8 +1920,8 @@ export interface DescribeWorkspaceBundlesRequest {
 
   /**
    * <p>The owner of the bundles. You cannot combine this parameter with any other filter.</p>
-   *          <p>To describe the bundles provided by AWS, specify <code>AMAZON</code>. To describe the
-   *          bundles that belong to your account, don't specify a value.</p>
+   *          <p>To describe the bundles provided by Amazon Web Services, specify <code>AMAZON</code>.
+   *          To describe the bundles that belong to your account, don't specify a value.</p>
    */
   Owner?: string;
 
@@ -2005,18 +2057,12 @@ export enum Tenancy {
  */
 export interface WorkspaceAccessProperties {
   /**
-   * <p>Indicates whether users can use Windows clients to access their WorkSpaces. To restrict
-   *          WorkSpaces access to trusted devices (also known as managed devices) with valid
-   *          certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
-   *             WorkSpaces Access to Trusted Devices</a>. </p>
+   * <p>Indicates whether users can use Windows clients to access their WorkSpaces.</p>
    */
   DeviceTypeWindows?: AccessPropertyValue | string;
 
   /**
-   * <p>Indicates whether users can use macOS clients to access their WorkSpaces. To restrict
-   *          WorkSpaces access to trusted devices (also known as managed devices) with valid
-   *          certificates, specify a value of <code>TRUST</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html">Restrict
-   *             WorkSpaces Access to Trusted Devices</a>. </p>
+   * <p>Indicates whether users can use macOS clients to access their WorkSpaces.</p>
    */
   DeviceTypeOsx?: AccessPropertyValue | string;
 
@@ -2031,7 +2077,8 @@ export interface WorkspaceAccessProperties {
   DeviceTypeIos?: AccessPropertyValue | string;
 
   /**
-   * <p>Indicates whether users can use Android devices to access their WorkSpaces.</p>
+   * <p>Indicates whether users can use Android and Android-compatible Chrome OS devices
+   *          to access their WorkSpaces.</p>
    */
   DeviceTypeAndroid?: AccessPropertyValue | string;
 
@@ -2213,14 +2260,14 @@ export namespace DescribeWorkspaceImagePermissionsRequest {
 }
 
 /**
- * <p>Describes the AWS accounts that have been granted permission to use a shared image. For more
- *          information about sharing images, see
+ * <p>Describes the Amazon Web Services accounts that have been granted permission to use a shared image.
+ *          For more information about sharing images, see
  *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
  *             Share or Unshare a Custom WorkSpaces Image</a>.</p>
  */
 export interface ImagePermission {
   /**
-   * <p>The identifier of the AWS account that an image has been shared with.</p>
+   * <p>The identifier of the Amazon Web Services account that an image has been shared with.</p>
    */
   SharedAccountId?: string;
 }
@@ -2241,7 +2288,7 @@ export interface DescribeWorkspaceImagePermissionsResult {
   ImageId?: string;
 
   /**
-   * <p>The identifiers of the AWS accounts that the image has been shared with.</p>
+   * <p>The identifiers of the Amazon Web Services accounts that the image has been shared with.</p>
    */
   ImagePermissions?: ImagePermission[];
 
@@ -2333,6 +2380,35 @@ export enum WorkspaceImageState {
 }
 
 /**
+ * <p>Describes whether a WorkSpace image needs to be updated with the latest
+ *          drivers and other components required by Amazon WorkSpaces.</p>
+ *
+ *          <note>
+ *             <p>Only Windows 10 WorkSpace images can be programmatically updated at this time.</p>
+ *          </note>
+ */
+export interface UpdateResult {
+  /**
+   * <p>Indicates whether updated drivers or other components are available for the specified WorkSpace image.</p>
+   */
+  UpdateAvailable?: boolean;
+
+  /**
+   * <p>A description of whether updates for the WorkSpace image are pending or available.</p>
+   */
+  Description?: string;
+}
+
+export namespace UpdateResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResult): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a WorkSpace image.</p>
  */
 export interface WorkspaceImage {
@@ -2380,15 +2456,20 @@ export interface WorkspaceImage {
   ErrorMessage?: string;
 
   /**
-   * <p>The date when the image was created. If the image has been shared, the AWS account
+   * <p>The date when the image was created. If the image has been shared, the Amazon Web Services account
    *          that the image has been shared with sees the original creation date of the image.</p>
    */
   Created?: Date;
 
   /**
-   * <p>The identifier of the AWS account that owns the image.</p>
+   * <p>The identifier of the Amazon Web Services account that owns the image.</p>
    */
   OwnerAccountId?: string;
+
+  /**
+   * <p>The updates (if any) that are available for the specified image.</p>
+   */
+  Updates?: UpdateResult;
 }
 
 export namespace WorkspaceImage {
@@ -3371,7 +3452,7 @@ export interface RegisterWorkspaceDirectoryRequest {
 
   /**
    * <p>Indicates whether your WorkSpace directory is dedicated or shared. To use Bring Your Own
-   *          License (BYOL) images, this value must be set to <code>DEDICATED</code> and your AWS account must be
+   *          License (BYOL) images, this value must be set to <code>DEDICATED</code> and your Amazon Web Services account must be
    *          enabled for BYOL. If your account has not been enabled for BYOL, you will receive an
    *          InvalidParameterValuesException error. For more information about BYOL images, see
    *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows Desktop Images</a>.</p>
@@ -3663,7 +3744,7 @@ export interface UpdateConnectionAliasPermissionRequest {
   AliasId: string | undefined;
 
   /**
-   * <p>Indicates whether to share or unshare the connection alias with the specified AWS account.</p>
+   * <p>Indicates whether to share or unshare the connection alias with the specified Amazon Web Services account.</p>
    */
   ConnectionAliasPermission: ConnectionAliasPermission | undefined;
 }
@@ -3765,10 +3846,10 @@ export interface UpdateWorkspaceImagePermissionRequest {
   AllowCopyImage: boolean | undefined;
 
   /**
-   * <p>The identifier of the AWS account to share or unshare the image with.</p>
+   * <p>The identifier of the Amazon Web Services account to share or unshare the image with.</p>
    *
    *          <important>
-   *             <p>Before sharing the image, confirm that you are sharing to the correct AWS account ID.</p>
+   *             <p>Before sharing the image, confirm that you are sharing to the correct Amazon Web Services account ID.</p>
    *          </important>
    */
   SharedAccountId: string | undefined;

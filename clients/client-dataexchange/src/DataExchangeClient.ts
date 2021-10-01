@@ -51,13 +51,16 @@ import {
 
 import { CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
+import { CreateEventActionCommandInput, CreateEventActionCommandOutput } from "./commands/CreateEventActionCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateRevisionCommandInput, CreateRevisionCommandOutput } from "./commands/CreateRevisionCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
+import { DeleteEventActionCommandInput, DeleteEventActionCommandOutput } from "./commands/DeleteEventActionCommand";
 import { DeleteRevisionCommandInput, DeleteRevisionCommandOutput } from "./commands/DeleteRevisionCommand";
 import { GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand";
 import { GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand";
+import { GetEventActionCommandInput, GetEventActionCommandOutput } from "./commands/GetEventActionCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand";
 import {
@@ -65,6 +68,7 @@ import {
   ListDataSetRevisionsCommandOutput,
 } from "./commands/ListDataSetRevisionsCommand";
 import { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
+import { ListEventActionsCommandInput, ListEventActionsCommandOutput } from "./commands/ListEventActionsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListRevisionAssetsCommandInput, ListRevisionAssetsCommandOutput } from "./commands/ListRevisionAssetsCommand";
 import {
@@ -76,23 +80,28 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
+import { UpdateEventActionCommandInput, UpdateEventActionCommandOutput } from "./commands/UpdateEventActionCommand";
 import { UpdateRevisionCommandInput, UpdateRevisionCommandOutput } from "./commands/UpdateRevisionCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CancelJobCommandInput
   | CreateDataSetCommandInput
+  | CreateEventActionCommandInput
   | CreateJobCommandInput
   | CreateRevisionCommandInput
   | DeleteAssetCommandInput
   | DeleteDataSetCommandInput
+  | DeleteEventActionCommandInput
   | DeleteRevisionCommandInput
   | GetAssetCommandInput
   | GetDataSetCommandInput
+  | GetEventActionCommandInput
   | GetJobCommandInput
   | GetRevisionCommandInput
   | ListDataSetRevisionsCommandInput
   | ListDataSetsCommandInput
+  | ListEventActionsCommandInput
   | ListJobsCommandInput
   | ListRevisionAssetsCommandInput
   | ListTagsForResourceCommandInput
@@ -101,22 +110,27 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAssetCommandInput
   | UpdateDataSetCommandInput
+  | UpdateEventActionCommandInput
   | UpdateRevisionCommandInput;
 
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CreateDataSetCommandOutput
+  | CreateEventActionCommandOutput
   | CreateJobCommandOutput
   | CreateRevisionCommandOutput
   | DeleteAssetCommandOutput
   | DeleteDataSetCommandOutput
+  | DeleteEventActionCommandOutput
   | DeleteRevisionCommandOutput
   | GetAssetCommandOutput
   | GetDataSetCommandOutput
+  | GetEventActionCommandOutput
   | GetJobCommandOutput
   | GetRevisionCommandOutput
   | ListDataSetRevisionsCommandOutput
   | ListDataSetsCommandOutput
+  | ListEventActionsCommandOutput
   | ListJobsCommandOutput
   | ListRevisionAssetsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -125,6 +139,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAssetCommandOutput
   | UpdateDataSetCommandOutput
+  | UpdateEventActionCommandOutput
   | UpdateRevisionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

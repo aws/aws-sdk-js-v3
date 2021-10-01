@@ -339,6 +339,7 @@ import {
 import {
   AgentStatus,
   AgentStatusSummary,
+  AnswerMachineDetectionConfig,
   Attribute,
   Channel,
   ChatMessage,
@@ -2665,6 +2666,7 @@ export const serializeAws_restJson1ListIntegrationAssociationsCommand = async (
     throw new Error("No value provided for input HTTP label: InstanceId.");
   }
   const query: any = {
+    ...(input.IntegrationType !== undefined && { integrationType: input.IntegrationType }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
@@ -3337,8 +3339,16 @@ export const serializeAws_restJson1StartOutboundVoiceContactCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/outbound-voice";
   let body: any;
   body = JSON.stringify({
+    ...(input.AnswerMachineDetectionConfig !== undefined &&
+      input.AnswerMachineDetectionConfig !== null && {
+        AnswerMachineDetectionConfig: serializeAws_restJson1AnswerMachineDetectionConfig(
+          input.AnswerMachineDetectionConfig,
+          context
+        ),
+      }),
     ...(input.Attributes !== undefined &&
       input.Attributes !== null && { Attributes: serializeAws_restJson1Attributes(input.Attributes, context) }),
+    ...(input.CampaignId !== undefined && input.CampaignId !== null && { CampaignId: input.CampaignId }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.ContactFlowId !== undefined && input.ContactFlowId !== null && { ContactFlowId: input.ContactFlowId }),
     ...(input.DestinationPhoneNumber !== undefined &&
@@ -3347,6 +3357,7 @@ export const serializeAws_restJson1StartOutboundVoiceContactCommand = async (
     ...(input.QueueId !== undefined && input.QueueId !== null && { QueueId: input.QueueId }),
     ...(input.SourcePhoneNumber !== undefined &&
       input.SourcePhoneNumber !== null && { SourcePhoneNumber: input.SourcePhoneNumber }),
+    ...(input.TrafficType !== undefined && input.TrafficType !== null && { TrafficType: input.TrafficType }),
   });
   return new __HttpRequest({
     protocol,
@@ -14561,6 +14572,20 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   return contents;
+};
+
+const serializeAws_restJson1AnswerMachineDetectionConfig = (
+  input: AnswerMachineDetectionConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AwaitAnswerMachinePrompt !== undefined &&
+      input.AwaitAnswerMachinePrompt !== null && { AwaitAnswerMachinePrompt: input.AwaitAnswerMachinePrompt }),
+    ...(input.EnableAnswerMachineDetection !== undefined &&
+      input.EnableAnswerMachineDetection !== null && {
+        EnableAnswerMachineDetection: input.EnableAnswerMachineDetection,
+      }),
+  };
 };
 
 const serializeAws_restJson1Attributes = (input: { [key: string]: string }, context: __SerdeContext): any => {

@@ -22,7 +22,7 @@ export interface ListEmailTemplatesCommandInput extends ListEmailTemplatesReques
 export interface ListEmailTemplatesCommandOutput extends ListEmailTemplatesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the email templates present in your Amazon SES account in the current AWS
+ * <p>Lists the email templates present in your Amazon SES account in the current Amazon Web Services
  *             Region.</p>
  *
  *         <p>You can execute this operation no more than once per second.</p>

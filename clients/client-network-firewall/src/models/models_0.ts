@@ -111,13 +111,13 @@ export interface AssociateFirewallPolicyRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *         <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -324,13 +324,13 @@ export interface AssociateSubnetsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -797,6 +797,34 @@ export namespace LimitExceededException {
   });
 }
 
+export enum RuleOrder {
+  DEFAULT_ACTION_ORDER = "DEFAULT_ACTION_ORDER",
+  STRICT_ORDER = "STRICT_ORDER",
+}
+
+/**
+ * <p>Configuration settings for the handling of the stateful rule groups in a firewall policy. </p>
+ */
+export interface StatefulEngineOptions {
+  /**
+   * <p>Indicates how to manage the order of stateful rule evaluation for the policy. By default, Network Firewall
+   *            leaves the rule evaluation order up to the Suricata rule processing engine. If you set
+   *            this to <code>STRICT_ORDER</code>, your rules are evaluated in the exact order that you provide them
+   *            in the policy. With strict ordering, the rule groups are evaluated by order of priority, starting from the lowest number, and
+   *            the rules in each rule group are processed in the order that they're defined. </p>
+   */
+  RuleOrder?: RuleOrder | string;
+}
+
+export namespace StatefulEngineOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatefulEngineOptions): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Identifier for a single stateful rule group, used in a firewall policy to refer to a
  *          rule group. </p>
@@ -806,6 +834,19 @@ export interface StatefulRuleGroupReference {
    * <p>The Amazon Resource Name (ARN) of the stateful rule group.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>An integer setting that indicates the order in which to run the stateful rule groups in
+   *       a single <a>FirewallPolicy</a>. This setting only applies to firewall policies
+   *       that specify the <code>STRICT_ORDER</code> rule order in the stateful engine options settings.</p>
+   *          <p>Network Firewall evalutes each stateful rule group
+   *          against a packet starting with the group that has the lowest priority setting. You must ensure
+   *          that the priority settings are unique within each policy.</p>
+   *          <p>You can change the priority settings of your rule groups at any time. To make it easier to
+   *          insert rule groups later, number them so there's a wide range in between, for example use 100,
+   *          200, and so on. </p>
+   */
+  Priority?: number;
 }
 
 export namespace StatefulRuleGroupReference {
@@ -938,10 +979,21 @@ export interface FirewallPolicy {
   StatelessCustomActions?: CustomAction[];
 
   /**
-   * <p>References to the stateless rule groups that are used in the policy. These define the
+   * <p>References to the stateful rule groups that are used in the policy. These define the
    *          inspection criteria in stateful rules. </p>
    */
   StatefulRuleGroupReferences?: StatefulRuleGroupReference[];
+
+  /**
+   * <p>The default actions to take on a packet that doesn't match any stateful rules.</p>
+   */
+  StatefulDefaultActions?: string[];
+
+  /**
+   * <p>Additional options governing how Network Firewall handles stateful rules. The stateful
+   *        rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.</p>
+   */
+  StatefulEngineOptions?: StatefulEngineOptions;
 }
 
 export namespace FirewallPolicy {
@@ -1039,6 +1091,21 @@ export interface FirewallPolicyResponse {
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The number of capacity units currently consumed by the policy's stateless rules.</p>
+   */
+  ConsumedStatelessRuleCapacity?: number;
+
+  /**
+   * <p>The number of capacity units currently consumed by the policy's stateful rules.</p>
+   */
+  ConsumedStatefulRuleCapacity?: number;
+
+  /**
+   * <p>The number of firewalls that are associated with this firewall policy.</p>
+   */
+  NumberOfAssociations?: number;
 }
 
 export namespace FirewallPolicyResponse {
@@ -1085,8 +1152,7 @@ export enum TargetType {
 /**
  * <p>Stateful inspection criteria for a domain list rule group. </p>
  *          <p>For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.</p>
- *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in AWS Network Firewall</a> in the <i>Network Firewall Developer Guide</i>
- *          </p>
+ *          <p>By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the <code>HOME_NET</code> rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see <a>RuleVariables</a> in this guide and <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html">Stateful domain list rule groups in AWS Network Firewall</a> in the <i>Network Firewall Developer Guide</i>.</p>
  */
 export interface RulesSourceList {
   /**
@@ -1104,7 +1170,7 @@ export interface RulesSourceList {
   Targets: string[] | undefined;
 
   /**
-   * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specity <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
+   * <p>The protocols you want to inspect. Specify <code>TLS_SNI</code> for <code>HTTPS</code>. Specify <code>HTTP_HOST</code> for <code>HTTP</code>. You can specify either or both. </p>
    */
   TargetTypes: (TargetType | string)[] | undefined;
 
@@ -1157,7 +1223,7 @@ export enum StatefulRuleProtocol {
 }
 
 /**
- * <p>The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful
+ * <p>The basic rule criteria for AWS Network Firewall to use to inspect packet headers in stateful
  *          traffic flow inspection. Traffic flows that match the criteria are a match for the
  *          corresponding <a>StatefulRule</a>. </p>
  */
@@ -1188,7 +1254,7 @@ export interface Header {
   /**
    * <p>The source port to inspect for. You can specify an individual port, for
    *            example <code>1994</code> and you can specify a port
-   *                range, for example <code>1990-1994</code>.
+   *                range, for example <code>1990:1994</code>.
    *           To match with any port, specify <code>ANY</code>. </p>
    */
   SourcePort: string | undefined;
@@ -1222,7 +1288,7 @@ export interface Header {
   /**
    * <p>The destination port to inspect for. You can specify an individual port, for
    *            example <code>1994</code> and you can specify
-   *          a port range, for example <code>1990-1994</code>.
+   *          a port range, for example <code>1990:1994</code>.
    *           To match with any port, specify <code>ANY</code>. </p>
    */
   DestinationPort: string | undefined;
@@ -1262,7 +1328,10 @@ export namespace RuleOption {
 }
 
 /**
- * <p>A single 5-tuple stateful rule, for use in a stateful rule group.</p>
+ * <p>A single Suricata rules specification, for use in a stateful rule group.
+ *        Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options.
+ *        For information about the Suricata <code>Rules</code> format, see
+ *                                         <a href="https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#">Rules Format</a>. </p>
  */
 export interface StatefulRule {
   /**
@@ -1296,13 +1365,13 @@ export interface StatefulRule {
   Action: StatefulAction | string | undefined;
 
   /**
-   * <p>The stateful 5-tuple inspection criteria for this rule, used to inspect traffic flows.
+   * <p>The stateful inspection criteria for this rule, used to inspect traffic flows.
    *       </p>
    */
   Header: Header | undefined;
 
   /**
-   * <p></p>
+   * <p>Additional options for the rule. These are the Suricata <code>RuleOptions</code> settings.</p>
    */
   RuleOptions: RuleOption[] | undefined;
 }
@@ -1408,7 +1477,7 @@ export interface MatchAttributes {
    * <p>The source ports to inspect for. If not specified, this matches with any source port.
    *          This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
    *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
-   *          ranges, for example <code>1990-1994</code>. </p>
+   *          ranges, for example <code>1990:1994</code>. </p>
    */
   SourcePorts?: PortRange[];
 
@@ -1416,7 +1485,7 @@ export interface MatchAttributes {
    * <p>The destination ports to inspect for. If not specified, this matches with any
    *          destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP). </p>
    *          <p>You can specify individual ports, for example <code>1994</code> and you can specify port
-   *          ranges, for example <code>1990-1994</code>. </p>
+   *          ranges, for example <code>1990:1994</code>. </p>
    */
   DestinationPorts?: PortRange[];
 
@@ -1515,7 +1584,7 @@ export interface StatelessRule {
   RuleDefinition: RuleDefinition | undefined;
 
   /**
-   * <p>A setting that indicates the order in which to run this rule relative to all of the
+   * <p>Indicates the order in which to run this rule relative to all of the
    *          rules that are defined for a stateless rule group. Network Firewall evaluates the rules in a
    *          rule group starting with the lowest priority setting. You must ensure that the priority
    *          settings are unique for the rule group. </p>
@@ -1591,8 +1660,10 @@ export interface RulesSource {
   RulesSourceList?: RulesSourceList;
 
   /**
-   * <p>The 5-tuple stateful inspection criteria. This contains an array of individual 5-tuple
-   *          stateful rules to be used together in a stateful rule group. </p>
+   * <p>An array of individual stateful rules inspection criteria to be used together in a stateful rule group.
+   *        Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options.
+   *        For information about the Suricata <code>Rules</code> format, see
+   *                                         <a href="https://suricata.readthedocs.io/en/suricata-5.0.0/rules/intro.html#">Rules Format</a>. </p>
    */
   StatefulRules?: StatefulRule[];
 
@@ -1678,6 +1749,28 @@ export namespace RuleVariables {
 }
 
 /**
+ * <p>Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.</p>
+ */
+export interface StatefulRuleOptions {
+  /**
+   * <p>Indicates how to manage the order of the rule evaluation for the rule group. By default, Network Firewall
+   *            leaves the rule evaluation order up to the Suricata rule processing engine. If you set
+   *            this to <code>STRICT_ORDER</code>, your rules are evaluated in the exact order that they're listed
+   *            in your Suricata rules string. </p>
+   */
+  RuleOrder?: RuleOrder | string;
+}
+
+export namespace StatefulRuleOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatefulRuleOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The object that defines the rules in a rule group. This, along with <a>RuleGroupResponse</a>, define the rule group. You can retrieve all objects for a rule group by calling <a>DescribeRuleGroup</a>. </p>
  *          <p>AWS Network Firewall uses a rule group to inspect and control network traffic.
  *     You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their
@@ -1696,6 +1789,12 @@ export interface RuleGroup {
    * <p>The stateful rules or stateless rules for the rule group. </p>
    */
   RulesSource: RulesSource | undefined;
+
+  /**
+   * <p>Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful
+   *        rule group must have stateful rule options settings that are compatible with these settings.</p>
+   */
+  StatefulRuleOptions?: StatefulRuleOptions;
 }
 
 export namespace RuleGroup {
@@ -1871,6 +1970,16 @@ export interface RuleGroupResponse {
    * <p>The key:value pairs to associate with the resource.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The number of capacity units currently consumed by the rule group rules. </p>
+   */
+  ConsumedCapacity?: number;
+
+  /**
+   * <p>The number of firewall policies that use this rule group.</p>
+   */
+  NumberOfAssociations?: number;
 }
 
 export namespace RuleGroupResponse {
@@ -1907,13 +2016,13 @@ export namespace CreateRuleGroupResponse {
 export interface DeleteFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 }
@@ -2036,6 +2145,24 @@ export namespace DeleteResourcePolicyResponse {
   });
 }
 
+/**
+ * <p>The policy statement failed validation.</p>
+ */
+export interface InvalidResourcePolicyException extends __SmithyException, $MetadataBearer {
+  name: "InvalidResourcePolicyException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidResourcePolicyException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidResourcePolicyException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
@@ -2087,13 +2214,13 @@ export namespace DeleteRuleGroupResponse {
 export interface DescribeFirewallRequest {
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 }
@@ -2138,13 +2265,13 @@ export namespace DescribeFirewallResponse {
 export interface DescribeFirewallPolicyRequest {
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
 }
@@ -2188,13 +2315,13 @@ export namespace DescribeFirewallPolicyResponse {
 export interface DescribeLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 }
@@ -2361,20 +2488,20 @@ export namespace DescribeResourcePolicyResponse {
 export interface DescribeRuleGroupRequest {
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
-   *          <note>
+   *            <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
@@ -2432,13 +2559,13 @@ export interface DisassociateSubnetsRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -2538,24 +2665,6 @@ export namespace FirewallPolicyMetadata {
    * @internal
    */
   export const filterSensitiveLog = (obj: FirewallPolicyMetadata): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p></p>
- */
-export interface InvalidResourcePolicyException extends __SmithyException, $MetadataBearer {
-  name: "InvalidResourcePolicyException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace InvalidResourcePolicyException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InvalidResourcePolicyException): any => ({
     ...obj,
   });
 }
@@ -2937,7 +3046,7 @@ export namespace UntagResourceResponse {
 }
 
 /**
- * <p></p>
+ * <p>Unable to change the resource because your account doesn't own it. </p>
  */
 export interface ResourceOwnerCheckException extends __SmithyException, $MetadataBearer {
   name: "ResourceOwnerCheckException";
@@ -2964,13 +3073,13 @@ export interface UpdateFirewallDeleteProtectionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -3034,13 +3143,13 @@ export interface UpdateFirewallDescriptionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -3102,13 +3211,13 @@ export interface UpdateFirewallPolicyRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall policy.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyArn?: string;
 
   /**
    * <p>The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallPolicyName?: string;
 
@@ -3174,13 +3283,13 @@ export interface UpdateFirewallPolicyChangeProtectionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -3239,13 +3348,13 @@ export namespace UpdateFirewallPolicyChangeProtectionResponse {
 export interface UpdateLoggingConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 
@@ -3300,13 +3409,13 @@ export interface UpdateRuleGroupRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rule group.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupArn?: string;
 
   /**
    * <p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *           <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   RuleGroupName?: string;
 
@@ -3332,7 +3441,7 @@ export interface UpdateRuleGroupRequest {
   /**
    * <p>Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
    * stateless rules. If it is stateful, it contains stateful rules. </p>
-   *          <note>
+   *            <note>
    *             <p>This setting is required for requests that do not include the <code>RuleGroupARN</code>.</p>
    *          </note>
    */
@@ -3395,13 +3504,13 @@ export interface UpdateSubnetChangeProtectionRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the firewall.</p>
-   *           <p>You must specify the ARN or the name, and you can specify both. </p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallArn?: string;
 
   /**
    * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
-   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   *            <p>You must specify the ARN or the name, and you can specify both. </p>
    */
   FirewallName?: string;
 

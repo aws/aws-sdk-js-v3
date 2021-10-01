@@ -22,7 +22,7 @@ export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
 export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Update an AWS App Runner service. You can update the source configuration and instance configuration of the service. You can also update the ARN of the auto
+ * <p>Update an App Runner service. You can update the source configuration and instance configuration of the service. You can also update the ARN of the auto
  *       scaling configuration resource that's associated with the service. However, you can't change the name or the encryption configuration of the service.
  *       These can be set only when you create the service.</p>
  *          <p>To update the tags applied to your service, use the separate actions <a>TagResource</a> and <a>UntagResource</a>.</p>

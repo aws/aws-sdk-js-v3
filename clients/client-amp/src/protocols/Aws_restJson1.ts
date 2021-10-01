@@ -17,14 +17,50 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  CreateAlertManagerDefinitionCommandInput,
+  CreateAlertManagerDefinitionCommandOutput,
+} from "../commands/CreateAlertManagerDefinitionCommand";
+import {
+  CreateRuleGroupsNamespaceCommandInput,
+  CreateRuleGroupsNamespaceCommandOutput,
+} from "../commands/CreateRuleGroupsNamespaceCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
+import {
+  DeleteAlertManagerDefinitionCommandInput,
+  DeleteAlertManagerDefinitionCommandOutput,
+} from "../commands/DeleteAlertManagerDefinitionCommand";
+import {
+  DeleteRuleGroupsNamespaceCommandInput,
+  DeleteRuleGroupsNamespaceCommandOutput,
+} from "../commands/DeleteRuleGroupsNamespaceCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
+import {
+  DescribeAlertManagerDefinitionCommandInput,
+  DescribeAlertManagerDefinitionCommandOutput,
+} from "../commands/DescribeAlertManagerDefinitionCommand";
+import {
+  DescribeRuleGroupsNamespaceCommandInput,
+  DescribeRuleGroupsNamespaceCommandOutput,
+} from "../commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
+import {
+  ListRuleGroupsNamespacesCommandInput,
+  ListRuleGroupsNamespacesCommandOutput,
+} from "../commands/ListRuleGroupsNamespacesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "../commands/ListWorkspacesCommand";
+import {
+  PutAlertManagerDefinitionCommandInput,
+  PutAlertManagerDefinitionCommandOutput,
+} from "../commands/PutAlertManagerDefinitionCommand";
+import {
+  PutRuleGroupsNamespaceCommandInput,
+  PutRuleGroupsNamespaceCommandOutput,
+} from "../commands/PutRuleGroupsNamespaceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -33,9 +69,14 @@ import {
 } from "../commands/UpdateWorkspaceAliasCommand";
 import {
   AccessDeniedException,
+  AlertManagerDefinitionDescription,
+  AlertManagerDefinitionStatus,
   ConflictException,
   InternalServerException,
   ResourceNotFoundException,
+  RuleGroupsNamespaceDescription,
+  RuleGroupsNamespaceStatus,
+  RuleGroupsNamespaceSummary,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
@@ -44,6 +85,80 @@ import {
   WorkspaceStatus,
   WorkspaceSummary,
 } from "../models/models_0";
+
+export const serializeAws_restJson1CreateAlertManagerDefinitionCommand = async (
+  input: CreateAlertManagerDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/alertmanager/definition";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateRuleGroupsNamespaceCommand = async (
+  input: CreateRuleGroupsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/rulegroupsnamespaces";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateWorkspaceCommand = async (
   input: CreateWorkspaceCommandInput,
@@ -67,6 +182,83 @@ export const serializeAws_restJson1CreateWorkspaceCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAlertManagerDefinitionCommand = async (
+  input: DeleteAlertManagerDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/alertmanager/definition";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteRuleGroupsNamespaceCommand = async (
+  input: DeleteRuleGroupsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  const query: any = {
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -104,6 +296,75 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeAlertManagerDefinitionCommand = async (
+  input: DescribeAlertManagerDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/alertmanager/definition";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeRuleGroupsNamespaceCommand = async (
+  input: DescribeRuleGroupsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeWorkspaceCommand = async (
   input: DescribeWorkspaceCommandInput,
   context: __SerdeContext
@@ -129,6 +390,42 @@ export const serializeAws_restJson1DescribeWorkspaceCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRuleGroupsNamespacesCommand = async (
+  input: ListRuleGroupsNamespacesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/rulegroupsnamespaces";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  const query: any = {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -182,6 +479,87 @@ export const serializeAws_restJson1ListWorkspacesCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutAlertManagerDefinitionCommand = async (
+  input: PutAlertManagerDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/alertmanager/definition";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutRuleGroupsNamespaceCommand = async (
+  input: PutRuleGroupsNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
+  if (input.workspaceId !== undefined) {
+    const labelValue: string = input.workspaceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: workspaceId.");
+    }
+    resolvedPath = resolvedPath.replace("{workspaceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: workspaceId.");
+  }
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && input.data !== null && { data: context.base64Encoder(input.data) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -284,6 +662,224 @@ export const serializeAws_restJson1UpdateWorkspaceAliasCommand = async (
     path: resolvedPath,
     body,
   });
+};
+
+export const deserializeAws_restJson1CreateAlertManagerDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAlertManagerDefinitionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAlertManagerDefinitionCommandError(output, context);
+  }
+  const contents: CreateAlertManagerDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = deserializeAws_restJson1AlertManagerDefinitionStatus(data.status, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateAlertManagerDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAlertManagerDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amp#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateRuleGroupsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleGroupsNamespaceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateRuleGroupsNamespaceCommandError(output, context);
+  }
+  const contents: CreateRuleGroupsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    name: undefined,
+    status: undefined,
+    tags: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = deserializeAws_restJson1RuleGroupsNamespaceStatus(data.status, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateRuleGroupsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleGroupsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amp#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
 };
 
 export const deserializeAws_restJson1CreateWorkspaceCommand = async (
@@ -393,6 +989,188 @@ const deserializeAws_restJson1CreateWorkspaceCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteAlertManagerDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAlertManagerDefinitionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAlertManagerDefinitionCommandError(output, context);
+  }
+  const contents: DeleteAlertManagerDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAlertManagerDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAlertManagerDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleGroupsNamespaceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteRuleGroupsNamespaceCommandError(output, context);
+  }
+  const contents: DeleteRuleGroupsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteRuleGroupsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleGroupsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteWorkspaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -411,6 +1189,194 @@ const deserializeAws_restJson1DeleteWorkspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkspaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAlertManagerDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAlertManagerDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAlertManagerDefinitionCommandError(output, context);
+  }
+  const contents: DescribeAlertManagerDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    alertManagerDefinition: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.alertManagerDefinition !== undefined && data.alertManagerDefinition !== null) {
+    contents.alertManagerDefinition = deserializeAws_restJson1AlertManagerDefinitionDescription(
+      data.alertManagerDefinition,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAlertManagerDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAlertManagerDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeRuleGroupsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleGroupsNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeRuleGroupsNamespaceCommandError(output, context);
+  }
+  const contents: DescribeRuleGroupsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ruleGroupsNamespace: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ruleGroupsNamespace !== undefined && data.ruleGroupsNamespace !== null) {
+    contents.ruleGroupsNamespace = deserializeAws_restJson1RuleGroupsNamespaceDescription(
+      data.ruleGroupsNamespace,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeRuleGroupsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRuleGroupsNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -498,6 +1464,100 @@ const deserializeAws_restJson1DescribeWorkspaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeWorkspaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListRuleGroupsNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleGroupsNamespacesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRuleGroupsNamespacesCommandError(output, context);
+  }
+  const contents: ListRuleGroupsNamespacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    ruleGroupsNamespaces: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.ruleGroupsNamespaces !== undefined && data.ruleGroupsNamespaces !== null) {
+    contents.ruleGroupsNamespaces = deserializeAws_restJson1RuleGroupsNamespaceSummaryList(
+      data.ruleGroupsNamespaces,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListRuleGroupsNamespacesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRuleGroupsNamespacesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -696,6 +1756,224 @@ const deserializeAws_restJson1ListWorkspacesCommandError = async (
     case "com.amazonaws.amp#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutAlertManagerDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAlertManagerDefinitionCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutAlertManagerDefinitionCommandError(output, context);
+  }
+  const contents: PutAlertManagerDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = deserializeAws_restJson1AlertManagerDefinitionStatus(data.status, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutAlertManagerDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAlertManagerDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amp#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutRuleGroupsNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuleGroupsNamespaceCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutRuleGroupsNamespaceCommandError(output, context);
+  }
+  const contents: PutRuleGroupsNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    name: undefined,
+    status: undefined,
+    tags: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = deserializeAws_restJson1RuleGroupsNamespaceStatus(data.status, context);
+  }
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutRuleGroupsNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRuleGroupsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amp#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1185,6 +2463,114 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
       [key]: value,
     };
   }, {});
+};
+
+const deserializeAws_restJson1AlertManagerDefinitionDescription = (
+  output: any,
+  context: __SerdeContext
+): AlertManagerDefinitionDescription => {
+  return {
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    modifiedAt:
+      output.modifiedAt !== undefined && output.modifiedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1AlertManagerDefinitionStatus(output.status, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AlertManagerDefinitionStatus = (
+  output: any,
+  context: __SerdeContext
+): AlertManagerDefinitionStatus => {
+  return {
+    statusCode: __expectString(output.statusCode),
+    statusReason: __expectString(output.statusReason),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupsNamespaceDescription = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupsNamespaceDescription => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    data: output.data !== undefined && output.data !== null ? context.base64Decoder(output.data) : undefined,
+    modifiedAt:
+      output.modifiedAt !== undefined && output.modifiedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
+        : undefined,
+    name: __expectString(output.name),
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1RuleGroupsNamespaceStatus(output.status, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupsNamespaceStatus = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupsNamespaceStatus => {
+  return {
+    statusCode: __expectString(output.statusCode),
+    statusReason: __expectString(output.statusReason),
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupsNamespaceSummary = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupsNamespaceSummary => {
+  return {
+    arn: __expectString(output.arn),
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt)))
+        : undefined,
+    modifiedAt:
+      output.modifiedAt !== undefined && output.modifiedAt !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt)))
+        : undefined,
+    name: __expectString(output.name),
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1RuleGroupsNamespaceStatus(output.status, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RuleGroupsNamespaceSummaryList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupsNamespaceSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RuleGroupsNamespaceSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {

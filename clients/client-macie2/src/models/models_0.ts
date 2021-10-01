@@ -79,6 +79,10 @@ export enum AllowsUnencryptedObjectUploads {
   UNKNOWN = "UNKNOWN",
 }
 
+export enum BucketMetadataErrorCode {
+  ACCESS_DENIED = "ACCESS_DENIED",
+}
+
 export enum IsDefinedInJob {
   FALSE = "FALSE",
   TRUE = "TRUE",
@@ -130,12 +134,12 @@ export namespace JobDetails {
  */
 export interface ObjectCountByEncryptionType {
   /**
-   * <p>The total number of objects that are encrypted with a customer-managed key. The objects use customer-provided server-side encryption (SSE-C).</p>
+   * <p>The total number of objects that are encrypted with a customer-provided key. The objects use customer-provided server-side encryption (SSE-C).</p>
    */
   customerManaged?: number;
 
   /**
-   * <p>The total number of objects that are encrypted with an Key Management Service (KMS) customer master key (CMK). The objects use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS).</p>
+   * <p>The total number of objects that are encrypted with an KMS key, either an Amazon Web Services managed key or a customer managed key. The objects use KMS encryption (SSE-KMS).</p>
    */
   kmsManaged?: number;
 
@@ -388,12 +392,12 @@ export enum Type {
  */
 export interface BucketServerSideEncryption {
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the Key Management Service (KMS) customer master key (CMK) that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket uses an Amazon S3 managed key to encrypt new objects or the bucket doesn't encrypt new objects by default.</p>
    */
   kmsMasterKeyId?: string;
 
   /**
-   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key and use Amazon S3 managed encryption (SSE-S3).</p></li> <li><p>aws:kms - New objects are encrypted with an KMS CMK, specified by the kmsMasterKeyId property, and use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS).</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
+   * <p>The type of server-side encryption that's used by default when storing new objects in the bucket. Possible values are:</p> <ul><li><p>AES256 - New objects are encrypted with an Amazon S3 managed key. They use SSE-S3 encryption.</p></li> <li><p>aws:kms - New objects are encrypted with an KMS key (kmsMasterKeyId), either an Amazon Web Services managed key or a customer managed key. They use SSE-KMS encryption.</p></li> <li><p>NONE - New objects aren't encrypted by default. Default encryption is disabled for the bucket.</p></li></ul>
    */
   type?: Type | string;
 }
@@ -439,7 +443,7 @@ export namespace KeyValuePair {
 }
 
 /**
- * <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata or MatchingBucket object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for all the buckets in the query results. If versioning is enabled for a bucket, total storage size values are based on the size of the latest version of each applicable object in the bucket.</p>
+ * <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata or MatchingBucket object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for the buckets in the query results. If versioning is enabled for a bucket, total storage size values are based on the size of the latest version of each applicable object in the bucket.</p>
  */
 export interface ObjectLevelStatistics {
   /**
@@ -468,7 +472,7 @@ export namespace ObjectLevelStatistics {
 }
 
 /**
- * <p>Provides information about an S3 bucket that Amazon Macie monitors and analyzes.</p>
+ * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Exceptions are accountId, bucketArn, bucketCreatedAt, bucketName, lastUpdated, and region. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
  */
 export interface BucketMetadata {
   /**
@@ -505,6 +509,16 @@ export interface BucketMetadata {
    * <p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
    */
   classifiableSizeInBytes?: number;
+
+  /**
+   * <p>Specifies the error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
+   */
+  errorCode?: BucketMetadataErrorCode | string;
+
+  /**
+   * <p>A brief description of the error (errorCode) that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. This value is null if Macie was able to retrieve and process the information.</p>
+   */
+  errorMessage?: string;
 
   /**
    * <p>Specifies whether any one-time or recurring classification jobs are configured to analyze data in the bucket, and, if so, the details of the job that ran most recently.</p>
@@ -557,7 +571,7 @@ export interface BucketMetadata {
   sizeInBytes?: number;
 
   /**
-   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
    */
   sizeInBytesCompressed?: number;
 
@@ -1754,7 +1768,7 @@ export interface ServerSideEncryption {
   encryptionType?: EncryptionType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the Key Management Service (KMS) customer master key (CMK) that's used to encrypt data in the bucket or the object. If an KMS CMK isn't used, this value is null.</p>
+   * <p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used to encrypt data in the bucket or the object. This value is null if an KMS key isn't used to encrypt the data.</p>
    */
   kmsMasterKeyId?: string;
 }
@@ -2592,7 +2606,7 @@ export namespace ManagedDataIdentifierSummary {
 }
 
 /**
- * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes.</p>
+ * <p>Provides statistical data and other information about an S3 bucket that Amazon Macie monitors and analyzes for your account. If an error occurs when Macie attempts to retrieve and process information about the bucket or the bucket's objects, the value for most of these properties is null. Exceptions are accountId and bucketName. To identify the cause of the error, refer to the errorCode and errorMessage values.</p>
  */
 export interface MatchingBucket {
   /**
@@ -2616,6 +2630,16 @@ export interface MatchingBucket {
   classifiableSizeInBytes?: number;
 
   /**
+   * <p>Specifies the error code for an error that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. If this value is ACCESS_DENIED, Macie doesn't have permission to retrieve the information. For example, the bucket has a restrictive bucket policy and Amazon S3 denied the request. If this value is null, Macie was able to retrieve and process the information.</p>
+   */
+  errorCode?: BucketMetadataErrorCode | string;
+
+  /**
+   * <p>A brief description of the error (errorCode) that prevented Amazon Macie from retrieving and processing information about the bucket and the bucket's objects. This value is null if Macie was able to retrieve and process the information.</p>
+   */
+  errorMessage?: string;
+
+  /**
    * <p>Specifies whether any one-time or recurring classification jobs are configured to analyze objects in the bucket, and, if so, the details of the job that ran most recently.</p>
    */
   jobDetails?: JobDetails;
@@ -2636,7 +2660,7 @@ export interface MatchingBucket {
   sizeInBytes?: number;
 
   /**
-   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the bucket.</p> <p>If versioning is enabled for the bucket, Amazon Macie calculates this value based on the size of the latest version of each applicable object in the bucket. This value doesn't reflect the storage size of all versions of each applicable object in the bucket.</p>
    */
   sizeInBytesCompressed?: number;
 
@@ -2661,7 +2685,7 @@ export namespace MatchingBucket {
 }
 
 /**
- * <p>Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes.</p>
+ * <p>Provides statistical data and other information about an Amazon Web Services resource that Amazon Macie monitors and analyzes for your account.</p>
  */
 export interface MatchingResource {
   /**
@@ -3349,7 +3373,7 @@ export namespace BucketCountByEffectivePermission {
  */
 export interface BucketCountByEncryptionType {
   /**
-   * <p>The total number of buckets that use an Key Management Service (KMS) customer master key (CMK) to encrypt new objects by default. These buckets use Amazon Web Services managed KMS encryption (AWS-KMS) or customer managed KMS encryption (SSE-KMS) by default.</p>
+   * <p>The total number of buckets that use an KMS key to encrypt new objects by default, either an Amazon Web Services managed key or a customer managed key. These buckets use KMS encryption (SSE-KMS) by default.</p>
    */
   kmsManaged?: number;
 
@@ -3446,7 +3470,7 @@ export namespace BucketCountPolicyAllowsUnencryptedObjectUploads {
  */
 export interface BucketCriteriaAdditionalProperties {
   /**
-   * <p>The value for the property matches (equals) the specified value. If you specify multiple values, Macie uses OR logic to join the values.</p>
+   * <p>The value for the property matches (equals) the specified value. If you specify multiple values, Amazon Macie uses OR logic to join the values.</p>
    */
   eq?: string[];
 
@@ -3534,7 +3558,7 @@ export interface S3Destination {
   keyPrefix?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) customer master key (CMK) to use for encryption of the results. This must be the ARN of an existing CMK that's in the same Amazon Web Services Region as the bucket.</p>
+   * <p>The Amazon Resource Name (ARN) of the KMS key to use for encryption of the results. This must be the ARN of an existing, symmetric, customer managed KMS key that's in the same Amazon Web Services Region as the bucket.</p>
    */
   kmsKeyArn: string | undefined;
 }
@@ -4836,12 +4860,12 @@ export interface GetBucketStatisticsResponse {
   objectCount?: number;
 
   /**
-   * <p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, Macie calculates this value based on the size of the latest version of each object in those buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>
+   * <p>The total storage size, in bytes, of the buckets.</p> <p>If versioning is enabled for any of the buckets, Amazon Macie calculates this value based on the size of the latest version of each object in those buckets. This value doesn't reflect the storage size of all versions of the objects in the buckets.</p>
    */
   sizeInBytes?: number;
 
   /**
-   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, Macie calculates this value based on the size of the latest version of each applicable object in those buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>
+   * <p>The total storage size, in bytes, of the objects that are compressed (.gz, .gzip, .zip) files in the buckets.</p> <p>If versioning is enabled for any of the buckets, Amazon Macie calculates this value based on the size of the latest version of each applicable object in those buckets. This value doesn't reflect the storage size of all versions of the applicable objects in the buckets.</p>
    */
   sizeInBytesCompressed?: number;
 

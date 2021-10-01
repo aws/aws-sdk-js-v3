@@ -22,7 +22,7 @@ export interface ResumeServiceCommandInput extends ResumeServiceRequest {}
 export interface ResumeServiceCommandOutput extends ResumeServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Resume an active AWS App Runner service. App Runner provisions compute capacity for the service.</p>
+ * <p>Resume an active App Runner service. App Runner provisions compute capacity for the service.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a>ListOperations</a>
  *       call to track the operation's progress.</p>
  * @example

@@ -355,6 +355,7 @@ export interface AddPermissionRequest {
   /**
    * <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or
    *       Amazon SNS topic.</p>
+   *          <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
    */
   SourceArn?: string;
 
@@ -489,6 +490,11 @@ export namespace AllowedPublishers {
   export const filterSensitiveLog = (obj: AllowedPublishers): any => ({
     ...obj,
   });
+}
+
+export enum Architecture {
+  arm64 = "arm64",
+  x86_64 = "x86_64",
 }
 
 export interface CreateAliasRequest {
@@ -874,12 +880,14 @@ export interface CreateEventSourceMappingRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+   * <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p>
+   *          <p>Default: True</p>
    */
   Enabled?: boolean;
 
   /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
+   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation
+   *   (6 MB).</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -906,7 +914,9 @@ export interface CreateEventSourceMappingRequest {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
+   *          <p>Default: 0</p>
+   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -916,8 +926,8 @@ export interface CreateEventSourceMappingRequest {
   ParallelizationFactor?: number;
 
   /**
-   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
-   *       sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+   * <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon
+   *       MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
    */
   StartingPosition?: EventSourcePosition | string;
 
@@ -958,9 +968,7 @@ export interface CreateEventSourceMappingRequest {
   Topics?: string[];
 
   /**
-   * <p>
-   *       (MQ) The name of the Amazon MQ broker destination queue to consume.
-   *     </p>
+   * <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
    */
   Queues?: string[];
 
@@ -1011,12 +1019,16 @@ export interface EventSourceMappingConfiguration {
   StartingPositionTimestamp?: Date;
 
   /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
+   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation (6 MB).</p>
+   *          <p>Default value: Varies by service. For Amazon SQS, the default is 10. For all other services, the default is 100.</p>
+   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   BatchSize?: number;
 
   /**
-   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
+   *          <p>Default: 0</p>
+   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -1537,6 +1549,12 @@ export interface CreateFunctionRequest {
    * includes a set of signing profiles, which define the trusted publishers for this function.</p>
    */
   CodeSigningConfigArn?: string;
+
+  /**
+   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values.
+   *     The default value is <code>x86_64</code>.</p>
+   */
+  Architectures?: (Architecture | string)[];
 }
 
 export namespace CreateFunctionRequest {
@@ -1940,6 +1958,12 @@ export interface FunctionConfiguration {
    * <p>The ARN of the signing job.</p>
    */
   SigningJobArn?: string;
+
+  /**
+   * <p>The instruction set architecture that the function supports. Architecture is a string array with one of the
+   *       valid values. The default architecture value is <code>x86_64</code>.</p>
+   */
+  Architectures?: (Architecture | string)[];
 }
 
 export namespace FunctionConfiguration {
@@ -2485,7 +2509,7 @@ export namespace FunctionCodeLocation {
 
 export interface Concurrency {
   /**
-   * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
+   * <p>The number of concurrent executions that are reserved for this function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html">Managing Concurrency</a>.</p>
    */
   ReservedConcurrentExecutions?: number;
 }
@@ -2896,6 +2920,12 @@ export interface GetLayerVersionResponse {
    * <p>The layer's software license.</p>
    */
   LicenseInfo?: string;
+
+  /**
+   * <p>A list of compatible
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   */
+  CompatibleArchitectures?: (Architecture | string)[];
 }
 
 export namespace GetLayerVersionResponse {
@@ -3192,7 +3222,7 @@ export namespace EC2UnexpectedException {
 }
 
 /**
- * <p>An error occured when reading from or writing to a connected file system.</p>
+ * <p>An error occurred when reading from or writing to a connected file system.</p>
  */
 export interface EFSIOException extends __SmithyException, $MetadataBearer {
   name: "EFSIOException";
@@ -3450,7 +3480,7 @@ export interface InvocationRequest {
   InvocationType?: InvocationType | string;
 
   /**
-   * <p>Set to <code>Tail</code> to include the execution log in the response.</p>
+   * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
    */
   LogType?: LogType | string;
 
@@ -3920,8 +3950,8 @@ export interface ListEventSourceMappingsRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns
-   *       a maximum of 100 items in each response, even if you set the number higher.</p>
+   * <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of
+   *       100 items in each response, even if you set the number higher.</p>
    */
   MaxItems?: number;
 }
@@ -4147,6 +4177,12 @@ export interface ListLayersRequest {
    * <p>The maximum number of layers to return.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The compatible
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   */
+  CompatibleArchitecture?: Architecture | string;
 }
 
 export namespace ListLayersRequest {
@@ -4192,6 +4228,12 @@ export interface LayerVersionsListItem {
    * <p>The layer's open-source license.</p>
    */
   LicenseInfo?: string;
+
+  /**
+   * <p>A list of compatible
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   */
+  CompatibleArchitectures?: (Architecture | string)[];
 }
 
 export namespace LayerVersionsListItem {
@@ -4274,6 +4316,12 @@ export interface ListLayerVersionsRequest {
    * <p>The maximum number of versions to return.</p>
    */
   MaxItems?: number;
+
+  /**
+   * <p>The compatible
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+   */
+  CompatibleArchitecture?: Architecture | string;
 }
 
 export namespace ListLayerVersionsRequest {
@@ -4423,7 +4471,8 @@ export namespace ListProvisionedConcurrencyConfigsResponse {
 
 export interface ListTagsRequest {
   /**
-   * <p>The function's Amazon Resource Name (ARN).</p>
+   * <p>The function's Amazon Resource Name (ARN).
+   *       Note: Lambda does not support adding tags to aliases or versions.</p>
    */
   Resource: string | undefined;
 }
@@ -4598,6 +4647,12 @@ export interface PublishLayerVersionRequest {
    *          </ul>
    */
   LicenseInfo?: string;
+
+  /**
+   * <p>A list of compatible
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   */
+  CompatibleArchitectures?: (Architecture | string)[];
 }
 
 export namespace PublishLayerVersionRequest {
@@ -4650,6 +4705,12 @@ export interface PublishLayerVersionResponse {
    * <p>The layer's software license.</p>
    */
   LicenseInfo?: string;
+
+  /**
+   * <p>A list of compatible
+   * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+   */
+  CompatibleArchitectures?: (Architecture | string)[];
 }
 
 export namespace PublishLayerVersionResponse {
@@ -5265,12 +5326,14 @@ export interface UpdateEventSourceMappingRequest {
   FunctionName?: string;
 
   /**
-   * <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+   * <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p>
+   *          <p>Default: True</p>
    */
   Enabled?: boolean;
 
   /**
-   * <p>The maximum number of items to retrieve in a single batch.</p>
+   * <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation
+   *   (6 MB).</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5297,7 +5360,9 @@ export interface UpdateEventSourceMappingRequest {
   BatchSize?: number;
 
   /**
-   * <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+   * <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
+   *          <p>Default: 0</p>
+   *          <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
    */
   MaximumBatchingWindowInSeconds?: number;
 
@@ -5419,6 +5484,12 @@ export interface UpdateFunctionCodeRequest {
    *       function that has changed since you last read it.</p>
    */
   RevisionId?: string;
+
+  /**
+   * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values.
+   *     The default value is <code>x86_64</code>.</p>
+   */
+  Architectures?: (Architecture | string)[];
 }
 
 export namespace UpdateFunctionCodeRequest {
@@ -5540,7 +5611,7 @@ export interface UpdateFunctionConfigurationRequest {
   /**
    * <p>
    *             <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
-   *         values</a> that override the values in the container image Dockerfile.</p>
+   *         values</a> that override the values in the container image Docker file.</p>
    */
   ImageConfig?: ImageConfig;
 }

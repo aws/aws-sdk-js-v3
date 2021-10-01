@@ -169,8 +169,10 @@ import {
   RulesSource,
   RulesSourceList,
   RuleVariables,
+  StatefulEngineOptions,
   StatefulRule,
   StatefulRuleGroupReference,
+  StatefulRuleOptions,
   StatelessRule,
   StatelessRuleGroupReference,
   StatelessRulesAndCustomActions,
@@ -1270,6 +1272,14 @@ const deserializeAws_json1_0DeleteResourcePolicyCommandError = async (
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       response = {
         ...(await deserializeAws_json1_0InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourcePolicyException":
+    case "com.amazonaws.networkfirewall#InvalidResourcePolicyException":
+      response = {
+        ...(await deserializeAws_json1_0InvalidResourcePolicyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3436,6 +3446,14 @@ const serializeAws_json1_0DisassociateSubnetsRequest = (
 
 const serializeAws_json1_0FirewallPolicy = (input: FirewallPolicy, context: __SerdeContext): any => {
   return {
+    ...(input.StatefulDefaultActions !== undefined &&
+      input.StatefulDefaultActions !== null && {
+        StatefulDefaultActions: serializeAws_json1_0StatefulActions(input.StatefulDefaultActions, context),
+      }),
+    ...(input.StatefulEngineOptions !== undefined &&
+      input.StatefulEngineOptions !== null && {
+        StatefulEngineOptions: serializeAws_json1_0StatefulEngineOptions(input.StatefulEngineOptions, context),
+      }),
     ...(input.StatefulRuleGroupReferences !== undefined &&
       input.StatefulRuleGroupReferences !== null && {
         StatefulRuleGroupReferences: serializeAws_json1_0StatefulRuleGroupReferences(
@@ -3698,6 +3716,10 @@ const serializeAws_json1_0RuleGroup = (input: RuleGroup, context: __SerdeContext
       }),
     ...(input.RulesSource !== undefined &&
       input.RulesSource !== null && { RulesSource: serializeAws_json1_0RulesSource(input.RulesSource, context) }),
+    ...(input.StatefulRuleOptions !== undefined &&
+      input.StatefulRuleOptions !== null && {
+        StatefulRuleOptions: serializeAws_json1_0StatefulRuleOptions(input.StatefulRuleOptions, context),
+      }),
   };
 };
 
@@ -3783,6 +3805,23 @@ const serializeAws_json1_0Settings = (input: string[], context: __SerdeContext):
     });
 };
 
+const serializeAws_json1_0StatefulActions = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_0StatefulEngineOptions = (input: StatefulEngineOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.RuleOrder !== undefined && input.RuleOrder !== null && { RuleOrder: input.RuleOrder }),
+  };
+};
+
 const serializeAws_json1_0StatefulRule = (input: StatefulRule, context: __SerdeContext): any => {
   return {
     ...(input.Action !== undefined && input.Action !== null && { Action: input.Action }),
@@ -3798,6 +3837,7 @@ const serializeAws_json1_0StatefulRuleGroupReference = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Priority !== undefined && input.Priority !== null && { Priority: input.Priority }),
     ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
   };
 };
@@ -3814,6 +3854,12 @@ const serializeAws_json1_0StatefulRuleGroupReferences = (
       }
       return serializeAws_json1_0StatefulRuleGroupReference(entry, context);
     });
+};
+
+const serializeAws_json1_0StatefulRuleOptions = (input: StatefulRuleOptions, context: __SerdeContext): any => {
+  return {
+    ...(input.RuleOrder !== undefined && input.RuleOrder !== null && { RuleOrder: input.RuleOrder }),
+  };
 };
 
 const serializeAws_json1_0StatefulRules = (input: StatefulRule[], context: __SerdeContext): any => {
@@ -4425,6 +4471,14 @@ const deserializeAws_json1_0FirewallPolicies = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0FirewallPolicy = (output: any, context: __SerdeContext): FirewallPolicy => {
   return {
+    StatefulDefaultActions:
+      output.StatefulDefaultActions !== undefined && output.StatefulDefaultActions !== null
+        ? deserializeAws_json1_0StatefulActions(output.StatefulDefaultActions, context)
+        : undefined,
+    StatefulEngineOptions:
+      output.StatefulEngineOptions !== undefined && output.StatefulEngineOptions !== null
+        ? deserializeAws_json1_0StatefulEngineOptions(output.StatefulEngineOptions, context)
+        : undefined,
     StatefulRuleGroupReferences:
       output.StatefulRuleGroupReferences !== undefined && output.StatefulRuleGroupReferences !== null
         ? deserializeAws_json1_0StatefulRuleGroupReferences(output.StatefulRuleGroupReferences, context)
@@ -4457,11 +4511,14 @@ const deserializeAws_json1_0FirewallPolicyMetadata = (output: any, context: __Se
 
 const deserializeAws_json1_0FirewallPolicyResponse = (output: any, context: __SerdeContext): FirewallPolicyResponse => {
   return {
+    ConsumedStatefulRuleCapacity: __expectInt32(output.ConsumedStatefulRuleCapacity),
+    ConsumedStatelessRuleCapacity: __expectInt32(output.ConsumedStatelessRuleCapacity),
     Description: __expectString(output.Description),
     FirewallPolicyArn: __expectString(output.FirewallPolicyArn),
     FirewallPolicyId: __expectString(output.FirewallPolicyId),
     FirewallPolicyName: __expectString(output.FirewallPolicyName),
     FirewallPolicyStatus: __expectString(output.FirewallPolicyStatus),
+    NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_0TagList(output.Tags, context)
@@ -4829,6 +4886,10 @@ const deserializeAws_json1_0RuleGroup = (output: any, context: __SerdeContext): 
       output.RulesSource !== undefined && output.RulesSource !== null
         ? deserializeAws_json1_0RulesSource(output.RulesSource, context)
         : undefined,
+    StatefulRuleOptions:
+      output.StatefulRuleOptions !== undefined && output.StatefulRuleOptions !== null
+        ? deserializeAws_json1_0StatefulRuleOptions(output.StatefulRuleOptions, context)
+        : undefined,
   } as any;
 };
 
@@ -4842,7 +4903,9 @@ const deserializeAws_json1_0RuleGroupMetadata = (output: any, context: __SerdeCo
 const deserializeAws_json1_0RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
   return {
     Capacity: __expectInt32(output.Capacity),
+    ConsumedCapacity: __expectInt32(output.ConsumedCapacity),
     Description: __expectString(output.Description),
+    NumberOfAssociations: __expectInt32(output.NumberOfAssociations),
     RuleGroupArn: __expectString(output.RuleGroupArn),
     RuleGroupId: __expectString(output.RuleGroupId),
     RuleGroupName: __expectString(output.RuleGroupName),
@@ -4954,6 +5017,23 @@ const deserializeAws_json1_0Settings = (output: any, context: __SerdeContext): s
     });
 };
 
+const deserializeAws_json1_0StatefulActions = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_0StatefulEngineOptions = (output: any, context: __SerdeContext): StatefulEngineOptions => {
+  return {
+    RuleOrder: __expectString(output.RuleOrder),
+  } as any;
+};
+
 const deserializeAws_json1_0StatefulRule = (output: any, context: __SerdeContext): StatefulRule => {
   return {
     Action: __expectString(output.Action),
@@ -4973,6 +5053,7 @@ const deserializeAws_json1_0StatefulRuleGroupReference = (
   context: __SerdeContext
 ): StatefulRuleGroupReference => {
   return {
+    Priority: __expectInt32(output.Priority),
     ResourceArn: __expectString(output.ResourceArn),
   } as any;
 };
@@ -4989,6 +5070,12 @@ const deserializeAws_json1_0StatefulRuleGroupReferences = (
       }
       return deserializeAws_json1_0StatefulRuleGroupReference(entry, context);
     });
+};
+
+const deserializeAws_json1_0StatefulRuleOptions = (output: any, context: __SerdeContext): StatefulRuleOptions => {
+  return {
+    RuleOrder: __expectString(output.RuleOrder),
+  } as any;
 };
 
 const deserializeAws_json1_0StatefulRules = (output: any, context: __SerdeContext): StatefulRule[] => {

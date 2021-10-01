@@ -31,10 +31,12 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *       the code property must include the URI of a container image in the Amazon ECR registry.
  *       You do not need to specify the handler and runtime properties. </p>
  *
- *          <p>You set the package type to <code>Zip</code> if the deployment package is a
- *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>.
- *       For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and
- *       runtime properties.</p>
+ *          <p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
+ *         archive</a>. For a .zip file archive, the code property specifies the location of the
+ *       .zip file. You must also specify the handler and runtime properties. The code in the
+ *       deployment package must be compatible with the target instruction set architecture of the
+ *       function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, the default value is
+ *       <code>x86-64</code>.</p>
  *
  *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
  *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or

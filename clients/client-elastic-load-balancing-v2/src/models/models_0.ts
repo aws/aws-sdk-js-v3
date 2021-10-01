@@ -658,6 +658,24 @@ export namespace LoadBalancerNotFoundException {
 }
 
 /**
+ * <p>The specified rule does not exist.</p>
+ */
+export interface RuleNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "RuleNotFoundException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace RuleNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuleNotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The specified target group does not exist.</p>
  */
 export interface TargetGroupNotFoundException extends __SmithyException, $MetadataBearer {
@@ -2165,6 +2183,7 @@ export namespace Matcher {
 }
 
 export enum TargetTypeEnum {
+  ALB = "alb",
   INSTANCE = "instance",
   IP = "ip",
   LAMBDA = "lambda",
@@ -2228,8 +2247,8 @@ export interface CreateTargetGroupInput {
   /**
    * <p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,
    *       health checks are disabled by default but can be enabled. If the target type is
-   *         <code>instance</code> or <code>ip</code>, health checks are always enabled and cannot be
-   *       disabled.</p>
+   *         <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always
+   *       enabled and cannot be disabled.</p>
    */
   HealthCheckEnabled?: boolean;
 
@@ -2301,6 +2320,10 @@ export interface CreateTargetGroupInput {
    *             <li>
    *                <p>
    *                   <code>lambda</code> - Register a single Lambda function as a target.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>alb</code> - Register a single Application Load Balancer as a target.</p>
    *             </li>
    *          </ul>
    */
@@ -2411,8 +2434,9 @@ export interface TargetGroup {
   /**
    * <p>The type of target that you must specify when registering targets with this target group.
    *       The possible values are <code>instance</code> (register targets by instance ID),
-   *         <code>ip</code> (register targets by IP address), or <code>lambda</code> (register a single
-   *       Lambda function as a target).</p>
+   *         <code>ip</code> (register targets by IP address), <code>lambda</code> (register a single
+   *       Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer
+   *       as a target).</p>
    */
   TargetType?: TargetTypeEnum | string;
 
@@ -2547,24 +2571,6 @@ export namespace DeleteRuleOutput {
   });
 }
 
-/**
- * <p>The specified rule does not exist.</p>
- */
-export interface RuleNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "RuleNotFoundException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace RuleNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RuleNotFoundException): any => ({
-    ...obj,
-  });
-}
-
 export interface DeleteTargetGroupInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -2599,13 +2605,16 @@ export interface TargetDescription {
   /**
    * <p>The ID of the target. If the target type of the target group is <code>instance</code>,
    *       specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the
-   *       target type is <code>lambda</code>, specify the ARN of the Lambda function.</p>
+   *       target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type
+   *       is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>
    */
   Id: string | undefined;
 
   /**
    * <p>The port on which the target is listening. If the target group protocol is GENEVE, the
-   *       supported port is 6081. Not used if the target is a Lambda function.</p>
+   *       supported port is 6081. If the target type is <code>alb</code>, the targeted Application Load
+   *       Balancer must have at least one listener whose port matches the target group port. Not used if
+   *       the target is a Lambda function.</p>
    */
   Port?: number;
 
@@ -2614,7 +2623,7 @@ export interface TargetDescription {
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
    *          <p>This parameter is not supported if the target type of the target group is
-   *         <code>instance</code>.</p>
+   *       <code>instance</code> or <code>alb</code>.</p>
    *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the
    *       target group, the Availability Zone is automatically detected and this parameter is optional.
    *       If the IP address is outside the VPC, this parameter is required.</p>
@@ -2994,22 +3003,22 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
-   *           whether the two headers (<code>x-amzn-tls-version</code> and
-   *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
-   *           TLS version and cipher suite, are added to the client request before sending it to the
-   *           target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol
-   *           version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header
-   *           has information about the cipher suite negotiated with the client. Both headers are in
-   *           OpenSSL format. The possible values for the attribute are <code>true</code> and
-   *             <code>false</code>. The default is <code>false</code>.</p>
+   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates whether the two headers (<code>x-amzn-tls-version</code> and
+   *           <code>x-amzn-tls-cipher-suite</code>), which contain information about
+   *           the negotiated TLS version and cipher suite, are added to the client request
+   *           before sending it to the target. The <code>x-amzn-tls-version</code> header
+   *           has information about the TLS protocol version negotiated with the client,
+   *           and the <code>x-amzn-tls-cipher-suite</code> header has information about
+   *           the cipher suite negotiated with the client. Both headers are in OpenSSL
+   *           format. The possible values for the attribute are <code>true</code> and
+   *           <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>routing.http.xff_client_port.enabled</code> - Indicates whether the
-   *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
+   *           <code>X-Forwarded-For</code> header should preserve the source port that the client used
    *           to connect to the load balancer. The possible values are <code>true</code> and
-   *             <code>false</code>. The default is <code>false</code>.</p>
+   *           <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3017,7 +3026,6 @@ export interface LoadBalancerAttribute {
    *           values are <code>true</code> and <code>false</code>. The default is <code>true</code>.
    *           Elastic Load Balancing requires that message header names contain only alphanumeric
    *           characters and hyphens.</p>
-   *
    *             </li>
    *             <li>
    *                <p>

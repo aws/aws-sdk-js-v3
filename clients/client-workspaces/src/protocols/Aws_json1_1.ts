@@ -30,6 +30,10 @@ import {
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "../commands/CreateIpGroupCommand";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import {
+  CreateUpdatedWorkspaceImageCommandInput,
+  CreateUpdatedWorkspaceImageCommandOutput,
+} from "../commands/CreateUpdatedWorkspaceImageCommand";
+import {
   CreateWorkspaceBundleCommandInput,
   CreateWorkspaceBundleCommandOutput,
 } from "../commands/CreateWorkspaceBundleCommand";
@@ -192,6 +196,8 @@ import {
   CreateIpGroupResult,
   CreateTagsRequest,
   CreateTagsResult,
+  CreateUpdatedWorkspaceImageRequest,
+  CreateUpdatedWorkspaceImageResult,
   CreateWorkspaceBundleRequest,
   CreateWorkspaceBundleResult,
   CreateWorkspacesRequest,
@@ -306,6 +312,7 @@ import {
   UnsupportedWorkspaceConfigurationException,
   UpdateConnectionAliasPermissionRequest,
   UpdateConnectionAliasPermissionResult,
+  UpdateResult,
   UpdateRulesOfIpGroupRequest,
   UpdateRulesOfIpGroupResult,
   UpdateWorkspaceBundleRequest,
@@ -414,6 +421,19 @@ export const serializeAws_json1_1CreateTagsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateTagsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateUpdatedWorkspaceImageCommand = async (
+  input: CreateUpdatedWorkspaceImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.CreateUpdatedWorkspaceImage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateUpdatedWorkspaceImageRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1604,6 +1624,108 @@ const deserializeAws_json1_1CreateTagsCommandError = async (
     case "com.amazonaws.workspaces#InvalidParameterValuesException":
       response = {
         ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.workspaces#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateUpdatedWorkspaceImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUpdatedWorkspaceImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateUpdatedWorkspaceImageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateUpdatedWorkspaceImageResult(data, context);
+  const response: CreateUpdatedWorkspaceImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateUpdatedWorkspaceImageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUpdatedWorkspaceImageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceStateException":
+    case "com.amazonaws.workspaces#InvalidResourceStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.workspaces#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5255,6 +5377,18 @@ const serializeAws_json1_1CreateTagsRequest = (input: CreateTagsRequest, context
   };
 };
 
+const serializeAws_json1_1CreateUpdatedWorkspaceImageRequest = (
+  input: CreateUpdatedWorkspaceImageRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.SourceImageId !== undefined && input.SourceImageId !== null && { SourceImageId: input.SourceImageId }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateWorkspaceBundleRequest = (
   input: CreateWorkspaceBundleRequest,
   context: __SerdeContext
@@ -6292,6 +6426,15 @@ const deserializeAws_json1_1CreateTagsResult = (output: any, context: __SerdeCon
   return {} as any;
 };
 
+const deserializeAws_json1_1CreateUpdatedWorkspaceImageResult = (
+  output: any,
+  context: __SerdeContext
+): CreateUpdatedWorkspaceImageResult => {
+  return {
+    ImageId: __expectString(output.ImageId),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateWorkspaceBundleResult = (
   output: any,
   context: __SerdeContext
@@ -7089,6 +7232,13 @@ const deserializeAws_json1_1UpdateConnectionAliasPermissionResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateResult = (output: any, context: __SerdeContext): UpdateResult => {
+  return {
+    Description: __expectString(output.Description),
+    UpdateAvailable: __expectBoolean(output.UpdateAvailable),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateRulesOfIpGroupResult = (
   output: any,
   context: __SerdeContext
@@ -7277,6 +7427,10 @@ const deserializeAws_json1_1WorkspaceImage = (output: any, context: __SerdeConte
     OwnerAccountId: __expectString(output.OwnerAccountId),
     RequiredTenancy: __expectString(output.RequiredTenancy),
     State: __expectString(output.State),
+    Updates:
+      output.Updates !== undefined && output.Updates !== null
+        ? deserializeAws_json1_1UpdateResult(output.Updates, context)
+        : undefined,
   } as any;
 };
 

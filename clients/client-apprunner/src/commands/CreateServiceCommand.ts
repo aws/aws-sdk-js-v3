@@ -22,7 +22,7 @@ export interface CreateServiceCommandInput extends CreateServiceRequest {}
 export interface CreateServiceCommandOutput extends CreateServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Create an AWS App Runner service. After the service is created, the action also automatically starts a deployment.</p>
+ * <p>Create an App Runner service. After the service is created, the action also automatically starts a deployment.</p>
  *          <p>This is an asynchronous operation. On a successful call, you can use the returned <code>OperationId</code> and the <a href="https://docs.aws.amazon.com/apprunner/latest/api/API_ListOperations.html">ListOperations</a> call to track the operation's progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

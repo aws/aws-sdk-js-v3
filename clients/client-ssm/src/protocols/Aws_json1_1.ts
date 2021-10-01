@@ -18120,6 +18120,7 @@ const serializeAws_json1_1StartChangeRequestExecutionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoApprove !== undefined && input.AutoApprove !== null && { AutoApprove: input.AutoApprove }),
     ...(input.ChangeDetails !== undefined && input.ChangeDetails !== null && { ChangeDetails: input.ChangeDetails }),
     ...(input.ChangeRequestName !== undefined &&
       input.ChangeRequestName !== null && { ChangeRequestName: input.ChangeRequestName }),

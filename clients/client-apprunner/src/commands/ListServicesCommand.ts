@@ -22,7 +22,7 @@ export interface ListServicesCommandInput extends ListServicesRequest {}
 export interface ListServicesCommandOutput extends ListServicesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of running AWS App Runner services in your AWS account.</p>
+ * <p>Returns a list of running App Runner services in your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -22,7 +22,7 @@ export interface DeleteConnectionCommandInput extends DeleteConnectionRequest {}
 export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Delete an AWS App Runner connection. You must first ensure that there are no running App Runner services that use this connection. If there are any, the
+ * <p>Delete an App Runner connection. You must first ensure that there are no running App Runner services that use this connection. If there are any, the
  *         <code>DeleteConnection</code> action fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

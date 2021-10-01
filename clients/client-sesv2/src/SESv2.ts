@@ -393,25 +393,13 @@ import { SESv2Client } from "./SESv2Client";
 
 /**
  * <fullname>Amazon SES API v2</fullname>
- *         <p>Welcome to the Amazon SES API v2 Reference. This guide provides information about the Amazon SES API v2,
- *             including supported operations, data types, parameters, and schemas.</p>
+ *
  *         <p>
- *             <a href="https://aws.amazon.com/pinpoint">Amazon SES</a> is an AWS service that
+ *             <a href="http://aws.amazon.com/ses">Amazon SES</a> is an Amazon Web Services service that
  *             you can use to send email messages to your customers.</p>
- *         <p>If you're new to Amazon SES API v2, you might find it helpful to also review the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon Simple Email Service Developer
+ *         <p>If you're new to Amazon SES API v2, you might find it helpful to review the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon Simple Email Service Developer
  *                 Guide</a>. The <i>Amazon SES Developer Guide</i> provides information
  *             and code samples that demonstrate how to use Amazon SES API v2 features programmatically.</p>
- *         <p>The Amazon SES API v2 is available in several AWS Regions and it provides an endpoint for each
- *             of these Regions. For a list of all the Regions and endpoints where the API is currently
- *             available, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region">AWS Service Endpoints</a> in the <i>Amazon Web Services General Reference</i>. To
- *             learn more about AWS Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing AWS Regions</a> in the
- *                 <i>Amazon Web Services General Reference</i>.</p>
- *         <p>In each Region, AWS maintains multiple Availability Zones. These Availability Zones
- *             are physically isolated from each other, but are united by private, low-latency,
- *             high-throughput, and highly redundant network connections. These Availability Zones
- *             enable us to provide very high levels of availability and redundancy, while also
- *             minimizing latency. To learn more about the number of Availability Zones that are
- *             available in each Region, see <a href="http://aws.amazon.com/about-aws/global-infrastructure/">AWS Global Infrastructure</a>.</p>
  */
 export class SESv2 extends SESv2Client {
   /**
@@ -594,7 +582,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Create a new pool of dedicated IP addresses. A pool can include one or more dedicated
-   *             IP addresses that are associated with your AWS account. You can associate a pool with
+   *             IP addresses that are associated with your Amazon Web Services account. You can associate a pool with
    *             a configuration set. When you send an email that uses that configuration set, the
    *             message is sent from one of the addresses in the associated pool.</p>
    */
@@ -685,7 +673,7 @@ export class SESv2 extends SESv2Client {
    *             (BYODKIM). To use BYODKIM, your call to the <code>CreateEmailIdentity</code> operation
    *             has to include the <code>DkimSigningAttributes</code> object. When you specify this
    *             object, you provide a selector (a component of the DNS record name that identifies the
-   *             public key that you want to use for DKIM authentication) and a private key.</p>
+   *             public key to use for DKIM authentication) and a private key.</p>
    *         <p>When you verify a domain, this operation provides a set of DKIM tokens, which you can
    *             convert into CNAME tokens. You add these CNAME tokens to the DNS configuration for your
    *             domain. Your domain is verified when Amazon SES detects these records in the DNS
@@ -767,8 +755,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Creates an email template. Email templates enable you to send personalized email to
-   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
-   *                 Developer Guide</a>.</p>
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+   *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
   public createEmailTemplate(
@@ -975,7 +963,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Deletes an existing custom verification email template.</p>
-   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/es/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
+   *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
@@ -1187,7 +1175,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Obtain information about the email-sending status and capabilities of your Amazon SES
-   *             account in the current AWS Region.</p>
+   *             account in the current Amazon Web Services Region.</p>
    */
   public getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
   public getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
@@ -1452,7 +1440,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
-   * <p>List the dedicated IP addresses that are associated with your AWS
+   * <p>List the dedicated IP addresses that are associated with your Amazon Web Services
    *             account.</p>
    */
   public getDedicatedIps(
@@ -1491,7 +1479,7 @@ export class SESv2 extends SESv2Client {
    *             predictive inbox placement tests.</p>
    *
    *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
-   *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
+   *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
    *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
    */
   public getDeliverabilityDashboardOptions(
@@ -1897,7 +1885,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Lists the existing custom verification email templates for your account in the current
-   *             AWS Region.</p>
+   *             Amazon Web Services Region.</p>
    *         <p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer
    *                 Guide</i>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
@@ -1932,7 +1920,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
-   * <p>List all of the dedicated IP pools that exist in your AWS account in the current
+   * <p>List all of the dedicated IP pools that exist in your Amazon Web Services account in the current
    *             Region.</p>
    */
   public listDedicatedIpPools(
@@ -2033,7 +2021,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
-   * <p>Returns a list of all of the email identities that are associated with your AWS
+   * <p>Returns a list of all of the email identities that are associated with your Amazon Web Services
    *             account. An identity can be either an email address or a domain. This operation returns
    *             identities that are verified as well as those that aren't. This operation returns
    *             identities that are associated with Amazon SES and Amazon Pinpoint.</p>
@@ -2068,7 +2056,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
-   * <p>Lists the email templates present in your Amazon SES account in the current AWS
+   * <p>Lists the email templates present in your Amazon SES account in the current Amazon Web Services
    *             Region.</p>
    *
    *         <p>You can execute this operation no more than once per second.</p>
@@ -2369,7 +2357,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Enable or disable collection of reputation metrics for emails that you send using a
-   *             particular configuration set in a specific AWS Region.</p>
+   *             particular configuration set in a specific Amazon Web Services Region.</p>
    */
   public putConfigurationSetReputationOptions(
     args: PutConfigurationSetReputationOptionsCommandInput,
@@ -2402,7 +2390,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Enable or disable email sending for messages that use a particular configuration set
-   *             in a specific AWS Region.</p>
+   *             in a specific Amazon Web Services Region.</p>
    */
   public putConfigurationSetSendingOptions(
     args: PutConfigurationSetSendingOptionsCommandInput,
@@ -2504,7 +2492,7 @@ export class SESv2 extends SESv2Client {
    * <p>Move a dedicated IP address to an existing dedicated IP pool.</p>
    *         <note>
    *             <p>The dedicated IP address that you specify must already exist, and must be
-   *                 associated with your AWS account.
+   *                 associated with your Amazon Web Services account.
    *
    *             </p>
    *             <p>The dedicated IP pool you specify must already exist. You can create a new pool by
@@ -2579,7 +2567,7 @@ export class SESv2 extends SESv2Client {
    *             send email. You also gain the ability to perform predictive inbox placement tests.</p>
    *
    *         <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
-   *             to any other fees that you accrue by using Amazon SES and other AWS services. For more
+   *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
    *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>.</p>
    */
   public putDeliverabilityDashboardOption(
@@ -2684,6 +2672,9 @@ export class SESv2 extends SESv2Client {
    *             <li>
    *                 <p>Update the signing attributes for an identity that uses Bring Your Own DKIM
    *                     (BYODKIM).</p>
+   *             </li>
+   *             <li>
+   *                 <p>Update the key length that should be used for Easy DKIM.</p>
    *             </li>
    *             <li>
    *                 <p>Change from using no DKIM authentication to using Easy DKIM.</p>
@@ -2870,7 +2861,7 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Adds an email address to the list of identities for your Amazon SES account in the current
-   *             AWS Region and attempts to verify it. As a result of executing this operation, a
+   *             Amazon Web Services Region and attempts to verify it. As a result of executing this operation, a
    *             customized verification email is sent to the specified address.</p>
    *         <p>To use this operation, you must first create a custom verification email template. For
    *             more information about creating and using custom verification email templates, see
@@ -2908,7 +2899,7 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
-   * <p>Sends an email message. You can use the Amazon SES API v2 to send two types of
+   * <p>Sends an email message. You can use the Amazon SES API v2 to send the following types of
    *             messages:</p>
    *         <ul>
    *             <li>
@@ -3246,8 +3237,8 @@ export class SESv2 extends SESv2Client {
 
   /**
    * <p>Updates an email template. Email templates enable you to send personalized email to
-   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES
-   *                 Developer Guide</a>.</p>
+   *             one or more destinations in a single API operation. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer
+   *                 Guide</a>.</p>
    *         <p>You can execute this operation no more than once per second.</p>
    */
   public updateEmailTemplate(

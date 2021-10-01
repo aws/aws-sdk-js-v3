@@ -41,6 +41,8 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateCanaryCommandInput, UpdateCanaryCommandOutput } from "../commands/UpdateCanaryCommand";
 import {
+  ArtifactConfigInput,
+  ArtifactConfigOutput,
   BaseScreenshot,
   Canary,
   CanaryCodeInput,
@@ -59,6 +61,7 @@ import {
   InternalServerException,
   ResourceNotFoundException,
   RuntimeVersion,
+  S3EncryptionConfig,
   ValidationException,
   VisualReferenceInput,
   VisualReferenceOutput,
@@ -77,6 +80,10 @@ export const serializeAws_restJson1CreateCanaryCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/canary";
   let body: any;
   body = JSON.stringify({
+    ...(input.ArtifactConfig !== undefined &&
+      input.ArtifactConfig !== null && {
+        ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
+      }),
     ...(input.ArtifactS3Location !== undefined &&
       input.ArtifactS3Location !== null && { ArtifactS3Location: input.ArtifactS3Location }),
     ...(input.Code !== undefined &&
@@ -447,6 +454,12 @@ export const serializeAws_restJson1UpdateCanaryCommand = async (
   }
   let body: any;
   body = JSON.stringify({
+    ...(input.ArtifactConfig !== undefined &&
+      input.ArtifactConfig !== null && {
+        ArtifactConfig: serializeAws_restJson1ArtifactConfigInput(input.ArtifactConfig, context),
+      }),
+    ...(input.ArtifactS3Location !== undefined &&
+      input.ArtifactS3Location !== null && { ArtifactS3Location: input.ArtifactS3Location }),
     ...(input.Code !== undefined &&
       input.Code !== null && { Code: serializeAws_restJson1CanaryCodeInput(input.Code, context) }),
     ...(input.ExecutionRoleArn !== undefined &&
@@ -1458,6 +1471,15 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1ArtifactConfigInput = (input: ArtifactConfigInput, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Encryption !== undefined &&
+      input.S3Encryption !== null && {
+        S3Encryption: serializeAws_restJson1S3EncryptionConfig(input.S3Encryption, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1BaseScreenshot = (input: BaseScreenshot, context: __SerdeContext): any => {
   return {
     ...(input.IgnoreCoordinates !== undefined &&
@@ -1537,6 +1559,14 @@ const serializeAws_restJson1EnvironmentVariablesMap = (
   }, {});
 };
 
+const serializeAws_restJson1S3EncryptionConfig = (input: S3EncryptionConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.EncryptionMode !== undefined &&
+      input.EncryptionMode !== null && { EncryptionMode: input.EncryptionMode }),
+    ...(input.KmsKeyArn !== undefined && input.KmsKeyArn !== null && { KmsKeyArn: input.KmsKeyArn }),
+  };
+};
+
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -1591,6 +1621,15 @@ const serializeAws_restJson1VpcConfigInput = (input: VpcConfigInput, context: __
     ...(input.SubnetIds !== undefined &&
       input.SubnetIds !== null && { SubnetIds: serializeAws_restJson1SubnetIds(input.SubnetIds, context) }),
   };
+};
+
+const deserializeAws_restJson1ArtifactConfigOutput = (output: any, context: __SerdeContext): ArtifactConfigOutput => {
+  return {
+    S3Encryption:
+      output.S3Encryption !== undefined && output.S3Encryption !== null
+        ? deserializeAws_restJson1S3EncryptionConfig(output.S3Encryption, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1BaseScreenshot = (output: any, context: __SerdeContext): BaseScreenshot => {
@@ -1649,6 +1688,10 @@ const deserializeAws_restJson1CanariesLastRun = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Canary = (output: any, context: __SerdeContext): Canary => {
   return {
+    ArtifactConfig:
+      output.ArtifactConfig !== undefined && output.ArtifactConfig !== null
+        ? deserializeAws_restJson1ArtifactConfigOutput(output.ArtifactConfig, context)
+        : undefined,
     ArtifactS3Location: __expectString(output.ArtifactS3Location),
     Code:
       output.Code !== undefined && output.Code !== null
@@ -1825,6 +1868,13 @@ const deserializeAws_restJson1RuntimeVersionList = (output: any, context: __Serd
       }
       return deserializeAws_restJson1RuntimeVersion(entry, context);
     });
+};
+
+const deserializeAws_restJson1S3EncryptionConfig = (output: any, context: __SerdeContext): S3EncryptionConfig => {
+  return {
+    EncryptionMode: __expectString(output.EncryptionMode),
+    KmsKeyArn: __expectString(output.KmsKeyArn),
+  } as any;
 };
 
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {

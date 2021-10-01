@@ -22,7 +22,7 @@ export interface ListDedicatedIpPoolsCommandInput extends ListDedicatedIpPoolsRe
 export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsResponse, __MetadataBearer {}
 
 /**
- * <p>List all of the dedicated IP pools that exist in your AWS account in the current
+ * <p>List all of the dedicated IP pools that exist in your Amazon Web Services account in the current
  *             Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

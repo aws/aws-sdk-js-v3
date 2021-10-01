@@ -24,7 +24,7 @@ export interface DeleteAutoScalingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Delete an AWS App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
+ * <p>Delete an App Runner automatic scaling configuration resource. You can delete a specific revision or the latest active revision. You can't delete a
  *       configuration that's used by one or more App Runner services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
