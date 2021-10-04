@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "declarationDir": "dist-types"
+    "declarationDir": "dist-types",
+    "types": ["mocha", "node"]
   },
   "exclude": ["test/**/*", "dist-types/**/*"],
   "include": ["src/"]
