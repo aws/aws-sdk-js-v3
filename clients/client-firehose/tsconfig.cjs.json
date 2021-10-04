@@ -1,19 +1,8 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
-    "target": "ES2018",
-    "module": "commonjs",
-    "strict": true,
-    "sourceMap": true,
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "noEmitHelpers": true,
-    "incremental": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
+    "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist-cjs",
-    "removeComments": true
+    "outDir": "dist-cjs"
   },
   "typedocOptions": {
     "exclude": ["**/node_modules/**", "**/*.spec.ts", "**/protocols/*.ts", "**/e2e/*.ts", "**/endpoints.ts"],
@@ -29,5 +18,7 @@
     "theme": "minimal",
     "plugin": ["@aws-sdk/client-documentation-generator"]
   },
-  "exclude": ["test/**/*"]
+  "exclude": ["test/**/*"],
+  "extends": "../../tsconfig.cjs.json",
+  "include": ["src/"]
 }
