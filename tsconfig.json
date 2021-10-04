@@ -21,7 +21,7 @@
     "resolveJsonModule": true,
     "target": "es5"
   },
-  "include": ["packages/", "lib/"],
+  "include": ["packages/", "lib/", "clients/", "protocol_tests/"],
   "exclude": ["node_modules/", "**/*.spec.ts"],
   "typedocOptions": {
     "readme": "README.md",
