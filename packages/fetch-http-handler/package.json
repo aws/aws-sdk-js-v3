@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/fetch-http-handler",
-  "version": "3.34.0",
+  "version": "3.35.0",
   "description": "Provides a way to make requests",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
@@ -19,14 +19,14 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/protocol-http": "3.34.0",
-    "@aws-sdk/querystring-builder": "3.34.0",
-    "@aws-sdk/types": "3.34.0",
-    "@aws-sdk/util-base64-browser": "3.34.0",
+    "@aws-sdk/protocol-http": "3.35.0",
+    "@aws-sdk/querystring-builder": "3.35.0",
+    "@aws-sdk/types": "3.35.0",
+    "@aws-sdk/util-base64-browser": "3.35.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/abort-controller": "3.34.0",
+    "@aws-sdk/abort-controller": "3.35.0",
     "@types/jest": "^26.0.4",
     "typescript": "~4.3.5"
   },

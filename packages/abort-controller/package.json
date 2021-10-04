@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/abort-controller",
-  "version": "3.34.0",
+  "version": "3.35.0",
   "description": "A simple abort controller library",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "3.34.0",
+    "@aws-sdk/types": "3.35.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-serde",
-  "version": "3.34.0",
+  "version": "3.35.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "3.34.0",
+    "@aws-sdk/types": "3.35.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

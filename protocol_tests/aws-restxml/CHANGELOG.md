@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+
+### Bug Fixes
+
+* **client-s3:** use member xmlname if applicable ([#2835](https://github.com/aws/aws-sdk-js-v3/issues/2835)) ([7e634cf](https://github.com/aws/aws-sdk-js-v3/commit/7e634cfab78d0a82864f828c4c8c10c9d0cccc97))
+* **scripts:** overwrite test folder for protocol_tests ([#2853](https://github.com/aws/aws-sdk-js-v3/issues/2853)) ([5df7d12](https://github.com/aws/aws-sdk-js-v3/commit/5df7d124c4f9825db95c065008d4fd1becf5e23a))
+
+
+### Features
+
+* **clients:** eslint --fix using esprint ([#2849](https://github.com/aws/aws-sdk-js-v3/issues/2849)) ([94d0a2d](https://github.com/aws/aws-sdk-js-v3/commit/94d0a2d8a0579ee0a742337937ad05735cfbc1ba))
+* **clients:** move source files to 'src' folder ([#2845](https://github.com/aws/aws-sdk-js-v3/issues/2845)) ([e0025cd](https://github.com/aws/aws-sdk-js-v3/commit/e0025cddbba244a41ddf1fd1adb761142e15c22d))
+
+
+
+
+
 # [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
 
 

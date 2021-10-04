@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
+
+
+### Bug Fixes
+
+* **client-cognito-identity:** import client from new location in src ([#2858](https://github.com/aws/aws-sdk-js-v3/issues/2858)) ([c8cb449](https://github.com/aws/aws-sdk-js-v3/commit/c8cb4499c6ad19e2b194860d548753f637671f8c))
+* **client-documentation-generator:** read files from src folder ([#2863](https://github.com/aws/aws-sdk-js-v3/issues/2863)) ([95c2903](https://github.com/aws/aws-sdk-js-v3/commit/95c29032ba8f6f3791067a90af211944eaec307c))
+* eslint SSDK protocol tests ([#2854](https://github.com/aws/aws-sdk-js-v3/issues/2854)) ([1e2a316](https://github.com/aws/aws-sdk-js-v3/commit/1e2a3169924915a9b717886e7484ed04765a538b))
+* **client-s3:** use member xmlname if applicable ([#2835](https://github.com/aws/aws-sdk-js-v3/issues/2835)) ([7e634cf](https://github.com/aws/aws-sdk-js-v3/commit/7e634cfab78d0a82864f828c4c8c10c9d0cccc97))
+* **scripts:** overwrite test folder for protocol_tests ([#2853](https://github.com/aws/aws-sdk-js-v3/issues/2853)) ([5df7d12](https://github.com/aws/aws-sdk-js-v3/commit/5df7d124c4f9825db95c065008d4fd1becf5e23a))
+* **scripts:** run downlevel-dts script in parallel ([#2837](https://github.com/aws/aws-sdk-js-v3/issues/2837)) ([0f8c0a2](https://github.com/aws/aws-sdk-js-v3/commit/0f8c0a2c5dc1409bf99cfc7289ad4946a283fb7d))
+
+
+### Features
+
+* **clients:** eslint --fix using esprint ([#2849](https://github.com/aws/aws-sdk-js-v3/issues/2849)) ([94d0a2d](https://github.com/aws/aws-sdk-js-v3/commit/94d0a2d8a0579ee0a742337937ad05735cfbc1ba))
+* **clients:** move source files to 'src' folder ([#2845](https://github.com/aws/aws-sdk-js-v3/issues/2845)) ([e0025cd](https://github.com/aws/aws-sdk-js-v3/commit/e0025cddbba244a41ddf1fd1adb761142e15c22d))
+* **codegen:** move source files to 'src' folder ([#2844](https://github.com/aws/aws-sdk-js-v3/issues/2844)) ([cfcdeb6](https://github.com/aws/aws-sdk-js-v3/commit/cfcdeb6554a7ca8c05b6a341c4577caf409dc020))
+* **scripts:** use esprint to eslint --fix clients source code ([#2846](https://github.com/aws/aws-sdk-js-v3/issues/2846)) ([65922ea](https://github.com/aws/aws-sdk-js-v3/commit/65922ea3d3990de8a7c1e68dfa8983cbfcb54b26))
+
+
+
+
+
 # [3.34.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.33.0...v3.34.0) (2021-09-24)
 
 

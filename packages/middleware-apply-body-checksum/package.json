@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-apply-body-checksum",
-  "version": "3.34.0",
+  "version": "3.35.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,9 +18,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/is-array-buffer": "3.34.0",
-    "@aws-sdk/protocol-http": "3.34.0",
-    "@aws-sdk/types": "3.34.0",
+    "@aws-sdk/is-array-buffer": "3.35.0",
+    "@aws-sdk/protocol-http": "3.35.0",
+    "@aws-sdk/types": "3.35.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
