@@ -23,7 +23,7 @@ export class SdkClientRenameProjectPlugin extends RendererComponent {
         sourceFile.fileName.endsWith("/package.json")
       )?.[0]?.fullFileName;
       const { name } = metadataDir || JSON.parse(readFileSync(metadataDir).toString());
-      const serviceIdReflection = clientDirectory.files
+      const serviceIdReflection = clientDirectory.directories.src.files
         ?.filter((sourceFile) => sourceFile.fileName.endsWith("/runtimeConfig.shared.ts"))?.[0]
         .reflections.filter((reflection) => reflection.name === "serviceId")?.[0];
       this.projectName = serviceIdReflection /* serviceIdReflection.defaultValue looks like '"S3"' */
