@@ -168,7 +168,7 @@ export class SdkClientTocPlugin extends RendererComponent {
     }
     const clientsDirectory = getCurrentClientDirectory({ project: projectModel as ProjectReflection });
     return dirname(
-      clientsDirectory?.directories.src.files.find((file) => file.name.endsWith("Client.ts")).fullFileName
+      dirname(clientsDirectory?.directories.src.files.find((file) => file.name.endsWith("Client.ts")).fullFileName)
     );
   }
 }
