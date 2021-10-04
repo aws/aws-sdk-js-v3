@@ -2,7 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "declarationDir": "dist-types"
+    "declarationDir": "dist-types",
+    "types": ["mocha"]
   },
   "exclude": ["test/**/*", "dist-types/**/*"],
   "extends": "../../tsconfig.types.json",
