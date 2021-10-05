@@ -3,6 +3,7 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { rejects } from "assert";
 import http2, { constants, Http2Stream } from "http2";
 import { Duplex } from "stream";
+import { promisify } from "util";
 
 import { NodeHttp2Handler } from "./node-http2-handler";
 import { createMockHttp2Server, createResponseFunction, createResponseFunctionWithDelay } from "./server.mock";
@@ -335,7 +336,7 @@ describe(NodeHttp2Handler.name, () => {
     const sessionTimeout = 200;
 
     describe("destroys sessions on sessionTimeout", () => {
-      it("disableConcurrentStreams: false (default)", async (done) => {
+      it("disableConcurrentStreams: false (default)", async () => {
         nodeH2Handler = new NodeHttp2Handler({ sessionTimeout });
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
@@ -345,15 +346,13 @@ describe(NodeHttp2Handler.name, () => {
         expect(session.destroyed).toBe(false);
         // @ts-ignore: access private property
         expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(1);
-        setTimeout(() => {
-          expect(session.destroyed).toBe(true);
-          // @ts-ignore: access private property
-          expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(0);
-          done();
-        }, sessionTimeout + 100);
+        await promisify(setTimeout)(sessionTimeout + 100);
+        expect(session.destroyed).toBe(true);
+        // @ts-ignore: access private property
+        expect(nodeH2Handler.sessionCache.get(authority).length).toStrictEqual(0);
       });
 
-      it("disableConcurrentStreams: true", async (done) => {
+      it("disableConcurrentStreams: true", async () => {
         let session;
         const authority = `${protocol}//${hostname}:${port}`;
 
@@ -368,10 +367,8 @@ describe(NodeHttp2Handler.name, () => {
         await nodeH2Handler.handle(new HttpRequest(getMockReqOptions()), {});
 
         expect(session.destroyed).toBe(false);
-        setTimeout(() => {
-          expect(session.destroyed).toBe(true);
-          done();
-        }, sessionTimeout + 100);
+        await promisify(setTimeout)(sessionTimeout + 100);
+        expect(session.destroyed).toBe(true);
       });
     });
   });
