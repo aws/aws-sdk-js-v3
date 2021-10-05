@@ -36,7 +36,7 @@
     "@types/jest": "^27.0.2",
     "@types/node": "^14.11.2",
     "jasmine-core": "^3.6.0",
-    "jest": "^26.4.2",
+    "jest": "^27.2.4",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
     "karma-jasmine": "^4.0.1",
