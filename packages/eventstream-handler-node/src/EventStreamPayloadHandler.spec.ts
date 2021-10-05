@@ -1,4 +1,6 @@
+import { once } from "events";
 import { PassThrough, Readable } from "stream";
+
 const mockSingingStream = jest.fn().mockImplementation(() => new PassThrough());
 jest.mock("./EventSigningStream", () => ({
   EventSigningStream: mockSingingStream,
@@ -33,7 +35,7 @@ describe("EventStreamPayloadHandler", () => {
     ).rejects.toThrow("Eventstream payload must be a Readable stream.");
   });
 
-  it("should close the request payload if downstream middleware throws", async (done) => {
+  it("should close the request payload if downstream middleware throws", async () => {
     expect.assertions(2);
     (mockNextHandler as any).mockImplementationOnce(() => Promise.reject(new Error()));
     const handler = new EventStreamPayloadHandler({
@@ -52,13 +54,15 @@ describe("EventStreamPayloadHandler", () => {
       error = e;
     }
     expect(error instanceof Error).toBe(true);
-    //Expect stream is closed
-    //Ref: should use writableEnded when bumped to Node 13+
+
+    // Expect stream is closed
+    // Ref: should use writableEnded when bumped to Node 13+
     (mockRequest.body as PassThrough).on("error", (err) => {
       expect(err.message).toEqual("write after end");
-      done();
     });
+
     mockRequest.body.write("This should be allowed to write.");
+    await once(mockRequest.body, "error");
   });
 
   it("should call event signer with request signature from signing middleware", async () => {
