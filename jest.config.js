@@ -10,4 +10,9 @@ module.exports = {
   ],
   testPathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*"],
   coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*", "/__fixtures__/"],
+  globals: {
+    "ts-jest": {
+      isolatedModules: true,
+    },
+  },
 };
