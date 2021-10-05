@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { AbortController } from "@aws-sdk/abort-controller";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 
