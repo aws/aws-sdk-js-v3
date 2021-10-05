@@ -8,8 +8,8 @@ module.exports = {
     "<rootDir>/packages/*/jest.config.js",
     "<rootDir>/clients/*/jest.config.js",
   ],
-  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*"],
-  coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*", "/__fixtures__/"],
+  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/"],
+  coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/", "/__fixtures__/"],
   globals: {
     "ts-jest": {
       isolatedModules: true,
