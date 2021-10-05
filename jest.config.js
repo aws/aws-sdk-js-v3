@@ -9,4 +9,5 @@ module.exports = {
   ],
   testPathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*"],
   coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*", "/__fixtures__/"],
+  setupFiles: ["<rootDir>/scripts/jest/setupGlobalThis.js"],
 };
