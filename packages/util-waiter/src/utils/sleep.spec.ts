@@ -1,11 +1,12 @@
 import { sleep } from "./sleep";
 
-jest.useFakeTimers();
-
 describe("Sleep Module", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
-    jest.clearAllTimers();
+    jest.useFakeTimers("legacy");
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   describe(sleep.name, () => {
