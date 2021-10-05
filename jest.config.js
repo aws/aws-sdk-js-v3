@@ -10,5 +10,4 @@ module.exports = {
   ],
   testPathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*"],
   coveragePathIgnorePatterns: ["/node_modules/", "<rootDir>/clients/client-.*", "/__fixtures__/"],
-  setupFilesAfterEnv: ["<rootDir>/scripts/jest/forceGlobalGc.js"],
 };

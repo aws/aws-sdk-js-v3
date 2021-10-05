@@ -19,7 +19,7 @@
     "build:all": "yarn build:crypto-dependencies && lerna run build",
     "build-documentation": "yarn remove-documentation && typedoc",
     "pretest:all": "yarn build:all",
-    "test:all": "node --expose-gc ./node_modules/.bin/jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}'",
+    "test:all": "jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}'",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
     "test:integration-legacy": "cucumber-js --fail-fast",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
