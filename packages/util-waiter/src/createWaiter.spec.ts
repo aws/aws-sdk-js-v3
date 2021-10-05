@@ -7,14 +7,15 @@ jest.mock("./utils/validate", () => ({
   validateWaiterOptions: mockValidate,
 }));
 
-jest.useFakeTimers();
-
 import { createWaiter } from "./createWaiter";
 
 describe("createWaiter", () => {
   beforeEach(() => {
-    jest.clearAllTimers();
-    jest.clearAllMocks();
+    jest.useFakeTimers("legacy");
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   const minimalWaiterConfig = {
