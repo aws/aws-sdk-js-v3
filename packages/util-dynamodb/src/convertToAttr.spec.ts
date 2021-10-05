@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
