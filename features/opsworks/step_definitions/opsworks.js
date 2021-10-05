@@ -3,8 +3,8 @@ const { OpsWorks } = require("../../../clients/client-opsworks");
 const { Before, Given, Then } = require("cucumber");
 
 Before({ tags: "@opsworks" }, function (scenario, callback) {
-  this.iam = new IAM({});
-  this.service = new OpsWorks({});
+  this.iam = new IAM({ region: "us-west-2" });
+  this.service = new OpsWorks({ region: "us-west-2" });
   callback();
 });
 
