@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { IndexedDbStorage } from "./IndexedDbStorage";
 import { localStorage } from "./localStorage";
 
