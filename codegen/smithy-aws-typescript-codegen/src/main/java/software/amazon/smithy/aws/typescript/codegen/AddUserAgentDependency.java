@@ -73,7 +73,8 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_NODE.packageName);
-                            writer.addDefaultImport("packageInfo", "./package.json");
+                            writer.addIgnoredDefaultImport("packageInfo", "./package.json",
+                                    "package.json will be imported from dist folders");
                             writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
@@ -83,7 +84,8 @@ public class AddUserAgentDependency implements TypeScriptIntegration {
                             writer.addDependency(AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.dependency);
                             writer.addImport("defaultUserAgent", "defaultUserAgent",
                                     AwsDependency.AWS_SDK_UTIL_USER_AGENT_BROWSER.packageName);
-                            writer.addDefaultImport("packageInfo", "./package.json");
+                            writer.addIgnoredDefaultImport("packageInfo", "./package.json",
+                                    "package.json will be imported from dist folders");
                             writeDefaultUserAgentProvider(writer, settings, model);
                         }
                 );
