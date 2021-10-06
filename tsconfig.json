@@ -3,8 +3,6 @@
     "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
     "incremental": true,
     "lib": ["es2015", "dom"],
     "module": "commonjs",
