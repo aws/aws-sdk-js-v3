@@ -5,7 +5,6 @@
     "target": "ES2018",
     "module": "commonjs",
     "strict": true,
-    "sourceMap": true,
     "downlevelIteration": true,
     "importHelpers": true,
     "noEmitHelpers": true,
