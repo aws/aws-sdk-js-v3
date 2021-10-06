@@ -1,17 +1,17 @@
+// @ts-ignore: package.json will be imported from dist folders
+import packageInfo from "../package.json"; // eslint-disable-line
+
 import { Hash } from "@aws-sdk/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler, streamCollector } from "@aws-sdk/node-http-handler";
-import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-node";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
-
-// @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../package.json";
 import { JSONRPC10ClientConfig } from "./JSONRPC10Client";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
+import { emitWarningIfUnsupportedVersion } from "@aws-sdk/smithy-client";
 
 /**
  * @internal

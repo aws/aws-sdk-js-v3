@@ -1,3 +1,6 @@
+// @ts-ignore: package.json will be imported from dist folders
+import packageInfo from "../package.json"; // eslint-disable-line
+
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
@@ -7,9 +10,6 @@ import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
-
-// @ts-ignore: package.json will be imported from dist folders
-import packageInfo from "../package.json";
 import { LexRuntimeV2ClientConfig } from "./LexRuntimeV2Client";
 import { getRuntimeConfig as getSharedRuntimeConfig } from "./runtimeConfig.shared";
 
