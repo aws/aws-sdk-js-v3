@@ -136,19 +136,6 @@ const copyToClients = async (sourceDir, destinationDir) => {
         });
       }
     }
-
-    // Add @ts-ignore to packageInfo import from AddUserAgentDependency.java
-    ["src/runtimeConfig.ts", "src/runtimeConfig.browser.ts"].forEach((runtimeConfigFileName) => {
-      const runtimeConfigFilepath = join(destPath, runtimeConfigFileName);
-      const content = readFileSync(runtimeConfigFilepath).toString();
-      writeFileSync(
-        runtimeConfigFilepath,
-        content.replace(
-          `import packageInfo`,
-          `// @ts-ignore: package.json will be imported from dist folders\nimport packageInfo`
-        )
-      );
-    });
   }
 };
 
