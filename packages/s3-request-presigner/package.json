@@ -45,6 +45,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/s3-request-presigner",
   "repository": {
     "type": "git",

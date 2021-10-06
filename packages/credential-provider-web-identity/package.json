@@ -43,6 +43,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/credential-provider-web-identity",
   "repository": {
     "type": "git",

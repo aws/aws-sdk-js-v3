@@ -38,6 +38,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/eventstream-serde-universal",
   "repository": {
     "type": "git",
