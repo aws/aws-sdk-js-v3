@@ -1,0 +1,30 @@
+{
+  "version": "1.0",
+  "imports": ["model/echo.smithy"],
+  "projections": {
+    "aws-echo-service": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.test.generic#EchoService"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-codegen": {
+          "package": "@aws-sdk/aws-echo-service",
+          "packageVersion": "1.0.0-alpha.1",
+          "packageJson": {
+            "author": {
+              "name": "AWS SDK for JavaScript Team",
+              "url": "https://aws.amazon.com/javascript/"
+            },
+            "license": "Apache-2.0"
+          },
+          "private": true
+        }
+      }
+    }
+  }
+}

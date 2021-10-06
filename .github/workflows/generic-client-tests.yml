@@ -1,0 +1,40 @@
+name: generic-client-tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
+
+      - name: build and publish smithy-typescript
+        run: |
+          git clone --depth 1 https://github.com/awslabs/smithy-typescript.git
+          cd smithy-typescript
+          ./gradlew clean build publishToMavenLocal
+          cd ..
+
+      - name: build codegen and generate generic client
+        run: |
+          cd codegen
+          ./gradlew clean smithy-aws-typescript-codegen:build generic-client-test-codegen:build
+
+      - name: build generic client
+        run: |
+          cd codegen/generic-client-test-codegen/build/smithyprojections/generic-client-test-codegen/aws-echo-service/typescript-codegen/
+          yarn install && yarn build
