@@ -62,6 +62,10 @@ import {
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "./commands/HostWithPathOperationCommand";
+import {
   IgnoresWrappingXmlNameCommandInput,
   IgnoresWrappingXmlNameCommandOutput,
 } from "./commands/IgnoresWrappingXmlNameCommand";
@@ -101,6 +105,7 @@ export type ServiceInputTypes =
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
   | GreetingWithErrorsCommandInput
+  | HostWithPathOperationCommandInput
   | IgnoresWrappingXmlNameCommandInput
   | NestedStructuresCommandInput
   | NoInputAndNoOutputCommandInput
@@ -131,6 +136,7 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HostWithPathOperationCommandOutput
   | IgnoresWrappingXmlNameCommandOutput
   | NestedStructuresCommandOutput
   | NoInputAndNoOutputCommandOutput
