@@ -21,8 +21,11 @@ import software.amazon.smithy.aws.traits.ServiceTrait
 import kotlin.streams.toList
 
 buildscript {
+    repositories {
+        mavenCentral()
+    }
     dependencies {
-        "classpath"("software.amazon.smithy:smithy-aws-traits:[1.11.0,1.12.0[")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:[1.12.0,1.13.0[")
     }
 }
 

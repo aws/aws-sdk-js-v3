@@ -6177,6 +6177,9 @@ it.skip("RestJsonNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
 
+    expect(r.headers["accept"]).toBeDefined();
+    expect(r.headers["accept"]).toBe("application/json");
+
     expect(r.body).toBeFalsy();
   }
 });

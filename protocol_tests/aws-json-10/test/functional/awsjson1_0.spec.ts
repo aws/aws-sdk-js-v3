@@ -7,6 +7,7 @@ import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAn
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
+import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { JsonUnionsCommand } from "../../src/commands/JsonUnionsCommand";
 import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
@@ -717,6 +718,38 @@ it("AwsJson10EmptyComplexError:Error:GreetingWithErrors", async () => {
     return;
   }
   fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Custom endpoints supplied by users can have paths
+ */
+it("AwsJson10HostWithPath:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    endpoint: "https://example.com/custom",
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HostWithPathOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/custom/");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**

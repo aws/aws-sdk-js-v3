@@ -52,6 +52,10 @@ import {
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "../commands/HostWithPathOperationCommand";
+import {
   IgnoresWrappingXmlNameCommandInput,
   IgnoresWrappingXmlNameCommandOutput,
 } from "../commands/IgnoresWrappingXmlNameCommand";
@@ -236,6 +240,20 @@ export const serializeAws_queryGreetingWithErrorsCommand = async (
   };
   const body = buildFormUrlencodedString({
     Action: "GreetingWithErrors",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryHostWithPathOperationCommand = async (
+  input: HostWithPathOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "HostWithPathOperation",
     Version: "2020-01-08",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -875,6 +893,49 @@ const deserializeAws_queryGreetingWithErrorsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryHostWithPathOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryHostWithPathOperationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryHostWithPathOperationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HostWithPathOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;

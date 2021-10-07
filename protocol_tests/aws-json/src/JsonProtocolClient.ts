@@ -56,6 +56,10 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "./commands/HostWithPathOperationCommand";
 import { JsonEnumsCommandInput, JsonEnumsCommandOutput } from "./commands/JsonEnumsCommand";
 import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/JsonUnionsCommand";
 import {
@@ -82,6 +86,7 @@ export type ServiceInputTypes =
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
+  | HostWithPathOperationCommandInput
   | JsonEnumsCommandInput
   | JsonUnionsCommandInput
   | KitchenSinkOperationCommandInput
@@ -95,6 +100,7 @@ export type ServiceOutputTypes =
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HostWithPathOperationCommandOutput
   | JsonEnumsCommandOutput
   | JsonUnionsCommandOutput
   | KitchenSinkOperationCommandOutput

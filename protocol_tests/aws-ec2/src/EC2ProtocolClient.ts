@@ -53,6 +53,10 @@ import {
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
+  HostWithPathOperationCommandInput,
+  HostWithPathOperationCommandOutput,
+} from "./commands/HostWithPathOperationCommand";
+import {
   IgnoresWrappingXmlNameCommandInput,
   IgnoresWrappingXmlNameCommandOutput,
 } from "./commands/IgnoresWrappingXmlNameCommand";
@@ -84,6 +88,7 @@ export type ServiceInputTypes =
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
   | GreetingWithErrorsCommandInput
+  | HostWithPathOperationCommandInput
   | IgnoresWrappingXmlNameCommandInput
   | NestedStructuresCommandInput
   | NoInputAndOutputCommandInput
@@ -106,6 +111,7 @@ export type ServiceOutputTypes =
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HostWithPathOperationCommandOutput
   | IgnoresWrappingXmlNameCommandOutput
   | NestedStructuresCommandOutput
   | NoInputAndOutputCommandOutput

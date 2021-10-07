@@ -1,4 +1,5 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
+import { Encoder as __Encoder } from "@aws-sdk/types";
 import { HeaderBag, HttpHandlerOptions } from "@aws-sdk/types";
 import { Readable } from "stream";
 
@@ -9,6 +10,7 @@ import { FlattenedXmlMapCommand } from "../../src/commands/FlattenedXmlMapComman
 import { FlattenedXmlMapWithXmlNameCommand } from "../../src/commands/FlattenedXmlMapWithXmlNameCommand";
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../src/commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
+import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { IgnoresWrappingXmlNameCommand } from "../../src/commands/IgnoresWrappingXmlNameCommand";
 import { NestedStructuresCommand } from "../../src/commands/NestedStructuresCommand";
 import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutputCommand";
@@ -648,6 +650,38 @@ it("QueryComplexError:Error:GreetingWithErrors", async () => {
     return;
   }
   fail("Expected an exception to be thrown from response");
+});
+
+/**
+ * Custom endpoints supplied by users can have paths
+ */
+it("QueryHostWithPath:Request", async () => {
+  const client = new QueryProtocolClient({
+    ...clientParams,
+    endpoint: "https://example.com/custom",
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HostWithPathOperationCommand({});
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/custom/");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `Action=HostWithPathOperation&Version=2020-01-08`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**
@@ -3061,6 +3095,23 @@ const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBo
   // Generate to k:v maps from query components
   const expectedParts = fromEntries(expectedBody.split("&").map((part) => part.trim().split("=")));
   const generatedParts = fromEntries(generatedBody.split("&").map((part) => part.trim().split("=")));
+
+  return compareParts(expectedParts, generatedParts);
+};
+
+/**
+ * Returns a map of key names that were un-equal to value objects showing the
+ * discrepancies between the components.
+ */
+const compareEquivalentUnknownTypeBodies = (
+  utf8Encoder: __Encoder,
+  expectedBody: string,
+  generatedBody: string | Uint8Array
+): Object => {
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = {
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
+  };
 
   return compareParts(expectedParts, generatedParts);
 };

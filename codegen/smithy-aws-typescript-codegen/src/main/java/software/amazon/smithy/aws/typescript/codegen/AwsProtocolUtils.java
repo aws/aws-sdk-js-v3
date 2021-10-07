@@ -327,11 +327,6 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        //TODO: Fixed after Smithy 1.11.0
-        if (testCase.getId().equals("RestJsonPathTimestampDefaultRejectsDifferent8601Formats_case14")) {
-            return true;
-        }
-
         return false;
     }
 }

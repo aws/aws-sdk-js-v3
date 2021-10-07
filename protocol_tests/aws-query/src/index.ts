@@ -7,6 +7,7 @@ export * from "./commands/FlattenedXmlMapCommand";
 export * from "./commands/FlattenedXmlMapWithXmlNameCommand";
 export * from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 export * from "./commands/GreetingWithErrorsCommand";
+export * from "./commands/HostWithPathOperationCommand";
 export * from "./commands/IgnoresWrappingXmlNameCommand";
 export * from "./commands/NestedStructuresCommand";
 export * from "./commands/NoInputAndNoOutputCommand";

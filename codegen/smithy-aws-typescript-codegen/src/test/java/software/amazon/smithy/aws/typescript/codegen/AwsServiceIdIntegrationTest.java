@@ -27,6 +27,7 @@ public class AwsServiceIdIntegrationTest {
         Shape service = model.expectShape((ShapeId.from("smithy.example#OriginalName")));
         AwsServiceIdIntegration integration = new AwsServiceIdIntegration();
         TypeScriptSettings settings = new TypeScriptSettings();
+        settings.setService(ShapeId.from("smithy.example#OriginalName"));
         SymbolProvider provider = TypeScriptCodegenPlugin.createSymbolProvider(model, settings);
         SymbolProvider decorated = integration.decorateSymbolProvider(settings, model, provider);
         Symbol symbol = decorated.toSymbol(service);
