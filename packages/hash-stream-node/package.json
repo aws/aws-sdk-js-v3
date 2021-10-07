@@ -39,6 +39,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/hash-stream-node",
   "repository": {
     "type": "git",

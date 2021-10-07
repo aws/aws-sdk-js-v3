@@ -39,6 +39,9 @@
   "engines": {
     "node": ">= 10.0.0"
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/signature-v4-crt",
   "repository": {
     "type": "git",

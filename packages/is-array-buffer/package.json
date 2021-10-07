@@ -36,6 +36,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/is-array-buffer",
   "repository": {
     "type": "git",

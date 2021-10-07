@@ -42,6 +42,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-credentials",
   "repository": {
     "type": "git",

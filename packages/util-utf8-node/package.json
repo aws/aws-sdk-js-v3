@@ -41,6 +41,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-utf8-node",
   "repository": {
     "type": "git",

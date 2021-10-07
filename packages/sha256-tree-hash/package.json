@@ -39,6 +39,9 @@
       ]
     }
   },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/sha256-tree-hash",
   "repository": {
     "type": "git",
