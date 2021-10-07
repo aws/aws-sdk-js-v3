@@ -818,7 +818,7 @@ export interface SelfManagedActiveDirectoryAttributes {
   UserName?: string;
 
   /**
-   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
+   * <p>A list of up to three IP addresses of DNS servers or domain controllers in the
    *             self-managed AD directory.</p>
    */
   DnsIps?: string[];
@@ -2635,7 +2635,7 @@ export namespace WindowsAuditLogCreateConfiguration {
 }
 
 /**
- * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+ * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
  *             a self-managed (including on-premises) Microsoft Active Directory (AD)
  *             directory. For more information, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
@@ -2688,7 +2688,7 @@ export interface SelfManagedActiveDirectoryConfiguration {
   Password: string | undefined;
 
   /**
-   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
+   * <p>A list of up to three IP addresses of DNS servers or domain controllers in the
    *             self-managed AD directory. </p>
    */
   DnsIps: string[] | undefined;
@@ -2717,7 +2717,7 @@ export interface CreateFileSystemWindowsConfiguration {
   ActiveDirectoryId?: string;
 
   /**
-   * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
    *             a self-managed (including on-premises) Microsoft Active Directory (AD)
    *             directory. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
@@ -2980,6 +2980,23 @@ export interface CreateFileSystemRequest {
    * <p>The ONTAP configuration properties of the FSx for NetApp ONTAP file system that you are creating.</p>
    */
   OntapConfiguration?: CreateFileSystemOntapConfiguration;
+
+  /**
+   * <p>Sets the version of the Amazon FSx for Lustre file system you're creating.
+   *             Valid values are <code>2.10</code> and <code>2.12</code>.</p>
+   *         <ul>
+   *             <li>
+   *                <p>Set the value to <code>2.10</code> to create a Lustre 2.10
+   *                 file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>Set the value to <code>2.12</code> to create a Lustre 2.12
+   *                 file system.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default value is <code>2.10</code>.</p>
+   */
+  FileSystemTypeVersion?: string;
 }
 
 export namespace CreateFileSystemRequest {
@@ -3206,6 +3223,16 @@ export interface CreateFileSystemFromBackupRequest {
    *             in the <i>Key Management Service API Reference</i>.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>Sets the version for the Amazon FSx for Lustre file system you're creating from a backup.
+   *             Valid values are <code>2.10</code> and <code>2.12</code>.</p>
+   *         <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
+   *             be applied using the backup's <code>FileSystemTypeVersion</code> setting.
+   *             If you choose to specify <code>FileSystemTypeVersion</code> when creating from backup, the
+   *             value must match the backup's <code>FileSystemTypeVersion</code> setting.</p>
+   */
+  FileSystemTypeVersion?: string;
 }
 
 export namespace CreateFileSystemFromBackupRequest {
@@ -3231,7 +3258,7 @@ export interface CreateSvmActiveDirectoryConfiguration {
   NetBiosName: string | undefined;
 
   /**
-   * <p>The configuration that Amazon FSx uses to join a Amazon FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
+   * <p>The configuration that Amazon FSx uses to join a FSx for Windows File Server file system or an ONTAP storage virtual machine (SVM) to
    *             a self-managed (including on-premises) Microsoft Active Directory (AD)
    *             directory. For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/self-managed-AD.html">
@@ -5105,7 +5132,7 @@ export interface SelfManagedActiveDirectoryConfigurationUpdates {
   Password?: string;
 
   /**
-   * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
+   * <p>A list of up to three IP addresses of DNS servers or domain controllers in the
    *             self-managed AD directory.</p>
    */
   DnsIps?: string[];
@@ -5711,6 +5738,12 @@ export interface FileSystem {
    * <p>The configuration for this FSx for NetApp ONTAP file system.</p>
    */
   OntapConfiguration?: OntapFileSystemConfiguration;
+
+  /**
+   * <p>The version of your Amazon FSx for Lustre file system, either
+   *             <code>2.10</code> or <code>2.12</code>.</p>
+   */
+  FileSystemTypeVersion?: string;
 }
 
 export namespace FileSystem {

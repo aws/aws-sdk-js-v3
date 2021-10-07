@@ -82,6 +82,11 @@ import {
   DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
 import {
+  DescribeInboundDmarcSettingsCommand,
+  DescribeInboundDmarcSettingsCommandInput,
+  DescribeInboundDmarcSettingsCommandOutput,
+} from "./commands/DescribeInboundDmarcSettingsCommand";
+import {
   DescribeMailboxExportJobCommand,
   DescribeMailboxExportJobCommandInput,
   DescribeMailboxExportJobCommandOutput,
@@ -194,6 +199,11 @@ import {
   PutAccessControlRuleCommandInput,
   PutAccessControlRuleCommandOutput,
 } from "./commands/PutAccessControlRuleCommand";
+import {
+  PutInboundDmarcSettingsCommand,
+  PutInboundDmarcSettingsCommandInput,
+  PutInboundDmarcSettingsCommandOutput,
+} from "./commands/PutInboundDmarcSettingsCommand";
 import {
   PutMailboxPermissionsCommand,
   PutMailboxPermissionsCommandInput,
@@ -933,6 +943,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DescribeGroupCommandOutput) => void
   ): Promise<DescribeGroupCommandOutput> | void {
     const command = new DescribeGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the settings in a DMARC policy for a specified organization.</p>
+   */
+  public describeInboundDmarcSettings(
+    args: DescribeInboundDmarcSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInboundDmarcSettingsCommandOutput>;
+  public describeInboundDmarcSettings(
+    args: DescribeInboundDmarcSettingsCommandInput,
+    cb: (err: any, data?: DescribeInboundDmarcSettingsCommandOutput) => void
+  ): void;
+  public describeInboundDmarcSettings(
+    args: DescribeInboundDmarcSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInboundDmarcSettingsCommandOutput) => void
+  ): void;
+  public describeInboundDmarcSettings(
+    args: DescribeInboundDmarcSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeInboundDmarcSettingsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeInboundDmarcSettingsCommandOutput) => void
+  ): Promise<DescribeInboundDmarcSettingsCommandOutput> | void {
+    const command = new DescribeInboundDmarcSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1723,6 +1765,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: PutAccessControlRuleCommandOutput) => void
   ): Promise<PutAccessControlRuleCommandOutput> | void {
     const command = new PutAccessControlRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables or disables a DMARC policy for a given organization.</p>
+   */
+  public putInboundDmarcSettings(
+    args: PutInboundDmarcSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutInboundDmarcSettingsCommandOutput>;
+  public putInboundDmarcSettings(
+    args: PutInboundDmarcSettingsCommandInput,
+    cb: (err: any, data?: PutInboundDmarcSettingsCommandOutput) => void
+  ): void;
+  public putInboundDmarcSettings(
+    args: PutInboundDmarcSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutInboundDmarcSettingsCommandOutput) => void
+  ): void;
+  public putInboundDmarcSettings(
+    args: PutInboundDmarcSettingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutInboundDmarcSettingsCommandOutput) => void),
+    cb?: (err: any, data?: PutInboundDmarcSettingsCommandOutput) => void
+  ): Promise<PutInboundDmarcSettingsCommandOutput> | void {
+    const command = new PutInboundDmarcSettingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

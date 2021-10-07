@@ -23,9 +23,9 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
 
 /**
  * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its associated CloudHSM cluster.</p>
- *          <p>The custom key store must be connected before you can create KMS keys
- *       in the key store or use the KMS keys it contains. You can disconnect and reconnect a custom key
- *       store at any time.</p>
+ *          <p>The custom key store must be connected before you can create KMS keys in the key store or
+ *       use the KMS keys it contains. You can disconnect and reconnect a custom key store at any
+ *       time.</p>
  *          <p>To connect a custom key store, its associated CloudHSM cluster must have at least one active
  *       HSM. To get the number of active HSMs in a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation. To add HSMs
  *       to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">

@@ -300,6 +300,7 @@ import {
   UpdateThesaurusRequest,
   Urls,
   UserContext,
+  UserGroupResolutionConfiguration,
   UserTokenConfiguration,
   ValidationException,
   WebCrawlerConfiguration,
@@ -5430,6 +5431,7 @@ const serializeAws_json1_1CreateDataSourceRequest = (input: CreateDataSourceRequ
       }),
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
@@ -5444,6 +5446,7 @@ const serializeAws_json1_1CreateFaqRequest = (input: CreateFaqRequest, context: 
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.FileFormat !== undefined && input.FileFormat !== null && { FileFormat: input.FileFormat }),
     ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.S3Path !== undefined &&
@@ -5469,6 +5472,13 @@ const serializeAws_json1_1CreateIndexRequest = (input: CreateIndexRequest, conte
     ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.UserContextPolicy !== undefined &&
       input.UserContextPolicy !== null && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserGroupResolutionConfiguration !== undefined &&
+      input.UserGroupResolutionConfiguration !== null && {
+        UserGroupResolutionConfiguration: serializeAws_json1_1UserGroupResolutionConfiguration(
+          input.UserGroupResolutionConfiguration,
+          context
+        ),
+      }),
     ...(input.UserTokenConfigurations !== undefined &&
       input.UserTokenConfigurations !== null && {
         UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
@@ -7000,6 +7010,7 @@ const serializeAws_json1_1UpdateDataSourceRequest = (input: UpdateDataSourceRequ
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Id !== undefined && input.Id !== null && { Id: input.Id }),
     ...(input.IndexId !== undefined && input.IndexId !== null && { IndexId: input.IndexId }),
+    ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.Schedule !== undefined && input.Schedule !== null && { Schedule: input.Schedule }),
@@ -7025,6 +7036,13 @@ const serializeAws_json1_1UpdateIndexRequest = (input: UpdateIndexRequest, conte
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
     ...(input.UserContextPolicy !== undefined &&
       input.UserContextPolicy !== null && { UserContextPolicy: input.UserContextPolicy }),
+    ...(input.UserGroupResolutionConfiguration !== undefined &&
+      input.UserGroupResolutionConfiguration !== null && {
+        UserGroupResolutionConfiguration: serializeAws_json1_1UserGroupResolutionConfiguration(
+          input.UserGroupResolutionConfiguration,
+          context
+        ),
+      }),
     ...(input.UserTokenConfigurations !== undefined &&
       input.UserTokenConfigurations !== null && {
         UserTokenConfigurations: serializeAws_json1_1UserTokenConfigurationList(input.UserTokenConfigurations, context),
@@ -7106,6 +7124,16 @@ const serializeAws_json1_1UserContext = (input: UserContext, context: __SerdeCon
       input.Groups !== null && { Groups: serializeAws_json1_1Groups(input.Groups, context) }),
     ...(input.Token !== undefined && input.Token !== null && { Token: input.Token }),
     ...(input.UserId !== undefined && input.UserId !== null && { UserId: input.UserId }),
+  };
+};
+
+const serializeAws_json1_1UserGroupResolutionConfiguration = (
+  input: UserGroupResolutionConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.UserGroupResolutionMode !== undefined &&
+      input.UserGroupResolutionMode !== null && { UserGroupResolutionMode: input.UserGroupResolutionMode }),
   };
 };
 
@@ -7827,6 +7855,7 @@ const deserializeAws_json1_1DataSourceSummary = (output: any, context: __SerdeCo
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Id: __expectString(output.Id),
+    LanguageCode: __expectString(output.LanguageCode),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
     Type: __expectString(output.Type),
@@ -7955,6 +7984,7 @@ const deserializeAws_json1_1DescribeDataSourceResponse = (
     ErrorMessage: __expectString(output.ErrorMessage),
     Id: __expectString(output.Id),
     IndexId: __expectString(output.IndexId),
+    LanguageCode: __expectString(output.LanguageCode),
     Name: __expectString(output.Name),
     RoleArn: __expectString(output.RoleArn),
     Schedule: __expectString(output.Schedule),
@@ -7978,6 +8008,7 @@ const deserializeAws_json1_1DescribeFaqResponse = (output: any, context: __Serde
     FileFormat: __expectString(output.FileFormat),
     Id: __expectString(output.Id),
     IndexId: __expectString(output.IndexId),
+    LanguageCode: __expectString(output.LanguageCode),
     Name: __expectString(output.Name),
     RoleArn: __expectString(output.RoleArn),
     S3Path:
@@ -8026,6 +8057,10 @@ const deserializeAws_json1_1DescribeIndexResponse = (output: any, context: __Ser
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.UpdatedAt)))
         : undefined,
     UserContextPolicy: __expectString(output.UserContextPolicy),
+    UserGroupResolutionConfiguration:
+      output.UserGroupResolutionConfiguration !== undefined && output.UserGroupResolutionConfiguration !== null
+        ? deserializeAws_json1_1UserGroupResolutionConfiguration(output.UserGroupResolutionConfiguration, context)
+        : undefined,
     UserTokenConfigurations:
       output.UserTokenConfigurations !== undefined && output.UserTokenConfigurations !== null
         ? deserializeAws_json1_1UserTokenConfigurationList(output.UserTokenConfigurations, context)
@@ -8330,6 +8365,7 @@ const deserializeAws_json1_1FaqSummary = (output: any, context: __SerdeContext):
         : undefined,
     FileFormat: __expectString(output.FileFormat),
     Id: __expectString(output.Id),
+    LanguageCode: __expectString(output.LanguageCode),
     Name: __expectString(output.Name),
     Status: __expectString(output.Status),
     UpdatedAt:
@@ -9448,6 +9484,15 @@ const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): Urls 
       output.SiteMapsConfiguration !== undefined && output.SiteMapsConfiguration !== null
         ? deserializeAws_json1_1SiteMapsConfiguration(output.SiteMapsConfiguration, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UserGroupResolutionConfiguration = (
+  output: any,
+  context: __SerdeContext
+): UserGroupResolutionConfiguration => {
+  return {
+    UserGroupResolutionMode: __expectString(output.UserGroupResolutionMode),
   } as any;
 };
 

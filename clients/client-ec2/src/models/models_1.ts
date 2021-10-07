@@ -7,7 +7,7 @@ import {
   AttachmentStatus,
   CurrencyCodeValues,
   DnsSupportValue,
-  GatewayType,
+  InstanceEventWindow,
   InternetGatewayAttachment,
   Ipv4PrefixSpecification,
   Ipv6SupportValue,
@@ -25,9 +25,253 @@ import {
   VolumeAttachment,
   VolumeType,
   Vpc,
-  VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
+
+export interface CreateInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   */
+  InstanceEventWindow?: InstanceEventWindow;
+}
+
+export namespace CreateInstanceEventWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceEventWindowResult): any => ({
+    ...obj,
+  });
+}
+
+export type ContainerFormat = "ova";
+
+export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
+
+/**
+ * <p>Describes an export instance task.</p>
+ */
+export interface ExportToS3TaskSpecification {
+  /**
+   * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
+   *    exported.</p>
+   */
+  ContainerFormat?: ContainerFormat | string;
+
+  /**
+   * <p>The format for the exported image.</p>
+   */
+  DiskImageFormat?: DiskImageFormat | string;
+
+  /**
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
+   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix +
+   *    exportTaskId + '.' + diskImageFormat.</p>
+   */
+  S3Prefix?: string;
+}
+
+export namespace ExportToS3TaskSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
+    ...obj,
+  });
+}
+
+export type ExportEnvironment = "citrix" | "microsoft" | "vmware";
+
+export interface CreateInstanceExportTaskRequest {
+  /**
+   * <p>A description for the conversion task or the resource being exported. The maximum length is 255 characters.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The format and location for an export instance task.</p>
+   */
+  ExportToS3Task: ExportToS3TaskSpecification | undefined;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The target virtualization environment.</p>
+   */
+  TargetEnvironment: ExportEnvironment | string | undefined;
+
+  /**
+   * <p>The tags to apply to the export instance task during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateInstanceExportTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceExportTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the format and location for the export task.</p>
+ */
+export interface ExportToS3Task {
+  /**
+   * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
+   *    exported.</p>
+   */
+  ContainerFormat?: ContainerFormat | string;
+
+  /**
+   * <p>The format for the exported image.</p>
+   */
+  DiskImageFormat?: DiskImageFormat | string;
+
+  /**
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
+   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The encryption key for your S3 bucket.</p>
+   */
+  S3Key?: string;
+}
+
+export namespace ExportToS3Task {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportToS3Task): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance to export.</p>
+ */
+export interface InstanceExportDetails {
+  /**
+   * <p>The ID of the resource being exported.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The target virtualization environment.</p>
+   */
+  TargetEnvironment?: ExportEnvironment | string;
+}
+
+export namespace InstanceExportDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceExportDetails): any => ({
+    ...obj,
+  });
+}
+
+export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed";
+
+/**
+ * <p>Describes an export instance task.</p>
+ */
+export interface ExportTask {
+  /**
+   * <p>A description of the resource being exported.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the export task.</p>
+   */
+  ExportTaskId?: string;
+
+  /**
+   * <p>Information about the export task.</p>
+   */
+  ExportToS3Task?: ExportToS3Task;
+
+  /**
+   * <p>Information about the instance to export.</p>
+   */
+  InstanceExportDetails?: InstanceExportDetails;
+
+  /**
+   * <p>The state of the export task.</p>
+   */
+  State?: ExportTaskState | string;
+
+  /**
+   * <p>The status message related to the export task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The tags for the export task.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ExportTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ExportTask): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInstanceExportTaskResult {
+  /**
+   * <p>Information about the export instance task.</p>
+   */
+  ExportTask?: ExportTask;
+}
+
+export namespace CreateInstanceExportTaskResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceExportTaskResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInternetGatewayRequest {
+  /**
+   * <p>The tags to assign to the internet gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateInternetGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes an internet gateway.</p>
@@ -9387,346 +9631,6 @@ export namespace VpnConnectionOptions {
    * @internal
    */
   export const filterSensitiveLog = (obj: VpnConnectionOptions): any => ({
-    ...obj,
-  });
-}
-
-export type VpnStaticRouteSource = "Static";
-
-export type VpnState = "available" | "deleted" | "deleting" | "pending";
-
-/**
- * <p>Describes a static route for a VPN connection.</p>
- */
-export interface VpnStaticRoute {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer data center.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>Indicates how the routes were provided.</p>
-   */
-  Source?: VpnStaticRouteSource | string;
-
-  /**
-   * <p>The current state of the static route.</p>
-   */
-  State?: VpnState | string;
-}
-
-export namespace VpnStaticRoute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnStaticRoute): any => ({
-    ...obj,
-  });
-}
-
-export type TelemetryStatus = "DOWN" | "UP";
-
-/**
- * <p>Describes telemetry for a VPN tunnel.</p>
- */
-export interface VgwTelemetry {
-  /**
-   * <p>The number of accepted routes.</p>
-   */
-  AcceptedRouteCount?: number;
-
-  /**
-   * <p>The date and time of the last change in status.</p>
-   */
-  LastStatusChange?: Date;
-
-  /**
-   * <p>The Internet-routable IP address of the virtual private gateway's outside
-   *             interface.</p>
-   */
-  OutsideIpAddress?: string;
-
-  /**
-   * <p>The status of the VPN tunnel.</p>
-   */
-  Status?: TelemetryStatus | string;
-
-  /**
-   * <p>If an error occurs, a description of the error.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.</p>
-   */
-  CertificateArn?: string;
-}
-
-export namespace VgwTelemetry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VgwTelemetry): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a VPN connection.</p>
- */
-export interface VpnConnection {
-  /**
-   * <p>The configuration information for the VPN connection's customer gateway (in the native
-   *             XML format). This element is always present in the <a>CreateVpnConnection</a>
-   *             response; however, it's present in the <a>DescribeVpnConnections</a> response
-   *             only if the VPN connection is in the <code>pending</code> or <code>available</code>
-   *             state.</p>
-   */
-  CustomerGatewayConfiguration?: string;
-
-  /**
-   * <p>The ID of the customer gateway at your end of the VPN connection.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The category of the VPN connection. A value of <code>VPN</code> indicates an Amazon Web Services VPN connection. A value of <code>VPN-Classic</code> indicates an Amazon Web Services Classic VPN connection.</p>
-   */
-  Category?: string;
-
-  /**
-   * <p>The current state of the VPN connection.</p>
-   */
-  State?: VpnState | string;
-
-  /**
-   * <p>The type of VPN connection.</p>
-   */
-  Type?: GatewayType | string;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId?: string;
-
-  /**
-   * <p>The ID of the virtual private gateway at the Amazon Web Services side of the VPN
-   *             connection.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>The ID of the transit gateway associated with the VPN connection.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The VPN connection options.</p>
-   */
-  Options?: VpnConnectionOptions;
-
-  /**
-   * <p>The static routes associated with the VPN connection.</p>
-   */
-  Routes?: VpnStaticRoute[];
-
-  /**
-   * <p>Any tags assigned to the VPN connection.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Information about the VPN tunnel.</p>
-   */
-  VgwTelemetry?: VgwTelemetry[];
-}
-
-export namespace VpnConnection {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnConnection): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of CreateVpnConnection.</p>
- */
-export interface CreateVpnConnectionResult {
-  /**
-   * <p>Information about the VPN connection.</p>
-   */
-  VpnConnection?: VpnConnection;
-}
-
-export namespace CreateVpnConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpnConnectionResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for CreateVpnConnectionRoute.</p>
- */
-export interface CreateVpnConnectionRouteRequest {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer network.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-}
-
-export namespace CreateVpnConnectionRouteRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpnConnectionRouteRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for CreateVpnGateway.</p>
- */
-export interface CreateVpnGatewayRequest {
-  /**
-   * <p>The Availability Zone for the virtual private gateway.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The type of VPN connection this virtual private gateway supports.</p>
-   */
-  Type: GatewayType | string | undefined;
-
-  /**
-   * <p>The tags to apply to the virtual private gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
-   *             you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using a
-   *             32-bit ASN, it must be in the 4200000000 to 4294967294 range.</p>
-   *         <p>Default: 64512</p>
-   */
-  AmazonSideAsn?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace CreateVpnGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpnGatewayRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a virtual private gateway.</p>
- */
-export interface VpnGateway {
-  /**
-   * <p>The Availability Zone where the virtual private gateway was created, if applicable.
-   *             This field may be empty or not returned.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The current state of the virtual private gateway.</p>
-   */
-  State?: VpnState | string;
-
-  /**
-   * <p>The type of VPN connection the virtual private gateway supports.</p>
-   */
-  Type?: GatewayType | string;
-
-  /**
-   * <p>Any VPCs attached to the virtual private gateway.</p>
-   */
-  VpcAttachments?: VpcAttachment[];
-
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>The private Autonomous System Number (ASN) for the Amazon side of a BGP
-   *             session.</p>
-   */
-  AmazonSideAsn?: number;
-
-  /**
-   * <p>Any tags assigned to the virtual private gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace VpnGateway {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnGateway): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of CreateVpnGateway.</p>
- */
-export interface CreateVpnGatewayResult {
-  /**
-   * <p>Information about the virtual private gateway.</p>
-   */
-  VpnGateway?: VpnGateway;
-}
-
-export namespace CreateVpnGatewayResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpnGatewayResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteCarrierGatewayRequest {
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   */
-  CarrierGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DeleteCarrierGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteCarrierGatewayRequest): any => ({
     ...obj,
   });
 }

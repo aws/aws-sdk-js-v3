@@ -2191,6 +2191,7 @@ export const deserializeAws_restJson1GetBackendCommand = async (
   }
   const contents: GetBackendCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AmplifyFeatureFlags: undefined,
     AmplifyMetaConfig: undefined,
     AppId: undefined,
     AppName: undefined,
@@ -2199,6 +2200,9 @@ export const deserializeAws_restJson1GetBackendCommand = async (
     Error: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.amplifyFeatureFlags !== undefined && data.amplifyFeatureFlags !== null) {
+    contents.AmplifyFeatureFlags = __expectString(data.amplifyFeatureFlags);
+  }
   if (data.amplifyMetaConfig !== undefined && data.amplifyMetaConfig !== null) {
     contents.AmplifyMetaConfig = __expectString(data.amplifyMetaConfig);
   }

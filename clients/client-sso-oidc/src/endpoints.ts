@@ -46,6 +46,10 @@ const regionHash: RegionHash = {
     hostname: "oidc.eu-west-3.amazonaws.com",
     signingRegion: "eu-west-3",
   },
+  "sa-east-1": {
+    hostname: "oidc.sa-east-1.amazonaws.com",
+    signingRegion: "sa-east-1",
+  },
   "us-east-1": {
     hostname: "oidc.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",

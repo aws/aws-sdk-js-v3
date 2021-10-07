@@ -1464,6 +1464,11 @@ export namespace GetBackendRequest {
 
 export interface GetBackendResponse {
   /**
+   * <p>A stringified version of the cli.json file for your Amplify project.</p>
+   */
+  AmplifyFeatureFlags?: string;
+
+  /**
    * <p>A stringified version of the current configs for your Amplify project.</p>
    */
   AmplifyMetaConfig?: string;

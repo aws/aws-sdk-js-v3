@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeImportImageTasksRequest, DescribeImportImageTasksResult } from "../models/models_2";
+import { DescribeImportImageTasksRequest } from "../models/models_2";
+import { DescribeImportImageTasksResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeImportImageTasksCommand,
   serializeAws_ec2DescribeImportImageTasksCommand,

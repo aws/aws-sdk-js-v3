@@ -1370,6 +1370,38 @@ export namespace DescribeGroupResponse {
   });
 }
 
+export interface DescribeInboundDmarcSettingsRequest {
+  /**
+   * <p>Lists the ID of the given organization.</p>
+   */
+  OrganizationId: string | undefined;
+}
+
+export namespace DescribeInboundDmarcSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInboundDmarcSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInboundDmarcSettingsResponse {
+  /**
+   * <p>Lists the enforcement setting of the applied policy.</p>
+   */
+  Enforced?: boolean;
+}
+
+export namespace DescribeInboundDmarcSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInboundDmarcSettingsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeMailboxExportJobRequest {
   /**
    * <p>The mailbox export job ID.</p>
@@ -3378,6 +3410,38 @@ export namespace PutAccessControlRuleResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutAccessControlRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface PutInboundDmarcSettingsRequest {
+  /**
+   * <p>The ID of the organization that you are applying the DMARC policy to. </p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>Enforces or suspends a policy after it's applied.</p>
+   */
+  Enforced: boolean | undefined;
+}
+
+export namespace PutInboundDmarcSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutInboundDmarcSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutInboundDmarcSettingsResponse {}
+
+export namespace PutInboundDmarcSettingsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutInboundDmarcSettingsResponse): any => ({
     ...obj,
   });
 }

@@ -19,20 +19,21 @@ export interface CreateKeyCommandInput extends CreateKeyRequest {}
 export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.</p>
+ * <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and
+ *       Region.</p>
  *          <note>
  *             <p>KMS is replacing the term <i>customer master key (CMK)</i> with <i>KMS key</i> and <i>KMS key</i>. The concept has not changed. To prevent breaking changes, KMS is keeping some variations of this term.</p>
  *          </note>
  *
- *          <p>You can use the <code>CreateKey</code> operation to create symmetric or asymmetric KMS keys.</p>
+ *          <p>You can use the <code>CreateKey</code> operation to create symmetric or asymmetric KMS
+ *       keys.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Symmetric KMS keys</b> contain a 256-bit symmetric key that
- *           never leaves KMS unencrypted. To use the KMS key, you must call KMS. You can use a
- *           symmetric KMS key to encrypt and decrypt small amounts of data, but they are typically used to
- *           generate <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data
- *             keys</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-key-pairs">data keys pairs</a>. For details,
+ *                   <b>Symmetric KMS keys</b> contain a 256-bit symmetric key
+ *           that never leaves KMS unencrypted. To use the KMS key, you must call KMS. You can use
+ *           a symmetric KMS key to encrypt and decrypt small amounts of data, but they are typically
+ *           used to generate <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-keys">data keys</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#data-key-pairs">data keys pairs</a>. For details,
  *           see <a>GenerateDataKey</a> and <a>GenerateDataKeyPair</a>.</p>
  *             </li>
  *             <li>
@@ -40,9 +41,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                   <b>Asymmetric KMS keys</b> can contain an RSA key pair or an
  *           Elliptic Curve (ECC) key pair. The private key in an asymmetric KMS key never leaves KMS
  *           unencrypted. However, you can use the <a>GetPublicKey</a> operation to download
- *           the public key so it can be used outside of KMS. KMS keys with RSA key pairs can be used to
- *           encrypt or decrypt data or sign and verify messages (but not both). KMS keys with ECC key
- *           pairs can be used only to sign and verify messages.</p>
+ *           the public key so it can be used outside of KMS. KMS keys with RSA key pairs can be used
+ *           to encrypt or decrypt data or sign and verify messages (but not both). KMS keys with ECC
+ *           key pairs can be used only to sign and verify messages.</p>
  *             </li>
  *          </ul>
  *          <p>For information about symmetric and asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using Symmetric and Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -73,8 +74,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             <dd>
  *                <p>To create a multi-Region <i>primary key</i> in the local Amazon Web Services Region,
  *             use the <code>MultiRegion</code> parameter with a value of <code>True</code>. To create
- *             a multi-Region <i>replica key</i>, that is, a KMS key with the same key ID and
- *             key material as a primary key, but in a different Amazon Web Services Region, use the <a>ReplicateKey</a> operation. To change a replica key to a primary key, and its
+ *             a multi-Region <i>replica key</i>, that is, a KMS key with the same key ID
+ *             and key material as a primary key, but in a different Amazon Web Services Region, use the <a>ReplicateKey</a> operation. To change a replica key to a primary key, and its
  *             primary key to a replica key, use the <a>UpdatePrimaryRegion</a>
  *             operation.</p>
  *                <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
@@ -115,13 +116,14 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             </dd>
  *          </dl>
  *          <p>
- *             <b>Cross-account use</b>:  No. You cannot use this operation to
+ *             <b>Cross-account use</b>: No. You cannot use this operation to
  *       create a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
  *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related
- *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow a user to create KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow a user to create
+ *         KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

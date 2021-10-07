@@ -141,6 +141,10 @@ import {
   CancelCapacityReservationCommandOutput,
 } from "../commands/CancelCapacityReservationCommand";
 import {
+  CancelCapacityReservationFleetsCommandInput,
+  CancelCapacityReservationFleetsCommandOutput,
+} from "../commands/CancelCapacityReservationFleetsCommand";
+import {
   CancelConversionTaskCommandInput,
   CancelConversionTaskCommandOutput,
 } from "../commands/CancelConversionTaskCommand";
@@ -169,6 +173,10 @@ import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "../commands/CreateCapacityReservationCommand";
+import {
+  CreateCapacityReservationFleetCommandInput,
+  CreateCapacityReservationFleetCommandOutput,
+} from "../commands/CreateCapacityReservationFleetCommand";
 import {
   CreateCarrierGatewayCommandInput,
   CreateCarrierGatewayCommandOutput,
@@ -579,6 +587,10 @@ import {
   DescribeBundleTasksCommandOutput,
 } from "../commands/DescribeBundleTasksCommand";
 import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "../commands/DescribeByoipCidrsCommand";
+import {
+  DescribeCapacityReservationFleetsCommandInput,
+  DescribeCapacityReservationFleetsCommandOutput,
+} from "../commands/DescribeCapacityReservationFleetsCommand";
 import {
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput,
@@ -1256,6 +1268,10 @@ import {
   ModifyCapacityReservationCommandOutput,
 } from "../commands/ModifyCapacityReservationCommand";
 import {
+  ModifyCapacityReservationFleetCommandInput,
+  ModifyCapacityReservationFleetCommandOutput,
+} from "../commands/ModifyCapacityReservationFleetCommand";
+import {
   ModifyClientVpnEndpointCommandInput,
   ModifyClientVpnEndpointCommandOutput,
 } from "../commands/ModifyClientVpnEndpointCommand";
@@ -1672,6 +1688,9 @@ import {
   ByoipCidr,
   CancelBundleTaskRequest,
   CancelBundleTaskResult,
+  CancelCapacityReservationFleetError,
+  CancelCapacityReservationFleetsRequest,
+  CancelCapacityReservationFleetsResult,
   CancelCapacityReservationRequest,
   CancelCapacityReservationResult,
   CancelConversionRequest,
@@ -1689,6 +1708,7 @@ import {
   CancelSpotInstanceRequestsRequest,
   CancelSpotInstanceRequestsResult,
   CapacityReservation,
+  CapacityReservationFleetCancellationState,
   CapacityReservationOptionsRequest,
   CarrierGateway,
   CertificateAuthenticationRequest,
@@ -1707,6 +1727,8 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
+  CreateCapacityReservationFleetRequest,
+  CreateCapacityReservationFleetResult,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   CreateCarrierGatewayRequest,
@@ -1736,20 +1758,15 @@ import {
   CreateImageRequest,
   CreateImageResult,
   CreateInstanceEventWindowRequest,
-  CreateInstanceEventWindowResult,
-  CreateInstanceExportTaskRequest,
-  CreateInstanceExportTaskResult,
-  CreateInternetGatewayRequest,
   CustomerGateway,
   DhcpConfiguration,
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
   EbsBlockDevice,
   EgressOnlyInternetGateway,
-  ExportTask,
-  ExportToS3Task,
-  ExportToS3TaskSpecification,
+  FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
+  FleetCapacityReservation,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
@@ -1766,7 +1783,6 @@ import {
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
   InstanceEventWindowTimeRangeRequest,
-  InstanceExportDetails,
   InternetGatewayAttachment,
   IpPermission,
   IpRange,
@@ -1784,6 +1800,7 @@ import {
   PriceSchedule,
   PtrUpdateStatus,
   ReferencedSecurityGroup,
+  ReservationFleetInstanceSpecification,
   ReservedInstancesListing,
   RouteTableAssociationState,
   S3Storage,
@@ -1823,6 +1840,10 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   ConnectionNotification,
+  CreateInstanceEventWindowResult,
+  CreateInstanceExportTaskRequest,
+  CreateInstanceExportTaskResult,
+  CreateInternetGatewayRequest,
   CreateInternetGatewayResult,
   CreateKeyPairRequest,
   CreateLaunchTemplateRequest,
@@ -1913,20 +1934,19 @@ import {
   CreateVpcRequest,
   CreateVpcResult,
   CreateVpnConnectionRequest,
-  CreateVpnConnectionResult,
-  CreateVpnConnectionRouteRequest,
-  CreateVpnGatewayRequest,
-  CreateVpnGatewayResult,
   CreditSpecification,
   CreditSpecificationRequest,
-  DeleteCarrierGatewayRequest,
   DnsEntry,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
+  ExportTask,
+  ExportToS3Task,
+  ExportToS3TaskSpecification,
   GroupIdentifier,
   IcmpTypeCode,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
+  InstanceExportDetails,
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
   InstanceSpecification,
@@ -2048,23 +2068,19 @@ import {
   TunnelOption,
   ValidationError,
   ValidationWarning,
-  VgwTelemetry,
   Volume,
   VpcEndpoint,
-  VpnConnection,
   VpnConnectionOptions,
   VpnConnectionOptionsSpecification,
-  VpnGateway,
-  VpnStaticRoute,
   VpnTunnelOptionsSpecification,
 } from "../models/models_1";
 import {
   AssociatedTargetNetwork,
-  AttributeBooleanValue,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
   AvailableCapacity,
+  CapacityReservationFleet,
   CapacityReservationOptions,
   CertificateAuthentication,
   ClassicLinkInstance,
@@ -2078,6 +2094,11 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
+  CreateVpnConnectionResult,
+  CreateVpnConnectionRouteRequest,
+  CreateVpnGatewayRequest,
+  CreateVpnGatewayResult,
+  DeleteCarrierGatewayRequest,
   DeleteCarrierGatewayResult,
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
@@ -2199,6 +2220,8 @@ import {
   DescribeBundleTasksResult,
   DescribeByoipCidrsRequest,
   DescribeByoipCidrsResult,
+  DescribeCapacityReservationFleetsRequest,
+  DescribeCapacityReservationFleetsResult,
   DescribeCapacityReservationsRequest,
   DescribeCapacityReservationsResult,
   DescribeCarrierGatewaysRequest,
@@ -2264,19 +2287,11 @@ import {
   DescribeImagesRequest,
   DescribeImagesResult,
   DescribeImportImageTasksRequest,
-  DescribeImportImageTasksResult,
-  DescribeImportSnapshotTasksRequest,
-  DescribeImportSnapshotTasksResult,
-  DescribeInstanceAttributeRequest,
-  DescribeInstanceCreditSpecificationsRequest,
-  DescribeInstanceCreditSpecificationsResult,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
-  EbsInstanceBlockDevice,
   ElasticGpuHealth,
   ElasticGpus,
-  EnclaveOptions,
   EventInformation,
   ExportImageTask,
   ExportTaskS3Location,
@@ -2304,12 +2319,8 @@ import {
   ImportImageTask,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
-  ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  InstanceAttribute,
-  InstanceBlockDeviceMapping,
   InstanceCapacity,
-  InstanceCreditSpecification,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   LaunchPermission,
@@ -2319,7 +2330,6 @@ import {
   ProductCode,
   ResponseError,
   SnapshotDetail,
-  SnapshotTaskDetail,
   SpotOptions,
   StateReason,
   SuccessfulQueuedPurchaseDeletion,
@@ -2328,7 +2338,11 @@ import {
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
   UserBucketDetails,
+  VgwTelemetry,
   VirtualizationType,
+  VpnConnection,
+  VpnGateway,
+  VpnStaticRoute,
 } from "../models/models_2";
 import {
   AnalysisAclRule,
@@ -2339,12 +2353,19 @@ import {
   AnalysisRouteTableRoute,
   AnalysisSecurityGroupRule,
   ArchitectureType,
+  AttributeBooleanValue,
   BootModeType,
   CapacityReservationSpecificationResponse,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeImportImageTasksResult,
+  DescribeImportSnapshotTasksRequest,
+  DescribeImportSnapshotTasksResult,
+  DescribeInstanceAttributeRequest,
+  DescribeInstanceCreditSpecificationsRequest,
+  DescribeInstanceCreditSpecificationsResult,
   DescribeInstanceEventNotificationAttributesRequest,
   DescribeInstanceEventNotificationAttributesResult,
   DescribeInstanceEventWindowsRequest,
@@ -2479,17 +2500,14 @@ import {
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
-  DescribeVolumesModificationsRequest,
-  DescribeVolumesModificationsResult,
-  DescribeVolumesRequest,
-  DescribeVolumesResult,
-  DescribeVolumeStatusRequest,
   DiskInfo,
   EbsInfo,
+  EbsInstanceBlockDevice,
   EbsOptimizedInfo,
   EfaInfo,
   ElasticGpuAssociation,
   ElasticInferenceAcceleratorAssociation,
+  EnclaveOptions,
   Explanation,
   FpgaDeviceInfo,
   FpgaDeviceMemoryInfo,
@@ -2499,9 +2517,13 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  ImportSnapshotTask,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   Instance,
+  InstanceAttribute,
+  InstanceBlockDeviceMapping,
+  InstanceCreditSpecification,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
   InstanceMetadataOptionsResponse,
@@ -2565,6 +2587,7 @@ import {
   SecurityGroupReference,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
+  SnapshotTaskDetail,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
@@ -2586,13 +2609,6 @@ import {
   TransitGatewayAttachmentAssociation,
   UsageClassType,
   VCpuInfo,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
 } from "../models/models_3";
 import {
   AssociatedRole,
@@ -2605,6 +2621,11 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeVolumesModificationsRequest,
+  DescribeVolumesModificationsResult,
+  DescribeVolumesRequest,
+  DescribeVolumesResult,
+  DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
@@ -2791,6 +2812,8 @@ import {
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
   ModifyAvailabilityZoneGroupResult,
+  ModifyCapacityReservationFleetRequest,
+  ModifyCapacityReservationFleetResult,
   ModifyCapacityReservationRequest,
   ModifyCapacityReservationResult,
   ModifyClientVpnEndpointRequest,
@@ -2839,23 +2862,6 @@ import {
   ModifyTrafficMirrorFilterRuleRequest,
   ModifyTrafficMirrorFilterRuleResult,
   ModifyTrafficMirrorSessionRequest,
-  ModifyTrafficMirrorSessionResult,
-  ModifyTransitGatewayOptions,
-  ModifyTransitGatewayPrefixListReferenceRequest,
-  ModifyTransitGatewayPrefixListReferenceResult,
-  ModifyTransitGatewayRequest,
-  ModifyTransitGatewayResult,
-  ModifyTransitGatewayVpcAttachmentRequest,
-  ModifyTransitGatewayVpcAttachmentRequestOptions,
-  ModifyTransitGatewayVpcAttachmentResult,
-  ModifyVolumeAttributeRequest,
-  ModifyVolumeRequest,
-  ModifyVolumeResult,
-  ModifyVpcAttributeRequest,
-  ModifyVpcEndpointConnectionNotificationRequest,
-  ModifyVpcEndpointConnectionNotificationResult,
-  ModifyVpcEndpointRequest,
-  ModifyVpcEndpointResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -2883,6 +2889,13 @@ import {
   UserBucket,
   UserData,
   VolumeDetail,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
   VpcClassicLink,
   VpcEndpointConnection,
   VpnConnectionDeviceType,
@@ -2899,6 +2912,23 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyTrafficMirrorSessionResult,
+  ModifyTransitGatewayOptions,
+  ModifyTransitGatewayPrefixListReferenceRequest,
+  ModifyTransitGatewayPrefixListReferenceResult,
+  ModifyTransitGatewayRequest,
+  ModifyTransitGatewayResult,
+  ModifyTransitGatewayVpcAttachmentRequest,
+  ModifyTransitGatewayVpcAttachmentRequestOptions,
+  ModifyTransitGatewayVpcAttachmentResult,
+  ModifyVolumeAttributeRequest,
+  ModifyVolumeRequest,
+  ModifyVolumeResult,
+  ModifyVpcAttributeRequest,
+  ModifyVpcEndpointConnectionNotificationRequest,
+  ModifyVpcEndpointConnectionNotificationResult,
+  ModifyVpcEndpointRequest,
+  ModifyVpcEndpointResult,
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServicePermissionsRequest,
@@ -3602,6 +3632,22 @@ export const serializeAws_ec2CancelCapacityReservationCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CancelCapacityReservationFleetsCommand = async (
+  input: CancelCapacityReservationFleetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CancelCapacityReservationFleetsRequest(input, context),
+    Action: "CancelCapacityReservationFleets",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CancelConversionTaskCommand = async (
   input: CancelConversionTaskCommandInput,
   context: __SerdeContext
@@ -3773,6 +3819,22 @@ export const serializeAws_ec2CreateCapacityReservationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2CreateCapacityReservationRequest(input, context),
     Action: "CreateCapacityReservation",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateCapacityReservationFleetCommand = async (
+  input: CreateCapacityReservationFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateCapacityReservationFleetRequest(input, context),
+    Action: "CreateCapacityReservationFleet",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5869,6 +5931,22 @@ export const serializeAws_ec2DescribeByoipCidrsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DescribeByoipCidrsRequest(input, context),
     Action: "DescribeByoipCidrs",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeCapacityReservationFleetsCommand = async (
+  input: DescribeCapacityReservationFleetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeCapacityReservationFleetsRequest(input, context),
+    Action: "DescribeCapacityReservationFleets",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8909,6 +8987,22 @@ export const serializeAws_ec2ModifyCapacityReservationCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyCapacityReservationRequest(input, context),
     Action: "ModifyCapacityReservation",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyCapacityReservationFleetCommand = async (
+  input: ModifyCapacityReservationFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyCapacityReservationFleetRequest(input, context),
+    Action: "ModifyCapacityReservationFleet",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -12118,6 +12212,52 @@ const deserializeAws_ec2CancelCapacityReservationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2CancelCapacityReservationFleetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCapacityReservationFleetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CancelCapacityReservationFleetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CancelCapacityReservationFleetsResult(data, context);
+  const response: CancelCapacityReservationFleetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CancelCapacityReservationFleetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCapacityReservationFleetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2CancelConversionTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -12593,6 +12733,52 @@ const deserializeAws_ec2CreateCapacityReservationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCapacityReservationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2CreateCapacityReservationFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityReservationFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateCapacityReservationFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateCapacityReservationFleetResult(data, context);
+  const response: CreateCapacityReservationFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateCapacityReservationFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCapacityReservationFleetCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -18547,6 +18733,52 @@ const deserializeAws_ec2DescribeByoipCidrsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeByoipCidrsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2DescribeCapacityReservationFleetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationFleetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeCapacityReservationFleetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeCapacityReservationFleetsResult(data, context);
+  const response: DescribeCapacityReservationFleetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeCapacityReservationFleetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationFleetsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -27291,6 +27523,52 @@ const deserializeAws_ec2ModifyCapacityReservationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2ModifyCapacityReservationFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCapacityReservationFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyCapacityReservationFleetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyCapacityReservationFleetResult(data, context);
+  const response: ModifyCapacityReservationFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyCapacityReservationFleetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCapacityReservationFleetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2ModifyClientVpnEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -32853,6 +33131,24 @@ const serializeAws_ec2CancelBundleTaskRequest = (input: CancelBundleTaskRequest,
   return entries;
 };
 
+const serializeAws_ec2CancelCapacityReservationFleetsRequest = (
+  input: CancelCapacityReservationFleetsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.CapacityReservationFleetIds !== undefined && input.CapacityReservationFleetIds !== null) {
+    const memberEntries = serializeAws_ec2CapacityReservationFleetIdSet(input.CapacityReservationFleetIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2CancelCapacityReservationRequest = (
   input: CancelCapacityReservationRequest,
   context: __SerdeContext
@@ -32949,6 +33245,19 @@ const serializeAws_ec2CancelSpotInstanceRequestsRequest = (
       const loc = `SpotInstanceRequestId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_ec2CapacityReservationFleetIdSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -33356,6 +33665,55 @@ const serializeAws_ec2CpuOptionsRequest = (input: CpuOptionsRequest, context: __
   }
   if (input.ThreadsPerCore !== undefined && input.ThreadsPerCore !== null) {
     entries["ThreadsPerCore"] = input.ThreadsPerCore;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateCapacityReservationFleetRequest = (
+  input: CreateCapacityReservationFleetRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AllocationStrategy !== undefined && input.AllocationStrategy !== null) {
+    entries["AllocationStrategy"] = input.AllocationStrategy;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken !== undefined && input.ClientToken !== null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.InstanceTypeSpecifications !== undefined && input.InstanceTypeSpecifications !== null) {
+    const memberEntries = serializeAws_ec2ReservationFleetInstanceSpecificationList(
+      input.InstanceTypeSpecifications,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceTypeSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tenancy !== undefined && input.Tenancy !== null) {
+    entries["Tenancy"] = input.Tenancy;
+  }
+  if (input.TotalTargetCapacity !== undefined && input.TotalTargetCapacity !== null) {
+    entries["TotalTargetCapacity"] = input.TotalTargetCapacity;
+  }
+  if (input.EndDate !== undefined && input.EndDate !== null) {
+    entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
+  }
+  if (input.InstanceMatchCriteria !== undefined && input.InstanceMatchCriteria !== null) {
+    entries["InstanceMatchCriteria"] = input.InstanceMatchCriteria;
+  }
+  if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -36697,6 +37055,37 @@ const serializeAws_ec2DescribeByoipCidrsRequest = (input: DescribeByoipCidrsRequ
   }
   if (input.NextToken !== undefined && input.NextToken !== null) {
     entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeCapacityReservationFleetsRequest = (
+  input: DescribeCapacityReservationFleetsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.CapacityReservationFleetIds !== undefined && input.CapacityReservationFleetIds !== null) {
+    const memberEntries = serializeAws_ec2CapacityReservationFleetIdSet(input.CapacityReservationFleetIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CapacityReservationFleetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -43917,6 +44306,29 @@ const serializeAws_ec2ModifyAvailabilityZoneGroupRequest = (
   return entries;
 };
 
+const serializeAws_ec2ModifyCapacityReservationFleetRequest = (
+  input: ModifyCapacityReservationFleetRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.CapacityReservationFleetId !== undefined && input.CapacityReservationFleetId !== null) {
+    entries["CapacityReservationFleetId"] = input.CapacityReservationFleetId;
+  }
+  if (input.TotalTargetCapacity !== undefined && input.TotalTargetCapacity !== null) {
+    entries["TotalTargetCapacity"] = input.TotalTargetCapacity;
+  }
+  if (input.EndDate !== undefined && input.EndDate !== null) {
+    entries["EndDate"] = input.EndDate.toISOString().split(".")[0] + "Z";
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.RemoveEndDate !== undefined && input.RemoveEndDate !== null) {
+    entries["RemoveEndDate"] = input.RemoveEndDate;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyCapacityReservationRequest = (
   input: ModifyCapacityReservationRequest,
   context: __SerdeContext
@@ -47247,6 +47659,54 @@ const serializeAws_ec2RequestSpotLaunchSpecificationSecurityGroupList = (
       continue;
     }
     entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ReservationFleetInstanceSpecification = (
+  input: ReservationFleetInstanceSpecification,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceType !== undefined && input.InstanceType !== null) {
+    entries["InstanceType"] = input.InstanceType;
+  }
+  if (input.InstancePlatform !== undefined && input.InstancePlatform !== null) {
+    entries["InstancePlatform"] = input.InstancePlatform;
+  }
+  if (input.Weight !== undefined && input.Weight !== null) {
+    entries["Weight"] = __serializeFloat(input.Weight);
+  }
+  if (input.AvailabilityZone !== undefined && input.AvailabilityZone !== null) {
+    entries["AvailabilityZone"] = input.AvailabilityZone;
+  }
+  if (input.AvailabilityZoneId !== undefined && input.AvailabilityZoneId !== null) {
+    entries["AvailabilityZoneId"] = input.AvailabilityZoneId;
+  }
+  if (input.EbsOptimized !== undefined && input.EbsOptimized !== null) {
+    entries["EbsOptimized"] = input.EbsOptimized;
+  }
+  if (input.Priority !== undefined && input.Priority !== null) {
+    entries["Priority"] = input.Priority;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ReservationFleetInstanceSpecificationList = (
+  input: ReservationFleetInstanceSpecification[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_ec2ReservationFleetInstanceSpecification(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Member.${counter}.${key}`] = value;
+    });
     counter++;
   }
   return entries;
@@ -51578,6 +52038,58 @@ const deserializeAws_ec2CancelBundleTaskResult = (output: any, context: __SerdeC
   return contents;
 };
 
+const deserializeAws_ec2CancelCapacityReservationFleetError = (
+  output: any,
+  context: __SerdeContext
+): CancelCapacityReservationFleetError => {
+  const contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["code"] !== undefined) {
+    contents.Code = __expectString(output["code"]);
+  }
+  if (output["message"] !== undefined) {
+    contents.Message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CancelCapacityReservationFleetsResult = (
+  output: any,
+  context: __SerdeContext
+): CancelCapacityReservationFleetsResult => {
+  const contents: any = {
+    SuccessfulFleetCancellations: undefined,
+    FailedFleetCancellations: undefined,
+  };
+  if (output.successfulFleetCancellationSet === "") {
+    contents.SuccessfulFleetCancellations = [];
+  }
+  if (
+    output["successfulFleetCancellationSet"] !== undefined &&
+    output["successfulFleetCancellationSet"]["item"] !== undefined
+  ) {
+    contents.SuccessfulFleetCancellations = deserializeAws_ec2CapacityReservationFleetCancellationStateSet(
+      __getArrayIfSingleItem(output["successfulFleetCancellationSet"]["item"]),
+      context
+    );
+  }
+  if (output.failedFleetCancellationSet === "") {
+    contents.FailedFleetCancellations = [];
+  }
+  if (
+    output["failedFleetCancellationSet"] !== undefined &&
+    output["failedFleetCancellationSet"]["item"] !== undefined
+  ) {
+    contents.FailedFleetCancellations = deserializeAws_ec2FailedCapacityReservationFleetCancellationResultSet(
+      __getArrayIfSingleItem(output["failedFleetCancellationSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CancelCapacityReservationResult = (
   output: any,
   context: __SerdeContext
@@ -51818,6 +52330,7 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
     CreateDate: undefined,
     Tags: undefined,
     OutpostArn: undefined,
+    CapacityReservationFleetId: undefined,
   };
   if (output["capacityReservationId"] !== undefined) {
     contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
@@ -51882,7 +52395,125 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
   if (output["outpostArn"] !== undefined) {
     contents.OutpostArn = __expectString(output["outpostArn"]);
   }
+  if (output["capacityReservationFleetId"] !== undefined) {
+    contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
   return contents;
+};
+
+const deserializeAws_ec2CapacityReservationFleet = (output: any, context: __SerdeContext): CapacityReservationFleet => {
+  const contents: any = {
+    CapacityReservationFleetId: undefined,
+    CapacityReservationFleetArn: undefined,
+    State: undefined,
+    TotalTargetCapacity: undefined,
+    TotalFulfilledCapacity: undefined,
+    Tenancy: undefined,
+    EndDate: undefined,
+    CreateTime: undefined,
+    InstanceMatchCriteria: undefined,
+    AllocationStrategy: undefined,
+    InstanceTypeSpecifications: undefined,
+    Tags: undefined,
+  };
+  if (output["capacityReservationFleetId"] !== undefined) {
+    contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
+  if (output["capacityReservationFleetArn"] !== undefined) {
+    contents.CapacityReservationFleetArn = __expectString(output["capacityReservationFleetArn"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["totalTargetCapacity"] !== undefined) {
+    contents.TotalTargetCapacity = __strictParseInt32(output["totalTargetCapacity"]) as number;
+  }
+  if (output["totalFulfilledCapacity"] !== undefined) {
+    contents.TotalFulfilledCapacity = __strictParseFloat(output["totalFulfilledCapacity"]) as number;
+  }
+  if (output["tenancy"] !== undefined) {
+    contents.Tenancy = __expectString(output["tenancy"]);
+  }
+  if (output["endDate"] !== undefined) {
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+  }
+  if (output["createTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+  }
+  if (output["instanceMatchCriteria"] !== undefined) {
+    contents.InstanceMatchCriteria = __expectString(output["instanceMatchCriteria"]);
+  }
+  if (output["allocationStrategy"] !== undefined) {
+    contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
+  }
+  if (output.instanceTypeSpecificationSet === "") {
+    contents.InstanceTypeSpecifications = [];
+  }
+  if (
+    output["instanceTypeSpecificationSet"] !== undefined &&
+    output["instanceTypeSpecificationSet"]["item"] !== undefined
+  ) {
+    contents.InstanceTypeSpecifications = deserializeAws_ec2FleetCapacityReservationSet(
+      __getArrayIfSingleItem(output["instanceTypeSpecificationSet"]["item"]),
+      context
+    );
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CapacityReservationFleetCancellationState = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationFleetCancellationState => {
+  const contents: any = {
+    CurrentFleetState: undefined,
+    PreviousFleetState: undefined,
+    CapacityReservationFleetId: undefined,
+  };
+  if (output["currentFleetState"] !== undefined) {
+    contents.CurrentFleetState = __expectString(output["currentFleetState"]);
+  }
+  if (output["previousFleetState"] !== undefined) {
+    contents.PreviousFleetState = __expectString(output["previousFleetState"]);
+  }
+  if (output["capacityReservationFleetId"] !== undefined) {
+    contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CapacityReservationFleetCancellationStateSet = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationFleetCancellationState[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2CapacityReservationFleetCancellationState(entry, context);
+    });
+};
+
+const deserializeAws_ec2CapacityReservationFleetSet = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationFleet[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2CapacityReservationFleet(entry, context);
+    });
 };
 
 const deserializeAws_ec2CapacityReservationGroup = (output: any, context: __SerdeContext): CapacityReservationGroup => {
@@ -52841,6 +53472,71 @@ const deserializeAws_ec2CpuOptions = (output: any, context: __SerdeContext): Cpu
   }
   if (output["threadsPerCore"] !== undefined) {
     contents.ThreadsPerCore = __strictParseInt32(output["threadsPerCore"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateCapacityReservationFleetResult = (
+  output: any,
+  context: __SerdeContext
+): CreateCapacityReservationFleetResult => {
+  const contents: any = {
+    CapacityReservationFleetId: undefined,
+    State: undefined,
+    TotalTargetCapacity: undefined,
+    TotalFulfilledCapacity: undefined,
+    InstanceMatchCriteria: undefined,
+    AllocationStrategy: undefined,
+    CreateTime: undefined,
+    EndDate: undefined,
+    Tenancy: undefined,
+    FleetCapacityReservations: undefined,
+    Tags: undefined,
+  };
+  if (output["capacityReservationFleetId"] !== undefined) {
+    contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
+  if (output["state"] !== undefined) {
+    contents.State = __expectString(output["state"]);
+  }
+  if (output["totalTargetCapacity"] !== undefined) {
+    contents.TotalTargetCapacity = __strictParseInt32(output["totalTargetCapacity"]) as number;
+  }
+  if (output["totalFulfilledCapacity"] !== undefined) {
+    contents.TotalFulfilledCapacity = __strictParseFloat(output["totalFulfilledCapacity"]) as number;
+  }
+  if (output["instanceMatchCriteria"] !== undefined) {
+    contents.InstanceMatchCriteria = __expectString(output["instanceMatchCriteria"]);
+  }
+  if (output["allocationStrategy"] !== undefined) {
+    contents.AllocationStrategy = __expectString(output["allocationStrategy"]);
+  }
+  if (output["createTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["createTime"]));
+  }
+  if (output["endDate"] !== undefined) {
+    contents.EndDate = __expectNonNull(__parseRfc3339DateTime(output["endDate"]));
+  }
+  if (output["tenancy"] !== undefined) {
+    contents.Tenancy = __expectString(output["tenancy"]);
+  }
+  if (output.fleetCapacityReservationSet === "") {
+    contents.FleetCapacityReservations = [];
+  }
+  if (
+    output["fleetCapacityReservationSet"] !== undefined &&
+    output["fleetCapacityReservationSet"]["item"] !== undefined
+  ) {
+    contents.FleetCapacityReservations = deserializeAws_ec2FleetCapacityReservationSet(
+      __getArrayIfSingleItem(output["fleetCapacityReservationSet"]["item"]),
+      context
+    );
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  }
+  if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
   }
   return contents;
 };
@@ -54802,6 +55498,32 @@ const deserializeAws_ec2DescribeByoipCidrsResult = (output: any, context: __Serd
   if (output["byoipCidrSet"] !== undefined && output["byoipCidrSet"]["item"] !== undefined) {
     contents.ByoipCidrs = deserializeAws_ec2ByoipCidrSet(
       __getArrayIfSingleItem(output["byoipCidrSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeCapacityReservationFleetsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityReservationFleetsResult => {
+  const contents: any = {
+    CapacityReservationFleets: undefined,
+    NextToken: undefined,
+  };
+  if (output.capacityReservationFleetSet === "") {
+    contents.CapacityReservationFleets = [];
+  }
+  if (
+    output["capacityReservationFleetSet"] !== undefined &&
+    output["capacityReservationFleetSet"]["item"] !== undefined
+  ) {
+    contents.CapacityReservationFleets = deserializeAws_ec2CapacityReservationFleetSet(
+      __getArrayIfSingleItem(output["capacityReservationFleetSet"]["item"]),
       context
     );
   }
@@ -59307,6 +60029,40 @@ const deserializeAws_ec2ExportTransitGatewayRoutesResult = (
   return contents;
 };
 
+const deserializeAws_ec2FailedCapacityReservationFleetCancellationResult = (
+  output: any,
+  context: __SerdeContext
+): FailedCapacityReservationFleetCancellationResult => {
+  const contents: any = {
+    CapacityReservationFleetId: undefined,
+    CancelCapacityReservationFleetError: undefined,
+  };
+  if (output["capacityReservationFleetId"] !== undefined) {
+    contents.CapacityReservationFleetId = __expectString(output["capacityReservationFleetId"]);
+  }
+  if (output["cancelCapacityReservationFleetError"] !== undefined) {
+    contents.CancelCapacityReservationFleetError = deserializeAws_ec2CancelCapacityReservationFleetError(
+      output["cancelCapacityReservationFleetError"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FailedCapacityReservationFleetCancellationResultSet = (
+  output: any,
+  context: __SerdeContext
+): FailedCapacityReservationFleetCancellationResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2FailedCapacityReservationFleetCancellationResult(entry, context);
+    });
+};
+
 const deserializeAws_ec2FailedQueuedPurchaseDeletion = (
   output: any,
   context: __SerdeContext
@@ -59350,6 +60106,70 @@ const deserializeAws_ec2FederatedAuthentication = (output: any, context: __Serde
     contents.SelfServiceSamlProviderArn = __expectString(output["selfServiceSamlProviderArn"]);
   }
   return contents;
+};
+
+const deserializeAws_ec2FleetCapacityReservation = (output: any, context: __SerdeContext): FleetCapacityReservation => {
+  const contents: any = {
+    CapacityReservationId: undefined,
+    AvailabilityZoneId: undefined,
+    InstanceType: undefined,
+    InstancePlatform: undefined,
+    AvailabilityZone: undefined,
+    TotalInstanceCount: undefined,
+    FulfilledCapacity: undefined,
+    EbsOptimized: undefined,
+    CreateDate: undefined,
+    Weight: undefined,
+    Priority: undefined,
+  };
+  if (output["capacityReservationId"] !== undefined) {
+    contents.CapacityReservationId = __expectString(output["capacityReservationId"]);
+  }
+  if (output["availabilityZoneId"] !== undefined) {
+    contents.AvailabilityZoneId = __expectString(output["availabilityZoneId"]);
+  }
+  if (output["instanceType"] !== undefined) {
+    contents.InstanceType = __expectString(output["instanceType"]);
+  }
+  if (output["instancePlatform"] !== undefined) {
+    contents.InstancePlatform = __expectString(output["instancePlatform"]);
+  }
+  if (output["availabilityZone"] !== undefined) {
+    contents.AvailabilityZone = __expectString(output["availabilityZone"]);
+  }
+  if (output["totalInstanceCount"] !== undefined) {
+    contents.TotalInstanceCount = __strictParseInt32(output["totalInstanceCount"]) as number;
+  }
+  if (output["fulfilledCapacity"] !== undefined) {
+    contents.FulfilledCapacity = __strictParseFloat(output["fulfilledCapacity"]) as number;
+  }
+  if (output["ebsOptimized"] !== undefined) {
+    contents.EbsOptimized = __parseBoolean(output["ebsOptimized"]);
+  }
+  if (output["createDate"] !== undefined) {
+    contents.CreateDate = __expectNonNull(__parseRfc3339DateTime(output["createDate"]));
+  }
+  if (output["weight"] !== undefined) {
+    contents.Weight = __strictParseFloat(output["weight"]) as number;
+  }
+  if (output["priority"] !== undefined) {
+    contents.Priority = __strictParseInt32(output["priority"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FleetCapacityReservationSet = (
+  output: any,
+  context: __SerdeContext
+): FleetCapacityReservation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2FleetCapacityReservation(entry, context);
+    });
 };
 
 const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): FleetData => {
@@ -65275,6 +66095,19 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupResult = (
   output: any,
   context: __SerdeContext
 ): ModifyAvailabilityZoneGroupResult => {
+  const contents: any = {
+    Return: undefined,
+  };
+  if (output["return"] !== undefined) {
+    contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyCapacityReservationFleetResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyCapacityReservationFleetResult => {
   const contents: any = {
     Return: undefined,
   };

@@ -24,6 +24,20 @@ const checkState = async (client: EC2Client, input: DescribeSnapshotsCommandInpu
         return { state: WaiterState.SUCCESS, reason };
       }
     } catch (e) {}
+    try {
+      const returnComparator = () => {
+        const flat_1: any[] = [].concat(...result.Snapshots);
+        const projection_3 = flat_1.map((element_2: any) => {
+          return element_2.State;
+        });
+        return projection_3;
+      };
+      for (const anyStringEq_4 of returnComparator()) {
+        if (anyStringEq_4 == "error") {
+          return { state: WaiterState.FAILURE, reason };
+        }
+      }
+    } catch (e) {}
   } catch (exception) {
     reason = exception;
   }

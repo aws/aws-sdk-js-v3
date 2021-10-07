@@ -3872,6 +3872,11 @@ export interface CreateConnectionRequest {
    *       to create.</p>
    */
   ConnectionInput: ConnectionInput | undefined;
+
+  /**
+   * <p>The tags you assign to the connection.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace CreateConnectionRequest {

@@ -24,12 +24,13 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
  *       identify the grant to retire, use a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">grant token</a>, or both the grant ID and a
- *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation returns both values.</p>
+ *       key identifier (key ID or key ARN) of the KMS key. The <a>CreateGrant</a> operation
+ *       returns both values.</p>
  *          <p>This operation can be called by the <i>retiring principal</i> for a grant,
  *       by the <i>grantee principal</i> if the grant allows the <code>RetireGrant</code>
  *       operation, and by the Amazon Web Services account (root user) in which the grant is created. It can also be
  *       called by principals to whom permission for retiring a grant is delegated. For details, see
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
  *         revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Using grants</a> in the
  *         <i>
@@ -37,11 +38,12 @@ export interface RetireGrantCommandOutput extends __MetadataBearer {}
  *             </i>. For examples of working with grants in several
  *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS key
- *       in a different Amazon Web Services account.</p>
+ *             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS
+ *       key in a different Amazon Web Services account.</p>
  *          <p>
  *             <b>Required permissions:</b>:Permission to retire a grant is
- *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

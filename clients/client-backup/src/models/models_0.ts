@@ -535,8 +535,7 @@ export namespace BackupRuleInput {
 /**
  * <p>Contains an optional backup plan display name and an array of <code>BackupRule</code>
  *          objects, each of which specifies a backup rule. Each rule in a backup plan is a separate
- *          scheduled task and can back up a different selection of Amazon Web Services resources.
- *       </p>
+ *          scheduled task. </p>
  */
 export interface BackupPlanInput {
   /**
@@ -848,6 +847,51 @@ export interface BackupVaultListMember {
    * <p>The number of recovery points that are stored in a backup vault.</p>
    */
   NumberOfRecoveryPoints?: number;
+
+  /**
+   * <p>A Boolean value that indicates whether Backup Vault Lock applies to the
+   *          selected backup vault. If <code>true</code>, Vault Lock prevents delete and update
+   *          operations on the recovery points in the selected vault.</p>
+   */
+  Locked?: boolean;
+
+  /**
+   * <p>The Backup Vault Lock setting that specifies the minimum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified, Vault Lock
+   *          does not enforce a minimum retention period.</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or longer than the minimum retention period. If the job's
+   *          retention period is shorter than that minimum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault. Recovery points already stored in the vault prior to Vault Lock are not
+   *          affected.</p>
+   */
+  MinRetentionDays?: number;
+
+  /**
+   * <p>The Backup Vault Lock setting that specifies the maximum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified, Vault Lock
+   *          does not enforce a maximum retention period on the recovery points in the vault (allowing
+   *          indefinite storage).</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or shorter than the maximum retention period. If the job's
+   *          retention period is longer than that maximum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault. Recovery points already stored in the vault prior to Vault Lock are not
+   *          affected.</p>
+   */
+  MaxRetentionDays?: number;
+
+  /**
+   * <p>The date and time when Backup Vault Lock configuration becomes immutable,
+   *          meaning it cannot be changed or deleted.</p>
+   *          <p>If you applied Vault Lock to your vault without specifying a lock date, you can change
+   *          your Vault Lock settings, or delete Vault Lock from the vault entirely, at any time.</p>
+   *          <p>This value is in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  LockDate?: Date;
 }
 
 export namespace BackupVaultListMember {
@@ -901,7 +945,14 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
   $fault: "client";
   Code?: string;
   Message?: string;
+  /**
+   * <p></p>
+   */
   Type?: string;
+
+  /**
+   * <p></p>
+   */
   Context?: string;
 }
 
@@ -954,8 +1005,8 @@ export namespace ControlInputParameter {
  */
 export interface ControlScope {
   /**
-   * <p>Describes whether the control scope includes a specific resource identified by its
-   *          unique Amazon Resource Name (ARN).</p>
+   * <p>The ID of the only Amazon Web Services resource that you want your control scope to
+   *          contain.</p>
    */
   ComplianceResourceIds?: string[];
 
@@ -1545,10 +1596,21 @@ export interface ReportSetting {
    * <p>Identifies the report template for the report. Reports are built using a report
    *          template. The report templates are:</p>
    *          <p>
-   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
    *          </p>
    */
   ReportTemplate: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the frameworks a report covers.</p>
+   */
+  FrameworkArns?: string[];
+
+  /**
+   * <p>The number of frameworks a report covers.</p>
+   */
+  NumberOfFrameworks?: number;
 }
 
 export namespace ReportSetting {
@@ -1584,13 +1646,17 @@ export interface CreateReportPlanInput {
    * <p>Identifies the report template for the report. Reports are built using a report
    *          template. The report templates are:</p>
    *          <p>
-   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
    *          </p>
+   *          <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or
+   *             <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report
+   *          coverage by Amazon Web Services Regions and frameworks.</p>
    */
   ReportSetting: ReportSetting | undefined;
 
   /**
-   * <p>Metadata that you can assign to help organize the frameworks that you create. Each tag
+   * <p>Metadata that you can assign to help organize the report plans that you create. Each tag
    *          is a key-value pair.</p>
    */
   ReportPlanTags?: { [key: string]: string };
@@ -1623,6 +1689,14 @@ export interface CreateReportPlanOutput {
    *          depends on the resource type.</p>
    */
   ReportPlanArn?: string;
+
+  /**
+   * <p>The date and time a backup vault is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace CreateReportPlanOutput {
@@ -1799,6 +1873,22 @@ export namespace DeleteBackupVaultAccessPolicyInput {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteBackupVaultAccessPolicyInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBackupVaultLockConfigurationInput {
+  /**
+   * <p>The name of the backup vault from which to delete Backup Vault Lock.</p>
+   */
+  BackupVaultName: string | undefined;
+}
+
+export namespace DeleteBackupVaultLockConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBackupVaultLockConfigurationInput): any => ({
     ...obj,
   });
 }
@@ -2147,6 +2237,52 @@ export interface DescribeBackupVaultOutput {
    * <p>The number of recovery points that are stored in a backup vault.</p>
    */
   NumberOfRecoveryPoints?: number;
+
+  /**
+   * <p>A Boolean that indicates whether Backup Vault Lock is currently protecting
+   *          the backup vault. <code>True</code> means that Vault Lock causes delete or update
+   *          operations on the recovery points stored in the vault to fail.</p>
+   */
+  Locked?: boolean;
+
+  /**
+   * <p>The Backup Vault Lock setting that specifies the minimum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified, Vault Lock
+   *          does not enforce a minimum retention period.</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or longer than the minimum retention period. If the job's
+   *          retention period is shorter than that minimum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault. Recovery points already stored in the vault prior to Vault Lock are not
+   *          affected.</p>
+   */
+  MinRetentionDays?: number;
+
+  /**
+   * <p>The Backup Vault Lock setting that specifies the maximum retention period
+   *          that the vault retains its recovery points. If this parameter is not specified, Vault Lock
+   *          does not enforce a maximum retention period on the recovery points in the vault (allowing
+   *          indefinite storage).</p>
+   *          <p>If specified, any backup or copy job to the vault must have a lifecycle policy with a
+   *          retention period equal to or shorter than the maximum retention period. If the job's
+   *          retention period is longer than that maximum retention period, then the vault fails the
+   *          backup or copy job, and you should either modify your lifecycle settings or use a different
+   *          vault. Recovery points already stored in the vault prior to Vault Lock are not
+   *          affected.</p>
+   */
+  MaxRetentionDays?: number;
+
+  /**
+   * <p>The date and time when Backup Vault Lock configuration cannot be changed or
+   *          deleted.</p>
+   *          <p>If you applied Vault Lock to your vault without specifying a lock date, you can change
+   *          any of your Vault Lock settings, or delete Vault Lock from the vault entirely, at any
+   *          time.</p>
+   *          <p>This value is in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  LockDate?: Date;
 }
 
 export namespace DescribeBackupVaultOutput {
@@ -2652,7 +2788,8 @@ export interface ReportJob {
    * <p>Identifies the report template for the report. Reports are built using a report
    *          template. The report templates are: </p>
    *          <p>
-   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
    *          </p>
    */
   ReportTemplate?: string;
@@ -2766,8 +2903,12 @@ export interface ReportPlan {
    * <p>Identifies the report template for the report. Reports are built using a report
    *          template. The report templates are:</p>
    *          <p>
-   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
    *          </p>
+   *          <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or
+   *             <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report
+   *          coverage by Amazon Web Services Regions and frameworks.</p>
    */
   ReportSetting?: ReportSetting;
 
@@ -3400,6 +3541,10 @@ export interface GetSupportedResourceTypesOutput {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
    *             </li>
    *             <li>
@@ -3416,11 +3561,11 @@ export interface GetSupportedResourceTypesOutput {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *                   <code>FSX</code> for Amazon FSx</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4830,6 +4975,73 @@ export namespace PutBackupVaultAccessPolicyInput {
   });
 }
 
+export interface PutBackupVaultLockConfigurationInput {
+  /**
+   * <p>The Backup Vault Lock configuration that specifies the name of the backup
+   *          vault it protects.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The Backup Vault Lock configuration that specifies the minimum retention
+   *          period that the vault retains its recovery points. This setting can be useful if, for
+   *          example, your organization's policies require you to retain certain data for at least seven
+   *          years (2555 days).</p>
+   *          <p>If this parameter is not specified, Vault Lock will not enforce a minimum retention
+   *          period.</p>
+   *          <p>If this parameter is specified, any backup or copy job to the vault must have a
+   *          lifecycle policy with a retention period equal to or longer than the minimum retention
+   *          period. If the job's retention period is shorter than that minimum retention period, then
+   *          the vault fails that backup or copy job, and you should either modify your lifecycle
+   *          settings or use a different vault. Recovery points already saved in the vault prior to
+   *          Vault Lock are not affected.</p>
+   */
+  MinRetentionDays?: number;
+
+  /**
+   * <p>The Backup Vault Lock configuration that specifies the maximum retention
+   *          period that the vault retains its recovery points. This setting can be useful if, for
+   *          example, your organization's policies require you to destroy certain data after retaining
+   *          it for four years (1460 days).</p>
+   *          <p>If this parameter is not included, Vault Lock does not enforce a maximum retention
+   *          period on the recovery points in the vault. If this parameter is included without a value,
+   *          Vault Lock will not enforce a maximum retention period.</p>
+   *          <p>If this parameter is specified, any backup or copy job to the vault must have a
+   *          lifecycle policy with a retention period equal to or shorter than the maximum retention
+   *          period. If the job's retention period is longer than that maximum retention period, then
+   *          the vault fails the backup or copy job, and you should either modify your lifecycle
+   *          settings or use a different vault. Recovery points already saved in the vault prior to
+   *          Vault Lock are not affected.</p>
+   */
+  MaxRetentionDays?: number;
+
+  /**
+   * <p>The Backup Vault Lock configuration that specifies the number of days before
+   *          the lock date. For example, setting <code>ChangeableForDays</code> to 30 on Jan. 1, 2022 at
+   *          8pm UTC will set the lock date to Jan. 31, 2022 at 8pm UTC.</p>
+   *          <p>Backup enforces a 72-hour cooling-off period before Vault Lock takes effect
+   *          and becomes immutable. Therefore, you must set <code>ChangeableForDays</code> to 3 or
+   *          greater.</p>
+   *          <p>Before the lock date, you can delete Vault Lock from the vault using
+   *             <code>DeleteBackupVaultLockConfiguration</code> or change the Vault Lock configuration
+   *          using <code>PutBackupVaultLockConfiguration</code>. On and after the lock date, the Vault
+   *          Lock becomes immutable and cannot be changed or deleted.</p>
+   *          <p>If this parameter is not specified, you can delete Vault Lock from the vault using
+   *             <code>DeleteBackupVaultLockConfiguration</code> or change the Vault Lock configuration
+   *          using <code>PutBackupVaultLockConfiguration</code> at any time.</p>
+   */
+  ChangeableForDays?: number;
+}
+
+export namespace PutBackupVaultLockConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutBackupVaultLockConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
 export interface PutBackupVaultNotificationsInput {
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -5569,8 +5781,12 @@ export interface UpdateReportPlanInput {
    * <p>Identifies the report template for the report. Reports are built using a report
    *          template. The report templates are:</p>
    *          <p>
-   *             <code>BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
+   *             <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT |
+   *             COPY_JOB_REPORT | RESTORE_JOB_REPORT</code>
    *          </p>
+   *          <p>If the report template is <code>RESOURCE_COMPLIANCE_REPORT</code> or
+   *             <code>CONTROL_COMPLIANCE_REPORT</code>, this API resource also describes the report
+   *          coverage by Amazon Web Services Regions and frameworks.</p>
    */
   ReportSetting?: ReportSetting;
 

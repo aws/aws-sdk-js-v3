@@ -1,7 +1,20 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "fips-us-east-1": {
+    hostname: "kendra-fips.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+  "fips-us-east-2": {
+    hostname: "kendra-fips.us-east-2.amazonaws.com",
+    signingRegion: "us-east-2",
+  },
+  "fips-us-west-2": {
+    hostname: "kendra-fips.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -21,6 +34,9 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-us-east-1",
+      "fips-us-east-2",
+      "fips-us-west-2",
       "me-south-1",
       "sa-east-1",
       "us-east-1",

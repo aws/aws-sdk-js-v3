@@ -176,6 +176,11 @@ import {
   CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
 import {
+  CancelCapacityReservationFleetsCommand,
+  CancelCapacityReservationFleetsCommandInput,
+  CancelCapacityReservationFleetsCommandOutput,
+} from "./commands/CancelCapacityReservationFleetsCommand";
+import {
   CancelConversionTaskCommand,
   CancelConversionTaskCommandInput,
   CancelConversionTaskCommandOutput,
@@ -226,6 +231,11 @@ import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
+import {
+  CreateCapacityReservationFleetCommand,
+  CreateCapacityReservationFleetCommandInput,
+  CreateCapacityReservationFleetCommandOutput,
+} from "./commands/CreateCapacityReservationFleetCommand";
 import {
   CreateCarrierGatewayCommand,
   CreateCarrierGatewayCommandInput,
@@ -849,6 +859,11 @@ import {
   DescribeByoipCidrsCommandInput,
   DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
+import {
+  DescribeCapacityReservationFleetsCommand,
+  DescribeCapacityReservationFleetsCommandInput,
+  DescribeCapacityReservationFleetsCommandOutput,
+} from "./commands/DescribeCapacityReservationFleetsCommand";
 import {
   DescribeCapacityReservationsCommand,
   DescribeCapacityReservationsCommandInput,
@@ -1791,6 +1806,11 @@ import {
   ModifyCapacityReservationCommandInput,
   ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
+import {
+  ModifyCapacityReservationFleetCommand,
+  ModifyCapacityReservationFleetCommandInput,
+  ModifyCapacityReservationFleetCommandOutput,
+} from "./commands/ModifyCapacityReservationFleetCommand";
 import {
   ModifyClientVpnEndpointCommand,
   ModifyClientVpnEndpointCommandInput,
@@ -3634,6 +3654,52 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
+   * 			Fleet, the following happens:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
+   * 					in the Capacity Reservations at the time of cancelling the Fleet continue to run in
+   * 					shared capacity.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>The Fleet stops creating new Capacity Reservations.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  public cancelCapacityReservationFleets(
+    args: CancelCapacityReservationFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelCapacityReservationFleetsCommandOutput>;
+  public cancelCapacityReservationFleets(
+    args: CancelCapacityReservationFleetsCommandInput,
+    cb: (err: any, data?: CancelCapacityReservationFleetsCommandOutput) => void
+  ): void;
+  public cancelCapacityReservationFleets(
+    args: CancelCapacityReservationFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelCapacityReservationFleetsCommandOutput) => void
+  ): void;
+  public cancelCapacityReservationFleets(
+    args: CancelCapacityReservationFleetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelCapacityReservationFleetsCommandOutput) => void),
+    cb?: (err: any, data?: CancelCapacityReservationFleetsCommandOutput) => void
+  ): Promise<CancelCapacityReservationFleetsCommandOutput> | void {
+    const command = new CancelCapacityReservationFleetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels an active conversion task. The task can be the import of an instance or volume. The action removes all
    *    artifacts of the conversion, including a partially uploaded volume or instance. If the conversion is complete or is
    *    in the process of transferring the final disk image, the command fails and returns an exception.</p>
@@ -4046,6 +4112,39 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: CreateCapacityReservationCommandOutput) => void
   ): Promise<CreateCapacityReservationCommandOutput> | void {
     const command = new CreateCapacityReservationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create a Capacity
+   * 			Reservation Fleet</a> in the Amazon EC2 User Guide.</p>
+   */
+  public createCapacityReservationFleet(
+    args: CreateCapacityReservationFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityReservationFleetCommandOutput>;
+  public createCapacityReservationFleet(
+    args: CreateCapacityReservationFleetCommandInput,
+    cb: (err: any, data?: CreateCapacityReservationFleetCommandOutput) => void
+  ): void;
+  public createCapacityReservationFleet(
+    args: CreateCapacityReservationFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityReservationFleetCommandOutput) => void
+  ): void;
+  public createCapacityReservationFleet(
+    args: CreateCapacityReservationFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCapacityReservationFleetCommandOutput) => void),
+    cb?: (err: any, data?: CreateCapacityReservationFleetCommandOutput) => void
+  ): Promise<CreateCapacityReservationFleetCommandOutput> | void {
+    const command = new CreateCapacityReservationFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -8881,6 +8980,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DescribeByoipCidrsCommandOutput) => void
   ): Promise<DescribeByoipCidrsCommandOutput> | void {
     const command = new DescribeByoipCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes one or more Capacity Reservation Fleets.</p>
+   */
+  public describeCapacityReservationFleets(
+    args: DescribeCapacityReservationFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationFleetsCommandOutput>;
+  public describeCapacityReservationFleets(
+    args: DescribeCapacityReservationFleetsCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationFleetsCommandOutput) => void
+  ): void;
+  public describeCapacityReservationFleets(
+    args: DescribeCapacityReservationFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationFleetsCommandOutput) => void
+  ): void;
+  public describeCapacityReservationFleets(
+    args: DescribeCapacityReservationFleetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCapacityReservationFleetsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeCapacityReservationFleetsCommandOutput) => void
+  ): Promise<DescribeCapacityReservationFleetsCommandOutput> | void {
+    const command = new DescribeCapacityReservationFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -15581,6 +15712,42 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
   ): Promise<ModifyCapacityReservationCommandOutput> | void {
     const command = new ModifyCapacityReservationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies a Capacity Reservation Fleet.</p>
+   * 		       <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
+   * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
+   * 			to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for
+   * 			all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+   */
+  public modifyCapacityReservationFleet(
+    args: ModifyCapacityReservationFleetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCapacityReservationFleetCommandOutput>;
+  public modifyCapacityReservationFleet(
+    args: ModifyCapacityReservationFleetCommandInput,
+    cb: (err: any, data?: ModifyCapacityReservationFleetCommandOutput) => void
+  ): void;
+  public modifyCapacityReservationFleet(
+    args: ModifyCapacityReservationFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCapacityReservationFleetCommandOutput) => void
+  ): void;
+  public modifyCapacityReservationFleet(
+    args: ModifyCapacityReservationFleetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCapacityReservationFleetCommandOutput) => void),
+    cb?: (err: any, data?: ModifyCapacityReservationFleetCommandOutput) => void
+  ): Promise<ModifyCapacityReservationFleetCommandOutput> | void {
+    const command = new ModifyCapacityReservationFleetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

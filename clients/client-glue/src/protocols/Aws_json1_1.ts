@@ -17502,6 +17502,7 @@ const serializeAws_json1_1CreateConnectionRequest = (input: CreateConnectionRequ
       input.ConnectionInput !== null && {
         ConnectionInput: serializeAws_json1_1ConnectionInput(input.ConnectionInput, context),
       }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagsMap(input.Tags, context) }),
   };
 };
 

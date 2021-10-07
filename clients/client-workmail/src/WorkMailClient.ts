@@ -101,6 +101,10 @@ import {
 } from "./commands/DeregisterFromWorkMailCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
+  DescribeInboundDmarcSettingsCommandInput,
+  DescribeInboundDmarcSettingsCommandOutput,
+} from "./commands/DescribeInboundDmarcSettingsCommand";
+import {
   DescribeMailboxExportJobCommandInput,
   DescribeMailboxExportJobCommandOutput,
 } from "./commands/DescribeMailboxExportJobCommand";
@@ -174,6 +178,10 @@ import {
   PutAccessControlRuleCommandOutput,
 } from "./commands/PutAccessControlRuleCommand";
 import {
+  PutInboundDmarcSettingsCommandInput,
+  PutInboundDmarcSettingsCommandOutput,
+} from "./commands/PutInboundDmarcSettingsCommand";
+import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand";
@@ -224,6 +232,7 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DeregisterFromWorkMailCommandInput
   | DescribeGroupCommandInput
+  | DescribeInboundDmarcSettingsCommandInput
   | DescribeMailboxExportJobCommandInput
   | DescribeOrganizationCommandInput
   | DescribeResourceCommandInput
@@ -249,6 +258,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListUsersCommandInput
   | PutAccessControlRuleCommandInput
+  | PutInboundDmarcSettingsCommandInput
   | PutMailboxPermissionsCommandInput
   | PutMobileDeviceAccessOverrideCommandInput
   | PutRetentionPolicyCommandInput
@@ -284,6 +294,7 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DeregisterFromWorkMailCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeInboundDmarcSettingsCommandOutput
   | DescribeMailboxExportJobCommandOutput
   | DescribeOrganizationCommandOutput
   | DescribeResourceCommandOutput
@@ -309,6 +320,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
   | PutAccessControlRuleCommandOutput
+  | PutInboundDmarcSettingsCommandOutput
   | PutMailboxPermissionsCommandOutput
   | PutMobileDeviceAccessOverrideCommandOutput
   | PutRetentionPolicyCommandOutput

@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateVpnConnectionRequest, CreateVpnConnectionResult } from "../models/models_1";
+import { CreateVpnConnectionRequest } from "../models/models_1";
+import { CreateVpnConnectionResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateVpnConnectionCommand,
   serializeAws_ec2CreateVpnConnectionCommand,

@@ -3584,6 +3584,8 @@ const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   return {
     ...(input.BackupId !== undefined && input.BackupId !== null && { BackupId: input.BackupId }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemTypeVersion !== undefined &&
+      input.FileSystemTypeVersion !== null && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.LustreConfiguration !== undefined &&
       input.LustreConfiguration !== null && {
@@ -3685,6 +3687,8 @@ const serializeAws_json1_1CreateFileSystemRequest = (input: CreateFileSystemRequ
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.FileSystemType !== undefined &&
       input.FileSystemType !== null && { FileSystemType: input.FileSystemType }),
+    ...(input.FileSystemTypeVersion !== undefined &&
+      input.FileSystemTypeVersion !== null && { FileSystemTypeVersion: input.FileSystemTypeVersion }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
     ...(input.LustreConfiguration !== undefined &&
       input.LustreConfiguration !== null && {
@@ -5177,6 +5181,7 @@ const deserializeAws_json1_1FileSystem = (output: any, context: __SerdeContext):
         : undefined,
     FileSystemId: __expectString(output.FileSystemId),
     FileSystemType: __expectString(output.FileSystemType),
+    FileSystemTypeVersion: __expectString(output.FileSystemTypeVersion),
     KmsKeyId: __expectString(output.KmsKeyId),
     Lifecycle: __expectString(output.Lifecycle),
     LustreConfiguration:

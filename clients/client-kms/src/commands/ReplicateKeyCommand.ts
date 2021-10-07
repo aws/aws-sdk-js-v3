@@ -53,7 +53,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *       details about the <code>Creating</code> key state, see <a href="kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The CloudTrail log of a <code>ReplicateKey</code> operation records a
- *       <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
+ *         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
  *          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
  *       created with no key material. You must import the same key material that you imported into the
  *       primary key. For details, see <a href="kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -61,8 +61,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *       operation.</p>
  *          <note>
  *             <p>
- *                <code>ReplicateKey</code> uses different default values for the <code>KeyPolicy</code> and
- *           <code>Tags</code> parameters than those used in the KMS console. For details, see the
+ *                <code>ReplicateKey</code> uses different default values for the <code>KeyPolicy</code>
+ *         and <code>Tags</code> parameters than those used in the KMS console. For details, see the
  *         parameter descriptions.</p>
  *          </note>
  *          <p>
@@ -73,8 +73,8 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>kms:ReplicateKey</code> on the primary key (in the primary key's Region). Include this
- *           permission in the primary key's key policy.</p>
+ *                   <code>kms:ReplicateKey</code> on the primary key (in the primary key's Region).
+ *           Include this permission in the primary key's key policy.</p>
  *             </li>
  *             <li>
  *                <p>

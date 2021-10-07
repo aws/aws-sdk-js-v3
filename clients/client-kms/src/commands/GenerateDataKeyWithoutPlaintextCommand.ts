@@ -25,8 +25,8 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
 
 /**
  * <p>Generates a unique symmetric data key. This operation returns a data key that is encrypted
- *       under a KMS key that you specify. To request an asymmetric data key pair,
- *       use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operations.</p>
+ *       under a KMS key that you specify. To request an asymmetric data key pair, use the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a>
+ *       operations.</p>
  *          <p>
  *             <code>GenerateDataKeyWithoutPlaintext</code> is identical to the <a>GenerateDataKey</a> operation except that returns only the encrypted copy of the
  *       data key. This operation is useful for systems that need to encrypt data at some point, but
@@ -41,12 +41,12 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *       plaintext data key.</p>
  *          <p>
  *             <code>GenerateDataKeyWithoutPlaintext</code> returns a unique data key for each request.
- *       The bytes in the keys are not related to the caller or KMS key that is used to encrypt the private
- *       key.</p>
+ *       The bytes in the keys are not related to the caller or KMS key that is used to encrypt the
+ *       private key.</p>
  *
- *          <p>To generate a data key, you must specify the symmetric KMS key that is
- *       used to encrypt the data key. You cannot use an asymmetric KMS key to generate a data key. To get
- *       the type of your KMS key, use the <a>DescribeKey</a> operation.</p>
+ *          <p>To generate a data key, you must specify the symmetric KMS key that is used to encrypt the
+ *       data key. You cannot use an asymmetric KMS key to generate a data key. To get the type of your
+ *       KMS key, use the <a>DescribeKey</a> operation.</p>
  *
  *          <p>If the operation succeeds, you will find the encrypted copy of the data key in the
  *         <code>CiphertextBlob</code> field.</p>
@@ -59,11 +59,13 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account
+ *         use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>
- *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyWithoutPlaintext</a> (key policy)</p>
+ *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateDataKeyWithoutPlaintext</a> (key
+ *       policy)</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

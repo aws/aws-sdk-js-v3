@@ -50,18 +50,227 @@ import {
   SipMediaApplication,
   SipMediaApplicationCall,
   SipMediaApplicationEndpoint,
-  SipMediaApplicationLoggingConfiguration,
   SipRule,
   SipRuleTargetApplication,
   Tag,
   User,
-  UserSettings,
   UserType,
   VoiceConnector,
   VoiceConnectorGroup,
   VoiceConnectorItem,
   VoiceConnectorSettings,
 } from "./models_0";
+
+export interface GetSipMediaApplicationResponse {
+  /**
+   * <p>The SIP media application details.</p>
+   */
+  SipMediaApplication?: SipMediaApplication;
+}
+
+export namespace GetSipMediaApplicationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationResponse): any => ({
+    ...obj,
+    ...(obj.SipMediaApplication && {
+      SipMediaApplication: SipMediaApplication.filterSensitiveLog(obj.SipMediaApplication),
+    }),
+  });
+}
+
+export interface GetSipMediaApplicationLoggingConfigurationRequest {
+  /**
+   * <p>The SIP media application ID.</p>
+   */
+  SipMediaApplicationId: string | undefined;
+}
+
+export namespace GetSipMediaApplicationLoggingConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Logging configuration of the SIP media application.</p>
+ */
+export interface SipMediaApplicationLoggingConfiguration {
+  /**
+   * <p>Enables application message logs for the SIP media application.</p>
+   */
+  EnableSipMediaApplicationMessageLogs?: boolean;
+}
+
+export namespace SipMediaApplicationLoggingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SipMediaApplicationLoggingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipMediaApplicationLoggingConfigurationResponse {
+  /**
+   * <p>The actual logging configuration.</p>
+   */
+  SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
+}
+
+export namespace GetSipMediaApplicationLoggingConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipRuleRequest {
+  /**
+   * <p>The SIP rule ID.</p>
+   */
+  SipRuleId: string | undefined;
+}
+
+export namespace GetSipRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSipRuleResponse {
+  /**
+   * <p>The SIP rule details.</p>
+   */
+  SipRule?: SipRule;
+}
+
+export namespace GetSipRuleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSipRuleResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUserRequest {
+  /**
+   * <p>The Amazon Chime account ID.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
+}
+
+export namespace GetUserRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetUserResponse {
+  /**
+   * <p>The user details.</p>
+   */
+  User?: User;
+}
+
+export namespace GetUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserResponse): any => ({
+    ...obj,
+    ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
+  });
+}
+
+export interface GetUserSettingsRequest {
+  /**
+   * <p>The Amazon Chime account ID.</p>
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The user ID.</p>
+   */
+  UserId: string | undefined;
+}
+
+export namespace GetUserSettingsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetUserSettingsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Settings that allow management of telephony permissions for an Amazon Chime user, such as
+ *             inbound and outbound calling and text messaging.</p>
+ */
+export interface TelephonySettings {
+  /**
+   * <p>Allows or denies inbound calling.</p>
+   */
+  InboundCalling: boolean | undefined;
+
+  /**
+   * <p>Allows or denies outbound calling.</p>
+   */
+  OutboundCalling: boolean | undefined;
+
+  /**
+   * <p>Allows or denies SMS messaging.</p>
+   */
+  SMS: boolean | undefined;
+}
+
+export namespace TelephonySettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TelephonySettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Settings associated with an Amazon Chime user, including inbound and outbound calling and text
+ *             messaging.</p>
+ */
+export interface UserSettings {
+  /**
+   * <p>The telephony settings associated with the user.</p>
+   */
+  Telephony: TelephonySettings | undefined;
+}
+
+export namespace UserSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserSettings): any => ({
+    ...obj,
+  });
+}
 
 export interface GetUserSettingsResponse {
   /**
@@ -3745,12 +3954,12 @@ export interface UpdateGlobalSettingsRequest {
   /**
    * <p>The Amazon Chime Business Calling settings.</p>
    */
-  BusinessCalling: BusinessCallingSettings | undefined;
+  BusinessCalling?: BusinessCallingSettings;
 
   /**
    * <p>The Amazon Chime Voice Connector settings.</p>
    */
-  VoiceConnector: VoiceConnectorSettings | undefined;
+  VoiceConnector?: VoiceConnectorSettings;
 }
 
 export namespace UpdateGlobalSettingsRequest {

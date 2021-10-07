@@ -28,8 +28,8 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *             <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
  *          <p>When it succeeds, the <code>UntagResource</code> operation doesn't return any output.
- *       Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception or return
- *       a response. To confirm that the operation worked, use the <a>ListResourceTags</a> operation.</p>
+ *       Also, if the specified tag key isn't found on the KMS key, it doesn't throw an exception or
+ *       return a response. To confirm that the operation worked, use the <a>ListResourceTags</a> operation.</p>
  *
  *          <p>For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging keys</a>. For general information about
  *       tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon
@@ -37,7 +37,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: No.  You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
+ *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:UntagResource</a> (key policy)</p>
