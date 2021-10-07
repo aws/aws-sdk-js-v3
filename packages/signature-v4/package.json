@@ -11,7 +11,6 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
-    "pretest": "yarn build",
     "test": "jest --coverage"
   },
   "author": {
