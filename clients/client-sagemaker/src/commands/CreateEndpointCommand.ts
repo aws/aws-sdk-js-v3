@@ -70,7 +70,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *                 the role. </p>
  *             <ul>
  *                <li>
- *                     <p>Option 1: For a full Amazon SageMaker access, search and attach the
+ *                     <p>Option 1: For a full SageMaker access, search and attach the
  *                             <code>AmazonSageMakerFullAccess</code> policy.</p>
  *                 </li>
  *                <li>
@@ -92,7 +92,7 @@ export interface CreateEndpointCommandOutput extends CreateEndpointOutput, __Met
  *                     <p>
  *                      <code>]</code>
  *                   </p>
- *                     <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">Amazon SageMaker API
+ *                     <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/api-permissions-reference.html">SageMaker API
  *                             Permissions: Actions, Permissions, and Resources
  *                         Reference</a>.</p>
  *                 </li>

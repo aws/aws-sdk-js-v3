@@ -1021,7 +1021,8 @@ export interface CalculateRouteRequest {
    *          </ul>
    *         <note>
    *             <p>If you specify a departure that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the
-   *                 position to the nearest road</a>.</p>
+   *                 position to the nearest road</a>. If Esri is the provider for your route calculator,
+   *                 specifying a route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1060,6 +1061,8 @@ export interface CalculateRouteRequest {
    *             <p>If you specify a waypoint position that's not located on a road, Amazon Location <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">moves the position to the nearest road</a>. </p>
    *             <p>Specifying more than 23 waypoints returns a <code>400 ValidationException</code>
    *                 error.</p>
+   *             <p>If Esri is the provider for your route calculator, specifying a
+   *                 route that is longer than 400 km returns a <code>400 RoutesValidationException</code> error.</p>
    *         </note>
    *         <p>Valid Values: <code>[-180 to 180,-90 to 90]</code>
    *          </p>
@@ -1357,7 +1360,7 @@ export interface CalculateRouteSummary {
    *                     upper northeast corner. </p>
    *             </li>
    *             <li>
-   *                 <p>The fourth <code>bbox</code> position is the Y coordinate, or longitude of the
+   *                 <p>The fourth <code>bbox</code> position is the Y coordinate, or latitude of the
    *                     upper northeast corner. </p>
    *             </li>
    *          </ul>
@@ -1387,9 +1390,9 @@ export interface CalculateRouteSummary {
    * <p>The total distance covered by the route. The sum of the distance travelled between
    *             every stop on the route.</p>
    *         <note>
-   *             <p>The route <code>distance</code> can't be greater than 250 km. If the route exceeds
-   *                 250 km, the response returns a <code>400 RoutesValidationException</code>
-   *                 error.</p>
+   *             <p>If Esri is the data source for the route calculator, the route distance can’t
+   *                 be greater than 400 km. If the route exceeds 400 km, the response is a
+   *                 <code>400 RoutesValidationException</code> error.</p>
    *         </note>
    */
   Distance: number | undefined;
@@ -1610,11 +1613,8 @@ export namespace CreateGeofenceCollectionResponse {
  */
 export interface MapConfiguration {
   /**
-   * <p>Specifies the map style selected from an available data provider. For additional
-   *             information on each map style and to preview each map style, see <a href="location/latest/developerguide/esri.html#esri-map-styles">Esri map
-   *                 styles</a> and <a href="location/latest/developerguide/HERE.html#HERE-map-styles">HERE map
-   *                 styles</a>.</p>
-   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   * <p>Specifies the map style selected from an available data provider.</p>
+   *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri map styles</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -1655,7 +1655,7 @@ export interface MapConfiguration {
    *             </li>
    *          </ul>
    *         <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-   *                 Technologies</a> styles: </p>
+   *                 Technologies map styles</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -1707,8 +1707,7 @@ export interface CreateMapRequest {
 
   /**
    * <p>Specifies the pricing plan for your map resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *                 page</a>.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -1874,7 +1873,7 @@ export interface CreatePlaceIndexRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>'s
+   *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a>'
    *                coverage in your region of interest, see <a href="https://developer.here.com/documentation/geocoder/dev_guide/topics/coverage-geocoder.html">HERE details on goecoding coverage</a>.</p>
    *                <important>
    *                   <p>Place index resources using HERE Technologies as a data provider can't <a href="https://docs.aws.amazon.com/location-places/latest/APIReference/API_DataSourceConfiguration.html">store results</a> for locations in Japan. For more information, see the
@@ -1890,8 +1889,7 @@ export interface CreatePlaceIndexRequest {
 
   /**
    * <p>Specifies the pricing plan for your place index resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *          page</a>.</p>
+   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -2000,7 +1998,8 @@ export interface CreateRouteCalculatorRequest {
    * <p>Specifies the data provider of traffic and road network data.</p>
    *         <note>
    *             <p>This field is case-sensitive. Enter the valid values as shown. For example,
-   *                 entering <code>HERE</code> returns an error.</p>
+   *                 entering <code>HERE</code> returns an error. Route calculators that use Esri as a data source
+   *                only calculate routes that are shorter than 400 km.</p>
    *         </note>
    *         <p>Valid values include:</p>
    *         <ul>
@@ -2011,7 +2010,7 @@ export interface CreateRouteCalculatorRequest {
    *             <li>
    *                 <p>
    *                   <code>Here</code> – For additional information about <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
-   *                         Technologies</a>'s coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p>
+   *                         Technologies</a>' coverage in your region of interest, see <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/car-routing.html">HERE car routing coverage</a> and <a href="https://developer.here.com/documentation/routing-api/dev_guide/topics/coverage/truck-routing.html">HERE truck routing coverage</a>.</p>
    *             </li>
    *          </ul>
    *         <p>For additional information , see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Data
@@ -2119,6 +2118,8 @@ export namespace CreateRouteCalculatorResponse {
   });
 }
 
+export type PositionFiltering = "DistanceBased" | "TimeBased";
+
 export interface CreateTrackerRequest {
   /**
    * <p>The name for the tracker resource.</p>
@@ -2139,8 +2140,7 @@ export interface CreateTrackerRequest {
 
   /**
    * <p>Specifies the pricing plan for the tracker resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *            page</a>.</p>
+   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -2163,7 +2163,7 @@ export interface CreateTrackerRequest {
    * 	        <note>
    * 	           <p>Amazon Location Service only uses <code>PricingPlanDataSource</code> to calculate billing for your tracker resource. Your data will not be shared with the data provider, and will remain in your AWS account or Region unless you move it.</p>
    * 	        </note>
-   *         <p>Valid Values: <code>Esri</code> | <code>Here</code>
+   *         <p>Valid values: <code>Esri</code> | <code>Here</code>
    *          </p>
    */
   PricingPlanDataSource?: string;
@@ -2199,6 +2199,30 @@ export interface CreateTrackerRequest {
    *          </ul>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the position filtering for the tracker resource.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+   *                     but not every location update is stored. If your update frequency is more often than 30 seconds,
+   *                     only one update per 30 seconds is stored for each unique device ID.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
+   *                     ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored.
+   *                     This helps control costs by reducing the number of geofence evaluations and device positions to retrieve.
+   *                     Distance-based filtering can also reduce the jitter effect when displaying device trajectory on a map.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   *         <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
+   */
+  PositionFiltering?: PositionFiltering | string;
 }
 
 export namespace CreateTrackerRequest {
@@ -2504,8 +2528,7 @@ export interface DescribeMapResponse {
   /**
    * <p>The pricing plan selected for the specified map resource.</p>
    *
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *                 page</a>.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -2588,8 +2611,7 @@ export interface DescribePlaceIndexResponse {
 
   /**
    * <p>The pricing plan selected for the specified place index resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *             page</a>.</p>
+   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -2624,8 +2646,7 @@ export interface DescribePlaceIndexResponse {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers
-   *          page</a>.</p>
+   *          <p>For additional details on data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
@@ -2795,8 +2816,7 @@ export interface DescribeTrackerResponse {
 
   /**
    * <p>The pricing plan selected for the specified tracker resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *                 page</a>.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -2826,6 +2846,11 @@ export interface DescribeTrackerResponse {
    * <p>A key identifier for an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">AWS KMS customer managed key</a> assigned to the Amazon Location resource.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The position filtering method of the tracker resource.</p>
+   */
+  PositionFiltering?: PositionFiltering | string;
 }
 
 export namespace DescribeTrackerResponse {
@@ -3592,7 +3617,7 @@ export interface GetMapGlyphsRequest {
   /**
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
-   *         <p>Valid fonts for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *         <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
    *         <ul>
    *             <li>
    *                 <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
@@ -3622,11 +3647,10 @@ export interface GetMapGlyphsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>Valid fonts for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
+   *         <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p>
    *         <ul>
    *             <li>
-   *                 <p>
-   *                   <code>VectorHereBerlin</code> – <code>Fira GO Regular</code> | <code>Fira GO
+   *                 <p>VectorHereBerlin – <code>Fira GO Regular</code> | <code>Fira GO
    *                         Bold</code>
    *                </p>
    *             </li>
@@ -3965,8 +3989,7 @@ export interface ListMapsResponseEntry {
 
   /**
    * <p>The pricing plan for the specified map resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *             page</a>.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -4067,14 +4090,13 @@ export interface ListPlaceIndexesResponseEntry {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
+   *          <p>For additional details on data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 
   /**
    * <p>The pricing plan for the specified place index resource.</p>
-   *          <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *          page</a>.</p>
+   *          <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -4338,8 +4360,7 @@ export interface ListTrackersResponseEntry {
 
   /**
    * <p>The pricing plan for the specified tracker resource.</p>
-   *         <p>For additional details and restrictions on each pricing plan option, see the <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing
-   *             page</a>.</p>
+   *         <p>For additional details and restrictions on each pricing plan option, see <a href="https://aws.amazon.com/location/pricing/">Amazon Location Service pricing</a>.</p>
    */
   PricingPlan: PricingPlan | string | undefined;
 
@@ -4643,7 +4664,7 @@ export interface SearchPlaceIndexForPositionSummary {
    *                <p>HERE</p>
    *             </li>
    *          </ul>
-   *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
+   *          <p>For additional details on data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 }
@@ -4843,7 +4864,7 @@ export interface SearchPlaceIndexForTextSummary {
    *                <p>HERE</p>
    *             </li>
    *          </ul>
-   *          <p>For additional details on data providers, see the <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers page</a>.</p>
+   *          <p>For additional details on data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
    */
   DataSource: string | undefined;
 }
@@ -5050,6 +5071,29 @@ export interface UpdateTrackerRequest {
    * <p>Updates the description for the tracker resource.</p>
    */
   Description?: string;
+
+  /**
+   * <p>Updates the position filtering for the tracker resource.</p>
+   *         <p>Valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>TimeBased</code> - Location updates are evaluated against linked geofence collections,
+   *                     but not every location update is stored. If your update frequency is more often than 30 seconds,
+   *                     only one update per 30 seconds is stored for each unique device ID.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>DistanceBased</code> - If the device has moved less than 30 m (98.4 ft), location updates are
+   *                     ignored. Location updates within this distance are neither evaluated against linked geofence collections, nor stored.
+   *                     This helps control costs by reducing the number of geofence evaluations and device positions to retrieve.
+   *                     Distance-based filtering can also reduce the jitter effect when displaying device trajectory on a map.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  PositionFiltering?: PositionFiltering | string;
 }
 
 export namespace UpdateTrackerRequest {

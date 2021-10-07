@@ -15,7 +15,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   GetSipMediaApplicationLoggingConfigurationRequest,
   GetSipMediaApplicationLoggingConfigurationResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1GetSipMediaApplicationLoggingConfigurationCommand,
   serializeAws_restJson1GetSipMediaApplicationLoggingConfigurationCommand,

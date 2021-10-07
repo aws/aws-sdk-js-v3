@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { GetSipRuleRequest, GetSipRuleResponse } from "../models/models_0";
+import { GetSipRuleRequest, GetSipRuleResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetSipRuleCommand,
   serializeAws_restJson1GetSipRuleCommand,

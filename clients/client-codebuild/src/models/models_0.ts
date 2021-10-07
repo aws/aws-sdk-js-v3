@@ -247,6 +247,11 @@ export namespace BuildArtifacts {
   });
 }
 
+export enum BatchReportModeType {
+  REPORT_AGGREGATED_BATCH = "REPORT_AGGREGATED_BATCH",
+  REPORT_INDIVIDUAL_BUILDS = "REPORT_INDIVIDUAL_BUILDS",
+}
+
 /**
  * <p>Specifies restrictions for the batch build.</p>
  */
@@ -299,6 +304,23 @@ export interface ProjectBuildBatchConfig {
    * <p>Specifies the maximum amount of time, in minutes, that the batch build must be completed in.</p>
    */
   timeoutInMins?: number;
+
+  /**
+   * <p>Specifies how build status reports are sent to the source provider for the batch build. This property is only used
+   *               when the source provider for your project is Bitbucket, GitHub, or GitHub Enterprise,
+   *               and your project is configured to report build statuses to the source provider.</p>
+   *          <dl>
+   *             <dt>REPORT_AGGREGATED_BATCH</dt>
+   *             <dd>
+   *                <p>(Default) Aggregate all of the build statuses into a single status report.</p>
+   *             </dd>
+   *             <dt>REPORT_INDIVIDUAL_BUILDS</dt>
+   *             <dd>
+   *                <p>Send a separate status report for each individual build.</p>
+   *             </dd>
+   *          </dl>
+   */
+  batchReportMode?: BatchReportModeType | string;
 }
 
 export namespace ProjectBuildBatchConfig {
@@ -5169,19 +5191,17 @@ export interface ListBuildsForProjectInput {
   projectName: string | undefined;
 
   /**
-   * <p>The order to list results in. The results are sorted by build number, not the build
-   *             identifier.</p>
+   * <p>The order to sort the results in. The results are sorted by build number, not the build
+   *             identifier. If this is not specified, the results are sorted in descending order.</p>
    *         <p>Valid values include:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>ASCENDING</code>: List the build IDs in ascending order by build
-   *                     ID.</p>
+   *                   <code>ASCENDING</code>: List the build identifiers in ascending order, by build number.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>DESCENDING</code>: List the build IDs in descending order by build
-   *                     ID.</p>
+   *                   <code>DESCENDING</code>: List the build identifiers in descending order, by build number.</p>
    *             </li>
    *          </ul>
    *         <p>If the project has more than 100 builds, setting the sort order will result in an
@@ -5211,7 +5231,7 @@ export namespace ListBuildsForProjectInput {
 
 export interface ListBuildsForProjectOutput {
   /**
-   * <p>A list of build IDs for the specified build project, with each build ID representing a
+   * <p>A list of build identifiers for the specified build project, with each build ID representing a
    *             single build.</p>
    */
   ids?: string[];
@@ -6804,7 +6824,7 @@ export interface UpdateProjectInput {
   artifacts?: ProjectArtifacts;
 
   /**
-   * <p> An array of <code>ProjectSource</code> objects. </p>
+   * <p> An array of <code>ProjectArtifact</code> objects. </p>
    */
   secondaryArtifacts?: ProjectArtifacts[];
 

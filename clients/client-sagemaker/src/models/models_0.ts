@@ -203,10 +203,10 @@ export namespace ResourceNotFound {
 
 /**
  * <p>A tag object that consists of a key and an optional value, used to manage metadata
- *             for Amazon SageMaker Amazon Web Services resources.</p>
+ *             for SageMaker Amazon Web Services resources.</p>
  *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
  *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
- *             endpoints. For more information on adding tags to Amazon SageMaker resources, see <a>AddTags</a>.</p>
+ *             endpoints. For more information on adding tags to SageMaker resources, see <a>AddTags</a>.</p>
  *         <p>For more information on adding metadata to your Amazon Web Services resources with tagging, see
  *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
  *                 resources</a>. For advice on best practices for managing Amazon Web Services resources with
@@ -358,6 +358,7 @@ export namespace MetricDefinition {
 }
 
 export enum TrainingInputMode {
+  FASTFILE = "FastFile",
   FILE = "File",
   PIPE = "Pipe",
 }
@@ -389,21 +390,43 @@ export interface AlgorithmSpecification {
   AlgorithmName?: string;
 
   /**
-   * <p>The input mode that the algorithm supports. For the input modes that Amazon SageMaker
-   *             algorithms support, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. If an algorithm supports the <code>File</code> input mode, Amazon SageMaker
-   *             downloads the training data from S3 to the provisioned ML storage Volume, and mounts the
-   *             directory to docker volume for training container. If an algorithm supports the
-   *                 <code>Pipe</code> input mode, Amazon SageMaker streams data directly from S3 to the container. </p>
-   *         <p> In File mode, make sure you provision ML storage volume with sufficient capacity
-   *             to accommodate the data download from S3. In addition to the training data, the ML
-   *             storage volume also stores the output model. The algorithm container use ML storage
-   *             volume to also store intermediate information, if any. </p>
-   *         <p> For distributed algorithms using File mode, training data is distributed
-   *             uniformly, and your training duration is predictable if the input data objects size is
-   *             approximately same. Amazon SageMaker does not split the files any further for model training. If the
-   *             object sizes are skewed, training won't be optimal as the data distribution is also
-   *             skewed where one host in a training cluster is overloaded, thus becoming bottleneck in
-   *             training. </p>
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 
@@ -1068,8 +1091,8 @@ export namespace ResourceConfig {
 }
 
 /**
- * <p>Specifies a limit to how long a model training job, model compilation job, or
- *             hyperparameter tuning job can run. It also specifies how long a managed Spot training
+ * <p>Specifies a limit to how long a model training job or model compilation job
+ *             can run. It also specifies how long a managed spot training
  *             job has to complete. When the job reaches the time limit, Amazon SageMaker ends the training or
  *             compilation job. Use this API to cap model training costs.</p>
  *         <p>To stop a training job, Amazon SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
@@ -1127,12 +1150,43 @@ export namespace StoppingCondition {
  */
 export interface TrainingJobDefinition {
   /**
-   * <p>The input mode used by the algorithm for the training job. For the input modes that
-   *             Amazon SageMaker algorithms support, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
-   *         <p>If an algorithm supports the <code>File</code> input mode, Amazon SageMaker downloads the training
-   *             data from S3 to the provisioned ML storage Volume, and mounts the directory to docker
-   *             volume for training container. If an algorithm supports the <code>Pipe</code> input
-   *             mode, Amazon SageMaker streams data directly from S3 to the container.</p>
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 
@@ -4266,13 +4320,17 @@ export interface AutoMLJobCompletionCriteria {
   MaxCandidates?: number;
 
   /**
-   * <p>The maximum time, in seconds, a training job is allowed to run as part of an AutoML
-   *          job.</p>
+   * <p>The maximum time, in seconds, that each training job is allowed to run as part of a
+   *          hyperparameter tuning job. For more information, see the  used by the  action.</p>
    */
   MaxRuntimePerTrainingJobInSeconds?: number;
 
   /**
    * <p>The maximum runtime, in seconds, an AutoML job has to complete.</p>
+   *          <p>If an AutoML job exceeds the maximum runtime, the job is stopped automatically and its
+   *          processing is ended gracefully. The AutoML job identifies the best model whose training was
+   *          completed and marks it as the best-performing model. Any unfinished steps of the job, such
+   *          as automatic one-click Autopilot model deployment, will not be completed. </p>
    */
   MaxAutoMLJobRuntimeInSeconds?: number;
 }
@@ -7834,7 +7892,7 @@ export interface EndpointInput {
 
   /**
    * <p>Whether the <code>Pipe</code> or <code>File</code> is used as the input mode for
-   *          transfering data for the monitoring job. <code>Pipe</code> mode is recommended for large
+   *          transferring data for the monitoring job. <code>Pipe</code> mode is recommended for large
    *          datasets. <code>File</code> mode is useful for small files that fit in memory. Defaults to
    *             <code>File</code>.</p>
    */
@@ -9450,11 +9508,13 @@ export interface CreateFeatureGroupRequest {
    *                   <code>OfflineStore</code>.</p>
    *             </li>
    *             <li>
-   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data cataolgue. </p>
+   *                <p>A configuration for an Amazon Web Services Glue or Amazon Web Services Hive data catalog. </p>
    *             </li>
    *             <li>
    *                <p>An KMS encryption key to encrypt the Amazon S3 location used for
-   *                   <code>OfflineStore</code>.</p>
+   *                <code>OfflineStore</code>. If KMS encryption key is not specified, by default we encrypt all data at rest using
+   *                Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level key</a> for SSE,
+   *                you can reduce Amazon Web Services KMS requests costs by up to 99 percent.</p>
    *             </li>
    *          </ul>
    *          <p>To learn more about this parameter, see <a>OfflineStoreConfig</a>.</p>
@@ -10689,22 +10749,43 @@ export interface HyperParameterAlgorithmSpecification {
   TrainingImage?: string;
 
   /**
-   * <p>The input mode that the algorithm supports:
-   *             File
-   *             or Pipe. In File input mode, Amazon SageMaker downloads the training data from
-   *             Amazon S3 to the
-   *             storage
-   *             volume that is attached to the training instance and mounts the directory to the Docker
-   *             volume for the training container. In Pipe input mode, Amazon SageMaker streams
-   *             data directly from Amazon S3 to the container. </p>
-   *         <p>If you specify File mode, make sure that
-   *             you
-   *             provision the storage volume that is attached to the training instance with enough
-   *             capacity to accommodate the training data downloaded from Amazon S3, the model artifacts, and
-   *             intermediate
-   *             information.</p>
-   *         <p></p>
-   *         <p>For more information about input modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
+   * <p>The training input mode that the algorithm supports. For more information about input modes, see
+   *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
+   *
+   *         <p>
+   *             <b>Pipe mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly
+   *             from Amazon S3 to the container.</p>
+   *
+   *         <p>
+   *             <b>File mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>File</code> mode, SageMaker
+   *             downloads the training data from S3 to the provisioned ML storage volume, and mounts the
+   *             directory to the Docker volume for the training container.</p>
+   *         <p>You must provision the ML storage volume with sufficient capacity
+   *             to accommodate the data downloaded from S3. In addition to the training data, the ML
+   *             storage volume also stores the output model. The algorithm container uses the ML storage
+   *             volume to also store intermediate information, if any.</p>
+   *         <p>For distributed algorithms, training data is distributed uniformly.
+   *             Your training duration is predictable if the input data objects sizes are
+   *             approximately the same. SageMaker does not split the files any further for model training.
+   *             If the object sizes are skewed, training won't be optimal as the data distribution is also
+   *             skewed when one host in a training cluster is overloaded, thus becoming a bottleneck in
+   *             training.</p>
+   *
+   *         <p>
+   *             <b>FastFile mode</b>
+   *          </p>
+   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly
+   *             from S3 to the container with no code changes, and provides file system access to
+   *             the data. Users can author their training script to interact with these files as if
+   *             they were stored on disk.</p>
+   *         <p>
+   *             <code>FastFile</code> mode works best when the data is read sequentially.
+   *             Augmented manifest files aren't supported.
+   *             The startup time is lower when there are fewer files in the S3 bucket provided.</p>
    */
   TrainingInputMode: TrainingInputMode | string | undefined;
 

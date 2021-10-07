@@ -68,7 +68,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *          </important>
  *          <p>For more information, see
  *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html">Connect
- *       SageMaker Studio Notebooks to Resources in a VPC</a>.</p>
+ *        SageMaker Studio Notebooks to Resources in a VPC</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -505,6 +505,120 @@ export namespace AppInstanceUserMembershipSummary {
   });
 }
 
+export enum AudioMuxType {
+  AudioOnly = "AudioOnly",
+  AudioWithActiveSpeakerVideo = "AudioWithActiveSpeakerVideo",
+}
+
+/**
+ * <p>The audio artifact configuration object.</p>
+ */
+export interface AudioArtifactsConfiguration {
+  /**
+   * <p>The MUX type of the audio artifact configuration object.</p>
+   */
+  MuxType: AudioMuxType | string | undefined;
+}
+
+export namespace AudioArtifactsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AudioArtifactsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ContentMuxType {
+  ContentOnly = "ContentOnly",
+}
+
+export enum ArtifactsState {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>The content artifact object.</p>
+ */
+export interface ContentArtifactsConfiguration {
+  /**
+   * <p>Indicates whether the content artifact is enabled or disabled.</p>
+   */
+  State: ArtifactsState | string | undefined;
+
+  /**
+   * <p>The MUX type of the artifact configuration.</p>
+   */
+  MuxType?: ContentMuxType | string;
+}
+
+export namespace ContentArtifactsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ContentArtifactsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum VideoMuxType {
+  VideoOnly = "VideoOnly",
+}
+
+/**
+ * <p>The video artifact configuration object.</p>
+ */
+export interface VideoArtifactsConfiguration {
+  /**
+   * <p>Indicates whether the video artifact is enabled or disabled.</p>
+   */
+  State: ArtifactsState | string | undefined;
+
+  /**
+   * <p>The MUX type of the video artifact configuration object.</p>
+   */
+  MuxType?: VideoMuxType | string;
+}
+
+export namespace VideoArtifactsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VideoArtifactsConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for the artifacts.</p>
+ */
+export interface ArtifactsConfiguration {
+  /**
+   * <p>The configuration for the audio artifacts.</p>
+   */
+  Audio: AudioArtifactsConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the video artifacts.</p>
+   */
+  Video: VideoArtifactsConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the content artifacts.</p>
+   */
+  Content: ContentArtifactsConfiguration | undefined;
+}
+
+export namespace ArtifactsConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ArtifactsConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociatePhoneNumbersWithVoiceConnectorRequest {
   /**
    * <p>The Amazon Chime Voice Connector ID.</p>
@@ -2126,6 +2240,80 @@ export namespace ChannelModeratorSummary {
 }
 
 /**
+ * <p>The video streams to capture for a specified media capture pipeline. The total number of video streams can't exceed 25.</p>
+ */
+export interface SelectedVideoStreams {
+  /**
+   * <p>The attendee IDs of the streams selected for a media capture pipeline. </p>
+   */
+  AttendeeIds?: string[];
+
+  /**
+   * <p>The external user IDs of the streams selected for a media capture pipeline.</p>
+   */
+  ExternalUserIds?: string[];
+}
+
+export namespace SelectedVideoStreams {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SelectedVideoStreams): any => ({
+    ...obj,
+    ...(obj.ExternalUserIds && { ExternalUserIds: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Source configuration for a specified media capture pipeline.</p>
+ */
+export interface SourceConfiguration {
+  /**
+   * <p>The selected video streams to capture for a specified media capture pipeline. The number of video streams can't exceed 25.</p>
+   */
+  SelectedVideoStreams?: SelectedVideoStreams;
+}
+
+export namespace SourceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SourceConfiguration): any => ({
+    ...obj,
+    ...(obj.SelectedVideoStreams && {
+      SelectedVideoStreams: SelectedVideoStreams.filterSensitiveLog(obj.SelectedVideoStreams),
+    }),
+  });
+}
+
+/**
+ * <p>The configuration object of the Amazon Chime SDK meeting for a specified media capture pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
+ */
+export interface ChimeSdkMeetingConfiguration {
+  /**
+   * <p>The source configuration for a specified media capture pipline.</p>
+   */
+  SourceConfiguration?: SourceConfiguration;
+
+  /**
+   * <p>The configuration for the artifacts in an Amazon Chime SDK meeting.</p>
+   */
+  ArtifactsConfiguration?: ArtifactsConfiguration;
+}
+
+export namespace ChimeSdkMeetingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChimeSdkMeetingConfiguration): any => ({
+    ...obj,
+    ...(obj.SourceConfiguration && {
+      SourceConfiguration: SourceConfiguration.filterSensitiveLog(obj.SourceConfiguration),
+    }),
+  });
+}
+
+/**
  * <p>The request could not be processed because of conflict in the current state of the
  *          resource.</p>
  */
@@ -2704,6 +2892,11 @@ export interface CreateMediaCapturePipelineRequest {
    * <p>The token assigned to the client making the pipeline request.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The configuration for a specified media capture pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
+   */
+  ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
 export namespace CreateMediaCapturePipelineRequest {
@@ -2715,6 +2908,9 @@ export namespace CreateMediaCapturePipelineRequest {
     ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
     ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
     ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+    ...(obj.ChimeSdkMeetingConfiguration && {
+      ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfiguration.filterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
+    }),
   });
 }
 
@@ -2727,7 +2923,7 @@ export enum MediaPipelineStatus {
 }
 
 /**
- * <p>A media capture pipeline object. A string consisting of an ID, source type, a source ARN, a sink type, and a sink ARN.</p>
+ * <p>A media capture pipeline object consisting of an ID, source type, source ARN, a sink type, a sink ARN, and a configuration object.</p>
  */
 export interface MediaCapturePipeline {
   /**
@@ -2769,6 +2965,11 @@ export interface MediaCapturePipeline {
    * <p>The time at which the capture pipeline was updated, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The configuration for a specified media capture pipeline. <code>SourceType</code> must be <code>ChimeSdkMeeting</code>.</p>
+   */
+  ChimeSdkMeetingConfiguration?: ChimeSdkMeetingConfiguration;
 }
 
 export namespace MediaCapturePipeline {
@@ -2779,6 +2980,9 @@ export namespace MediaCapturePipeline {
     ...obj,
     ...(obj.SourceArn && { SourceArn: SENSITIVE_STRING }),
     ...(obj.SinkArn && { SinkArn: SENSITIVE_STRING }),
+    ...(obj.ChimeSdkMeetingConfiguration && {
+      ChimeSdkMeetingConfiguration: ChimeSdkMeetingConfiguration.filterSensitiveLog(obj.ChimeSdkMeetingConfiguration),
+    }),
   });
 }
 
@@ -2959,7 +3163,7 @@ export interface MediaPlacement {
   TurnControlUrl?: string;
 
   /**
-   * <p>The URL of the S3 bucket used to store the captured media.</p>
+   * <p>The event ingestion URL.</p>
    */
   EventIngestionUrl?: string;
 }
@@ -6683,217 +6887,6 @@ export namespace GetSipMediaApplicationRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetSipMediaApplicationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSipMediaApplicationResponse {
-  /**
-   * <p>The SIP media application details.</p>
-   */
-  SipMediaApplication?: SipMediaApplication;
-}
-
-export namespace GetSipMediaApplicationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipMediaApplicationResponse): any => ({
-    ...obj,
-    ...(obj.SipMediaApplication && {
-      SipMediaApplication: SipMediaApplication.filterSensitiveLog(obj.SipMediaApplication),
-    }),
-  });
-}
-
-export interface GetSipMediaApplicationLoggingConfigurationRequest {
-  /**
-   * <p>The SIP media application ID.</p>
-   */
-  SipMediaApplicationId: string | undefined;
-}
-
-export namespace GetSipMediaApplicationLoggingConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Logging configuration of the SIP media application.</p>
- */
-export interface SipMediaApplicationLoggingConfiguration {
-  /**
-   * <p>Enables application message logs for the SIP media application.</p>
-   */
-  EnableSipMediaApplicationMessageLogs?: boolean;
-}
-
-export namespace SipMediaApplicationLoggingConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SipMediaApplicationLoggingConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSipMediaApplicationLoggingConfigurationResponse {
-  /**
-   * <p>The actual logging configuration.</p>
-   */
-  SipMediaApplicationLoggingConfiguration?: SipMediaApplicationLoggingConfiguration;
-}
-
-export namespace GetSipMediaApplicationLoggingConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipMediaApplicationLoggingConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSipRuleRequest {
-  /**
-   * <p>The SIP rule ID.</p>
-   */
-  SipRuleId: string | undefined;
-}
-
-export namespace GetSipRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetSipRuleResponse {
-  /**
-   * <p>The SIP rule details.</p>
-   */
-  SipRule?: SipRule;
-}
-
-export namespace GetSipRuleResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetSipRuleResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface GetUserRequest {
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-}
-
-export namespace GetUserRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetUserResponse {
-  /**
-   * <p>The user details.</p>
-   */
-  User?: User;
-}
-
-export namespace GetUserResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserResponse): any => ({
-    ...obj,
-    ...(obj.User && { User: User.filterSensitiveLog(obj.User) }),
-  });
-}
-
-export interface GetUserSettingsRequest {
-  /**
-   * <p>The Amazon Chime account ID.</p>
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The user ID.</p>
-   */
-  UserId: string | undefined;
-}
-
-export namespace GetUserSettingsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetUserSettingsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Settings that allow management of telephony permissions for an Amazon Chime user, such as
- *             inbound and outbound calling and text messaging.</p>
- */
-export interface TelephonySettings {
-  /**
-   * <p>Allows or denies inbound calling.</p>
-   */
-  InboundCalling: boolean | undefined;
-
-  /**
-   * <p>Allows or denies outbound calling.</p>
-   */
-  OutboundCalling: boolean | undefined;
-
-  /**
-   * <p>Allows or denies SMS messaging.</p>
-   */
-  SMS: boolean | undefined;
-}
-
-export namespace TelephonySettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TelephonySettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Settings associated with an Amazon Chime user, including inbound and outbound calling and text
- *             messaging.</p>
- */
-export interface UserSettings {
-  /**
-   * <p>The telephony settings associated with the user.</p>
-   */
-  Telephony: TelephonySettings | undefined;
-}
-
-export namespace UserSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserSettings): any => ({
     ...obj,
   });
 }

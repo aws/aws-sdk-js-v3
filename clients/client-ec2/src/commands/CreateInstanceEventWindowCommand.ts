@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateInstanceEventWindowRequest, CreateInstanceEventWindowResult } from "../models/models_0";
+import { CreateInstanceEventWindowRequest } from "../models/models_0";
+import { CreateInstanceEventWindowResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateInstanceEventWindowCommand,
   serializeAws_ec2CreateInstanceEventWindowCommand,

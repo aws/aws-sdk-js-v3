@@ -68,6 +68,10 @@ import {
 } from "./commands/DeleteBackupVaultAccessPolicyCommand";
 import { DeleteBackupVaultCommandInput, DeleteBackupVaultCommandOutput } from "./commands/DeleteBackupVaultCommand";
 import {
+  DeleteBackupVaultLockConfigurationCommandInput,
+  DeleteBackupVaultLockConfigurationCommandOutput,
+} from "./commands/DeleteBackupVaultLockConfigurationCommand";
+import {
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput,
 } from "./commands/DeleteBackupVaultNotificationsCommand";
@@ -175,6 +179,10 @@ import {
   PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
 import {
+  PutBackupVaultLockConfigurationCommandInput,
+  PutBackupVaultLockConfigurationCommandOutput,
+} from "./commands/PutBackupVaultLockConfigurationCommand";
+import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
@@ -212,6 +220,7 @@ export type ServiceInputTypes =
   | DeleteBackupSelectionCommandInput
   | DeleteBackupVaultAccessPolicyCommandInput
   | DeleteBackupVaultCommandInput
+  | DeleteBackupVaultLockConfigurationCommandInput
   | DeleteBackupVaultNotificationsCommandInput
   | DeleteFrameworkCommandInput
   | DeleteRecoveryPointCommandInput
@@ -253,6 +262,7 @@ export type ServiceInputTypes =
   | ListRestoreJobsCommandInput
   | ListTagsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
+  | PutBackupVaultLockConfigurationCommandInput
   | PutBackupVaultNotificationsCommandInput
   | StartBackupJobCommandInput
   | StartCopyJobCommandInput
@@ -278,6 +288,7 @@ export type ServiceOutputTypes =
   | DeleteBackupSelectionCommandOutput
   | DeleteBackupVaultAccessPolicyCommandOutput
   | DeleteBackupVaultCommandOutput
+  | DeleteBackupVaultLockConfigurationCommandOutput
   | DeleteBackupVaultNotificationsCommandOutput
   | DeleteFrameworkCommandOutput
   | DeleteRecoveryPointCommandOutput
@@ -319,6 +330,7 @@ export type ServiceOutputTypes =
   | ListRestoreJobsCommandOutput
   | ListTagsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
+  | PutBackupVaultLockConfigurationCommandOutput
   | PutBackupVaultNotificationsCommandOutput
   | StartBackupJobCommandOutput
   | StartCopyJobCommandOutput

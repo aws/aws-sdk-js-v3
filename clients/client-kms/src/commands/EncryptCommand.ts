@@ -19,19 +19,20 @@ export interface EncryptCommandInput extends EncryptRequest {}
 export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer {}
 
 /**
- * <p>Encrypts plaintext into ciphertext by using a KMS key. The
- *         <code>Encrypt</code> operation has two primary use cases:</p>
+ * <p>Encrypts plaintext into ciphertext by using a KMS key. The <code>Encrypt</code> operation
+ *       has two primary use cases:</p>
  *          <ul>
  *             <li>
  *                <p>You can encrypt small amounts of arbitrary data, such as a personal identifier or
  *           database password, or other sensitive information. </p>
  *             </li>
  *             <li>
- *                <p>You can use the <code>Encrypt</code> operation to move encrypted data from one Amazon Web Services Region to another. For example, in Region A, generate a data key and use the plaintext key to encrypt
- *           your data. Then, in Region A, use the <code>Encrypt</code> operation to encrypt the
- *           plaintext data key under a KMS key in Region B. Now, you can move the encrypted data and the
- *           encrypted data key to Region B. When necessary, you can decrypt the encrypted data key and
- *           the encrypted data entirely within in Region B.</p>
+ *                <p>You can use the <code>Encrypt</code> operation to move encrypted data from one Amazon Web Services
+ *           Region to another. For example, in Region A, generate a data key and use the plaintext key
+ *           to encrypt your data. Then, in Region A, use the <code>Encrypt</code> operation to encrypt
+ *           the plaintext data key under a KMS key in Region B. Now, you can move the encrypted data
+ *           and the encrypted data key to Region B. When necessary, you can decrypt the encrypted data
+ *           key and the encrypted data entirely within in Region B.</p>
  *             </li>
  *          </ul>
  *
@@ -42,10 +43,10 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *       encryption operation. The KMS key must have a <code>KeyUsage</code> value of
  *         <code>ENCRYPT_DECRYPT.</code> To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation. </p>
  *
- *          <p>If you use a symmetric KMS key, you can use an encryption context to add additional security
- *       to your encryption operation. If you specify an <code>EncryptionContext</code> when encrypting
- *       data, you must specify the same encryption context (a case-sensitive exact match) when
- *       decrypting the data. Otherwise, the request to decrypt fails with an
+ *          <p>If you use a symmetric KMS key, you can use an encryption context to add additional
+ *       security to your encryption operation. If you specify an <code>EncryptionContext</code> when
+ *       encrypting data, you must specify the same encryption context (a case-sensitive exact match)
+ *       when decrypting the data. Otherwise, the request to decrypt fails with an
  *         <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
  *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The
@@ -117,7 +118,8 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes.
+ *       To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter.</p>
  *
  *          <p>

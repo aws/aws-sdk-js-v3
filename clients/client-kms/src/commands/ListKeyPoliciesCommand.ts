@@ -22,9 +22,9 @@ export interface ListKeyPoliciesCommandInput extends ListKeyPoliciesRequest {}
 export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the names of the key policies that are attached to a KMS key. This
- *       operation is designed to get policy names that you can use in a <a>GetKeyPolicy</a>
- *       operation. However, the only valid policy name is <code>default</code>. </p>
+ * <p>Gets the names of the key policies that are attached to a KMS key. This operation is
+ *       designed to get policy names that you can use in a <a>GetKeyPolicy</a> operation.
+ *       However, the only valid policy name is <code>default</code>. </p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *

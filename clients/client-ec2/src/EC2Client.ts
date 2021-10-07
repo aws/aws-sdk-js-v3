@@ -166,6 +166,10 @@ import {
   CancelCapacityReservationCommandOutput,
 } from "./commands/CancelCapacityReservationCommand";
 import {
+  CancelCapacityReservationFleetsCommandInput,
+  CancelCapacityReservationFleetsCommandOutput,
+} from "./commands/CancelCapacityReservationFleetsCommand";
+import {
   CancelConversionTaskCommandInput,
   CancelConversionTaskCommandOutput,
 } from "./commands/CancelConversionTaskCommand";
@@ -194,6 +198,10 @@ import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand";
+import {
+  CreateCapacityReservationFleetCommandInput,
+  CreateCapacityReservationFleetCommandOutput,
+} from "./commands/CreateCapacityReservationFleetCommand";
 import {
   CreateCarrierGatewayCommandInput,
   CreateCarrierGatewayCommandOutput,
@@ -604,6 +612,10 @@ import {
   DescribeBundleTasksCommandOutput,
 } from "./commands/DescribeBundleTasksCommand";
 import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "./commands/DescribeByoipCidrsCommand";
+import {
+  DescribeCapacityReservationFleetsCommandInput,
+  DescribeCapacityReservationFleetsCommandOutput,
+} from "./commands/DescribeCapacityReservationFleetsCommand";
 import {
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput,
@@ -1281,6 +1293,10 @@ import {
   ModifyCapacityReservationCommandOutput,
 } from "./commands/ModifyCapacityReservationCommand";
 import {
+  ModifyCapacityReservationFleetCommandInput,
+  ModifyCapacityReservationFleetCommandOutput,
+} from "./commands/ModifyCapacityReservationFleetCommand";
+import {
   ModifyClientVpnEndpointCommandInput,
   ModifyClientVpnEndpointCommandOutput,
 } from "./commands/ModifyClientVpnEndpointCommand";
@@ -1652,6 +1668,7 @@ export type ServiceInputTypes =
   | BundleInstanceCommandInput
   | CancelBundleTaskCommandInput
   | CancelCapacityReservationCommandInput
+  | CancelCapacityReservationFleetsCommandInput
   | CancelConversionTaskCommandInput
   | CancelExportTaskCommandInput
   | CancelImportTaskCommandInput
@@ -1663,6 +1680,7 @@ export type ServiceInputTypes =
   | CopyImageCommandInput
   | CopySnapshotCommandInput
   | CreateCapacityReservationCommandInput
+  | CreateCapacityReservationFleetCommandInput
   | CreateCarrierGatewayCommandInput
   | CreateClientVpnEndpointCommandInput
   | CreateClientVpnRouteCommandInput
@@ -1794,6 +1812,7 @@ export type ServiceInputTypes =
   | DescribeAvailabilityZonesCommandInput
   | DescribeBundleTasksCommandInput
   | DescribeByoipCidrsCommandInput
+  | DescribeCapacityReservationFleetsCommandInput
   | DescribeCapacityReservationsCommandInput
   | DescribeCarrierGatewaysCommandInput
   | DescribeClassicLinkInstancesCommandInput
@@ -1984,6 +2003,7 @@ export type ServiceInputTypes =
   | ModifyAddressAttributeCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
+  | ModifyCapacityReservationFleetCommandInput
   | ModifyClientVpnEndpointCommandInput
   | ModifyDefaultCreditSpecificationCommandInput
   | ModifyEbsDefaultKmsKeyIdCommandInput
@@ -2121,6 +2141,7 @@ export type ServiceOutputTypes =
   | BundleInstanceCommandOutput
   | CancelBundleTaskCommandOutput
   | CancelCapacityReservationCommandOutput
+  | CancelCapacityReservationFleetsCommandOutput
   | CancelConversionTaskCommandOutput
   | CancelExportTaskCommandOutput
   | CancelImportTaskCommandOutput
@@ -2132,6 +2153,7 @@ export type ServiceOutputTypes =
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
   | CreateCapacityReservationCommandOutput
+  | CreateCapacityReservationFleetCommandOutput
   | CreateCarrierGatewayCommandOutput
   | CreateClientVpnEndpointCommandOutput
   | CreateClientVpnRouteCommandOutput
@@ -2263,6 +2285,7 @@ export type ServiceOutputTypes =
   | DescribeAvailabilityZonesCommandOutput
   | DescribeBundleTasksCommandOutput
   | DescribeByoipCidrsCommandOutput
+  | DescribeCapacityReservationFleetsCommandOutput
   | DescribeCapacityReservationsCommandOutput
   | DescribeCarrierGatewaysCommandOutput
   | DescribeClassicLinkInstancesCommandOutput
@@ -2453,6 +2476,7 @@ export type ServiceOutputTypes =
   | ModifyAddressAttributeCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
+  | ModifyCapacityReservationFleetCommandOutput
   | ModifyClientVpnEndpointCommandOutput
   | ModifyDefaultCreditSpecificationCommandOutput
   | ModifyEbsDefaultKmsKeyIdCommandOutput

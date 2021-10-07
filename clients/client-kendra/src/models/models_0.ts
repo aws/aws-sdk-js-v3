@@ -2856,6 +2856,9 @@ export namespace SiteMapsConfiguration {
 
 /**
  * <p>Provides the configuration information of the URLs to crawl.</p>
+ *         <p>You can only crawl websites that use the secure communication protocol,
+ *             Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when
+ *             crawling a website, it could be that the website is blocked from crawling.</p>
  *         <p>
  *             <i>When selecting websites to index, you must adhere to
  *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
@@ -2902,6 +2905,9 @@ export interface WebCrawlerConfiguration {
    *             websites or the sitemap URLs of the websites you want to crawl.</p>
    *         <p>You can include website subdomains. You can list up to 100 seed
    *             URLs and up to three sitemap URLs.</p>
+   *         <p>You can only crawl websites that use the secure communication protocol,
+   *             Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when
+   *             crawling a website, it could be that the website is blocked from crawling.</p>
    *         <p>
    *             <i>When selecting websites to index, you must adhere to
    *             the <a href="https://aws.amazon.com/aup/">Amazon Acceptable Use Policy</a>
@@ -3262,6 +3268,15 @@ export interface CreateDataSourceRequest {
    *       the same client token will create only one data source.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The code for a language. This allows you to support a language for all
+   *             documents when creating the data source. English is supported
+   *             by default. For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace CreateDataSourceRequest {
@@ -3363,6 +3378,15 @@ export interface CreateFaqRequest {
    *             one FAQ. </p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The code for a language. This allows you to support a language
+   *             for the FAQ document. English is supported by default.
+   *             For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace CreateFaqRequest {
@@ -3421,6 +3445,46 @@ export namespace ServerSideEncryptionConfiguration {
 export enum UserContextPolicy {
   ATTRIBUTE_FILTER = "ATTRIBUTE_FILTER",
   USER_TOKEN = "USER_TOKEN",
+}
+
+export enum UserGroupResolutionMode {
+  AWS_SSO = "AWS_SSO",
+  NONE = "NONE",
+}
+
+/**
+ * <p>Provides the configuration information to fetch access levels
+ *          of groups and users from an AWS Single Sign-On identity
+ *          source. This is useful for setting up user context filtering, where
+ *          Amazon Kendra filters search results for different users based on their
+ *          group's access to documents. You can also map your users to their
+ *          groups for user context filtering using the
+ *          <a href="https://docs.aws.amazon.com/latest/dg/API_PutPrincipalMapping.html">PutPrincipalMapping
+ *             operation</a>.</p>
+ *          <p>To set up an AWS SSO identity source in the console to use with
+ *          Amazon Kendra, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/getting-started-aws-sso.html">Getting started
+ *             with an AWS SSO identity source</a>. You must also grant the required
+ *             permissions to use AWS SSO with Amazon Kendra. For more information, see
+ *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html#iam-roles-aws-sso">IAM roles for
+ *             AWS Single Sign-On</a>.</p>
+ */
+export interface UserGroupResolutionConfiguration {
+  /**
+   * <p>The identity store provider (mode) you want to use to fetch access levels of groups and
+   *          users. AWS Single Sign-On is currently the only available mode. Your users and groups
+   *          must
+   *          exist in an AWS SSO identity source in order to use this mode.</p>
+   */
+  UserGroupResolutionMode: UserGroupResolutionMode | string | undefined;
+}
+
+export namespace UserGroupResolutionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserGroupResolutionConfiguration): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -3590,21 +3654,30 @@ export interface CreateIndexRequest {
    *             <dt>ATTRIBUTE_FILTER</dt>
    *             <dd>
    *                <p>All indexed content is searchable and displayable
-   *                   for all users. If there is an access control list, it
-   *                   is ignored. You can filter on user and group attributes.
+   *                   for all users. If you want to filter search results on
+   *                   user context, you can use the attribute filters of
+   *                   <code>_user_id</code> and <code>_group_ids</code> or
+   *                   you can provide user and group information in <code>UserContext</code>.
    *                </p>
    *             </dd>
    *             <dt>USER_TOKEN</dt>
    *             <dd>
-   *                <p>Enables SSO and token-based user access control.
-   *                All documents with no access control and all documents
-   *                accessible to the user will be searchable and
-   *                displayable.
+   *                <p>Enables token-based user access control to filter
+   *                   search results on user context. All documents with no
+   *                   access control and all documents accessible to the user
+   *                   will be searchable and displayable.
    *                </p>
    *             </dd>
    *          </dl>
    */
   UserContextPolicy?: UserContextPolicy | string;
+
+  /**
+   * <p>Enables fetching access levels of groups and users from an AWS Single Sign-On
+   *          identity source. To configure this, see
+   *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
+   */
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
 export namespace CreateIndexRequest {
@@ -3757,7 +3830,7 @@ export interface CreateThesaurusRequest {
   /**
    * <p>A token that you provide to identify the request to create a
    *          thesaurus. Multiple calls to the <code>CreateThesaurus</code> operation
-   *          with the same client token will create only one index.
+   *          with the same client token will create only one thesaurus.
    *       </p>
    */
   ClientToken?: string;
@@ -4039,6 +4112,15 @@ export interface DescribeDataSourceResponse {
    *       caused the data source to fail.</p>
    */
   ErrorMessage?: string;
+
+  /**
+   * <p>The code for a language. This shows a supported language for all
+   *             documents in the data source. English is supported by
+   *             default. For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace DescribeDataSourceResponse {
@@ -4138,6 +4220,15 @@ export interface DescribeFaqResponse {
    * <p>The file format used by the input files for the FAQ.</p>
    */
   FileFormat?: FaqFileFormat | string;
+
+  /**
+   * <p>The code for a language. This shows a supported language
+   *             for the FAQ document. English is supported by default.
+   *             For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace DescribeFaqResponse {
@@ -4543,6 +4634,12 @@ export interface DescribeIndexResponse {
    * <p>The user context policy for the Amazon Kendra index.</p>
    */
   UserContextPolicy?: UserContextPolicy | string;
+
+  /**
+   * <p>Shows whether you have enabled the configuration for fetching access
+   *          levels of groups and users from an AWS Single Sign-On identity source.</p>
+   */
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
 export namespace DescribeIndexResponse {
@@ -4771,7 +4868,7 @@ export interface DescribeQuerySuggestionsBlockListResponse {
   ErrorMessage?: string;
 
   /**
-   * <p>Shows the date-time a block list for query suggestions was last created.</p>
+   * <p>Shows the date-time a block list for query suggestions was created.</p>
    */
   CreatedAt?: Date;
 
@@ -5256,6 +5353,15 @@ export interface DataSourceSummary {
    *                 <code>ACTIVE</code> the data source is ready to use.</p>
    */
   Status?: DataSourceStatus | string;
+
+  /**
+   * <p>The code for a language. This shows a supported language for all documents
+   *             in the data source. English is supported by default.
+   *             For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace DataSourceSummary {
@@ -5336,9 +5442,9 @@ export interface ListDataSourceSyncJobsRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>If the result of the previous request to
-   *         <code>GetDataSourceSyncJobHistory</code> was truncated, include the
-   *         <code>NextToken</code> to fetch the next set of jobs.</p>
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *       Amazon Kendra returns a pagination token in the response. You can use this pagination token
+   *       to retrieve the next set of jobs.</p>
    */
   NextToken?: string;
 
@@ -5492,12 +5598,8 @@ export interface ListDataSourceSyncJobsResponse {
   History?: DataSourceSyncJob[];
 
   /**
-   * <p>The <code>GetDataSourceSyncJobHistory</code> operation returns a page
-   *       of vocabularies at a time. The maximum size of the page is set by the
-   *         <code>MaxResults</code> parameter. If there are more jobs in the list
-   *       than the page size, Amazon Kendra returns the NextPage token. Include the
-   *       token in the next request to the <code>GetDataSourceSyncJobHistory</code>
-   *       operation to return in the next page of jobs.</p>
+   * <p>If the response is truncated, Amazon Kendra returns this token that you
+   *       can use in the subsequent request to retrieve the next set of jobs.</p>
    */
   NextToken?: string;
 }
@@ -5518,8 +5620,9 @@ export interface ListFaqsRequest {
   IndexId: string | undefined;
 
   /**
-   * <p>If the result of the previous request to <code>ListFaqs</code> was truncated, include
-   *             the <code>NextToken</code> to fetch the next set of FAQs.</p>
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *             Amazon Kendra returns a pagination token in the response. You can use this pagination token
+   *             to retrieve the next set of FAQs.</p>
    */
   NextToken?: string;
 
@@ -5575,6 +5678,15 @@ export interface FaqSummary {
    * <p>The file type used to create the FAQ. </p>
    */
   FileFormat?: FaqFileFormat | string;
+
+  /**
+   * <p>The code for a language. This shows a supported language for the FAQ document
+   *             as part of the summary information for FAQs. English is supported by default.
+   *             For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace FaqSummary {
@@ -5588,11 +5700,8 @@ export namespace FaqSummary {
 
 export interface ListFaqsResponse {
   /**
-   * <p>The <code>ListFaqs</code> operation returns a page of FAQs at a time. The maximum size
-   *             of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in
-   *             the list than the page size, Amazon Kendra returns the <code>NextPage</code> token.
-   *             Include the token in the next request to the <code>ListFaqs</code> operation to return
-   *             the next page of FAQs.</p>
+   * <p>If the response is truncated, Amazon Kendra returns this token that you can use
+   *             in the subsequent request to retrieve the next set of FAQs.</p>
    */
   NextToken?: string;
 
@@ -5632,14 +5741,17 @@ export interface ListGroupsOlderThanOrderingIdRequest {
 
   /**
    * <p>
-   *             The next items in the list of groups that go beyond the maximum.
+   *             If the previous response was incomplete (because there is more data to retrieve),
+   *             Amazon Kendra returns a pagination token in the response. You can use this pagination
+   *             token to retrieve the next set of groups that are mapped to users before a
+   *             given ordering or timestamp identifier.
    *         </p>
    */
   NextToken?: string;
 
   /**
    * <p>
-   *             The maximum results shown for a list of groups that are mapped to users before a
+   *             The maximum number of returned groups that are mapped to users before a
    *             given ordering or timestamp identifier.
    *         </p>
    */
@@ -5697,7 +5809,9 @@ export interface ListGroupsOlderThanOrderingIdResponse {
 
   /**
    * <p>
-   *             The next items in the list of groups that go beyond the maximum.
+   *             If the response is truncated, Amazon Kendra returns this token that you can use
+   *             in the subsequent request to retrieve the next set of groups that are
+   *             mapped to users before a given ordering or timestamp identifier.
    *         </p>
    */
   NextToken?: string;
@@ -6001,7 +6115,7 @@ export namespace ListThesauriRequest {
 }
 
 /**
- * <p>An array of summary information for one or more thesauruses.</p>
+ * <p>An array of summary information for a thesaurus or multiple thesauri.</p>
  */
 export interface ThesaurusSummary {
   /**
@@ -6049,7 +6163,7 @@ export interface ListThesauriResponse {
   NextToken?: string;
 
   /**
-   * <p>An array of summary information for one or more thesauruses.</p>
+   * <p>An array of summary information for a thesaurus or multiple thesauri.</p>
    */
   ThesaurusSummaryItems?: ThesaurusSummary[];
 }
@@ -6132,6 +6246,12 @@ export interface GroupMembers {
    *             groups for a group. Your sub groups can contain more than 1000 users, but
    *             the list of sub groups that belong to a group (and/or users) must be no
    *             more than 1000.</p>
+   *         <p>You can download this
+   *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/samples/group_members.zip">example
+   *                 S3 file</a> that uses the correct format for listing group members. Note,
+   *             <code>dataSourceId</code> is optional. The value of <code>type</code>
+   *             for a group is always <code>GROUP</code> and for a user it is
+   *             always <code>USER</code>.</p>
    */
   S3PathforGroupMembers?: S3Path;
 }
@@ -6372,7 +6492,9 @@ export namespace DataSourceGroup {
 }
 
 /**
- * <p>Provides information about the user context for a Amazon Kendra index.</p>
+ * <p>Provides information about the user context for
+ *          an
+ *          Amazon Kendra index.</p>
  *          <p>This is used for filtering search results for different users based on their access
  *          to documents.</p>
  *          <p>You provide one of the following:</p>
@@ -6381,8 +6503,8 @@ export namespace DataSourceGroup {
  *                <p>User token</p>
  *             </li>
  *             <li>
- *                <p>User ID, the groups the user belongs to, and the data sources
- *                the groups can access</p>
+ *                <p>User ID, the groups the user belongs to, and any data sources the groups can
+ *                access.</p>
  *             </li>
  *          </ul>
  *          <p>If you provide both, an exception is thrown.</p>
@@ -6493,6 +6615,7 @@ export enum ScoreConfidence {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
+  NOT_AVAILABLE = "NOT_AVAILABLE",
   VERY_HIGH = "VERY_HIGH",
 }
 
@@ -6920,6 +7043,15 @@ export interface UpdateDataSourceRequest {
    *       source is accessing resources on your behalf.</p>
    */
   RoleArn?: string;
+
+  /**
+   * <p>The code for a language. This allows you to support a language for all
+   *             documents when updating the data source. English is supported
+   *             by default. For more information on supported languages, including their codes,
+   *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html">Adding
+   *                 documents in languages other than English</a>.</p>
+   */
+  LanguageCode?: string;
 }
 
 export namespace UpdateDataSourceRequest {
@@ -6974,9 +7106,16 @@ export interface UpdateIndexRequest {
   UserTokenConfigurations?: UserTokenConfiguration[];
 
   /**
-   * <p>The user user token context policy.</p>
+   * <p>The user context policy.</p>
    */
   UserContextPolicy?: UserContextPolicy | string;
+
+  /**
+   * <p>Enables fetching access levels of groups and users from an AWS Single Sign-On
+   *          identity source. To configure this, see
+   *          <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_UserGroupResolutionConfiguration.html">UserGroupResolutionConfiguration</a>.</p>
+   */
+  UserGroupResolutionConfiguration?: UserGroupResolutionConfiguration;
 }
 
 export namespace UpdateIndexRequest {
@@ -7172,10 +7311,11 @@ export namespace UpdateThesaurusRequest {
  *          </ol>
  *          <p>If you use more than 2 layers, you receive a
  *             <code>ValidationException</code> exception with the message
- *             "<code>AttributeFilter</code> cannot have a depth of more than
- *          2."</p>
- *          <p>If you use more than 10 attribute filters, you receive a
- *          <code>ValidationException</code> exception with the message
+ *             "<code>AttributeFilter</code> cannot have a depth of more
+ *          than 2."</p>
+ *          <p>If you use more than 10 attribute filters in a given list for
+ *          <code>AndAllFilters</code> or <code>OrAllFilters</code>, you receive
+ *          a <code>ValidationException</code> with the message
  *          "<code>AttributeFilter</code> cannot have a length of more than 10".</p>
  */
 export interface AttributeFilter {
@@ -7218,28 +7358,28 @@ export interface AttributeFilter {
 
   /**
    * <p>Performs a greater than operation on two document attributes. Use
-   *          with a document attribute of type <code>Integer</code> or
+   *          with a document attribute of type <code>Date</code> or
    *             <code>Long</code>.</p>
    */
   GreaterThan?: DocumentAttribute;
 
   /**
    * <p>Performs a greater or equals than operation on two document
-   *          attributes. Use with a document attribute of type <code>Integer</code>
+   *          attributes. Use with a document attribute of type <code>Date</code>
    *          or <code>Long</code>.</p>
    */
   GreaterThanOrEquals?: DocumentAttribute;
 
   /**
    * <p>Performs a less than operation on two document attributes. Use with
-   *          a document attribute of type <code>Integer</code> or
+   *          a document attribute of type <code>Date</code> or
    *          <code>Long</code>.</p>
    */
   LessThan?: DocumentAttribute;
 
   /**
    * <p>Performs a less than or equals operation on two document attributes.
-   *          Use with a document attribute of type <code>Integer</code> or
+   *          Use with a document attribute of type <code>Date</code> or
    *             <code>Long</code>.</p>
    */
   LessThanOrEquals?: DocumentAttribute;
@@ -7352,7 +7492,7 @@ export interface QueryRequest {
   SortingConfiguration?: SortingConfiguration;
 
   /**
-   * <p>The user context token.</p>
+   * <p>The user context token or user and group information.</p>
    */
   UserContext?: UserContext;
 

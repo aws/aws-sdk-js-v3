@@ -22,12 +22,12 @@ export interface ImportKeyMaterialCommandInput extends ImportKeyMaterialRequest 
 export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialResponse, __MetadataBearer {}
 
 /**
- * <p>Imports key material into an existing symmetric KMS KMS key that was
- *       created without key material. After you successfully import key material into a KMS key, you can
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the same key material</a> into that KMS key, but you cannot import different key
+ * <p>Imports key material into an existing symmetric KMS KMS key that was created without key
+ *       material. After you successfully import key material into a KMS key, you can <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport
+ *         the same key material</a> into that KMS key, but you cannot import different key
  *       material. </p>
- *          <p>You cannot perform this operation on an asymmetric KMS key or on any KMS key in a different Amazon Web Services account. For more information about creating KMS keys with no key material and
- *       then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
+ *          <p>You cannot perform this operation on an asymmetric KMS key or on any KMS key in a different Amazon Web Services account. For more information about creating KMS keys with no key material
+ *       and then importing key material, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key Material</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>Before using this operation, call <a>GetParametersForImport</a>. Its response
  *       includes a public key and an import token. Use the public key to encrypt the key material.
@@ -36,8 +36,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *          <p>When calling this operation, you must specify the following values:</p>
  *          <ul>
  *             <li>
- *                <p>The key ID or key ARN of a KMS key with no key material. Its <code>Origin</code> must be
- *             <code>EXTERNAL</code>.</p>
+ *                <p>The key ID or key ARN of a KMS key with no key material. Its <code>Origin</code> must
+ *           be <code>EXTERNAL</code>.</p>
  *                <p>To create a KMS key with no key material, call <a>CreateKey</a> and set the
  *           value of its <code>Origin</code> parameter to <code>EXTERNAL</code>. To get the
  *             <code>Origin</code> of a KMS key, call <a>DescribeKey</a>.)</p>
@@ -52,17 +52,17 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  *             </li>
  *             <li>
  *                <p>Whether the key material expires and if so, when. If you set an expiration date, KMS
- *           deletes the key material from the KMS key on the specified date, and the KMS key becomes unusable.
- *           To use the KMS key again, you must reimport the same key material. The only way to change an
- *           expiration date is by reimporting the same key material and specifying a new expiration
- *           date. </p>
+ *           deletes the key material from the KMS key on the specified date, and the KMS key becomes
+ *           unusable. To use the KMS key again, you must reimport the same key material. The only way
+ *           to change an expiration date is by reimporting the same key material and specifying a new
+ *           expiration date. </p>
  *             </li>
  *          </ul>
  *          <p>When this operation is successful, the key state of the KMS key changes from
  *         <code>PendingImport</code> to <code>Enabled</code>, and you can use the KMS key.</p>
  *          <p>If this operation fails, use the exception to help determine the problem. If the error is
- *       related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a> to get a new public key and import token for the KMS key and
- *       repeat the import procedure. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#importing-keys-overview">How To Import Key
+ *       related to the key material, the import token, or wrapping key, use <a>GetParametersForImport</a> to get a new public key and import token for the KMS key
+ *       and repeat the import procedure. For help, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#importing-keys-overview">How To Import Key
  *         Material</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>

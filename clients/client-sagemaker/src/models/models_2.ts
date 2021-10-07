@@ -660,7 +660,7 @@ export interface DescribeTrainingJobResponse {
    *             time.</p>
    *         <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
    *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
-   *             Amazon SageMaker will bill you if you run distributed training. The formula is as follows:
+   *             SageMaker will bill you if you run distributed training. The formula is as follows:
    *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
    *         <p>You can calculate the savings from using managed spot training using the formula
    *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,

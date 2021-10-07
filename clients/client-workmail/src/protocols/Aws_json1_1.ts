@@ -70,6 +70,10 @@ import {
 } from "../commands/DeregisterFromWorkMailCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "../commands/DescribeGroupCommand";
 import {
+  DescribeInboundDmarcSettingsCommandInput,
+  DescribeInboundDmarcSettingsCommandOutput,
+} from "../commands/DescribeInboundDmarcSettingsCommand";
+import {
   DescribeMailboxExportJobCommandInput,
   DescribeMailboxExportJobCommandOutput,
 } from "../commands/DescribeMailboxExportJobCommand";
@@ -143,6 +147,10 @@ import {
   PutAccessControlRuleCommandOutput,
 } from "../commands/PutAccessControlRuleCommand";
 import {
+  PutInboundDmarcSettingsCommandInput,
+  PutInboundDmarcSettingsCommandOutput,
+} from "../commands/PutInboundDmarcSettingsCommand";
+import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "../commands/PutMailboxPermissionsCommand";
@@ -215,6 +223,8 @@ import {
   DeregisterFromWorkMailResponse,
   DescribeGroupRequest,
   DescribeGroupResponse,
+  DescribeInboundDmarcSettingsRequest,
+  DescribeInboundDmarcSettingsResponse,
   DescribeMailboxExportJobRequest,
   DescribeMailboxExportJobResponse,
   DescribeOrganizationRequest,
@@ -292,6 +302,8 @@ import {
   PermissionType,
   PutAccessControlRuleRequest,
   PutAccessControlRuleResponse,
+  PutInboundDmarcSettingsRequest,
+  PutInboundDmarcSettingsResponse,
   PutMailboxPermissionsRequest,
   PutMailboxPermissionsResponse,
   PutMobileDeviceAccessOverrideRequest,
@@ -595,6 +607,19 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
+  input: DescribeInboundDmarcSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.DescribeInboundDmarcSettings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -920,6 +945,19 @@ export const serializeAws_json1_1PutAccessControlRuleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutAccessControlRuleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutInboundDmarcSettingsCommand = async (
+  input: PutInboundDmarcSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkMailService.PutInboundDmarcSettings",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutInboundDmarcSettingsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2933,6 +2971,68 @@ const deserializeAws_json1_1DescribeGroupCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeInboundDmarcSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeInboundDmarcSettingsResponse(data, context);
+  const response: DescribeInboundDmarcSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeInboundDmarcSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundDmarcSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeMailboxExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4835,6 +4935,68 @@ const deserializeAws_json1_1PutAccessControlRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1PutInboundDmarcSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutInboundDmarcSettingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutInboundDmarcSettingsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutInboundDmarcSettingsResponse(data, context);
+  const response: PutInboundDmarcSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutInboundDmarcSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutInboundDmarcSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.workmail#OrganizationNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OrganizationStateException":
+    case "com.amazonaws.workmail#OrganizationStateException":
+      response = {
+        ...(await deserializeAws_json1_1OrganizationStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1PutMailboxPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6555,6 +6717,16 @@ const serializeAws_json1_1DescribeGroupRequest = (input: DescribeGroupRequest, c
   };
 };
 
+const serializeAws_json1_1DescribeInboundDmarcSettingsRequest = (
+  input: DescribeInboundDmarcSettingsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
+  };
+};
+
 const serializeAws_json1_1DescribeMailboxExportJobRequest = (
   input: DescribeMailboxExportJobRequest,
   context: __SerdeContext
@@ -6941,6 +7113,17 @@ const serializeAws_json1_1PutAccessControlRuleRequest = (
       input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
     ...(input.UserIds !== undefined &&
       input.UserIds !== null && { UserIds: serializeAws_json1_1UserIdList(input.UserIds, context) }),
+  };
+};
+
+const serializeAws_json1_1PutInboundDmarcSettingsRequest = (
+  input: PutInboundDmarcSettingsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enforced !== undefined && input.Enforced !== null && { Enforced: input.Enforced }),
+    ...(input.OrganizationId !== undefined &&
+      input.OrganizationId !== null && { OrganizationId: input.OrganizationId }),
   };
 };
 
@@ -7411,6 +7594,15 @@ const deserializeAws_json1_1DescribeGroupResponse = (output: any, context: __Ser
     GroupId: __expectString(output.GroupId),
     Name: __expectString(output.Name),
     State: __expectString(output.State),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeInboundDmarcSettingsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeInboundDmarcSettingsResponse => {
+  return {
+    Enforced: __expectBoolean(output.Enforced),
   } as any;
 };
 
@@ -8219,6 +8411,13 @@ const deserializeAws_json1_1PutAccessControlRuleResponse = (
   output: any,
   context: __SerdeContext
 ): PutAccessControlRuleResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1PutInboundDmarcSettingsResponse = (
+  output: any,
+  context: __SerdeContext
+): PutInboundDmarcSettingsResponse => {
   return {} as any;
 };
 

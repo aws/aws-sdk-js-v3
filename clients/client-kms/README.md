@@ -41,10 +41,11 @@ security credentials that you can use to sign requests.</p>
 <p>
 <b>Logging API Requests</b>
 </p>
-<p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information
-collected by CloudTrail, you can determine what requests were made to KMS, who made the request,
-when it was made, and so on. To learn more about CloudTrail, including how to turn it on and find
-your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+<p>KMS supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your
+Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the
+information collected by CloudTrail, you can determine what requests were made to KMS, who made
+the request, when it was made, and so on. To learn more about CloudTrail, including how to turn it
+on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
 <p>
 <b>Additional Resources</b>
 </p>
@@ -52,9 +53,9 @@ your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/lates
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">Amazon Web Services Security
-Credentials</a> - This topic provides general information about the types of
-credentials used to access Amazon Web Services.</p>
+<a href="https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">Amazon Web Services
+Security Credentials</a> - This topic provides general information about the types
+of credentials used to access Amazon Web Services.</p>
 </li>
 <li>
 <p>

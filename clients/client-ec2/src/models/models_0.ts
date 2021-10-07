@@ -4231,6 +4231,137 @@ export namespace CancelCapacityReservationResult {
   });
 }
 
+export interface CancelCapacityReservationFleetsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the Capacity Reservation Fleets to cancel.</p>
+   */
+  CapacityReservationFleetIds: string[] | undefined;
+}
+
+export namespace CancelCapacityReservationFleetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelCapacityReservationFleetsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Capacity Reservation Fleet cancellation error.</p>
+ */
+export interface CancelCapacityReservationFleetError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace CancelCapacityReservationFleetError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelCapacityReservationFleetError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a Capacity Reservation Fleet that could not be cancelled.</p>
+ */
+export interface FailedCapacityReservationFleetCancellationResult {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet that could not be cancelled.</p>
+   */
+  CapacityReservationFleetId?: string;
+
+  /**
+   * <p>Information about the Capacity Reservation Fleet cancellation error.</p>
+   */
+  CancelCapacityReservationFleetError?: CancelCapacityReservationFleetError;
+}
+
+export namespace FailedCapacityReservationFleetCancellationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FailedCapacityReservationFleetCancellationResult): any => ({
+    ...obj,
+  });
+}
+
+export enum CapacityReservationFleetState {
+  ACTIVE = "active",
+  CANCELLED = "cancelled",
+  CANCELLING = "cancelling",
+  EXPIRED = "expired",
+  EXPIRING = "expiring",
+  FAILED = "failed",
+  MODIFYING = "modifying",
+  PARTIALLY_FULFILLED = "partially_fulfilled",
+  SUBMITTED = "submitted",
+}
+
+/**
+ * <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
+ */
+export interface CapacityReservationFleetCancellationState {
+  /**
+   * <p>The current state of the Capacity Reservation Fleet.</p>
+   */
+  CurrentFleetState?: CapacityReservationFleetState | string;
+
+  /**
+   * <p>The previous state of the Capacity Reservation Fleet.</p>
+   */
+  PreviousFleetState?: CapacityReservationFleetState | string;
+
+  /**
+   * <p>The ID of the Capacity Reservation Fleet that was successfully cancelled.</p>
+   */
+  CapacityReservationFleetId?: string;
+}
+
+export namespace CapacityReservationFleetCancellationState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CapacityReservationFleetCancellationState): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelCapacityReservationFleetsResult {
+  /**
+   * <p>Information about the Capacity Reservation Fleets that were successfully cancelled.</p>
+   */
+  SuccessfulFleetCancellations?: CapacityReservationFleetCancellationState[];
+
+  /**
+   * <p>Information about the Capacity Reservation Fleets that could not be cancelled.</p>
+   */
+  FailedFleetCancellations?: FailedCapacityReservationFleetCancellationResult[];
+}
+
+export namespace CancelCapacityReservationFleetsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelCapacityReservationFleetsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface CancelConversionRequest {
   /**
    * <p>The ID of the conversion task.</p>
@@ -5415,6 +5546,12 @@ export interface CapacityReservation {
    * 	  		Reservation was created.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * <p>The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs.
+   * 			Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.</p>
+   */
+  CapacityReservationFleetId?: string;
 }
 
 export namespace CapacityReservation {
@@ -5438,6 +5575,732 @@ export namespace CreateCapacityReservationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateCapacityReservationResult): any => ({
+    ...obj,
+  });
+}
+
+export enum FleetInstanceMatchCriteria {
+  open = "open",
+}
+
+export type _InstanceType =
+  | "a1.2xlarge"
+  | "a1.4xlarge"
+  | "a1.large"
+  | "a1.medium"
+  | "a1.metal"
+  | "a1.xlarge"
+  | "c1.medium"
+  | "c1.xlarge"
+  | "c3.2xlarge"
+  | "c3.4xlarge"
+  | "c3.8xlarge"
+  | "c3.large"
+  | "c3.xlarge"
+  | "c4.2xlarge"
+  | "c4.4xlarge"
+  | "c4.8xlarge"
+  | "c4.large"
+  | "c4.xlarge"
+  | "c5.12xlarge"
+  | "c5.18xlarge"
+  | "c5.24xlarge"
+  | "c5.2xlarge"
+  | "c5.4xlarge"
+  | "c5.9xlarge"
+  | "c5.large"
+  | "c5.metal"
+  | "c5.xlarge"
+  | "c5a.12xlarge"
+  | "c5a.16xlarge"
+  | "c5a.24xlarge"
+  | "c5a.2xlarge"
+  | "c5a.4xlarge"
+  | "c5a.8xlarge"
+  | "c5a.large"
+  | "c5a.xlarge"
+  | "c5ad.12xlarge"
+  | "c5ad.16xlarge"
+  | "c5ad.24xlarge"
+  | "c5ad.2xlarge"
+  | "c5ad.4xlarge"
+  | "c5ad.8xlarge"
+  | "c5ad.large"
+  | "c5ad.xlarge"
+  | "c5d.12xlarge"
+  | "c5d.18xlarge"
+  | "c5d.24xlarge"
+  | "c5d.2xlarge"
+  | "c5d.4xlarge"
+  | "c5d.9xlarge"
+  | "c5d.large"
+  | "c5d.metal"
+  | "c5d.xlarge"
+  | "c5n.18xlarge"
+  | "c5n.2xlarge"
+  | "c5n.4xlarge"
+  | "c5n.9xlarge"
+  | "c5n.large"
+  | "c5n.metal"
+  | "c5n.xlarge"
+  | "c6g.12xlarge"
+  | "c6g.16xlarge"
+  | "c6g.2xlarge"
+  | "c6g.4xlarge"
+  | "c6g.8xlarge"
+  | "c6g.large"
+  | "c6g.medium"
+  | "c6g.metal"
+  | "c6g.xlarge"
+  | "c6gd.12xlarge"
+  | "c6gd.16xlarge"
+  | "c6gd.2xlarge"
+  | "c6gd.4xlarge"
+  | "c6gd.8xlarge"
+  | "c6gd.large"
+  | "c6gd.medium"
+  | "c6gd.metal"
+  | "c6gd.xlarge"
+  | "c6gn.12xlarge"
+  | "c6gn.16xlarge"
+  | "c6gn.2xlarge"
+  | "c6gn.4xlarge"
+  | "c6gn.8xlarge"
+  | "c6gn.large"
+  | "c6gn.medium"
+  | "c6gn.xlarge"
+  | "cc1.4xlarge"
+  | "cc2.8xlarge"
+  | "cg1.4xlarge"
+  | "cr1.8xlarge"
+  | "d2.2xlarge"
+  | "d2.4xlarge"
+  | "d2.8xlarge"
+  | "d2.xlarge"
+  | "d3.2xlarge"
+  | "d3.4xlarge"
+  | "d3.8xlarge"
+  | "d3.xlarge"
+  | "d3en.12xlarge"
+  | "d3en.2xlarge"
+  | "d3en.4xlarge"
+  | "d3en.6xlarge"
+  | "d3en.8xlarge"
+  | "d3en.xlarge"
+  | "f1.16xlarge"
+  | "f1.2xlarge"
+  | "f1.4xlarge"
+  | "g2.2xlarge"
+  | "g2.8xlarge"
+  | "g3.16xlarge"
+  | "g3.4xlarge"
+  | "g3.8xlarge"
+  | "g3s.xlarge"
+  | "g4ad.16xlarge"
+  | "g4ad.2xlarge"
+  | "g4ad.4xlarge"
+  | "g4ad.8xlarge"
+  | "g4ad.xlarge"
+  | "g4dn.12xlarge"
+  | "g4dn.16xlarge"
+  | "g4dn.2xlarge"
+  | "g4dn.4xlarge"
+  | "g4dn.8xlarge"
+  | "g4dn.metal"
+  | "g4dn.xlarge"
+  | "h1.16xlarge"
+  | "h1.2xlarge"
+  | "h1.4xlarge"
+  | "h1.8xlarge"
+  | "hi1.4xlarge"
+  | "hs1.8xlarge"
+  | "i2.2xlarge"
+  | "i2.4xlarge"
+  | "i2.8xlarge"
+  | "i2.xlarge"
+  | "i3.16xlarge"
+  | "i3.2xlarge"
+  | "i3.4xlarge"
+  | "i3.8xlarge"
+  | "i3.large"
+  | "i3.metal"
+  | "i3.xlarge"
+  | "i3en.12xlarge"
+  | "i3en.24xlarge"
+  | "i3en.2xlarge"
+  | "i3en.3xlarge"
+  | "i3en.6xlarge"
+  | "i3en.large"
+  | "i3en.metal"
+  | "i3en.xlarge"
+  | "inf1.24xlarge"
+  | "inf1.2xlarge"
+  | "inf1.6xlarge"
+  | "inf1.xlarge"
+  | "m1.large"
+  | "m1.medium"
+  | "m1.small"
+  | "m1.xlarge"
+  | "m2.2xlarge"
+  | "m2.4xlarge"
+  | "m2.xlarge"
+  | "m3.2xlarge"
+  | "m3.large"
+  | "m3.medium"
+  | "m3.xlarge"
+  | "m4.10xlarge"
+  | "m4.16xlarge"
+  | "m4.2xlarge"
+  | "m4.4xlarge"
+  | "m4.large"
+  | "m4.xlarge"
+  | "m5.12xlarge"
+  | "m5.16xlarge"
+  | "m5.24xlarge"
+  | "m5.2xlarge"
+  | "m5.4xlarge"
+  | "m5.8xlarge"
+  | "m5.large"
+  | "m5.metal"
+  | "m5.xlarge"
+  | "m5a.12xlarge"
+  | "m5a.16xlarge"
+  | "m5a.24xlarge"
+  | "m5a.2xlarge"
+  | "m5a.4xlarge"
+  | "m5a.8xlarge"
+  | "m5a.large"
+  | "m5a.xlarge"
+  | "m5ad.12xlarge"
+  | "m5ad.16xlarge"
+  | "m5ad.24xlarge"
+  | "m5ad.2xlarge"
+  | "m5ad.4xlarge"
+  | "m5ad.8xlarge"
+  | "m5ad.large"
+  | "m5ad.xlarge"
+  | "m5d.12xlarge"
+  | "m5d.16xlarge"
+  | "m5d.24xlarge"
+  | "m5d.2xlarge"
+  | "m5d.4xlarge"
+  | "m5d.8xlarge"
+  | "m5d.large"
+  | "m5d.metal"
+  | "m5d.xlarge"
+  | "m5dn.12xlarge"
+  | "m5dn.16xlarge"
+  | "m5dn.24xlarge"
+  | "m5dn.2xlarge"
+  | "m5dn.4xlarge"
+  | "m5dn.8xlarge"
+  | "m5dn.large"
+  | "m5dn.metal"
+  | "m5dn.xlarge"
+  | "m5n.12xlarge"
+  | "m5n.16xlarge"
+  | "m5n.24xlarge"
+  | "m5n.2xlarge"
+  | "m5n.4xlarge"
+  | "m5n.8xlarge"
+  | "m5n.large"
+  | "m5n.metal"
+  | "m5n.xlarge"
+  | "m5zn.12xlarge"
+  | "m5zn.2xlarge"
+  | "m5zn.3xlarge"
+  | "m5zn.6xlarge"
+  | "m5zn.large"
+  | "m5zn.metal"
+  | "m5zn.xlarge"
+  | "m6g.12xlarge"
+  | "m6g.16xlarge"
+  | "m6g.2xlarge"
+  | "m6g.4xlarge"
+  | "m6g.8xlarge"
+  | "m6g.large"
+  | "m6g.medium"
+  | "m6g.metal"
+  | "m6g.xlarge"
+  | "m6gd.12xlarge"
+  | "m6gd.16xlarge"
+  | "m6gd.2xlarge"
+  | "m6gd.4xlarge"
+  | "m6gd.8xlarge"
+  | "m6gd.large"
+  | "m6gd.medium"
+  | "m6gd.metal"
+  | "m6gd.xlarge"
+  | "m6i.12xlarge"
+  | "m6i.16xlarge"
+  | "m6i.24xlarge"
+  | "m6i.2xlarge"
+  | "m6i.32xlarge"
+  | "m6i.4xlarge"
+  | "m6i.8xlarge"
+  | "m6i.large"
+  | "m6i.xlarge"
+  | "mac1.metal"
+  | "p2.16xlarge"
+  | "p2.8xlarge"
+  | "p2.xlarge"
+  | "p3.16xlarge"
+  | "p3.2xlarge"
+  | "p3.8xlarge"
+  | "p3dn.24xlarge"
+  | "p4d.24xlarge"
+  | "r3.2xlarge"
+  | "r3.4xlarge"
+  | "r3.8xlarge"
+  | "r3.large"
+  | "r3.xlarge"
+  | "r4.16xlarge"
+  | "r4.2xlarge"
+  | "r4.4xlarge"
+  | "r4.8xlarge"
+  | "r4.large"
+  | "r4.xlarge"
+  | "r5.12xlarge"
+  | "r5.16xlarge"
+  | "r5.24xlarge"
+  | "r5.2xlarge"
+  | "r5.4xlarge"
+  | "r5.8xlarge"
+  | "r5.large"
+  | "r5.metal"
+  | "r5.xlarge"
+  | "r5a.12xlarge"
+  | "r5a.16xlarge"
+  | "r5a.24xlarge"
+  | "r5a.2xlarge"
+  | "r5a.4xlarge"
+  | "r5a.8xlarge"
+  | "r5a.large"
+  | "r5a.xlarge"
+  | "r5ad.12xlarge"
+  | "r5ad.16xlarge"
+  | "r5ad.24xlarge"
+  | "r5ad.2xlarge"
+  | "r5ad.4xlarge"
+  | "r5ad.8xlarge"
+  | "r5ad.large"
+  | "r5ad.xlarge"
+  | "r5b.12xlarge"
+  | "r5b.16xlarge"
+  | "r5b.24xlarge"
+  | "r5b.2xlarge"
+  | "r5b.4xlarge"
+  | "r5b.8xlarge"
+  | "r5b.large"
+  | "r5b.metal"
+  | "r5b.xlarge"
+  | "r5d.12xlarge"
+  | "r5d.16xlarge"
+  | "r5d.24xlarge"
+  | "r5d.2xlarge"
+  | "r5d.4xlarge"
+  | "r5d.8xlarge"
+  | "r5d.large"
+  | "r5d.metal"
+  | "r5d.xlarge"
+  | "r5dn.12xlarge"
+  | "r5dn.16xlarge"
+  | "r5dn.24xlarge"
+  | "r5dn.2xlarge"
+  | "r5dn.4xlarge"
+  | "r5dn.8xlarge"
+  | "r5dn.large"
+  | "r5dn.metal"
+  | "r5dn.xlarge"
+  | "r5n.12xlarge"
+  | "r5n.16xlarge"
+  | "r5n.24xlarge"
+  | "r5n.2xlarge"
+  | "r5n.4xlarge"
+  | "r5n.8xlarge"
+  | "r5n.large"
+  | "r5n.metal"
+  | "r5n.xlarge"
+  | "r6g.12xlarge"
+  | "r6g.16xlarge"
+  | "r6g.2xlarge"
+  | "r6g.4xlarge"
+  | "r6g.8xlarge"
+  | "r6g.large"
+  | "r6g.medium"
+  | "r6g.metal"
+  | "r6g.xlarge"
+  | "r6gd.12xlarge"
+  | "r6gd.16xlarge"
+  | "r6gd.2xlarge"
+  | "r6gd.4xlarge"
+  | "r6gd.8xlarge"
+  | "r6gd.large"
+  | "r6gd.medium"
+  | "r6gd.metal"
+  | "r6gd.xlarge"
+  | "t1.micro"
+  | "t2.2xlarge"
+  | "t2.large"
+  | "t2.medium"
+  | "t2.micro"
+  | "t2.nano"
+  | "t2.small"
+  | "t2.xlarge"
+  | "t3.2xlarge"
+  | "t3.large"
+  | "t3.medium"
+  | "t3.micro"
+  | "t3.nano"
+  | "t3.small"
+  | "t3.xlarge"
+  | "t3a.2xlarge"
+  | "t3a.large"
+  | "t3a.medium"
+  | "t3a.micro"
+  | "t3a.nano"
+  | "t3a.small"
+  | "t3a.xlarge"
+  | "t4g.2xlarge"
+  | "t4g.large"
+  | "t4g.medium"
+  | "t4g.micro"
+  | "t4g.nano"
+  | "t4g.small"
+  | "t4g.xlarge"
+  | "u-12tb1.112xlarge"
+  | "u-12tb1.metal"
+  | "u-18tb1.metal"
+  | "u-24tb1.metal"
+  | "u-6tb1.112xlarge"
+  | "u-6tb1.56xlarge"
+  | "u-6tb1.metal"
+  | "u-9tb1.112xlarge"
+  | "u-9tb1.metal"
+  | "vt1.24xlarge"
+  | "vt1.3xlarge"
+  | "vt1.6xlarge"
+  | "x1.16xlarge"
+  | "x1.32xlarge"
+  | "x1e.16xlarge"
+  | "x1e.2xlarge"
+  | "x1e.32xlarge"
+  | "x1e.4xlarge"
+  | "x1e.8xlarge"
+  | "x1e.xlarge"
+  | "x2gd.12xlarge"
+  | "x2gd.16xlarge"
+  | "x2gd.2xlarge"
+  | "x2gd.4xlarge"
+  | "x2gd.8xlarge"
+  | "x2gd.large"
+  | "x2gd.medium"
+  | "x2gd.metal"
+  | "x2gd.xlarge"
+  | "z1d.12xlarge"
+  | "z1d.2xlarge"
+  | "z1d.3xlarge"
+  | "z1d.6xlarge"
+  | "z1d.large"
+  | "z1d.metal"
+  | "z1d.xlarge";
+
+/**
+ * <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
+ */
+export interface ReservationFleetInstanceSpecification {
+  /**
+   * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform | string;
+
+  /**
+   * <p>The number of capacity units provided by the specified instance type. This value, together with the
+   * 			total target capacity that you specify for the Fleet determine the number of instances for which the
+   * 			Fleet reserves capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target capacity</a>
+   * 			in the Amazon EC2 User Guide.</p>
+   */
+  Weight?: number;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity
+   * 			Reservation Fleet can't span Availability Zones. All instance type specifications that you specify
+   * 			for the Fleet must use the same Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
+   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you
+   * 			specify for the Fleet must use the same Availability Zone.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This
+   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack
+   * 			to provide optimal I/O performance. This optimization isn't available with all instance types. Additional
+   * 			usage charges apply when using EBS-optimized instance types.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The priority to assign to the instance type. This value is used to determine which of the instance types
+   * 			specified for the Fleet should be prioritized for use. A lower value indicates a high priority. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type priority</a>
+   * 			in the Amazon EC2 User Guide.</p>
+   */
+  Priority?: number;
+}
+
+export namespace ReservationFleetInstanceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ReservationFleetInstanceSpecification): any => ({
+    ...obj,
+  });
+}
+
+export enum FleetCapacityReservationTenancy {
+  default = "default",
+}
+
+export interface CreateCapacityReservationFleetRequest {
+  /**
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
+   * 			specified instance types to use. Currently, only the <code>prioritized</code>
+   * 			allocation strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
+   * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
+   * 		       <p>Valid values: <code>prioritized</code>
+   *          </p>
+   */
+  AllocationStrategy?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Information about the instance types for which to reserve the capacity.</p>
+   */
+  InstanceTypeSpecifications: ReservationFleetInstanceSpecification[] | undefined;
+
+  /**
+   * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
+   * 			in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
+   * 			the following tenancy settings:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   * 					             <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   * 					that is shared with other Amazon Web Services accounts.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   * 					             <code>dedicated</code> - The Capacity Reservations are created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Tenancy?: FleetCapacityReservationTenancy | string;
+
+  /**
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
+   * 			value, together with the instance type weights that you assign to each instance type used by
+   * 			the Fleet determine the number of instances for which the Fleet reserves capacity. Both values
+   * 			are based on units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">
+   * 				Total target capacity</a> in the Amazon EC2 User Guide.</p>
+   */
+  TotalTargetCapacity: number | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
+   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity
+   * 			Reservations in the Fleet expire.</p>
+   * 		       <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
+   * 			if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet
+   * 			is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on
+   * 			<code>5/31/2019</code>.
+   * 		</p>
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
+   * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
+   * 		       <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
+   * 			only. This means that instances that have matching attributes (instance type, platform, and
+   * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
+   * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+
+  /**
+   * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned
+   * 			to the Capacity Reservations in the Fleet.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace CreateCapacityReservationFleetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCapacityReservationFleetRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
+ */
+export interface FleetCapacityReservation {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   */
+  InstancePlatform?: CapacityReservationInstancePlatform | string;
+
+  /**
+   * <p>The Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
+   */
+  TotalInstanceCount?: number;
+
+  /**
+   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information, see
+   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">
+   * 				Total target capacity</a> in the Amazon EC2 User Guide.</p>
+   */
+  FulfilledCapacity?: number;
+
+  /**
+   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized instance types.</p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation was created.</p>
+   */
+  CreateDate?: Date;
+
+  /**
+   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">
+   * 				Instance type weight</a> in the Amazon EC2 User Guide.</p>
+   */
+  Weight?: number;
+
+  /**
+   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">
+   * 				Instance type priority</a> in the Amazon EC2 User Guide.</p>
+   */
+  Priority?: number;
+}
+
+export namespace FleetCapacityReservation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetCapacityReservation): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateCapacityReservationFleetResult {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet.</p>
+   */
+  CapacityReservationFleetId?: string;
+
+  /**
+   * <p>The status of the Capacity Reservation Fleet.</p>
+   */
+  State?: CapacityReservationFleetState | string;
+
+  /**
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.</p>
+   */
+  TotalTargetCapacity?: number;
+
+  /**
+   * <p>The requested capacity units that have been successfully reserved.</p>
+   */
+  TotalFulfilledCapacity?: number;
+
+  /**
+   * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
+   */
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+
+  /**
+   * <p>The allocation strategy used by the Capacity Reservation Fleet.</p>
+   */
+  AllocationStrategy?: string;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet was created.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires.</p>
+   */
+  EndDate?: Date;
+
+  /**
+   * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
+   */
+  Tenancy?: FleetCapacityReservationTenancy | string;
+
+  /**
+   * <p>Information about the individual Capacity Reservations in the Capacity Reservation Fleet.</p>
+   */
+  FleetCapacityReservations?: FleetCapacityReservation[];
+
+  /**
+   * <p>The tags assigned to the Capacity Reservation Fleet.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateCapacityReservationFleetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCapacityReservationFleetResult): any => ({
     ...obj,
   });
 }
@@ -6663,428 +7526,6 @@ export namespace FleetLaunchTemplateSpecificationRequest {
     ...obj,
   });
 }
-
-export type _InstanceType =
-  | "a1.2xlarge"
-  | "a1.4xlarge"
-  | "a1.large"
-  | "a1.medium"
-  | "a1.metal"
-  | "a1.xlarge"
-  | "c1.medium"
-  | "c1.xlarge"
-  | "c3.2xlarge"
-  | "c3.4xlarge"
-  | "c3.8xlarge"
-  | "c3.large"
-  | "c3.xlarge"
-  | "c4.2xlarge"
-  | "c4.4xlarge"
-  | "c4.8xlarge"
-  | "c4.large"
-  | "c4.xlarge"
-  | "c5.12xlarge"
-  | "c5.18xlarge"
-  | "c5.24xlarge"
-  | "c5.2xlarge"
-  | "c5.4xlarge"
-  | "c5.9xlarge"
-  | "c5.large"
-  | "c5.metal"
-  | "c5.xlarge"
-  | "c5a.12xlarge"
-  | "c5a.16xlarge"
-  | "c5a.24xlarge"
-  | "c5a.2xlarge"
-  | "c5a.4xlarge"
-  | "c5a.8xlarge"
-  | "c5a.large"
-  | "c5a.xlarge"
-  | "c5ad.12xlarge"
-  | "c5ad.16xlarge"
-  | "c5ad.24xlarge"
-  | "c5ad.2xlarge"
-  | "c5ad.4xlarge"
-  | "c5ad.8xlarge"
-  | "c5ad.large"
-  | "c5ad.xlarge"
-  | "c5d.12xlarge"
-  | "c5d.18xlarge"
-  | "c5d.24xlarge"
-  | "c5d.2xlarge"
-  | "c5d.4xlarge"
-  | "c5d.9xlarge"
-  | "c5d.large"
-  | "c5d.metal"
-  | "c5d.xlarge"
-  | "c5n.18xlarge"
-  | "c5n.2xlarge"
-  | "c5n.4xlarge"
-  | "c5n.9xlarge"
-  | "c5n.large"
-  | "c5n.metal"
-  | "c5n.xlarge"
-  | "c6g.12xlarge"
-  | "c6g.16xlarge"
-  | "c6g.2xlarge"
-  | "c6g.4xlarge"
-  | "c6g.8xlarge"
-  | "c6g.large"
-  | "c6g.medium"
-  | "c6g.metal"
-  | "c6g.xlarge"
-  | "c6gd.12xlarge"
-  | "c6gd.16xlarge"
-  | "c6gd.2xlarge"
-  | "c6gd.4xlarge"
-  | "c6gd.8xlarge"
-  | "c6gd.large"
-  | "c6gd.medium"
-  | "c6gd.metal"
-  | "c6gd.xlarge"
-  | "c6gn.12xlarge"
-  | "c6gn.16xlarge"
-  | "c6gn.2xlarge"
-  | "c6gn.4xlarge"
-  | "c6gn.8xlarge"
-  | "c6gn.large"
-  | "c6gn.medium"
-  | "c6gn.xlarge"
-  | "cc1.4xlarge"
-  | "cc2.8xlarge"
-  | "cg1.4xlarge"
-  | "cr1.8xlarge"
-  | "d2.2xlarge"
-  | "d2.4xlarge"
-  | "d2.8xlarge"
-  | "d2.xlarge"
-  | "d3.2xlarge"
-  | "d3.4xlarge"
-  | "d3.8xlarge"
-  | "d3.xlarge"
-  | "d3en.12xlarge"
-  | "d3en.2xlarge"
-  | "d3en.4xlarge"
-  | "d3en.6xlarge"
-  | "d3en.8xlarge"
-  | "d3en.xlarge"
-  | "f1.16xlarge"
-  | "f1.2xlarge"
-  | "f1.4xlarge"
-  | "g2.2xlarge"
-  | "g2.8xlarge"
-  | "g3.16xlarge"
-  | "g3.4xlarge"
-  | "g3.8xlarge"
-  | "g3s.xlarge"
-  | "g4ad.16xlarge"
-  | "g4ad.2xlarge"
-  | "g4ad.4xlarge"
-  | "g4ad.8xlarge"
-  | "g4ad.xlarge"
-  | "g4dn.12xlarge"
-  | "g4dn.16xlarge"
-  | "g4dn.2xlarge"
-  | "g4dn.4xlarge"
-  | "g4dn.8xlarge"
-  | "g4dn.metal"
-  | "g4dn.xlarge"
-  | "h1.16xlarge"
-  | "h1.2xlarge"
-  | "h1.4xlarge"
-  | "h1.8xlarge"
-  | "hi1.4xlarge"
-  | "hs1.8xlarge"
-  | "i2.2xlarge"
-  | "i2.4xlarge"
-  | "i2.8xlarge"
-  | "i2.xlarge"
-  | "i3.16xlarge"
-  | "i3.2xlarge"
-  | "i3.4xlarge"
-  | "i3.8xlarge"
-  | "i3.large"
-  | "i3.metal"
-  | "i3.xlarge"
-  | "i3en.12xlarge"
-  | "i3en.24xlarge"
-  | "i3en.2xlarge"
-  | "i3en.3xlarge"
-  | "i3en.6xlarge"
-  | "i3en.large"
-  | "i3en.metal"
-  | "i3en.xlarge"
-  | "inf1.24xlarge"
-  | "inf1.2xlarge"
-  | "inf1.6xlarge"
-  | "inf1.xlarge"
-  | "m1.large"
-  | "m1.medium"
-  | "m1.small"
-  | "m1.xlarge"
-  | "m2.2xlarge"
-  | "m2.4xlarge"
-  | "m2.xlarge"
-  | "m3.2xlarge"
-  | "m3.large"
-  | "m3.medium"
-  | "m3.xlarge"
-  | "m4.10xlarge"
-  | "m4.16xlarge"
-  | "m4.2xlarge"
-  | "m4.4xlarge"
-  | "m4.large"
-  | "m4.xlarge"
-  | "m5.12xlarge"
-  | "m5.16xlarge"
-  | "m5.24xlarge"
-  | "m5.2xlarge"
-  | "m5.4xlarge"
-  | "m5.8xlarge"
-  | "m5.large"
-  | "m5.metal"
-  | "m5.xlarge"
-  | "m5a.12xlarge"
-  | "m5a.16xlarge"
-  | "m5a.24xlarge"
-  | "m5a.2xlarge"
-  | "m5a.4xlarge"
-  | "m5a.8xlarge"
-  | "m5a.large"
-  | "m5a.xlarge"
-  | "m5ad.12xlarge"
-  | "m5ad.16xlarge"
-  | "m5ad.24xlarge"
-  | "m5ad.2xlarge"
-  | "m5ad.4xlarge"
-  | "m5ad.8xlarge"
-  | "m5ad.large"
-  | "m5ad.xlarge"
-  | "m5d.12xlarge"
-  | "m5d.16xlarge"
-  | "m5d.24xlarge"
-  | "m5d.2xlarge"
-  | "m5d.4xlarge"
-  | "m5d.8xlarge"
-  | "m5d.large"
-  | "m5d.metal"
-  | "m5d.xlarge"
-  | "m5dn.12xlarge"
-  | "m5dn.16xlarge"
-  | "m5dn.24xlarge"
-  | "m5dn.2xlarge"
-  | "m5dn.4xlarge"
-  | "m5dn.8xlarge"
-  | "m5dn.large"
-  | "m5dn.metal"
-  | "m5dn.xlarge"
-  | "m5n.12xlarge"
-  | "m5n.16xlarge"
-  | "m5n.24xlarge"
-  | "m5n.2xlarge"
-  | "m5n.4xlarge"
-  | "m5n.8xlarge"
-  | "m5n.large"
-  | "m5n.metal"
-  | "m5n.xlarge"
-  | "m5zn.12xlarge"
-  | "m5zn.2xlarge"
-  | "m5zn.3xlarge"
-  | "m5zn.6xlarge"
-  | "m5zn.large"
-  | "m5zn.metal"
-  | "m5zn.xlarge"
-  | "m6g.12xlarge"
-  | "m6g.16xlarge"
-  | "m6g.2xlarge"
-  | "m6g.4xlarge"
-  | "m6g.8xlarge"
-  | "m6g.large"
-  | "m6g.medium"
-  | "m6g.metal"
-  | "m6g.xlarge"
-  | "m6gd.12xlarge"
-  | "m6gd.16xlarge"
-  | "m6gd.2xlarge"
-  | "m6gd.4xlarge"
-  | "m6gd.8xlarge"
-  | "m6gd.large"
-  | "m6gd.medium"
-  | "m6gd.metal"
-  | "m6gd.xlarge"
-  | "m6i.12xlarge"
-  | "m6i.16xlarge"
-  | "m6i.24xlarge"
-  | "m6i.2xlarge"
-  | "m6i.32xlarge"
-  | "m6i.4xlarge"
-  | "m6i.8xlarge"
-  | "m6i.large"
-  | "m6i.xlarge"
-  | "mac1.metal"
-  | "p2.16xlarge"
-  | "p2.8xlarge"
-  | "p2.xlarge"
-  | "p3.16xlarge"
-  | "p3.2xlarge"
-  | "p3.8xlarge"
-  | "p3dn.24xlarge"
-  | "p4d.24xlarge"
-  | "r3.2xlarge"
-  | "r3.4xlarge"
-  | "r3.8xlarge"
-  | "r3.large"
-  | "r3.xlarge"
-  | "r4.16xlarge"
-  | "r4.2xlarge"
-  | "r4.4xlarge"
-  | "r4.8xlarge"
-  | "r4.large"
-  | "r4.xlarge"
-  | "r5.12xlarge"
-  | "r5.16xlarge"
-  | "r5.24xlarge"
-  | "r5.2xlarge"
-  | "r5.4xlarge"
-  | "r5.8xlarge"
-  | "r5.large"
-  | "r5.metal"
-  | "r5.xlarge"
-  | "r5a.12xlarge"
-  | "r5a.16xlarge"
-  | "r5a.24xlarge"
-  | "r5a.2xlarge"
-  | "r5a.4xlarge"
-  | "r5a.8xlarge"
-  | "r5a.large"
-  | "r5a.xlarge"
-  | "r5ad.12xlarge"
-  | "r5ad.16xlarge"
-  | "r5ad.24xlarge"
-  | "r5ad.2xlarge"
-  | "r5ad.4xlarge"
-  | "r5ad.8xlarge"
-  | "r5ad.large"
-  | "r5ad.xlarge"
-  | "r5b.12xlarge"
-  | "r5b.16xlarge"
-  | "r5b.24xlarge"
-  | "r5b.2xlarge"
-  | "r5b.4xlarge"
-  | "r5b.8xlarge"
-  | "r5b.large"
-  | "r5b.metal"
-  | "r5b.xlarge"
-  | "r5d.12xlarge"
-  | "r5d.16xlarge"
-  | "r5d.24xlarge"
-  | "r5d.2xlarge"
-  | "r5d.4xlarge"
-  | "r5d.8xlarge"
-  | "r5d.large"
-  | "r5d.metal"
-  | "r5d.xlarge"
-  | "r5dn.12xlarge"
-  | "r5dn.16xlarge"
-  | "r5dn.24xlarge"
-  | "r5dn.2xlarge"
-  | "r5dn.4xlarge"
-  | "r5dn.8xlarge"
-  | "r5dn.large"
-  | "r5dn.metal"
-  | "r5dn.xlarge"
-  | "r5n.12xlarge"
-  | "r5n.16xlarge"
-  | "r5n.24xlarge"
-  | "r5n.2xlarge"
-  | "r5n.4xlarge"
-  | "r5n.8xlarge"
-  | "r5n.large"
-  | "r5n.metal"
-  | "r5n.xlarge"
-  | "r6g.12xlarge"
-  | "r6g.16xlarge"
-  | "r6g.2xlarge"
-  | "r6g.4xlarge"
-  | "r6g.8xlarge"
-  | "r6g.large"
-  | "r6g.medium"
-  | "r6g.metal"
-  | "r6g.xlarge"
-  | "r6gd.12xlarge"
-  | "r6gd.16xlarge"
-  | "r6gd.2xlarge"
-  | "r6gd.4xlarge"
-  | "r6gd.8xlarge"
-  | "r6gd.large"
-  | "r6gd.medium"
-  | "r6gd.metal"
-  | "r6gd.xlarge"
-  | "t1.micro"
-  | "t2.2xlarge"
-  | "t2.large"
-  | "t2.medium"
-  | "t2.micro"
-  | "t2.nano"
-  | "t2.small"
-  | "t2.xlarge"
-  | "t3.2xlarge"
-  | "t3.large"
-  | "t3.medium"
-  | "t3.micro"
-  | "t3.nano"
-  | "t3.small"
-  | "t3.xlarge"
-  | "t3a.2xlarge"
-  | "t3a.large"
-  | "t3a.medium"
-  | "t3a.micro"
-  | "t3a.nano"
-  | "t3a.small"
-  | "t3a.xlarge"
-  | "t4g.2xlarge"
-  | "t4g.large"
-  | "t4g.medium"
-  | "t4g.micro"
-  | "t4g.nano"
-  | "t4g.small"
-  | "t4g.xlarge"
-  | "u-12tb1.112xlarge"
-  | "u-12tb1.metal"
-  | "u-18tb1.metal"
-  | "u-24tb1.metal"
-  | "u-6tb1.112xlarge"
-  | "u-6tb1.56xlarge"
-  | "u-6tb1.metal"
-  | "u-9tb1.112xlarge"
-  | "u-9tb1.metal"
-  | "vt1.24xlarge"
-  | "vt1.3xlarge"
-  | "vt1.6xlarge"
-  | "x1.16xlarge"
-  | "x1.32xlarge"
-  | "x1e.16xlarge"
-  | "x1e.2xlarge"
-  | "x1e.32xlarge"
-  | "x1e.4xlarge"
-  | "x1e.8xlarge"
-  | "x1e.xlarge"
-  | "x2gd.12xlarge"
-  | "x2gd.16xlarge"
-  | "x2gd.2xlarge"
-  | "x2gd.4xlarge"
-  | "x2gd.8xlarge"
-  | "x2gd.large"
-  | "x2gd.medium"
-  | "x2gd.metal"
-  | "x2gd.xlarge"
-  | "z1d.12xlarge"
-  | "z1d.2xlarge"
-  | "z1d.3xlarge"
-  | "z1d.6xlarge"
-  | "z1d.large"
-  | "z1d.metal"
-  | "z1d.xlarge";
 
 /**
  * <p>Describes the placement of an instance.</p>
@@ -8516,251 +8957,6 @@ export namespace CreateInstanceEventWindowRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateInstanceEventWindowRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInstanceEventWindowResult {
-  /**
-   * <p>Information about the event window.</p>
-   */
-  InstanceEventWindow?: InstanceEventWindow;
-}
-
-export namespace CreateInstanceEventWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceEventWindowResult): any => ({
-    ...obj,
-  });
-}
-
-export type ContainerFormat = "ova";
-
-export type DiskImageFormat = "RAW" | "VHD" | "VMDK";
-
-/**
- * <p>Describes an export instance task.</p>
- */
-export interface ExportToS3TaskSpecification {
-  /**
-   * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
-   *    exported.</p>
-   */
-  ContainerFormat?: ContainerFormat | string;
-
-  /**
-   * <p>The format for the exported image.</p>
-   */
-  DiskImageFormat?: DiskImageFormat | string;
-
-  /**
-   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The image is written to a single object in the Amazon S3 bucket at the S3 key s3prefix +
-   *    exportTaskId + '.' + diskImageFormat.</p>
-   */
-  S3Prefix?: string;
-}
-
-export namespace ExportToS3TaskSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportToS3TaskSpecification): any => ({
-    ...obj,
-  });
-}
-
-export type ExportEnvironment = "citrix" | "microsoft" | "vmware";
-
-export interface CreateInstanceExportTaskRequest {
-  /**
-   * <p>A description for the conversion task or the resource being exported. The maximum length is 255 characters.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The format and location for an export instance task.</p>
-   */
-  ExportToS3Task: ExportToS3TaskSpecification | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The target virtualization environment.</p>
-   */
-  TargetEnvironment: ExportEnvironment | string | undefined;
-
-  /**
-   * <p>The tags to apply to the export instance task during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateInstanceExportTaskRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceExportTaskRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the format and location for the export task.</p>
- */
-export interface ExportToS3Task {
-  /**
-   * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
-   *    exported.</p>
-   */
-  ContainerFormat?: ContainerFormat | string;
-
-  /**
-   * <p>The format for the exported image.</p>
-   */
-  DiskImageFormat?: DiskImageFormat | string;
-
-  /**
-   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist and grant
-   *    WRITE and READ_ACP permissions to the Amazon Web Services account <code>vm-import-export@amazon.com</code>.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The encryption key for your S3 bucket.</p>
-   */
-  S3Key?: string;
-}
-
-export namespace ExportToS3Task {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportToS3Task): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance to export.</p>
- */
-export interface InstanceExportDetails {
-  /**
-   * <p>The ID of the resource being exported.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The target virtualization environment.</p>
-   */
-  TargetEnvironment?: ExportEnvironment | string;
-}
-
-export namespace InstanceExportDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceExportDetails): any => ({
-    ...obj,
-  });
-}
-
-export type ExportTaskState = "active" | "cancelled" | "cancelling" | "completed";
-
-/**
- * <p>Describes an export instance task.</p>
- */
-export interface ExportTask {
-  /**
-   * <p>A description of the resource being exported.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the export task.</p>
-   */
-  ExportTaskId?: string;
-
-  /**
-   * <p>Information about the export task.</p>
-   */
-  ExportToS3Task?: ExportToS3Task;
-
-  /**
-   * <p>Information about the instance to export.</p>
-   */
-  InstanceExportDetails?: InstanceExportDetails;
-
-  /**
-   * <p>The state of the export task.</p>
-   */
-  State?: ExportTaskState | string;
-
-  /**
-   * <p>The status message related to the export task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The tags for the export task.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ExportTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ExportTask): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInstanceExportTaskResult {
-  /**
-   * <p>Information about the export instance task.</p>
-   */
-  ExportTask?: ExportTask;
-}
-
-export namespace CreateInstanceExportTaskResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceExportTaskResult): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInternetGatewayRequest {
-  /**
-   * <p>The tags to assign to the internet gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace CreateInternetGatewayRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInternetGatewayRequest): any => ({
     ...obj,
   });
 }

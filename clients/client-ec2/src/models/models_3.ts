@@ -31,7 +31,6 @@ import {
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
-  VolumeType,
 } from "./models_0";
 import {
   CapacityReservationPreference,
@@ -71,25 +70,555 @@ import {
   TransitGatewayConnectPeer,
   TransitGatewayMulticastDomain,
   TransitGatewayRouteTable,
-  Volume,
 } from "./models_1";
 import {
   ArchitectureValues,
-  AttributeBooleanValue,
   BootModeValues,
   DeviceType,
-  EnclaveOptions,
   EventInformation,
   Filter,
   HypervisorType,
   IdFormat,
-  InstanceBlockDeviceMapping,
+  ImportImageTask,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
   StateReason,
+  UserBucketDetails,
   VirtualizationType,
 } from "./models_2";
+
+export interface DescribeImportImageTasksResult {
+  /**
+   * <p>A list of zero or more import image tasks that are currently active or were completed or canceled in the
+   *    previous 7 days.</p>
+   */
+  ImportImageTasks?: ImportImageTask[];
+
+  /**
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeImportImageTasksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImportImageTasksResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImportSnapshotTasksRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>A list of import snapshot task IDs.</p>
+   */
+  ImportTaskIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call
+   *    with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A token that indicates the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeImportSnapshotTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the import snapshot task.</p>
+ */
+export interface SnapshotTaskDetail {
+  /**
+   * <p>The description of the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The size of the disk in the snapshot, in GiB.</p>
+   */
+  DiskImageSize?: number;
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The identifier for the KMS key that was used to create the encrypted snapshot.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The percentage of completion for the import snapshot task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The snapshot ID of the disk being imported.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>A brief status for the import snapshot task.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A detailed status message for the import snapshot task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The URL of the disk image from which the snapshot is created.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucketDetails;
+}
+
+export namespace SnapshotTaskDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SnapshotTaskDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an import snapshot task.</p>
+ */
+export interface ImportSnapshotTask {
+  /**
+   * <p>A description of the import snapshot task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the import snapshot task.</p>
+   */
+  ImportTaskId?: string;
+
+  /**
+   * <p>Describes an import snapshot task.</p>
+   */
+  SnapshotTaskDetail?: SnapshotTaskDetail;
+
+  /**
+   * <p>The tags for the import snapshot task.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ImportSnapshotTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportSnapshotTask): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeImportSnapshotTasksResult {
+  /**
+   * <p>A list of zero or more import snapshot tasks that are currently active or were completed or canceled in the
+   *    previous 7 days.</p>
+   */
+  ImportSnapshotTasks?: ImportSnapshotTask[];
+
+  /**
+   * <p>The token to use to get the next page of results. This value is <code>null</code> when there are no more results
+   *    to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeImportSnapshotTasksResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeImportSnapshotTasksResult): any => ({
+    ...obj,
+  });
+}
+
+export type InstanceAttributeName =
+  | "blockDeviceMapping"
+  | "disableApiTermination"
+  | "ebsOptimized"
+  | "enaSupport"
+  | "enclaveOptions"
+  | "groupSet"
+  | "instanceInitiatedShutdownBehavior"
+  | "instanceType"
+  | "kernel"
+  | "productCodes"
+  | "ramdisk"
+  | "rootDeviceName"
+  | "sourceDestCheck"
+  | "sriovNetSupport"
+  | "userData";
+
+export interface DescribeInstanceAttributeRequest {
+  /**
+   * <p>The instance attribute.</p>
+   *         <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
+   */
+  Attribute: InstanceAttributeName | string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace DescribeInstanceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
+ */
+export interface EbsInstanceBlockDevice {
+  /**
+   * <p>The time stamp when the attachment initiated.</p>
+   */
+  AttachTime?: Date;
+
+  /**
+   * <p>Indicates whether the volume is deleted on instance termination.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The attachment state.</p>
+   */
+  Status?: AttachmentStatus | string;
+
+  /**
+   * <p>The ID of the EBS volume.</p>
+   */
+  VolumeId?: string;
+}
+
+export namespace EbsInstanceBlockDevice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EbsInstanceBlockDevice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping.</p>
+ */
+export interface InstanceBlockDeviceMapping {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsInstanceBlockDevice;
+}
+
+export namespace InstanceBlockDeviceMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceBlockDeviceMapping): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a value for a resource attribute that is a Boolean value.</p>
+ */
+export interface AttributeBooleanValue {
+  /**
+   * <p>The attribute value. The valid values are <code>true</code> or <code>false</code>.</p>
+   */
+  Value?: boolean;
+}
+
+export namespace AttributeBooleanValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AttributeBooleanValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
+ */
+export interface EnclaveOptions {
+  /**
+   * <p>If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves;
+   *             otherwise, it is not enabled for Amazon Web Services Nitro Enclaves.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace EnclaveOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EnclaveOptions): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an instance attribute.</p>
+ */
+export interface InstanceAttribute {
+  /**
+   * <p>The security groups associated with the instance.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The block device mapping of the instance.</p>
+   */
+  BlockDeviceMappings?: InstanceBlockDeviceMapping[];
+
+  /**
+   * <p>If the value is <code>true</code>, you can't terminate the instance through the Amazon
+   *             EC2 console, CLI, or API; otherwise, you can.</p>
+   */
+  DisableApiTermination?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether enhanced networking with ENA is enabled.</p>
+   */
+  EnaSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>To enable the instance for Amazon Web Services Nitro Enclaves, set this parameter to <code>true</code>; otherwise,
+   * 		set it to <code>false</code>.</p>
+   */
+  EnclaveOptions?: EnclaveOptions;
+
+  /**
+   * <p>Indicates whether the instance is optimized for Amazon EBS I/O.</p>
+   */
+  EbsOptimized?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
+   *             instance (using the operating system command for system shutdown).</p>
+   */
+  InstanceInitiatedShutdownBehavior?: AttributeValue;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: AttributeValue;
+
+  /**
+   * <p>The kernel ID.</p>
+   */
+  KernelId?: AttributeValue;
+
+  /**
+   * <p>A list of product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The RAM disk ID.</p>
+   */
+  RamdiskId?: AttributeValue;
+
+  /**
+   * <p>The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   */
+  RootDeviceName?: AttributeValue;
+
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance
+   *             is either the source or the destination of any traffic that it receives.
+   *             If the value is <code>true</code>, source/destination checks are enabled;
+   *             otherwise, they are disabled. The default value is <code>true</code>.
+   *             You must disable source/destination checks if the instance runs services
+   *             such as network address translation, routing, or firewalls.</p>
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface
+   *             is enabled.</p>
+   */
+  SriovNetSupport?: AttributeValue;
+
+  /**
+   * <p>The user data.</p>
+   */
+  UserData?: AttributeValue;
+}
+
+export namespace InstanceAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceAttribute): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceCreditSpecificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The instance IDs.</p>
+   *         <p>Default: Describes all your instances.</p>
+   *         <p>Constraints: Maximum 1000 explicitly specified instance IDs.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. You cannot specify this parameter and the instance IDs
+   *             parameter in the same call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceCreditSpecificationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
+ */
+export interface InstanceCreditSpecification {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The credit option for CPU usage of the instance. Valid values are
+   *                 <code>standard</code> and <code>unlimited</code>.</p>
+   */
+  CpuCredits?: string;
+}
+
+export namespace InstanceCreditSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceCreditSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeInstanceCreditSpecificationsResult {
+  /**
+   * <p>Information about the credit option for CPU usage of an instance.</p>
+   */
+  InstanceCreditSpecifications?: InstanceCreditSpecification[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeInstanceCreditSpecificationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeInstanceCreditSpecificationsResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeInstanceEventNotificationAttributesRequest {
   /**
@@ -12404,684 +12933,6 @@ export namespace DescribeVolumeAttributeResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumesRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.attach-time</code> - The time stamp when the attachment
-   *           initiated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-   *           instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.device</code> - The device name specified in the block device mapping
-   *           (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.instance-id</code> - The ID of the instance the volume is attached
-   *           to.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.status</code> - The attachment state (<code>attaching</code> |
-   *             <code>attached</code> | <code>detaching</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone in which the volume was
-   *           created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The time stamp when the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>encrypted</code> - Indicates whether the volume is encrypted (<code>true</code>
-   *           | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *     		         <p>
-   *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
-   *     			| <code>false</code>)</p>
-   *     	       </li>
-   *             <li>
-   *                <p>
-   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
-   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
-   *           <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>size</code> - The size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code> - The snapshot from which the volume was created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The state of the volume (<code>creating</code> |
-   *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
-   *             <code>deleted</code> | <code>error</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The volume ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-type</code> - The Amazon EBS volume type (<code>gp2</code> | <code>gp3</code> | <code>io1</code> | <code>io2</code> |
-   *           <code>st1</code> | <code>sc1</code>| <code>standard</code>)</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The volume IDs.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
-   *       output. When this parameter is used, <code>DescribeVolumes</code> only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *         <code>DescribeVolumes</code> request with the returned <code>NextToken</code> value. This
-   *       value can be between 5 and 500; if <code>MaxResults</code> is given a value larger than 500,
-   *       only 500 results are returned. If this parameter is not used, then
-   *         <code>DescribeVolumes</code> returns all results. You cannot specify this parameter and the
-   *       volume IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results
-   *       exceeded the value of that parameter. Pagination continues from the end of the previous
-   *       results that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *       there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVolumesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumesResult {
-  /**
-   * <p>Information about the volumes.</p>
-   */
-  Volumes?: Volume[];
-
-  /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumes</code>
-   *       request. When the results of a <code>DescribeVolumes</code> request exceed
-   *         <code>MaxResults</code>, this value can be used to retrieve the next page of results. This
-   *       value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVolumesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumesModificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>modification-state</code> - The current modification state (modifying |
-   *           optimizing | completed | failed).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-iops</code> - The original IOPS rate of the volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-size</code> - The original size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
-   *           io1 | io2 | gp2 | sc1 | st1).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-time</code> - The modification start time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-iops</code> - The target IOPS rate of the volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-size</code> - The target size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
-   *           io1 | io2 | gp2 | sc1 | st1).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The ID of the volume.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The <code>nextToken</code> value returned by a previous paginated request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
-   *       request.</p>
-   */
-  MaxResults?: number;
-}
-
-export namespace DescribeVolumesModificationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesModificationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export type VolumeModificationState = "completed" | "failed" | "modifying" | "optimizing";
-
-/**
- * <p>Describes the modification status of an EBS volume.</p>
- *          <p>If the volume has never been modified, some element values will be null.</p>
- */
-export interface VolumeModification {
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The current modification state. The modification state is null for unmodified
-   *       volumes.</p>
-   */
-  ModificationState?: VolumeModificationState | string;
-
-  /**
-   * <p>A status message about the modification progress or failure.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The target size of the volume, in GiB.</p>
-   */
-  TargetSize?: number;
-
-  /**
-   * <p>The target IOPS rate of the volume.</p>
-   */
-  TargetIops?: number;
-
-  /**
-   * <p>The target EBS volume type of the volume.</p>
-   */
-  TargetVolumeType?: VolumeType | string;
-
-  /**
-   * <p>The target throughput of the volume, in MiB/s.</p>
-   */
-  TargetThroughput?: number;
-
-  /**
-   * <p>The target setting for Amazon EBS Multi-Attach.</p>
-   */
-  TargetMultiAttachEnabled?: boolean;
-
-  /**
-   * <p>The original size of the volume, in GiB.</p>
-   */
-  OriginalSize?: number;
-
-  /**
-   * <p>The original IOPS rate of the volume.</p>
-   */
-  OriginalIops?: number;
-
-  /**
-   * <p>The original EBS volume type of the volume.</p>
-   */
-  OriginalVolumeType?: VolumeType | string;
-
-  /**
-   * <p>The original throughput of the volume, in MiB/s.</p>
-   */
-  OriginalThroughput?: number;
-
-  /**
-   * <p>The original setting for Amazon EBS Multi-Attach.</p>
-   */
-  OriginalMultiAttachEnabled?: boolean;
-
-  /**
-   * <p>The modification progress, from 0 to 100 percent complete.</p>
-   */
-  Progress?: number;
-
-  /**
-   * <p>The modification start time.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The modification completion or failure time.</p>
-   */
-  EndTime?: Date;
-}
-
-export namespace VolumeModification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeModification): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumesModificationsResult {
-  /**
-   * <p>Information about the volume modifications.</p>
-   */
-  VolumesModifications?: VolumeModification[];
-
-  /**
-   * <p>Token for pagination, null if there are no more results </p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeVolumesModificationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumeStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>action.code</code> - The action code for the event (for example,
-   *             <code>enable-volume-io</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.description</code> - A description of the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-id</code> - The event ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
-   *             <code>io-performance:stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-name</code> - The cause for
-   *             <code>volume-status.status</code> (<code>io-enabled</code> |
-   *           <code>io-performance</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-status</code> - The status of
-   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
-   *             <code>stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
-   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
-   *       paginated output. When this parameter is used, the request only returns
-   *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
-   *       response element. The remaining results of the initial request can be seen by sending another
-   *       request with the returned <code>NextToken</code> value. This value can be between 5 and 1,000;
-   *       if <code>MaxResults</code> is given a value larger than 1,000, only 1,000 results are returned.
-   *       If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all results. You
-   *       cannot specify this parameter and the volume IDs parameter in the same request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The <code>NextToken</code> value to include in a future <code>DescribeVolumeStatus</code>
-   *       request. When the results of the request exceed <code>MaxResults</code>, this value can be
-   *       used to retrieve the next page of results. This value is <code>null</code> when there are no
-   *       more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeVolumeStatusRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a volume status operation code.</p>
- */
-export interface VolumeStatusAction {
-  /**
-   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A description of the operation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the event associated with this operation.</p>
-   */
-  EventId?: string;
-
-  /**
-   * <p>The event type associated with this operation.</p>
-   */
-  EventType?: string;
-}
-
-export namespace VolumeStatusAction {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusAction): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the instances to which the volume is attached.</p>
- */
-export interface VolumeStatusAttachmentStatus {
-  /**
-   * <p>The maximum IOPS supported by the attached instance.</p>
-   */
-  IoPerformance?: string;
-
-  /**
-   * <p>The ID of the attached instance.</p>
-   */
-  InstanceId?: string;
-}
-
-export namespace VolumeStatusAttachmentStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusAttachmentStatus): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a volume status event.</p>
- */
-export interface VolumeStatusEvent {
-  /**
-   * <p>A description of the event.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of this event.</p>
-   */
-  EventId?: string;
-
-  /**
-   * <p>The type of this event.</p>
-   */
-  EventType?: string;
-
-  /**
-   * <p>The latest end time of the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest start time of the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The ID of the instance associated with the event.</p>
-   */
-  InstanceId?: string;
-}
-
-export namespace VolumeStatusEvent {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusEvent): any => ({
-    ...obj,
-  });
-}
-
-export type VolumeStatusName = "io-enabled" | "io-performance";
-
-/**
- * <p>Describes a volume status.</p>
- */
-export interface VolumeStatusDetails {
-  /**
-   * <p>The name of the volume status.</p>
-   */
-  Name?: VolumeStatusName | string;
-
-  /**
-   * <p>The intended status of the volume status.</p>
-   */
-  Status?: string;
-}
-
-export namespace VolumeStatusDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusDetails): any => ({
-    ...obj,
-  });
-}
-
-export type VolumeStatusInfoStatus = "impaired" | "insufficient-data" | "ok";
-
-/**
- * <p>Describes the status of a volume.</p>
- */
-export interface VolumeStatusInfo {
-  /**
-   * <p>The details of the volume status.</p>
-   */
-  Details?: VolumeStatusDetails[];
-
-  /**
-   * <p>The status of the volume.</p>
-   */
-  Status?: VolumeStatusInfoStatus | string;
-}
-
-export namespace VolumeStatusInfo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the volume status.</p>
- */
-export interface VolumeStatusItem {
-  /**
-   * <p>The details of the operation.</p>
-   */
-  Actions?: VolumeStatusAction[];
-
-  /**
-   * <p>The Availability Zone of the volume.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>A list of events associated with the volume.</p>
-   */
-  Events?: VolumeStatusEvent[];
-
-  /**
-   * <p>The volume ID.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The volume status.</p>
-   */
-  VolumeStatus?: VolumeStatusInfo;
-
-  /**
-   * <p>Information about the instances to which the volume is attached.</p>
-   */
-  AttachmentStatuses?: VolumeStatusAttachmentStatus[];
-}
-
-export namespace VolumeStatusItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VolumeStatusItem): any => ({
     ...obj,
   });
 }

@@ -444,11 +444,15 @@ export class Location extends LocationClient {
 
   /**
    * <p>Uploads position update data for one or more devices to a tracker resource. Amazon Location
-   *             uses the data when reporting the last known device position and position history.</p>
+   *            uses the data when it reports the last known device position and position history. Amazon Location retains location data for 30
+   *            days.</p>
    *          <note>
-   *            <p>Only one position update is stored per sample time. Location data is sampled at a
-   *                 fixed rate of one position per 30-second interval and retained for 30 days before
-   *                 it's deleted.</p>
+   *            <p>Position updates are handled based on the <code>PositionFiltering</code> property of the tracker.
+   *                When <code>PositionFiltering</code> is set to <code>TimeBased</code>, updates are evaluated against linked geofence collections,
+   *                and location data is stored at a maximum of one position per 30 second interval. If your update frequency is more often than
+   *                every 30 seconds, only one update per 30 seconds is stored for each unique device ID.
+   *                When <code>PositionFiltering</code> is set to <code>DistanceBased</code> filtering, location data is stored and evaluated against linked geofence
+   *                collections only if the device has moved more than 30 m (98.4 ft).</p>
    *          </note>
    */
   public batchUpdateDevicePosition(

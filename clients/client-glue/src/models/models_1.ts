@@ -2234,6 +2234,9 @@ export interface GetPartitionsRequest {
    */
   MaxResults?: number;
 
+  /**
+   * <p>When true, specifies not returning the partition column schema. Useful when you are interested only in other partition attributes such as partition values or location. This approach avoids the problem of a large response by not returning duplicate data.</p>
+   */
   ExcludeColumnSchema?: boolean;
 }
 

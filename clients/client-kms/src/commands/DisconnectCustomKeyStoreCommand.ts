@@ -23,8 +23,9 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
 
 /**
  * <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its associated CloudHSM cluster. While a custom key
- *       store is disconnected, you can manage the custom key store and its KMS keys, but you cannot create or use KMS keys in the custom key store. You can reconnect the
- *       custom key store at any time.</p>
+ *       store is disconnected, you can manage the custom key store and its KMS keys, but you cannot
+ *       create or use KMS keys in the custom key store. You can reconnect the custom key store at any
+ *       time.</p>
  *          <note>
  *             <p>While a custom key store is disconnected, all attempts to create KMS keys in the custom key store or to use existing KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> will
  *         fail. This action can prevent users from storing and accessing sensitive data.</p>
@@ -38,8 +39,9 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * single-tenant key store.</p>
  *
- *          <p>
- *             <b>Cross-account use</b>: No. You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
+ *         <p>
+ *             <b>Cross-account use</b>: No.
+ *       You cannot perform this operation on a custom key store in a different Amazon Web Services account.</p>
  *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisconnectCustomKeyStore</a> (IAM policy)</p>

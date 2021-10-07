@@ -27,11 +27,12 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *             <p>Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">Using ABAC in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          </note>
  *          <p>You can use an alias to identify a KMS key in the KMS console, in the <a>DescribeKey</a> operation and in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>, such as <a>Encrypt</a> and
- *         <a>GenerateDataKey</a>. You can also change the KMS key that's associated with the
- *       alias (<a>UpdateAlias</a>) or delete the alias (<a>DeleteAlias</a>) at
- *       any time. These operations don't affect the underlying KMS key. </p>
+ *         <a>GenerateDataKey</a>. You can also change the KMS key that's associated with
+ *       the alias (<a>UpdateAlias</a>) or delete the alias (<a>DeleteAlias</a>)
+ *       at any time. These operations don't affect the underlying KMS key. </p>
  *          <p>You can associate the alias with any customer managed key in the same Amazon Web Services Region. Each
- *       alias is associated with only one KMS key at a time, but a KMS key can have multiple aliases. A valid KMS key is required. You can't create an alias without a KMS key.</p>
+ *       alias is associated with only one KMS key at a time, but a KMS key can have multiple aliases.
+ *       A valid KMS key is required. You can't create an alias without a KMS key.</p>
  *          <p>The alias must be unique in the account and Region, but you can have aliases with the same
  *       name in different Regions. For detailed information about aliases, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">Using aliases</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
@@ -48,14 +49,17 @@ export interface CreateAliasCommandOutput extends __MetadataBearer {}
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a> on the alias (IAM policy).</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a> on
+ *           the alias (IAM policy).</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a> on the KMS key (key policy).</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateAlias</a> on
+ *           the KMS key (key policy).</p>
  *             </li>
  *          </ul>
- *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access">Controlling access to aliases</a> in the
+ *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>

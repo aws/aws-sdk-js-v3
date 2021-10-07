@@ -87,10 +87,13 @@ import {
  *                <p>Amazon Managed Streaming for Apache Kafka broker storage</p>
  *             </li>
  *             <li>
+ *                <p>Amazon Neptune clusters</p>
+ *             </li>
+ *             <li>
  *                <p>Amazon SageMaker endpoint variants</p>
  *             </li>
  *             <li>
- *                <p>Spot Fleet (Amazon EC2) requests</p>
+ *                <p>Spot Fleets (Amazon EC2)</p>
  *             </li>
  *             <li>
  *                <p>Custom resources provided by your own applications or services</p>
@@ -491,6 +494,13 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          <p>To update a scalable target, specify the parameters that you want to change. Include the
    *          parameters that identify the scalable target: resource ID, scalable dimension, and
    *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
+   *          <note>
+   *             <p>If you call the <code>RegisterScalableTarget</code> API to update an existing
+   *             scalable target, Application Auto Scaling retrieves the current capacity of the resource. If it is below
+   *             the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the capacity of the
+   *             scalable target to place it within these bounds, even if you don't include the
+   *                <code>MinCapacity</code> or <code>MaxCapacity</code> request parameters.</p>
+   *          </note>
    */
   public registerScalableTarget(
     args: RegisterScalableTargetCommandInput,

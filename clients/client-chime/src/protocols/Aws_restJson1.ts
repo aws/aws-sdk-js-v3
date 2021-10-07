@@ -569,7 +569,9 @@ import {
   AppInstanceUser,
   AppInstanceUserMembershipSummary,
   AppInstanceUserSummary,
+  ArtifactsConfiguration,
   Attendee,
+  AudioArtifactsConfiguration,
   BadRequestException,
   BatchChannelMemberships,
   BatchCreateChannelMembershipError,
@@ -589,7 +591,9 @@ import {
   ChannelModeratorSummary,
   ChannelRetentionSettings,
   ChannelSummary,
+  ChimeSdkMeetingConfiguration,
   ConflictException,
+  ContentArtifactsConfiguration,
   ConversationRetentionSettings,
   CreateAttendeeError,
   CreateAttendeeRequestItem,
@@ -626,17 +630,17 @@ import {
   Room,
   RoomMembership,
   RoomRetentionSettings,
+  SelectedVideoStreams,
   ServiceFailureException,
   ServiceUnavailableException,
   SigninDelegateGroup,
   SipMediaApplication,
   SipMediaApplicationCall,
   SipMediaApplicationEndpoint,
-  SipMediaApplicationLoggingConfiguration,
   SipRule,
   SipRuleTargetApplication,
+  SourceConfiguration,
   Tag,
-  TelephonySettings,
   ThrottledClientException,
   UnauthorizedClientException,
   UnprocessableEntityException,
@@ -644,7 +648,7 @@ import {
   UpdateUserRequestItem,
   User,
   UserError,
-  UserSettings,
+  VideoArtifactsConfiguration,
   VoiceConnector,
   VoiceConnectorGroup,
   VoiceConnectorItem,
@@ -657,11 +661,14 @@ import {
   OriginationRoute,
   PhoneNumberCountry,
   Proxy,
+  SipMediaApplicationLoggingConfiguration,
   StreamingConfiguration,
   StreamingNotificationTarget,
+  TelephonySettings,
   Termination,
   TerminationHealth,
   TranscriptionConfiguration,
+  UserSettings,
 } from "../models/models_1";
 
 export const serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand = async (
@@ -1551,6 +1558,13 @@ export const serializeAws_restJson1CreateMediaCapturePipelineCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/media-capture-pipelines";
   let body: any;
   body = JSON.stringify({
+    ...(input.ChimeSdkMeetingConfiguration !== undefined &&
+      input.ChimeSdkMeetingConfiguration !== null && {
+        ChimeSdkMeetingConfiguration: serializeAws_restJson1ChimeSdkMeetingConfiguration(
+          input.ChimeSdkMeetingConfiguration,
+          context
+        ),
+      }),
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.SinkArn !== undefined && input.SinkArn !== null && { SinkArn: input.SinkArn }),
     ...(input.SinkType !== undefined && input.SinkType !== null && { SinkType: input.SinkType }),
@@ -26134,6 +26148,14 @@ const deserializeAws_restJson1UpdatePhoneNumberCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ConflictException":
+    case "com.amazonaws.chime#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ForbiddenException":
     case "com.amazonaws.chime#ForbiddenException":
       response = {
@@ -27650,6 +27672,30 @@ const serializeAws_restJson1AppInstanceStreamingConfigurationList = (
     });
 };
 
+const serializeAws_restJson1ArtifactsConfiguration = (input: ArtifactsConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Audio !== undefined &&
+      input.Audio !== null && { Audio: serializeAws_restJson1AudioArtifactsConfiguration(input.Audio, context) }),
+    ...(input.Content !== undefined &&
+      input.Content !== null && {
+        Content: serializeAws_restJson1ContentArtifactsConfiguration(input.Content, context),
+      }),
+    ...(input.Video !== undefined &&
+      input.Video !== null && { Video: serializeAws_restJson1VideoArtifactsConfiguration(input.Video, context) }),
+  };
+};
+
+const serializeAws_restJson1AttendeeIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1AttendeeTagKeyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -27670,6 +27716,15 @@ const serializeAws_restJson1AttendeeTagList = (input: Tag[], context: __SerdeCon
       }
       return serializeAws_restJson1Tag(entry, context);
     });
+};
+
+const serializeAws_restJson1AudioArtifactsConfiguration = (
+  input: AudioArtifactsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
+  };
 };
 
 const serializeAws_restJson1BusinessCallingSettings = (
@@ -27709,6 +27764,32 @@ const serializeAws_restJson1ChannelRetentionSettings = (
 ): any => {
   return {
     ...(input.RetentionDays !== undefined && input.RetentionDays !== null && { RetentionDays: input.RetentionDays }),
+  };
+};
+
+const serializeAws_restJson1ChimeSdkMeetingConfiguration = (
+  input: ChimeSdkMeetingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ArtifactsConfiguration !== undefined &&
+      input.ArtifactsConfiguration !== null && {
+        ArtifactsConfiguration: serializeAws_restJson1ArtifactsConfiguration(input.ArtifactsConfiguration, context),
+      }),
+    ...(input.SourceConfiguration !== undefined &&
+      input.SourceConfiguration !== null && {
+        SourceConfiguration: serializeAws_restJson1SourceConfiguration(input.SourceConfiguration, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1ContentArtifactsConfiguration = (
+  input: ContentArtifactsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
   };
 };
 
@@ -27871,6 +27952,17 @@ const serializeAws_restJson1EngineTranscribeSettings = (
   };
 };
 
+const serializeAws_restJson1ExternalUserIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1GeoMatchParams = (input: GeoMatchParams, context: __SerdeContext): any => {
   return {
     ...(input.AreaCode !== undefined && input.AreaCode !== null && { AreaCode: input.AreaCode }),
@@ -28018,6 +28110,17 @@ const serializeAws_restJson1RoomRetentionSettings = (input: RoomRetentionSetting
   };
 };
 
+const serializeAws_restJson1SelectedVideoStreams = (input: SelectedVideoStreams, context: __SerdeContext): any => {
+  return {
+    ...(input.AttendeeIds !== undefined &&
+      input.AttendeeIds !== null && { AttendeeIds: serializeAws_restJson1AttendeeIdList(input.AttendeeIds, context) }),
+    ...(input.ExternalUserIds !== undefined &&
+      input.ExternalUserIds !== null && {
+        ExternalUserIds: serializeAws_restJson1ExternalUserIdList(input.ExternalUserIds, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1SensitiveStringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -28132,6 +28235,15 @@ const serializeAws_restJson1SMAUpdateCallArgumentsMap = (
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1SourceConfiguration = (input: SourceConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.SelectedVideoStreams !== undefined &&
+      input.SelectedVideoStreams !== null && {
+        SelectedVideoStreams: serializeAws_restJson1SelectedVideoStreams(input.SelectedVideoStreams, context),
+      }),
+  };
 };
 
 const serializeAws_restJson1StreamingConfiguration = (input: StreamingConfiguration, context: __SerdeContext): any => {
@@ -28342,6 +28454,16 @@ const serializeAws_restJson1UserSettings = (input: UserSettings, context: __Serd
   return {
     ...(input.Telephony !== undefined &&
       input.Telephony !== null && { Telephony: serializeAws_restJson1TelephonySettings(input.Telephony, context) }),
+  };
+};
+
+const serializeAws_restJson1VideoArtifactsConfiguration = (
+  input: VideoArtifactsConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MuxType !== undefined && input.MuxType !== null && { MuxType: input.MuxType }),
+    ...(input.State !== undefined && input.State !== null && { State: input.State }),
   };
 };
 
@@ -28586,12 +28708,43 @@ const deserializeAws_restJson1AppInstanceUserSummary = (
   } as any;
 };
 
+const deserializeAws_restJson1ArtifactsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ArtifactsConfiguration => {
+  return {
+    Audio:
+      output.Audio !== undefined && output.Audio !== null
+        ? deserializeAws_restJson1AudioArtifactsConfiguration(output.Audio, context)
+        : undefined,
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? deserializeAws_restJson1ContentArtifactsConfiguration(output.Content, context)
+        : undefined,
+    Video:
+      output.Video !== undefined && output.Video !== null
+        ? deserializeAws_restJson1VideoArtifactsConfiguration(output.Video, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext): Attendee => {
   return {
     AttendeeId: __expectString(output.AttendeeId),
     ExternalUserId: __expectString(output.ExternalUserId),
     JoinToken: __expectString(output.JoinToken),
   } as any;
+};
+
+const deserializeAws_restJson1AttendeeIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeContext): Attendee[] => {
@@ -28603,6 +28756,15 @@ const deserializeAws_restJson1AttendeeList = (output: any, context: __SerdeConte
       }
       return deserializeAws_restJson1Attendee(entry, context);
     });
+};
+
+const deserializeAws_restJson1AudioArtifactsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): AudioArtifactsConfiguration => {
+  return {
+    MuxType: __expectString(output.MuxType),
+  } as any;
 };
 
 const deserializeAws_restJson1BatchChannelMemberships = (
@@ -29039,6 +29201,32 @@ const deserializeAws_restJson1ChannelSummaryList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_restJson1ChimeSdkMeetingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ChimeSdkMeetingConfiguration => {
+  return {
+    ArtifactsConfiguration:
+      output.ArtifactsConfiguration !== undefined && output.ArtifactsConfiguration !== null
+        ? deserializeAws_restJson1ArtifactsConfiguration(output.ArtifactsConfiguration, context)
+        : undefined,
+    SourceConfiguration:
+      output.SourceConfiguration !== undefined && output.SourceConfiguration !== null
+        ? deserializeAws_restJson1SourceConfiguration(output.SourceConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ContentArtifactsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ContentArtifactsConfiguration => {
+  return {
+    MuxType: __expectString(output.MuxType),
+    State: __expectString(output.State),
+  } as any;
+};
+
 const deserializeAws_restJson1ConversationRetentionSettings = (
   output: any,
   context: __SerdeContext
@@ -29112,6 +29300,17 @@ const deserializeAws_restJson1EventsConfiguration = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_restJson1ExternalUserIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeContext): GeoMatchParams => {
   return {
     AreaCode: __expectString(output.AreaCode),
@@ -29165,6 +29364,10 @@ const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __Se
 
 const deserializeAws_restJson1MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCapturePipeline => {
   return {
+    ChimeSdkMeetingConfiguration:
+      output.ChimeSdkMeetingConfiguration !== undefined && output.ChimeSdkMeetingConfiguration !== null
+        ? deserializeAws_restJson1ChimeSdkMeetingConfiguration(output.ChimeSdkMeetingConfiguration, context)
+        : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? __expectNonNull(__parseRfc3339DateTime(output.CreatedTimestamp))
@@ -29655,6 +29858,19 @@ const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __S
   } as any;
 };
 
+const deserializeAws_restJson1SelectedVideoStreams = (output: any, context: __SerdeContext): SelectedVideoStreams => {
+  return {
+    AttendeeIds:
+      output.AttendeeIds !== undefined && output.AttendeeIds !== null
+        ? deserializeAws_restJson1AttendeeIdList(output.AttendeeIds, context)
+        : undefined,
+    ExternalUserIds:
+      output.ExternalUserIds !== undefined && output.ExternalUserIds !== null
+        ? deserializeAws_restJson1ExternalUserIdList(output.ExternalUserIds, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1SensitiveStringList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -29817,6 +30033,15 @@ const deserializeAws_restJson1SipRuleTargetApplicationList = (
       }
       return deserializeAws_restJson1SipRuleTargetApplication(entry, context);
     });
+};
+
+const deserializeAws_restJson1SourceConfiguration = (output: any, context: __SerdeContext): SourceConfiguration => {
+  return {
+    SelectedVideoStreams:
+      output.SelectedVideoStreams !== undefined && output.SelectedVideoStreams !== null
+        ? deserializeAws_restJson1SelectedVideoStreams(output.SelectedVideoStreams, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1StreamingConfiguration = (
@@ -29982,6 +30207,16 @@ const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeConte
       output.Telephony !== undefined && output.Telephony !== null
         ? deserializeAws_restJson1TelephonySettings(output.Telephony, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1VideoArtifactsConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VideoArtifactsConfiguration => {
+  return {
+    MuxType: __expectString(output.MuxType),
+    State: __expectString(output.State),
   } as any;
 };
 

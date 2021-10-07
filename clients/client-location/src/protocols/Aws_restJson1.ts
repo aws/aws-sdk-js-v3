@@ -726,6 +726,8 @@ export const serializeAws_restJson1CreateTrackerCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PositionFiltering !== undefined &&
+      input.PositionFiltering !== null && { PositionFiltering: input.PositionFiltering }),
     ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
     ...(input.PricingPlanDataSource !== undefined &&
       input.PricingPlanDataSource !== null && { PricingPlanDataSource: input.PricingPlanDataSource }),
@@ -2256,6 +2258,8 @@ export const serializeAws_restJson1UpdateTrackerCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.PositionFiltering !== undefined &&
+      input.PositionFiltering !== null && { PositionFiltering: input.PositionFiltering }),
     ...(input.PricingPlan !== undefined && input.PricingPlan !== null && { PricingPlan: input.PricingPlan }),
     ...(input.PricingPlanDataSource !== undefined &&
       input.PricingPlanDataSource !== null && { PricingPlanDataSource: input.PricingPlanDataSource }),
@@ -4375,6 +4379,7 @@ export const deserializeAws_restJson1DescribeTrackerCommand = async (
     CreateTime: undefined,
     Description: undefined,
     KmsKeyId: undefined,
+    PositionFiltering: undefined,
     PricingPlan: undefined,
     PricingPlanDataSource: undefined,
     Tags: undefined,
@@ -4391,6 +4396,9 @@ export const deserializeAws_restJson1DescribeTrackerCommand = async (
   }
   if (data.KmsKeyId !== undefined && data.KmsKeyId !== null) {
     contents.KmsKeyId = __expectString(data.KmsKeyId);
+  }
+  if (data.PositionFiltering !== undefined && data.PositionFiltering !== null) {
+    contents.PositionFiltering = __expectString(data.PositionFiltering);
   }
   if (data.PricingPlan !== undefined && data.PricingPlan !== null) {
     contents.PricingPlan = __expectString(data.PricingPlan);

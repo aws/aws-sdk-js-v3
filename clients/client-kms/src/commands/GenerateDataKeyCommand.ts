@@ -23,19 +23,19 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
 
 /**
  * <p>Generates a unique symmetric data key for client-side encryption. This operation returns a
- *       plaintext copy of the data key and a copy that is encrypted under a KMS key
- *       that you specify. You can use the plaintext key to encrypt your data outside of KMS and
- *       store the encrypted data key with the encrypted data.</p>
+ *       plaintext copy of the data key and a copy that is encrypted under a KMS key that you specify.
+ *       You can use the plaintext key to encrypt your data outside of KMS and store the encrypted
+ *       data key with the encrypted data.</p>
  *
  *          <p>
  *             <code>GenerateDataKey</code> returns a unique data key for each request. The bytes in the
  *       plaintext key are not related to the caller or the KMS key.</p>
  *
- *          <p>To generate a data key, specify the symmetric KMS key that will be used to encrypt the data
- *       key. You cannot use an asymmetric KMS key to generate data keys. To get the type of your KMS key, use
- *       the <a>DescribeKey</a> operation. You must also specify the length of the data key.
- *       Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters (but not both).
- *       For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
+ *          <p>To generate a data key, specify the symmetric KMS key that will be used to encrypt the
+ *       data key. You cannot use an asymmetric KMS key to generate data keys. To get the type of your
+ *       KMS key, use the <a>DescribeKey</a> operation. You must also specify the length of
+ *       the data key. Use either the <code>KeySpec</code> or <code>NumberOfBytes</code> parameters
+ *       (but not both). For 128-bit and 256-bit data keys, use the <code>KeySpec</code> parameter. </p>
  *
  *          <p>To get only an encrypted copy of the data key, use <a>GenerateDataKeyWithoutPlaintext</a>. To generate an asymmetric data key pair, use
  *       the <a>GenerateDataKeyPair</a> or <a>GenerateDataKeyPairWithoutPlaintext</a> operation. To get a cryptographically secure
@@ -50,11 +50,14 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your KMS key</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>How to use your data key</b>
+ *             <b>How to use your data
+ *         key</b>
  *          </p>
- *          <p>We recommend that you use the following pattern to encrypt data locally in your application.
- *       You can write your own code or use a client-side encryption library, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a>, the <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>, or
- *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
+ *          <p>We recommend that you use the following pattern to encrypt data locally in your
+ *       application. You can write your own code or use a client-side encryption library, such as the
+ *         <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a>, the
+ *         <a href="https://docs.aws.amazon.com/dynamodb-encryption-client/latest/devguide/">Amazon DynamoDB Encryption Client</a>,
+ *       or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3
  *         client-side encryption</a> to do these tasks for you.</p>
  *          <p>To encrypt data outside of KMS:</p>
  *          <ol>

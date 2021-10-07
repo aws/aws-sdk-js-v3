@@ -1,39 +1,16 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
-/**
- * <p>Describes hints for the buffering to perform before delivering data to the
- *          destination. These options are treated as hints, and therefore Kinesis Data Firehose might
- *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
- *             <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for
- *          one of them, you must also provide a value for the other.</p>
- */
-export interface BufferingHints {
-  /**
-   * <p>Buffer incoming data to the specified size, in MiBs, before delivering it to the
-   *          destination. The default value is 5. This parameter is optional but if you specify a value
-   *          for it, you must also specify a value for <code>IntervalInSeconds</code>, and vice
-   *          versa.</p>
-   *          <p>We recommend setting this parameter to a value greater than the amount of data you
-   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
-   *          ingest data at 1 MiB/sec, the value should be 10 MiB or higher.</p>
-   */
-  SizeInMBs?: number;
-
-  /**
-   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering
-   *          it to the destination. The default value is 300. This parameter is optional but if you
-   *          specify a value for it, you must also specify a value for <code>SizeInMBs</code>, and vice
-   *          versa.</p>
-   */
+export interface AmazonopensearchserviceBufferingHints {
   IntervalInSeconds?: number;
+  SizeInMBs?: number;
 }
 
-export namespace BufferingHints {
+export namespace AmazonopensearchserviceBufferingHints {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: BufferingHints): any => ({
+  export const filterSensitiveLog = (obj: AmazonopensearchserviceBufferingHints): any => ({
     ...obj,
   });
 }
@@ -69,173 +46,13 @@ export namespace CloudWatchLoggingOptions {
   });
 }
 
-export enum CompressionFormat {
-  GZIP = "GZIP",
-  HADOOP_SNAPPY = "HADOOP_SNAPPY",
-  SNAPPY = "Snappy",
-  UNCOMPRESSED = "UNCOMPRESSED",
-  ZIP = "ZIP",
+export enum AmazonopensearchserviceIndexRotationPeriod {
+  NoRotation = "NoRotation",
+  OneDay = "OneDay",
+  OneHour = "OneHour",
+  OneMonth = "OneMonth",
+  OneWeek = "OneWeek",
 }
-
-/**
- * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
- *          it to update the destination.</p>
- */
-export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
-  name: "ConcurrentModificationException";
-  $fault: "client";
-  /**
-   * <p>A message that provides information about the error.</p>
-   */
-  message?: string;
-}
-
-export namespace ConcurrentModificationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
-    ...obj,
-  });
-}
-
-export enum ContentEncoding {
-  GZIP = "GZIP",
-  NONE = "NONE",
-}
-
-/**
- * <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
- */
-export interface CopyCommand {
-  /**
-   * <p>The name of the target table. The table must already exist in the database.</p>
-   */
-  DataTableName: string | undefined;
-
-  /**
-   * <p>A comma-separated list of column names.</p>
-   */
-  DataTableColumns?: string;
-
-  /**
-   * <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For
-   *          more information, see the "Optional Parameters" section of <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible
-   *          examples that would apply to Kinesis Data Firehose are as follows:</p>
-   *          <p>
-   *             <code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and
-   *          compressed using lzop.</p>
-   *          <p>
-   *             <code>delimiter '|'</code> - fields are delimited with "|" (this is the default
-   *          delimiter).</p>
-   *          <p>
-   *             <code>delimiter '|' escape</code> - the delimiter should be escaped.</p>
-   *          <p>
-   *             <code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> -
-   *          fields are fixed width in the source, with each width specified after every column in the
-   *          table.</p>
-   *          <p>
-   *             <code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path
-   *          specified is the format of the data.</p>
-   *          <p>For more examples, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command
-   *             examples</a>.</p>
-   */
-  CopyOptions?: string;
-}
-
-export namespace CopyCommand {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CopyCommand): any => ({
-    ...obj,
-  });
-}
-
-export enum KeyType {
-  AWS_OWNED_CMK = "AWS_OWNED_CMK",
-  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
-}
-
-/**
- * <p>Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side
- *          Encryption (SSE). </p>
- */
-export interface DeliveryStreamEncryptionConfigurationInput {
-  /**
-   * <p>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
-   *          the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to
-   *             <code>AWS_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</p>
-   */
-  KeyARN?: string;
-
-  /**
-   * <p>Indicates the type of customer master key (CMK) to use for encryption. The default
-   *          setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
-   *             Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or
-   *             <a>StartDeliveryStreamEncryption</a> with <code>KeyType</code> set to
-   *          CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a> to create a grant that allows the Kinesis Data Firehose service to
-   *          use the customer managed CMK to perform encryption and decryption. Kinesis Data Firehose
-   *          manages that grant. </p>
-   *          <p>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a
-   *          delivery stream that is encrypted with a customer managed CMK, Kinesis Data Firehose
-   *          schedules the grant it had on the old CMK for retirement.</p>
-   *          <p>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams. If
-   *          a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
-   *          operation exceeds this limit, Kinesis Data Firehose throws a
-   *             <code>LimitExceededException</code>. </p>
-   *          <important>
-   *             <p>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
-   *             support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
-   *                Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer
-   *             guide.</p>
-   *          </important>
-   */
-  KeyType: KeyType | string | undefined;
-}
-
-export namespace DeliveryStreamEncryptionConfigurationInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfigurationInput): any => ({
-    ...obj,
-  });
-}
-
-export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
-
-/**
- * <p>Describes the buffering to perform before delivering data to the Amazon ES
- *          destination.</p>
- */
-export interface ElasticsearchBufferingHints {
-  /**
-   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering
-   *          it to the destination. The default value is 300 (5 minutes).</p>
-   */
-  IntervalInSeconds?: number;
-
-  /**
-   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the
-   *          destination. The default value is 5.</p>
-   *          <p>We recommend setting this parameter to a value greater than the amount of data you
-   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
-   *          ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>
-   */
-  SizeInMBs?: number;
-}
-
-export namespace ElasticsearchBufferingHints {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
-    ...obj,
-  });
-}
-
-export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek";
 
 export enum ProcessorParameterName {
   BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
@@ -323,30 +140,68 @@ export namespace ProcessingConfiguration {
   });
 }
 
-/**
- * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
- *          documents to Amazon ES.</p>
- */
-export interface ElasticsearchRetryOptions {
-  /**
-   * <p>After an initial failure to deliver to Amazon ES, the total amount of time during
-   *          which Kinesis Data Firehose retries delivery (including the first attempt). After this time
-   *          has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5
-   *          minutes). A value of 0 (zero) results in no retries.</p>
-   */
+export interface AmazonopensearchserviceRetryOptions {
   DurationInSeconds?: number;
 }
 
-export namespace ElasticsearchRetryOptions {
+export namespace AmazonopensearchserviceRetryOptions {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
+  export const filterSensitiveLog = (obj: AmazonopensearchserviceRetryOptions): any => ({
     ...obj,
   });
 }
 
-export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
+export enum AmazonopensearchserviceS3BackupMode {
+  AllDocuments = "AllDocuments",
+  FailedDocumentsOnly = "FailedDocumentsOnly",
+}
+
+/**
+ * <p>Describes hints for the buffering to perform before delivering data to the
+ *          destination. These options are treated as hints, and therefore Kinesis Data Firehose might
+ *          choose to use different values when it is optimal. The <code>SizeInMBs</code> and
+ *             <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for
+ *          one of them, you must also provide a value for the other.</p>
+ */
+export interface BufferingHints {
+  /**
+   * <p>Buffer incoming data to the specified size, in MiBs, before delivering it to the
+   *          destination. The default value is 5. This parameter is optional but if you specify a value
+   *          for it, you must also specify a value for <code>IntervalInSeconds</code>, and vice
+   *          versa.</p>
+   *          <p>We recommend setting this parameter to a value greater than the amount of data you
+   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
+   *          ingest data at 1 MiB/sec, the value should be 10 MiB or higher.</p>
+   */
+  SizeInMBs?: number;
+
+  /**
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering
+   *          it to the destination. The default value is 300. This parameter is optional but if you
+   *          specify a value for it, you must also specify a value for <code>SizeInMBs</code>, and vice
+   *          versa.</p>
+   */
+  IntervalInSeconds?: number;
+}
+
+export namespace BufferingHints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BufferingHints): any => ({
+    ...obj,
+  });
+}
+
+export enum CompressionFormat {
+  GZIP = "GZIP",
+  HADOOP_SNAPPY = "HADOOP_SNAPPY",
+  SNAPPY = "Snappy",
+  UNCOMPRESSED = "UNCOMPRESSED",
+  ZIP = "ZIP",
+}
 
 /**
  * <p>Describes an encryption key for a destination in Amazon S3.</p>
@@ -560,6 +415,539 @@ export namespace VpcConfiguration {
     ...obj,
   });
 }
+
+export interface AmazonopensearchserviceDestinationConfiguration {
+  RoleARN: string | undefined;
+  DomainARN?: string;
+  ClusterEndpoint?: string;
+  IndexName: string | undefined;
+  TypeName?: string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  BufferingHints?: AmazonopensearchserviceBufferingHints;
+  RetryOptions?: AmazonopensearchserviceRetryOptions;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  /**
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   */
+  S3Configuration: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>The details of the VPC of the Amazon ES destination.</p>
+   */
+  VpcConfiguration?: VpcConfiguration;
+}
+
+export namespace AmazonopensearchserviceDestinationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a destination in Amazon S3.</p>
+ */
+export interface S3DestinationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *             AWS Service Namespaces</a>.</p>
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3
+   *          files. You can also specify a custom prefix, as described in <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
+   *          Objects</a>.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing
+   *          them to S3. This prefix appears immediately following the bucket name. For information
+   *          about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
+   *          Objects</a>.</p>
+   */
+  ErrorOutputPrefix?: string;
+
+  /**
+   * <p>The buffering option. If no value is specified, <code>BufferingHints</code> object
+   *          default values are used.</p>
+   */
+  BufferingHints: BufferingHints | undefined;
+
+  /**
+   * <p>The compression format. If no value is specified, the default is
+   *             <code>UNCOMPRESSED</code>.</p>
+   */
+  CompressionFormat: CompressionFormat | string | undefined;
+
+  /**
+   * <p>The encryption configuration. If no value is specified, the default is no
+   *          encryption.</p>
+   */
+  EncryptionConfiguration: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+export namespace S3DestinationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of the VPC of the Amazon ES destination.</p>
+ */
+export interface VpcConfigurationDescription {
+  /**
+   * <p>The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the
+   *          Amazon ES destination. Make sure that the routing tables and inbound and outbound rules
+   *          allow traffic to flow from the subnets whose IDs are specified here to the subnets that
+   *          have the destination Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in
+   *          each of the subnets that are specified here. Do not delete or modify these ENIs.</p>
+   *          <p>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
+   *          scales up and down automatically based on throughput. To enable Kinesis Data Firehose to
+   *          scale up the number of ENIs to match throughput, ensure that you have sufficient quota. To
+   *          help you calculate the quota you need, assume that Kinesis Data Firehose can create up to
+   *          three ENIs for this delivery stream for each of the subnets specified here. For more
+   *          information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network Interfaces
+   *          </a> in the Amazon VPC Quotas topic.</p>
+   */
+  SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that the delivery stream uses to create endpoints in the
+   *          destination VPC. You can use your existing Kinesis Data Firehose delivery role or you can
+   *          specify a new role. In either case, make sure that the role trusts the Kinesis Data
+   *          Firehose service principal and that it grants the following permissions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeVpcs</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeVpcAttribute</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeSubnets</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeSecurityGroups</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DescribeNetworkInterfaces</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:CreateNetworkInterface</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:CreateNetworkInterfacePermission</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ec2:DeleteNetworkInterface</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you revoke these permissions after you create the delivery stream, Kinesis Data
+   *          Firehose can't scale out by creating more ENIs when necessary. You might therefore see a
+   *          degradation in performance.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * <p>The IDs of the security groups that Kinesis Data Firehose uses when it creates ENIs in
+   *          the VPC of the Amazon ES destination. You can use the same security group that the Amazon
+   *          ES domain uses or different ones. If you specify different security groups, ensure that
+   *          they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure
+   *          that the Amazon ES domain's security group allows HTTPS traffic from the security groups
+   *          specified here. If you use the same security group for both your delivery stream and the
+   *          Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic. For more
+   *          information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security group
+   *             rules</a> in the Amazon VPC documentation.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the Amazon ES destination's VPC.</p>
+   */
+  VpcId: string | undefined;
+}
+
+export namespace VpcConfigurationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface AmazonopensearchserviceDestinationDescription {
+  RoleARN?: string;
+  DomainARN?: string;
+  ClusterEndpoint?: string;
+  IndexName?: string;
+  TypeName?: string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  BufferingHints?: AmazonopensearchserviceBufferingHints;
+  RetryOptions?: AmazonopensearchserviceRetryOptions;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  /**
+   * <p>Describes a destination in Amazon S3.</p>
+   */
+  S3DestinationDescription?: S3DestinationDescription;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>The details of the VPC of the Amazon ES destination.</p>
+   */
+  VpcConfigurationDescription?: VpcConfigurationDescription;
+}
+
+export namespace AmazonopensearchserviceDestinationDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an update for a destination in Amazon S3.</p>
+ */
+export interface S3DestinationUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *             AWS Service Namespaces</a>.</p>
+   */
+  BucketARN?: string;
+
+  /**
+   * <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3
+   *          files. You can also specify a custom prefix, as described in <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
+   *          Objects</a>.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing
+   *          them to S3. This prefix appears immediately following the bucket name. For information
+   *          about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
+   *          Objects</a>.</p>
+   */
+  ErrorOutputPrefix?: string;
+
+  /**
+   * <p>The buffering option. If no value is specified, <code>BufferingHints</code> object
+   *          default values are used.</p>
+   */
+  BufferingHints?: BufferingHints;
+
+  /**
+   * <p>The compression format. If no value is specified, the default is
+   *             <code>UNCOMPRESSED</code>.</p>
+   *          <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified
+   *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
+   *             <code>COPY</code> operation that reads from the S3 bucket.</p>
+   */
+  CompressionFormat?: CompressionFormat | string;
+
+  /**
+   * <p>The encryption configuration. If no value is specified, the default is no
+   *          encryption.</p>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p>The CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+export namespace S3DestinationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface AmazonopensearchserviceDestinationUpdate {
+  RoleARN?: string;
+  DomainARN?: string;
+  ClusterEndpoint?: string;
+  IndexName?: string;
+  TypeName?: string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  BufferingHints?: AmazonopensearchserviceBufferingHints;
+  RetryOptions?: AmazonopensearchserviceRetryOptions;
+  /**
+   * <p>Describes an update for a destination in Amazon S3.</p>
+   */
+  S3Update?: S3DestinationUpdate;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+export namespace AmazonopensearchserviceDestinationUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AmazonopensearchserviceDestinationUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Another modification has already happened. Fetch <code>VersionId</code> again and use
+ *          it to update the destination.</p>
+ */
+export interface ConcurrentModificationException extends __SmithyException, $MetadataBearer {
+  name: "ConcurrentModificationException";
+  $fault: "client";
+  /**
+   * <p>A message that provides information about the error.</p>
+   */
+  message?: string;
+}
+
+export namespace ConcurrentModificationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConcurrentModificationException): any => ({
+    ...obj,
+  });
+}
+
+export enum ContentEncoding {
+  GZIP = "GZIP",
+  NONE = "NONE",
+}
+
+/**
+ * <p>Describes a <code>COPY</code> command for Amazon Redshift.</p>
+ */
+export interface CopyCommand {
+  /**
+   * <p>The name of the target table. The table must already exist in the database.</p>
+   */
+  DataTableName: string | undefined;
+
+  /**
+   * <p>A comma-separated list of column names.</p>
+   */
+  DataTableColumns?: string;
+
+  /**
+   * <p>Optional parameters to use with the Amazon Redshift <code>COPY</code> command. For
+   *          more information, see the "Optional Parameters" section of <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html">Amazon Redshift COPY command</a>. Some possible
+   *          examples that would apply to Kinesis Data Firehose are as follows:</p>
+   *          <p>
+   *             <code>delimiter '\t' lzop;</code> - fields are delimited with "\t" (TAB character) and
+   *          compressed using lzop.</p>
+   *          <p>
+   *             <code>delimiter '|'</code> - fields are delimited with "|" (this is the default
+   *          delimiter).</p>
+   *          <p>
+   *             <code>delimiter '|' escape</code> - the delimiter should be escaped.</p>
+   *          <p>
+   *             <code>fixedwidth 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'</code> -
+   *          fields are fixed width in the source, with each width specified after every column in the
+   *          table.</p>
+   *          <p>
+   *             <code>JSON 's3://mybucket/jsonpaths.txt'</code> - data is in JSON format, and the path
+   *          specified is the format of the data.</p>
+   *          <p>For more examples, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html">Amazon Redshift COPY command
+   *             examples</a>.</p>
+   */
+  CopyOptions?: string;
+}
+
+export namespace CopyCommand {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CopyCommand): any => ({
+    ...obj,
+  });
+}
+
+export enum KeyType {
+  AWS_OWNED_CMK = "AWS_OWNED_CMK",
+  CUSTOMER_MANAGED_CMK = "CUSTOMER_MANAGED_CMK",
+}
+
+/**
+ * <p>Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side
+ *          Encryption (SSE). </p>
+ */
+export interface DeliveryStreamEncryptionConfigurationInput {
+  /**
+   * <p>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
+   *          the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to
+   *             <code>AWS_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</p>
+   */
+  KeyARN?: string;
+
+  /**
+   * <p>Indicates the type of customer master key (CMK) to use for encryption. The default
+   *          setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
+   *             Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or
+   *             <a>StartDeliveryStreamEncryption</a> with <code>KeyType</code> set to
+   *          CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a> to create a grant that allows the Kinesis Data Firehose service to
+   *          use the customer managed CMK to perform encryption and decryption. Kinesis Data Firehose
+   *          manages that grant. </p>
+   *          <p>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a
+   *          delivery stream that is encrypted with a customer managed CMK, Kinesis Data Firehose
+   *          schedules the grant it had on the old CMK for retirement.</p>
+   *          <p>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams. If
+   *          a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
+   *          operation exceeds this limit, Kinesis Data Firehose throws a
+   *             <code>LimitExceededException</code>. </p>
+   *          <important>
+   *             <p>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
+   *             support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
+   *                Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer
+   *             guide.</p>
+   *          </important>
+   */
+  KeyType: KeyType | string | undefined;
+}
+
+export namespace DeliveryStreamEncryptionConfigurationInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeliveryStreamEncryptionConfigurationInput): any => ({
+    ...obj,
+  });
+}
+
+export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
+
+/**
+ * <p>Describes the buffering to perform before delivering data to the Amazon ES
+ *          destination.</p>
+ */
+export interface ElasticsearchBufferingHints {
+  /**
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering
+   *          it to the destination. The default value is 300 (5 minutes).</p>
+   */
+  IntervalInSeconds?: number;
+
+  /**
+   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the
+   *          destination. The default value is 5.</p>
+   *          <p>We recommend setting this parameter to a value greater than the amount of data you
+   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
+   *          ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>
+   */
+  SizeInMBs?: number;
+}
+
+export namespace ElasticsearchBufferingHints {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticsearchBufferingHints): any => ({
+    ...obj,
+  });
+}
+
+export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek";
+
+/**
+ * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
+ *          documents to Amazon ES.</p>
+ */
+export interface ElasticsearchRetryOptions {
+  /**
+   * <p>After an initial failure to deliver to Amazon ES, the total amount of time during
+   *          which Kinesis Data Firehose retries delivery (including the first attempt). After this time
+   *          has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5
+   *          minutes). A value of 0 (zero) results in no retries.</p>
+   */
+  DurationInSeconds?: number;
+}
+
+export namespace ElasticsearchRetryOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ElasticsearchRetryOptions): any => ({
+    ...obj,
+  });
+}
+
+export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
 
 /**
  * <p>Describes the configuration of a destination in Amazon ES.</p>
@@ -1815,6 +2203,7 @@ export interface CreateDeliveryStreamInput {
    */
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
 
+  AmazonopensearchserviceDestinationConfiguration?: AmazonopensearchserviceDestinationConfiguration;
   /**
    * <p>The destination in Splunk. You can specify only one destination.</p>
    */
@@ -2124,172 +2513,6 @@ export enum DeliveryStreamStatus {
   CREATING_FAILED = "CREATING_FAILED",
   DELETING = "DELETING",
   DELETING_FAILED = "DELETING_FAILED",
-}
-
-/**
- * <p>Describes a destination in Amazon S3.</p>
- */
-export interface S3DestinationDescription {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  RoleARN: string | undefined;
-
-  /**
-   * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
-   */
-  BucketARN: string | undefined;
-
-  /**
-   * <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3
-   *          files. You can also specify a custom prefix, as described in <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
-   *          Objects</a>.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing
-   *          them to S3. This prefix appears immediately following the bucket name. For information
-   *          about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
-   *          Objects</a>.</p>
-   */
-  ErrorOutputPrefix?: string;
-
-  /**
-   * <p>The buffering option. If no value is specified, <code>BufferingHints</code> object
-   *          default values are used.</p>
-   */
-  BufferingHints: BufferingHints | undefined;
-
-  /**
-   * <p>The compression format. If no value is specified, the default is
-   *             <code>UNCOMPRESSED</code>.</p>
-   */
-  CompressionFormat: CompressionFormat | string | undefined;
-
-  /**
-   * <p>The encryption configuration. If no value is specified, the default is no
-   *          encryption.</p>
-   */
-  EncryptionConfiguration: EncryptionConfiguration | undefined;
-
-  /**
-   * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
-   */
-  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace S3DestinationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationDescription): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The details of the VPC of the Amazon ES destination.</p>
- */
-export interface VpcConfigurationDescription {
-  /**
-   * <p>The IDs of the subnets that Kinesis Data Firehose uses to create ENIs in the VPC of the
-   *          Amazon ES destination. Make sure that the routing tables and inbound and outbound rules
-   *          allow traffic to flow from the subnets whose IDs are specified here to the subnets that
-   *          have the destination Amazon ES endpoints. Kinesis Data Firehose creates at least one ENI in
-   *          each of the subnets that are specified here. Do not delete or modify these ENIs.</p>
-   *          <p>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
-   *          scales up and down automatically based on throughput. To enable Kinesis Data Firehose to
-   *          scale up the number of ENIs to match throughput, ensure that you have sufficient quota. To
-   *          help you calculate the quota you need, assume that Kinesis Data Firehose can create up to
-   *          three ENIs for this delivery stream for each of the subnets specified here. For more
-   *          information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network Interfaces
-   *          </a> in the Amazon VPC Quotas topic.</p>
-   */
-  SubnetIds: string[] | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that the delivery stream uses to create endpoints in the
-   *          destination VPC. You can use your existing Kinesis Data Firehose delivery role or you can
-   *          specify a new role. In either case, make sure that the role trusts the Kinesis Data
-   *          Firehose service principal and that it grants the following permissions:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeVpcs</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeVpcAttribute</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeSubnets</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeSecurityGroups</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DescribeNetworkInterfaces</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:CreateNetworkInterface</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:CreateNetworkInterfacePermission</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ec2:DeleteNetworkInterface</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>If you revoke these permissions after you create the delivery stream, Kinesis Data
-   *          Firehose can't scale out by creating more ENIs when necessary. You might therefore see a
-   *          degradation in performance.</p>
-   */
-  RoleARN: string | undefined;
-
-  /**
-   * <p>The IDs of the security groups that Kinesis Data Firehose uses when it creates ENIs in
-   *          the VPC of the Amazon ES destination. You can use the same security group that the Amazon
-   *          ES domain uses or different ones. If you specify different security groups, ensure that
-   *          they allow outbound HTTPS traffic to the Amazon ES domain's security group. Also ensure
-   *          that the Amazon ES domain's security group allows HTTPS traffic from the security groups
-   *          specified here. If you use the same security group for both your delivery stream and the
-   *          Amazon ES domain, make sure the security group inbound rule allows HTTPS traffic. For more
-   *          information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security group
-   *             rules</a> in the Amazon VPC documentation.</p>
-   */
-  SecurityGroupIds: string[] | undefined;
-
-  /**
-   * <p>The ID of the Amazon ES destination's VPC.</p>
-   */
-  VpcId: string | undefined;
-}
-
-export namespace VpcConfigurationDescription {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpcConfigurationDescription): any => ({
-    ...obj,
-  });
 }
 
 /**
@@ -2740,6 +2963,7 @@ export interface DestinationDescription {
    */
   ElasticsearchDestinationDescription?: ElasticsearchDestinationDescription;
 
+  AmazonopensearchserviceDestinationDescription?: AmazonopensearchserviceDestinationDescription;
   /**
    * <p>The destination in Splunk.</p>
    */
@@ -2970,74 +3194,6 @@ export namespace DescribeDeliveryStreamOutput {
     ...(obj.DeliveryStreamDescription && {
       DeliveryStreamDescription: DeliveryStreamDescription.filterSensitiveLog(obj.DeliveryStreamDescription),
     }),
-  });
-}
-
-/**
- * <p>Describes an update for a destination in Amazon S3.</p>
- */
-export interface S3DestinationUpdate {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
-   */
-  BucketARN?: string;
-
-  /**
-   * <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3
-   *          files. You can also specify a custom prefix, as described in <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
-   *          Objects</a>.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing
-   *          them to S3. This prefix appears immediately following the bucket name. For information
-   *          about how to specify this prefix, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html">Custom Prefixes for Amazon S3
-   *          Objects</a>.</p>
-   */
-  ErrorOutputPrefix?: string;
-
-  /**
-   * <p>The buffering option. If no value is specified, <code>BufferingHints</code> object
-   *          default values are used.</p>
-   */
-  BufferingHints?: BufferingHints;
-
-  /**
-   * <p>The compression format. If no value is specified, the default is
-   *             <code>UNCOMPRESSED</code>.</p>
-   *          <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified
-   *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
-   *             <code>COPY</code> operation that reads from the S3 bucket.</p>
-   */
-  CompressionFormat?: CompressionFormat | string;
-
-  /**
-   * <p>The encryption configuration. If no value is specified, the default is no
-   *          encryption.</p>
-   */
-  EncryptionConfiguration?: EncryptionConfiguration;
-
-  /**
-   * <p>The CloudWatch logging options for your delivery stream.</p>
-   */
-  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
-}
-
-export namespace S3DestinationUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: S3DestinationUpdate): any => ({
-    ...obj,
   });
 }
 
@@ -3912,6 +4068,7 @@ export interface UpdateDestinationInput {
    */
   ElasticsearchDestinationUpdate?: ElasticsearchDestinationUpdate;
 
+  AmazonopensearchserviceDestinationUpdate?: AmazonopensearchserviceDestinationUpdate;
   /**
    * <p>Describes an update for a destination in Splunk.</p>
    */

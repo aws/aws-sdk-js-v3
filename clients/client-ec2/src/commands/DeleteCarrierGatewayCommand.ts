@@ -12,8 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteCarrierGatewayRequest } from "../models/models_1";
-import { DeleteCarrierGatewayResult } from "../models/models_2";
+import { DeleteCarrierGatewayRequest, DeleteCarrierGatewayResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteCarrierGatewayCommand,
   serializeAws_ec2DeleteCarrierGatewayCommand,

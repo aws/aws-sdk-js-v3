@@ -67,6 +67,7 @@ export enum ScalableDimension {
   ElastiCacheReplicationGroupReplicas = "elasticache:replication-group:Replicas",
   KafkaBrokerStorageVolumeSize = "kafka:broker-storage:VolumeSize",
   LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
+  NeptuneClusterReadReplicaCount = "neptune:cluster:ReadReplicaCount",
   RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
   SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
 }
@@ -83,6 +84,7 @@ export enum ServiceNamespace {
   EMR = "elasticmapreduce",
   KAFKA = "kafka",
   LAMBDA = "lambda",
+  NEPTUNE = "neptune",
   RDS = "rds",
   SAGEMAKER = "sagemaker",
 }
@@ -108,7 +110,7 @@ export interface DeleteScalingPolicyRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -132,7 +134,7 @@ export interface DeleteScalingPolicyRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -162,6 +164,9 @@ export interface DeleteScalingPolicyRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -179,7 +184,7 @@ export interface DeleteScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -207,7 +212,7 @@ export interface DeleteScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -244,6 +249,10 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -350,7 +359,7 @@ export interface DeleteScheduledActionRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -374,7 +383,7 @@ export interface DeleteScheduledActionRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -404,6 +413,9 @@ export interface DeleteScheduledActionRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -421,7 +433,7 @@ export interface DeleteScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -449,7 +461,7 @@ export interface DeleteScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -486,6 +498,10 @@ export interface DeleteScheduledActionRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -528,7 +544,7 @@ export interface DeregisterScalableTargetRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -552,7 +568,7 @@ export interface DeregisterScalableTargetRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -582,6 +598,9 @@ export interface DeregisterScalableTargetRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -600,7 +619,7 @@ export interface DeregisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -628,7 +647,7 @@ export interface DeregisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -665,6 +684,10 @@ export interface DeregisterScalableTargetRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -707,7 +730,7 @@ export interface DescribeScalableTargetsRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -731,7 +754,7 @@ export interface DescribeScalableTargetsRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -761,6 +784,9 @@ export interface DescribeScalableTargetsRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceIds?: string[];
@@ -779,7 +805,7 @@ export interface DescribeScalableTargetsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -807,7 +833,7 @@ export interface DescribeScalableTargetsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -844,6 +870,10 @@ export interface DescribeScalableTargetsRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -930,7 +960,7 @@ export interface ScalableTarget {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -954,7 +984,7 @@ export interface ScalableTarget {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -984,6 +1014,9 @@ export interface ScalableTarget {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -1002,7 +1035,7 @@ export interface ScalableTarget {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -1030,7 +1063,7 @@ export interface ScalableTarget {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1067,6 +1100,10 @@ export interface ScalableTarget {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -1165,7 +1202,7 @@ export interface DescribeScalingActivitiesRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -1189,7 +1226,7 @@ export interface DescribeScalingActivitiesRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -1219,6 +1256,9 @@ export interface DescribeScalingActivitiesRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1237,7 +1277,7 @@ export interface DescribeScalingActivitiesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -1265,7 +1305,7 @@ export interface DescribeScalingActivitiesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1302,6 +1342,10 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -1366,7 +1410,7 @@ export interface ScalingActivity {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -1390,7 +1434,7 @@ export interface ScalingActivity {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -1420,6 +1464,9 @@ export interface ScalingActivity {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -1437,7 +1484,7 @@ export interface ScalingActivity {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -1465,7 +1512,7 @@ export interface ScalingActivity {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1502,6 +1549,10 @@ export interface ScalingActivity {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -1595,7 +1646,7 @@ export interface DescribeScalingPoliciesRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -1619,7 +1670,7 @@ export interface DescribeScalingPoliciesRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -1649,6 +1700,9 @@ export interface DescribeScalingPoliciesRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -1667,7 +1721,7 @@ export interface DescribeScalingPoliciesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -1695,7 +1749,7 @@ export interface DescribeScalingPoliciesRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -1733,18 +1787,22 @@ export interface DescribeScalingPoliciesRequest {
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
    *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *            </li>
    *          </ul>
    */
   ScalableDimension?: ScalableDimension | string;
 
   /**
-   * <p>The maximum number of scalable targets. This value can be between 1 and
-   *          50. The default value is 50.</p>
+   * <p>The maximum number of scalable targets. This value can be between 1 and 10. The default
+   *          value is 10.</p>
    *          <p>If this parameter is used, the operation returns up to <code>MaxResults</code> results
    *          at a time, along with a <code>NextToken</code> value. To get the next set of results,
    *          include the <code>NextToken</code> value in a subsequent call. If this parameter is not
-   *          used, the operation returns up to 50 results and a
-   *             <code>NextToken</code> value, if applicable.</p>
+   *          used, the operation returns up to 10 results and a <code>NextToken</code> value, if
+   *          applicable.</p>
    */
   MaxResults?: number;
 
@@ -1901,22 +1959,25 @@ export interface StepScalingPolicyConfiguration {
    *           and a default value of 300 for the following scalable targets:</p>
    *          <ul>
    *             <li>
-   *                <p>ECS services</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet requests</p>
-   *            </li>
-   *             <li>
-   *                <p>EMR clusters</p>
-   *            </li>
-   *             <li>
    *                <p>AppStream 2.0 fleets</p>
    *            </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variants</p>
+   *                <p>ECS services</p>
+   *            </li>
+   *             <li>
+   *                <p>EMR clusters</p>
+   *            </li>
+   *             <li>
+   *                <p> Neptune clusters</p>
+   *            </li>
+   *             <li>
+   *                <p>SageMaker endpoint variants</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleets</p>
    *            </li>
    *             <li>
    *                <p>Custom resources</p>
@@ -1925,19 +1986,16 @@ export interface StepScalingPolicyConfiguration {
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
-   *                <p>DynamoDB tables</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary indexes</p>
-   *            </li>
-   *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
    *            </li>
    *             <li>
-   *                <p>Lambda provisioned concurrency</p>
+   *                <p>DynamoDB tables and global secondary indexes</p>
    *            </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
+   *            </li>
+   *             <li>
+   *                <p>Lambda provisioned concurrency</p>
    *            </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
@@ -2075,6 +2133,7 @@ export enum MetricType {
   ElastiCacheReplicaEngineCPUUtilization = "ElastiCacheReplicaEngineCPUUtilization",
   KafkaBrokerStorageUtilization = "KafkaBrokerStorageUtilization",
   LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
+  NeptuneReaderAverageCPUUtilization = "NeptuneReaderAverageCPUUtilization",
   RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
   SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
@@ -2169,22 +2228,25 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *           and a default value of 300 for the following scalable targets:</p>
    *          <ul>
    *             <li>
-   *                <p>ECS services</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet requests</p>
-   *            </li>
-   *             <li>
-   *                <p>EMR clusters</p>
-   *            </li>
-   *             <li>
    *                <p>AppStream 2.0 fleets</p>
    *            </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variants</p>
+   *                <p>ECS services</p>
+   *            </li>
+   *             <li>
+   *                <p>EMR clusters</p>
+   *            </li>
+   *             <li>
+   *                <p> Neptune clusters</p>
+   *            </li>
+   *             <li>
+   *                <p>SageMaker endpoint variants</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleets</p>
    *            </li>
    *             <li>
    *                <p>Custom resources</p>
@@ -2193,19 +2255,16 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
-   *                <p>DynamoDB tables</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary indexes</p>
-   *            </li>
-   *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
    *            </li>
    *             <li>
-   *                <p>Lambda provisioned concurrency</p>
+   *                <p>DynamoDB tables and global secondary indexes</p>
    *            </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
+   *            </li>
+   *             <li>
+   *                <p>Lambda provisioned concurrency</p>
    *            </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
@@ -2226,22 +2285,25 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *           and a default value of 300 for the following scalable targets:</p>
    *          <ul>
    *             <li>
-   *                <p>ECS services</p>
-   *            </li>
-   *             <li>
-   *                <p>Spot Fleet requests</p>
-   *            </li>
-   *             <li>
-   *                <p>EMR clusters</p>
-   *            </li>
-   *             <li>
    *                <p>AppStream 2.0 fleets</p>
    *            </li>
    *             <li>
    *                <p>Aurora DB clusters</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variants</p>
+   *                <p>ECS services</p>
+   *            </li>
+   *             <li>
+   *                <p>EMR clusters</p>
+   *            </li>
+   *             <li>
+   *                <p> Neptune clusters</p>
+   *            </li>
+   *             <li>
+   *                <p>SageMaker endpoint variants</p>
+   *            </li>
+   *             <li>
+   *                <p>Spot Fleets</p>
    *            </li>
    *             <li>
    *                <p>Custom resources</p>
@@ -2250,19 +2312,16 @@ export interface TargetTrackingScalingPolicyConfiguration {
    *          <p>For all other scalable targets, the default value is 0:</p>
    *          <ul>
    *             <li>
-   *                <p>DynamoDB tables</p>
-   *            </li>
-   *             <li>
-   *                <p>DynamoDB global secondary indexes</p>
-   *            </li>
-   *             <li>
    *                <p>Amazon Comprehend document classification and entity recognizer endpoints</p>
    *            </li>
    *             <li>
-   *                <p>Lambda provisioned concurrency</p>
+   *                <p>DynamoDB tables and global secondary indexes</p>
    *            </li>
    *             <li>
    *                <p>Amazon Keyspaces tables</p>
+   *            </li>
+   *             <li>
+   *                <p>Lambda provisioned concurrency</p>
    *            </li>
    *             <li>
    *                <p>Amazon MSK broker storage</p>
@@ -2322,7 +2381,7 @@ export interface ScalingPolicy {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -2346,7 +2405,7 @@ export interface ScalingPolicy {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -2376,6 +2435,9 @@ export interface ScalingPolicy {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -2393,7 +2455,7 @@ export interface ScalingPolicy {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -2421,7 +2483,7 @@ export interface ScalingPolicy {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2458,6 +2520,10 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -2562,7 +2628,7 @@ export interface DescribeScheduledActionsRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -2586,7 +2652,7 @@ export interface DescribeScheduledActionsRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -2616,6 +2682,9 @@ export interface DescribeScheduledActionsRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId?: string;
@@ -2634,7 +2703,7 @@ export interface DescribeScheduledActionsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -2662,7 +2731,7 @@ export interface DescribeScheduledActionsRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2699,6 +2768,10 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -2824,7 +2897,7 @@ export interface ScheduledAction {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -2848,7 +2921,7 @@ export interface ScheduledAction {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -2878,6 +2951,9 @@ export interface ScheduledAction {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -2895,7 +2971,7 @@ export interface ScheduledAction {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -2923,7 +2999,7 @@ export interface ScheduledAction {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -2960,6 +3036,10 @@ export interface ScheduledAction {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -3059,7 +3139,7 @@ export interface PutScalingPolicyRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -3083,7 +3163,7 @@ export interface PutScalingPolicyRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -3113,6 +3193,9 @@ export interface PutScalingPolicyRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3130,7 +3213,7 @@ export interface PutScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -3158,7 +3241,7 @@ export interface PutScalingPolicyRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3196,6 +3279,10 @@ export interface PutScalingPolicyRequest {
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
    *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
+   *            </li>
    *          </ul>
    */
   ScalableDimension: ScalableDimension | string | undefined;
@@ -3206,8 +3293,8 @@ export interface PutScalingPolicyRequest {
    *          <p>
    *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR</p>
    *          <p>
-   *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces (for Apache
-   *       Cassandra), Amazon MSK, or Amazon ElastiCache for Redis.</p>
+   *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
+   *       Neptune.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
@@ -3315,7 +3402,7 @@ export interface PutScheduledActionRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -3339,7 +3426,7 @@ export interface PutScheduledActionRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -3369,6 +3456,9 @@ export interface PutScheduledActionRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3386,7 +3476,7 @@ export interface PutScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -3414,7 +3504,7 @@ export interface PutScheduledActionRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3451,6 +3541,10 @@ export interface PutScheduledActionRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */
@@ -3511,7 +3605,7 @@ export interface RegisterScalableTargetRequest {
    *                and service name. Example: <code>service/default/sample-webapp</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Spot Fleet request - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
+   *                <p>Spot Fleet - The resource type is <code>spot-fleet-request</code> and the unique identifier is the
    *                Spot Fleet request ID. Example: <code>spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE</code>.</p>
    *            </li>
    *             <li>
@@ -3535,7 +3629,7 @@ export interface RegisterScalableTargetRequest {
    *                Example: <code>cluster:my-db-cluster</code>.</p>
    *            </li>
    *             <li>
-   *                <p>Amazon SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
+   *                <p>SageMaker endpoint variant - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *            </li>
    *             <li>
@@ -3565,6 +3659,9 @@ export interface RegisterScalableTargetRequest {
    *                <p>Amazon ElastiCache replication group - The resource type is <code>replication-group</code> and the unique identifier is the replication group name.
    *                Example: <code>replication-group/mycluster</code>.</p>
    *            </li>
+   *             <li>
+   *                <p>Neptune cluster - The resource type is <code>cluster</code> and the unique identifier is the cluster name. Example: <code>cluster:mycluster</code>.</p>
+   *            </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3583,7 +3680,7 @@ export interface RegisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet request.</p>
+   *                   <code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot Fleet.</p>
    *            </li>
    *             <li>
    *                <p>
@@ -3611,7 +3708,7 @@ export interface RegisterScalableTargetRequest {
    *            </li>
    *             <li>
    *                <p>
-   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an Amazon SageMaker model endpoint variant.</p>
+   *                   <code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances for an SageMaker model endpoint variant.</p>
    *            </li>
    *             <li>
    *               <p>
@@ -3648,6 +3745,10 @@ export interface RegisterScalableTargetRequest {
    *             <li>
    *                <p>
    *                   <code>elasticache:replication-group:Replicas</code> - The number of replicas per node group for an Amazon ElastiCache replication group.</p>
+   *            </li>
+   *             <li>
+   *                <p>
+   *                   <code>neptune:cluster:ReadReplicaCount</code> - The count of read replicas in an Amazon Neptune DB cluster.</p>
    *            </li>
    *          </ul>
    */

@@ -2,13 +2,16 @@ import {
   _InstanceType,
   AddressAttribute,
   AddressAttributeName,
+  ApplianceModeSupportValue,
   BlockDeviceMapping,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
+  DnsSupportValue,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
+  Ipv6SupportValue,
   Placement,
   RouteTableAssociationState,
   TagSpecification,
@@ -17,9 +20,13 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VolumeType,
 } from "./models_0";
 import {
+  AutoAcceptSharedAttachmentsValue,
   CreditSpecificationRequest,
+  DefaultRouteTableAssociationValue,
+  DefaultRouteTablePropagationValue,
   ElasticGpuSpecification,
   IcmpTypeCode,
   IKEVersionsRequestListValue,
@@ -38,19 +45,24 @@ import {
   RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
+  TrafficMirrorSession,
+  TransitGateway,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
-  VpnConnection,
+  VpnEcmpSupportValue,
 } from "./models_1";
 import {
   ArchitectureValues,
   BootModeValues,
   ClientVpnConnectionStatus,
   Filter,
-  InstanceAttributeName,
   InstanceTagNotificationAttribute,
+  VpnConnection,
 } from "./models_2";
 import {
+  AttributeBooleanValue,
   HttpTokensState,
+  InstanceAttributeName,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
   InstanceNetworkInterfaceSpecification,
@@ -64,7 +76,580 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, Purchase } from "./models_4";
+import { CapacityReservationSpecification, Purchase, VolumeModification } from "./models_4";
+
+export interface ModifyTrafficMirrorSessionResult {
+  /**
+   * <p>Information about the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSession?: TrafficMirrorSession;
+}
+
+export namespace ModifyTrafficMirrorSessionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The transit gateway options.</p>
+ */
+export interface ModifyTransitGatewayOptions {
+  /**
+   * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   */
+  AddTransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>Removes CIDR blocks for the transit gateway.</p>
+   */
+  RemoveTransitGatewayCidrBlocks?: string[];
+
+  /**
+   * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+
+  /**
+   * <p>Enable or disable DNS support.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Enable or disable automatic acceptance of attachment requests.</p>
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+
+  /**
+   * <p>Enable or disable automatic association with the default association route table.</p>
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+
+  /**
+   * <p>The ID of the default association route table.</p>
+   */
+  AssociationDefaultRouteTableId?: string;
+
+  /**
+   * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+
+  /**
+   * <p>The ID of the default propagation route table.</p>
+   */
+  PropagationDefaultRouteTableId?: string;
+}
+
+export namespace ModifyTransitGatewayOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The description for the transit gateway.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The options to modify.</p>
+   */
+  Options?: ModifyTransitGatewayOptions;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTransitGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayResult {
+  /**
+   * <p>Describes a transit gateway.</p>
+   */
+  TransitGateway?: TransitGateway;
+}
+
+export namespace ModifyTransitGatewayResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayPrefixListReferenceRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment to which traffic is routed.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>Indicates whether to drop traffic that matches this route.</p>
+   */
+  Blackhole?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTransitGatewayPrefixListReferenceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayPrefixListReferenceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayPrefixListReferenceResult {
+  /**
+   * <p>Information about the prefix list reference.</p>
+   */
+  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference;
+}
+
+export namespace ModifyTransitGatewayPrefixListReferenceResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayPrefixListReferenceResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the options for a VPC attachment.</p>
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   */
+  DnsSupport?: DnsSupportValue | string;
+
+  /**
+   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   */
+  Ipv6Support?: Ipv6SupportValue | string;
+
+  /**
+   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   */
+  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+}
+
+export namespace ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequestOptions): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
+   */
+  AddSubnetIds?: string[];
+
+  /**
+   * <p>The IDs of one or more subnets to remove.</p>
+   */
+  RemoveSubnetIds?: string[];
+
+  /**
+   * <p>The new VPC attachment options.</p>
+   */
+  Options?: ModifyTransitGatewayVpcAttachmentRequestOptions;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTransitGatewayVpcAttachmentRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the modified attachment.</p>
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+export namespace ModifyTransitGatewayVpcAttachmentResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTransitGatewayVpcAttachmentResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVolumeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>The target size of the volume, in GiB. The target volume size must be greater than or
+   *       equal to the existing size of the volume.</p>
+   *          <p>The following are the supported volumes sizes for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: The existing size is retained.</p>
+   */
+  Size?: number;
+
+  /**
+   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>Default: The existing type is retained.</p>
+   */
+  VolumeType?: VolumeType | string;
+
+  /**
+   * <p>The target IOPS rate of the volume. This parameter is valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
+   *          <p>The following are the supported values for each volume type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: The existing value is retained if you keep the same volume type. If you change
+   *       the volume type to <code>io1</code>, <code>io2</code>, or <code>gp3</code>, the default is 3,000.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The target throughput of the volume, in MiB/s. This parameter is valid only for <code>gp3</code> volumes.
+   *       The maximum value is 1,000.</p>
+   *          <p>Default: The existing value is retained if the source and target volume type is <code>gp3</code>.
+   *       Otherwise, the default value is 125.</p>
+   *   	      <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   */
+  Throughput?: number;
+
+  /**
+   * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
+   * 		volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
+   * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
+   * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
+   * 		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  MultiAttachEnabled?: boolean;
+}
+
+export namespace ModifyVolumeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVolumeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVolumeResult {
+  /**
+   * <p>Information about the volume modification.</p>
+   */
+  VolumeModification?: VolumeModification;
+}
+
+export namespace ModifyVolumeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVolumeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVolumeAttributeRequest {
+  /**
+   * <p>Indicates whether the volume should be auto-enabled for I/O operations.</p>
+   */
+  AutoEnableIO?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyVolumeAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVolumeAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcAttributeRequest {
+  /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames. If enabled, instances in the VPC get DNS hostnames; otherwise, they do not.</p>
+   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute. You can only enable DNS hostnames if you've enabled DNS support.</p>
+   */
+  EnableDnsHostnames?: AttributeBooleanValue;
+
+  /**
+   * <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to
+   * 			the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP
+   * 			address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon
+   * 			provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is
+   * 			not enabled.</p>
+   *          <p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
+   */
+  EnableDnsSupport?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+}
+
+export namespace ModifyVpcAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ModifyVpcEndpoint.</p>
+ */
+export interface ModifyVpcEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the endpoint.</p>
+   */
+  VpcEndpointId: string | undefined;
+
+  /**
+   * <p>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the
+   *             default policy. The default policy allows full access to the service.</p>
+   */
+  ResetPolicy?: boolean;
+
+  /**
+   * <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must
+   *             be in valid JSON format.</p>
+   */
+  PolicyDocument?: string;
+
+  /**
+   * <p>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</p>
+   */
+  AddRouteTableIds?: string[];
+
+  /**
+   * <p>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</p>
+   */
+  RemoveRouteTableIds?: string[];
+
+  /**
+   * <p>(Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
+   */
+  AddSubnetIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</p>
+   */
+  RemoveSubnetIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) One or more security group IDs to associate with the network interface.</p>
+   */
+  AddSecurityGroupIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) One or more security group IDs to disassociate from the network interface.</p>
+   */
+  RemoveSecurityGroupIds?: string[];
+
+  /**
+   * <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the
+   *             VPC.</p>
+   */
+  PrivateDnsEnabled?: boolean;
+}
+
+export namespace ModifyVpcEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifyVpcEndpointResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointConnectionNotificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the notification.</p>
+   */
+  ConnectionNotificationId: string | undefined;
+
+  /**
+   * <p>The ARN for the SNS topic for the notification.</p>
+   */
+  ConnectionNotificationArn?: string;
+
+  /**
+   * <p>One or more events for the endpoint. Valid values are <code>Accept</code>,
+   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   */
+  ConnectionEvents?: string[];
+}
+
+export namespace ModifyVpcEndpointConnectionNotificationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyVpcEndpointConnectionNotificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  ReturnValue?: boolean;
+}
+
+export namespace ModifyVpcEndpointConnectionNotificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyVpcEndpointConnectionNotificationResult): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyVpcEndpointServiceConfigurationRequest {
   /**

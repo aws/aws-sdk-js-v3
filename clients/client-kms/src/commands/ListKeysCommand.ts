@@ -19,8 +19,7 @@ export interface ListKeysCommandInput extends ListKeysRequest {}
 export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and
- *       Region.</p>
+ * <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *

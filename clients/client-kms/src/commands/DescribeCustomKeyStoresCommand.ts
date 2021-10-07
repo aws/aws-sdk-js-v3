@@ -26,10 +26,10 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *          <p>This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">Custom Key Store feature</a> feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * single-tenant key store.</p>
- *          <p>By default, this operation returns information about all custom key stores in the account and
- *       Region. To get only information about a particular custom key store, use either the
- *         <code>CustomKeyStoreName</code> or <code>CustomKeyStoreId</code> parameter (but not
- *       both).</p>
+ *          <p>By default, this operation returns information about all custom key
+ *       stores in the account and Region. To get only information about a particular custom key store,
+ *       use either the <code>CustomKeyStoreName</code> or <code>CustomKeyStoreId</code> parameter (but
+ *       not both).</p>
  *          <p>To determine whether the custom key store is connected to its CloudHSM cluster, use the
  *         <code>ConnectionState</code> element in the response. If an attempt to connect the custom
  *       key store failed, the <code>ConnectionState</code> value is <code>FAILED</code> and the

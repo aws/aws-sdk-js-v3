@@ -47,6 +47,11 @@ import {
   DeleteBackupVaultCommandOutput,
 } from "./commands/DeleteBackupVaultCommand";
 import {
+  DeleteBackupVaultLockConfigurationCommand,
+  DeleteBackupVaultLockConfigurationCommandInput,
+  DeleteBackupVaultLockConfigurationCommandOutput,
+} from "./commands/DeleteBackupVaultLockConfigurationCommand";
+import {
   DeleteBackupVaultNotificationsCommand,
   DeleteBackupVaultNotificationsCommandInput,
   DeleteBackupVaultNotificationsCommandOutput,
@@ -247,6 +252,11 @@ import {
   PutBackupVaultAccessPolicyCommandInput,
   PutBackupVaultAccessPolicyCommandOutput,
 } from "./commands/PutBackupVaultAccessPolicyCommand";
+import {
+  PutBackupVaultLockConfigurationCommand,
+  PutBackupVaultLockConfigurationCommandInput,
+  PutBackupVaultLockConfigurationCommandOutput,
+} from "./commands/PutBackupVaultLockConfigurationCommand";
 import {
   PutBackupVaultNotificationsCommand,
   PutBackupVaultNotificationsCommandInput,
@@ -472,8 +482,7 @@ export class Backup extends BackupClient {
    * <p>Creates a framework with one or more controls. A framework is a collection of controls
    *          that you can use to evaluate your backup practices. By using pre-built customizable
    *          controls to define your policies, you can evaluate whether your backup practices comply
-   *          with your policies. To get insights into the compliance status of your frameworks, you can
-   *          set up automatic daily reports.</p>
+   *          with your policies and which resources are not yet in compliance.</p>
    */
   public createFramework(
     args: CreateFrameworkCommandInput,
@@ -661,6 +670,43 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: DeleteBackupVaultAccessPolicyCommandOutput) => void
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> | void {
     const command = new DeleteBackupVaultAccessPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes Backup Vault Lock from a backup vault specified by a backup vault
+   *          name.</p>
+   *          <p>If the Vault Lock configuration is immutable, then you cannot delete Vault Lock using
+   *          API operations, and you will receive an <code>InvalidRequestException</code> if you attempt
+   *          to do so. For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html">Vault Lock</a> in the
+   *                <i>Backup Developer Guide</i>.</p>
+   */
+  public deleteBackupVaultLockConfiguration(
+    args: DeleteBackupVaultLockConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBackupVaultLockConfigurationCommandOutput>;
+  public deleteBackupVaultLockConfiguration(
+    args: DeleteBackupVaultLockConfigurationCommandInput,
+    cb: (err: any, data?: DeleteBackupVaultLockConfigurationCommandOutput) => void
+  ): void;
+  public deleteBackupVaultLockConfiguration(
+    args: DeleteBackupVaultLockConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBackupVaultLockConfigurationCommandOutput) => void
+  ): void;
+  public deleteBackupVaultLockConfiguration(
+    args: DeleteBackupVaultLockConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupVaultLockConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBackupVaultLockConfigurationCommandOutput) => void
+  ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> | void {
+    const command = new DeleteBackupVaultLockConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2007,6 +2053,42 @@ export class Backup extends BackupClient {
     cb?: (err: any, data?: PutBackupVaultAccessPolicyCommandOutput) => void
   ): Promise<PutBackupVaultAccessPolicyCommandOutput> | void {
     const command = new PutBackupVaultAccessPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies Backup Vault Lock to a backup vault, preventing attempts to delete
+   *          any recovery point stored in or created in a backup vault. Vault Lock also prevents
+   *          attempts to update the lifecycle policy that controls the retention period of any recovery
+   *          point currently stored in a backup vault. If specified, Vault Lock enforces a minimum and
+   *          maximum retention period for future backup and copy jobs that target a backup vault.</p>
+   */
+  public putBackupVaultLockConfiguration(
+    args: PutBackupVaultLockConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBackupVaultLockConfigurationCommandOutput>;
+  public putBackupVaultLockConfiguration(
+    args: PutBackupVaultLockConfigurationCommandInput,
+    cb: (err: any, data?: PutBackupVaultLockConfigurationCommandOutput) => void
+  ): void;
+  public putBackupVaultLockConfiguration(
+    args: PutBackupVaultLockConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBackupVaultLockConfigurationCommandOutput) => void
+  ): void;
+  public putBackupVaultLockConfiguration(
+    args: PutBackupVaultLockConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBackupVaultLockConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutBackupVaultLockConfigurationCommandOutput) => void
+  ): Promise<PutBackupVaultLockConfigurationCommandOutput> | void {
+    const command = new PutBackupVaultLockConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

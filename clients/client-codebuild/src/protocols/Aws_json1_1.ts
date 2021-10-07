@@ -4128,6 +4128,8 @@ const serializeAws_json1_1ProjectArtifactsList = (input: ProjectArtifacts[], con
 
 const serializeAws_json1_1ProjectBuildBatchConfig = (input: ProjectBuildBatchConfig, context: __SerdeContext): any => {
   return {
+    ...(input.batchReportMode !== undefined &&
+      input.batchReportMode !== null && { batchReportMode: input.batchReportMode }),
     ...(input.combineArtifacts !== undefined &&
       input.combineArtifacts !== null && { combineArtifacts: input.combineArtifacts }),
     ...(input.restrictions !== undefined &&
@@ -5953,6 +5955,7 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
   context: __SerdeContext
 ): ProjectBuildBatchConfig => {
   return {
+    batchReportMode: __expectString(output.batchReportMode),
     combineArtifacts: __expectBoolean(output.combineArtifacts),
     restrictions:
       output.restrictions !== undefined && output.restrictions !== null

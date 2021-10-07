@@ -2815,6 +2815,14 @@ const deserializeAws_restJson1PutAccountPreferencesCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.efs#BadRequest":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
       response = {

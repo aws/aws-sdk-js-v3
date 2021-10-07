@@ -22,11 +22,10 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data source that you use to with an Amazon Kendra index. </p>
+ * <p>Creates a data source that you want to use with an Amazon Kendra index. </p>
  *          <p>You specify a name, data source connector type and description for
- *       your data source. You also specify configuration information such as
- *       document metadata (author, source URI, and so on) and user context
- *       information.</p>
+ *       your data source. You also specify configuration information for the
+ *       data source connector.</p>
  *          <p>
  *             <code>CreateDataSource</code> is a synchronous operation. The
  *       operation returns 200 if the data source was successfully created.

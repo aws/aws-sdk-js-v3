@@ -56,6 +56,11 @@ import {
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "../commands/UpdateDestinationCommand";
 import {
   _Record,
+  AmazonopensearchserviceBufferingHints,
+  AmazonopensearchserviceDestinationConfiguration,
+  AmazonopensearchserviceDestinationDescription,
+  AmazonopensearchserviceDestinationUpdate,
+  AmazonopensearchserviceRetryOptions,
   BufferingHints,
   CloudWatchLoggingOptions,
   ConcurrentModificationException,
@@ -1274,6 +1279,102 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AmazonopensearchserviceBufferingHints = (
+  input: AmazonopensearchserviceBufferingHints,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalInSeconds !== undefined &&
+      input.IntervalInSeconds !== null && { IntervalInSeconds: input.IntervalInSeconds }),
+    ...(input.SizeInMBs !== undefined && input.SizeInMBs !== null && { SizeInMBs: input.SizeInMBs }),
+  };
+};
+
+const serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration = (
+  input: AmazonopensearchserviceDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints !== undefined &&
+      input.BufferingHints !== null && {
+        BufferingHints: serializeAws_json1_1AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
+      }),
+    ...(input.CloudWatchLoggingOptions !== undefined &&
+      input.CloudWatchLoggingOptions !== null && {
+        CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      }),
+    ...(input.ClusterEndpoint !== undefined &&
+      input.ClusterEndpoint !== null && { ClusterEndpoint: input.ClusterEndpoint }),
+    ...(input.DomainARN !== undefined && input.DomainARN !== null && { DomainARN: input.DomainARN }),
+    ...(input.IndexName !== undefined && input.IndexName !== null && { IndexName: input.IndexName }),
+    ...(input.IndexRotationPeriod !== undefined &&
+      input.IndexRotationPeriod !== null && { IndexRotationPeriod: input.IndexRotationPeriod }),
+    ...(input.ProcessingConfiguration !== undefined &&
+      input.ProcessingConfiguration !== null && {
+        ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      }),
+    ...(input.RetryOptions !== undefined &&
+      input.RetryOptions !== null && {
+        RetryOptions: serializeAws_json1_1AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
+      }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.S3BackupMode !== undefined && input.S3BackupMode !== null && { S3BackupMode: input.S3BackupMode }),
+    ...(input.S3Configuration !== undefined &&
+      input.S3Configuration !== null && {
+        S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+      }),
+    ...(input.TypeName !== undefined && input.TypeName !== null && { TypeName: input.TypeName }),
+    ...(input.VpcConfiguration !== undefined &&
+      input.VpcConfiguration !== null && {
+        VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1AmazonopensearchserviceDestinationUpdate = (
+  input: AmazonopensearchserviceDestinationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints !== undefined &&
+      input.BufferingHints !== null && {
+        BufferingHints: serializeAws_json1_1AmazonopensearchserviceBufferingHints(input.BufferingHints, context),
+      }),
+    ...(input.CloudWatchLoggingOptions !== undefined &&
+      input.CloudWatchLoggingOptions !== null && {
+        CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+      }),
+    ...(input.ClusterEndpoint !== undefined &&
+      input.ClusterEndpoint !== null && { ClusterEndpoint: input.ClusterEndpoint }),
+    ...(input.DomainARN !== undefined && input.DomainARN !== null && { DomainARN: input.DomainARN }),
+    ...(input.IndexName !== undefined && input.IndexName !== null && { IndexName: input.IndexName }),
+    ...(input.IndexRotationPeriod !== undefined &&
+      input.IndexRotationPeriod !== null && { IndexRotationPeriod: input.IndexRotationPeriod }),
+    ...(input.ProcessingConfiguration !== undefined &&
+      input.ProcessingConfiguration !== null && {
+        ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+      }),
+    ...(input.RetryOptions !== undefined &&
+      input.RetryOptions !== null && {
+        RetryOptions: serializeAws_json1_1AmazonopensearchserviceRetryOptions(input.RetryOptions, context),
+      }),
+    ...(input.RoleARN !== undefined && input.RoleARN !== null && { RoleARN: input.RoleARN }),
+    ...(input.S3Update !== undefined &&
+      input.S3Update !== null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+    ...(input.TypeName !== undefined && input.TypeName !== null && { TypeName: input.TypeName }),
+  };
+};
+
+const serializeAws_json1_1AmazonopensearchserviceRetryOptions = (
+  input: AmazonopensearchserviceRetryOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DurationInSeconds !== undefined &&
+      input.DurationInSeconds !== null && { DurationInSeconds: input.DurationInSeconds }),
+  };
+};
+
 const serializeAws_json1_1BufferingHints = (input: BufferingHints, context: __SerdeContext): any => {
   return {
     ...(input.IntervalInSeconds !== undefined &&
@@ -1322,6 +1423,14 @@ const serializeAws_json1_1CreateDeliveryStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AmazonopensearchserviceDestinationConfiguration !== undefined &&
+      input.AmazonopensearchserviceDestinationConfiguration !== null && {
+        AmazonopensearchserviceDestinationConfiguration:
+          serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration(
+            input.AmazonopensearchserviceDestinationConfiguration,
+            context
+          ),
+      }),
     ...(input.DeliveryStreamEncryptionConfigurationInput !== undefined &&
       input.DeliveryStreamEncryptionConfigurationInput !== null && {
         DeliveryStreamEncryptionConfigurationInput: serializeAws_json1_1DeliveryStreamEncryptionConfigurationInput(
@@ -2387,6 +2496,13 @@ const serializeAws_json1_1UntagDeliveryStreamInput = (
 
 const serializeAws_json1_1UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
   return {
+    ...(input.AmazonopensearchserviceDestinationUpdate !== undefined &&
+      input.AmazonopensearchserviceDestinationUpdate !== null && {
+        AmazonopensearchserviceDestinationUpdate: serializeAws_json1_1AmazonopensearchserviceDestinationUpdate(
+          input.AmazonopensearchserviceDestinationUpdate,
+          context
+        ),
+      }),
     ...(input.CurrentDeliveryStreamVersionId !== undefined &&
       input.CurrentDeliveryStreamVersionId !== null && {
         CurrentDeliveryStreamVersionId: input.CurrentDeliveryStreamVersionId,
@@ -2443,6 +2559,64 @@ const serializeAws_json1_1VpcConfiguration = (input: VpcConfiguration, context: 
     ...(input.SubnetIds !== undefined &&
       input.SubnetIds !== null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
+};
+
+const deserializeAws_json1_1AmazonopensearchserviceBufferingHints = (
+  output: any,
+  context: __SerdeContext
+): AmazonopensearchserviceBufferingHints => {
+  return {
+    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
+    SizeInMBs: __expectInt32(output.SizeInMBs),
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonopensearchserviceDestinationDescription = (
+  output: any,
+  context: __SerdeContext
+): AmazonopensearchserviceDestinationDescription => {
+  return {
+    BufferingHints:
+      output.BufferingHints !== undefined && output.BufferingHints !== null
+        ? deserializeAws_json1_1AmazonopensearchserviceBufferingHints(output.BufferingHints, context)
+        : undefined,
+    CloudWatchLoggingOptions:
+      output.CloudWatchLoggingOptions !== undefined && output.CloudWatchLoggingOptions !== null
+        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        : undefined,
+    ClusterEndpoint: __expectString(output.ClusterEndpoint),
+    DomainARN: __expectString(output.DomainARN),
+    IndexName: __expectString(output.IndexName),
+    IndexRotationPeriod: __expectString(output.IndexRotationPeriod),
+    ProcessingConfiguration:
+      output.ProcessingConfiguration !== undefined && output.ProcessingConfiguration !== null
+        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        : undefined,
+    RetryOptions:
+      output.RetryOptions !== undefined && output.RetryOptions !== null
+        ? deserializeAws_json1_1AmazonopensearchserviceRetryOptions(output.RetryOptions, context)
+        : undefined,
+    RoleARN: __expectString(output.RoleARN),
+    S3BackupMode: __expectString(output.S3BackupMode),
+    S3DestinationDescription:
+      output.S3DestinationDescription !== undefined && output.S3DestinationDescription !== null
+        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        : undefined,
+    TypeName: __expectString(output.TypeName),
+    VpcConfigurationDescription:
+      output.VpcConfigurationDescription !== undefined && output.VpcConfigurationDescription !== null
+        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonopensearchserviceRetryOptions = (
+  output: any,
+  context: __SerdeContext
+): AmazonopensearchserviceRetryOptions => {
+  return {
+    DurationInSeconds: __expectInt32(output.DurationInSeconds),
+  } as any;
 };
 
 const deserializeAws_json1_1BufferingHints = (output: any, context: __SerdeContext): BufferingHints => {
@@ -2627,6 +2801,14 @@ const deserializeAws_json1_1Deserializer = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
   return {
+    AmazonopensearchserviceDestinationDescription:
+      output.AmazonopensearchserviceDestinationDescription !== undefined &&
+      output.AmazonopensearchserviceDestinationDescription !== null
+        ? deserializeAws_json1_1AmazonopensearchserviceDestinationDescription(
+            output.AmazonopensearchserviceDestinationDescription,
+            context
+          )
+        : undefined,
     DestinationId: __expectString(output.DestinationId),
     ElasticsearchDestinationDescription:
       output.ElasticsearchDestinationDescription !== undefined && output.ElasticsearchDestinationDescription !== null
