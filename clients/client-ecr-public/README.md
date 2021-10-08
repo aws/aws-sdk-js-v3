@@ -18,7 +18,7 @@ API for private repositories, see <a href="https://docs.aws.amazon.com/AmazonECR
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ecr-public
+To install this package, simply type add or install @aws-sdk/client-ecr-public
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ecr-public`

@@ -37,7 +37,7 @@ store.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sagemaker-featurestore-runtime
+To install this package, simply type add or install @aws-sdk/client-sagemaker-featurestore-runtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sagemaker-featurestore-runtime`

@@ -25,7 +25,7 @@ Quotas</a> in the <i>AWS General Reference</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lightsail
+To install this package, simply type add or install @aws-sdk/client-lightsail
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lightsail`

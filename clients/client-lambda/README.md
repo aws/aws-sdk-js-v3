@@ -18,7 +18,7 @@ Lambda</a>, and for information about how the service works, see <a href="https:
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lambda
+To install this package, simply type add or install @aws-sdk/client-lambda
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lambda`

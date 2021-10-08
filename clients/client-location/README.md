@@ -11,7 +11,7 @@ Suite of geospatial services including Maps, Places, Routes, Tracking, and Geofe
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-location
+To install this package, simply type add or install @aws-sdk/client-location
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-location`

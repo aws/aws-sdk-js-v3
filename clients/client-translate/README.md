@@ -12,7 +12,7 @@ languages.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-translate
+To install this package, simply type add or install @aws-sdk/client-translate
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-translate`

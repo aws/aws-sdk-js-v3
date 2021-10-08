@@ -15,7 +15,7 @@ resources, and even your team.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-honeycode
+To install this package, simply type add or install @aws-sdk/client-honeycode
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-honeycode`

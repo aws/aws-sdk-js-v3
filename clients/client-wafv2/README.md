@@ -70,7 +70,7 @@ maximum cost of a rule group when you use it.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-wafv2
+To install this package, simply type add or install @aws-sdk/client-wafv2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-wafv2`

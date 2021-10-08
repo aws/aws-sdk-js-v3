@@ -17,7 +17,7 @@ information, see the <a href="https://docs.aws.amazon.com/AWSImportExport/latest
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-snowball
+To install this package, simply type add or install @aws-sdk/client-snowball
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-snowball`

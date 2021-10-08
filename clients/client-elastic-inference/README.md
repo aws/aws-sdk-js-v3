@@ -13,7 +13,7 @@ Elastic Inference public APIs.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elastic-inference
+To install this package, simply type add or install @aws-sdk/client-elastic-inference
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elastic-inference`

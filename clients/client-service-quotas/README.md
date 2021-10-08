@@ -13,7 +13,7 @@ create in your AWS account. For more information, see the <a href="https://docs.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-service-quotas
+To install this package, simply type add or install @aws-sdk/client-service-quotas
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-service-quotas`

@@ -22,7 +22,7 @@ Reference</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudhsm
+To install this package, simply type add or install @aws-sdk/client-cloudhsm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudhsm`

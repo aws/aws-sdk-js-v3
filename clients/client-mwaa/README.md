@@ -13,7 +13,7 @@ AWS SDK for JavaScript MWAA Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mwaa
+To install this package, simply type add or install @aws-sdk/client-mwaa
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mwaa`

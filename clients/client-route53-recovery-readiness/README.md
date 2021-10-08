@@ -11,7 +11,7 @@ AWS Route53 Recovery Readiness
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53-recovery-readiness
+To install this package, simply type add or install @aws-sdk/client-route53-recovery-readiness
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53-recovery-readiness`

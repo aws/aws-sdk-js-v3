@@ -12,7 +12,7 @@ AWS SDK for JavaScript IoTSiteWise Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotsitewise
+To install this package, simply type add or install @aws-sdk/client-iotsitewise
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotsitewise`

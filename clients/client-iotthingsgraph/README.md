@@ -16,7 +16,7 @@ and defining how they interact at an abstract level.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotthingsgraph
+To install this package, simply type add or install @aws-sdk/client-iotthingsgraph
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotthingsgraph`

@@ -14,7 +14,7 @@ IT standards.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-imagebuilder
+To install this package, simply type add or install @aws-sdk/client-imagebuilder
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-imagebuilder`

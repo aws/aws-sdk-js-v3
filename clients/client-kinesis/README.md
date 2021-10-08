@@ -14,7 +14,7 @@ real-time processing of streaming big data.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis
+To install this package, simply type add or install @aws-sdk/client-kinesis
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis`

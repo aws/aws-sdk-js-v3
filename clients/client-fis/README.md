@@ -12,7 +12,7 @@ experiments on your AWS workloads. For more information, see the <a href="https:
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-fis
+To install this package, simply type add or install @aws-sdk/client-fis
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-fis`

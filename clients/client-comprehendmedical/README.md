@@ -12,7 +12,7 @@ to gain insight in your documents. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-comprehendmedical
+To install this package, simply type add or install @aws-sdk/client-comprehendmedical
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-comprehendmedical`

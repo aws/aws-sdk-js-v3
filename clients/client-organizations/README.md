@@ -81,7 +81,7 @@ To learn more about AWS CloudTrail, including how to turn it on and find your lo
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-organizations
+To install this package, simply type add or install @aws-sdk/client-organizations
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-organizations`

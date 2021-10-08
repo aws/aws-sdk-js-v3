@@ -159,7 +159,7 @@ or many EC2 instances.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-global-accelerator
+To install this package, simply type add or install @aws-sdk/client-global-accelerator
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-global-accelerator`

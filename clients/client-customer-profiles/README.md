@@ -21,7 +21,7 @@ center.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-customer-profiles
+To install this package, simply type add or install @aws-sdk/client-customer-profiles
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-customer-profiles`

@@ -13,7 +13,7 @@ more information about Amazon Fraud Detector features, see the <a href="https://
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-frauddetector
+To install this package, simply type add or install @aws-sdk/client-frauddetector
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-frauddetector`

@@ -11,7 +11,7 @@ AWS SDK for JavaScript Rekognition Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rekognition
+To install this package, simply type add or install @aws-sdk/client-rekognition
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rekognition`

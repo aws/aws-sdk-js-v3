@@ -206,7 +206,7 @@ success.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codepipeline
+To install this package, simply type add or install @aws-sdk/client-codepipeline
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codepipeline`

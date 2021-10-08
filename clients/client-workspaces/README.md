@@ -14,7 +14,7 @@ Amazon Linux desktops for your users.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces
+To install this package, simply type add or install @aws-sdk/client-workspaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces`

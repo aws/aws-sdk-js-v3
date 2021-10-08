@@ -16,7 +16,7 @@ deployed in the field.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotsecuretunneling
+To install this package, simply type add or install @aws-sdk/client-iotsecuretunneling
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotsecuretunneling`

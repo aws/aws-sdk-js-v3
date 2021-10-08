@@ -17,7 +17,7 @@ programming interface that you can use to manage DataSync.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-datasync
+To install this package, simply type add or install @aws-sdk/client-datasync
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-datasync`

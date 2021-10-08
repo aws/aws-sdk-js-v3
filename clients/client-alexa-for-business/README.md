@@ -18,7 +18,7 @@ as shared devices in their organization. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-alexa-for-business
+To install this package, simply type add or install @aws-sdk/client-alexa-for-business
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-alexa-for-business`

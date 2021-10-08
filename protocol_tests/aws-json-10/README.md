@@ -9,7 +9,7 @@ AWS SDK for JavaScript JSONRPC10 Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-json-10
+To install this package, simply type add or install @aws-sdk/aws-json-10
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-json-10`

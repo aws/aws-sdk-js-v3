@@ -17,7 +17,7 @@ Documentation</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cognito-identity-provider
+To install this package, simply type add or install @aws-sdk/client-cognito-identity-provider
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cognito-identity-provider`

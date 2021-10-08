@@ -34,7 +34,7 @@ an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pricing
+To install this package, simply type add or install @aws-sdk/client-pricing
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pricing`

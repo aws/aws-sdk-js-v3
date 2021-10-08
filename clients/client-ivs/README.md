@@ -366,7 +366,7 @@ specified ARN.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ivs
+To install this package, simply type add or install @aws-sdk/client-ivs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ivs`

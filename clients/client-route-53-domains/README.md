@@ -11,7 +11,7 @@ AWS SDK for JavaScript Route53Domains Client for Node.js, Browser and React Nati
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route-53-domains
+To install this package, simply type add or install @aws-sdk/client-route-53-domains
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route-53-domains`

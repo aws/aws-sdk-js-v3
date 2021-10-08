@@ -26,7 +26,7 @@ VPC endpoints (Amazon Web Services PrivateLink)</a> in the <i>Amazon CodeGuru Re
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codeguru-reviewer
+To install this package, simply type add or install @aws-sdk/client-codeguru-reviewer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codeguru-reviewer`

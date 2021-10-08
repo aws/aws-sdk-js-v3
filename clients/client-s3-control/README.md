@@ -14,7 +14,7 @@ Amazon Web Services S3 Control provides access to Amazon S3 control plane action
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-s3-control
+To install this package, simply type add or install @aws-sdk/client-s3-control
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-s3-control`

@@ -11,7 +11,7 @@ Provides AWS Marketplace business intelligence data on-demand.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-commerce-analytics
+To install this package, simply type add or install @aws-sdk/client-marketplace-commerce-analytics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-commerce-analytics`

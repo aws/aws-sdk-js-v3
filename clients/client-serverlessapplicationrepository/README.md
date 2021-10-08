@@ -30,7 +30,7 @@ developers, and publish new versions of applications. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-serverlessapplicationrepository
+To install this package, simply type add or install @aws-sdk/client-serverlessapplicationrepository
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-serverlessapplicationrepository`

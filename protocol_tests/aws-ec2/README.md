@@ -11,7 +11,7 @@ An EC2 query service that sends query requests and XML responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-ec2
+To install this package, simply type add or install @aws-sdk/aws-ec2
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-ec2`

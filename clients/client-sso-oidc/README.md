@@ -28,7 +28,7 @@ information about the AWS SDKs, including how to download and install them, see 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sso-oidc
+To install this package, simply type add or install @aws-sdk/client-sso-oidc
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sso-oidc`

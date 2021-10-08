@@ -16,7 +16,7 @@ auditing.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-backup
+To install this package, simply type add or install @aws-sdk/client-backup
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-backup`

@@ -22,7 +22,7 @@ your time and energy on analyzing results and solving your specific problems. </
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-batch
+To install this package, simply type add or install @aws-sdk/client-batch
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-batch`

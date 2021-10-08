@@ -126,7 +126,7 @@ see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbo
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opsworks
+To install this package, simply type add or install @aws-sdk/client-opsworks
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opsworks`

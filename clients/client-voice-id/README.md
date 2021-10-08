@@ -13,7 +13,7 @@ describes the APIs used for this service.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-voice-id
+To install this package, simply type add or install @aws-sdk/client-voice-id
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-voice-id`

@@ -32,7 +32,7 @@ see the <a href="r53recovery/latest/dg/">Amazon Route 53 Application Recovery Co
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53-recovery-cluster
+To install this package, simply type add or install @aws-sdk/client-route53-recovery-cluster
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53-recovery-cluster`

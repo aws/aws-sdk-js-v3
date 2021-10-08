@@ -68,7 +68,7 @@ records over time. For more information, see the <i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-metering
+To install this package, simply type add or install @aws-sdk/client-marketplace-metering
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-metering`

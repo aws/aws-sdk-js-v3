@@ -15,7 +15,7 @@ Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-firehose
+To install this package, simply type add or install @aws-sdk/client-firehose
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-firehose`

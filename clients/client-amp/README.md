@@ -11,7 +11,7 @@ Amazon Managed Service for Prometheus
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-amp
+To install this package, simply type add or install @aws-sdk/client-amp
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-amp`

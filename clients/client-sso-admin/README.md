@@ -18,7 +18,7 @@ Reference</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sso-admin
+To install this package, simply type add or install @aws-sdk/client-sso-admin
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sso-admin`

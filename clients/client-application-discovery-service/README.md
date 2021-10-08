@@ -136,7 +136,7 @@ collected data before it is shared with the service.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-application-discovery-service
+To install this package, simply type add or install @aws-sdk/client-application-discovery-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-application-discovery-service`

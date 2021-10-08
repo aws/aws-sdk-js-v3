@@ -11,7 +11,7 @@ AWS SDK for JavaScript DataExchange Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dataexchange
+To install this package, simply type add or install @aws-sdk/client-dataexchange
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dataexchange`

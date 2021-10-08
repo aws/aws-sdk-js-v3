@@ -13,7 +13,7 @@ AWS and on-premises networks that are built around transit gateways.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-networkmanager
+To install this package, simply type add or install @aws-sdk/client-networkmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-networkmanager`

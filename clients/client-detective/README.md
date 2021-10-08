@@ -56,7 +56,7 @@ Detective, the administrator account manages the accounts in their behavior grap
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-detective
+To install this package, simply type add or install @aws-sdk/client-detective
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-detective`

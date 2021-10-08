@@ -11,7 +11,7 @@ AWS SDK for JavaScript TranscribeStreaming Client for Node.js, Browser and React
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-transcribe-streaming
+To install this package, simply type add or install @aws-sdk/client-transcribe-streaming
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-transcribe-streaming`

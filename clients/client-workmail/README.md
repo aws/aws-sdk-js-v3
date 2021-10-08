@@ -46,7 +46,7 @@ model.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workmail
+To install this package, simply type add or install @aws-sdk/client-workmail
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workmail`

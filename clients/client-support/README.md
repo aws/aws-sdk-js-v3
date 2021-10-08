@@ -85,7 +85,7 @@ how to call Trusted Advisor for results of checks on your resources.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-support
+To install this package, simply type add or install @aws-sdk/client-support
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-support`

@@ -14,7 +14,7 @@ more information, see the <a href="https://docs.aws.amazon.com/savingsplans/late
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-savingsplans
+To install this package, simply type add or install @aws-sdk/client-savingsplans
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-savingsplans`

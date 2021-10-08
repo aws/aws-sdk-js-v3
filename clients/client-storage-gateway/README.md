@@ -82,7 +82,7 @@ Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-storage-gateway
+To install this package, simply type add or install @aws-sdk/client-storage-gateway
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-storage-gateway`

@@ -28,7 +28,7 @@ documentation at <a href="https://docs.aws.amazon.com/">
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudformation
+To install this package, simply type add or install @aws-sdk/client-cloudformation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudformation`

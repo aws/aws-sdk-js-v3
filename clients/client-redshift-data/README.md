@@ -15,7 +15,7 @@ can run SQL statements, which are committed if the statement succeeds. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-redshift-data
+To install this package, simply type add or install @aws-sdk/client-redshift-data
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-redshift-data`

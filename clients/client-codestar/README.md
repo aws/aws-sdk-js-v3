@@ -101,7 +101,7 @@ all projects.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codestar
+To install this package, simply type add or install @aws-sdk/client-codestar
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codestar`

@@ -19,7 +19,7 @@ call programmatically. For general information about IAM Access Analyzer, see <a
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-accessanalyzer
+To install this package, simply type add or install @aws-sdk/client-accessanalyzer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-accessanalyzer`

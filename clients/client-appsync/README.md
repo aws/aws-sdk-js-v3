@@ -12,7 +12,7 @@ sources using GraphQL from your application.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appsync
+To install this package, simply type add or install @aws-sdk/client-appsync
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appsync`

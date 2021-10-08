@@ -49,7 +49,7 @@ profile using Amazon AppFlow API operations. For example, Salesforce users can r
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appflow
+To install this package, simply type add or install @aws-sdk/client-appflow
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appflow`

@@ -11,7 +11,7 @@ AWS Elemental MediaConvert
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediaconvert
+To install this package, simply type add or install @aws-sdk/client-mediaconvert
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediaconvert`

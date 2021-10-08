@@ -18,7 +18,7 @@ Classic User Guide</a>. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-macie
+To install this package, simply type add or install @aws-sdk/client-macie
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-macie`

@@ -37,7 +37,7 @@ and reliable storage volumes that can be attached to any running instance and us
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ec2
+To install this package, simply type add or install @aws-sdk/client-ec2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ec2`

@@ -17,7 +17,7 @@ build, package, or deploy any hardware to run Grafana servers.  </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-grafana
+To install this package, simply type add or install @aws-sdk/client-grafana
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-grafana`

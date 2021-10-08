@@ -23,7 +23,7 @@ see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#service-reg
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opensearch
+To install this package, simply type add or install @aws-sdk/client-opensearch
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opensearch`

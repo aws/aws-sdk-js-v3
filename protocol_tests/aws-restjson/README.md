@@ -11,7 +11,7 @@ A REST JSON service that sends JSON requests and responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-restjson
+To install this package, simply type add or install @aws-sdk/aws-restjson
 using your favorite package manager:
 
 - `npm install @aws-sdk/aws-restjson`

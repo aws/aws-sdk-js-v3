@@ -79,7 +79,7 @@ access management</a> in the <i>Amazon SQS Developer Guide.</i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-sqs
+To install this package, simply type add or install @aws-sdk/client-sqs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-sqs`

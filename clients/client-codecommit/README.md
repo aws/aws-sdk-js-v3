@@ -402,7 +402,7 @@ by sending data to the trigger target.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codecommit
+To install this package, simply type add or install @aws-sdk/client-codecommit
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codecommit`

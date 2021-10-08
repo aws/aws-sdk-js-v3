@@ -27,7 +27,7 @@ sign updates in Amazon FreeRTOS and AWS IoT Device Management. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-signer
+To install this package, simply type add or install @aws-sdk/client-signer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-signer`

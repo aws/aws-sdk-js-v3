@@ -15,7 +15,7 @@ can manually manage content by uploading custom files and control their lifecycl
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-wisdom
+To install this package, simply type add or install @aws-sdk/client-wisdom
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-wisdom`

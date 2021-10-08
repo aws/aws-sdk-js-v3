@@ -15,7 +15,7 @@ with the necessary SDKs, constants, tools and samples to make use of those resou
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mobile
+To install this package, simply type add or install @aws-sdk/client-mobile
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mobile`

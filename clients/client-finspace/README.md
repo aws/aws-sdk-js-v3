@@ -12,7 +12,7 @@ environments. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-finspace
+To install this package, simply type add or install @aws-sdk/client-finspace
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-finspace`
