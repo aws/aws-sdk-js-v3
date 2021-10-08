@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-imds",
-  "version": "3.35.0",
+  "version": "3.36.0",
   "description": "AWS credential provider that sources credentials from the EC2 instance metadata service and ECS container metadata service",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,10 +22,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/node-config-provider": "3.35.0",
-    "@aws-sdk/property-provider": "3.35.0",
-    "@aws-sdk/types": "3.35.0",
-    "@aws-sdk/url-parser": "3.35.0",
+    "@aws-sdk/node-config-provider": "3.36.0",
+    "@aws-sdk/property-provider": "3.36.0",
+    "@aws-sdk/types": "3.36.0",
+    "@aws-sdk/url-parser": "3.36.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

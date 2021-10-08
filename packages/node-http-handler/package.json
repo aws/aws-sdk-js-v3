@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/node-http-handler",
-  "version": "3.35.0",
+  "version": "3.36.0",
   "description": "Provides a way to make requests",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
@@ -20,10 +20,10 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/abort-controller": "3.35.0",
-    "@aws-sdk/protocol-http": "3.35.0",
-    "@aws-sdk/querystring-builder": "3.35.0",
-    "@aws-sdk/types": "3.35.0",
+    "@aws-sdk/abort-controller": "3.36.0",
+    "@aws-sdk/protocol-http": "3.36.0",
+    "@aws-sdk/querystring-builder": "3.36.0",
+    "@aws-sdk/types": "3.36.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

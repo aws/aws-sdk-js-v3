@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
+
+
+### Bug Fixes
+
+* **client-opsworks:** intermittent integ tests failures ([#2865](https://github.com/aws/aws-sdk-js-v3/issues/2865)) ([10d64df](https://github.com/aws/aws-sdk-js-v3/commit/10d64dfd65f73a95dcdb0d198556403e151cb670))
+
+
+### Features
+
+* **clients:** update clients as of 10/07/2021 ([#2879](https://github.com/aws/aws-sdk-js-v3/issues/2879)) ([1f4441e](https://github.com/aws/aws-sdk-js-v3/commit/1f4441e46b63ae6ff01067780b26d49916c267a0))
+* publish files in dist-* only ([#2873](https://github.com/aws/aws-sdk-js-v3/issues/2873)) ([53b4243](https://github.com/aws/aws-sdk-js-v3/commit/53b4243b066f25ff2412d5f0dea1036054b2df32))
+* **codegen:** test non-AWS client builds ([#2876](https://github.com/aws/aws-sdk-js-v3/issues/2876)) ([d9012cc](https://github.com/aws/aws-sdk-js-v3/commit/d9012ccd2ab8fbe7c62a0d8aa94cfbcdecfd07f0))
+* **codegen:** ts-ignore packageInfo imports in codegen ([#2875](https://github.com/aws/aws-sdk-js-v3/issues/2875)) ([99d9267](https://github.com/aws/aws-sdk-js-v3/commit/99d926762193e83a354edec6e9de2b0543449704))
+* **tsconfig:** remove sourceMap ([#2867](https://github.com/aws/aws-sdk-js-v3/issues/2867)) ([d25f526](https://github.com/aws/aws-sdk-js-v3/commit/d25f526627a02a2ca28675fecce66c76b6c97966))
+
+
+
+
+
 # [3.35.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.34.0...v3.35.0) (2021-10-04)
 
 
