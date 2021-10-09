@@ -327,6 +327,16 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        //TODO: reenable when the SSDK uses RE2 and not built-in regex for pattern constraints
+        if (testCase.getId().equals("RestJsonMalformedPatternReDOSString")) {
+            return true;
+        }
+        //TODO: broken in Smithy 1.12.0, remove after next Smithy release
+        if (testCase.getId().equals("RestJsonMalformedLengthBlobOverride_case1")
+            || testCase.getId().equals("RestJsonMalformedRequiredQueryNoValue")) {
+            return true;
+        }
+
         return false;
     }
 }
