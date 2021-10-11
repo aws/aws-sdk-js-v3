@@ -8,8 +8,7 @@ import { CredentialProvider, Credentials } from "@aws-sdk/types";
 import { getMasterProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/util-credentials";
 
 /**
- * @see http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#assumeRole-property
- * TODO update the above to link to V3 docs
+ * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolecommandinput.html
  */
 export interface AssumeRoleParams {
   /**
