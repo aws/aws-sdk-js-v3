@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.36.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.36.0...v3.36.1) (2021-10-12)
+
+
+### Bug Fixes
+
+* **clients:** emitDeclarationOnly in tsconfig.types.json ([#2893](https://github.com/aws/aws-sdk-js-v3/issues/2893)) ([6dc3d56](https://github.com/aws/aws-sdk-js-v3/commit/6dc3d56c20809c90cbdc4dd48627eeebc64af99d))
+* **scripts:** do not destructure function parameter ([#2891](https://github.com/aws/aws-sdk-js-v3/issues/2891)) ([6dd0af8](https://github.com/aws/aws-sdk-js-v3/commit/6dd0af82243c175e1b5fc400f2a1893a095895ee))
+
+
+
+
+
 # [3.36.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.35.0...v3.36.0) (2021-10-08)
 
 
