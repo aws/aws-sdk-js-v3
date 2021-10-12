@@ -7,10 +7,10 @@ export const getAllFiles = async (dirPath, arrayOfFiles = []) => {
 
   for (const file of files) {
     const filePath = join(dirPath, file);
-    const { isDirectory } = await stat(filePath);
-    if (isDirectory()) {
+    const stats = await stat(filePath);
+    if (stats.isDirectory()) {
       const filesInDirectory = await getAllFiles(filePath, arrayOfFiles);
-      arrayOfFiles.push(filesInDirectory);
+      arrayOfFiles.concat(filesInDirectory);
     } else {
       arrayOfFiles.push(filePath);
     }

@@ -48,7 +48,6 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
       }
     }
   } catch (error) {
-    throw error;
     // downlevelDir is not present, do nothing.
   }
 };
