@@ -126,6 +126,22 @@
         }
       }
     },
+    "aws-restjson-validation": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.restjson.validation#RestJsonValidation"]
+          }
+        }
+      ],
+      "plugins": {
+        "typescript-ssdk-codegen": {
+          "package": "@aws-sdk/aws-restjson-validation-server",
+          "packageVersion": "1.0.0-alpha.1"
+        }
+      }
+    },
     "aws-restxml": {
       "transforms": [
         {
