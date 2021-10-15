@@ -29,7 +29,7 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  * <p>Adds an external destination to your SQL-based Kinesis Data Analytics application.</p>
  *          <p>If you want Kinesis Data Analytics to deliver data from an in-application stream within
  *       your application to an external destination (such as an Kinesis data stream, a Kinesis Data
- *       Firehose delivery stream, or an AWS Lambda function), you add the relevant configuration to
+ *       Firehose delivery stream, or an Amazon Lambda function), you add the relevant configuration to
  *       your application using this operation. You can configure one or more outputs for your
  *       application. Each output configuration maps an in-application stream and an external
  *       destination.</p>

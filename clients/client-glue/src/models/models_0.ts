@@ -1183,6 +1183,7 @@ export namespace LineageConfiguration {
 }
 
 export enum RecrawlBehavior {
+  CRAWL_EVENT_MODE = "CRAWL_EVENT_MODE",
   CRAWL_EVERYTHING = "CRAWL_EVERYTHING",
   CRAWL_NEW_FOLDERS_ONLY = "CRAWL_NEW_FOLDERS_ONLY",
 }
@@ -1197,6 +1198,8 @@ export interface RecrawlPolicy {
    * 	        <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p>
    *
    *          <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
+   *
+   * 	        <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
    */
   RecrawlBehavior?: RecrawlBehavior | string;
 }
@@ -1425,6 +1428,16 @@ export interface S3Target {
    * <p>Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.</p>
    */
   SampleSize?: number;
+
+  /**
+   * <p>A valid Amazon SQS ARN. For example, <code>arn:aws:sqs:region:account:sqs</code>.</p>
+   */
+  EventQueueArn?: string;
+
+  /**
+   * <p>A valid Amazon dead-letter SQS ARN. For example, <code>arn:aws:sqs:region:account:deadLetterQueue</code>.</p>
+   */
+  DlqEventQueueArn?: string;
 }
 
 export namespace S3Target {

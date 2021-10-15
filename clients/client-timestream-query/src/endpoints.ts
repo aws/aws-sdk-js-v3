@@ -35,7 +35,7 @@ const partitionHash: PartitionHash = {
     hostname: "query.timestream.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "query.timestream.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

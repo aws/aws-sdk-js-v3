@@ -358,6 +358,52 @@ export namespace BatchGetVariableResult {
   });
 }
 
+export interface CancelBatchImportJobRequest {
+  /**
+   * <p> The ID of an in-progress batch import job to cancel. </p>
+   *          <p>Amazon Fraud Detector will throw an error if the batch import job is in <code>FAILED</code>, <code>CANCELED</code>, or  <code>COMPLETED</code> state.</p>
+   */
+  jobId: string | undefined;
+}
+
+export namespace CancelBatchImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelBatchImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelBatchImportJobResult {}
+
+export namespace CancelBatchImportJobResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelBatchImportJobResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An exception indicating the specified resource was not found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  message: string | undefined;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface CancelBatchPredictionJobRequest {
   /**
    * <p>The ID of the batch prediction job to cancel.</p>
@@ -385,20 +431,55 @@ export namespace CancelBatchPredictionJobResult {
   });
 }
 
-/**
- * <p>An exception indicating the specified resource was not found. This can occur if you submit a request, such as <code>CreateBatchPredictionJob</code>, but the detector name or version does not exist.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  message: string | undefined;
+export interface CreateBatchImportJobRequest {
+  /**
+   * <p>The ID of the batch import job. The ID cannot be of a past job, unless the job exists in <code>CREATE_FAILED</code> state.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The URI that points to the Amazon S3 location of your data file.</p>
+   */
+  inputPath: string | undefined;
+
+  /**
+   * <p>The URI that points to the Amazon S3 location for storing your results. </p>
+   */
+  outputPath: string | undefined;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role created for Amazon S3 bucket that holds your data file.
+   *          The IAM role must have read and write permissions to both input and output S3 buckets.</p>
+   */
+  iamRoleArn: string | undefined;
+
+  /**
+   * <p>A collection of key-value pairs associated with this request.  </p>
+   */
+  tags?: Tag[];
 }
 
-export namespace ResourceNotFoundException {
+export namespace CreateBatchImportJobRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+  export const filterSensitiveLog = (obj: CreateBatchImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateBatchImportJobResult {}
+
+export namespace CreateBatchImportJobResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateBatchImportJobResult): any => ({
     ...obj,
   });
 }
@@ -467,6 +548,7 @@ export namespace CreateBatchPredictionJobResult {
 
 export enum ModelTypeEnum {
   ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS",
+  TRANSACTION_FRAUD_INSIGHTS = "TRANSACTION_FRAUD_INSIGHTS",
 }
 
 /**
@@ -691,6 +773,55 @@ export namespace ExternalEventsDetail {
 }
 
 /**
+ * <p>The start and stop time of the ingested events.</p>
+ */
+export interface IngestedEventsTimeWindow {
+  /**
+   * <p>Timestamp of the first ingensted event.</p>
+   */
+  startTime: string | undefined;
+
+  /**
+   * <p>Timestamp of the final ingested event.</p>
+   */
+  endTime: string | undefined;
+}
+
+export namespace IngestedEventsTimeWindow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IngestedEventsTimeWindow): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of the ingested event.</p>
+ */
+export interface IngestedEventsDetail {
+  /**
+   * <p>The start and stop time of the ingested events.</p>
+   */
+  ingestedEventsTimeWindow: IngestedEventsTimeWindow | undefined;
+}
+
+export namespace IngestedEventsDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IngestedEventsDetail): any => ({
+    ...obj,
+  });
+}
+
+export enum UnlabeledEventsTreatment {
+  FRAUD = "FRAUD",
+  IGNORE = "IGNORE",
+  LEGIT = "LEGIT",
+}
+
+/**
  * <p>The label schema.</p>
  */
 export interface LabelSchema {
@@ -699,6 +830,11 @@ export interface LabelSchema {
    *         </p>
    */
   labelMapper: { [key: string]: string[] } | undefined;
+
+  /**
+   * <p>The action to take for unlabeled events.</p>
+   */
+  unlabeledEventsTreatment?: UnlabeledEventsTreatment | string;
 }
 
 export namespace LabelSchema {
@@ -736,6 +872,7 @@ export namespace TrainingDataSchema {
 
 export enum TrainingDataSourceEnum {
   EXTERNAL_EVENTS = "EXTERNAL_EVENTS",
+  INGESTED_EVENTS = "INGESTED_EVENTS",
 }
 
 export interface CreateModelVersionRequest {
@@ -760,9 +897,14 @@ export interface CreateModelVersionRequest {
   trainingDataSchema: TrainingDataSchema | undefined;
 
   /**
-   * <p>Details for the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
+   * <p>Details of the external events data used for model version training. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
    */
   externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>Details of the ingested events data used for model version training. Required if <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
+   */
+  ingestedEventsDetail?: IngestedEventsDetail;
 
   /**
    * <p>A collection of key and value pairs.</p>
@@ -937,6 +1079,33 @@ export namespace CreateVariableResult {
   });
 }
 
+export interface DeleteBatchImportJobRequest {
+  /**
+   * <p>The ID of the batch import job to delete. </p>
+   */
+  jobId: string | undefined;
+}
+
+export namespace DeleteBatchImportJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBatchImportJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteBatchImportJobResult {}
+
+export namespace DeleteBatchImportJobResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteBatchImportJobResult): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteBatchPredictionJobRequest {
   /**
    * <p>The ID of the batch prediction job to delete.</p>
@@ -965,18 +1134,7 @@ export namespace DeleteBatchPredictionJobResult {
 }
 
 /**
- * <p>An exception indicating there was a conflict during a delete operation. The following delete operations can cause a conflict exception:</p>
- * 	        <ul>
- *             <li>
- *                <p>DeleteDetector: A conflict exception will occur if the detector has associated <code>Rules</code> or <code>DetectorVersions</code>. You can only delete a detector if it has no <code>Rules</code> or <code>DetectorVersions</code>.</p>
- *             </li>
- *             <li>
- *                <p>DeleteDetectorVersion: A conflict exception will occur if the <code>DetectorVersion</code> status is <code>ACTIVE</code>.</p>
- *             </li>
- *             <li>
- *                <p>DeleteRule: A conflict exception will occur if the <code>RuleVersion</code> is in use by an associated <code>ACTIVE</code> or <code>INACTIVE DetectorVersion</code>.</p>
- *             </li>
- *          </ul>
+ * <p>An exception indicating there was a conflict during a delete operation.</p>
  */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
@@ -1089,6 +1247,11 @@ export interface DeleteEventRequest {
    * <p>The name of the event type.</p>
    */
   eventTypeName: string | undefined;
+
+  /**
+   * <p>Specifies whether or not to delete any predictions associated with the event.</p>
+   */
+  deleteAuditHistory?: boolean;
 }
 
 export namespace DeleteEventRequest {
@@ -1107,6 +1270,43 @@ export namespace DeleteEventResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteEventResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEventsByEventTypeRequest {
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName: string | undefined;
+}
+
+export namespace DeleteEventsByEventTypeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventsByEventTypeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteEventsByEventTypeResult {
+  /**
+   * <p>Name of event type for which to delete the events.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The status of the delete request.</p>
+   */
+  eventsDeletionStatus?: string;
+}
+
+export namespace DeleteEventsByEventTypeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteEventsByEventTypeResult): any => ({
     ...obj,
   });
 }
@@ -1731,9 +1931,14 @@ export interface ModelVersionDetail {
   trainingDataSchema?: TrainingDataSchema;
 
   /**
-   * <p>The event details.</p>
+   * <p>The external events data details. This will be populated if the <code>trainingDataSource</code> for the model version is specified as  <code>EXTERNAL_EVENTS</code>.</p>
    */
   externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>The ingested events data details. This will be populated if the <code>trainingDataSource</code> for the model version is specified as  <code>INGESTED_EVENTS</code>.</p>
+   */
+  ingestedEventsDetail?: IngestedEventsDetail;
 
   /**
    * <p>The training results.</p>
@@ -1782,6 +1987,132 @@ export namespace DescribeModelVersionsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeModelVersionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBatchImportJobsRequest {
+  /**
+   * <p>The ID of the batch import job to get.</p>
+   */
+  jobId?: string;
+
+  /**
+   * <p>The maximum number of objects to return for request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The next token from the previous request.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBatchImportJobsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBatchImportJobsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The batch import job details.</p>
+ */
+export interface BatchImport {
+  /**
+   * <p>The ID of the batch import job. </p>
+   */
+  jobId?: string;
+
+  /**
+   * <p>The status of the batch import job.</p>
+   */
+  status?: AsyncJobStatus | string;
+
+  /**
+   * <p>The reason batch import job failed.</p>
+   */
+  failureReason?: string;
+
+  /**
+   * <p>Timestamp of when the batch import job started.</p>
+   */
+  startTime?: string;
+
+  /**
+   * <p>Timestamp of when batch import job completed.</p>
+   */
+  completionTime?: string;
+
+  /**
+   * <p>The Amazon S3 location of your data file for batch import.</p>
+   */
+  inputPath?: string;
+
+  /**
+   * <p>The Amazon S3 location of your output file.</p>
+   */
+  outputPath?: string;
+
+  /**
+   * <p>The name of the event type.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The ARN of the IAM role to use for this job request.</p>
+   */
+  iamRoleArn?: string;
+
+  /**
+   * <p>The ARN of the batch import job.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The number of records processed by batch import job.</p>
+   */
+  processedRecordsCount?: number;
+
+  /**
+   * <p>The number of records that failed to import. </p>
+   */
+  failedRecordsCount?: number;
+
+  /**
+   * <p>The total number of records in the batch import job.</p>
+   */
+  totalRecordsCount?: number;
+}
+
+export namespace BatchImport {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchImport): any => ({
+    ...obj,
+  });
+}
+
+export interface GetBatchImportJobsResult {
+  /**
+   * <p>An array containing the details of each batch import job.</p>
+   */
+  batchImports?: BatchImport[];
+
+  /**
+   * <p>The next token for the subsequent resquest.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace GetBatchImportJobsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetBatchImportJobsResult): any => ({
     ...obj,
   });
 }
@@ -1837,7 +2168,7 @@ export interface BatchPrediction {
   startTime?: string;
 
   /**
-   * <p>Timestamp of when the batch prediction job comleted.</p>
+   * <p>Timestamp of when the batch prediction job completed.</p>
    */
   completionTime?: string;
 
@@ -1918,6 +2249,43 @@ export namespace GetBatchPredictionJobsResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetBatchPredictionJobsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDeleteEventsByEventTypeStatusRequest {
+  /**
+   * <p>Name of event type for which to get the deletion status.</p>
+   */
+  eventTypeName: string | undefined;
+}
+
+export namespace GetDeleteEventsByEventTypeStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDeleteEventsByEventTypeStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetDeleteEventsByEventTypeStatusResult {
+  /**
+   * <p>The event type name.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The deletion status.</p>
+   */
+  eventsDeletionStatus?: AsyncJobStatus | string;
+}
+
+export namespace GetDeleteEventsByEventTypeStatusResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDeleteEventsByEventTypeStatusResult): any => ({
     ...obj,
   });
 }
@@ -2191,6 +2559,27 @@ export namespace GetEntityTypesResult {
   });
 }
 
+export interface GetEventRequest {
+  /**
+   * <p>The ID of the event to retrieve.</p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The event type of the event to retrieve.</p>
+   */
+  eventTypeName: string | undefined;
+}
+
+export namespace GetEventRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The entity details. </p>
  */
@@ -2212,6 +2601,74 @@ export namespace Entity {
    */
   export const filterSensitiveLog = (obj: Entity): any => ({
     ...obj,
+  });
+}
+
+/**
+ * <p>The event details.</p>
+ */
+export interface Event {
+  /**
+   * <p>The event ID.</p>
+   */
+  eventId?: string;
+
+  /**
+   * <p>The event type.</p>
+   */
+  eventTypeName?: string;
+
+  /**
+   * <p>The timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.</p>
+   */
+  eventTimestamp?: string;
+
+  /**
+   * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
+   */
+  eventVariables?: { [key: string]: string };
+
+  /**
+   * <p>The label associated with the event.</p>
+   */
+  currentLabel?: string;
+
+  /**
+   * <p>The timestamp associated with the label to update. The timestamp must be specified using ISO 8601 standard in UTC.</p>
+   */
+  labelTimestamp?: string;
+
+  /**
+   * <p>The event entities.</p>
+   */
+  entities?: Entity[];
+}
+
+export namespace Event {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Event): any => ({
+    ...obj,
+    ...(obj.eventVariables && { eventVariables: SENSITIVE_STRING }),
+    ...(obj.entities && { entities: SENSITIVE_STRING }),
+  });
+}
+
+export interface GetEventResult {
+  /**
+   * <p>The details of the event.</p>
+   */
+  event?: Event;
+}
+
+export namespace GetEventResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetEventResult): any => ({
+    ...obj,
+    ...(obj.event && { event: Event.filterSensitiveLog(obj.event) }),
   });
 }
 
@@ -2266,7 +2723,7 @@ export interface GetEventPredictionRequest {
   entities: Entity[] | undefined;
 
   /**
-   * <p>Timestamp that defines when the event under evaluation occurred.</p>
+   * <p>Timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.</p>
    */
   eventTimestamp: string | undefined;
 
@@ -2274,17 +2731,10 @@ export interface GetEventPredictionRequest {
    * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and
    *          their corresponding values for the event you are sending for evaluation.</p>
    *          <important>
-   *             <ul>
-   *                <li>
-   *                   <p>You must provide at least one eventVariable</p>
-   *                </li>
-   *                <li>
-   *                   <p>If detectorVersion is associated with a modelVersion, you must provide at least one associated eventVariable</p>
-   *                </li>
-   *             </ul>
+   *             <p>You must provide at least one eventVariable</p>
    *          </important>
    *
-   *          <p>To ensure highest possible fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>
+   *          <p>To ensure most accurate fraud prediction and to simplify your data preparation, Amazon Fraud Detector will replace all missing variables or values as follows:</p>
    *
    *          <p>
    *             <b>For Amazon Fraud Detector trained models:</b>
@@ -2293,7 +2743,7 @@ export interface GetEventPredictionRequest {
    *          with calculated default mean/medians for numeric variables and with special values for categorical variables.</p>
    *
    *          <p>
-   *             <b>For External models ( for example, imported SageMaker):</b>
+   *             <b>For imported SageMaker models:</b>
    *          </p>
    *          <p>If a null value is provided explicitly for a variable, the model and rules will use “null” as the value. If a variable is not provided (no variable name in the eventVariables map), model and rules
    *          will use the default value that is provided for the variable. </p>
@@ -2445,9 +2895,7 @@ export namespace GetEventPredictionResult {
 }
 
 /**
- * <p>
- *          An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.
- *       </p>
+ * <p>An exception indicating that the attached customer-owned (external) model threw an exception when Amazon Fraud Detector invoked the model.</p>
  */
 export interface ResourceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ResourceUnavailableException";
@@ -2490,6 +2938,51 @@ export namespace GetEventTypesRequest {
   });
 }
 
+export enum EventIngestion {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Data about the stored events.</p>
+ */
+export interface IngestedEventStatistics {
+  /**
+   * <p>The number of stored events.</p>
+   */
+  numberOfEvents?: number;
+
+  /**
+   * <p>The total size of the stored events.</p>
+   */
+  eventDataSizeInBytes?: number;
+
+  /**
+   * <p>The oldest stored event.</p>
+   */
+  leastRecentEvent?: string;
+
+  /**
+   * <p>The newest stored event.</p>
+   */
+  mostRecentEvent?: string;
+
+  /**
+   * <p>Timestamp of when the stored event was last updated.
+   *       </p>
+   */
+  lastUpdatedTime?: string;
+}
+
+export namespace IngestedEventStatistics {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IngestedEventStatistics): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The event type details.</p>
  */
@@ -2518,6 +3011,16 @@ export interface EventType {
    * <p>The event type entity types.</p>
    */
   entityTypes?: string[];
+
+  /**
+   * <p>If <code>Enabled</code>, Amazon Fraud Detector stores event data when you generate a prediction and uses that data to update calculated variables in near real-time. Amazon Fraud Detector uses this data, known as <code>INGESTED_EVENTS</code>, to train your model and  improve fraud predictions.</p>
+   */
+  eventIngestion?: EventIngestion | string;
+
+  /**
+   * <p>Data about the stored events.</p>
+   */
+  ingestedEventStatistics?: IngestedEventStatistics;
 
   /**
    * <p>Timestamp of when the event type was last updated.</p>
@@ -3035,9 +3538,17 @@ export interface GetModelVersionResult {
   trainingDataSchema?: TrainingDataSchema;
 
   /**
-   * <p>The event details.</p>
+   * <p>The details of the external events data used for training the model version.
+   *          This will be populated if the <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>
+   *          </p>
    */
   externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>The details of the ingested events data used for training the model version.
+   *          This will be populated if the <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
+   */
+  ingestedEventsDetail?: IngestedEventsDetail;
 
   /**
    * <p>The model version status.</p>
@@ -3516,6 +4027,11 @@ export interface PutEventTypeRequest {
   entityTypes: string[] | undefined;
 
   /**
+   * <p>Specifies if ingenstion is enabled or disabled.</p>
+   */
+  eventIngestion?: EventIngestion | string;
+
+  /**
    * <p>A collection of key and value pairs.</p>
    */
   tags?: Tag[];
@@ -3695,6 +4211,65 @@ export namespace PutOutcomeResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: PutOutcomeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface SendEventRequest {
+  /**
+   * <p>The event ID to upload.</p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The event type name of the event.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>The timestamp that defines when the event under evaluation occurred. The timestamp must be specified using ISO 8601 standard in UTC.</p>
+   */
+  eventTimestamp: string | undefined;
+
+  /**
+   * <p>Names of the event type's variables you defined in Amazon Fraud Detector to represent data elements and their corresponding values for the event you are sending for evaluation.</p>
+   */
+  eventVariables: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The label to associate with the event. Required if specifying <code>labelTimestamp</code>.</p>
+   */
+  assignedLabel?: string;
+
+  /**
+   * <p>The timestamp associated with the label. Required if specifying <code>assignedLabel</code>.</p>
+   */
+  labelTimestamp?: string;
+
+  /**
+   * <p>An array of entities.</p>
+   */
+  entities: Entity[] | undefined;
+}
+
+export namespace SendEventRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendEventRequest): any => ({
+    ...obj,
+    ...(obj.eventVariables && { eventVariables: SENSITIVE_STRING }),
+    ...(obj.entities && { entities: SENSITIVE_STRING }),
+  });
+}
+
+export interface SendEventResult {}
+
+export namespace SendEventResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendEventResult): any => ({
     ...obj,
   });
 }
@@ -3897,6 +4472,48 @@ export namespace UpdateDetectorVersionStatusResult {
   });
 }
 
+export interface UpdateEventLabelRequest {
+  /**
+   * <p>The ID of the event associated with the label to update.</p>
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The event type of the event associated with the label to update.</p>
+   */
+  eventTypeName: string | undefined;
+
+  /**
+   * <p>The new label to assign to the event.</p>
+   */
+  assignedLabel: string | undefined;
+
+  /**
+   * <p>The timestamp associated with the label. The timestamp must be specified using ISO 8601 standard in UTC. </p>
+   */
+  labelTimestamp: string | undefined;
+}
+
+export namespace UpdateEventLabelRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventLabelRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateEventLabelResult {}
+
+export namespace UpdateEventLabelResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateEventLabelResult): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateModelRequest {
   /**
    * <p>The model ID.</p>
@@ -3951,9 +4568,14 @@ export interface UpdateModelVersionRequest {
   majorVersionNumber: string | undefined;
 
   /**
-   * <p>The event details.</p>
+   * <p>The details of the external events data used for training the model version. Required if <code>trainingDataSource</code> is <code>EXTERNAL_EVENTS</code>.</p>
    */
   externalEventsDetail?: ExternalEventsDetail;
+
+  /**
+   * <p>The details of the ingested event used for training the model version. Required if your <code>trainingDataSource</code> is <code>INGESTED_EVENTS</code>.</p>
+   */
+  ingestedEventsDetail?: IngestedEventsDetail;
 
   /**
    * <p>A collection of key and value pairs.</p>

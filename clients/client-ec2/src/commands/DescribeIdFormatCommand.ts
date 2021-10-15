@@ -37,7 +37,7 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
  *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
  *          <p>These settings apply to the IAM user who makes the request; they do not apply to the entire
- *       AWS account. By default, an IAM user defaults to the same settings as the root user, unless
+ *       Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user, unless
  *       they explicitly override the settings by running the <a>ModifyIdFormat</a> command. Resources
  *       created with longer IDs are visible to all IAM users, regardless of these settings and
  *       provided that they have permission to use the relevant <code>Describe</code> command for the

@@ -146,6 +146,10 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-iso-east-1.c2s.ic.gov",
     signingRegion: "us-iso-east-1",
   },
+  "us-iso-west-1": {
+    hostname: "api.ecr.us-iso-west-1.c2s.ic.gov",
+    signingRegion: "us-iso-west-1",
+  },
   "us-isob-east-1": {
     hostname: "api.ecr.us-isob-east-1.sc2s.sgov.gov",
     signingRegion: "us-isob-east-1",
@@ -200,7 +204,7 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "api.ecr.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

@@ -35,7 +35,7 @@ const partitionHash: PartitionHash = {
     hostname: "finspace-api.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "finspace-api.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

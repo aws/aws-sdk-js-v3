@@ -64,6 +64,7 @@ import {
   CancelInputDeviceTransferCommandInput,
   CancelInputDeviceTransferCommandOutput,
 } from "./commands/CancelInputDeviceTransferCommand";
+import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand";
 import {
@@ -174,6 +175,7 @@ export type ServiceInputTypes =
   | BatchStopCommandInput
   | BatchUpdateScheduleCommandInput
   | CancelInputDeviceTransferCommandInput
+  | ClaimDeviceCommandInput
   | CreateChannelCommandInput
   | CreateInputCommandInput
   | CreateInputSecurityGroupCommandInput
@@ -232,6 +234,7 @@ export type ServiceOutputTypes =
   | BatchStopCommandOutput
   | BatchUpdateScheduleCommandOutput
   | CancelInputDeviceTransferCommandOutput
+  | ClaimDeviceCommandOutput
   | CreateChannelCommandOutput
   | CreateInputCommandOutput
   | CreateInputSecurityGroupCommandOutput

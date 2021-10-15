@@ -145,6 +145,9 @@ import {
   ExportSortBy,
   ExportSummary,
   FulfillmentCodeHookSettings,
+  FulfillmentStartResponseSpecification,
+  FulfillmentUpdateResponseSpecification,
+  FulfillmentUpdatesSpecification,
   ImageResponseCard,
   ImportFilter,
   ImportResourceSpecification,
@@ -165,6 +168,7 @@ import {
   ObfuscationSetting,
   OutputContext,
   PlainTextMessage,
+  PostFulfillmentStatusSpecification,
   PreconditionFailedException,
   Principal,
   PromptSpecification,
@@ -9763,6 +9767,71 @@ const serializeAws_restJson1FulfillmentCodeHookSettings = (
 ): any => {
   return {
     ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
+    ...(input.fulfillmentUpdatesSpecification !== undefined &&
+      input.fulfillmentUpdatesSpecification !== null && {
+        fulfillmentUpdatesSpecification: serializeAws_restJson1FulfillmentUpdatesSpecification(
+          input.fulfillmentUpdatesSpecification,
+          context
+        ),
+      }),
+    ...(input.postFulfillmentStatusSpecification !== undefined &&
+      input.postFulfillmentStatusSpecification !== null && {
+        postFulfillmentStatusSpecification: serializeAws_restJson1PostFulfillmentStatusSpecification(
+          input.postFulfillmentStatusSpecification,
+          context
+        ),
+      }),
+  };
+};
+
+const serializeAws_restJson1FulfillmentStartResponseSpecification = (
+  input: FulfillmentStartResponseSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.allowInterrupt !== undefined &&
+      input.allowInterrupt !== null && { allowInterrupt: input.allowInterrupt }),
+    ...(input.delayInSeconds !== undefined &&
+      input.delayInSeconds !== null && { delayInSeconds: input.delayInSeconds }),
+    ...(input.messageGroups !== undefined &&
+      input.messageGroups !== null && {
+        messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1FulfillmentUpdateResponseSpecification = (
+  input: FulfillmentUpdateResponseSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.allowInterrupt !== undefined &&
+      input.allowInterrupt !== null && { allowInterrupt: input.allowInterrupt }),
+    ...(input.frequencyInSeconds !== undefined &&
+      input.frequencyInSeconds !== null && { frequencyInSeconds: input.frequencyInSeconds }),
+    ...(input.messageGroups !== undefined &&
+      input.messageGroups !== null && {
+        messageGroups: serializeAws_restJson1MessageGroupsList(input.messageGroups, context),
+      }),
+  };
+};
+
+const serializeAws_restJson1FulfillmentUpdatesSpecification = (
+  input: FulfillmentUpdatesSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.active !== undefined && input.active !== null && { active: input.active }),
+    ...(input.startResponse !== undefined &&
+      input.startResponse !== null && {
+        startResponse: serializeAws_restJson1FulfillmentStartResponseSpecification(input.startResponse, context),
+      }),
+    ...(input.timeoutInSeconds !== undefined &&
+      input.timeoutInSeconds !== null && { timeoutInSeconds: input.timeoutInSeconds }),
+    ...(input.updateResponse !== undefined &&
+      input.updateResponse !== null && {
+        updateResponse: serializeAws_restJson1FulfillmentUpdateResponseSpecification(input.updateResponse, context),
+      }),
   };
 };
 
@@ -10011,6 +10080,26 @@ const serializeAws_restJson1OutputContextsList = (input: OutputContext[], contex
 const serializeAws_restJson1PlainTextMessage = (input: PlainTextMessage, context: __SerdeContext): any => {
   return {
     ...(input.value !== undefined && input.value !== null && { value: input.value }),
+  };
+};
+
+const serializeAws_restJson1PostFulfillmentStatusSpecification = (
+  input: PostFulfillmentStatusSpecification,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.failureResponse !== undefined &&
+      input.failureResponse !== null && {
+        failureResponse: serializeAws_restJson1ResponseSpecification(input.failureResponse, context),
+      }),
+    ...(input.successResponse !== undefined &&
+      input.successResponse !== null && {
+        successResponse: serializeAws_restJson1ResponseSpecification(input.successResponse, context),
+      }),
+    ...(input.timeoutResponse !== undefined &&
+      input.timeoutResponse !== null && {
+        timeoutResponse: serializeAws_restJson1ResponseSpecification(input.timeoutResponse, context),
+      }),
   };
 };
 
@@ -10926,6 +11015,60 @@ const deserializeAws_restJson1FulfillmentCodeHookSettings = (
 ): FulfillmentCodeHookSettings => {
   return {
     enabled: __expectBoolean(output.enabled),
+    fulfillmentUpdatesSpecification:
+      output.fulfillmentUpdatesSpecification !== undefined && output.fulfillmentUpdatesSpecification !== null
+        ? deserializeAws_restJson1FulfillmentUpdatesSpecification(output.fulfillmentUpdatesSpecification, context)
+        : undefined,
+    postFulfillmentStatusSpecification:
+      output.postFulfillmentStatusSpecification !== undefined && output.postFulfillmentStatusSpecification !== null
+        ? deserializeAws_restJson1PostFulfillmentStatusSpecification(output.postFulfillmentStatusSpecification, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FulfillmentStartResponseSpecification = (
+  output: any,
+  context: __SerdeContext
+): FulfillmentStartResponseSpecification => {
+  return {
+    allowInterrupt: __expectBoolean(output.allowInterrupt),
+    delayInSeconds: __expectInt32(output.delayInSeconds),
+    messageGroups:
+      output.messageGroups !== undefined && output.messageGroups !== null
+        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FulfillmentUpdateResponseSpecification = (
+  output: any,
+  context: __SerdeContext
+): FulfillmentUpdateResponseSpecification => {
+  return {
+    allowInterrupt: __expectBoolean(output.allowInterrupt),
+    frequencyInSeconds: __expectInt32(output.frequencyInSeconds),
+    messageGroups:
+      output.messageGroups !== undefined && output.messageGroups !== null
+        ? deserializeAws_restJson1MessageGroupsList(output.messageGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FulfillmentUpdatesSpecification = (
+  output: any,
+  context: __SerdeContext
+): FulfillmentUpdatesSpecification => {
+  return {
+    active: __expectBoolean(output.active),
+    startResponse:
+      output.startResponse !== undefined && output.startResponse !== null
+        ? deserializeAws_restJson1FulfillmentStartResponseSpecification(output.startResponse, context)
+        : undefined,
+    timeoutInSeconds: __expectInt32(output.timeoutInSeconds),
+    updateResponse:
+      output.updateResponse !== undefined && output.updateResponse !== null
+        ? deserializeAws_restJson1FulfillmentUpdateResponseSpecification(output.updateResponse, context)
+        : undefined,
   } as any;
 };
 
@@ -11167,6 +11310,26 @@ const deserializeAws_restJson1OutputContextsList = (output: any, context: __Serd
 const deserializeAws_restJson1PlainTextMessage = (output: any, context: __SerdeContext): PlainTextMessage => {
   return {
     value: __expectString(output.value),
+  } as any;
+};
+
+const deserializeAws_restJson1PostFulfillmentStatusSpecification = (
+  output: any,
+  context: __SerdeContext
+): PostFulfillmentStatusSpecification => {
+  return {
+    failureResponse:
+      output.failureResponse !== undefined && output.failureResponse !== null
+        ? deserializeAws_restJson1ResponseSpecification(output.failureResponse, context)
+        : undefined,
+    successResponse:
+      output.successResponse !== undefined && output.successResponse !== null
+        ? deserializeAws_restJson1ResponseSpecification(output.successResponse, context)
+        : undefined,
+    timeoutResponse:
+      output.timeoutResponse !== undefined && output.timeoutResponse !== null
+        ? deserializeAws_restJson1ResponseSpecification(output.timeoutResponse, context)
+        : undefined,
   } as any;
 };
 

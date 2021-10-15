@@ -118,6 +118,32 @@ export namespace ResourceNotFoundException {
 }
 
 /**
+ * <p>The request was rejected because it has invalid parameters.</p>
+ */
+export interface ValidationException extends __SmithyException, $MetadataBearer {
+  name: "ValidationException";
+  $fault: "client";
+  /**
+   * <p>A machine-parsable string error or warning code.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A human-readable string error or warning message.</p>
+   */
+  Message?: string;
+}
+
+export namespace ValidationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ValidationException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Container for the parameters to the <code><a>CreateDomain</a></code> operation. Specifies a name for the new search domain.</p>
  */
 export interface CreateDomainRequest {
@@ -312,32 +338,6 @@ export namespace ResourceAlreadyExistsException {
    * @internal
    */
   export const filterSensitiveLog = (obj: ResourceAlreadyExistsException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was rejected because it has invalid parameters.</p>
- */
-export interface ValidationException extends __SmithyException, $MetadataBearer {
-  name: "ValidationException";
-  $fault: "client";
-  /**
-   * <p>A machine-parsable string error or warning code.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A human-readable string error or warning message.</p>
-   */
-  Message?: string;
-}
-
-export namespace ValidationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ValidationException): any => ({
     ...obj,
   });
 }

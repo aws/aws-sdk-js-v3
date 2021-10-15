@@ -444,8 +444,7 @@ export namespace LimitExceededException {
 }
 
 /**
- * <p>For an email or alias to be created in Amazon WorkMail, the included domain must be defined
- *          in the organization.</p>
+ * <p>The domain specified is not found in your organization.</p>
  */
 export interface MailDomainNotFoundException extends __SmithyException, $MetadataBearer {
   name: "MailDomainNotFoundException";
@@ -1299,6 +1298,75 @@ export namespace DeregisterFromWorkMailResponse {
   });
 }
 
+export interface DeregisterMailDomainRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the domain will be deregistered.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain to deregister in WorkMail and SES. </p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace DeregisterMailDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterMailDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeregisterMailDomainResponse {}
+
+export namespace DeregisterMailDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterMailDomainResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You SES configuration has customizations that Amazon WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
+ *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
+ */
+export interface InvalidCustomSesConfigurationException extends __SmithyException, $MetadataBearer {
+  name: "InvalidCustomSesConfigurationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace InvalidCustomSesConfigurationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidCustomSesConfigurationException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+ */
+export interface MailDomainInUseException extends __SmithyException, $MetadataBearer {
+  name: "MailDomainInUseException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace MailDomainInUseException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MailDomainInUseException): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeGroupRequest {
   /**
    * <p>The identifier for the organization under which the group exists.</p>
@@ -1816,6 +1884,41 @@ export namespace DisassociateMemberFromGroupResponse {
 }
 
 /**
+ * <p>A DNS record uploaded to your DNS provider.</p>
+ */
+export interface DnsRecord {
+  /**
+   * <p>The RFC 1035 record type. Possible values: <code>CNAME</code>, <code>A</code>, <code>MX</code>.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The DNS hostname.- For example, <code>domain.example.com</code>.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The value returned by the DNS for a query to that hostname and record type.</p>
+   */
+  Value?: string;
+}
+
+export namespace DnsRecord {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DnsRecord): any => ({
+    ...obj,
+  });
+}
+
+export enum DnsRecordVerificationStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  VERIFIED = "VERIFIED",
+}
+
+/**
  * <p>The user, group, or resource that you're trying to register is already
  *          registered.</p>
  */
@@ -1865,7 +1968,7 @@ export interface FolderConfiguration {
   Action: RetentionAction | string | undefined;
 
   /**
-   * <p>The period of time at which the folder configuration action is applied.</p>
+   * <p>The number of days for which the folder-configuration action applies.</p>
    */
   Period?: number;
 }
@@ -2019,6 +2122,64 @@ export namespace GetMailboxDetailsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetMailboxDetailsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMailDomainRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which the domain is retrieved.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain from which you want to retrieve details.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace GetMailDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMailDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMailDomainResponse {
+  /**
+   * <p>A list of the DNS records that Amazon WorkMail recommends adding in your DNS provider for the best user experience. The records configure your domain with DMARC, SPF, DKIM, and direct incoming
+   *          email traffic to SES. See admin guide for more details.</p>
+   */
+  Records?: DnsRecord[];
+
+  /**
+   * <p>Specifies whether the domain is a test domain provided by WorkMail, or a custom domain.</p>
+   */
+  IsTestDomain?: boolean;
+
+  /**
+   * <p>Specifies whether the domain is the default domain for your organization.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p> Indicates the status of the domain ownership verification.</p>
+   */
+  OwnershipVerificationStatus?: DnsRecordVerificationStatus | string;
+
+  /**
+   * <p>Indicates the status of a DKIM verification.</p>
+   */
+  DkimVerificationStatus?: DnsRecordVerificationStatus | string;
+}
+
+export namespace GetMailDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMailDomainResponse): any => ({
     ...obj,
   });
 }
@@ -2703,6 +2864,77 @@ export namespace ListMailboxPermissionsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListMailboxPermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMailDomainsRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which to list domains.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The first call does not require a token.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMailDomainsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMailDomainsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The data for a given domain.</p>
+ */
+export interface MailDomainSummary {
+  /**
+   * <p>The domain name.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Whether the domain is default or not.</p>
+   */
+  DefaultDomain?: boolean;
+}
+
+export namespace MailDomainSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MailDomainSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMailDomainsResponse {
+  /**
+   * <p>The list of mail domain summaries, specifying domains that exist in the specified Amazon WorkMail  organization, along with the information about whether the domain is or isn't the default.</p>
+   */
+  MailDomains?: MailDomainSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value becomes <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListMailDomainsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMailDomainsResponse): any => ({
     ...obj,
   });
 }
@@ -3605,6 +3837,43 @@ export namespace PutRetentionPolicyResponse {
   });
 }
 
+export interface RegisterMailDomainRequest {
+  /**
+   * <p>Idempotency token used when retrying requests.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon WorkMail organization under which you're creating the domain.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The name of the mail domain to create in Amazon WorkMail and SES.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace RegisterMailDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterMailDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface RegisterMailDomainResponse {}
+
+export namespace RegisterMailDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterMailDomainResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface RegisterToWorkMailRequest {
   /**
    * <p>The identifier for the organization under which the user, group, or resource
@@ -3829,6 +4098,38 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDefaultMailDomainRequest {
+  /**
+   * <p>The Amazon WorkMail organization for which to list domains.</p>
+   */
+  OrganizationId: string | undefined;
+
+  /**
+   * <p>The domain name that will become the default domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+export namespace UpdateDefaultMailDomainRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDefaultMailDomainRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDefaultMailDomainResponse {}
+
+export namespace UpdateDefaultMailDomainResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDefaultMailDomainResponse): any => ({
     ...obj,
   });
 }

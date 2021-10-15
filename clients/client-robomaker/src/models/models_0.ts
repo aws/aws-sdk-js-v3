@@ -110,6 +110,11 @@ export namespace BatchDescribeSimulationJobRequest {
   });
 }
 
+export enum ComputeType {
+  CPU = "CPU",
+  GPU_AND_CPU = "GPU_AND_CPU",
+}
+
 /**
  * <p>Compute information for the simulation job</p>
  */
@@ -117,10 +122,21 @@ export interface ComputeResponse {
   /**
    * <p>The simulation unit limit. Your simulation is allocated CPU and memory proportional to
    *          the supplied simulation unit limit. A simulation unit is 1 vcpu and 2GB of memory. You are
-   *          only billed for the SU utilization you consume up to the maximim value provided. The
+   *          only billed for the SU utilization you consume up to the maximum value provided. The
    *          default is 15. </p>
    */
   simulationUnitLimit?: number;
+
+  /**
+   * <p>Compute type response information for the simulation job.</p>
+   */
+  computeType?: ComputeType | string;
+
+  /**
+   * <p>Compute GPU unit limit for the simulation job. It is the same as the number of GPUs
+   *          allocated to the SimulationJob.</p>
+   */
+  gpuUnitLimit?: number;
 }
 
 export namespace ComputeResponse {
@@ -156,6 +172,12 @@ export namespace S3KeyOutput {
   });
 }
 
+export enum DataSourceType {
+  Archive = "Archive",
+  File = "File",
+  Prefix = "Prefix",
+}
+
 /**
  * <p>Information about a data source.</p>
  */
@@ -174,6 +196,27 @@ export interface DataSource {
    * <p>The list of S3 keys identifying the data source files.</p>
    */
   s3Keys?: S3KeyOutput[];
+
+  /**
+   * <p>The data type for the data source that you're using for your container image or
+   *          simulation job. You can use this field to specify whether your data source is an Archive,
+   *          an Amazon S3 prefix, or a file.</p>
+   *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
+   */
+  type?: DataSourceType | string;
+
+  /**
+   * <p>The location where your files are mounted in the container image.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as an <code>Archive</code>,
+   *          you must provide an Amazon S3 object key to your archive. The object key must point to
+   *          either a <code>.zip</code> or <code>.tar.gz</code> file.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as a <code>Prefix</code>,
+   *          you provide the Amazon S3 prefix that points to the files that you are using for your data
+   *          source.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as a <code>File</code>, you
+   *          provide the Amazon S3 path to the file that you're using as your data source.</p>
+   */
+  destination?: string;
 }
 
 export namespace DataSource {
@@ -352,12 +395,12 @@ export interface LaunchConfig {
   /**
    * <p>The package name.</p>
    */
-  packageName: string | undefined;
+  packageName?: string;
 
   /**
    * <p>The launch file name.</p>
    */
-  launchFile: string | undefined;
+  launchFile?: string;
 
   /**
    * <p>The environment variables for the application launch.</p>
@@ -376,6 +419,12 @@ export interface LaunchConfig {
    *          component. It must have a graphical user interface. </p>
    */
   streamUI?: boolean;
+
+  /**
+   * <p>If you've specified <code>General</code> as the value for your <code>RobotSoftwareSuite</code>, you can use this field to specify a list of commands for your container image.</p>
+   *          <p>If you've specified <code>SimulationRuntime</code> as the value for your <code>SimulationSoftwareSuite</code>, you can use this field to specify a list of commands for your container image.</p>
+   */
+  command?: string[];
 }
 
 export namespace LaunchConfig {
@@ -397,11 +446,10 @@ export enum ExitBehavior {
  */
 export interface Tool {
   /**
-   * <p>Boolean indicating whether a streaming session will be configured for the tool.
-   *          If <code>True</code>, AWS RoboMaker will configure a connection so you can interact with
-   *          the tool as it is running in the simulation. It must have a graphical user interface.
-   *          The default is <code>False</code>.
-   *       </p>
+   * <p>Boolean indicating whether a streaming session will be configured for the tool. If
+   *             <code>True</code>, AWS RoboMaker will configure a connection so you can interact with
+   *          the tool as it is running in the simulation. It must have a graphical user interface. The
+   *          default is <code>False</code>. </p>
    */
   streamUI?: boolean;
 
@@ -416,17 +464,15 @@ export interface Tool {
   command: string | undefined;
 
   /**
-   * <p>Boolean indicating whether logs will be recorded in CloudWatch for the tool.
-   *       The default is <code>False</code>.
-   *       </p>
+   * <p>Boolean indicating whether logs will be recorded in CloudWatch for the tool. The default
+   *          is <code>False</code>. </p>
    */
   streamOutputToCloudWatch?: boolean;
 
   /**
-   * <p>Exit behavior determines what happens when your tool quits running.
-   *         <code>RESTART</code> will cause your tool to be restarted. <code>FAIL</code>
-   *         will cause your job to exit. The default is <code>RESTART</code>.
-   *       </p>
+   * <p>Exit behavior determines what happens when your tool quits running. <code>RESTART</code>
+   *          will cause your tool to be restarted. <code>FAIL</code> will cause your job to exit. The
+   *          default is <code>RESTART</code>. </p>
    */
   exitBehavior?: ExitBehavior | string;
 }
@@ -451,14 +497,11 @@ export enum UploadBehavior {
  */
 export interface UploadConfiguration {
   /**
-   * <p>A prefix that specifies where files will be uploaded in Amazon S3.
-   *         It is appended to the simulation output location to determine the final path.
-   *        </p>
-   *          <p>
-   *         For example, if your simulation output location is <code>s3://my-bucket</code> and your upload
-   *         configuration name is <code>robot-test</code>, your files will be uploaded to
-   *         <code>s3://my-bucket/<simid>/<runid>/robot-test</code>.
-   *       </p>
+   * <p>A prefix that specifies where files will be uploaded in Amazon S3. It is appended to the
+   *          simulation output location to determine the final path. </p>
+   *          <p> For example, if your simulation output location is <code>s3://my-bucket</code> and your
+   *          upload configuration name is <code>robot-test</code>, your files will be uploaded to
+   *             <code>s3://my-bucket/<simid>/<runid>/robot-test</code>. </p>
    */
   name: string | undefined;
 
@@ -539,10 +582,8 @@ export interface RobotApplicationConfig {
   tools?: Tool[];
 
   /**
-   * <p>A Boolean indicating whether to use default robot application tools.
-   *         The default tools are rviz, rqt, terminal and rosbag record.
-   *         The default is <code>False</code>.
-   *       </p>
+   * <p>A Boolean indicating whether to use default robot application tools. The default tools
+   *          are rviz, rqt, terminal and rosbag record. The default is <code>False</code>. </p>
    */
   useDefaultTools?: boolean;
 }
@@ -618,10 +659,8 @@ export interface SimulationApplicationConfig {
   tools?: Tool[];
 
   /**
-   * <p>A Boolean indicating whether to use default simulation application tools.
-   *         The default tools are rviz, rqt, terminal and rosbag record.
-   *         The default is <code>False</code>.
-   *       </p>
+   * <p>A Boolean indicating whether to use default simulation application tools. The default
+   *          tools are rviz, rqt, terminal and rosbag record. The default is <code>False</code>. </p>
    */
   useDefaultTools?: boolean;
 }
@@ -718,7 +757,8 @@ export interface SimulationJob {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Leaves the host running for its maximum timeout duration after a <code>4XX</code> error code.</p>
+   *                <p>Leaves the host running for its maximum timeout duration after a
+   *                      <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>
@@ -1033,10 +1073,21 @@ export interface Compute {
   /**
    * <p>The simulation unit limit. Your simulation is allocated CPU and memory proportional to
    *          the supplied simulation unit limit. A simulation unit is 1 vcpu and 2GB of memory. You are
-   *          only billed for the SU utilization you consume up to the maximim value provided. The
+   *         only billed for the SU utilization you consume up to the maximum value provided. The
    *          default is 15. </p>
    */
   simulationUnitLimit?: number;
+
+  /**
+   * <p>Compute type information for the simulation job.</p>
+   */
+  computeType?: ComputeType | string;
+
+  /**
+   * <p>Compute GPU unit limit for the simulation job. It is the same as the number of GPUs
+   *         allocated to the SimulationJob.</p>
+   */
+  gpuUnitLimit?: number;
 }
 
 export namespace Compute {
@@ -1572,7 +1623,8 @@ export namespace ResourceAlreadyExistsException {
 }
 
 /**
- * <p>The object that contains the Docker image URI for either your robot or simulation applications.</p>
+ * <p>The object that contains the Docker image URI for either your robot or simulation
+ *          applications.</p>
  */
 export interface Environment {
   /**
@@ -1591,6 +1643,7 @@ export namespace Environment {
 }
 
 export enum RobotSoftwareSuiteType {
+  General = "General",
   ROS = "ROS",
   ROS2 = "ROS2",
 }
@@ -1678,7 +1731,8 @@ export interface CreateRobotApplicationRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The object that contains that URI of the Docker image that you use for your robot application.</p>
+   * <p>The object that contains that URI of the Docker image that you use for your robot
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -1769,7 +1823,8 @@ export interface CreateRobotApplicationResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>An object that contains the Docker image URI used to a create your robot application.</p>
+   * <p>An object that contains the Docker image URI used to a create your robot
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -1796,7 +1851,8 @@ export interface CreateRobotApplicationVersionRequest {
   currentRevisionId?: string;
 
   /**
-   * <p>The Amazon S3 identifier for the zip file bundle that you use for your robot application.</p>
+   * <p>The Amazon S3 identifier for the zip file bundle that you use for your robot
+   *          application.</p>
    */
   s3Etags?: string[];
 
@@ -1853,7 +1909,8 @@ export interface CreateRobotApplicationVersionResponse {
   revisionId?: string;
 
   /**
-   * <p>The object that contains the Docker image URI used to create your robot application.</p>
+   * <p>The object that contains the Docker image URI used to create your robot
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -1898,6 +1955,7 @@ export namespace RenderingEngine {
 export enum SimulationSoftwareSuiteType {
   Gazebo = "Gazebo",
   RosbagPlay = "RosbagPlay",
+  SimulationRuntime = "SimulationRuntime",
 }
 
 /**
@@ -1957,7 +2015,8 @@ export interface CreateSimulationApplicationRequest {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the Docker image URI used to create your simulation application.</p>
+   * <p>The object that contains the Docker image URI used to create your simulation
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -2024,7 +2083,8 @@ export interface CreateSimulationApplicationResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the Docker image URI that you used to create your simulation application.</p>
+   * <p>The object that contains the Docker image URI that you used to create your simulation
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -2051,12 +2111,14 @@ export interface CreateSimulationApplicationVersionRequest {
   currentRevisionId?: string;
 
   /**
-   * <p>The Amazon S3 eTag identifier for the zip file bundle that you use to create the simulation application.</p>
+   * <p>The Amazon S3 eTag identifier for the zip file bundle that you use to create the
+   *          simulation application.</p>
    */
   s3Etags?: string[];
 
   /**
-   * <p>The SHA256 digest used to identify the Docker image URI used to created the simulation application.</p>
+   * <p>The SHA256 digest used to identify the Docker image URI used to created the simulation
+   *          application.</p>
    */
   imageDigest?: string;
 }
@@ -2118,7 +2180,8 @@ export interface CreateSimulationApplicationVersionResponse {
   revisionId?: string;
 
   /**
-   * <p>The object that contains the Docker image URI used to create the simulation application.</p>
+   * <p>The object that contains the Docker image URI used to create the simulation
+   *          application.</p>
    */
   environment?: Environment;
 }
@@ -2150,6 +2213,27 @@ export interface DataSourceConfig {
    * <p>The list of S3 keys identifying the data source files.</p>
    */
   s3Keys: string[] | undefined;
+
+  /**
+   * <p>The data type for the data source that you're using for your container image or
+   *          simulation job. You can use this field to specify whether your data source is an Archive,
+   *          an Amazon S3 prefix, or a file.</p>
+   *          <p>If you don't specify a field, the default value is <code>File</code>.</p>
+   */
+  type?: DataSourceType | string;
+
+  /**
+   * <p>The location where your files are mounted in the container image.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as an <code>Archive</code>,
+   *          you must provide an Amazon S3 object key to your archive. The object key must point to
+   *          either a <code>.zip</code> or <code>.tar.gz</code> file.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as a <code>Prefix</code>,
+   *          you provide the Amazon S3 prefix that points to the files that you are using for your data
+   *          source.</p>
+   *          <p>If you've specified the <code>type</code> of the data source as a <code>File</code>, you
+   *          provide the Amazon S3 path to the file that you're using as your data source.</p>
+   */
+  destination?: string;
 }
 
 export namespace DataSourceConfig {
@@ -2228,7 +2312,8 @@ export interface CreateSimulationJobRequest {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Leaves the instance running for its maximum timeout duration after a <code>4XX</code> error code.</p>
+   *                <p>Leaves the instance running for its maximum timeout duration after a
+   *                      <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>
@@ -2502,7 +2587,8 @@ export interface SimulationJobRequest {
    *          <dl>
    *             <dt>Continue</dt>
    *             <dd>
-   *                <p>Leaves the host running for its maximum timeout duration after a <code>4XX</code> error code.</p>
+   *                <p>Leaves the host running for its maximum timeout duration after a
+   *                      <code>4XX</code> error code.</p>
    *             </dd>
    *             <dt>Fail</dt>
    *             <dd>
@@ -3754,7 +3840,8 @@ export interface DescribeRobotApplicationResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the Docker image URI used to create the robot application.</p>
+   * <p>The object that contains the Docker image URI used to create the robot
+   *          application.</p>
    */
   environment?: Environment;
 
@@ -3847,12 +3934,14 @@ export interface DescribeSimulationApplicationResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The object that contains the Docker image URI used to create the simulation application.</p>
+   * <p>The object that contains the Docker image URI used to create the simulation
+   *          application.</p>
    */
   environment?: Environment;
 
   /**
-   * <p>A SHA256 identifier for the Docker image that you use for your simulation application.</p>
+   * <p>A SHA256 identifier for the Docker image that you use for your simulation
+   *          application.</p>
    */
   imageDigest?: string;
 }
@@ -4120,6 +4209,11 @@ export interface SimulationJobSummary {
    * <p>The names of the data sources.</p>
    */
   dataSourceNames?: string[];
+
+  /**
+   * <p>The compute type for the simulation job summary.</p>
+   */
+  computeType?: ComputeType | string;
 }
 
 export namespace SimulationJobSummary {
@@ -6646,7 +6740,8 @@ export interface UpdateSimulationApplicationResponse {
   revisionId?: string;
 
   /**
-   * <p>The object that contains the Docker image URI used for your simulation application.</p>
+   * <p>The object that contains the Docker image URI used for your simulation
+   *          application.</p>
    */
   environment?: Environment;
 }

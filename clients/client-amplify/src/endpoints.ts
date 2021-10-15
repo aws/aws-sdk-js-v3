@@ -35,7 +35,7 @@ const partitionHash: PartitionHash = {
     hostname: "amplify.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "amplify.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

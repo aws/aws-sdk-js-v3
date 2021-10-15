@@ -24,8 +24,8 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
 /**
  * <p>Associate an Amazon FSx file system with the FSx File Gateway. After the
  *          association process is complete, the file shares on the Amazon FSx file system are
- *          available for access through the gateway. This operation only supports the FSx File
- *          Gateway type.</p>
+ *          available for access through the gateway. This operation only supports the FSx File Gateway
+ *          type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

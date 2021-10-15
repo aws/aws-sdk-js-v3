@@ -45,7 +45,7 @@ const partitionHash: PartitionHash = {
     hostname: "health.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "health.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

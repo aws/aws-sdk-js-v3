@@ -58,7 +58,7 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "organizations.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

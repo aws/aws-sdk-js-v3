@@ -2153,9 +2153,14 @@ export namespace TooManyTargetGroupsException {
   });
 }
 
+export enum TargetGroupIpAddressTypeEnum {
+  IPV4 = "ipv4",
+  IPV6 = "ipv6",
+}
+
 /**
  * <p>The codes to use when checking for a successful response from a target. If the protocol
- *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.</p>
+ *       version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes. </p>
  */
 export interface Matcher {
   /**
@@ -2163,6 +2168,8 @@ export interface Matcher {
    *       default value is 200. You can specify multiple values (for example, "200,202") or a range of
    *       values (for example, "200-299").</p>
    *          <p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p>
+   *          <p>Note that when using shorthand syntax, some values such as commas need to be
+   *       escaped.</p>
    */
   HttpCode?: string;
 
@@ -2333,6 +2340,13 @@ export interface CreateTargetGroupInput {
    * <p>The tags to assign to the target group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The type of IP address used for this target group. The possible values are
+   *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
+   *       the IP address type defaults to <code>ipv4</code>.</p>
+   */
+  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
 export namespace CreateTargetGroupInput {
@@ -2445,6 +2459,13 @@ export interface TargetGroup {
    *         <code>HTTP1</code>, and <code>HTTP2</code>.</p>
    */
   ProtocolVersion?: string;
+
+  /**
+   * <p>The type of IP address used for this target group. The possible values are
+   *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
+   *       the IP address type defaults to <code>ipv4</code>.</p>
+   */
+  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
 }
 
 export namespace TargetGroup {
@@ -3003,22 +3024,22 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates whether the two headers (<code>x-amzn-tls-version</code> and
-   *           <code>x-amzn-tls-cipher-suite</code>), which contain information about
-   *           the negotiated TLS version and cipher suite, are added to the client request
-   *           before sending it to the target. The <code>x-amzn-tls-version</code> header
-   *           has information about the TLS protocol version negotiated with the client,
-   *           and the <code>x-amzn-tls-cipher-suite</code> header has information about
-   *           the cipher suite negotiated with the client. Both headers are in OpenSSL
-   *           format. The possible values for the attribute are <code>true</code> and
-   *           <code>false</code>. The default is <code>false</code>.</p>
+   *                   <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates
+   *           whether the two headers (<code>x-amzn-tls-version</code> and
+   *             <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated
+   *           TLS version and cipher suite, are added to the client request before sending it to the
+   *           target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol
+   *           version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header
+   *           has information about the cipher suite negotiated with the client. Both headers are in
+   *           OpenSSL format. The possible values for the attribute are <code>true</code> and
+   *             <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>routing.http.xff_client_port.enabled</code> - Indicates whether the
-   *           <code>X-Forwarded-For</code> header should preserve the source port that the client used
+   *             <code>X-Forwarded-For</code> header should preserve the source port that the client used
    *           to connect to the load balancer. The possible values are <code>true</code> and
-   *           <code>false</code>. The default is <code>false</code>.</p>
+   *             <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3204,6 +3225,12 @@ export interface DescribeSSLPoliciesInput {
    * <p>The maximum number of results to return with this call.</p>
    */
   PageSize?: number;
+
+  /**
+   * <p> The type of load balancer. The default lists the SSL policies for all load
+   *       balancers.</p>
+   */
+  LoadBalancerType?: LoadBalancerTypeEnum | string;
 }
 
 export namespace DescribeSSLPoliciesInput {
@@ -3233,6 +3260,13 @@ export interface SslPolicy {
    * <p>The name of the policy.</p>
    */
   Name?: string;
+
+  /**
+   * <p>
+   *       The supported load balancers.
+   *     </p>
+   */
+  SupportedLoadBalancerTypes?: string[];
 }
 
 export namespace SslPolicy {

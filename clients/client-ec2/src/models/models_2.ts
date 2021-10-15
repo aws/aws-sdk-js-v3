@@ -24,6 +24,7 @@ import {
   CurrencyCodeValues,
   CustomerGateway,
   DefaultTargetCapacityType,
+  DestinationFileFormat,
   DhcpOptions,
   EgressOnlyInternetGateway,
   FleetCapacityReservation,
@@ -59,10 +60,17 @@ import {
   DiskImageFormat,
   ExportTask,
   GroupIdentifier,
+  IKEVersionsListValue,
   LaunchTemplate,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  Phase1DHGroupNumbersListValue,
+  Phase1EncryptionAlgorithmsListValue,
+  Phase1IntegrityAlgorithmsListValue,
+  Phase2DHGroupNumbersListValue,
+  Phase2EncryptionAlgorithmsListValue,
+  Phase2IntegrityAlgorithmsListValue,
   SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
@@ -71,8 +79,181 @@ import {
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
-  VpnConnectionOptions,
+  TunnelInsideIpVersion,
 } from "./models_1";
+
+/**
+ * <p>The VPN tunnel options.</p>
+ */
+export interface TunnelOption {
+  /**
+   * <p>The external IP address of the VPN tunnel.</p>
+   */
+  OutsideIpAddress?: string;
+
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel.</p>
+   */
+  TunnelInsideCidr?: string;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel.</p>
+   */
+  TunnelInsideIpv6Cidr?: string;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and the customer gateway.</p>
+   */
+  PreSharedKey?: string;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   */
+  Phase1LifetimeSeconds?: number;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   */
+  Phase2LifetimeSeconds?: number;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey.</p>
+   */
+  RekeyMarginTimeSeconds?: number;
+
+  /**
+   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code>
+   *             during which the rekey time is randomly selected.</p>
+   */
+  RekeyFuzzPercentage?: number;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   */
+  ReplayWindowSize?: number;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   */
+  DpdTimeoutSeconds?: number;
+
+  /**
+   * <p>The action to take after a DPD timeout occurs.</p>
+   */
+  DpdTimeoutAction?: string;
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[];
+
+  /**
+   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[];
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[];
+
+  /**
+   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[];
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[];
+
+  /**
+   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[];
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   */
+  IkeVersions?: IKEVersionsListValue[];
+
+  /**
+   * <p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>
+   */
+  StartupAction?: string;
+}
+
+export namespace TunnelOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TunnelOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes VPN connection options.</p>
+ */
+export interface VpnConnectionOptions {
+  /**
+   * <p>Indicates whether acceleration is enabled for the VPN connection.</p>
+   */
+  EnableAcceleration?: boolean;
+
+  /**
+   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be
+   *             used for devices that don't support BGP.</p>
+   */
+  StaticRoutesOnly?: boolean;
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   */
+  LocalIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   */
+  RemoteIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   */
+  LocalIpv6NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   */
+  RemoteIpv6NetworkCidr?: string;
+
+  /**
+   * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+   */
+  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+
+  /**
+   * <p>Indicates the VPN tunnel options.</p>
+   */
+  TunnelOptions?: TunnelOption[];
+}
+
+export namespace VpnConnectionOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpnConnectionOptions): any => ({
+    ...obj,
+  });
+}
 
 export type VpnStaticRouteSource = "Static";
 
@@ -6416,59 +6597,71 @@ export interface EventInformation {
   /**
    * <p>The event.</p>
    *
-   *         <p>The following are the <code>error</code> events:</p>
+   *         <p>
+   *             <code>error</code> events:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet did not have the required
+   *                     <code>iamFleetRoleInvalid</code> - The EC2 Fleet or Spot Fleet does not have the required
    *                     permissions either to launch or terminate an instance.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
-   *                     valid. For more information, see the description of the event.</p>
+   *                   <code>allLaunchSpecsTemporarilyBlacklisted</code> - None of the configurations
+   *                     are valid, and several attempts to launch instances have failed. For more
+   *                     information, see the description of the event.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>spotInstanceCountLimitExceeded</code> - You've reached the limit on the
    *                     number of Spot Instances that you can launch.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>spotFleetRequestConfigurationInvalid</code> - The configuration is not
+   *                     valid. For more information, see the description of the event.</p>
+   *             </li>
    *          </ul>
    *
-   *         <p>The following are the <code>fleetRequestChange</code> events:</p>
+   *         <p>
+   *             <code>fleetRequestChange</code> events:</p>
    *         <ul>
    *             <li>
    *                 <p>
    *                     <code>active</code> - The EC2 Fleet or Spot Fleet request has been validated and Amazon EC2 is
-   *                     attempting to maintain the target number of running Spot Instances.</p>
+   *                     attempting to maintain the target number of running instances.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>cancelled</code> - The EC2 Fleet or Spot Fleet request is canceled and has no running
-   *                     Spot Instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances
-   *                     were terminated.</p>
+   *                     instances. The EC2 Fleet or Spot Fleet will be deleted two days after its instances are
+   *                     terminated.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>cancelled_running</code> - The EC2 Fleet or Spot Fleet request is canceled and does
-   *                     not launch additional Spot Instances. Existing Spot Instances continue to run
-   *                     until they are interrupted or terminated.</p>
+   *                     not launch additional instances. Its existing instances continue to run until
+   *                     they are interrupted or terminated. The request remains in this state until all
+   *                     instances are interrupted or terminated.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>cancelled_terminating</code> - The EC2 Fleet or Spot Fleet request is canceled and
-   *                     its Spot Instances are terminating.</p>
+   *                     its instances are terminating. The request remains in this state until all
+   *                     instances are terminated.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. A subsequent event
-   *                     indicates that the instances were terminated, if the request was created with
-   *                         <code>TerminateInstancesWithExpiration</code> set.</p>
+   *                     <code>expired</code> - The EC2 Fleet or Spot Fleet request has expired. If the request was
+   *                     created with <code>TerminateInstancesWithExpiration</code> set, a subsequent
+   *                         <code>terminated</code> event indicates that the instances are
+   *                     terminated.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>modify_in_progress</code> - A request to modify the EC2 Fleet or Spot Fleet request
-   *                     was accepted and is in progress.</p>
+   *                     <code>modify_in_progress</code> - The EC2 Fleet or Spot Fleet request is being modified.
+   *                     The request remains in this state until the modification is fully
+   *                     processed.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -6477,25 +6670,44 @@ export interface EventInformation {
    *             <li>
    *                 <p>
    *                     <code>submitted</code> - The EC2 Fleet or Spot Fleet request is being evaluated and Amazon EC2
-   *                     is preparing to launch the target number of Spot Instances.</p>
+   *                     is preparing to launch the target number of instances.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>progress</code> - The EC2 Fleet or Spot Fleet request is in the process of being fulfilled.</p>
    *             </li>
    *          </ul>
    *
-   *         <p>The following are the <code>instanceChange</code> events:</p>
+   *         <p>
+   *             <code>instanceChange</code> events:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>launched</code> - A request was fulfilled and a new instance was
-   *                     launched.</p>
+   *                   <code>launched</code> - A new instance was launched.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>terminated</code> - An instance was terminated by the user.</p>
    *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>termination_notified</code> - An instance termination notification was
+   *                     sent when a Spot Instance was terminated by Amazon EC2 during scale-down, when the target
+   *                     capacity of the fleet was modified down, for example, from a target capacity of
+   *                     4 to a target capacity of 3.</p>
+   *             </li>
    *          </ul>
    *
-   *         <p>The following are the <code>Information</code> events:</p>
+   *         <p>
+   *             <code>Information</code> events:</p>
    *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>fleetProgressHalted</code> - The price in every launch specification is
+   *                     not valid because it is below the Spot price (all the launch specifications have
+   *                     produced <code>launchSpecUnusable</code> events). A launch specification might
+   *                     become valid if the Spot price changes.</p>
+   *             </li>
    *             <li>
    *                 <p>
    *                   <code>launchSpecTemporarilyBlacklisted</code> - The configuration is not valid
@@ -6505,14 +6717,13 @@ export interface EventInformation {
    *             <li>
    *                 <p>
    *                   <code>launchSpecUnusable</code> - The price in a launch specification is not
-   *                     valid because it is below the Spot price or the Spot price is above the
-   *                     On-Demand price.</p>
+   *                     valid because it is below the Spot price.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>fleetProgressHalted</code> - The price in every launch specification is
-   *                     not valid. A launch specification might become valid if the Spot price
-   *                     changes.</p>
+   *                   <code>registerWithLoadBalancersFailed</code> - An attempt to register
+   *                     instances with load balancers failed. For more information, see the description
+   *                     of the event.</p>
    *             </li>
    *          </ul>
    */
@@ -7374,6 +7585,35 @@ export namespace DescribeFlowLogsRequest {
 }
 
 /**
+ * <p>Describes the destination options for a flow log.</p>
+ */
+export interface DestinationOptionsResponse {
+  /**
+   * <p>The format for the flow log.</p>
+   */
+  FileFormat?: DestinationFileFormat | string;
+
+  /**
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.</p>
+   */
+  HiveCompatiblePartitions?: boolean;
+
+  /**
+   * <p>Indicates whether to partition the flow log per hour.</p>
+   */
+  PerHourPartition?: boolean;
+}
+
+export namespace DestinationOptionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationOptionsResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes a flow log.</p>
  */
 export interface FlowLog {
@@ -7428,13 +7668,13 @@ export interface FlowLog {
   TrafficType?: TrafficType | string;
 
   /**
-   * <p>Specifies the type of destination to which the flow log data is published. Flow log data can be
+   * <p>The type of destination to which the flow log data is published. Flow log data can be
    *             published to CloudWatch Logs or Amazon S3.</p>
    */
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>Specifies the destination to which the flow log data is published. Flow log data can be
+   * <p>The destination to which the flow log data is published. Flow log data can be
    *             published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs,
    *             this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which
    *             the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN
@@ -7461,6 +7701,11 @@ export interface FlowLog {
    *          </p>
    */
   MaxAggregationInterval?: number;
+
+  /**
+   * <p>The destination options.</p>
+   */
+  DestinationOptions?: DestinationOptionsResponse;
 }
 
 export namespace FlowLog {
@@ -7530,7 +7775,7 @@ export type PermissionGroup = "all";
  */
 export interface LoadPermission {
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   UserId?: string;
 
@@ -7644,7 +7889,9 @@ export interface DescribeFpgaImagesRequest {
   FpgaImageIds?: string[];
 
   /**
-   * <p>Filters the AFI by owner. Specify an AWS account ID, <code>self</code> (owner is the sender of the request), or an AWS owner alias (valid values are <code>amazon</code> | <code>aws-marketplace</code>).</p>
+   * <p>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
+   * 			(owner is the sender of the request), or an Amazon Web Services owner alias (valid values are
+   * 			<code>amazon</code> | <code>aws-marketplace</code>).</p>
    */
   Owners?: string[];
 
@@ -7669,7 +7916,7 @@ export interface DescribeFpgaImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The AWS account ID of the AFI owner.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7677,7 +7924,7 @@ export interface DescribeFpgaImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>shell-version</code> - The version of the AWS Shell that was used to create the bitstream.</p>
+   *                   <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7823,7 +8070,7 @@ export interface FpgaImage {
   Description?: string;
 
   /**
-   * <p>The version of the AWS Shell that was used to create the bitstream.</p>
+   * <p>The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
    */
   ShellVersion?: string;
 
@@ -7848,7 +8095,7 @@ export interface FpgaImage {
   UpdateTime?: Date;
 
   /**
-   * <p>The AWS account ID of the AFI owner.</p>
+   * <p>The ID of the Amazon Web Services account that owns the AFI.</p>
    */
   OwnerId?: string;
 
@@ -9379,197 +9626,6 @@ export namespace ImportImageLicenseConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- */
-export interface UserBucketDetails {
-  /**
-   * <p>The Amazon S3 bucket from which the disk image was created.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The file name of the disk image.</p>
-   */
-  S3Key?: string;
-}
-
-export namespace UserBucketDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UserBucketDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the snapshot created from the imported disk.</p>
- */
-export interface SnapshotDetail {
-  /**
-   * <p>A description for the snapshot.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The block device mapping for the snapshot.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The size of the disk in the snapshot, in GiB.</p>
-   */
-  DiskImageSize?: number;
-
-  /**
-   * <p>The format of the disk image from which the snapshot is created.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The percentage of progress for the task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>The snapshot ID of the disk being imported.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>A brief status of the snapshot creation.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A detailed status message for the snapshot creation.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The URL used to access the disk image.</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucketDetails;
-}
-
-export namespace SnapshotDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SnapshotDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an import image task.</p>
- */
-export interface ImportImageTask {
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
-   *          </p>
-   */
-  Architecture?: string;
-
-  /**
-   * <p>A description of the import task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Indicates whether the image is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The target hypervisor for the import task.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   */
-  Hypervisor?: string;
-
-  /**
-   * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The ID of the import image task.</p>
-   */
-  ImportTaskId?: string;
-
-  /**
-   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The license type of the virtual machine.</p>
-   */
-  LicenseType?: string;
-
-  /**
-   * <p>The description string for the import image task.</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The percentage of progress of the import image task.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   */
-  SnapshotDetails?: SnapshotDetail[];
-
-  /**
-   * <p>A brief status for the import image task.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A descriptive status message for the import image task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The tags for the import image task.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
-
-  /**
-   * <p>The usage operation value.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>The boot mode of the virtual machine.</p>
-   */
-  BootMode?: BootModeValues | string;
-}
-
-export namespace ImportImageTask {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportImageTask): any => ({
     ...obj,
   });
 }

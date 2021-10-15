@@ -30,7 +30,9 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *       When an explicit policy is set, it overrides the default policy. For more information about the default file system policy, see
  *       <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default EFS File System Policy</a>.
  *     </p>
- *          <p>EFS file system policies have a 20,000 character limit.</p>
+ *          <note>
+ *             <p>EFS file system policies have a 20,000 character limit.</p>
+ *          </note>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:PutFileSystemPolicy</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

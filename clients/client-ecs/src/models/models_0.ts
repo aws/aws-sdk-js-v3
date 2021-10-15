@@ -1824,7 +1824,7 @@ export interface CreateServiceRequest {
    * <p>Specifies whether to propagate the tags from the task definition or the service to the
    * 			tasks in the service. If no value is specified, the tags are not propagated. Tags can
    * 			only be propagated to the tasks within the service during service creation. To add tags
-   * 			to a task after service creation, use the <a>TagResource</a> API
+   * 			to a task after service creation or task creation, use the <a>TagResource</a> API
    * 			action.</p>
    */
   propagateTags?: PropagateTags | string;
@@ -4399,7 +4399,7 @@ export enum ResourceType {
 /**
  * <p>The type and amount of a resource to assign to a container. The supported resource
  * 			types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
- * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the
+ * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>
  *          </p>
  */
@@ -5248,7 +5248,7 @@ export namespace EphemeralStorage {
 }
 
 /**
- * <p>Details on a Elastic Inference accelerator. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html">Working with
+ * <p>Details on a Elastic Inference accelerator. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
  * 				Amazon Elastic Inference on Amazon ECS</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
@@ -6754,7 +6754,7 @@ export namespace ContainerOverride {
 /**
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  * 			override the Elastic Inference accelerator specified in the task definition. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon Elastic Inference on Amazon ECS</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface InferenceAcceleratorOverride {
@@ -6799,7 +6799,9 @@ export interface TaskOverride {
   inferenceAcceleratorOverrides?: InferenceAcceleratorOverride[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task.</p>
+   * <p>The Amazon Resource Name (ARN) of the task execution IAM role override for the task. For more information,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon ECS task
+   * 				execution IAM role</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   executionRoleArn?: string;
 
@@ -6809,8 +6811,10 @@ export interface TaskOverride {
   memory?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers
-   * 			in this task are granted the permissions that are specified in this role.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in
+   * 			this task are granted the permissions that are specified in this role. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM Role for Tasks</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   taskRoleArn?: string;
 
@@ -9046,6 +9050,11 @@ export interface RunTaskRequest {
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
    * 			full ARN of the task definition to run. If a <code>revision</code> is not specified,
    * 			the latest <code>ACTIVE</code> revision is used.</p>
+   * 		       <p>The full ARN value must match the value that you specified ias the <code>Resource</code>
+   * 			of the IAM principal's permissions policy. For example, if the <code>Resource</code> is
+   * 			arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*, the
+   * 				<code>taskDefinition</code> ARN value must be
+   * 				<code>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</code>.</p>
    */
   taskDefinition: string | undefined;
 }

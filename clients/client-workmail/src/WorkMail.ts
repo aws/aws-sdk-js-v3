@@ -77,6 +77,11 @@ import {
   DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand";
 import {
+  DeregisterMailDomainCommand,
+  DeregisterMailDomainCommandInput,
+  DeregisterMailDomainCommandOutput,
+} from "./commands/DeregisterMailDomainCommand";
+import {
   DescribeGroupCommand,
   DescribeGroupCommandInput,
   DescribeGroupCommandOutput,
@@ -132,6 +137,11 @@ import {
   GetMailboxDetailsCommandOutput,
 } from "./commands/GetMailboxDetailsCommand";
 import {
+  GetMailDomainCommand,
+  GetMailDomainCommandInput,
+  GetMailDomainCommandOutput,
+} from "./commands/GetMailDomainCommand";
+import {
   GetMobileDeviceAccessEffectCommand,
   GetMobileDeviceAccessEffectCommandInput,
   GetMobileDeviceAccessEffectCommandOutput,
@@ -163,6 +173,11 @@ import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
+import {
+  ListMailDomainsCommand,
+  ListMailDomainsCommandInput,
+  ListMailDomainsCommandOutput,
+} from "./commands/ListMailDomainsCommand";
 import {
   ListMobileDeviceAccessOverridesCommand,
   ListMobileDeviceAccessOverridesCommandInput,
@@ -220,6 +235,11 @@ import {
   PutRetentionPolicyCommandOutput,
 } from "./commands/PutRetentionPolicyCommand";
 import {
+  RegisterMailDomainCommand,
+  RegisterMailDomainCommandInput,
+  RegisterMailDomainCommandOutput,
+} from "./commands/RegisterMailDomainCommand";
+import {
   RegisterToWorkMailCommand,
   RegisterToWorkMailCommandInput,
   RegisterToWorkMailCommandOutput,
@@ -240,6 +260,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateDefaultMailDomainCommand,
+  UpdateDefaultMailDomainCommandInput,
+  UpdateDefaultMailDomainCommandOutput,
+} from "./commands/UpdateDefaultMailDomainCommand";
 import {
   UpdateMailboxQuotaCommand,
   UpdateMailboxQuotaCommandInput,
@@ -581,6 +606,9 @@ export class WorkMail extends WorkMailClient {
 
   /**
    * <p>Deletes an access control rule for the specified WorkMail organization.</p>
+   *          <note>
+   *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+   *          </note>
    */
   public deleteAccessControlRule(
     args: DeleteAccessControlRuleCommandInput,
@@ -698,6 +726,9 @@ export class WorkMail extends WorkMailClient {
 
   /**
    * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
+   *          <note>
+   *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+   *          </note>
    */
   public deleteMobileDeviceAccessOverride(
     args: DeleteMobileDeviceAccessOverrideCommandInput,
@@ -730,6 +761,9 @@ export class WorkMail extends WorkMailClient {
 
   /**
    * <p>Deletes a mobile device access rule for the specified Amazon WorkMail organization.</p>
+   *          <note>
+   *             <p>Deleting already deleted and non-existing rules does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+   *          </note>
    */
   public deleteMobileDeviceAccessRule(
     args: DeleteMobileDeviceAccessRuleCommandInput,
@@ -911,6 +945,39 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: DeregisterFromWorkMailCommandOutput) => void
   ): Promise<DeregisterFromWorkMailCommandOutput> | void {
     const command = new DeregisterFromWorkMailCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a domain from Amazon WorkMail, stops email routing to WorkMail, and removes the authorization allowing WorkMail use. SES keeps the domain because other applications may use it. You must first
+   *          remove any email address used by WorkMail entities before you remove the domain.</p>
+   */
+  public deregisterMailDomain(
+    args: DeregisterMailDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterMailDomainCommandOutput>;
+  public deregisterMailDomain(
+    args: DeregisterMailDomainCommandInput,
+    cb: (err: any, data?: DeregisterMailDomainCommandOutput) => void
+  ): void;
+  public deregisterMailDomain(
+    args: DeregisterMailDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterMailDomainCommandOutput) => void
+  ): void;
+  public deregisterMailDomain(
+    args: DeregisterMailDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterMailDomainCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterMailDomainCommandOutput) => void
+  ): Promise<DeregisterMailDomainCommandOutput> | void {
+    const command = new DeregisterMailDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1273,6 +1340,38 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Gets details for a mail domain, including domain records required to configure your domain with recommended security.</p>
+   */
+  public getMailDomain(
+    args: GetMailDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMailDomainCommandOutput>;
+  public getMailDomain(
+    args: GetMailDomainCommandInput,
+    cb: (err: any, data?: GetMailDomainCommandOutput) => void
+  ): void;
+  public getMailDomain(
+    args: GetMailDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMailDomainCommandOutput) => void
+  ): void;
+  public getMailDomain(
+    args: GetMailDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMailDomainCommandOutput) => void),
+    cb?: (err: any, data?: GetMailDomainCommandOutput) => void
+  ): Promise<GetMailDomainCommandOutput> | void {
+    const command = new GetMailDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Simulates the effect of the mobile device access rules for the given attributes of a sample access event. Use this method to test the effects of the current set of mobile device access
    *          rules for the Amazon WorkMail organization for a particular user's attributes.</p>
    */
@@ -1511,6 +1610,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: ListMailboxPermissionsCommandOutput) => void
   ): Promise<ListMailboxPermissionsCommandOutput> | void {
     const command = new ListMailboxPermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the mail domains in a given Amazon WorkMail organization.</p>
+   */
+  public listMailDomains(
+    args: ListMailDomainsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMailDomainsCommandOutput>;
+  public listMailDomains(
+    args: ListMailDomainsCommandInput,
+    cb: (err: any, data?: ListMailDomainsCommandOutput) => void
+  ): void;
+  public listMailDomains(
+    args: ListMailDomainsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMailDomainsCommandOutput) => void
+  ): void;
+  public listMailDomains(
+    args: ListMailDomainsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMailDomainsCommandOutput) => void),
+    cb?: (err: any, data?: ListMailDomainsCommandOutput) => void
+  ): Promise<ListMailDomainsCommandOutput> | void {
+    const command = new ListMailDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1905,6 +2036,39 @@ export class WorkMail extends WorkMailClient {
   }
 
   /**
+   * <p>Registers a new domain in Amazon WorkMail and SES, and configures it for use by WorkMail. Emails received by SES for this domain are routed to the specified WorkMail organization, and WorkMail has
+   *          permanent permission to use the specified domain for sending your users' emails.</p>
+   */
+  public registerMailDomain(
+    args: RegisterMailDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterMailDomainCommandOutput>;
+  public registerMailDomain(
+    args: RegisterMailDomainCommandInput,
+    cb: (err: any, data?: RegisterMailDomainCommandOutput) => void
+  ): void;
+  public registerMailDomain(
+    args: RegisterMailDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterMailDomainCommandOutput) => void
+  ): void;
+  public registerMailDomain(
+    args: RegisterMailDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterMailDomainCommandOutput) => void),
+    cb?: (err: any, data?: RegisterMailDomainCommandOutput) => void
+  ): Promise<RegisterMailDomainCommandOutput> | void {
+    const command = new RegisterMailDomainCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Registers an existing and disabled user, group, or resource for Amazon WorkMail use by
    *          associating a mailbox and calendaring capabilities. It performs no change if the user,
    *          group, or resource is enabled and fails if the user, group, or resource is deleted. This
@@ -2059,6 +2223,38 @@ export class WorkMail extends WorkMailClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the default mail domain for an organization. The default mail domain is used by the WorkMail AWS Console to suggest an email address when enabling a mail user. You can only have one default domain.</p>
+   */
+  public updateDefaultMailDomain(
+    args: UpdateDefaultMailDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDefaultMailDomainCommandOutput>;
+  public updateDefaultMailDomain(
+    args: UpdateDefaultMailDomainCommandInput,
+    cb: (err: any, data?: UpdateDefaultMailDomainCommandOutput) => void
+  ): void;
+  public updateDefaultMailDomain(
+    args: UpdateDefaultMailDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDefaultMailDomainCommandOutput) => void
+  ): void;
+  public updateDefaultMailDomain(
+    args: UpdateDefaultMailDomainCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDefaultMailDomainCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDefaultMailDomainCommandOutput) => void
+  ): Promise<UpdateDefaultMailDomainCommandOutput> | void {
+    const command = new UpdateDefaultMailDomainCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

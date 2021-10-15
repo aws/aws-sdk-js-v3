@@ -18,6 +18,7 @@ import {
   CancelInputDeviceTransferCommandInput,
   CancelInputDeviceTransferCommandOutput,
 } from "./commands/CancelInputDeviceTransferCommand";
+import { ClaimDeviceCommand, ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "./commands/ClaimDeviceCommand";
 import {
   CreateChannelCommand,
   CreateChannelCommandInput,
@@ -410,6 +411,32 @@ export class MediaLive extends MediaLiveClient {
     cb?: (err: any, data?: CancelInputDeviceTransferCommandOutput) => void
   ): Promise<CancelInputDeviceTransferCommandOutput> | void {
     const command = new CancelInputDeviceTransferCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Send a request to claim an AWS Elemental device that you have purchased from a third-party vendor. After the request succeeds, you will own the device.
+   */
+  public claimDevice(args: ClaimDeviceCommandInput, options?: __HttpHandlerOptions): Promise<ClaimDeviceCommandOutput>;
+  public claimDevice(args: ClaimDeviceCommandInput, cb: (err: any, data?: ClaimDeviceCommandOutput) => void): void;
+  public claimDevice(
+    args: ClaimDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ClaimDeviceCommandOutput) => void
+  ): void;
+  public claimDevice(
+    args: ClaimDeviceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ClaimDeviceCommandOutput) => void),
+    cb?: (err: any, data?: ClaimDeviceCommandOutput) => void
+  ): Promise<ClaimDeviceCommandOutput> | void {
+    const command = new ClaimDeviceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

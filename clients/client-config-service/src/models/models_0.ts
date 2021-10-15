@@ -660,6 +660,7 @@ export enum ResourceType {
   NetworkFirewallFirewallPolicy = "AWS::NetworkFirewall::FirewallPolicy",
   NetworkFirewallRuleGroup = "AWS::NetworkFirewall::RuleGroup",
   NetworkInterface = "AWS::EC2::NetworkInterface",
+  OpenSearchDomain = "AWS::OpenSearch::Domain",
   PatchCompliance = "AWS::SSM::PatchCompliance",
   Pipeline = "AWS::CodePipeline::Pipeline",
   Policy = "AWS::IAM::Policy",

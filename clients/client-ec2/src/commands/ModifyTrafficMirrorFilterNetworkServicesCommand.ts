@@ -32,8 +32,6 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  *          <p> By default, Amazon DNS network services are not eligible for Traffic Mirror. Use <code>AddNetworkServices</code> to add network services to a Traffic Mirror filter. When a network service is added to the Traffic Mirror filter, all traffic related to that network service will be mirrored.
  *          When you no longer want to mirror network services, use <code>RemoveNetworkServices</code> to remove the network services from the Traffic Mirror filter.
  *       </p>
- *          <p>For information about filter rule properties, see
- *          <a href="https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html">Network Services</a> in the <i>Traffic Mirroring User Guide </i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

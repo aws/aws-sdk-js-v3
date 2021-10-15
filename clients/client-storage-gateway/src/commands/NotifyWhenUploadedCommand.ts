@@ -26,12 +26,10 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *          share have been uploaded to Amazon S3.</p>
  *
  *          <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all
- *          files written to your file share up to that point in time have been uploaded to Amazon S3.
- *          These files include files written to the file share up to the time that you make a request
- *          for notification. When the upload is done, Storage Gateway sends you notification through
- *          an Amazon CloudWatch Event. You can configure CloudWatch Events to send the notification
- *          through event targets such as Amazon SNS or Lambda function.
- *          This operation is only supported for S3 File Gateways.</p>
+ *          files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you
+ *          make a request for notification. When the upload is done, Storage Gateway sends you
+ *          notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to
+ *          send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p>
  *
  *
  *

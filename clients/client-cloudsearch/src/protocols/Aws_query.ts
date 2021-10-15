@@ -648,6 +648,14 @@ const deserializeAws_queryBuildSuggestersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -820,6 +828,14 @@ const deserializeAws_queryDefineAnalysisSchemeCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -902,6 +918,14 @@ const deserializeAws_queryDefineExpressionCommandError = async (
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -992,6 +1016,14 @@ const deserializeAws_queryDefineIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1078,6 +1110,14 @@ const deserializeAws_queryDefineSuggesterCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1152,6 +1192,14 @@ const deserializeAws_queryDeleteAnalysisSchemeCommandError = async (
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1296,6 +1344,14 @@ const deserializeAws_queryDeleteExpressionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1374,6 +1430,14 @@ const deserializeAws_queryDeleteIndexFieldCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -1448,6 +1512,14 @@ const deserializeAws_queryDeleteSuggesterCommandError = async (
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2190,6 +2262,14 @@ const deserializeAws_queryIndexDocumentsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2534,6 +2614,14 @@ const deserializeAws_queryUpdateScalingParametersCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2616,6 +2704,14 @@ const deserializeAws_queryUpdateServiceAccessPoliciesCommandError = async (
     case "com.amazonaws.cloudsearch#ResourceNotFoundException":
       response = {
         ...(await deserializeAws_queryResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.cloudsearch#ValidationException":
+      response = {
+        ...(await deserializeAws_queryValidationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

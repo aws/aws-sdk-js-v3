@@ -35,6 +35,7 @@ import {
   CancelInputDeviceTransferCommandInput,
   CancelInputDeviceTransferCommandOutput,
 } from "../commands/CancelInputDeviceTransferCommand";
+import { ClaimDeviceCommandInput, ClaimDeviceCommandOutput } from "../commands/ClaimDeviceCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "../commands/CreateInputCommand";
 import {
@@ -160,6 +161,7 @@ import {
   AudioSilenceFailoverSettings,
   AudioTrack,
   AudioTrackSelection,
+  AudioWatermarkSettings,
   AutomaticInputFailoverSettings,
   BatchFailedResultModel,
   BatchSuccessfulResultModel,
@@ -244,6 +246,9 @@ import {
   MultiplexSettingsSummary,
   MultiplexSummary,
   NetworkInputSettings,
+  NielsenCBET,
+  NielsenNaesIiNw,
+  NielsenWatermarksSettings,
   Offering,
   Output,
   OutputDestination,
@@ -554,6 +559,30 @@ export const serializeAws_restJson1CancelInputDeviceTransferCommand = async (
     throw new Error("No value provided for input HTTP label: InputDeviceId.");
   }
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ClaimDeviceCommand = async (
+  input: ClaimDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/claimDevice";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Id !== undefined && input.Id !== null && { id: input.Id }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2858,6 +2887,113 @@ const deserializeAws_restJson1CancelInputDeviceTransferCommandError = async (
     case "com.amazonaws.medialive#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      response = {
+        ...(await deserializeAws_restJson1GatewayTimeoutExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      response = {
+        ...(await deserializeAws_restJson1UnprocessableEntityExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ClaimDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ClaimDeviceCommandError(output, context);
+  }
+  const contents: ClaimDeviceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ClaimDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ClaimDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      response = {
+        ...(await deserializeAws_restJson1BadGatewayExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9599,6 +9735,13 @@ const serializeAws_restJson1AudioDescription = (input: AudioDescription, context
     ...(input.AudioType !== undefined && input.AudioType !== null && { audioType: input.AudioType }),
     ...(input.AudioTypeControl !== undefined &&
       input.AudioTypeControl !== null && { audioTypeControl: input.AudioTypeControl }),
+    ...(input.AudioWatermarkingSettings !== undefined &&
+      input.AudioWatermarkingSettings !== null && {
+        audioWatermarkingSettings: serializeAws_restJson1AudioWatermarkSettings(
+          input.AudioWatermarkingSettings,
+          context
+        ),
+      }),
     ...(input.CodecSettings !== undefined &&
       input.CodecSettings !== null && {
         codecSettings: serializeAws_restJson1AudioCodecSettings(input.CodecSettings, context),
@@ -9721,6 +9864,18 @@ const serializeAws_restJson1AudioTrackSelection = (input: AudioTrackSelection, c
   return {
     ...(input.Tracks !== undefined &&
       input.Tracks !== null && { tracks: serializeAws_restJson1__listOfAudioTrack(input.Tracks, context) }),
+  };
+};
+
+const serializeAws_restJson1AudioWatermarkSettings = (input: AudioWatermarkSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.NielsenWatermarksSettings !== undefined &&
+      input.NielsenWatermarksSettings !== null && {
+        nielsenWatermarksSettings: serializeAws_restJson1NielsenWatermarksSettings(
+          input.NielsenWatermarksSettings,
+          context
+        ),
+      }),
   };
 };
 
@@ -11422,11 +11577,46 @@ const serializeAws_restJson1NetworkInputSettings = (input: NetworkInputSettings,
   };
 };
 
+const serializeAws_restJson1NielsenCBET = (input: NielsenCBET, context: __SerdeContext): any => {
+  return {
+    ...(input.CbetCheckDigitString !== undefined &&
+      input.CbetCheckDigitString !== null && { cbetCheckDigitString: input.CbetCheckDigitString }),
+    ...(input.CbetStepaside !== undefined && input.CbetStepaside !== null && { cbetStepaside: input.CbetStepaside }),
+    ...(input.Csid !== undefined && input.Csid !== null && { csid: input.Csid }),
+  };
+};
+
 const serializeAws_restJson1NielsenConfiguration = (input: NielsenConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.DistributorId !== undefined && input.DistributorId !== null && { distributorId: input.DistributorId }),
     ...(input.NielsenPcmToId3Tagging !== undefined &&
       input.NielsenPcmToId3Tagging !== null && { nielsenPcmToId3Tagging: input.NielsenPcmToId3Tagging }),
+  };
+};
+
+const serializeAws_restJson1NielsenNaesIiNw = (input: NielsenNaesIiNw, context: __SerdeContext): any => {
+  return {
+    ...(input.CheckDigitString !== undefined &&
+      input.CheckDigitString !== null && { checkDigitString: input.CheckDigitString }),
+    ...(input.Sid !== undefined && input.Sid !== null && { sid: __serializeFloat(input.Sid) }),
+  };
+};
+
+const serializeAws_restJson1NielsenWatermarksSettings = (
+  input: NielsenWatermarksSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NielsenCbetSettings !== undefined &&
+      input.NielsenCbetSettings !== null && {
+        nielsenCbetSettings: serializeAws_restJson1NielsenCBET(input.NielsenCbetSettings, context),
+      }),
+    ...(input.NielsenDistributionType !== undefined &&
+      input.NielsenDistributionType !== null && { nielsenDistributionType: input.NielsenDistributionType }),
+    ...(input.NielsenNaesIiNwSettings !== undefined &&
+      input.NielsenNaesIiNwSettings !== null && {
+        nielsenNaesIiNwSettings: serializeAws_restJson1NielsenNaesIiNw(input.NielsenNaesIiNwSettings, context),
+      }),
   };
 };
 
@@ -12952,6 +13142,10 @@ const deserializeAws_restJson1AudioDescription = (output: any, context: __SerdeC
     AudioSelectorName: __expectString(output.audioSelectorName),
     AudioType: __expectString(output.audioType),
     AudioTypeControl: __expectString(output.audioTypeControl),
+    AudioWatermarkingSettings:
+      output.audioWatermarkingSettings !== undefined && output.audioWatermarkingSettings !== null
+        ? deserializeAws_restJson1AudioWatermarkSettings(output.audioWatermarkingSettings, context)
+        : undefined,
     CodecSettings:
       output.codecSettings !== undefined && output.codecSettings !== null
         ? deserializeAws_restJson1AudioCodecSettings(output.codecSettings, context)
@@ -13068,6 +13262,18 @@ const deserializeAws_restJson1AudioTrackSelection = (output: any, context: __Ser
     Tracks:
       output.tracks !== undefined && output.tracks !== null
         ? deserializeAws_restJson1__listOfAudioTrack(output.tracks, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AudioWatermarkSettings = (
+  output: any,
+  context: __SerdeContext
+): AudioWatermarkSettings => {
+  return {
+    NielsenWatermarksSettings:
+      output.nielsenWatermarksSettings !== undefined && output.nielsenWatermarksSettings !== null
+        ? deserializeAws_restJson1NielsenWatermarksSettings(output.nielsenWatermarksSettings, context)
         : undefined,
   } as any;
 };
@@ -14965,10 +15171,42 @@ const deserializeAws_restJson1NetworkInputSettings = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_restJson1NielsenCBET = (output: any, context: __SerdeContext): NielsenCBET => {
+  return {
+    CbetCheckDigitString: __expectString(output.cbetCheckDigitString),
+    CbetStepaside: __expectString(output.cbetStepaside),
+    Csid: __expectString(output.csid),
+  } as any;
+};
+
 const deserializeAws_restJson1NielsenConfiguration = (output: any, context: __SerdeContext): NielsenConfiguration => {
   return {
     DistributorId: __expectString(output.distributorId),
     NielsenPcmToId3Tagging: __expectString(output.nielsenPcmToId3Tagging),
+  } as any;
+};
+
+const deserializeAws_restJson1NielsenNaesIiNw = (output: any, context: __SerdeContext): NielsenNaesIiNw => {
+  return {
+    CheckDigitString: __expectString(output.checkDigitString),
+    Sid: __limitedParseDouble(output.sid),
+  } as any;
+};
+
+const deserializeAws_restJson1NielsenWatermarksSettings = (
+  output: any,
+  context: __SerdeContext
+): NielsenWatermarksSettings => {
+  return {
+    NielsenCbetSettings:
+      output.nielsenCbetSettings !== undefined && output.nielsenCbetSettings !== null
+        ? deserializeAws_restJson1NielsenCBET(output.nielsenCbetSettings, context)
+        : undefined,
+    NielsenDistributionType: __expectString(output.nielsenDistributionType),
+    NielsenNaesIiNwSettings:
+      output.nielsenNaesIiNwSettings !== undefined && output.nielsenNaesIiNwSettings !== null
+        ? deserializeAws_restJson1NielsenNaesIiNw(output.nielsenNaesIiNwSettings, context)
+        : undefined,
   } as any;
 };
 

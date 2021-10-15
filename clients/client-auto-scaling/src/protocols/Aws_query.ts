@@ -3011,6 +3011,14 @@ const deserializeAws_queryDescribeLoadBalancersCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
@@ -3068,6 +3076,14 @@ const deserializeAws_queryDescribeLoadBalancerTargetGroupsCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      response = {
+        ...(await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceContentionFault":
     case "com.amazonaws.autoscaling#ResourceContentionFault":
       response = {
@@ -5237,6 +5253,13 @@ const serializeAws_queryAutoScalingGroupNamesType = (
   }
   if (input.MaxRecords !== undefined && input.MaxRecords !== null) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_queryFilters(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };

@@ -26,7 +26,110 @@ import {
   VolumeType,
   Vpc,
   VpcPeeringConnection,
+  WeekDay,
 } from "./models_0";
+
+/**
+ * <p>The start day and time and the end day and time of the time range, in UTC.</p>
+ */
+export interface InstanceEventWindowTimeRangeRequest {
+  /**
+   * <p>The day on which the time range begins.</p>
+   */
+  StartWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range begins.</p>
+   */
+  StartHour?: number;
+
+  /**
+   * <p>The day on which the time range ends.</p>
+   */
+  EndWeekDay?: WeekDay | string;
+
+  /**
+   * <p>The hour when the time range ends.</p>
+   */
+  EndHour?: number;
+}
+
+export namespace InstanceEventWindowTimeRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceEventWindowTimeRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The name of the event window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The time range for the event window. If you specify a time range, you can't specify a cron
+   *          expression.</p>
+   */
+  TimeRanges?: InstanceEventWindowTimeRangeRequest[];
+
+  /**
+   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If
+   *          you specify a cron expression, you can't specify a time range.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Only hour and day of the week values are supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>For day of the week values, you can specify either integers <code>0</code> through
+   *                   <code>6</code>, or alternative single values <code>SUN</code> through
+   *                   <code>SAT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The minute, month, and year must be specified by <code>*</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
+   *             <code>0-4,20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
+   *             <code>20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
+   *                window must be >= 4 hours.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
+   *             website</i>.</p>
+   */
+  CronExpression?: string;
+
+  /**
+   * <p>The tags to apply to the event window.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateInstanceEventWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateInstanceEventWindowRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface CreateInstanceEventWindowResult {
   /**
@@ -659,8 +762,8 @@ export namespace CreditSpecificationRequest {
 export interface ElasticGpuSpecification {
   /**
    * <p>The type of Elastic Graphics accelerator. For more information about the values to specify for
-   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the <i>Amazon Elastic Compute Cloud User Guide for Windows
-   *                 Instances</i>.</p>
+   *             <code>Type</code>, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics">Elastic Graphics Basics</a>, specifically the Elastic Graphics accelerator column, in the
+   *             <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>
    */
   Type: string | undefined;
 }
@@ -2619,16 +2722,16 @@ export interface CreateLocalGatewayRouteRequest {
   LocalGatewayRouteTableId: string | undefined;
 
   /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the virtual interface group.</p>
-   */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
 }
 
 export namespace CreateLocalGatewayRouteRequest {
@@ -2679,7 +2782,7 @@ export interface LocalGatewayRoute {
   LocalGatewayRouteTableArn?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway route.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route.</p>
    */
   OwnerId?: string;
 }
@@ -2772,7 +2875,7 @@ export interface LocalGatewayRouteTableVpcAssociation {
   VpcId?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway route table for the association.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route table for the association.</p>
    */
   OwnerId?: string;
 
@@ -5688,6 +5791,11 @@ export interface CreateSubnetRequest {
   AvailabilityZoneId?: string;
 
   /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  CidrBlock: string | undefined;
+
+  /**
    * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
    *             /64 prefix length.</p>
    */
@@ -5710,11 +5818,6 @@ export interface CreateSubnetRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  CidrBlock: string | undefined;
 }
 
 export namespace CreateSubnetRequest {
@@ -5928,7 +6031,7 @@ export interface CreateTrafficMirrorFilterRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6092,7 +6195,7 @@ export interface CreateTrafficMirrorFilterResult {
   TrafficMirrorFilter?: TrafficMirrorFilter;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6137,7 +6240,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   TrafficMirrorFilterId: string | undefined;
 
   /**
-   * <p>The type of traffic (<code>ingress</code> | <code>egress</code>).</p>
+   * <p>The type of traffic.</p>
    */
   TrafficDirection: TrafficDirection | string | undefined;
 
@@ -6148,7 +6251,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   RuleNumber: number | undefined;
 
   /**
-   * <p>The action to take (<code>accept</code> | <code>reject</code>) on the filtered traffic.</p>
+   * <p>The action to take on the filtered traffic.</p>
    */
   RuleAction: TrafficMirrorRuleAction | string | undefined;
 
@@ -6191,7 +6294,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6212,7 +6315,7 @@ export interface CreateTrafficMirrorFilterRuleResult {
   TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6284,7 +6387,7 @@ export interface CreateTrafficMirrorSessionRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6370,7 +6473,7 @@ export interface CreateTrafficMirrorSessionResult {
   TrafficMirrorSession?: TrafficMirrorSession;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6413,7 +6516,7 @@ export interface CreateTrafficMirrorTargetRequest {
   DryRun?: boolean;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -6485,7 +6588,7 @@ export interface CreateTrafficMirrorTargetResult {
   TrafficMirrorTarget?: TrafficMirrorTarget;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -8179,8 +8282,8 @@ export interface CreateVpcEndpointRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -8380,7 +8483,7 @@ export interface VpcEndpoint {
   Tags?: Tag[];
 
   /**
-   * <p>The ID of the AWS account that owns the VPC endpoint.</p>
+   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
    */
   OwnerId?: string;
 
@@ -8456,8 +8559,8 @@ export interface CreateVpcEndpointConnectionNotificationRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -8585,8 +8688,8 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -8714,7 +8817,7 @@ export interface ServiceConfiguration {
   AvailabilityZones?: string[];
 
   /**
-   * <p>Indicates whether requests from other AWS accounts to create an endpoint to the service must first be accepted.</p>
+   * <p>Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
    */
   AcceptanceRequired?: boolean;
 
@@ -9458,179 +9561,6 @@ export namespace Phase2IntegrityAlgorithmsListValue {
    * @internal
    */
   export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The VPN tunnel options.</p>
- */
-export interface TunnelOption {
-  /**
-   * <p>The external IP address of the VPN tunnel.</p>
-   */
-  OutsideIpAddress?: string;
-
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel.</p>
-   */
-  TunnelInsideCidr?: string;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel.</p>
-   */
-  TunnelInsideIpv6Cidr?: string;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and the customer gateway.</p>
-   */
-  PreSharedKey?: string;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   */
-  Phase1LifetimeSeconds?: number;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   */
-  Phase2LifetimeSeconds?: number;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey.</p>
-   */
-  RekeyMarginTimeSeconds?: number;
-
-  /**
-   * <p>The percentage of the rekey window determined by <code>RekeyMarginTimeSeconds</code>
-   *             during which the rekey time is randomly selected.</p>
-   */
-  RekeyFuzzPercentage?: number;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   */
-  ReplayWindowSize?: number;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   */
-  DpdTimeoutSeconds?: number;
-
-  /**
-   * <p>The action to take after a DPD timeout occurs.</p>
-   */
-  DpdTimeoutAction?: string;
-
-  /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsListValue[];
-
-  /**
-   * <p>The permitted encryption algorithms for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsListValue[];
-
-  /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsListValue[];
-
-  /**
-   * <p>The permitted integrity algorithms for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsListValue[];
-
-  /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersListValue[];
-
-  /**
-   * <p>The permitted Diffie-Hellman group numbers for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersListValue[];
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   */
-  IkeVersions?: IKEVersionsListValue[];
-
-  /**
-   * <p>The action to take when the establishing the VPN tunnels for a VPN connection.</p>
-   */
-  StartupAction?: string;
-}
-
-export namespace TunnelOption {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TunnelOption): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes VPN connection options.</p>
- */
-export interface VpnConnectionOptions {
-  /**
-   * <p>Indicates whether acceleration is enabled for the VPN connection.</p>
-   */
-  EnableAcceleration?: boolean;
-
-  /**
-   * <p>Indicates whether the VPN connection uses static routes only. Static routes must be
-   *             used for devices that don't support BGP.</p>
-   */
-  StaticRoutesOnly?: boolean;
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   */
-  LocalIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   */
-  RemoteIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   */
-  LocalIpv6NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   */
-  RemoteIpv6NetworkCidr?: string;
-
-  /**
-   * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
-   */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
-
-  /**
-   * <p>Indicates the VPN tunnel options.</p>
-   */
-  TunnelOptions?: TunnelOption[];
-}
-
-export namespace VpnConnectionOptions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnConnectionOptions): any => ({
     ...obj,
   });
 }

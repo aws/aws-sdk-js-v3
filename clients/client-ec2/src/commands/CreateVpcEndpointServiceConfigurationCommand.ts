@@ -28,7 +28,7 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
+ * <p>Creates a VPC endpoint service configuration to which service consumers (Amazon Web Services accounts,
  *             IAM users, and IAM roles) can connect.</p>
  *         <p>To create an endpoint service configuration, you must first create one of the
  *             following for your service:</p>

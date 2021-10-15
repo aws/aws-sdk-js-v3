@@ -2,6 +2,7 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectString as __expectString,
   limitedParseFloat32 as __limitedParseFloat32,
 } from "@aws-sdk/smithy-client";
@@ -20,9 +21,17 @@ import {
 } from "../commands/BatchCreateVariableCommand";
 import { BatchGetVariableCommandInput, BatchGetVariableCommandOutput } from "../commands/BatchGetVariableCommand";
 import {
+  CancelBatchImportJobCommandInput,
+  CancelBatchImportJobCommandOutput,
+} from "../commands/CancelBatchImportJobCommand";
+import {
   CancelBatchPredictionJobCommandInput,
   CancelBatchPredictionJobCommandOutput,
 } from "../commands/CancelBatchPredictionJobCommand";
+import {
+  CreateBatchImportJobCommandInput,
+  CreateBatchImportJobCommandOutput,
+} from "../commands/CreateBatchImportJobCommand";
 import {
   CreateBatchPredictionJobCommandInput,
   CreateBatchPredictionJobCommandOutput,
@@ -36,6 +45,10 @@ import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from 
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import { CreateVariableCommandInput, CreateVariableCommandOutput } from "../commands/CreateVariableCommand";
 import {
+  DeleteBatchImportJobCommandInput,
+  DeleteBatchImportJobCommandOutput,
+} from "../commands/DeleteBatchImportJobCommand";
+import {
   DeleteBatchPredictionJobCommandInput,
   DeleteBatchPredictionJobCommandOutput,
 } from "../commands/DeleteBatchPredictionJobCommand";
@@ -46,6 +59,10 @@ import {
 } from "../commands/DeleteDetectorVersionCommand";
 import { DeleteEntityTypeCommandInput, DeleteEntityTypeCommandOutput } from "../commands/DeleteEntityTypeCommand";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "../commands/DeleteEventCommand";
+import {
+  DeleteEventsByEventTypeCommandInput,
+  DeleteEventsByEventTypeCommandOutput,
+} from "../commands/DeleteEventsByEventTypeCommand";
 import { DeleteEventTypeCommandInput, DeleteEventTypeCommandOutput } from "../commands/DeleteEventTypeCommand";
 import {
   DeleteExternalModelCommandInput,
@@ -62,13 +79,19 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "../commands/DescribeModelVersionsCommand";
+import { GetBatchImportJobsCommandInput, GetBatchImportJobsCommandOutput } from "../commands/GetBatchImportJobsCommand";
 import {
   GetBatchPredictionJobsCommandInput,
   GetBatchPredictionJobsCommandOutput,
 } from "../commands/GetBatchPredictionJobsCommand";
+import {
+  GetDeleteEventsByEventTypeStatusCommandInput,
+  GetDeleteEventsByEventTypeStatusCommandOutput,
+} from "../commands/GetDeleteEventsByEventTypeStatusCommand";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "../commands/GetDetectorsCommand";
 import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "../commands/GetDetectorVersionCommand";
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "../commands/GetEntityTypesCommand";
+import { GetEventCommandInput, GetEventCommandOutput } from "../commands/GetEventCommand";
 import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "../commands/GetEventPredictionCommand";
 import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "../commands/GetEventTypesCommand";
 import { GetExternalModelsCommandInput, GetExternalModelsCommandOutput } from "../commands/GetExternalModelsCommand";
@@ -96,6 +119,7 @@ import {
 } from "../commands/PutKMSEncryptionKeyCommand";
 import { PutLabelCommandInput, PutLabelCommandOutput } from "../commands/PutLabelCommand";
 import { PutOutcomeCommandInput, PutOutcomeCommandOutput } from "../commands/PutOutcomeCommand";
+import { SendEventCommandInput, SendEventCommandOutput } from "../commands/SendEventCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -110,6 +134,7 @@ import {
   UpdateDetectorVersionStatusCommandInput,
   UpdateDetectorVersionStatusCommandOutput,
 } from "../commands/UpdateDetectorVersionStatusCommand";
+import { UpdateEventLabelCommandInput, UpdateEventLabelCommandOutput } from "../commands/UpdateEventLabelCommand";
 import { UpdateModelCommandInput, UpdateModelCommandOutput } from "../commands/UpdateModelCommand";
 import { UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput } from "../commands/UpdateModelVersionCommand";
 import {
@@ -127,10 +152,15 @@ import {
   BatchGetVariableError,
   BatchGetVariableRequest,
   BatchGetVariableResult,
+  BatchImport,
   BatchPrediction,
+  CancelBatchImportJobRequest,
+  CancelBatchImportJobResult,
   CancelBatchPredictionJobRequest,
   CancelBatchPredictionJobResult,
   ConflictException,
+  CreateBatchImportJobRequest,
+  CreateBatchImportJobResult,
   CreateBatchPredictionJobRequest,
   CreateBatchPredictionJobResult,
   CreateDetectorVersionRequest,
@@ -144,6 +174,8 @@ import {
   CreateVariableRequest,
   CreateVariableResult,
   DataValidationMetrics,
+  DeleteBatchImportJobRequest,
+  DeleteBatchImportJobResult,
   DeleteBatchPredictionJobRequest,
   DeleteBatchPredictionJobResult,
   DeleteDetectorRequest,
@@ -154,6 +186,8 @@ import {
   DeleteEntityTypeResult,
   DeleteEventRequest,
   DeleteEventResult,
+  DeleteEventsByEventTypeRequest,
+  DeleteEventsByEventTypeResult,
   DeleteEventTypeRequest,
   DeleteEventTypeResult,
   DeleteExternalModelRequest,
@@ -178,6 +212,7 @@ import {
   DetectorVersionSummary,
   Entity,
   EntityType,
+  Event,
   EventType,
   ExternalEventsDetail,
   ExternalModel,
@@ -185,8 +220,12 @@ import {
   ExternalModelSummary,
   FieldValidationMessage,
   FileValidationMessage,
+  GetBatchImportJobsRequest,
+  GetBatchImportJobsResult,
   GetBatchPredictionJobsRequest,
   GetBatchPredictionJobsResult,
+  GetDeleteEventsByEventTypeStatusRequest,
+  GetDeleteEventsByEventTypeStatusResult,
   GetDetectorsRequest,
   GetDetectorsResult,
   GetDetectorVersionRequest,
@@ -195,6 +234,8 @@ import {
   GetEntityTypesResult,
   GetEventPredictionRequest,
   GetEventPredictionResult,
+  GetEventRequest,
+  GetEventResult,
   GetEventTypesRequest,
   GetEventTypesResult,
   GetExternalModelsRequest,
@@ -212,6 +253,9 @@ import {
   GetRulesResult,
   GetVariablesRequest,
   GetVariablesResult,
+  IngestedEventsDetail,
+  IngestedEventStatistics,
+  IngestedEventsTimeWindow,
   InternalServerException,
   KMSKey,
   Label,
@@ -247,6 +291,8 @@ import {
   Rule,
   RuleDetail,
   RuleResult,
+  SendEventRequest,
+  SendEventResult,
   Tag,
   TagResourceRequest,
   TagResourceResult,
@@ -262,6 +308,8 @@ import {
   UpdateDetectorVersionResult,
   UpdateDetectorVersionStatusRequest,
   UpdateDetectorVersionStatusResult,
+  UpdateEventLabelRequest,
+  UpdateEventLabelResult,
   UpdateModelRequest,
   UpdateModelResult,
   UpdateModelVersionRequest,
@@ -306,6 +354,19 @@ export const serializeAws_json1_1BatchGetVariableCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CancelBatchImportJobCommand = async (
+  input: CancelBatchImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.CancelBatchImportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CancelBatchImportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CancelBatchPredictionJobCommand = async (
   input: CancelBatchPredictionJobCommandInput,
   context: __SerdeContext
@@ -316,6 +377,19 @@ export const serializeAws_json1_1CancelBatchPredictionJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CancelBatchPredictionJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateBatchImportJobCommand = async (
+  input: CreateBatchImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.CreateBatchImportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateBatchImportJobRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -397,6 +471,19 @@ export const serializeAws_json1_1CreateVariableCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteBatchImportJobCommand = async (
+  input: DeleteBatchImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteBatchImportJob",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteBatchImportJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteBatchPredictionJobCommand = async (
   input: DeleteBatchPredictionJobCommandInput,
   context: __SerdeContext
@@ -459,6 +546,19 @@ export const serializeAws_json1_1DeleteEventCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteEventRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteEventsByEventTypeCommand = async (
+  input: DeleteEventsByEventTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.DeleteEventsByEventType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEventsByEventTypeRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -592,6 +692,19 @@ export const serializeAws_json1_1DescribeModelVersionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetBatchImportJobsCommand = async (
+  input: GetBatchImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetBatchImportJobs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetBatchImportJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetBatchPredictionJobsCommand = async (
   input: GetBatchPredictionJobsCommandInput,
   context: __SerdeContext
@@ -602,6 +715,19 @@ export const serializeAws_json1_1GetBatchPredictionJobsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetBatchPredictionJobsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand = async (
+  input: GetDeleteEventsByEventTypeStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetDeleteEventsByEventTypeStatusRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -641,6 +767,19 @@ export const serializeAws_json1_1GetEntityTypesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetEntityTypesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetEventCommand = async (
+  input: GetEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.GetEvent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetEventRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -877,6 +1016,19 @@ export const serializeAws_json1_1PutOutcomeCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1SendEventCommand = async (
+  input: SendEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.SendEvent",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1SendEventRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
@@ -939,6 +1091,19 @@ export const serializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateDetectorVersionStatusRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateEventLabelCommand = async (
+  input: UpdateEventLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSHawksNestServiceFacade.UpdateEventLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateEventLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1176,6 +1341,92 @@ const deserializeAws_json1_1BatchGetVariableCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CancelBatchImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelBatchImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CancelBatchImportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CancelBatchImportJobResult(data, context);
+  const response: CancelBatchImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CancelBatchImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelBatchImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CancelBatchPredictionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1197,6 +1448,92 @@ const deserializeAws_json1_1CancelBatchPredictionJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelBatchPredictionJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateBatchImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateBatchImportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateBatchImportJobResult(data, context);
+  const response: CreateBatchImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateBatchImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBatchImportJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1754,6 +2091,84 @@ const deserializeAws_json1_1CreateVariableCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteBatchImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBatchImportJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteBatchImportJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteBatchImportJobResult(data, context);
+  const response: DeleteBatchImportJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteBatchImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBatchImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteBatchPredictionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1795,14 +2210,6 @@ const deserializeAws_json1_1DeleteBatchPredictionJobCommandError = async (
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
-        name: errorCode,
-        $metadata: deserializeMetadata(output),
-      };
-      break;
-    case "ResourceNotFoundException":
-    case "com.amazonaws.frauddetector#ResourceNotFoundException":
-      response = {
-        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2147,6 +2554,100 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
     case "com.amazonaws.frauddetector#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteEventsByEventTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventsByEventTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEventsByEventTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEventsByEventTypeResult(data, context);
+  const response: DeleteEventsByEventTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEventsByEventTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventsByEventTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3036,6 +3537,92 @@ const deserializeAws_json1_1DescribeModelVersionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetBatchImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBatchImportJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetBatchImportJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetBatchImportJobsResult(data, context);
+  const response: GetBatchImportJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetBatchImportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBatchImportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetBatchPredictionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3057,6 +3644,92 @@ const deserializeAws_json1_1GetBatchPredictionJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBatchPredictionJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetDeleteEventsByEventTypeStatusResult(data, context);
+  const response: GetDeleteEventsByEventTypeStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetDeleteEventsByEventTypeStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3315,6 +3988,92 @@ const deserializeAws_json1_1GetEntityTypesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntityTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1GetEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetEventCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetEventResult(data, context);
+  const response: GetEventCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetEventCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4936,6 +5695,100 @@ const deserializeAws_json1_1PutOutcomeCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1SendEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendEventCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1SendEventCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1SendEventResult(data, context);
+  const response: SendEventCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1SendEventCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendEventCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5293,6 +6146,100 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.frauddetector#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1UpdateEventLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateEventLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateEventLabelResult(data, context);
+  const response: UpdateEventLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateEventLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventLabelCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6055,12 +7002,35 @@ const serializeAws_json1_1BatchGetVariableRequest = (input: BatchGetVariableRequ
   };
 };
 
+const serializeAws_json1_1CancelBatchImportJobRequest = (
+  input: CancelBatchImportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+  };
+};
+
 const serializeAws_json1_1CancelBatchPredictionJobRequest = (
   input: CancelBatchPredictionJobRequest,
   context: __SerdeContext
 ): any => {
   return {
     ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+  };
+};
+
+const serializeAws_json1_1CreateBatchImportJobRequest = (
+  input: CreateBatchImportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.iamRoleArn !== undefined && input.iamRoleArn !== null && { iamRoleArn: input.iamRoleArn }),
+    ...(input.inputPath !== undefined && input.inputPath !== null && { inputPath: input.inputPath }),
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.outputPath !== undefined && input.outputPath !== null && { outputPath: input.outputPath }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
   };
 };
 
@@ -6123,6 +7093,10 @@ const serializeAws_json1_1CreateModelVersionRequest = (
       input.externalEventsDetail !== null && {
         externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
       }),
+    ...(input.ingestedEventsDetail !== undefined &&
+      input.ingestedEventsDetail !== null && {
+        ingestedEventsDetail: serializeAws_json1_1IngestedEventsDetail(input.ingestedEventsDetail, context),
+      }),
     ...(input.modelId !== undefined && input.modelId !== null && { modelId: input.modelId }),
     ...(input.modelType !== undefined && input.modelType !== null && { modelType: input.modelType }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1tagList(input.tags, context) }),
@@ -6172,6 +7146,15 @@ const serializeAws_json1_1CsvIndexToVariableMap = (input: { [key: string]: strin
   }, {});
 };
 
+const serializeAws_json1_1DeleteBatchImportJobRequest = (
+  input: DeleteBatchImportJobRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+  };
+};
+
 const serializeAws_json1_1DeleteBatchPredictionJobRequest = (
   input: DeleteBatchPredictionJobRequest,
   context: __SerdeContext
@@ -6206,7 +7189,18 @@ const serializeAws_json1_1DeleteEntityTypeRequest = (input: DeleteEntityTypeRequ
 
 const serializeAws_json1_1DeleteEventRequest = (input: DeleteEventRequest, context: __SerdeContext): any => {
   return {
+    ...(input.deleteAuditHistory !== undefined &&
+      input.deleteAuditHistory !== null && { deleteAuditHistory: input.deleteAuditHistory }),
     ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+  };
+};
+
+const serializeAws_json1_1DeleteEventsByEventTypeRequest = (
+  input: DeleteEventsByEventTypeRequest,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
   };
 };
@@ -6333,6 +7327,17 @@ const serializeAws_json1_1ExternalModelEndpointDataBlobMap = (
   }, {});
 };
 
+const serializeAws_json1_1GetBatchImportJobsRequest = (
+  input: GetBatchImportJobsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
 const serializeAws_json1_1GetBatchPredictionJobsRequest = (
   input: GetBatchPredictionJobsRequest,
   context: __SerdeContext
@@ -6341,6 +7346,15 @@ const serializeAws_json1_1GetBatchPredictionJobsRequest = (
     ...(input.jobId !== undefined && input.jobId !== null && { jobId: input.jobId }),
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  };
+};
+
+const serializeAws_json1_1GetDeleteEventsByEventTypeStatusRequest = (
+  input: GetDeleteEventsByEventTypeStatusRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
   };
 };
 
@@ -6396,6 +7410,13 @@ const serializeAws_json1_1GetEventPredictionRequest = (
           context
         ),
       }),
+  };
+};
+
+const serializeAws_json1_1GetEventRequest = (input: GetEventRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
   };
 };
 
@@ -6470,6 +7491,25 @@ const serializeAws_json1_1GetVariablesRequest = (input: GetVariablesRequest, con
   };
 };
 
+const serializeAws_json1_1IngestedEventsDetail = (input: IngestedEventsDetail, context: __SerdeContext): any => {
+  return {
+    ...(input.ingestedEventsTimeWindow !== undefined &&
+      input.ingestedEventsTimeWindow !== null && {
+        ingestedEventsTimeWindow: serializeAws_json1_1IngestedEventsTimeWindow(input.ingestedEventsTimeWindow, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1IngestedEventsTimeWindow = (
+  input: IngestedEventsTimeWindow,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.endTime !== undefined && input.endTime !== null && { endTime: input.endTime }),
+    ...(input.startTime !== undefined && input.startTime !== null && { startTime: input.startTime }),
+  };
+};
+
 const serializeAws_json1_1JsonKeyToVariableMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -6498,6 +7538,8 @@ const serializeAws_json1_1LabelSchema = (input: LabelSchema, context: __SerdeCon
   return {
     ...(input.labelMapper !== undefined &&
       input.labelMapper !== null && { labelMapper: serializeAws_json1_1labelMapper(input.labelMapper, context) }),
+    ...(input.unlabeledEventsTreatment !== undefined &&
+      input.unlabeledEventsTreatment !== null && { unlabeledEventsTreatment: input.unlabeledEventsTreatment }),
   };
 };
 
@@ -6639,6 +7681,8 @@ const serializeAws_json1_1PutEventTypeRequest = (input: PutEventTypeRequest, con
       input.entityTypes !== null && {
         entityTypes: serializeAws_json1_1NonEmptyListOfStrings(input.entityTypes, context),
       }),
+    ...(input.eventIngestion !== undefined &&
+      input.eventIngestion !== null && { eventIngestion: input.eventIngestion }),
     ...(input.eventVariables !== undefined &&
       input.eventVariables !== null && {
         eventVariables: serializeAws_json1_1NonEmptyListOfStrings(input.eventVariables, context),
@@ -6713,6 +7757,24 @@ const serializeAws_json1_1RuleList = (input: Rule[], context: __SerdeContext): a
       }
       return serializeAws_json1_1Rule(entry, context);
     });
+};
+
+const serializeAws_json1_1SendEventRequest = (input: SendEventRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.assignedLabel !== undefined && input.assignedLabel !== null && { assignedLabel: input.assignedLabel }),
+    ...(input.entities !== undefined &&
+      input.entities !== null && { entities: serializeAws_json1_1listOfEntities(input.entities, context) }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTimestamp !== undefined &&
+      input.eventTimestamp !== null && { eventTimestamp: input.eventTimestamp }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.eventVariables !== undefined &&
+      input.eventVariables !== null && {
+        eventVariables: serializeAws_json1_1EventVariableMap(input.eventVariables, context),
+      }),
+    ...(input.labelTimestamp !== undefined &&
+      input.labelTimestamp !== null && { labelTimestamp: input.labelTimestamp }),
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -6818,6 +7880,16 @@ const serializeAws_json1_1UpdateDetectorVersionStatusRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateEventLabelRequest = (input: UpdateEventLabelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.assignedLabel !== undefined && input.assignedLabel !== null && { assignedLabel: input.assignedLabel }),
+    ...(input.eventId !== undefined && input.eventId !== null && { eventId: input.eventId }),
+    ...(input.eventTypeName !== undefined && input.eventTypeName !== null && { eventTypeName: input.eventTypeName }),
+    ...(input.labelTimestamp !== undefined &&
+      input.labelTimestamp !== null && { labelTimestamp: input.labelTimestamp }),
+  };
+};
+
 const serializeAws_json1_1UpdateModelRequest = (input: UpdateModelRequest, context: __SerdeContext): any => {
   return {
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
@@ -6834,6 +7906,10 @@ const serializeAws_json1_1UpdateModelVersionRequest = (
     ...(input.externalEventsDetail !== undefined &&
       input.externalEventsDetail !== null && {
         externalEventsDetail: serializeAws_json1_1ExternalEventsDetail(input.externalEventsDetail, context),
+      }),
+    ...(input.ingestedEventsDetail !== undefined &&
+      input.ingestedEventsDetail !== null && {
+        ingestedEventsDetail: serializeAws_json1_1IngestedEventsDetail(input.ingestedEventsDetail, context),
       }),
     ...(input.majorVersionNumber !== undefined &&
       input.majorVersionNumber !== null && { majorVersionNumber: input.majorVersionNumber }),
@@ -6990,6 +8066,35 @@ const deserializeAws_json1_1BatchGetVariableResult = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1BatchImport = (output: any, context: __SerdeContext): BatchImport => {
+  return {
+    arn: __expectString(output.arn),
+    completionTime: __expectString(output.completionTime),
+    eventTypeName: __expectString(output.eventTypeName),
+    failedRecordsCount: __expectInt32(output.failedRecordsCount),
+    failureReason: __expectString(output.failureReason),
+    iamRoleArn: __expectString(output.iamRoleArn),
+    inputPath: __expectString(output.inputPath),
+    jobId: __expectString(output.jobId),
+    outputPath: __expectString(output.outputPath),
+    processedRecordsCount: __expectInt32(output.processedRecordsCount),
+    startTime: __expectString(output.startTime),
+    status: __expectString(output.status),
+    totalRecordsCount: __expectInt32(output.totalRecordsCount),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchImportList = (output: any, context: __SerdeContext): BatchImport[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BatchImport(entry, context);
+    });
+};
+
 const deserializeAws_json1_1BatchPrediction = (output: any, context: __SerdeContext): BatchPrediction => {
   return {
     arn: __expectString(output.arn),
@@ -7021,6 +8126,13 @@ const deserializeAws_json1_1BatchPredictionList = (output: any, context: __Serde
     });
 };
 
+const deserializeAws_json1_1CancelBatchImportJobResult = (
+  output: any,
+  context: __SerdeContext
+): CancelBatchImportJobResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1CancelBatchPredictionJobResult = (
   output: any,
   context: __SerdeContext
@@ -7032,6 +8144,13 @@ const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeCo
   return {
     message: __expectString(output.message),
   } as any;
+};
+
+const deserializeAws_json1_1CreateBatchImportJobResult = (
+  output: any,
+  context: __SerdeContext
+): CreateBatchImportJobResult => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateBatchPredictionJobResult = (
@@ -7107,6 +8226,13 @@ const deserializeAws_json1_1DataValidationMetrics = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1DeleteBatchImportJobResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteBatchImportJobResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteBatchPredictionJobResult = (
   output: any,
   context: __SerdeContext
@@ -7131,6 +8257,16 @@ const deserializeAws_json1_1DeleteEntityTypeResult = (output: any, context: __Se
 
 const deserializeAws_json1_1DeleteEventResult = (output: any, context: __SerdeContext): DeleteEventResult => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DeleteEventsByEventTypeResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteEventsByEventTypeResult => {
+  return {
+    eventTypeName: __expectString(output.eventTypeName),
+    eventsDeletionStatus: __expectString(output.eventsDeletionStatus),
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteEventTypeResult = (output: any, context: __SerdeContext): DeleteEventTypeResult => {
@@ -7241,6 +8377,13 @@ const deserializeAws_json1_1DetectorVersionSummaryList = (
     });
 };
 
+const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
+  return {
+    entityId: __expectString(output.entityId),
+    entityType: __expectString(output.entityType),
+  } as any;
+};
+
 const deserializeAws_json1_1EntityType = (output: any, context: __SerdeContext): EntityType => {
   return {
     arn: __expectString(output.arn),
@@ -7262,6 +8405,36 @@ const deserializeAws_json1_1entityTypeList = (output: any, context: __SerdeConte
     });
 };
 
+const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
+  return {
+    currentLabel: __expectString(output.currentLabel),
+    entities:
+      output.entities !== undefined && output.entities !== null
+        ? deserializeAws_json1_1listOfEntities(output.entities, context)
+        : undefined,
+    eventId: __expectString(output.eventId),
+    eventTimestamp: __expectString(output.eventTimestamp),
+    eventTypeName: __expectString(output.eventTypeName),
+    eventVariables:
+      output.eventVariables !== undefined && output.eventVariables !== null
+        ? deserializeAws_json1_1EventAttributeMap(output.eventVariables, context)
+        : undefined,
+    labelTimestamp: __expectString(output.labelTimestamp),
+  } as any;
+};
+
+const deserializeAws_json1_1EventAttributeMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
   return {
     arn: __expectString(output.arn),
@@ -7271,9 +8444,14 @@ const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): 
       output.entityTypes !== undefined && output.entityTypes !== null
         ? deserializeAws_json1_1NonEmptyListOfStrings(output.entityTypes, context)
         : undefined,
+    eventIngestion: __expectString(output.eventIngestion),
     eventVariables:
       output.eventVariables !== undefined && output.eventVariables !== null
         ? deserializeAws_json1_1ListOfStrings(output.eventVariables, context)
+        : undefined,
+    ingestedEventStatistics:
+      output.ingestedEventStatistics !== undefined && output.ingestedEventStatistics !== null
+        ? deserializeAws_json1_1IngestedEventStatistics(output.ingestedEventStatistics, context)
         : undefined,
     labels:
       output.labels !== undefined && output.labels !== null
@@ -7414,6 +8592,19 @@ const deserializeAws_json1_1fileValidationMessageList = (
     });
 };
 
+const deserializeAws_json1_1GetBatchImportJobsResult = (
+  output: any,
+  context: __SerdeContext
+): GetBatchImportJobsResult => {
+  return {
+    batchImports:
+      output.batchImports !== undefined && output.batchImports !== null
+        ? deserializeAws_json1_1BatchImportList(output.batchImports, context)
+        : undefined,
+    nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1GetBatchPredictionJobsResult = (
   output: any,
   context: __SerdeContext
@@ -7424,6 +8615,16 @@ const deserializeAws_json1_1GetBatchPredictionJobsResult = (
         ? deserializeAws_json1_1BatchPredictionList(output.batchPredictions, context)
         : undefined,
     nextToken: __expectString(output.nextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1GetDeleteEventsByEventTypeStatusResult = (
+  output: any,
+  context: __SerdeContext
+): GetDeleteEventsByEventTypeStatusResult => {
+  return {
+    eventTypeName: __expectString(output.eventTypeName),
+    eventsDeletionStatus: __expectString(output.eventsDeletionStatus),
   } as any;
 };
 
@@ -7495,6 +8696,15 @@ const deserializeAws_json1_1GetEventPredictionResult = (
   } as any;
 };
 
+const deserializeAws_json1_1GetEventResult = (output: any, context: __SerdeContext): GetEventResult => {
+  return {
+    event:
+      output.event !== undefined && output.event !== null
+        ? deserializeAws_json1_1Event(output.event, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GetEventTypesResult = (output: any, context: __SerdeContext): GetEventTypesResult => {
   return {
     eventTypes:
@@ -7557,6 +8767,10 @@ const deserializeAws_json1_1GetModelVersionResult = (output: any, context: __Ser
       output.externalEventsDetail !== undefined && output.externalEventsDetail !== null
         ? deserializeAws_json1_1ExternalEventsDetail(output.externalEventsDetail, context)
         : undefined,
+    ingestedEventsDetail:
+      output.ingestedEventsDetail !== undefined && output.ingestedEventsDetail !== null
+        ? deserializeAws_json1_1IngestedEventsDetail(output.ingestedEventsDetail, context)
+        : undefined,
     modelId: __expectString(output.modelId),
     modelType: __expectString(output.modelType),
     modelVersionNumber: __expectString(output.modelVersionNumber),
@@ -7596,6 +8810,38 @@ const deserializeAws_json1_1GetVariablesResult = (output: any, context: __SerdeC
       output.variables !== undefined && output.variables !== null
         ? deserializeAws_json1_1VariableList(output.variables, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1IngestedEventsDetail = (output: any, context: __SerdeContext): IngestedEventsDetail => {
+  return {
+    ingestedEventsTimeWindow:
+      output.ingestedEventsTimeWindow !== undefined && output.ingestedEventsTimeWindow !== null
+        ? deserializeAws_json1_1IngestedEventsTimeWindow(output.ingestedEventsTimeWindow, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1IngestedEventStatistics = (
+  output: any,
+  context: __SerdeContext
+): IngestedEventStatistics => {
+  return {
+    eventDataSizeInBytes: __expectLong(output.eventDataSizeInBytes),
+    lastUpdatedTime: __expectString(output.lastUpdatedTime),
+    leastRecentEvent: __expectString(output.leastRecentEvent),
+    mostRecentEvent: __expectString(output.mostRecentEvent),
+    numberOfEvents: __expectLong(output.numberOfEvents),
+  } as any;
+};
+
+const deserializeAws_json1_1IngestedEventsTimeWindow = (
+  output: any,
+  context: __SerdeContext
+): IngestedEventsTimeWindow => {
+  return {
+    endTime: __expectString(output.endTime),
+    startTime: __expectString(output.startTime),
   } as any;
 };
 
@@ -7668,7 +8914,19 @@ const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext)
       output.labelMapper !== undefined && output.labelMapper !== null
         ? deserializeAws_json1_1labelMapper(output.labelMapper, context)
         : undefined,
+    unlabeledEventsTreatment: __expectString(output.unlabeledEventsTreatment),
   } as any;
+};
+
+const deserializeAws_json1_1listOfEntities = (output: any, context: __SerdeContext): Entity[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Entity(entry, context);
+    });
 };
 
 const deserializeAws_json1_1ListOfExternalModelOutputs = (
@@ -7876,6 +9134,10 @@ const deserializeAws_json1_1ModelVersionDetail = (output: any, context: __SerdeC
       output.externalEventsDetail !== undefined && output.externalEventsDetail !== null
         ? deserializeAws_json1_1ExternalEventsDetail(output.externalEventsDetail, context)
         : undefined,
+    ingestedEventsDetail:
+      output.ingestedEventsDetail !== undefined && output.ingestedEventsDetail !== null
+        ? deserializeAws_json1_1IngestedEventsDetail(output.ingestedEventsDetail, context)
+        : undefined,
     lastUpdatedTime: __expectString(output.lastUpdatedTime),
     modelId: __expectString(output.modelId),
     modelType: __expectString(output.modelType),
@@ -8043,6 +9305,10 @@ const deserializeAws_json1_1RuleResult = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1SendEventResult = (output: any, context: __SerdeContext): SendEventResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
     key: __expectString(output.key),
@@ -8133,6 +9399,10 @@ const deserializeAws_json1_1UpdateDetectorVersionStatusResult = (
   output: any,
   context: __SerdeContext
 ): UpdateDetectorVersionStatusResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateEventLabelResult = (output: any, context: __SerdeContext): UpdateEventLabelResult => {
   return {} as any;
 };
 

@@ -1030,7 +1030,7 @@ export interface Address {
 
   /**
    * <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from
-   *       which AWS advertises IP addresses. </p>
+   *       which Amazon Web Services advertises IP addresses.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -1281,29 +1281,7 @@ export type ResourceType =
  */
 export interface TagSpecification {
   /**
-   * <p>The type of resource to tag on creation. The possible values are:
-   *     	   <code>capacity-reservation</code> | <code>carrier-gateway</code> |
-   *           <code>client-vpn-endpoint</code> | <code>customer-gateway</code> |
-   *     	   <code>dedicated-host</code> | <code>dhcp-options</code> |
-   *     	   <code>egress-only-internet-gateway</code> | <code>elastic-gpu</code> |
-   *     	   <code>elastic-ip</code> | <code>export-image-task</code> |
-   *           <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> |
-   *     	   <code>host-reservation</code> | <code>image</code> | <code>import-image-task</code> |
-   *     	   <code>import-snapshot-task</code> | <code>instance</code> | <code>instance-event-window</code> |
-   *           <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> |
-   *     	   <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> |
-   *     	   <code>natgateway</code> | <code>network-acl</code> | <code>network-insights-analysis</code> |
-   *     	   <code>network-insights-path</code> | <code>network-interface</code> |
-   *     	   <code>placement-group</code> | <code>prefix-list</code> | <code>reserved-instances</code> |
-   *     	   <code>route-table</code> | <code>security-group</code> | <code>security-group-rule</code> |
-   *     	   <code>snapshot</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>subnet</code> |
-   *           <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> |
-   *     	   <code>transit-gateway</code> | <code>transit-gateway-attachment</code> |
-   *     	   <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> |
-   *           <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> |
-   *     	   <code>vpc-flow-log</code> | <code>vpc-peering-connection</code> |
-   *     	   <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
-   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   * <p>The type of resource to tag on creation.</p>
    */
   ResourceType?: ResourceType | string;
 
@@ -1342,14 +1320,13 @@ export interface AllocateAddressRequest {
   PublicIpv4Pool?: string;
 
   /**
-   * <p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS
+   * <p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
    *
-   *          <note>
-   *             <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
-   *          </note>
+   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
+   *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -1399,7 +1376,7 @@ export interface AllocateAddressResult {
   PublicIpv4Pool?: string;
 
   /**
-   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
    *       IP addresses.</p>
    */
   NetworkBorderGroup?: string;
@@ -2990,7 +2967,7 @@ export interface VpcIpv6CidrBlockAssociation {
 
   /**
    * <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from
-   *       which AWS advertises IP addresses, for example, <code>us-east-1-wl1-bos-wlz-1</code>.</p>
+   *       which Amazon Web Services advertises IP addresses, for example, <code>us-east-1-wl1-bos-wlz-1</code>.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -4933,7 +4910,7 @@ export interface CopyFpgaImageRequest {
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    */
   ClientToken?: string;
 }
@@ -8365,6 +8342,42 @@ export namespace CreateFleetResult {
   });
 }
 
+export enum DestinationFileFormat {
+  parquet = "parquet",
+  plain_text = "plain-text",
+}
+
+/**
+ * <p>Describes the destination options for a flow log.</p>
+ */
+export interface DestinationOptionsRequest {
+  /**
+   * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
+   */
+  FileFormat?: DestinationFileFormat | string;
+
+  /**
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
+   *             The default is <code>false</code>.</p>
+   */
+  HiveCompatiblePartitions?: boolean;
+
+  /**
+   * <p>Indicates whether to partition the flow log per hour. This reduces the cost and response
+   *             time for queries. The default is <code>false</code>.</p>
+   */
+  PerHourPartition?: boolean;
+}
+
+export namespace DestinationOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
 export type LogDestinationType = "cloud-watch-logs" | "s3";
 
 export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
@@ -8419,7 +8432,7 @@ export interface CreateFlowLogsRequest {
   TrafficType: TrafficType | string | undefined;
 
   /**
-   * <p>Specifies the type of destination to which the flow log data is to be published. Flow log data can be
+   * <p>The type of destination to which the flow log data is to be published. Flow log data can be
    *             published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To
    *             publish flow log data to Amazon S3, specify <code>s3</code>.</p>
    *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
@@ -8430,7 +8443,7 @@ export interface CreateFlowLogsRequest {
   LogDestinationType?: LogDestinationType | string;
 
   /**
-   * <p>Specifies the destination to which the flow log data is to be published. Flow log data can be published
+   * <p>The destination to which the flow log data is to be published. Flow log data can be published
    *             to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified
    *             for <code>LogDestinationType</code>.</p>
    *         <p>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
@@ -8452,7 +8465,8 @@ export interface CreateFlowLogsRequest {
    *             omit this parameter, the flow log is created using the default format. If you specify this parameter,
    *             you must specify at least one field.</p>
    *         <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For
-   *             the CLI, use single quotation marks (' ') to surround the parameter value.</p>
+   *             the CLI, surround this parameter value with single quotes on Linux or
+   *             double quotes on Windows.</p>
    */
   LogFormat?: string;
 
@@ -8469,6 +8483,11 @@ export interface CreateFlowLogsRequest {
    *         <p>Default: 600</p>
    */
   MaxAggregationInterval?: number;
+
+  /**
+   * <p>The destination options.</p>
+   */
+  DestinationOptions?: DestinationOptionsRequest;
 }
 
 export namespace CreateFlowLogsRequest {
@@ -8855,108 +8874,6 @@ export namespace CreateImageResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateImageResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The start day and time and the end day and time of the time range, in UTC.</p>
- */
-export interface InstanceEventWindowTimeRangeRequest {
-  /**
-   * <p>The day on which the time range begins.</p>
-   */
-  StartWeekDay?: WeekDay | string;
-
-  /**
-   * <p>The hour when the time range begins.</p>
-   */
-  StartHour?: number;
-
-  /**
-   * <p>The day on which the time range ends.</p>
-   */
-  EndWeekDay?: WeekDay | string;
-
-  /**
-   * <p>The hour when the time range ends.</p>
-   */
-  EndHour?: number;
-}
-
-export namespace InstanceEventWindowTimeRangeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceEventWindowTimeRangeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The name of the event window.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The time range for the event window. If you specify a time range, you can't specify a cron
-   *          expression.</p>
-   */
-  TimeRanges?: InstanceEventWindowTimeRangeRequest[];
-
-  /**
-   * <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If
-   *          you specify a cron expression, you can't specify a time range.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Only hour and day of the week values are supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>For day of the week values, you can specify either integers <code>0</code> through
-   *                   <code>6</code>, or alternative single values <code>SUN</code> through
-   *                   <code>SAT</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The minute, month, and year must be specified by <code>*</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
-   *             <code>0-4,20-23</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
-   *             <code>20-23</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
-   *                window must be >= 4 hours.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
-   *             website</i>.</p>
-   */
-  CronExpression?: string;
-
-  /**
-   * <p>The tags to apply to the event window.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateInstanceEventWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateInstanceEventWindowRequest): any => ({
     ...obj,
   });
 }

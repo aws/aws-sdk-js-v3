@@ -23,6 +23,10 @@ import {
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "../commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import {
+  CreatePrefetchScheduleCommandInput,
+  CreatePrefetchScheduleCommandOutput,
+} from "../commands/CreatePrefetchScheduleCommand";
 import { CreateProgramCommandInput, CreateProgramCommandOutput } from "../commands/CreateProgramCommand";
 import {
   CreateSourceLocationCommandInput,
@@ -38,6 +42,10 @@ import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
 } from "../commands/DeletePlaybackConfigurationCommand";
+import {
+  DeletePrefetchScheduleCommandInput,
+  DeletePrefetchScheduleCommandOutput,
+} from "../commands/DeletePrefetchScheduleCommand";
 import { DeleteProgramCommandInput, DeleteProgramCommandOutput } from "../commands/DeleteProgramCommand";
 import {
   DeleteSourceLocationCommandInput,
@@ -57,12 +65,20 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "../commands/GetPlaybackConfigurationCommand";
+import {
+  GetPrefetchScheduleCommandInput,
+  GetPrefetchScheduleCommandOutput,
+} from "../commands/GetPrefetchScheduleCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "../commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "../commands/ListPlaybackConfigurationsCommand";
+import {
+  ListPrefetchSchedulesCommandInput,
+  ListPrefetchSchedulesCommandOutput,
+} from "../commands/ListPrefetchSchedulesCommand";
 import {
   ListSourceLocationsCommandInput,
   ListSourceLocationsCommandOutput,
@@ -92,6 +108,7 @@ import {
   AdBreak,
   AdMarkerPassthrough,
   Alert,
+  AvailMatchingCriteria,
   AvailSuppression,
   BadRequestException,
   Bumper,
@@ -109,6 +126,9 @@ import {
   LogConfiguration,
   ManifestProcessingRules,
   PlaybackConfiguration,
+  PrefetchConsumption,
+  PrefetchRetrieval,
+  PrefetchSchedule,
   RequestOutputItem,
   ResponseOutputItem,
   ScheduleAdBreak,
@@ -177,6 +197,56 @@ export const serializeAws_restJson1CreateChannelCommand = async (
     ...(input.PlaybackMode !== undefined && input.PlaybackMode !== null && { PlaybackMode: input.PlaybackMode }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { tags: serializeAws_restJson1__mapOf__string(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreatePrefetchScheduleCommand = async (
+  input: CreatePrefetchScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.PlaybackConfigurationName !== undefined) {
+    const labelValue: string = input.PlaybackConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Consumption !== undefined &&
+      input.Consumption !== null && {
+        Consumption: serializeAws_restJson1PrefetchConsumption(input.Consumption, context),
+      }),
+    ...(input.Retrieval !== undefined &&
+      input.Retrieval !== null && { Retrieval: serializeAws_restJson1PrefetchRetrieval(input.Retrieval, context) }),
+    ...(input.StreamId !== undefined && input.StreamId !== null && { StreamId: input.StreamId }),
   });
   return new __HttpRequest({
     protocol,
@@ -416,6 +486,45 @@ export const serializeAws_restJson1DeletePlaybackConfigurationCommand = async (
     resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Name.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeletePrefetchScheduleCommand = async (
+  input: DeletePrefetchScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.PlaybackConfigurationName !== undefined) {
+    const labelValue: string = input.PlaybackConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
   }
   let body: any;
   return new __HttpRequest({
@@ -764,6 +873,45 @@ export const serializeAws_restJson1GetPlaybackConfigurationCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetPrefetchScheduleCommand = async (
+  input: GetPrefetchScheduleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/prefetchSchedule/{PlaybackConfigurationName}/{Name}";
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
+  }
+  if (input.PlaybackConfigurationName !== undefined) {
+    const labelValue: string = input.PlaybackConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAlertsCommand = async (
   input: ListAlertsCommandInput,
   context: __SerdeContext
@@ -834,6 +982,43 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListPrefetchSchedulesCommand = async (
+  input: ListPrefetchSchedulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/prefetchSchedule/{PlaybackConfigurationName}";
+  if (input.PlaybackConfigurationName !== undefined) {
+    const labelValue: string = input.PlaybackConfigurationName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: PlaybackConfigurationName.");
+    }
+    resolvedPath = resolvedPath.replace("{PlaybackConfigurationName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: PlaybackConfigurationName.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && input.NextToken !== null && { NextToken: input.NextToken }),
+    ...(input.StreamId !== undefined && input.StreamId !== null && { StreamId: input.StreamId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -1411,6 +1596,73 @@ const deserializeAws_restJson1CreateChannelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreatePrefetchScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreatePrefetchScheduleCommandError(output, context);
+  }
+  const contents: CreatePrefetchScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Consumption: undefined,
+    Name: undefined,
+    PlaybackConfigurationName: undefined,
+    Retrieval: undefined,
+    StreamId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Consumption !== undefined && data.Consumption !== null) {
+    contents.Consumption = deserializeAws_restJson1PrefetchConsumption(data.Consumption, context);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
+    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
+  }
+  if (data.Retrieval !== undefined && data.Retrieval !== null) {
+    contents.Retrieval = deserializeAws_restJson1PrefetchRetrieval(data.Retrieval, context);
+  }
+  if (data.StreamId !== undefined && data.StreamId !== null) {
+    contents.StreamId = __expectString(data.StreamId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreatePrefetchScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrefetchScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateProgramCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1742,6 +1994,49 @@ const deserializeAws_restJson1DeletePlaybackConfigurationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlaybackConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeletePrefetchScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeletePrefetchScheduleCommandError(output, context);
+  }
+  const contents: DeletePrefetchScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeletePrefetchScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrefetchScheduleCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2428,6 +2723,73 @@ const deserializeAws_restJson1GetPlaybackConfigurationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetPrefetchScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrefetchScheduleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPrefetchScheduleCommandError(output, context);
+  }
+  const contents: GetPrefetchScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Consumption: undefined,
+    Name: undefined,
+    PlaybackConfigurationName: undefined,
+    Retrieval: undefined,
+    StreamId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Consumption !== undefined && data.Consumption !== null) {
+    contents.Consumption = deserializeAws_restJson1PrefetchConsumption(data.Consumption, context);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.PlaybackConfigurationName !== undefined && data.PlaybackConfigurationName !== null) {
+    contents.PlaybackConfigurationName = __expectString(data.PlaybackConfigurationName);
+  }
+  if (data.Retrieval !== undefined && data.Retrieval !== null) {
+    contents.Retrieval = deserializeAws_restJson1PrefetchRetrieval(data.Retrieval, context);
+  }
+  if (data.StreamId !== undefined && data.StreamId !== null) {
+    contents.StreamId = __expectString(data.StreamId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetPrefetchScheduleCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrefetchScheduleCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListAlertsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2556,6 +2918,57 @@ const deserializeAws_restJson1ListPlaybackConfigurationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlaybackConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListPrefetchSchedulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrefetchSchedulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPrefetchSchedulesCommandError(output, context);
+  }
+  const contents: ListPrefetchSchedulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Items: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Items !== undefined && data.Items !== null) {
+    contents.Items = deserializeAws_restJson1__listOfPrefetchSchedule(data.Items, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPrefetchSchedulesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrefetchSchedulesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3356,6 +3769,20 @@ const serializeAws_restJson1__listOfAdBreak = (input: AdBreak[], context: __Serd
     });
 };
 
+const serializeAws_restJson1__listOfAvailMatchingCriteria = (
+  input: AvailMatchingCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1AvailMatchingCriteria(entry, context);
+    });
+};
+
 const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3397,6 +3824,14 @@ const serializeAws_restJson1AdBreak = (input: AdBreak, context: __SerdeContext):
 const serializeAws_restJson1AdMarkerPassthrough = (input: AdMarkerPassthrough, context: __SerdeContext): any => {
   return {
     ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+  };
+};
+
+const serializeAws_restJson1AvailMatchingCriteria = (input: AvailMatchingCriteria, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicVariable !== undefined &&
+      input.DynamicVariable !== null && { DynamicVariable: input.DynamicVariable }),
+    ...(input.Operator !== undefined && input.Operator !== null && { Operator: input.Operator }),
   };
 };
 
@@ -3535,6 +3970,35 @@ const serializeAws_restJson1ManifestProcessingRules = (
   };
 };
 
+const serializeAws_restJson1PrefetchConsumption = (input: PrefetchConsumption, context: __SerdeContext): any => {
+  return {
+    ...(input.AvailMatchingCriteria !== undefined &&
+      input.AvailMatchingCriteria !== null && {
+        AvailMatchingCriteria: serializeAws_restJson1__listOfAvailMatchingCriteria(
+          input.AvailMatchingCriteria,
+          context
+        ),
+      }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext): any => {
+  return {
+    ...(input.DynamicVariables !== undefined &&
+      input.DynamicVariables !== null && {
+        DynamicVariables: serializeAws_restJson1__mapOf__string(input.DynamicVariables, context),
+      }),
+    ...(input.EndTime !== undefined &&
+      input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: Math.round(input.StartTime.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_restJson1RequestOutputItem = (input: RequestOutputItem, context: __SerdeContext): any => {
   return {
     ...(input.DashPlaylistSettings !== undefined &&
@@ -3644,6 +4108,20 @@ const deserializeAws_restJson1__listOfAlert = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_restJson1__listOfAvailMatchingCriteria = (
+  output: any,
+  context: __SerdeContext
+): AvailMatchingCriteria[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AvailMatchingCriteria(entry, context);
+    });
+};
+
 const deserializeAws_restJson1__listOfChannel = (output: any, context: __SerdeContext): Channel[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -3666,6 +4144,17 @@ const deserializeAws_restJson1__listOfPlaybackConfiguration = (
         return null as any;
       }
       return deserializeAws_restJson1PlaybackConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_restJson1__listOfPrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PrefetchSchedule(entry, context);
     });
 };
 
@@ -3773,6 +4262,13 @@ const deserializeAws_restJson1Alert = (output: any, context: __SerdeContext): Al
         ? deserializeAws_restJson1__listOf__string(output.RelatedResourceArns, context)
         : undefined,
     ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
+const deserializeAws_restJson1AvailMatchingCriteria = (output: any, context: __SerdeContext): AvailMatchingCriteria => {
+  return {
+    DynamicVariable: __expectString(output.DynamicVariable),
+    Operator: __expectString(output.Operator),
   } as any;
 };
 
@@ -3992,6 +4488,57 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
         : undefined,
     TranscodeProfileName: __expectString(output.TranscodeProfileName),
     VideoContentSourceUrl: __expectString(output.VideoContentSourceUrl),
+  } as any;
+};
+
+const deserializeAws_restJson1PrefetchConsumption = (output: any, context: __SerdeContext): PrefetchConsumption => {
+  return {
+    AvailMatchingCriteria:
+      output.AvailMatchingCriteria !== undefined && output.AvailMatchingCriteria !== null
+        ? deserializeAws_restJson1__listOfAvailMatchingCriteria(output.AvailMatchingCriteria, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRetrieval => {
+  return {
+    DynamicVariables:
+      output.DynamicVariables !== undefined && output.DynamicVariables !== null
+        ? deserializeAws_restJson1__mapOf__string(output.DynamicVariables, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime)))
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSchedule => {
+  return {
+    Arn: __expectString(output.Arn),
+    Consumption:
+      output.Consumption !== undefined && output.Consumption !== null
+        ? deserializeAws_restJson1PrefetchConsumption(output.Consumption, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    PlaybackConfigurationName: __expectString(output.PlaybackConfigurationName),
+    Retrieval:
+      output.Retrieval !== undefined && output.Retrieval !== null
+        ? deserializeAws_restJson1PrefetchRetrieval(output.Retrieval, context)
+        : undefined,
+    StreamId: __expectString(output.StreamId),
   } as any;
 };
 

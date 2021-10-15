@@ -60,7 +60,7 @@ const partitionHash: PartitionHash = {
     hostname: "polly.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "polly.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

@@ -202,7 +202,7 @@ const partitionHash: PartitionHash = {
     hostname: "s3.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "s3.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

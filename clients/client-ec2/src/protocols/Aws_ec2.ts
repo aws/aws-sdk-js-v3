@@ -1757,8 +1757,8 @@ import {
   CreateFpgaImageResult,
   CreateImageRequest,
   CreateImageResult,
-  CreateInstanceEventWindowRequest,
   CustomerGateway,
+  DestinationOptionsRequest,
   DhcpConfiguration,
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
@@ -1782,7 +1782,6 @@ import {
   InstanceEventWindowAssociationRequest,
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
-  InstanceEventWindowTimeRangeRequest,
   InternetGatewayAttachment,
   IpPermission,
   IpRange,
@@ -1840,6 +1839,7 @@ import {
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   ConnectionNotification,
+  CreateInstanceEventWindowRequest,
   CreateInstanceEventWindowResult,
   CreateInstanceExportTaskRequest,
   CreateInstanceExportTaskResult,
@@ -1946,6 +1946,7 @@ import {
   IcmpTypeCode,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
+  InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
@@ -2065,12 +2066,10 @@ import {
   TransitGatewayRoute,
   TransitGatewayRouteAttachment,
   TransitGatewayRouteTable,
-  TunnelOption,
   ValidationError,
   ValidationWarning,
   Volume,
   VpcEndpoint,
-  VpnConnectionOptions,
   VpnConnectionOptionsSpecification,
   VpnTunnelOptionsSpecification,
 } from "../models/models_1";
@@ -2287,6 +2286,7 @@ import {
   DescribeImagesRequest,
   DescribeImagesResult,
   DescribeImportImageTasksRequest,
+  DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
@@ -2316,7 +2316,6 @@ import {
   Image,
   ImageAttribute,
   ImportImageLicenseConfigurationResponse,
-  ImportImageTask,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
@@ -2329,7 +2328,6 @@ import {
   PciId,
   ProductCode,
   ResponseError,
-  SnapshotDetail,
   SpotOptions,
   StateReason,
   SuccessfulQueuedPurchaseDeletion,
@@ -2337,10 +2335,11 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
-  UserBucketDetails,
+  TunnelOption,
   VgwTelemetry,
   VirtualizationType,
   VpnConnection,
+  VpnConnectionOptions,
   VpnGateway,
   VpnStaticRoute,
 } from "../models/models_2";
@@ -2497,9 +2496,6 @@ import {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTrunkInterfaceAssociationsRequest,
-  DescribeTrunkInterfaceAssociationsResult,
-  DescribeVolumeAttributeRequest,
-  DescribeVolumeAttributeResult,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2517,6 +2513,7 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  ImportImageTask,
   ImportSnapshotTask,
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
@@ -2587,6 +2584,7 @@ import {
   SecurityGroupReference,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
+  SnapshotDetail,
   SnapshotTaskDetail,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
@@ -2608,6 +2606,7 @@ import {
   TransitGatewayAttachment,
   TransitGatewayAttachmentAssociation,
   UsageClassType,
+  UserBucketDetails,
   VCpuInfo,
 } from "../models/models_3";
 import {
@@ -2621,6 +2620,9 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DescribeTrunkInterfaceAssociationsResult,
+  DescribeVolumeAttributeRequest,
+  DescribeVolumeAttributeResult,
   DescribeVolumesModificationsRequest,
   DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
@@ -2859,9 +2861,6 @@ import {
   ModifySubnetAttributeRequest,
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-  ModifyTrafficMirrorFilterRuleRequest,
-  ModifyTrafficMirrorFilterRuleResult,
-  ModifyTrafficMirrorSessionRequest,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -2878,7 +2877,6 @@ import {
   TargetConfiguration,
   TargetReservationValue,
   TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
   TransitGatewayPropagation,
@@ -2912,6 +2910,9 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyTrafficMirrorFilterRuleRequest,
+  ModifyTrafficMirrorFilterRuleResult,
+  ModifyTrafficMirrorSessionRequest,
   ModifyTrafficMirrorSessionResult,
   ModifyTransitGatewayOptions,
   ModifyTransitGatewayPrefixListReferenceRequest,
@@ -3056,6 +3057,7 @@ import {
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
+  TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
@@ -34131,6 +34133,13 @@ const serializeAws_ec2CreateFlowLogsRequest = (input: CreateFlowLogsRequest, con
   if (input.MaxAggregationInterval !== undefined && input.MaxAggregationInterval !== null) {
     entries["MaxAggregationInterval"] = input.MaxAggregationInterval;
   }
+  if (input.DestinationOptions !== undefined && input.DestinationOptions !== null) {
+    const memberEntries = serializeAws_ec2DestinationOptionsRequest(input.DestinationOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DestinationOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -34385,11 +34394,11 @@ const serializeAws_ec2CreateLocalGatewayRouteRequest = (
   if (input.LocalGatewayRouteTableId !== undefined && input.LocalGatewayRouteTableId !== null) {
     entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
   }
-  if (input.DryRun !== undefined && input.DryRun !== null) {
-    entries["DryRun"] = input.DryRun;
-  }
   if (input.LocalGatewayVirtualInterfaceGroupId !== undefined && input.LocalGatewayVirtualInterfaceGroupId !== null) {
     entries["LocalGatewayVirtualInterfaceGroupId"] = input.LocalGatewayVirtualInterfaceGroupId;
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -35044,6 +35053,9 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   if (input.AvailabilityZoneId !== undefined && input.AvailabilityZoneId !== null) {
     entries["AvailabilityZoneId"] = input.AvailabilityZoneId;
   }
+  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
+    entries["CidrBlock"] = input.CidrBlock;
+  }
   if (input.Ipv6CidrBlock !== undefined && input.Ipv6CidrBlock !== null) {
     entries["Ipv6CidrBlock"] = input.Ipv6CidrBlock;
   }
@@ -35055,9 +35067,6 @@ const serializeAws_ec2CreateSubnetRequest = (input: CreateSubnetRequest, context
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
-  }
-  if (input.CidrBlock !== undefined && input.CidrBlock !== null) {
-    entries["CidrBlock"] = input.CidrBlock;
   }
   return entries;
 };
@@ -40511,6 +40520,20 @@ const serializeAws_ec2DescribeVpnGatewaysRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DestinationOptionsRequest = (input: DestinationOptionsRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.FileFormat !== undefined && input.FileFormat !== null) {
+    entries["FileFormat"] = input.FileFormat;
+  }
+  if (input.HiveCompatiblePartitions !== undefined && input.HiveCompatiblePartitions !== null) {
+    entries["HiveCompatiblePartitions"] = input.HiveCompatiblePartitions;
+  }
+  if (input.PerHourPartition !== undefined && input.PerHourPartition !== null) {
+    entries["PerHourPartition"] = input.PerHourPartition;
   }
   return entries;
 };
@@ -48786,6 +48809,13 @@ const serializeAws_ec2SearchLocalGatewayRoutesRequest = (
   if (input.LocalGatewayRouteTableId !== undefined && input.LocalGatewayRouteTableId !== null) {
     entries["LocalGatewayRouteTableId"] = input.LocalGatewayRouteTableId;
   }
+  if (input.Filters !== undefined && input.Filters !== null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   if (input.MaxResults !== undefined && input.MaxResults !== null) {
     entries["MaxResults"] = input.MaxResults;
   }
@@ -48794,13 +48824,6 @@ const serializeAws_ec2SearchLocalGatewayRoutesRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
-  }
-  if (input.Filters !== undefined && input.Filters !== null) {
-    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
-      entries[loc] = value;
-    });
   }
   return entries;
 };
@@ -58303,6 +58326,27 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
   return contents;
 };
 
+const deserializeAws_ec2DestinationOptionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DestinationOptionsResponse => {
+  const contents: any = {
+    FileFormat: undefined,
+    HiveCompatiblePartitions: undefined,
+    PerHourPartition: undefined,
+  };
+  if (output["fileFormat"] !== undefined) {
+    contents.FileFormat = __expectString(output["fileFormat"]);
+  }
+  if (output["hiveCompatiblePartitions"] !== undefined) {
+    contents.HiveCompatiblePartitions = __parseBoolean(output["hiveCompatiblePartitions"]);
+  }
+  if (output["perHourPartition"] !== undefined) {
+    contents.PerHourPartition = __parseBoolean(output["perHourPartition"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DetachClassicLinkVpcResult = (
   output: any,
   context: __SerdeContext
@@ -60451,6 +60495,7 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
     LogFormat: undefined,
     Tags: undefined,
     MaxAggregationInterval: undefined,
+    DestinationOptions: undefined,
   };
   if (output["creationTime"] !== undefined) {
     contents.CreationTime = __expectNonNull(__parseRfc3339DateTime(output["creationTime"]));
@@ -60496,6 +60541,9 @@ const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLo
   }
   if (output["maxAggregationInterval"] !== undefined) {
     contents.MaxAggregationInterval = __strictParseInt32(output["maxAggregationInterval"]) as number;
+  }
+  if (output["destinationOptions"] !== undefined) {
+    contents.DestinationOptions = deserializeAws_ec2DestinationOptionsResponse(output["destinationOptions"], context);
   }
   return contents;
 };
@@ -63946,6 +63994,7 @@ const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeCont
     TotalSizeInGB: undefined,
     Disks: undefined,
     NvmeSupport: undefined,
+    EncryptionSupport: undefined,
   };
   if (output["totalSizeInGB"] !== undefined) {
     contents.TotalSizeInGB = __strictParseLong(output["totalSizeInGB"]) as number;
@@ -63958,6 +64007,9 @@ const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeCont
   }
   if (output["nvmeSupport"] !== undefined) {
     contents.NvmeSupport = __expectString(output["nvmeSupport"]);
+  }
+  if (output["encryptionSupport"] !== undefined) {
+    contents.EncryptionSupport = __expectString(output["encryptionSupport"]);
   }
   return contents;
 };

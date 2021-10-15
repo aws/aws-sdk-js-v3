@@ -28,7 +28,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
 
 /**
  * <p>Modifies the permissions for your <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html">VPC endpoint service</a>. You can add or remove permissions for service consumers (IAM users,
- * 	        IAM roles, and AWS accounts) to connect to your endpoint service.</p>
+ * 	        IAM roles, and Amazon Web Services accounts) to connect to your endpoint service.</p>
  * 	        <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>

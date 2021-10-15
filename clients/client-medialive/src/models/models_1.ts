@@ -32,7 +32,6 @@ import {
   InputDeviceType,
   InputDeviceUhdSettings,
   InputLocation,
-  InputLossActionForMsSmoothOut,
   InputSecurityGroup,
   InputSecurityGroupState,
   InputSource,
@@ -59,13 +58,39 @@ import {
   OutputDestination,
   OutputLocationRef,
   ReservationResourceSpecification,
-  SmoothGroupAudioOnlyTimecodeControl,
-  SmoothGroupCertificateMode,
-  SmoothGroupEventIdMode,
-  SmoothGroupEventStopBehavior,
-  SmoothGroupSegmentationMode,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+export enum SmoothGroupAudioOnlyTimecodeControl {
+  PASSTHROUGH = "PASSTHROUGH",
+  USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
+}
+
+export enum SmoothGroupCertificateMode {
+  SELF_SIGNED = "SELF_SIGNED",
+  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
+}
+
+export enum SmoothGroupEventIdMode {
+  NO_EVENT_ID = "NO_EVENT_ID",
+  USE_CONFIGURED = "USE_CONFIGURED",
+  USE_TIMESTAMP = "USE_TIMESTAMP",
+}
+
+export enum SmoothGroupEventStopBehavior {
+  NONE = "NONE",
+  SEND_EOS = "SEND_EOS",
+}
+
+export enum InputLossActionForMsSmoothOut {
+  EMIT_OUTPUT = "EMIT_OUTPUT",
+  PAUSE_OUTPUT = "PAUSE_OUTPUT",
+}
+
+export enum SmoothGroupSegmentationMode {
+  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
+  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
+}
 
 export enum SmoothGroupSparseTrackType {
   NONE = "NONE",
@@ -3747,6 +3772,39 @@ export namespace Channel {
   });
 }
 
+/**
+ * A request to claim an AWS Elemental device that you have purchased from a third-party vendor.
+ */
+export interface ClaimDeviceRequest {
+  /**
+   * The id of the device you want to claim.
+   */
+  Id?: string;
+}
+
+export namespace ClaimDeviceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClaimDeviceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Placeholder documentation for ClaimDeviceResponse
+ */
+export interface ClaimDeviceResponse {}
+
+export namespace ClaimDeviceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ClaimDeviceResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum ContentType {
   image_jpeg = "image/jpeg",
 }
@@ -3852,7 +3910,7 @@ export interface CreateChannelRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * Settings for VPC output
+   * Settings for the VPC outputs
    */
   Vpc?: VpcOutputSettings;
 }
@@ -3969,7 +4027,7 @@ export interface CreateInputRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * Placeholder documentation for InputType
+   * The different types of inputs that AWS Elemental MediaLive supports.
    */
   Type?: InputType | string;
 
@@ -5267,7 +5325,7 @@ export interface DescribeInputResponse {
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
-   * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+   * during input switch actions. Presently, this functionality only works with MP4_FILE and TS_FILE inputs.
    */
   InputSourceType?: InputSourceType | string;
 
@@ -5307,7 +5365,7 @@ export interface DescribeInputResponse {
   Tags?: { [key: string]: string };
 
   /**
-   * Placeholder documentation for InputType
+   * The different types of inputs that AWS Elemental MediaLive supports.
    */
   Type?: InputType | string;
 }

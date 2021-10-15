@@ -96,6 +96,119 @@ export enum AudioDescriptionAudioTypeControl {
   USE_CONFIGURED = "USE_CONFIGURED",
 }
 
+export enum NielsenWatermarksCbetStepaside {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * Nielsen CBET
+ */
+export interface NielsenCBET {
+  /**
+   * Enter the CBET check digits to use in the watermark.
+   */
+  CbetCheckDigitString: string | undefined;
+
+  /**
+   * Determines the method of CBET insertion mode when prior encoding is detected on the same layer.
+   */
+  CbetStepaside: NielsenWatermarksCbetStepaside | string | undefined;
+
+  /**
+   * Enter the CBET Source ID (CSID) to use in the watermark
+   */
+  Csid: string | undefined;
+}
+
+export namespace NielsenCBET {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NielsenCBET): any => ({
+    ...obj,
+  });
+}
+
+export enum NielsenWatermarksDistributionTypes {
+  FINAL_DISTRIBUTOR = "FINAL_DISTRIBUTOR",
+  PROGRAM_CONTENT = "PROGRAM_CONTENT",
+}
+
+/**
+ * Nielsen Naes Ii Nw
+ */
+export interface NielsenNaesIiNw {
+  /**
+   * Enter the check digit string for the watermark
+   */
+  CheckDigitString: string | undefined;
+
+  /**
+   * Enter the Nielsen Source ID (SID) to include in the watermark
+   */
+  Sid: number | undefined;
+}
+
+export namespace NielsenNaesIiNw {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NielsenNaesIiNw): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Nielsen Watermarks Settings
+ */
+export interface NielsenWatermarksSettings {
+  /**
+   * Complete these fields only if you want to insert watermarks of type Nielsen CBET
+   */
+  NielsenCbetSettings?: NielsenCBET;
+
+  /**
+   * Choose the distribution types that you want to assign to the watermarks:
+   * - PROGRAM_CONTENT
+   * - FINAL_DISTRIBUTOR
+   */
+  NielsenDistributionType?: NielsenWatermarksDistributionTypes | string;
+
+  /**
+   * Complete these fields only if you want to insert watermarks of type Nielsen NAES II (N2) and Nielsen NAES VI (NW).
+   */
+  NielsenNaesIiNwSettings?: NielsenNaesIiNw;
+}
+
+export namespace NielsenWatermarksSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NielsenWatermarksSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Audio Watermark Settings
+ */
+export interface AudioWatermarkSettings {
+  /**
+   * Settings to configure Nielsen Watermarks in the audio encode
+   */
+  NielsenWatermarksSettings?: NielsenWatermarksSettings;
+}
+
+export namespace AudioWatermarkSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AudioWatermarkSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum AacCodingMode {
   AD_RECEIVER_MIX = "AD_RECEIVER_MIX",
   CODING_MODE_1_0 = "CODING_MODE_1_0",
@@ -669,6 +782,11 @@ export interface AudioDescription {
    * Note that this field and audioType are both ignored if inputType is broadcasterMixedAd.
    */
   AudioTypeControl?: AudioDescriptionAudioTypeControl | string;
+
+  /**
+   * Settings to configure one or more solutions that insert audio watermarks in the audio encode
+   */
+  AudioWatermarkingSettings?: AudioWatermarkSettings;
 
   /**
    * Audio codec settings.
@@ -2792,7 +2910,7 @@ export interface ChannelSummary {
   Tags?: { [key: string]: string };
 
   /**
-   * Settings for VPC output
+   * Settings for any VPC outputs.
    */
   Vpc?: VpcOutputSettingsDescription;
 }
@@ -2966,6 +3084,7 @@ export enum InputType {
   RTMP_PULL = "RTMP_PULL",
   RTMP_PUSH = "RTMP_PUSH",
   RTP_PUSH = "RTP_PUSH",
+  TS_FILE = "TS_FILE",
   UDP_PUSH = "UDP_PUSH",
   URL_PULL = "URL_PULL",
 }
@@ -3012,7 +3131,7 @@ export interface Input {
 
   /**
    * Certain pull input sources can be dynamic, meaning that they can have their URL's dynamically changes
-   * during input switch actions. Presently, this functionality only works with MP4_FILE inputs.
+   * during input switch actions. Presently, this functionality only works with MP4_FILE and TS_FILE inputs.
    */
   InputSourceType?: InputSourceType | string;
 
@@ -3052,7 +3171,7 @@ export interface Input {
   Tags?: { [key: string]: string };
 
   /**
-   * Placeholder documentation for InputType
+   * The different types of inputs that AWS Elemental MediaLive supports.
    */
   Type?: InputType | string;
 }
@@ -5817,35 +5936,4 @@ export namespace MediaPackageGroupSettings {
   export const filterSensitiveLog = (obj: MediaPackageGroupSettings): any => ({
     ...obj,
   });
-}
-
-export enum SmoothGroupAudioOnlyTimecodeControl {
-  PASSTHROUGH = "PASSTHROUGH",
-  USE_CONFIGURED_CLOCK = "USE_CONFIGURED_CLOCK",
-}
-
-export enum SmoothGroupCertificateMode {
-  SELF_SIGNED = "SELF_SIGNED",
-  VERIFY_AUTHENTICITY = "VERIFY_AUTHENTICITY",
-}
-
-export enum SmoothGroupEventIdMode {
-  NO_EVENT_ID = "NO_EVENT_ID",
-  USE_CONFIGURED = "USE_CONFIGURED",
-  USE_TIMESTAMP = "USE_TIMESTAMP",
-}
-
-export enum SmoothGroupEventStopBehavior {
-  NONE = "NONE",
-  SEND_EOS = "SEND_EOS",
-}
-
-export enum InputLossActionForMsSmoothOut {
-  EMIT_OUTPUT = "EMIT_OUTPUT",
-  PAUSE_OUTPUT = "PAUSE_OUTPUT",
-}
-
-export enum SmoothGroupSegmentationMode {
-  USE_INPUT_SEGMENTATION = "USE_INPUT_SEGMENTATION",
-  USE_SEGMENT_DURATION = "USE_SEGMENT_DURATION",
 }

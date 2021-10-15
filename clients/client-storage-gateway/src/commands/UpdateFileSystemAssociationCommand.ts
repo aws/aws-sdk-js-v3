@@ -22,7 +22,8 @@ export interface UpdateFileSystemAssociationCommandInput extends UpdateFileSyste
 export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSystemAssociationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a file system association. This operation is only supported in the FSx File Gateways.</p>
+ * <p>Updates a file system association. This operation is only supported in the FSx File
+ *          Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

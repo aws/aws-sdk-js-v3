@@ -28,7 +28,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Download an AWS-provided sample configuration file to be used with the customer
+ * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
  *             gateway device specified for your Site-to-Site VPN connection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

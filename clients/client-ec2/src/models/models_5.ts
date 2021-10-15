@@ -45,6 +45,10 @@ import {
   RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
+  TrafficDirection,
+  TrafficMirrorFilterRule,
+  TrafficMirrorPortRangeRequest,
+  TrafficMirrorRuleAction,
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
@@ -76,7 +80,165 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import { CapacityReservationSpecification, Purchase, VolumeModification } from "./models_4";
+import {
+  CapacityReservationSpecification,
+  Purchase,
+  TrafficMirrorFilterRuleField,
+  VolumeModification,
+} from "./models_4";
+
+export interface ModifyTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>The type of traffic to assign to the rule.</p>
+   */
+  TrafficDirection?: TrafficDirection | string;
+
+  /**
+   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
+   *          direction. The rules are processed in ascending order by rule number.</p>
+   */
+  RuleNumber?: number;
+
+  /**
+   * <p>The action to assign to the rule.</p>
+   */
+  RuleAction?: TrafficMirrorRuleAction | string;
+
+  /**
+   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
+   */
+  DestinationPortRange?: TrafficMirrorPortRangeRequest;
+
+  /**
+   * <p>The port range to assign to the Traffic Mirror rule.</p>
+   */
+  SourcePortRange?: TrafficMirrorPortRangeRequest;
+
+  /**
+   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
+   */
+  Protocol?: number;
+
+  /**
+   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+   */
+  SourceCidrBlock?: string;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
+   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
+   */
+  RemoveFields?: (TrafficMirrorFilterRuleField | string)[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTrafficMirrorFilterRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTrafficMirrorFilterRuleResult {
+  /**
+   * <p>Modifies a Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
+}
+
+export namespace ModifyTrafficMirrorFilterRuleResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleResult): any => ({
+    ...obj,
+  });
+}
+
+export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
+
+export interface ModifyTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
+   */
+  TrafficMirrorTargetId?: string;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId?: string;
+
+  /**
+   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
+   */
+  PacketLength?: number;
+
+  /**
+   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
+   *          <p>Valid values are 1-32766.</p>
+   */
+  SessionNumber?: number;
+
+  /**
+   * <p>The virtual network ID of the Traffic Mirror session.</p>
+   */
+  VirtualNetworkId?: number;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror session.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
+   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
+   */
+  RemoveFields?: (TrafficMirrorSessionField | string)[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTrafficMirrorSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface ModifyTrafficMirrorSessionResult {
   /**
@@ -2420,12 +2582,11 @@ export interface ReleaseAddressRequest {
   PublicIp?: string;
 
   /**
-   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises
+   * <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon Web Services advertises
    *       IP addresses.</p>
-   *          <p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
-   *          <note>
-   *             <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p>
-   *          </note>
+   *          <p>If you provide an incorrect network border group, you receive an <code>InvalidAddress.NotFound</code> error.</p>
+   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you
+   *       receive an <code>InvalidParameterCombination</code> error.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -4077,12 +4238,10 @@ export interface InstanceMetadataOptionsRequest {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
+   * <p>Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not
+   *             specified, the default state is <code>enabled</code>.</p>
+   *         <p>If you specify a value of <code>disabled</code>, you will not be able to access your
+   *             instance metadata.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
@@ -4859,6 +5018,11 @@ export interface SearchLocalGatewayRoutesRequest {
   LocalGatewayRouteTableId: string | undefined;
 
   /**
+   * <p>One or more filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
@@ -4875,11 +5039,6 @@ export interface SearchLocalGatewayRoutesRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   */
-  Filters: Filter[] | undefined;
 }
 
 export namespace SearchLocalGatewayRoutesRequest {

@@ -250,7 +250,7 @@ export namespace BotAliasHistoryEvent {
 
 /**
  * <p>Specifies a Lambda function that verifies requests to a bot or
- *          fulfilles the user's request to a bot.</p>
+ *          fulfills the user's request to a bot.</p>
  */
 export interface LambdaCodeHook {
   /**
@@ -281,7 +281,7 @@ export namespace LambdaCodeHook {
 export interface CodeHookSpecification {
   /**
    * <p>Specifies a Lambda function that verifies requests to a bot or
-   *          fulfilles the user's request to a bot.</p>
+   *          fulfills the user's request to a bot.</p>
    */
   lambdaCodeHook: LambdaCodeHook | undefined;
 }
@@ -1763,7 +1763,7 @@ export interface CreateBotLocaleRequest {
    *          threshold of 0.80 and the <code>AMAZON.FallbackIntent</code>. Amazon Lex
    *          returns three alternative intents with the following confidence scores:
    *          IntentA (0.70), IntentB (0.60), IntentC (0.50). The response from the
-   *          PostText operation would be:</p>
+   *             <code>RecognizeText</code> operation would be:</p>
    *          <ul>
    *             <li>
    *                <p>AMAZON.FallbackIntent</p>
@@ -2091,47 +2091,6 @@ export namespace DialogCodeHookSettings {
 }
 
 /**
- * <p>Determines if a Lambda function should be invoked for a specific
- *          intent.</p>
- */
-export interface FulfillmentCodeHookSettings {
-  /**
-   * <p>Indicates whether a Lambda function should be invoked to fulfill a
-   *          specific intent.</p>
-   */
-  enabled: boolean | undefined;
-}
-
-export namespace FulfillmentCodeHookSettings {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The name of a context that must be active for an intent to be
- *          selected by Amazon Lex.</p>
- */
-export interface InputContext {
-  /**
-   * <p>The name of the context.</p>
-   */
-  name: string | undefined;
-}
-
-export namespace InputContext {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InputContext): any => ({
-    ...obj,
-  });
-}
-
-/**
  * <p>A custom response string that Amazon Lex sends to your application. You
  *          define the content and structure the string.</p>
  */
@@ -2297,6 +2256,117 @@ export namespace MessageGroup {
 }
 
 /**
+ * <p>Provides settings for a message that is sent to the user when a
+ *          fulfillment Lambda function starts running.</p>
+ */
+export interface FulfillmentStartResponseSpecification {
+  /**
+   * <p>The delay between when the Lambda fulfillment function starts running
+   *          and the start message is played. If the Lambda function returns before
+   *          the delay is over, the start message isn't played.</p>
+   */
+  delayInSeconds: number | undefined;
+
+  /**
+   * <p>One to 5 message groups that contain start messages. Amazon Lex chooses
+   *          one of the messages to play to the user.</p>
+   */
+  messageGroups: MessageGroup[] | undefined;
+
+  /**
+   * <p>Determines whether the user can interrupt the start message while it
+   *          is playing.</p>
+   */
+  allowInterrupt?: boolean;
+}
+
+export namespace FulfillmentStartResponseSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FulfillmentStartResponseSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides settings for a message that is sent periodically to the
+ *          user while a fulfillment Lambda function is running.</p>
+ */
+export interface FulfillmentUpdateResponseSpecification {
+  /**
+   * <p>The frequency that a message is sent to the user. When the period
+   *          ends, Amazon Lex chooses a message from the message groups and plays it to
+   *          the user. If the fulfillment Lambda returns before the first period
+   *          ends, an update message is not played to the user.</p>
+   */
+  frequencyInSeconds: number | undefined;
+
+  /**
+   * <p>One to 5 message groups that contain update messages. Amazon Lex chooses
+   *          one of the messages to play to the user.</p>
+   */
+  messageGroups: MessageGroup[] | undefined;
+
+  /**
+   * <p>Determines whether the user can interrupt an update message while it
+   *          is playing.</p>
+   */
+  allowInterrupt?: boolean;
+}
+
+export namespace FulfillmentUpdateResponseSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FulfillmentUpdateResponseSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information for updating the user on the progress of
+ *          fulfilling an intent.</p>
+ */
+export interface FulfillmentUpdatesSpecification {
+  /**
+   * <p>Determines whether fulfillment updates are sent to the user. When
+   *          this field is true, updates are sent.</p>
+   *          <p>If the <code>active</code> field is set to true, the
+   *             <code>startResponse</code>, <code>updateResponse</code>, and
+   *             <code>timeoutInSeconds</code> fields are required.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * <p>Provides configuration information for the message sent to users
+   *          when the fulfillment Lambda functions starts running.</p>
+   */
+  startResponse?: FulfillmentStartResponseSpecification;
+
+  /**
+   * <p>Provides configuration information for messages sent periodically to
+   *          the user while the fulfillment Lambda function is running.</p>
+   */
+  updateResponse?: FulfillmentUpdateResponseSpecification;
+
+  /**
+   * <p>The length of time that the fulfillment Lambda function should run
+   *          before it times out.</p>
+   */
+  timeoutInSeconds?: number;
+}
+
+export namespace FulfillmentUpdatesSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FulfillmentUpdatesSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies a list of message groups that Amazon Lex uses to respond the
  *          user input.</p>
  */
@@ -2324,6 +2394,95 @@ export namespace ResponseSpecification {
 }
 
 /**
+ * <p>Provides a setting that determines whether the post-fulfillment
+ *          response is sent to the user. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete">https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete</a>
+ *          </p>
+ */
+export interface PostFulfillmentStatusSpecification {
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  successResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  failureResponse?: ResponseSpecification;
+
+  /**
+   * <p>Specifies a list of message groups that Amazon Lex uses to respond the
+   *          user input.</p>
+   */
+  timeoutResponse?: ResponseSpecification;
+}
+
+export namespace PostFulfillmentStatusSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PostFulfillmentStatusSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Determines if a Lambda function should be invoked for a specific
+ *          intent.</p>
+ */
+export interface FulfillmentCodeHookSettings {
+  /**
+   * <p>Indicates whether a Lambda function should be invoked to fulfill a
+   *          specific intent.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Provides settings for messages sent to the user for after the Lambda
+   *          fulfillment function completes. Post-fulfillment messages can be sent
+   *          for both streaming and non-streaming conversations.</p>
+   */
+  postFulfillmentStatusSpecification?: PostFulfillmentStatusSpecification;
+
+  /**
+   * <p>Provides settings for update messages sent to the user for
+   *          long-running Lambda fulfillment functions. Fulfillment updates can be
+   *          used only with streaming conversations.</p>
+   */
+  fulfillmentUpdatesSpecification?: FulfillmentUpdatesSpecification;
+}
+
+export namespace FulfillmentCodeHookSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FulfillmentCodeHookSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The name of a context that must be active for an intent to be
+ *          selected by Amazon Lex.</p>
+ */
+export interface InputContext {
+  /**
+   * <p>The name of the context.</p>
+   */
+  name: string | undefined;
+}
+
+export namespace InputContext {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InputContext): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides a statement the Amazon Lex conveys to the user when the intent
  *          is successfully fulfilled.</p>
  */
@@ -2336,9 +2495,9 @@ export interface IntentClosingSetting {
 
   /**
    * <p>Specifies whether an intent's closing response is used. When this
-   *          field is false, the closing response isn't sent to the user and no
-   *          closing input from the user is used. If the <code>active</code> field
-   *          isn't specified, the default is true.</p>
+   *          field is false, the closing response isn't sent to the user. If the
+   *             <code>active</code> field isn't specified, the default is
+   *          true.</p>
    */
   active?: boolean;
 }
@@ -2364,7 +2523,7 @@ export interface PromptSpecification {
   messageGroups: MessageGroup[] | undefined;
 
   /**
-   * <p>The maximum number of times the bot tries to elicit a resonse from
+   * <p>The maximum number of times the bot tries to elicit a response from
    *          the user using this prompt.</p>
    */
   maxRetries: number | undefined;
@@ -2412,8 +2571,7 @@ export interface IntentConfirmationSetting {
   /**
    * <p>Specifies whether the intent's confirmation is sent to the user.
    *          When this field is false, confirmation and declination responses aren't
-   *          sent and processing continues as if the responses aren't present. If
-   *          the <code>active</code> field isn't specified, the default is
+   *          sent. If the <code>active</code> field isn't specified, the default is
    *          true.</p>
    */
   active?: boolean;
@@ -3086,9 +3244,8 @@ export interface WaitAndContinueSpecification {
 
   /**
    * <p>Specifies whether the bot will wait for a user to respond. When this
-   *          field is false, wait and continue responses for a slot aren't used and
-   *          the bot expects an appropriate response within the configured timeout.
-   *          If the <code>active</code> field isn't specified, the default is
+   *          field is false, wait and continue responses for a slot aren't used. If
+   *          the <code>active</code> field isn't specified, the default is
    *          true.</p>
    */
   active?: boolean;
@@ -3110,7 +3267,7 @@ export interface SlotValueElicitationSetting {
   /**
    * <p>A list of default values for a slot. Default values are used when
    *          Amazon Lex hasn't determined a value for a slot. You can specify default
-   *          values from context variables, sesion attributes, and defined
+   *          values from context variables, session attributes, and defined
    *          values.</p>
    */
   defaultValueSpecification?: SlotDefaultValueSpecification;
@@ -3335,7 +3492,7 @@ export interface SlotTypeValue {
   sampleValue?: SampleValue;
 
   /**
-   * <p>Additional values releated to the slot type entry.</p>
+   * <p>Additional values related to the slot type entry.</p>
    */
   synonyms?: SampleValue[];
 }
@@ -3356,8 +3513,8 @@ export namespace SlotTypeValue {
 export interface SlotValueRegexFilter {
   /**
    * <p>A regular expression used to validate the value of a slot.</p>
-   *          <p> Use a standard regular expression. Amazon Lex supports the
-   *          following characters in the regular expression: </p>
+   *          <p> Use a standard regular expression. Amazon Lex supports the following
+   *          characters in the regular expression: </p>
    *          <ul>
    *             <li>
    *                <p>A-Z, a-z</p>
@@ -4671,7 +4828,7 @@ export enum MergeStrategy {
 
 /**
  * <p>Provides information about the bot or bot locale that you want to
- *          import. You can sepcifiy the <code>botImportSpecification</code> or the
+ *          import. You can specify the <code>botImportSpecification</code> or the
  *             <code>botLocaleImportSpecification</code>, but not both.</p>
  */
 export interface ImportResourceSpecification {
@@ -4734,7 +4891,7 @@ export interface DescribeImportResponse {
 
   /**
    * <p>If the <code>importStatus</code> field is <code>Failed</code>, this
-   *          provides one or more reasons for the failture.</p>
+   *          provides one or more reasons for the failure.</p>
    */
   failureReasons?: string[];
 
@@ -5210,7 +5367,7 @@ export enum ExportFilterOperator {
 }
 
 /**
- * <p>Filtes the response form the
+ * <p>Filters the response form the
  *          operation</p>
  */
 export interface ExportFilter {
@@ -5220,7 +5377,7 @@ export interface ExportFilter {
   name: ExportFilterName | string | undefined;
 
   /**
-   * <p>The values to use to fileter the response.</p>
+   * <p>The values to use to filter the response.</p>
    */
   values: string[] | undefined;
 
@@ -6315,7 +6472,7 @@ export interface ListExportsRequest {
   maxResults?: number;
 
   /**
-   * <p>If the response from the <code>ListExports</code> operation contans
+   * <p>If the response from the <code>ListExports</code> operation contains
    *          more results that specified in the <code>maxResults</code> parameter, a
    *          token is returned in the response. Use that token in the
    *             <code>nextToken</code> parameter to return the next page of

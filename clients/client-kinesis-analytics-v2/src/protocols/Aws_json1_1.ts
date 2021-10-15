@@ -1334,6 +1334,14 @@ const deserializeAws_json1_1CreateApplicationCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2416,6 +2424,14 @@ const deserializeAws_json1_1DiscoverInputSchemaCommandError = async (
     case "com.amazonaws.kinesisanalyticsv2#UnableToDetectSchemaException":
       response = {
         ...(await deserializeAws_json1_1UnableToDetectSchemaExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kinesisanalyticsv2#UnsupportedOperationException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

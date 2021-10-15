@@ -4541,6 +4541,9 @@ const serializeAws_queryCreateTargetGroupInput = (input: CreateTargetGroupInput,
       entries[loc] = value;
     });
   }
+  if (input.IpAddressType !== undefined && input.IpAddressType !== null) {
+    entries["IpAddressType"] = input.IpAddressType;
+  }
   return entries;
 };
 
@@ -4717,6 +4720,9 @@ const serializeAws_queryDescribeSSLPoliciesInput = (input: DescribeSSLPoliciesIn
   }
   if (input.PageSize !== undefined && input.PageSize !== null) {
     entries["PageSize"] = input.PageSize;
+  }
+  if (input.LoadBalancerType !== undefined && input.LoadBalancerType !== null) {
+    entries["LoadBalancerType"] = input.LoadBalancerType;
   }
   return entries;
 };
@@ -7348,6 +7354,7 @@ const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): Ss
     SslProtocols: undefined,
     Ciphers: undefined,
     Name: undefined,
+    SupportedLoadBalancerTypes: undefined,
   };
   if (output.SslProtocols === "") {
     contents.SslProtocols = [];
@@ -7366,6 +7373,18 @@ const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): Ss
   }
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
+  }
+  if (output.SupportedLoadBalancerTypes === "") {
+    contents.SupportedLoadBalancerTypes = [];
+  }
+  if (
+    output["SupportedLoadBalancerTypes"] !== undefined &&
+    output["SupportedLoadBalancerTypes"]["member"] !== undefined
+  ) {
+    contents.SupportedLoadBalancerTypes = deserializeAws_queryListOfString(
+      __getArrayIfSingleItem(output["SupportedLoadBalancerTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7494,6 +7513,7 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
     LoadBalancerArns: undefined,
     TargetType: undefined,
     ProtocolVersion: undefined,
+    IpAddressType: undefined,
   };
   if (output["TargetGroupArn"] !== undefined) {
     contents.TargetGroupArn = __expectString(output["TargetGroupArn"]);
@@ -7551,6 +7571,9 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
   }
   if (output["ProtocolVersion"] !== undefined) {
     contents.ProtocolVersion = __expectString(output["ProtocolVersion"]);
+  }
+  if (output["IpAddressType"] !== undefined) {
+    contents.IpAddressType = __expectString(output["IpAddressType"]);
   }
   return contents;
 };

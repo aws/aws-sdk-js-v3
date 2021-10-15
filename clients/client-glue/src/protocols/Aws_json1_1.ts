@@ -19596,6 +19596,9 @@ const serializeAws_json1_1S3Target = (input: S3Target, context: __SerdeContext):
   return {
     ...(input.ConnectionName !== undefined &&
       input.ConnectionName !== null && { ConnectionName: input.ConnectionName }),
+    ...(input.DlqEventQueueArn !== undefined &&
+      input.DlqEventQueueArn !== null && { DlqEventQueueArn: input.DlqEventQueueArn }),
+    ...(input.EventQueueArn !== undefined && input.EventQueueArn !== null && { EventQueueArn: input.EventQueueArn }),
     ...(input.Exclusions !== undefined &&
       input.Exclusions !== null && { Exclusions: serializeAws_json1_1PathList(input.Exclusions, context) }),
     ...(input.Path !== undefined && input.Path !== null && { Path: input.Path }),
@@ -24278,6 +24281,8 @@ const deserializeAws_json1_1S3EncryptionList = (output: any, context: __SerdeCon
 const deserializeAws_json1_1S3Target = (output: any, context: __SerdeContext): S3Target => {
   return {
     ConnectionName: __expectString(output.ConnectionName),
+    DlqEventQueueArn: __expectString(output.DlqEventQueueArn),
+    EventQueueArn: __expectString(output.EventQueueArn),
     Exclusions:
       output.Exclusions !== undefined && output.Exclusions !== null
         ? deserializeAws_json1_1PathList(output.Exclusions, context)
