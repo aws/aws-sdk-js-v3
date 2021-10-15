@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "3.36.1",
+  "version": "3.37.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,9 +19,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-cognito-identity": "3.36.1",
-    "@aws-sdk/property-provider": "3.36.0",
-    "@aws-sdk/types": "3.36.0",
+    "@aws-sdk/client-cognito-identity": "3.37.0",
+    "@aws-sdk/property-provider": "3.37.0",
+    "@aws-sdk/types": "3.37.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/service-error-classification",
-  "version": "3.36.0",
+  "version": "3.37.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -18,7 +18,7 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/types": "3.36.0",
+    "@aws-sdk/types": "3.37.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.3.5"
