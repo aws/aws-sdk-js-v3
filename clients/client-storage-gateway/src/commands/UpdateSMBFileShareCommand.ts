@@ -22,8 +22,8 @@ export interface UpdateSMBFileShareCommandInput extends UpdateSMBFileShareInput 
 export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for
- *          S3 File Gateways.</p>
+ * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for S3
+ *          File Gateways.</p>
  *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to
@@ -31,12 +31,13 @@ export interface UpdateSMBFileShareCommandOutput extends UpdateSMBFileShareOutpu
  *          </note>
  *
  *          <important>
- *             <p>File gateways require Security Token Service (STS) to be activated to enable
- *             you to create a file share. Make sure that STS is activated in the Region you
- *             are creating your file gateway in. If STS is not activated in this Region,
- *             activate it. For information about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                deactivating STS in an Region</a> in the <i>Identity and Access Management
- *                   User Guide</i>.</p>
+ *             <p>File gateways require Security Token Service (Amazon Web Services STS) to be
+ *             activated to enable you to create a file share. Make sure that Amazon Web Services STS
+ *             is activated in the Amazon Web Services Region you are creating your file gateway in. If
+ *                Amazon Web Services STS is not activated in this Amazon Web Services Region, activate
+ *             it. For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+ *                   <i>Identity and Access Management User Guide</i>.</p>
  *
  *             <p>File gateways don't support creating hard or symbolic links on a file
  *             share.</p>

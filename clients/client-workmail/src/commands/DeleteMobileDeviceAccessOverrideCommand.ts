@@ -25,6 +25,9 @@ export interface DeleteMobileDeviceAccessOverrideCommandOutput
 
 /**
  * <p>Deletes the mobile device access override for the given WorkMail organization, user, and device.</p>
+ *          <note>
+ *             <p>Deleting already deleted and non-existing overrides does not produce an error. In those cases, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

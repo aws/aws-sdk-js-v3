@@ -36,7 +36,7 @@ const partitionHash: PartitionHash = {
     hostname: "quicksight.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "quicksight.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

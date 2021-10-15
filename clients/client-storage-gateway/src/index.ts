@@ -97,6 +97,7 @@ export * from "./commands/UpdateMaintenanceStartTimeCommand";
 export * from "./commands/UpdateNFSFileShareCommand";
 export * from "./commands/UpdateSMBFileShareCommand";
 export * from "./commands/UpdateSMBFileShareVisibilityCommand";
+export * from "./commands/UpdateSMBLocalGroupsCommand";
 export * from "./commands/UpdateSMBSecurityStrategyCommand";
 export * from "./commands/UpdateSnapshotScheduleCommand";
 export * from "./commands/UpdateVTLDeviceTypeCommand";

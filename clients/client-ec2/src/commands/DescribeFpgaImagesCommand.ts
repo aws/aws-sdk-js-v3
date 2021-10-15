@@ -23,7 +23,7 @@ export interface DescribeFpgaImagesCommandOutput extends DescribeFpgaImagesResul
 
 /**
  * <p>Describes the Amazon FPGA Images (AFIs) available to you. These include public AFIs,
- * 			private AFIs that you own, and AFIs owned by other AWS accounts for which you have load
+ * 			private AFIs that you own, and AFIs owned by other Amazon Web Services accounts for which you have load
  * 			permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -35,7 +35,7 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  *             <code>subnet-cidr-block-association</code> | <code>vpc</code> |
  *             <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p>
  *          <p>This setting applies to the IAM user who makes the request; it does not apply to the
- *         entire AWS account. By default, an IAM user defaults to the same settings as the root user. If
+ *         entire Amazon Web Services account. By default, an IAM user defaults to the same settings as the root user. If
  *         you're using this action as the root user, then these settings apply to the entire account,
  *         unless an IAM user explicitly overrides these settings for themselves. For more information,
  *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a>

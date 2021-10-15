@@ -2396,6 +2396,55 @@ export namespace AwsCloudFrontDistributionOrigins {
 }
 
 /**
+ * <p>Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.</p>
+ */
+export interface AwsCloudFrontDistributionViewerCertificate {
+  /**
+   * <p>The ARN of the ACM certificate. Used if the certificate is stored in ACM. If you provide an ACM certificate ARN, you must also provide <code>MinimumCertificateVersion</code> and <code>SslSupportMethod</code>.</p>
+   */
+  AcmCertificateArn?: string;
+
+  /**
+   * <p>The identifier of the certificate. Note that in CloudFront, this attribute is deprecated.</p>
+   */
+  Certificate?: string;
+
+  /**
+   * <p>The source of the certificate identified by <code>Certificate</code>. Note that in CloudFront, this attribute is deprecated.</p>
+   */
+  CertificateSource?: string;
+
+  /**
+   * <p>Whether the distribution uses the CloudFront domain name. If set to <code>false</code>, then you provide either <code>AcmCertificateArn</code> or <code>IamCertificateId</code>.</p>
+   */
+  CloudFrontDefaultCertificate?: boolean;
+
+  /**
+   * <p>The identifier of the IAM certificate. Used if the certificate is stored in IAM. If you provide <code>IamCertificateId</code>, then you also must provide <code>MinimumProtocolVersion</code> and <code>SslSupportMethod</code>.</p>
+   */
+  IamCertificateId?: string;
+
+  /**
+   * <p>The security policy that CloudFront uses for HTTPS connections with viewers. If <code>SslSupportMethod</code> is <code>sni-only</code>, then <code>MinimumProtocolVersion</code> must be <code>TLSv1</code> or higher.</p>
+   */
+  MinimumProtocolVersion?: string;
+
+  /**
+   * <p>The viewers that the distribution accepts HTTPS connections from.</p>
+   */
+  SslSupportMethod?: string;
+}
+
+export namespace AwsCloudFrontDistributionViewerCertificate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCloudFrontDistributionViewerCertificate): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A distribution configuration.</p>
  */
 export interface AwsCloudFrontDistributionDetails {
@@ -2449,6 +2498,11 @@ export interface AwsCloudFrontDistributionDetails {
    * <p>Provides information about the origin groups in the distribution.</p>
    */
   OriginGroups?: AwsCloudFrontDistributionOriginGroups;
+
+  /**
+   * <p>Provides information about the TLS/SSL configuration that the distribution uses to communicate with viewers.</p>
+   */
+  ViewerCertificate?: AwsCloudFrontDistributionViewerCertificate;
 
   /**
    * <p>Indicates the current status of the distribution.</p>
@@ -2564,6 +2618,94 @@ export namespace AwsCloudTrailTrailDetails {
 }
 
 /**
+ * <p>Information about the build artifacts for the CodeBuild project.</p>
+ */
+export interface AwsCodeBuildProjectArtifactsDetails {
+  /**
+   * <p>An identifier for the artifact definition.</p>
+   */
+  ArtifactIdentifier?: string;
+
+  /**
+   * <p>Indicates whether to disable encryption on the artifact. Only valid when <code>Type</code> is <code>S3</code>.</p>
+   */
+  EncryptionDisabled?: boolean;
+
+  /**
+   * <p>Only used when <code>Type</code> is <code>S3</code>. The name of the S3 bucket where the artifact is located.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>Only used when Type is S3. The name of the artifact. Used with <code>NamepaceType</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Only used when <code>Type</code> is <code>S3</code>. The value to use for the namespace. Used with <code>Name</code> and <code>Path</code> to determine the pattern for storing the artifact.</p>
+   */
+  NamespaceType?: string;
+
+  /**
+   * <p>Whether the name specified in the buildspec file overrides the artifact name.</p>
+   */
+  OverrideArtifactName?: boolean;
+
+  /**
+   * <p>Only used when <code>Type</code> is <code>S3</code>. The type of output artifact to create.</p>
+   */
+  Packaging?: string;
+
+  /**
+   * <p>Only used when <code>Type</code> is <code>S3</code>. The path to the artifact. Used with <code>Name</code> and <code>NamespaceType</code> to determine the pattern for storing the artifact.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The type of build artifact.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsCodeBuildProjectArtifactsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCodeBuildProjectArtifactsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an environment variable that is available to builds for the build project.</p>
+ */
+export interface AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
+  /**
+   * <p>The name of the environment variable.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of environment variable.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The value of the environment variable.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The credentials for access to a private registry.</p>
  */
 export interface AwsCodeBuildProjectEnvironmentRegistryCredential {
@@ -2600,6 +2742,16 @@ export interface AwsCodeBuildProjectEnvironment {
    * <p>The certificate to use with this build project.</p>
    */
   Certificate?: string;
+
+  /**
+   * <p>A set of environment variables to make available to builds for the build project.</p>
+   */
+  EnvironmentVariables?: AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails[];
+
+  /**
+   * <p>Whether to allow the Docker daemon to run inside a Docker container. Set to <code>true</code> if the build project is used to build Docker images.</p>
+   */
+  PrivilegedMode?: boolean;
 
   /**
    * <p>The type of credentials CodeBuild uses to pull images in your build.</p>
@@ -2655,6 +2807,88 @@ export namespace AwsCodeBuildProjectEnvironment {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsCodeBuildProjectEnvironment): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about CloudWatch Logs for the build project.</p>
+ */
+export interface AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
+  /**
+   * <p>The group name of the logs in CloudWatch Logs.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The current status of the logs in CloudWatch Logs for a build project.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The prefix of the stream name of the CloudWatch Logs.</p>
+   */
+  StreamName?: string;
+}
+
+export namespace AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about logs built to an S3 bucket for a build project.</p>
+ */
+export interface AwsCodeBuildProjectLogsConfigS3LogsDetails {
+  /**
+   * <p>Whether to disable encryption of the S3 build log output.</p>
+   */
+  EncryptionDisabled?: boolean;
+
+  /**
+   * <p>The ARN of the S3 bucket and the path prefix for S3 logs.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current status of the S3 build logs.</p>
+   */
+  Status?: string;
+}
+
+export namespace AwsCodeBuildProjectLogsConfigS3LogsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigS3LogsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about logs for the build project.</p>
+ */
+export interface AwsCodeBuildProjectLogsConfigDetails {
+  /**
+   * <p>Information about CloudWatch Logs for the build project.</p>
+   */
+  CloudWatchLogs?: AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails;
+
+  /**
+   * <p>Information about logs built to an S3 bucket for a build project.</p>
+   */
+  S3Logs?: AwsCodeBuildProjectLogsConfigS3LogsDetails;
+}
+
+export namespace AwsCodeBuildProjectLogsConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsCodeBuildProjectLogsConfigDetails): any => ({
     ...obj,
   });
 }
@@ -2804,6 +3038,11 @@ export interface AwsCodeBuildProjectDetails {
   EncryptionKey?: string;
 
   /**
+   * <p>Information about the build artifacts for the CodeBuild project.</p>
+   */
+  Artifacts?: AwsCodeBuildProjectArtifactsDetails[];
+
+  /**
    * <p>Information about the build environment for this build project.</p>
    */
   Environment?: AwsCodeBuildProjectEnvironment;
@@ -2823,6 +3062,11 @@ export interface AwsCodeBuildProjectDetails {
    *          services on behalf of the Amazon Web Services account.</p>
    */
   ServiceRole?: string;
+
+  /**
+   * <p>Information about logs for the build project.</p>
+   */
+  LogsConfig?: AwsCodeBuildProjectLogsConfigDetails;
 
   /**
    * <p>Information about the VPC configuration that CodeBuild accesses.</p>
@@ -4372,6 +4616,94 @@ export namespace AwsEc2VpcDetails {
 }
 
 /**
+ * <p>The service type information for a VPC endpoint service.</p>
+ */
+export interface AwsEc2VpcEndpointServiceServiceTypeDetails {
+  /**
+   * <p>The type of service.</p>
+   */
+  ServiceType?: string;
+}
+
+export namespace AwsEc2VpcEndpointServiceServiceTypeDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpcEndpointServiceServiceTypeDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains details about the service configuration for a VPC endpoint service.</p>
+ */
+export interface AwsEc2VpcEndpointServiceDetails {
+  /**
+   * <p>Whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>The Availability Zones where the service is available.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The DNS names for the service.</p>
+   */
+  BaseEndpointDnsNames?: string[];
+
+  /**
+   * <p>Whether the service manages its VPC endpoints.</p>
+   */
+  ManagesVpcEndpoints?: boolean;
+
+  /**
+   * <p>The ARNs of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The ARNs of the Network Load Balancers for the service.</p>
+   */
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The private DNS name for the service.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The identifier of the service.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The name of the service.</p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>The current state of the service.</p>
+   */
+  ServiceState?: string;
+
+  /**
+   * <p>The types for the service.</p>
+   */
+  ServiceType?: AwsEc2VpcEndpointServiceServiceTypeDetails[];
+}
+
+export namespace AwsEc2VpcEndpointServiceDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEc2VpcEndpointServiceDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The VPN tunnel options.</p>
  */
 export interface AwsEc2VpnConnectionOptionsTunnelOptionsDetails {
@@ -4688,6 +5020,93 @@ export namespace AwsEcrContainerImageDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The image scanning configuration for a repository.</p>
+ */
+export interface AwsEcrRepositoryImageScanningConfigurationDetails {
+  /**
+   * <p>Whether to scan images after they are pushed to a repository.</p>
+   */
+  ScanOnPush?: boolean;
+}
+
+export namespace AwsEcrRepositoryImageScanningConfigurationDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcrRepositoryImageScanningConfigurationDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the lifecycle policy for the repository.</p>
+ */
+export interface AwsEcrRepositoryLifecyclePolicyDetails {
+  /**
+   * <p>The text of the lifecycle policy.</p>
+   */
+  LifecyclePolicyText?: string;
+
+  /**
+   * <p>The Amazon Web Services account identifier that is associated with the registry that contains the repository.</p>
+   */
+  RegistryId?: string;
+}
+
+export namespace AwsEcrRepositoryLifecyclePolicyDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcrRepositoryLifecyclePolicyDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about an Amazon Elastic Container Registry repository.</p>
+ */
+export interface AwsEcrRepositoryDetails {
+  /**
+   * <p>The ARN of the repository.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The image scanning configuration for a repository.</p>
+   */
+  ImageScanningConfiguration?: AwsEcrRepositoryImageScanningConfigurationDetails;
+
+  /**
+   * <p>The tag mutability setting for the repository.</p>
+   */
+  ImageTagMutability?: string;
+
+  /**
+   * <p>Information about the lifecycle policy for the repository.</p>
+   */
+  LifecyclePolicy?: AwsEcrRepositoryLifecyclePolicyDetails;
+
+  /**
+   * <p>The name of the repository.</p>
+   */
+  RepositoryName?: string;
+
+  /**
+   * <p>The text of the repository policy.</p>
+   */
+  RepositoryPolicyText?: string;
+}
+
+export namespace AwsEcrRepositoryDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEcrRepositoryDetails): any => ({
     ...obj,
   });
 }
@@ -6493,6 +6912,132 @@ export namespace AwsEcsTaskDefinitionDetails {
 }
 
 /**
+ * <p>Details for a cluster logging configuration.</p>
+ */
+export interface AwsEksClusterLoggingClusterLoggingDetails {
+  /**
+   * <p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>A list of logging types.</p>
+   */
+  Types?: string[];
+}
+
+export namespace AwsEksClusterLoggingClusterLoggingDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEksClusterLoggingClusterLoggingDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The logging configuration for an Amazon EKS cluster.</p>
+ */
+export interface AwsEksClusterLoggingDetails {
+  /**
+   * <p>Cluster logging configurations.</p>
+   */
+  ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
+}
+
+export namespace AwsEksClusterLoggingDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEksClusterLoggingDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the VPC configuration used by the cluster control plane.</p>
+ */
+export interface AwsEksClusterResourcesVpcConfigDetails {
+  /**
+   * <p>The security groups that are associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Amazon EKS control plane.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>The subnets that are associated with the cluster.</p>
+   */
+  SubnetIds?: string[];
+}
+
+export namespace AwsEksClusterResourcesVpcConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEksClusterResourcesVpcConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about an Amazon EKS cluster.</p>
+ */
+export interface AwsEksClusterDetails {
+  /**
+   * <p>The ARN of the cluster.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The certificate authority data for the cluster.</p>
+   */
+  CertificateAuthorityData?: string;
+
+  /**
+   * <p>The status of the cluster.</p>
+   */
+  ClusterStatus?: string;
+
+  /**
+   * <p>The endpoint for the Amazon EKS API server.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The name of the cluster.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The VPC configuration used by the cluster control plane.</p>
+   */
+  ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails;
+
+  /**
+   * <p>The ARN of the IAM role that provides permissions for the Amazon EKS control plane to make calls to Amazon Web Services API operations on your behalf.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The Amazon EKS server version for the cluster.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The logging configuration for the cluster.</p>
+   */
+  Logging?: AwsEksClusterLoggingDetails;
+}
+
+export namespace AwsEksClusterDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsEksClusterDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Contains information about a link to another environment that is in the same group.</p>
  */
 export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
@@ -6684,7 +7229,7 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
   EnforceHTTPS?: boolean;
 
   /**
-   * <p>The TLS security policy to apply to the HTTPS endpoint of the Elasticsearch
+   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
    *          domain.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -6732,7 +7277,7 @@ export namespace AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessCo
 }
 
 /**
- * <p>details about the configuration of an Elasticsearch cluster.</p>
+ * <p>details about the configuration of an OpenSearch cluster.</p>
  */
 export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
   /**
@@ -6766,7 +7311,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
   ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
 
   /**
-   * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, Elasticsearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, OpenSearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
    */
   ZoneAwarenessEnabled?: boolean;
 }
@@ -6834,13 +7379,13 @@ export namespace AwsElasticsearchDomainLogPublishingOptionsLogConfig {
  */
 export interface AwsElasticsearchDomainLogPublishingOptions {
   /**
-   * <p>Configures the Elasticsearch index logs
+   * <p>Configures the OpenSearch index logs
    *          publishing.</p>
    */
   IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
 
   /**
-   * <p>Configures the Elasticsearch search slow log
+   * <p>Configures the OpenSearch search slow log
    *          publishing.</p>
    */
   SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
@@ -6885,7 +7430,7 @@ export namespace AwsElasticsearchDomainNodeToNodeEncryptionOptions {
 export interface AwsElasticsearchDomainServiceSoftwareOptions {
   /**
    * <p>The epoch time when the deployment window closes for required updates. After this time,
-   *          Amazon Elasticsearch Service schedules the software upgrade automatically.</p>
+   *          Amazon OpenSearch Service schedules the software upgrade automatically.</p>
    */
   AutomatedUpdateDate?: string;
 
@@ -6930,7 +7475,7 @@ export namespace AwsElasticsearchDomainServiceSoftwareOptions {
 }
 
 /**
- * <p>Information that Elasticsearch derives based on <code>VPCOptions</code> for the
+ * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
  *          domain.</p>
  */
 export interface AwsElasticsearchDomainVPCOptions {
@@ -6965,7 +7510,7 @@ export namespace AwsElasticsearchDomainVPCOptions {
 }
 
 /**
- * <p>Information about an Amazon Elasticsearch Service domain.</p>
+ * <p>Information about an Elasticsearch domain.</p>
  */
 export interface AwsElasticsearchDomainDetails {
   /**
@@ -7006,12 +7551,12 @@ export interface AwsElasticsearchDomainDetails {
   Endpoints?: { [key: string]: string };
 
   /**
-   * <p>Elasticsearch version.</p>
+   * <p>OpenSearch version.</p>
    */
   ElasticsearchVersion?: string;
 
   /**
-   * <p>Information about an Elasticsearch cluster configuration.</p>
+   * <p>Information about an OpenSearch cluster configuration.</p>
    */
   ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
 
@@ -7036,7 +7581,7 @@ export interface AwsElasticsearchDomainDetails {
   ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
 
   /**
-   * <p>Information that Elasticsearch derives based on <code>VPCOptions</code> for the
+   * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
    *          domain.</p>
    */
   VPCOptions?: AwsElasticsearchDomainVPCOptions;
@@ -7587,6 +8132,30 @@ export namespace AwsElbLoadBalancerDetails {
 }
 
 /**
+ * <p>A load balancer attribute.</p>
+ */
+export interface AwsElbv2LoadBalancerAttribute {
+  /**
+   * <p>The name of the load balancer attribute.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the load balancer attribute.</p>
+   */
+  Value?: string;
+}
+
+export namespace AwsElbv2LoadBalancerAttribute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsElbv2LoadBalancerAttribute): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the state of the load balancer.</p>
  */
 export interface LoadBalancerState {
@@ -7671,6 +8240,11 @@ export interface AwsElbv2LoadBalancerDetails {
    * <p>The ID of the VPC for the load balancer.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>Attributes of the load balancer.</p>
+   */
+  LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
 }
 
 export namespace AwsElbv2LoadBalancerDetails {
@@ -8700,6 +9274,389 @@ export namespace AwsLambdaLayerVersionDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration options for zone awareness.</p>
+ */
+export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * <p>The number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
+   */
+  AvailabilityZoneCount?: number;
+}
+
+export namespace AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the configuration of an OpenSearch cluster.</p>
+ */
+export interface AwsOpenSearchServiceDomainClusterConfigDetails {
+  /**
+   * <p>The number of data nodes to use in the OpenSearch domain.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>Whether UltraWarm is enabled.</p>
+   */
+  WarmEnabled?: boolean;
+
+  /**
+   * <p>The number of UltraWarm instances.</p>
+   */
+  WarmCount?: number;
+
+  /**
+   * <p>Whether to use a dedicated master node for the OpenSearch domain. A dedicated master node performs cluster management tasks, but does not hold data or respond to data upload requests.</p>
+   */
+  DedicatedMasterEnabled?: boolean;
+
+  /**
+   * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
+   */
+  ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails;
+
+  /**
+   * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
+   */
+  DedicatedMasterCount?: number;
+
+  /**
+   * <p>The instance type for your data nodes. </p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The type of UltraWarm instance.</p>
+   */
+  WarmType?: string;
+
+  /**
+   * <p>Whether to enable zone awareness for the OpenSearch domain. When zone awareness is enabled, OpenSearch Service allocates the cluster's nodes and replica index shards across Availability Zones (AZs) in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
+   */
+  ZoneAwarenessEnabled?: boolean;
+
+  /**
+   * <p>The hardware configuration of the computer that hosts the dedicated master node.</p>
+   *          <p>If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.
+   *       </p>
+   */
+  DedicatedMasterType?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainClusterConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainClusterConfigDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about additional options for the domain endpoint.</p>
+ */
+export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
+  /**
+   * <p>The ARN for the security certificate. The certificate is managed in ACM.</p>
+   */
+  CustomEndpointCertificateArn?: string;
+
+  /**
+   * <p>Whether to enable a custom endpoint for the domain.</p>
+   */
+  CustomEndpointEnabled?: boolean;
+
+  /**
+   * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
+   */
+  EnforceHTTPS?: boolean;
+
+  /**
+   * <p>The fully qualified URL for the custom endpoint.</p>
+   */
+  CustomEndpoint?: string;
+
+  /**
+   * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch domain.</p>
+   */
+  TLSSecurityPolicy?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about the configuration for encryption at rest for the OpenSearch domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
+  /**
+   * <p>Whether encryption at rest is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The KMS key ID.</p>
+   */
+  KmsKeyId?: string;
+}
+
+export namespace AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configuration details for a log publishing option.</p>
+ */
+export interface AwsOpenSearchServiceDomainLogPublishingOption {
+  /**
+   * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
+   */
+  CloudWatchLogsLogGroupArn?: string;
+
+  /**
+   * <p>Whether the log publishing is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainLogPublishingOption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
+  /**
+   * <p>Configures the OpenSearch index logs publishing.</p>
+   */
+  IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+
+  /**
+   * <p>Configures the OpenSearch search slow log publishing.</p>
+   */
+  SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+
+  /**
+   * <p>Configures the OpenSearch audit logs publishing.</p>
+   */
+  AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+}
+
+export namespace AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainLogPublishingOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the configuration for node-to-node encryption.</p>
+ */
+export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
+  /**
+   * <p>Whether node-to-node encryption is enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about the state of the domain relative to the latest service software.</p>
+ */
+export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
+  /**
+   * <p>The epoch time when the deployment window closes for required updates. After this time, OpenSearch Service schedules the software upgrade automatically.</p>
+   */
+  AutomatedUpdateDate?: string;
+
+  /**
+   * <p>Whether a request to update the domain can be canceled.</p>
+   */
+  Cancellable?: boolean;
+
+  /**
+   * <p>The version of the service software that is currently installed on the domain.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * <p>A more detailed description of the service software status.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The most recent version of the service software.</p>
+   */
+  NewVersion?: string;
+
+  /**
+   * <p>Whether a service software update is available for the domain.</p>
+   */
+  UpdateAvailable?: boolean;
+
+  /**
+   * <p>The status of the service software update.</p>
+   */
+  UpdateStatus?: string;
+
+  /**
+   * <p>Whether the service software update is optional.</p>
+   */
+  OptionalDeployment?: boolean;
+}
+
+export namespace AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information that OpenSearch Service derives based on the <code>VPCOptions</code> for the domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
+  /**
+   * <p>The list of security group IDs that are associated with the VPC endpoints for the domain.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
+   */
+  SubnetIds?: string[];
+}
+
+export namespace AwsOpenSearchServiceDomainVpcOptionsDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainVpcOptionsDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an Amazon OpenSearch Service domain.</p>
+ */
+export interface AwsOpenSearchServiceDomainDetails {
+  /**
+   * <p>The ARN of the OpenSearch Service domain.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>IAM policy document that specifies the access policies for the OpenSearch Service domain.</p>
+   */
+  AccessPolicies?: string;
+
+  /**
+   * <p>The name of the endpoint.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>The identifier of the domain.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The domain endpoint.</p>
+   */
+  DomainEndpoint?: string;
+
+  /**
+   * <p>The version of the domain engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Details about the configuration for encryption at rest.</p>
+   */
+  EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails;
+
+  /**
+   * <p>Details about the configuration for node-to-node encryption.</p>
+   */
+  NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails;
+
+  /**
+   * <p>Information about the status of a domain relative to the latest service software.</p>
+   */
+  ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails;
+
+  /**
+   * <p>Details about the configuration of an OpenSearch cluster.</p>
+   */
+  ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails;
+
+  /**
+   * <p>Additional options for the domain endpoint.</p>
+   */
+  DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
+
+  /**
+   * <p>Information that OpenSearch Service derives based on <code>VPCOptions</code> for the domain.</p>
+   */
+  VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
+
+  /**
+   * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
+   */
+  LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
+
+  /**
+   * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
+   *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
+   */
+  DomainEndpoints?: { [key: string]: string };
+}
+
+export namespace AwsOpenSearchServiceDomainDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsOpenSearchServiceDomainDetails): any => ({
     ...obj,
   });
 }
@@ -11362,758 +12319,6 @@ export namespace AwsS3BucketNotificationConfigurationFilter {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationFilter): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details for an S3 bucket notification configuration.</p>
- */
-export interface AwsS3BucketNotificationConfigurationDetail {
-  /**
-   * <p>The list of events that trigger a notification.</p>
-   */
-  Events?: string[];
-
-  /**
-   * <p>The filters that determine which S3 buckets generate notifications.</p>
-   */
-  Filter?: AwsS3BucketNotificationConfigurationFilter;
-
-  /**
-   * <p>The ARN of the Lambda function, Amazon SQS queue, or Amazon SNS topic that generates the
-   *          notification.</p>
-   */
-  Destination?: string;
-
-  /**
-   * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
-   *          Amazon SQS queues or Amazon SNS topics.</p>
-   */
-  Type?: string;
-}
-
-export namespace AwsS3BucketNotificationConfigurationDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The notification
- *          configuration for the S3 bucket.</p>
- */
-export interface AwsS3BucketNotificationConfiguration {
-  /**
-   * <p>Configurations for S3 bucket notifications.</p>
-   */
-  Configurations?: AwsS3BucketNotificationConfigurationDetail[];
-}
-
-export namespace AwsS3BucketNotificationConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The redirect behavior for requests
- *          to the website.</p>
- */
-export interface AwsS3BucketWebsiteConfigurationRedirectTo {
-  /**
-   * <p>The name of the host to redirect requests to.</p>
-   */
-  Hostname?: string;
-
-  /**
-   * <p>The protocol to use when redirecting requests. By default, uses the same protocol as the
-   *          original request.</p>
-   */
-  Protocol?: string;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRedirectTo {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRedirectTo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The condition that must be met in order to apply the routing rule.</p>
- */
-export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
-  /**
-   * <p>Indicates to redirect the request if the HTTP error code matches this value.</p>
-   */
-  HttpErrorCodeReturnedEquals?: string;
-
-  /**
-   * <p>Indicates to redirect the request if the key prefix matches this value.</p>
-   */
-  KeyPrefixEquals?: string;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The rules to redirect the request if the condition in <code>Condition</code> is
- *          met.</p>
- */
-export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
-  /**
-   * <p>The host name to use in the redirect request.</p>
-   */
-  Hostname?: string;
-
-  /**
-   * <p>The HTTP redirect code to use in the response.</p>
-   */
-  HttpRedirectCode?: string;
-
-  /**
-   * <p>The protocol to use to redirect the request. By default, uses the protocol from the
-   *          original request.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The object key prefix to use in the redirect request.</p>
-   *          <p>Cannot be provided if <code>ReplaceKeyWith</code> is present.</p>
-   */
-  ReplaceKeyPrefixWith?: string;
-
-  /**
-   * <p>The specific object key to use in the redirect request.</p>
-   *          <p>Cannot be provided if <code>ReplaceKeyPrefixWith</code> is present.</p>
-   */
-  ReplaceKeyWith?: string;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A rule for redirecting requests
- *          to the website.</p>
- */
-export interface AwsS3BucketWebsiteConfigurationRoutingRule {
-  /**
-   * <p>Provides the condition that must be met in order to apply the routing rule.</p>
-   */
-  Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition;
-
-  /**
-   * <p>Provides the rules to redirect the request if the condition in <code>Condition</code> is
-   *          met.</p>
-   */
-  Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
-}
-
-export namespace AwsS3BucketWebsiteConfigurationRoutingRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRule): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Website parameters for the S3
- *          bucket.</p>
- */
-export interface AwsS3BucketWebsiteConfiguration {
-  /**
-   * <p>The name of the error document for the website.</p>
-   */
-  ErrorDocument?: string;
-
-  /**
-   * <p>The name of the index document for the website.</p>
-   */
-  IndexDocumentSuffix?: string;
-
-  /**
-   * <p>The redirect behavior for requests to the website.</p>
-   */
-  RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo;
-
-  /**
-   * <p>The rules for applying redirects for requests to the website.</p>
-   */
-  RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
-}
-
-export namespace AwsS3BucketWebsiteConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the default server-side encryption to apply to new objects in the
- *          bucket.</p>
- */
-export interface AwsS3BucketServerSideEncryptionByDefault {
-  /**
-   * <p>Server-side encryption algorithm to use for the default encryption.</p>
-   */
-  SSEAlgorithm?: string;
-
-  /**
-   * <p>KMS key ID to use for the default encryption.</p>
-   */
-  KMSMasterKeyID?: string;
-}
-
-export namespace AwsS3BucketServerSideEncryptionByDefault {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionByDefault): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An encryption rule to apply to the S3 bucket.</p>
- */
-export interface AwsS3BucketServerSideEncryptionRule {
-  /**
-   * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a
-   *             <code>PUT</code> object request doesn't specify any server-side encryption, this default
-   *          encryption is applied.</p>
-   */
-  ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
-}
-
-export namespace AwsS3BucketServerSideEncryptionRule {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionRule): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The encryption configuration for the S3 bucket.</p>
- */
-export interface AwsS3BucketServerSideEncryptionConfiguration {
-  /**
-   * <p>The encryption rules that are applied to the S3 bucket.</p>
-   */
-  Rules?: AwsS3BucketServerSideEncryptionRule[];
-}
-
-export namespace AwsS3BucketServerSideEncryptionConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The details of an Amazon S3 bucket.</p>
- */
-export interface AwsS3BucketDetails {
-  /**
-   * <p>The canonical user ID of the owner of the S3 bucket.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The display name of the owner of the S3 bucket.</p>
-   */
-  OwnerName?: string;
-
-  /**
-   * <p>Indicates when the S3 bucket was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * <p>The encryption rules that are applied to the S3 bucket.</p>
-   */
-  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
-
-  /**
-   * <p>The lifecycle configuration for objects in the S3 bucket.</p>
-   */
-  BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
-
-  /**
-   * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
-   */
-  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
-
-  /**
-   * <p>The access control list for the S3 bucket.</p>
-   */
-  AccessControlList?: string;
-
-  /**
-   * <p>The logging configuration for the S3 bucket.</p>
-   */
-  BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration;
-
-  /**
-   * <p>The website configuration parameters for the S3 bucket.</p>
-   */
-  BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration;
-
-  /**
-   * <p>The notification configuration for the S3 bucket.</p>
-   */
-  BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration;
-}
-
-export namespace AwsS3BucketDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an Amazon S3 object.</p>
- */
-export interface AwsS3ObjectDetails {
-  /**
-   * <p>Indicates when the object was last modified.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastModified?: string;
-
-  /**
-   * <p>The opaque identifier assigned by a web server to a specific version of a resource found
-   *          at a URL.</p>
-   */
-  ETag?: string;
-
-  /**
-   * <p>The version of the object.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>A standard MIME type describing the format of the object data.</p>
-   */
-  ContentType?: string;
-
-  /**
-   * <p>If the object is stored using server-side encryption, the value of the server-side
-   *          encryption algorithm used when storing this object in Amazon S3.</p>
-   */
-  ServerSideEncryption?: string;
-
-  /**
-   * <p>The identifier of the KMS symmetric customer managed key that was used for the object.</p>
-   */
-  SSEKMSKeyId?: string;
-}
-
-export namespace AwsS3ObjectDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Defines the rotation schedule for the secret.</p>
- */
-export interface AwsSecretsManagerSecretRotationRules {
-  /**
-   * <p>The number of days after the previous rotation to rotate the secret.</p>
-   */
-  AutomaticallyAfterDays?: number;
-}
-
-export namespace AwsSecretsManagerSecretRotationRules {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretRotationRules): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about an Secrets Manager secret.</p>
- */
-export interface AwsSecretsManagerSecretDetails {
-  /**
-   * <p>Defines the rotation schedule for the secret.</p>
-   */
-  RotationRules?: AwsSecretsManagerSecretRotationRules;
-
-  /**
-   * <p>Whether the rotation occurred within the specified rotation frequency.</p>
-   */
-  RotationOccurredWithinFrequency?: boolean;
-
-  /**
-   * <p>The ARN, Key ID, or alias of the KMS key used to encrypt the
-   *             <code>SecretString</code> or <code>SecretBinary</code> values for versions of this
-   *          secret.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Whether rotation is enabled.</p>
-   */
-  RotationEnabled?: boolean;
-
-  /**
-   * <p>The ARN of the Lambda function that rotates the secret.</p>
-   */
-  RotationLambdaArn?: string;
-
-  /**
-   * <p>Whether the secret is deleted.</p>
-   */
-  Deleted?: boolean;
-
-  /**
-   * <p>The name of the secret.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The user-provided description of the secret.</p>
-   */
-  Description?: string;
-}
-
-export namespace AwsSecretsManagerSecretDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretDetails): any => ({
-    ...obj,
-  });
-}
-
-export enum ComplianceStatus {
-  FAILED = "FAILED",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
-  PASSED = "PASSED",
-  WARNING = "WARNING",
-}
-
-/**
- * <p>Provides additional context for the value of <code>Compliance.Status</code>.</p>
- */
-export interface StatusReason {
-  /**
-   * <p>A code that represents a reason for the control status. For the list of status reason
-   *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>Security Hub User Guide</i>. </p>
-   */
-  ReasonCode: string | undefined;
-
-  /**
-   * <p>The corresponding description for the status reason code.</p>
-   */
-  Description?: string;
-}
-
-export namespace StatusReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StatusReason): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains finding details that are specific to control-based findings. Only returned for
- *          findings generated from controls.</p>
- */
-export interface Compliance {
-  /**
-   * <p>The result of a standards check.</p>
-   *          <p>The valid values for <code>Status</code> are as follows.</p>
-   *          <ul>
-   *             <li>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>PASSED</code> - Standards check passed for all evaluated
-   *                      resources.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>WARNING</code> - Some information is missing or this check is not
-   *                      supported for your configuration.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>FAILED</code> - Standards check failed for at least one evaluated
-   *                      resource.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>NOT_AVAILABLE</code> - Check could not be performed due to a service
-   *                      outage, API error, or because the result of the Config evaluation was
-   *                         <code>NOT_APPLICABLE</code>. If the Config evaluation result was
-   *                      <code>NOT_APPLICABLE</code>, then after 3 days, Security Hub automatically archives
-   *                      the finding.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   */
-  Status?: ComplianceStatus | string;
-
-  /**
-   * <p>For a control, the industry or regulatory framework requirements that are related to the
-   *          control. The check for that control is aligned with these requirements.</p>
-   */
-  RelatedRequirements?: string[];
-
-  /**
-   * <p>For findings generated from controls, a list of reasons behind the value of
-   *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
-   *             <i>Security Hub User Guide</i>. </p>
-   */
-  StatusReasons?: StatusReason[];
-}
-
-export namespace Compliance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Compliance): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Details about a related finding.</p>
- */
-export interface RelatedFinding {
-  /**
-   * <p>The ARN of the product that generated a related finding.</p>
-   */
-  ProductArn: string | undefined;
-
-  /**
-   * <p>The product-generated identifier for a related finding.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace RelatedFinding {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RelatedFinding): any => ({
-    ...obj,
-  });
-}
-
-export enum SeverityLabel {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  INFORMATIONAL = "INFORMATIONAL",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
-
-/**
- * <p>The severity assigned to the finding by the finding provider.</p>
- */
-export interface FindingProviderSeverity {
-  /**
-   * <p>The severity label assigned to the finding by the finding provider.</p>
-   */
-  Label?: SeverityLabel | string;
-
-  /**
-   * <p>The finding provider's original value for the severity.</p>
-   */
-  Original?: string;
-}
-
-export namespace FindingProviderSeverity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingProviderSeverity): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update values for confidence, criticality, related findings, severity, and types.</p>
- */
-export interface FindingProviderFields {
-  /**
-   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
-   *          accurately identifies the behavior or issue that it was intended to identify.</p>
-   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
-   *          confidence and 100 means 100 percent confidence.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>The level of importance assigned to the resources associated with the finding.</p>
-   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
-   *          is reserved for the most critical resources.</p>
-   */
-  Criticality?: number;
-
-  /**
-   * <p>A list of findings that are related to the current finding.</p>
-   */
-  RelatedFindings?: RelatedFinding[];
-
-  /**
-   * <p>The severity of a finding.</p>
-   */
-  Severity?: FindingProviderSeverity;
-
-  /**
-   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
-   *          that classify a finding.</p>
-   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
-   *          Behaviors | Sensitive Data Identifications</p>
-   */
-  Types?: string[];
-}
-
-export namespace FindingProviderFields {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: FindingProviderFields): any => ({
-    ...obj,
-  });
-}
-
-export enum MalwareState {
-  OBSERVED = "OBSERVED",
-  REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED",
-}
-
-export enum MalwareType {
-  ADWARE = "ADWARE",
-  BLENDED_THREAT = "BLENDED_THREAT",
-  BOTNET_AGENT = "BOTNET_AGENT",
-  COIN_MINER = "COIN_MINER",
-  EXPLOIT_KIT = "EXPLOIT_KIT",
-  KEYLOGGER = "KEYLOGGER",
-  MACRO = "MACRO",
-  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
-  RANSOMWARE = "RANSOMWARE",
-  REMOTE_ACCESS = "REMOTE_ACCESS",
-  ROOTKIT = "ROOTKIT",
-  SPYWARE = "SPYWARE",
-  TROJAN = "TROJAN",
-  VIRUS = "VIRUS",
-  WORM = "WORM",
-}
-
-/**
- * <p>A list of malware related to a finding.</p>
- */
-export interface Malware {
-  /**
-   * <p>The name of the malware that was observed.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The type of the malware that was observed.</p>
-   */
-  Type?: MalwareType | string;
-
-  /**
-   * <p>The file system path of the malware that was observed.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The state of the malware that was observed.</p>
-   */
-  State?: MalwareState | string;
-}
-
-export namespace Malware {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Malware): any => ({
-    ...obj,
-  });
-}
-
-export enum NetworkDirection {
-  IN = "IN",
-  OUT = "OUT",
-}
-
-/**
- * <p>A range of ports.</p>
- */
-export interface PortRange {
-  /**
-   * <p>The first port in the port range.</p>
-   */
-  Begin?: number;
-
-  /**
-   * <p>The last port in the port range.</p>
-   */
-  End?: number;
-}
-
-export namespace PortRange {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PortRange): any => ({
     ...obj,
   });
 }

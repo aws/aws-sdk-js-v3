@@ -4624,6 +4624,28 @@ export namespace DeleteJobTemplateResponse {
   });
 }
 
+export interface DeletePolicyRequest {}
+
+export namespace DeletePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePolicyResponse {}
+
+export namespace DeletePolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeletePresetRequest {
   /**
    * The name of the preset to be deleted.
@@ -4820,6 +4842,67 @@ export namespace GetJobTemplateResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetJobTemplateResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPolicyRequest {}
+
+export namespace GetPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum InputPolicy {
+  ALLOWED = "ALLOWED",
+  DISALLOWED = "DISALLOWED",
+}
+
+/**
+ * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+ */
+export interface Policy {
+  /**
+   * Allow or disallow jobs that specify HTTP inputs.
+   */
+  HttpInputs?: InputPolicy | string;
+
+  /**
+   * Allow or disallow jobs that specify HTTPS inputs.
+   */
+  HttpsInputs?: InputPolicy | string;
+
+  /**
+   * Allow or disallow jobs that specify Amazon S3 inputs.
+   */
+  S3Inputs?: InputPolicy | string;
+}
+
+export namespace Policy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Policy): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy?: Policy;
+}
+
+export namespace GetPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPolicyResponse): any => ({
     ...obj,
   });
 }
@@ -5189,6 +5272,38 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface PutPolicyRequest {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy: Policy | undefined;
+}
+
+export namespace PutPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface PutPolicyResponse {
+  /**
+   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  Policy?: Policy;
+}
+
+export namespace PutPolicyResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutPolicyResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface TagResourceRequest {
   /**
    * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name.
@@ -5399,22 +5514,6 @@ export namespace UpdateQueueRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateQueueRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateQueueResponse {
-  /**
-   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-   */
-  Queue?: Queue;
-}
-
-export namespace UpdateQueueResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateQueueResponse): any => ({
     ...obj,
   });
 }

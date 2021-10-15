@@ -11,6 +11,11 @@ import {
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  CreatePrefetchScheduleCommand,
+  CreatePrefetchScheduleCommandInput,
+  CreatePrefetchScheduleCommandOutput,
+} from "./commands/CreatePrefetchScheduleCommand";
+import {
   CreateProgramCommand,
   CreateProgramCommandInput,
   CreateProgramCommandOutput,
@@ -40,6 +45,11 @@ import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand";
+import {
+  DeletePrefetchScheduleCommand,
+  DeletePrefetchScheduleCommandInput,
+  DeletePrefetchScheduleCommandOutput,
+} from "./commands/DeletePrefetchScheduleCommand";
 import {
   DeleteProgramCommand,
   DeleteProgramCommandInput,
@@ -90,6 +100,11 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
+import {
+  GetPrefetchScheduleCommand,
+  GetPrefetchScheduleCommandInput,
+  GetPrefetchScheduleCommandOutput,
+} from "./commands/GetPrefetchScheduleCommand";
 import { ListAlertsCommand, ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import {
   ListChannelsCommand,
@@ -101,6 +116,11 @@ import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand";
+import {
+  ListPrefetchSchedulesCommand,
+  ListPrefetchSchedulesCommandInput,
+  ListPrefetchSchedulesCommandOutput,
+} from "./commands/ListPrefetchSchedulesCommand";
 import {
   ListSourceLocationsCommand,
   ListSourceLocationsCommandInput,
@@ -215,6 +235,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: CreateChannelCommandOutput) => void
   ): Promise<CreateChannelCommandOutput> | void {
     const command = new CreateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new prefetch schedule for the specified playback configuration.</p>
+   */
+  public createPrefetchSchedule(
+    args: CreatePrefetchScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePrefetchScheduleCommandOutput>;
+  public createPrefetchSchedule(
+    args: CreatePrefetchScheduleCommandInput,
+    cb: (err: any, data?: CreatePrefetchScheduleCommandOutput) => void
+  ): void;
+  public createPrefetchSchedule(
+    args: CreatePrefetchScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePrefetchScheduleCommandOutput) => void
+  ): void;
+  public createPrefetchSchedule(
+    args: CreatePrefetchScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePrefetchScheduleCommandOutput) => void),
+    cb?: (err: any, data?: CreatePrefetchScheduleCommandOutput) => void
+  ): Promise<CreatePrefetchScheduleCommandOutput> | void {
+    const command = new CreatePrefetchScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -407,6 +459,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: DeletePlaybackConfigurationCommandOutput) => void
   ): Promise<DeletePlaybackConfigurationCommandOutput> | void {
     const command = new DeletePlaybackConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a prefetch schedule for a specific playback configuration. If you call DeletePrefetchSchedule on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.</p>
+   */
+  public deletePrefetchSchedule(
+    args: DeletePrefetchScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePrefetchScheduleCommandOutput>;
+  public deletePrefetchSchedule(
+    args: DeletePrefetchScheduleCommandInput,
+    cb: (err: any, data?: DeletePrefetchScheduleCommandOutput) => void
+  ): void;
+  public deletePrefetchSchedule(
+    args: DeletePrefetchScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePrefetchScheduleCommandOutput) => void
+  ): void;
+  public deletePrefetchSchedule(
+    args: DeletePrefetchScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePrefetchScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DeletePrefetchScheduleCommandOutput) => void
+  ): Promise<DeletePrefetchScheduleCommandOutput> | void {
+    const command = new DeletePrefetchScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -738,6 +822,38 @@ export class MediaTailor extends MediaTailorClient {
   }
 
   /**
+   * <p>Returns information about the prefetch schedule for a specific playback configuration. If you call GetPrefetchSchedule on an expired prefetch schedule, MediaTailor returns an HTTP 404 status code.</p>
+   */
+  public getPrefetchSchedule(
+    args: GetPrefetchScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrefetchScheduleCommandOutput>;
+  public getPrefetchSchedule(
+    args: GetPrefetchScheduleCommandInput,
+    cb: (err: any, data?: GetPrefetchScheduleCommandOutput) => void
+  ): void;
+  public getPrefetchSchedule(
+    args: GetPrefetchScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrefetchScheduleCommandOutput) => void
+  ): void;
+  public getPrefetchSchedule(
+    args: GetPrefetchScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPrefetchScheduleCommandOutput) => void),
+    cb?: (err: any, data?: GetPrefetchScheduleCommandOutput) => void
+  ): Promise<GetPrefetchScheduleCommandOutput> | void {
+    const command = new GetPrefetchScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of alerts for the given resource.</p>
    */
   public listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
@@ -814,6 +930,38 @@ export class MediaTailor extends MediaTailorClient {
     cb?: (err: any, data?: ListPlaybackConfigurationsCommandOutput) => void
   ): Promise<ListPlaybackConfigurationsCommandOutput> | void {
     const command = new ListPlaybackConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new prefetch schedule.</p>
+   */
+  public listPrefetchSchedules(
+    args: ListPrefetchSchedulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrefetchSchedulesCommandOutput>;
+  public listPrefetchSchedules(
+    args: ListPrefetchSchedulesCommandInput,
+    cb: (err: any, data?: ListPrefetchSchedulesCommandOutput) => void
+  ): void;
+  public listPrefetchSchedules(
+    args: ListPrefetchSchedulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrefetchSchedulesCommandOutput) => void
+  ): void;
+  public listPrefetchSchedules(
+    args: ListPrefetchSchedulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPrefetchSchedulesCommandOutput) => void),
+    cb?: (err: any, data?: ListPrefetchSchedulesCommandOutput) => void
+  ): Promise<ListPrefetchSchedulesCommandOutput> | void {
+    const command = new ListPrefetchSchedulesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

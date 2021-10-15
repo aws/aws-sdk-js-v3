@@ -22,7 +22,8 @@ export interface UpdateNFSFileShareCommandInput extends UpdateNFSFileShareInput 
 export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3 File Gateways.</p>
+ * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
+ *          File Gateways.</p>
  *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to

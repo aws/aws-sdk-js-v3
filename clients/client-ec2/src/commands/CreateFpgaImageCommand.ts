@@ -24,7 +24,7 @@ export interface CreateFpgaImageCommandOutput extends CreateFpgaImageResult, __M
  *          check the output logs.</p>
  *          <p>An AFI contains the FPGA bitstream that is ready to download to an FPGA.
  *          You can securely deploy an AFI on multiple FPGA-accelerated instances.
- *          For more information, see the <a href="https://github.com/aws/aws-fpga/">AWS FPGA Hardware Development Kit</a>.</p>
+ *          For more information, see the <a href="https://github.com/aws/aws-fpga/">Amazon Web Services FPGA Hardware Development Kit</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

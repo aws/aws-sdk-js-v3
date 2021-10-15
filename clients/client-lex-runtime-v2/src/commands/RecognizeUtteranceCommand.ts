@@ -68,6 +68,32 @@ export interface RecognizeUtteranceCommandOutput extends RecognizeUtteranceRespo
  *          <p>The example contains a Java application that compresses and encodes
  *          a Java object to send to Amazon Lex V2, and a second that decodes and
  *          decompresses a response from Amazon Lex V2.</p>
+ *          <p>If the optional post-fulfillment response is specified, the messages
+ *          are returned as follows. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html">PostFulfillmentStatusSpecification</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Success message</b> - Returned if
+ *                the Lambda function completes successfully and the intent state is
+ *                fulfilled or ready fulfillment if the message is present.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Failed message</b> - The failed
+ *                message is returned if the Lambda function throws an exception or
+ *                if the Lambda function returns a failed intent state without a
+ *                message.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Timeout message</b> - If you
+ *                don't configure a timeout message and a timeout, and the Lambda
+ *                function doesn't return within 30 seconds, the timeout message is
+ *                returned. If you configure a timeout, the timeout message is
+ *                returned when the period times out. </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html">Completion message</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

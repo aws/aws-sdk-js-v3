@@ -6,6 +6,7 @@ export * from "./commands/BatchStartCommand";
 export * from "./commands/BatchStopCommand";
 export * from "./commands/BatchUpdateScheduleCommand";
 export * from "./commands/CancelInputDeviceTransferCommand";
+export * from "./commands/ClaimDeviceCommand";
 export * from "./commands/CreateChannelCommand";
 export * from "./commands/CreateInputCommand";
 export * from "./commands/CreateInputSecurityGroupCommand";

@@ -26,11 +26,12 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *       creates a new version and attaches it to the secret. The version can contain a new
  *         <code>SecretString</code> value or a new <code>SecretBinary</code> value. You can also
  *       specify the staging labels that are initially attached to the new version.</p>
- *          <note>
- *             <p>The Secrets Manager console uses only the <code>SecretString</code> field. To add binary data to a
- *         secret with the <code>SecretBinary</code> field you must use the Amazon Web Services CLI or one of the
- *         Amazon Web Services SDKs.</p>
- *          </note>
+ *          <p>We recommend you avoid calling <code>PutSecretValue</code> at a sustained rate of more than
+ *       once every 10 minutes. When you update the secret value, Secrets Manager creates a new version
+ *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
+ *       remove versions created less than 24 hours ago. If you call <code>PutSecretValue</code> more
+ *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
+ *       the quota for secret versions.</p>
  *          <ul>
  *             <li>
  *                <p>If this operation creates the first version for the secret then Secrets Manager

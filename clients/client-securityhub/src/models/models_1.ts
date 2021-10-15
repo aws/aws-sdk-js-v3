@@ -25,11 +25,14 @@ import {
   AwsEc2SubnetDetails,
   AwsEc2VolumeDetails,
   AwsEc2VpcDetails,
+  AwsEc2VpcEndpointServiceDetails,
   AwsEc2VpnConnectionDetails,
   AwsEcrContainerImageDetails,
+  AwsEcrRepositoryDetails,
   AwsEcsClusterDetails,
   AwsEcsServiceDetails,
   AwsEcsTaskDefinitionDetails,
+  AwsEksClusterDetails,
   AwsElasticBeanstalkEnvironmentDetails,
   AwsElasticsearchDomainDetails,
   AwsElbLoadBalancerDetails,
@@ -42,6 +45,7 @@ import {
   AwsKmsKeyDetails,
   AwsLambdaFunctionDetails,
   AwsLambdaLayerVersionDetails,
+  AwsOpenSearchServiceDomainDetails,
   AwsRdsDbClusterDetails,
   AwsRdsDbClusterSnapshotDetails,
   AwsRdsDbInstanceDetails,
@@ -49,17 +53,767 @@ import {
   AwsRdsEventSubscriptionDetails,
   AwsRedshiftClusterDetails,
   AwsS3AccountPublicAccessBlockDetails,
-  AwsS3BucketDetails,
-  AwsS3ObjectDetails,
-  AwsSecretsManagerSecretDetails,
-  Compliance,
-  FindingProviderFields,
-  Malware,
-  NetworkDirection,
-  PortRange,
-  RelatedFinding,
-  SeverityLabel,
+  AwsS3BucketBucketLifecycleConfigurationDetails,
+  AwsS3BucketLoggingConfiguration,
+  AwsS3BucketNotificationConfigurationFilter,
 } from "./models_0";
+
+/**
+ * <p>Details for an S3 bucket notification configuration.</p>
+ */
+export interface AwsS3BucketNotificationConfigurationDetail {
+  /**
+   * <p>The list of events that trigger a notification.</p>
+   */
+  Events?: string[];
+
+  /**
+   * <p>The filters that determine which S3 buckets generate notifications.</p>
+   */
+  Filter?: AwsS3BucketNotificationConfigurationFilter;
+
+  /**
+   * <p>The ARN of the Lambda function, Amazon SQS queue, or Amazon SNS topic that generates the
+   *          notification.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
+   *          Amazon SQS queues or Amazon SNS topics.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsS3BucketNotificationConfigurationDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfigurationDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The notification
+ *          configuration for the S3 bucket.</p>
+ */
+export interface AwsS3BucketNotificationConfiguration {
+  /**
+   * <p>Configurations for S3 bucket notifications.</p>
+   */
+  Configurations?: AwsS3BucketNotificationConfigurationDetail[];
+}
+
+export namespace AwsS3BucketNotificationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketNotificationConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The redirect behavior for requests
+ *          to the website.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRedirectTo {
+  /**
+   * <p>The name of the host to redirect requests to.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The protocol to use when redirecting requests. By default, uses the same protocol as the
+   *          original request.</p>
+   */
+  Protocol?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRedirectTo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRedirectTo): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The condition that must be met in order to apply the routing rule.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
+  /**
+   * <p>Indicates to redirect the request if the HTTP error code matches this value.</p>
+   */
+  HttpErrorCodeReturnedEquals?: string;
+
+  /**
+   * <p>Indicates to redirect the request if the key prefix matches this value.</p>
+   */
+  KeyPrefixEquals?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleCondition): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The rules to redirect the request if the condition in <code>Condition</code> is
+ *          met.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
+  /**
+   * <p>The host name to use in the redirect request.</p>
+   */
+  Hostname?: string;
+
+  /**
+   * <p>The HTTP redirect code to use in the response.</p>
+   */
+  HttpRedirectCode?: string;
+
+  /**
+   * <p>The protocol to use to redirect the request. By default, uses the protocol from the
+   *          original request.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The object key prefix to use in the redirect request.</p>
+   *          <p>Cannot be provided if <code>ReplaceKeyWith</code> is present.</p>
+   */
+  ReplaceKeyPrefixWith?: string;
+
+  /**
+   * <p>The specific object key to use in the redirect request.</p>
+   *          <p>Cannot be provided if <code>ReplaceKeyPrefixWith</code> is present.</p>
+   */
+  ReplaceKeyWith?: string;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A rule for redirecting requests
+ *          to the website.</p>
+ */
+export interface AwsS3BucketWebsiteConfigurationRoutingRule {
+  /**
+   * <p>Provides the condition that must be met in order to apply the routing rule.</p>
+   */
+  Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition;
+
+  /**
+   * <p>Provides the rules to redirect the request if the condition in <code>Condition</code> is
+   *          met.</p>
+   */
+  Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
+}
+
+export namespace AwsS3BucketWebsiteConfigurationRoutingRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfigurationRoutingRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Website parameters for the S3
+ *          bucket.</p>
+ */
+export interface AwsS3BucketWebsiteConfiguration {
+  /**
+   * <p>The name of the error document for the website.</p>
+   */
+  ErrorDocument?: string;
+
+  /**
+   * <p>The name of the index document for the website.</p>
+   */
+  IndexDocumentSuffix?: string;
+
+  /**
+   * <p>The redirect behavior for requests to the website.</p>
+   */
+  RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo;
+
+  /**
+   * <p>The rules for applying redirects for requests to the website.</p>
+   */
+  RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
+}
+
+export namespace AwsS3BucketWebsiteConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketWebsiteConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the default server-side encryption to apply to new objects in the
+ *          bucket.</p>
+ */
+export interface AwsS3BucketServerSideEncryptionByDefault {
+  /**
+   * <p>Server-side encryption algorithm to use for the default encryption.</p>
+   */
+  SSEAlgorithm?: string;
+
+  /**
+   * <p>KMS key ID to use for the default encryption.</p>
+   */
+  KMSMasterKeyID?: string;
+}
+
+export namespace AwsS3BucketServerSideEncryptionByDefault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionByDefault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An encryption rule to apply to the S3 bucket.</p>
+ */
+export interface AwsS3BucketServerSideEncryptionRule {
+  /**
+   * <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a
+   *             <code>PUT</code> object request doesn't specify any server-side encryption, this default
+   *          encryption is applied.</p>
+   */
+  ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
+}
+
+export namespace AwsS3BucketServerSideEncryptionRule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionRule): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption configuration for the S3 bucket.</p>
+ */
+export interface AwsS3BucketServerSideEncryptionConfiguration {
+  /**
+   * <p>The encryption rules that are applied to the S3 bucket.</p>
+   */
+  Rules?: AwsS3BucketServerSideEncryptionRule[];
+}
+
+export namespace AwsS3BucketServerSideEncryptionConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketServerSideEncryptionConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The details of an Amazon S3 bucket.</p>
+ */
+export interface AwsS3BucketDetails {
+  /**
+   * <p>The canonical user ID of the owner of the S3 bucket.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The display name of the owner of the S3 bucket.</p>
+   */
+  OwnerName?: string;
+
+  /**
+   * <p>The Amazon Web Services account identifier of the account that owns the S3 bucket.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>Indicates when the S3 bucket was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedAt?: string;
+
+  /**
+   * <p>The encryption rules that are applied to the S3 bucket.</p>
+   */
+  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
+
+  /**
+   * <p>The lifecycle configuration for objects in the S3 bucket.</p>
+   */
+  BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
+
+  /**
+   * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
+   */
+  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
+
+  /**
+   * <p>The access control list for the S3 bucket.</p>
+   */
+  AccessControlList?: string;
+
+  /**
+   * <p>The logging configuration for the S3 bucket.</p>
+   */
+  BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration;
+
+  /**
+   * <p>The website configuration parameters for the S3 bucket.</p>
+   */
+  BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration;
+
+  /**
+   * <p>The notification configuration for the S3 bucket.</p>
+   */
+  BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration;
+}
+
+export namespace AwsS3BucketDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3BucketDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Amazon S3 object.</p>
+ */
+export interface AwsS3ObjectDetails {
+  /**
+   * <p>Indicates when the object was last modified.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastModified?: string;
+
+  /**
+   * <p>The opaque identifier assigned by a web server to a specific version of a resource found
+   *          at a URL.</p>
+   */
+  ETag?: string;
+
+  /**
+   * <p>The version of the object.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>A standard MIME type describing the format of the object data.</p>
+   */
+  ContentType?: string;
+
+  /**
+   * <p>If the object is stored using server-side encryption, the value of the server-side
+   *          encryption algorithm used when storing this object in Amazon S3.</p>
+   */
+  ServerSideEncryption?: string;
+
+  /**
+   * <p>The identifier of the KMS symmetric customer managed key that was used for the object.</p>
+   */
+  SSEKMSKeyId?: string;
+}
+
+export namespace AwsS3ObjectDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsS3ObjectDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Defines the rotation schedule for the secret.</p>
+ */
+export interface AwsSecretsManagerSecretRotationRules {
+  /**
+   * <p>The number of days after the previous rotation to rotate the secret.</p>
+   */
+  AutomaticallyAfterDays?: number;
+}
+
+export namespace AwsSecretsManagerSecretRotationRules {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretRotationRules): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about an Secrets Manager secret.</p>
+ */
+export interface AwsSecretsManagerSecretDetails {
+  /**
+   * <p>Defines the rotation schedule for the secret.</p>
+   */
+  RotationRules?: AwsSecretsManagerSecretRotationRules;
+
+  /**
+   * <p>Whether the rotation occurred within the specified rotation frequency.</p>
+   */
+  RotationOccurredWithinFrequency?: boolean;
+
+  /**
+   * <p>The ARN, Key ID, or alias of the KMS key used to encrypt the
+   *             <code>SecretString</code> or <code>SecretBinary</code> values for versions of this
+   *          secret.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>Whether rotation is enabled.</p>
+   */
+  RotationEnabled?: boolean;
+
+  /**
+   * <p>The ARN of the Lambda function that rotates the secret.</p>
+   */
+  RotationLambdaArn?: string;
+
+  /**
+   * <p>Whether the secret is deleted.</p>
+   */
+  Deleted?: boolean;
+
+  /**
+   * <p>The name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The user-provided description of the secret.</p>
+   */
+  Description?: string;
+}
+
+export namespace AwsSecretsManagerSecretDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsSecretsManagerSecretDetails): any => ({
+    ...obj,
+  });
+}
+
+export enum ComplianceStatus {
+  FAILED = "FAILED",
+  NOT_AVAILABLE = "NOT_AVAILABLE",
+  PASSED = "PASSED",
+  WARNING = "WARNING",
+}
+
+/**
+ * <p>Provides additional context for the value of <code>Compliance.Status</code>.</p>
+ */
+export interface StatusReason {
+  /**
+   * <p>A code that represents a reason for the control status. For the list of status reason
+   *          codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
+   *             <i>Security Hub User Guide</i>. </p>
+   */
+  ReasonCode: string | undefined;
+
+  /**
+   * <p>The corresponding description for the status reason code.</p>
+   */
+  Description?: string;
+}
+
+export namespace StatusReason {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StatusReason): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains finding details that are specific to control-based findings. Only returned for
+ *          findings generated from controls.</p>
+ */
+export interface Compliance {
+  /**
+   * <p>The result of a standards check.</p>
+   *          <p>The valid values for <code>Status</code> are as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>PASSED</code> - Standards check passed for all evaluated
+   *                      resources.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>WARNING</code> - Some information is missing or this check is not
+   *                      supported for your configuration.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>FAILED</code> - Standards check failed for at least one evaluated
+   *                      resource.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>NOT_AVAILABLE</code> - Check could not be performed due to a service
+   *                      outage, API error, or because the result of the Config evaluation was
+   *                         <code>NOT_APPLICABLE</code>. If the Config evaluation result was
+   *                      <code>NOT_APPLICABLE</code>, then after 3 days, Security Hub automatically archives
+   *                      the finding.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   */
+  Status?: ComplianceStatus | string;
+
+  /**
+   * <p>For a control, the industry or regulatory framework requirements that are related to the
+   *          control. The check for that control is aligned with these requirements.</p>
+   */
+  RelatedRequirements?: string[];
+
+  /**
+   * <p>For findings generated from controls, a list of reasons behind the value of
+   *             <code>Status</code>. For the list of status reason codes and their meanings, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-results.html#securityhub-standards-results-asff">Standards-related information in the ASFF</a> in the
+   *             <i>Security Hub User Guide</i>. </p>
+   */
+  StatusReasons?: StatusReason[];
+}
+
+export namespace Compliance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Compliance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a related finding.</p>
+ */
+export interface RelatedFinding {
+  /**
+   * <p>The ARN of the product that generated a related finding.</p>
+   */
+  ProductArn: string | undefined;
+
+  /**
+   * <p>The product-generated identifier for a related finding.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace RelatedFinding {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RelatedFinding): any => ({
+    ...obj,
+  });
+}
+
+export enum SeverityLabel {
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+  INFORMATIONAL = "INFORMATIONAL",
+  LOW = "LOW",
+  MEDIUM = "MEDIUM",
+}
+
+/**
+ * <p>The severity assigned to the finding by the finding provider.</p>
+ */
+export interface FindingProviderSeverity {
+  /**
+   * <p>The severity label assigned to the finding by the finding provider.</p>
+   */
+  Label?: SeverityLabel | string;
+
+  /**
+   * <p>The finding provider's original value for the severity.</p>
+   */
+  Original?: string;
+}
+
+export namespace FindingProviderSeverity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FindingProviderSeverity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update values for confidence, criticality, related findings, severity, and types.</p>
+ */
+export interface FindingProviderFields {
+  /**
+   * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
+   *          accurately identifies the behavior or issue that it was intended to identify.</p>
+   *          <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent
+   *          confidence and 100 means 100 percent confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The level of importance assigned to the resources associated with the finding.</p>
+   *          <p>A score of 0 means that the underlying resources have no criticality, and a score of 100
+   *          is reserved for the most critical resources.</p>
+   */
+  Criticality?: number;
+
+  /**
+   * <p>A list of findings that are related to the current finding.</p>
+   */
+  RelatedFindings?: RelatedFinding[];
+
+  /**
+   * <p>The severity of a finding.</p>
+   */
+  Severity?: FindingProviderSeverity;
+
+  /**
+   * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
+   *          that classify a finding.</p>
+   *          <p>Valid namespace values are: Software and Configuration Checks | TTPs | Effects | Unusual
+   *          Behaviors | Sensitive Data Identifications</p>
+   */
+  Types?: string[];
+}
+
+export namespace FindingProviderFields {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FindingProviderFields): any => ({
+    ...obj,
+  });
+}
+
+export enum MalwareState {
+  OBSERVED = "OBSERVED",
+  REMOVAL_FAILED = "REMOVAL_FAILED",
+  REMOVED = "REMOVED",
+}
+
+export enum MalwareType {
+  ADWARE = "ADWARE",
+  BLENDED_THREAT = "BLENDED_THREAT",
+  BOTNET_AGENT = "BOTNET_AGENT",
+  COIN_MINER = "COIN_MINER",
+  EXPLOIT_KIT = "EXPLOIT_KIT",
+  KEYLOGGER = "KEYLOGGER",
+  MACRO = "MACRO",
+  POTENTIALLY_UNWANTED = "POTENTIALLY_UNWANTED",
+  RANSOMWARE = "RANSOMWARE",
+  REMOTE_ACCESS = "REMOTE_ACCESS",
+  ROOTKIT = "ROOTKIT",
+  SPYWARE = "SPYWARE",
+  TROJAN = "TROJAN",
+  VIRUS = "VIRUS",
+  WORM = "WORM",
+}
+
+/**
+ * <p>A list of malware related to a finding.</p>
+ */
+export interface Malware {
+  /**
+   * <p>The name of the malware that was observed.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of the malware that was observed.</p>
+   */
+  Type?: MalwareType | string;
+
+  /**
+   * <p>The file system path of the malware that was observed.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The state of the malware that was observed.</p>
+   */
+  State?: MalwareState | string;
+}
+
+export namespace Malware {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Malware): any => ({
+    ...obj,
+  });
+}
+
+export enum NetworkDirection {
+  IN = "IN",
+  OUT = "OUT",
+}
+
+/**
+ * <p>A range of ports.</p>
+ */
+export interface PortRange {
+  /**
+   * <p>The first port in the port range.</p>
+   */
+  Begin?: number;
+
+  /**
+   * <p>The last port in the port range.</p>
+   */
+  End?: number;
+}
+
+export namespace PortRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PortRange): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The details of network-related information about a finding.</p>
@@ -1072,6 +1826,155 @@ export namespace AwsSsmPatchComplianceDetails {
 }
 
 /**
+ * <p>A match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ */
+export interface AwsWafRateBasedRuleMatchPredicate {
+  /**
+   * <p>The unique identifier for the predicate.</p>
+   */
+  DataId?: string;
+
+  /**
+   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
+   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.
+   *       </p>
+   */
+  Negated?: boolean;
+
+  /**
+   * <p>The type of predicate.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRateBasedRuleMatchPredicate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRateBasedRuleMatchPredicate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details about a rate-based rule for global resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ */
+export interface AwsWafRateBasedRuleDetails {
+  /**
+   * <p>The name of the metrics for the rate-based rule.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The name of the rate-based rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   */
+  RateKey?: string;
+
+  /**
+   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   */
+  RateLimit?: number;
+
+  /**
+   * <p>The unique identifier for the rate-based rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The predicates to include in the rate-based rule.</p>
+   */
+  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[];
+}
+
+export namespace AwsWafRateBasedRuleDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRateBasedRuleDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details for a match predicate. A predicate might look for characteristics such as specific IP addresses, geographic locations, or sizes.</p>
+ */
+export interface AwsWafRegionalRateBasedRuleMatchPredicate {
+  /**
+   * <p>The unique identifier for the predicate.</p>
+   */
+  DataId?: string;
+
+  /**
+   * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
+   *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
+   */
+  Negated?: boolean;
+
+  /**
+   * <p>The type of predicate.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsWafRegionalRateBasedRuleMatchPredicate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleMatchPredicate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>contains details about a rate-based rule for Regional resources. A rate-based rule provides settings to indicate when to allow, block, or count a request. Rate-based rules include the number of requests that arrive over a specified period of time.</p>
+ */
+export interface AwsWafRegionalRateBasedRuleDetails {
+  /**
+   * <p>The name of the metrics for the rate-based rule.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The name of the rate-based rule.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
+   */
+  RateKey?: string;
+
+  /**
+   * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
+   */
+  RateLimit?: number;
+
+  /**
+   * <p>The unique identifier for the rate-based rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * <p>The predicates to include in the rate-based rule.</p>
+   */
+  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[];
+}
+
+export namespace AwsWafRegionalRateBasedRuleDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsWafRegionalRateBasedRuleDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details about the action that CloudFront or WAF takes when a web request matches the
  *          conditions in the rule. </p>
  */
@@ -1248,6 +2151,35 @@ export namespace AwsWafWebAclDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: AwsWafWebAclDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the encryption configuration for X-Ray.</p>
+ */
+export interface AwsXrayEncryptionConfigDetails {
+  /**
+   * <p>The identifier of the KMS key that is used for encryption. Provided if <code>Type</code> is <code>KMS</code>.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The current status of the encryption configuration. When <code>Status</code> is <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates to use the default encryption.</p>
+   */
+  Type?: string;
+}
+
+export namespace AwsXrayEncryptionConfigDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AwsXrayEncryptionConfigDetails): any => ({
     ...obj,
   });
 }
@@ -1569,9 +2501,44 @@ export interface ResourceDetails {
   AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
 
   /**
-   * <p>information about an Amazon ECR image.</p>
+   * <p>Information about an Amazon ECR image.</p>
    */
   AwsEcrContainerImage?: AwsEcrContainerImageDetails;
+
+  /**
+   * <p>Details about an Amazon OpenSearch Service domain.</p>
+   */
+  AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails;
+
+  /**
+   * <p>Details about the service configuration for a VPC endpoint service.</p>
+   */
+  AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails;
+
+  /**
+   * <p>Information about the encryption configuration for X-Ray.</p>
+   */
+  AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails;
+
+  /**
+   * <p>Details about a rate-based rule for global resources.</p>
+   */
+  AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails;
+
+  /**
+   * <p>Details about a rate-based rule for Regional resources.</p>
+   */
+  AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails;
+
+  /**
+   * <p>Information about an Amazon Elastic Container Registry repository.</p>
+   */
+  AwsEcrRepository?: AwsEcrRepositoryDetails;
+
+  /**
+   * <p>Details about an Amazon EKS cluster.</p>
+   */
+  AwsEksCluster?: AwsEksClusterDetails;
 }
 
 export namespace ResourceDetails {

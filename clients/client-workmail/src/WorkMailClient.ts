@@ -99,6 +99,10 @@ import {
   DeregisterFromWorkMailCommandInput,
   DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand";
+import {
+  DeregisterMailDomainCommandInput,
+  DeregisterMailDomainCommandOutput,
+} from "./commands/DeregisterMailDomainCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
@@ -131,6 +135,7 @@ import {
   GetDefaultRetentionPolicyCommandOutput,
 } from "./commands/GetDefaultRetentionPolicyCommand";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand";
+import { GetMailDomainCommandInput, GetMailDomainCommandOutput } from "./commands/GetMailDomainCommand";
 import {
   GetMobileDeviceAccessEffectCommandInput,
   GetMobileDeviceAccessEffectCommandOutput,
@@ -154,6 +159,7 @@ import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
 } from "./commands/ListMailboxPermissionsCommand";
+import { ListMailDomainsCommandInput, ListMailDomainsCommandOutput } from "./commands/ListMailDomainsCommand";
 import {
   ListMobileDeviceAccessOverridesCommandInput,
   ListMobileDeviceAccessOverridesCommandOutput,
@@ -190,6 +196,7 @@ import {
   PutMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/PutMobileDeviceAccessOverrideCommand";
 import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand";
+import { RegisterMailDomainCommandInput, RegisterMailDomainCommandOutput } from "./commands/RegisterMailDomainCommand";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand";
 import {
@@ -198,6 +205,10 @@ import {
 } from "./commands/StartMailboxExportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateDefaultMailDomainCommandInput,
+  UpdateDefaultMailDomainCommandOutput,
+} from "./commands/UpdateDefaultMailDomainCommand";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand";
 import {
   UpdateMobileDeviceAccessRuleCommandInput,
@@ -231,6 +242,7 @@ export type ServiceInputTypes =
   | DeleteRetentionPolicyCommandInput
   | DeleteUserCommandInput
   | DeregisterFromWorkMailCommandInput
+  | DeregisterMailDomainCommandInput
   | DescribeGroupCommandInput
   | DescribeInboundDmarcSettingsCommandInput
   | DescribeMailboxExportJobCommandInput
@@ -241,6 +253,7 @@ export type ServiceInputTypes =
   | DisassociateMemberFromGroupCommandInput
   | GetAccessControlEffectCommandInput
   | GetDefaultRetentionPolicyCommandInput
+  | GetMailDomainCommandInput
   | GetMailboxDetailsCommandInput
   | GetMobileDeviceAccessEffectCommandInput
   | GetMobileDeviceAccessOverrideCommandInput
@@ -248,6 +261,7 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
+  | ListMailDomainsCommandInput
   | ListMailboxExportJobsCommandInput
   | ListMailboxPermissionsCommandInput
   | ListMobileDeviceAccessOverridesCommandInput
@@ -262,11 +276,13 @@ export type ServiceInputTypes =
   | PutMailboxPermissionsCommandInput
   | PutMobileDeviceAccessOverrideCommandInput
   | PutRetentionPolicyCommandInput
+  | RegisterMailDomainCommandInput
   | RegisterToWorkMailCommandInput
   | ResetPasswordCommandInput
   | StartMailboxExportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateDefaultMailDomainCommandInput
   | UpdateMailboxQuotaCommandInput
   | UpdateMobileDeviceAccessRuleCommandInput
   | UpdatePrimaryEmailAddressCommandInput
@@ -293,6 +309,7 @@ export type ServiceOutputTypes =
   | DeleteRetentionPolicyCommandOutput
   | DeleteUserCommandOutput
   | DeregisterFromWorkMailCommandOutput
+  | DeregisterMailDomainCommandOutput
   | DescribeGroupCommandOutput
   | DescribeInboundDmarcSettingsCommandOutput
   | DescribeMailboxExportJobCommandOutput
@@ -303,6 +320,7 @@ export type ServiceOutputTypes =
   | DisassociateMemberFromGroupCommandOutput
   | GetAccessControlEffectCommandOutput
   | GetDefaultRetentionPolicyCommandOutput
+  | GetMailDomainCommandOutput
   | GetMailboxDetailsCommandOutput
   | GetMobileDeviceAccessEffectCommandOutput
   | GetMobileDeviceAccessOverrideCommandOutput
@@ -310,6 +328,7 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
+  | ListMailDomainsCommandOutput
   | ListMailboxExportJobsCommandOutput
   | ListMailboxPermissionsCommandOutput
   | ListMobileDeviceAccessOverridesCommandOutput
@@ -324,11 +343,13 @@ export type ServiceOutputTypes =
   | PutMailboxPermissionsCommandOutput
   | PutMobileDeviceAccessOverrideCommandOutput
   | PutRetentionPolicyCommandOutput
+  | RegisterMailDomainCommandOutput
   | RegisterToWorkMailCommandOutput
   | ResetPasswordCommandOutput
   | StartMailboxExportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateDefaultMailDomainCommandOutput
   | UpdateMailboxQuotaCommandOutput
   | UpdateMobileDeviceAccessRuleCommandOutput
   | UpdatePrimaryEmailAddressCommandOutput

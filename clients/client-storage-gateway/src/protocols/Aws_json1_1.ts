@@ -246,6 +246,10 @@ import {
   UpdateSMBFileShareVisibilityCommandOutput,
 } from "../commands/UpdateSMBFileShareVisibilityCommand";
 import {
+  UpdateSMBLocalGroupsCommandInput,
+  UpdateSMBLocalGroupsCommandOutput,
+} from "../commands/UpdateSMBLocalGroupsCommand";
+import {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
 } from "../commands/UpdateSMBSecurityStrategyCommand";
@@ -373,6 +377,7 @@ import {
   EndpointNetworkConfiguration,
   FileShareInfo,
   FileSystemAssociationInfo,
+  FileSystemAssociationStatusDetail,
   FileSystemAssociationSummary,
   GatewayCapacity,
   GatewayInfo,
@@ -426,6 +431,7 @@ import {
   ShutdownGatewayInput,
   ShutdownGatewayOutput,
   SMBFileShareInfo,
+  SMBLocalGroups,
   StartAvailabilityMonitorTestInput,
   StartAvailabilityMonitorTestOutput,
   StartGatewayInput,
@@ -459,6 +465,8 @@ import {
   UpdateSMBFileShareOutput,
   UpdateSMBFileShareVisibilityInput,
   UpdateSMBFileShareVisibilityOutput,
+  UpdateSMBLocalGroupsInput,
+  UpdateSMBLocalGroupsOutput,
   UpdateSMBSecurityStrategyInput,
   UpdateSMBSecurityStrategyOutput,
   UpdateSnapshotScheduleInput,
@@ -1586,6 +1594,19 @@ export const serializeAws_json1_1UpdateSMBFileShareVisibilityCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateSMBFileShareVisibilityInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
+  input: UpdateSMBLocalGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "StorageGateway_20130630.UpdateSMBLocalGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateSMBLocalGroupsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -6976,6 +6997,68 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateSMBLocalGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBLocalGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateSMBLocalGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateSMBLocalGroupsOutput(data, context);
+  const response: UpdateSMBLocalGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateSMBLocalGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSMBLocalGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.storagegateway#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidGatewayRequestException":
+    case "com.amazonaws.storagegateway#InvalidGatewayRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidGatewayRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateSMBSecurityStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -7413,6 +7496,8 @@ const serializeAws_json1_1CreateCachediSCSIVolumeInput = (
 
 const serializeAws_json1_1CreateNFSFileShareInput = (input: CreateNFSFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.BucketRegion !== undefined && input.BucketRegion !== null && { BucketRegion: input.BucketRegion }),
     ...(input.CacheAttributes !== undefined &&
       input.CacheAttributes !== null && {
@@ -8196,6 +8281,13 @@ const serializeAws_json1_1ShutdownGatewayInput = (input: ShutdownGatewayInput, c
   };
 };
 
+const serializeAws_json1_1SMBLocalGroups = (input: SMBLocalGroups, context: __SerdeContext): any => {
+  return {
+    ...(input.GatewayAdmins !== undefined &&
+      input.GatewayAdmins !== null && { GatewayAdmins: serializeAws_json1_1UserList(input.GatewayAdmins, context) }),
+  };
+};
+
 const serializeAws_json1_1StartAvailabilityMonitorTestInput = (
   input: StartAvailabilityMonitorTestInput,
   context: __SerdeContext
@@ -8374,6 +8466,8 @@ const serializeAws_json1_1UpdateMaintenanceStartTimeInput = (
 
 const serializeAws_json1_1UpdateNFSFileShareInput = (input: UpdateNFSFileShareInput, context: __SerdeContext): any => {
   return {
+    ...(input.AuditDestinationARN !== undefined &&
+      input.AuditDestinationARN !== null && { AuditDestinationARN: input.AuditDestinationARN }),
     ...(input.CacheAttributes !== undefined &&
       input.CacheAttributes !== null && {
         CacheAttributes: serializeAws_json1_1CacheAttributes(input.CacheAttributes, context),
@@ -8448,6 +8542,19 @@ const serializeAws_json1_1UpdateSMBFileShareVisibilityInput = (
     ...(input.FileSharesVisible !== undefined &&
       input.FileSharesVisible !== null && { FileSharesVisible: input.FileSharesVisible }),
     ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+  };
+};
+
+const serializeAws_json1_1UpdateSMBLocalGroupsInput = (
+  input: UpdateSMBLocalGroupsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.GatewayARN !== undefined && input.GatewayARN !== null && { GatewayARN: input.GatewayARN }),
+    ...(input.SMBLocalGroups !== undefined &&
+      input.SMBLocalGroups !== null && {
+        SMBLocalGroups: serializeAws_json1_1SMBLocalGroups(input.SMBLocalGroups, context),
+      }),
   };
 };
 
@@ -9076,6 +9183,10 @@ const deserializeAws_json1_1DescribeSMBSettingsOutput = (
     FileSharesVisible: __expectBoolean(output.FileSharesVisible),
     GatewayARN: __expectString(output.GatewayARN),
     SMBGuestPasswordSet: __expectBoolean(output.SMBGuestPasswordSet),
+    SMBLocalGroups:
+      output.SMBLocalGroups !== undefined && output.SMBLocalGroups !== null
+        ? deserializeAws_json1_1SMBLocalGroups(output.SMBLocalGroups, context)
+        : undefined,
     SMBSecurityStrategy: __expectString(output.SMBSecurityStrategy),
   } as any;
 };
@@ -9339,6 +9450,10 @@ const deserializeAws_json1_1FileSystemAssociationInfo = (
         : undefined,
     FileSystemAssociationARN: __expectString(output.FileSystemAssociationARN),
     FileSystemAssociationStatus: __expectString(output.FileSystemAssociationStatus),
+    FileSystemAssociationStatusDetails:
+      output.FileSystemAssociationStatusDetails !== undefined && output.FileSystemAssociationStatusDetails !== null
+        ? deserializeAws_json1_1FileSystemAssociationStatusDetails(output.FileSystemAssociationStatusDetails, context)
+        : undefined,
     GatewayARN: __expectString(output.GatewayARN),
     LocationARN: __expectString(output.LocationARN),
     Tags:
@@ -9357,6 +9472,29 @@ const deserializeAws_json1_1FileSystemAssociationInfoList = (
         return null as any;
       }
       return deserializeAws_json1_1FileSystemAssociationInfo(entry, context);
+    });
+};
+
+const deserializeAws_json1_1FileSystemAssociationStatusDetail = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationStatusDetail => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+  } as any;
+};
+
+const deserializeAws_json1_1FileSystemAssociationStatusDetails = (
+  output: any,
+  context: __SerdeContext
+): FileSystemAssociationStatusDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FileSystemAssociationStatusDetail(entry, context);
     });
 };
 
@@ -9616,6 +9754,7 @@ const deserializeAws_json1_1NFSFileShareDefaults = (output: any, context: __Serd
 
 const deserializeAws_json1_1NFSFileShareInfo = (output: any, context: __SerdeContext): NFSFileShareInfo => {
   return {
+    AuditDestinationARN: __expectString(output.AuditDestinationARN),
     BucketRegion: __expectString(output.BucketRegion),
     CacheAttributes:
       output.CacheAttributes !== undefined && output.CacheAttributes !== null
@@ -9828,6 +9967,15 @@ const deserializeAws_json1_1SMBFileShareInfoList = (output: any, context: __Serd
       }
       return deserializeAws_json1_1SMBFileShareInfo(entry, context);
     });
+};
+
+const deserializeAws_json1_1SMBLocalGroups = (output: any, context: __SerdeContext): SMBLocalGroups => {
+  return {
+    GatewayAdmins:
+      output.GatewayAdmins !== undefined && output.GatewayAdmins !== null
+        ? deserializeAws_json1_1UserList(output.GatewayAdmins, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
@@ -10166,6 +10314,15 @@ const deserializeAws_json1_1UpdateSMBFileShareVisibilityOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateSMBFileShareVisibilityOutput => {
+  return {
+    GatewayARN: __expectString(output.GatewayARN),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateSMBLocalGroupsOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateSMBLocalGroupsOutput => {
   return {
     GatewayARN: __expectString(output.GatewayARN),
   } as any;

@@ -22,8 +22,9 @@ export interface ListFileSharesCommandInput extends ListFileSharesInput {}
 export interface ListFileSharesCommandOutput extends ListFileSharesOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the file shares for a specific S3 File Gateway, or the list of file shares
- *          that belong to the calling user account. This operation is only supported for S3 File Gateways.</p>
+ * <p>Gets a list of the file shares for a specific S3 File Gateway, or the list of file
+ *          shares that belong to the calling user account. This operation is only supported for S3
+ *          File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

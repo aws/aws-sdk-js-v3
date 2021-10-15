@@ -54,6 +54,10 @@ import {
   ConfigureLogsForPlaybackConfigurationCommandOutput,
 } from "./commands/ConfigureLogsForPlaybackConfigurationCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import {
+  CreatePrefetchScheduleCommandInput,
+  CreatePrefetchScheduleCommandOutput,
+} from "./commands/CreatePrefetchScheduleCommand";
 import { CreateProgramCommandInput, CreateProgramCommandOutput } from "./commands/CreateProgramCommand";
 import {
   CreateSourceLocationCommandInput,
@@ -69,6 +73,10 @@ import {
   DeletePlaybackConfigurationCommandInput,
   DeletePlaybackConfigurationCommandOutput,
 } from "./commands/DeletePlaybackConfigurationCommand";
+import {
+  DeletePrefetchScheduleCommandInput,
+  DeletePrefetchScheduleCommandOutput,
+} from "./commands/DeletePrefetchScheduleCommand";
 import { DeleteProgramCommandInput, DeleteProgramCommandOutput } from "./commands/DeleteProgramCommand";
 import {
   DeleteSourceLocationCommandInput,
@@ -88,12 +96,20 @@ import {
   GetPlaybackConfigurationCommandInput,
   GetPlaybackConfigurationCommandOutput,
 } from "./commands/GetPlaybackConfigurationCommand";
+import {
+  GetPrefetchScheduleCommandInput,
+  GetPrefetchScheduleCommandOutput,
+} from "./commands/GetPrefetchScheduleCommand";
 import { ListAlertsCommandInput, ListAlertsCommandOutput } from "./commands/ListAlertsCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListPlaybackConfigurationsCommandInput,
   ListPlaybackConfigurationsCommandOutput,
 } from "./commands/ListPlaybackConfigurationsCommand";
+import {
+  ListPrefetchSchedulesCommandInput,
+  ListPrefetchSchedulesCommandOutput,
+} from "./commands/ListPrefetchSchedulesCommand";
 import {
   ListSourceLocationsCommandInput,
   ListSourceLocationsCommandOutput,
@@ -123,12 +139,14 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | ConfigureLogsForPlaybackConfigurationCommandInput
   | CreateChannelCommandInput
+  | CreatePrefetchScheduleCommandInput
   | CreateProgramCommandInput
   | CreateSourceLocationCommandInput
   | CreateVodSourceCommandInput
   | DeleteChannelCommandInput
   | DeleteChannelPolicyCommandInput
   | DeletePlaybackConfigurationCommandInput
+  | DeletePrefetchScheduleCommandInput
   | DeleteProgramCommandInput
   | DeleteSourceLocationCommandInput
   | DeleteVodSourceCommandInput
@@ -139,9 +157,11 @@ export type ServiceInputTypes =
   | GetChannelPolicyCommandInput
   | GetChannelScheduleCommandInput
   | GetPlaybackConfigurationCommandInput
+  | GetPrefetchScheduleCommandInput
   | ListAlertsCommandInput
   | ListChannelsCommandInput
   | ListPlaybackConfigurationsCommandInput
+  | ListPrefetchSchedulesCommandInput
   | ListSourceLocationsCommandInput
   | ListTagsForResourceCommandInput
   | ListVodSourcesCommandInput
@@ -158,12 +178,14 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | ConfigureLogsForPlaybackConfigurationCommandOutput
   | CreateChannelCommandOutput
+  | CreatePrefetchScheduleCommandOutput
   | CreateProgramCommandOutput
   | CreateSourceLocationCommandOutput
   | CreateVodSourceCommandOutput
   | DeleteChannelCommandOutput
   | DeleteChannelPolicyCommandOutput
   | DeletePlaybackConfigurationCommandOutput
+  | DeletePrefetchScheduleCommandOutput
   | DeleteProgramCommandOutput
   | DeleteSourceLocationCommandOutput
   | DeleteVodSourceCommandOutput
@@ -174,9 +196,11 @@ export type ServiceOutputTypes =
   | GetChannelPolicyCommandOutput
   | GetChannelScheduleCommandOutput
   | GetPlaybackConfigurationCommandOutput
+  | GetPrefetchScheduleCommandOutput
   | ListAlertsCommandOutput
   | ListChannelsCommandOutput
   | ListPlaybackConfigurationsCommandOutput
+  | ListPrefetchSchedulesCommandOutput
   | ListSourceLocationsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVodSourcesCommandOutput

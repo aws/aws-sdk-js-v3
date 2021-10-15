@@ -22,18 +22,19 @@ export interface CreateSMBFileShareCommandInput extends CreateSMBFileShareInput 
 export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In Storage
- *          Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
- *          Storage Gateway exposes file shares using an SMB interface. This operation is only
- *          supported for S3 File Gateways.</p>
+ * <p>Creates a Server Message Block (SMB) file share on an existing S3 File Gateway. In
+ *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
+ *          cloud storage. Storage Gateway exposes file shares using an SMB interface. This operation
+ *          is only supported for S3 File Gateways.</p>
  *
  *          <important>
- *             <p>S3 File Gateways require Security Token Service (STS) to be activated to enable
- *             you to create a file share. Make sure that STS is activated in the Region you
- *             are creating your S3 File Gateway in. If STS is not activated in this Region,
- *             activate it. For information about how to activate STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                deactivating STS in an Region</a> in the
- *             <i>Identity and Access Management User Guide</i>.</p>
+ *             <p>S3 File Gateways require Security Token Service (Amazon Web Services STS) to be
+ *             activated to enable you to create a file share. Make sure that Amazon Web Services STS
+ *             is activated in the Amazon Web Services Region you are creating your S3 File Gateway in.
+ *             If Amazon Web Services STS is not activated in this Amazon Web Services Region, activate
+ *             it. For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
+ *                   <i>Identity and Access Management User Guide</i>.</p>
  *
  *             <p>File gateways don't support creating hard or symbolic links on a file
  *             share.</p>

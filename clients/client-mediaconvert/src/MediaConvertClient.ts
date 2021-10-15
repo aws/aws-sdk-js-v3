@@ -59,6 +59,7 @@ import { CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput } from ".
 import { CreatePresetCommandInput, CreatePresetCommandOutput } from "./commands/CreatePresetCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import { DeleteJobTemplateCommandInput, DeleteJobTemplateCommandOutput } from "./commands/DeleteJobTemplateCommand";
+import { DeletePolicyCommandInput, DeletePolicyCommandOutput } from "./commands/DeletePolicyCommand";
 import { DeletePresetCommandInput, DeletePresetCommandOutput } from "./commands/DeletePresetCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import { DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput } from "./commands/DescribeEndpointsCommand";
@@ -68,6 +69,7 @@ import {
 } from "./commands/DisassociateCertificateCommand";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand";
 import { GetJobTemplateCommandInput, GetJobTemplateCommandOutput } from "./commands/GetJobTemplateCommand";
+import { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand";
 import { GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
@@ -78,6 +80,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateJobTemplateCommandInput, UpdateJobTemplateCommandOutput } from "./commands/UpdateJobTemplateCommand";
@@ -93,12 +96,14 @@ export type ServiceInputTypes =
   | CreatePresetCommandInput
   | CreateQueueCommandInput
   | DeleteJobTemplateCommandInput
+  | DeletePolicyCommandInput
   | DeletePresetCommandInput
   | DeleteQueueCommandInput
   | DescribeEndpointsCommandInput
   | DisassociateCertificateCommandInput
   | GetJobCommandInput
   | GetJobTemplateCommandInput
+  | GetPolicyCommandInput
   | GetPresetCommandInput
   | GetQueueCommandInput
   | ListJobTemplatesCommandInput
@@ -106,6 +111,7 @@ export type ServiceInputTypes =
   | ListPresetsCommandInput
   | ListQueuesCommandInput
   | ListTagsForResourceCommandInput
+  | PutPolicyCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateJobTemplateCommandInput
@@ -120,12 +126,14 @@ export type ServiceOutputTypes =
   | CreatePresetCommandOutput
   | CreateQueueCommandOutput
   | DeleteJobTemplateCommandOutput
+  | DeletePolicyCommandOutput
   | DeletePresetCommandOutput
   | DeleteQueueCommandOutput
   | DescribeEndpointsCommandOutput
   | DisassociateCertificateCommandOutput
   | GetJobCommandOutput
   | GetJobTemplateCommandOutput
+  | GetPolicyCommandOutput
   | GetPresetCommandOutput
   | GetQueueCommandOutput
   | ListJobTemplatesCommandOutput
@@ -133,6 +141,7 @@ export type ServiceOutputTypes =
   | ListPresetsCommandOutput
   | ListQueuesCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutPolicyCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateJobTemplateCommandOutput

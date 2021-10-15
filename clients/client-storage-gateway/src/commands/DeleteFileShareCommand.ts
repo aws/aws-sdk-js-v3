@@ -22,8 +22,8 @@ export interface DeleteFileShareCommandInput extends DeleteFileShareInput {}
 export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a file share from an S3 File Gateway. This operation is only supported for S3 File
- *          Gateways.</p>
+ * <p>Deletes a file share from an S3 File Gateway. This operation is only supported for S3
+ *          File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

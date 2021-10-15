@@ -135,6 +135,34 @@ export namespace Alert {
   });
 }
 
+export enum Operator {
+  EQUALS = "EQUALS",
+}
+
+/**
+ * <p>MediaTailor only places (consumes) prefetched ads if the ad break meets the criteria defined by the dynamic variables. This gives you granular control over which ad break to place the prefetched ads into.</p> <p>As an example, let's say that you set DynamicVariable to scte.event_id and Operator to EQUALS, and your playback configuration has an ADS URL of https://my.ads.server.com/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs]. And the prefetch request to the ADS contains these values https://my.ads.server.com/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30. MediaTailor will only insert the prefetched ads into the ad break if has a SCTE marker with an event id of my-awesome-event, since it must match the event id that MediaTailor uses to query the ADS.</p> <p>You can specify up to five AvailMatchingCriteria. If you specify multiple AvailMatchingCriteria, MediaTailor combines them to match using a logical AND. You can model logical OR combinations by creating multiple prefetch schedules.</p>
+ */
+export interface AvailMatchingCriteria {
+  /**
+   * <p>The dynamic variable(s) that MediaTailor should use as avail matching criteria. MediaTailor only places the prefetched ads into the avail if the avail matches the criteria defined by the dynamic variable. For information about dynamic variables, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">Using dynamic ad variables</a> in the <i>MediaTailor User Guide</i>.</p> <p>You can include up to 100 dynamic variables.</p>
+   */
+  DynamicVariable: string | undefined;
+
+  /**
+   * <p>For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.</p>
+   */
+  Operator: Operator | string | undefined;
+}
+
+export namespace AvailMatchingCriteria {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AvailMatchingCriteria): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Dash manifest configuration parameters.</p>
  */
@@ -602,6 +630,108 @@ export namespace PlaybackConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: PlaybackConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A complex type that contains settings that determine how and when that MediaTailor places prefetched ads into upcoming ad breaks.</p>
+ */
+export interface PrefetchConsumption {
+  /**
+   * <p>If you only want MediaTailor to insert prefetched ads into avails (ad breaks) that match specific dynamic variables, such as scte.event_id, set the avail matching criteria.</p>
+   */
+  AvailMatchingCriteria?: AvailMatchingCriteria[];
+
+  /**
+   * <p>The time when MediaTailor no longer considers the prefetched ads for use in an ad break. MediaTailor automatically deletes prefetch schedules no less than seven days after the end time. If you'd like to manually delete the prefetch schedule, you can call DeletePrefetchSchedule.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The time when prefetched ads are considered for use in an ad break. If you don't specify StartTime, the prefetched ads are available after MediaTailor retrives them from the ad decision server.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace PrefetchConsumption {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrefetchConsumption): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A complex type that contains settings governing when MediaTailor prefetches ads, and which dynamic variables that MediaTailor includes in the request to the ad decision server.</p>
+ */
+export interface PrefetchRetrieval {
+  /**
+   * <p>The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).</p> <p>You intially configure <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html">dynamic variables</a> for the ADS URL when you set up your playback configuration. When you specify DynamicVariables for prefetch retrieval, MediaTailor includes the dynamic variables in the request to the ADS.</p>
+   */
+  DynamicVariables?: { [key: string]: string };
+
+  /**
+   * <p>The time when prefetch retrieval ends for the ad break. Prefetching will be attempted for manifest requests that occur at or before this time.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The time when prefetch retrievals can start for this break. Ad prefetching will be attempted for manifest requests that occur at or after this time. Defaults to the current time. If not specified, the prefetch retrieval starts as soon as possible.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace PrefetchRetrieval {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrefetchRetrieval): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A complex type that contains prefetch schedule information.</p>
+ */
+export interface PrefetchSchedule {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Consumption settings determine how, and when, MediaTailor places the prefetched ads into ad breaks. Ad consumption occurs within a span of time that you define, called a <i>consumption window</i>. You can designate which ad breaks that MediaTailor fills with prefetch ads by setting avail matching criteria.</p>
+   */
+  Consumption: PrefetchConsumption | undefined;
+
+  /**
+   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the playback configuration to create the prefetch schedule for.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+
+  /**
+   * <p>A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).</p>
+   */
+  Retrieval: PrefetchRetrieval | undefined;
+
+  /**
+   * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
+   */
+  StreamId?: string;
+}
+
+export namespace PrefetchSchedule {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrefetchSchedule): any => ({
     ...obj,
   });
 }
@@ -1136,6 +1266,83 @@ export namespace CreateChannelResponse {
   });
 }
 
+export interface CreatePrefetchScheduleRequest {
+  /**
+   * <p>The configuration settings for MediaTailor's <i>consumption</i> of the prefetched ads from the ad decision server. Each consumption configuration contains an end time and an optional start time that define the <i>consumption window</i>. Prefetch schedules automatically expire no earlier than seven days after the end time.</p>
+   */
+  Consumption: PrefetchConsumption | undefined;
+
+  /**
+   * <p>The identifier for the playback configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+
+  /**
+   * <p>The configuration settings for retrieval of prefetched ads from the ad decision server. Only one set of prefetched ads will be retrieved and subsequently consumed for each ad break.</p>
+   */
+  Retrieval: PrefetchRetrieval | undefined;
+
+  /**
+   * <p>An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration. If StreamId is specified, MediaTailor returns all of the prefetch schedules with an exact match on StreamId. If not specified, MediaTailor returns all of the prefetch schedules for the playback configuration, regardless of StreamId.</p>
+   */
+  StreamId?: string;
+}
+
+export namespace CreatePrefetchScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePrefetchScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreatePrefetchScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Consumption settings determine how, and when, MediaTailor places the prefetched ads into ad breaks. Ad consumption occurs within a span of time that you define, called a <i>consumption window</i>. You can designate which ad breaks that MediaTailor fills with prefetch ads by setting avail matching criteria.</p>
+   */
+  Consumption?: PrefetchConsumption;
+
+  /**
+   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the playback configuration to create the prefetch schedule for.</p>
+   */
+  PlaybackConfigurationName?: string;
+
+  /**
+   * <p>A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).</p>
+   */
+  Retrieval?: PrefetchRetrieval;
+
+  /**
+   * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
+   */
+  StreamId?: string;
+}
+
+export namespace CreatePrefetchScheduleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreatePrefetchScheduleResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum RelativePosition {
   AFTER_PROGRAM = "AFTER_PROGRAM",
   BEFORE_PROGRAM = "BEFORE_PROGRAM",
@@ -1551,6 +1758,38 @@ export namespace DeletePlaybackConfigurationResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeletePlaybackConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePrefetchScheduleRequest {
+  /**
+   * <p>The identifier for the playback configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+}
+
+export namespace DeletePrefetchScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePrefetchScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePrefetchScheduleResponse {}
+
+export namespace DeletePrefetchScheduleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePrefetchScheduleResponse): any => ({
     ...obj,
   });
 }
@@ -2130,6 +2369,68 @@ export namespace GetPlaybackConfigurationResponse {
   });
 }
 
+export interface GetPrefetchScheduleRequest {
+  /**
+   * <p>The identifier for the playback configuration.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+}
+
+export namespace GetPrefetchScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPrefetchScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetPrefetchScheduleResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the prefetch schedule.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Consumption settings determine how, and when, MediaTailor places the prefetched ads into ad breaks. Ad consumption occurs within a span of time that you define, called a <i>consumption window</i>. You can designate which ad breaks that MediaTailor fills with prefetch ads by setting avail matching criteria.</p>
+   */
+  Consumption?: PrefetchConsumption;
+
+  /**
+   * <p>The name of the prefetch schedule. The name must be unique among all prefetch schedules that are associated with the specified playback configuration.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name of the playback configuration to create the prefetch schedule for.</p>
+   */
+  PlaybackConfigurationName?: string;
+
+  /**
+   * <p>A complex type that contains settings for prefetch retrieval from the ad decision server (ADS).</p>
+   */
+  Retrieval?: PrefetchRetrieval;
+
+  /**
+   * <p>An optional stream identifier that you can specify in order to prefetch for multiple streams that use the same playback configuration.</p>
+   */
+  StreamId?: string;
+}
+
+export namespace GetPrefetchScheduleResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetPrefetchScheduleResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListAlertsRequest {
   /**
    * <p>Upper bound on number of records to return. The maximum number of results is 100.</p>
@@ -2257,6 +2558,58 @@ export namespace ListPlaybackConfigurationsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListPlaybackConfigurationsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPrefetchSchedulesRequest {
+  /**
+   * <p>The maximum number of prefetch schedules that you want MediaTailor to return in response to the current request. If the playback configuration has more than MaxResults prefetch schedules, use the value of NextToken in the response to get the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>(Optional) If the playback configuration has more than MaxResults prefetch schedules, use NextToken to get the second and subsequent pages of results.</p> <p>For the first ListPrefetchSchedulesRequest request, omit this value.</p> <p>For the second and subsequent requests, get the value of NextToken from the previous response and specify that value for NextToken in the request.</p> <p>If the previous response didn't include a NextToken element, there are no more prefetch schedules to get.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The name of the playback configuration.</p>
+   */
+  PlaybackConfigurationName: string | undefined;
+
+  /**
+   * <p>An optional filtering parameter whereby MediaTailor filters the prefetch schedules to include only specific streams.</p>
+   */
+  StreamId?: string;
+}
+
+export namespace ListPrefetchSchedulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPrefetchSchedulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListPrefetchSchedulesResponse {
+  /**
+   * <p>Lists the prefetch schedules. An empty Items list doesn't mean there aren't more items to fetch, just that that page was empty.</p>
+   */
+  Items?: PrefetchSchedule[];
+
+  /**
+   * <p>The value that you will use forNextToken in the next ListPrefetchSchedulesRequest request.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListPrefetchSchedulesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListPrefetchSchedulesResponse): any => ({
     ...obj,
   });
 }

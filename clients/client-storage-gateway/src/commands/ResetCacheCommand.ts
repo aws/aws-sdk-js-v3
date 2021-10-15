@@ -31,9 +31,9 @@ export interface ResetCacheCommandOutput extends ResetCacheOutput, __MetadataBea
  *
  *          <important>
  *             <p>If the cache disk you are resetting contains data that has not been uploaded to
- *             Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no
- *             configured cache disks left in the gateway, so you must configure at least one new cache
- *             disk for your gateway to function properly.</p>
+ *                Amazon S3 yet, that data can be lost. After you reset cache disks, there will
+ *             be no configured cache disks left in the gateway, so you must configure at least one new
+ *             cache disk for your gateway to function properly.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

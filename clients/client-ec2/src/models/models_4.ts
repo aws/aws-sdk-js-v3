@@ -19,7 +19,6 @@ import {
   HostRecovery,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  InstanceEventWindowTimeRangeRequest,
   Placement,
   PlatformValues,
   SelfServicePortal,
@@ -33,6 +32,7 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
+  TrunkInterfaceAssociation,
   UnsuccessfulItem,
   VolumeType,
   Vpc,
@@ -47,6 +47,7 @@ import {
   DiskImageFormat,
   DnsEntry,
   DnsNameState,
+  InstanceEventWindowTimeRangeRequest,
   LaunchTemplate,
   ManagedPrefixList,
   ResponseLaunchTemplateData,
@@ -55,12 +56,8 @@ import {
   ShutdownBehavior,
   State,
   SubnetCidrReservation,
-  TrafficDirection,
   TrafficMirrorFilter,
-  TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
-  TrafficMirrorPortRangeRequest,
-  TrafficMirrorRuleAction,
   TransitGatewayPrefixListReference,
   Volume,
   VpcEndpoint,
@@ -78,7 +75,7 @@ import {
   LaunchPermission,
   PaymentOption,
   PermissionGroup,
-  SnapshotDetail,
+  ProductCode,
   VpnConnection,
   VpnGateway,
 } from "./models_2";
@@ -95,8 +92,86 @@ import {
   LaunchTemplateConfig,
   ReservedInstancesConfiguration,
   SnapshotAttributeName,
+  SnapshotDetail,
   SnapshotTaskDetail,
 } from "./models_3";
+
+export interface DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * <p>Information about the trunk associations.</p>
+   */
+  InterfaceAssociations?: TrunkInterfaceAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrunkInterfaceAssociationsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export type VolumeAttributeName = "autoEnableIO" | "productCodes";
+
+export interface DescribeVolumeAttributeRequest {
+  /**
+   * <p>The attribute of the volume. This parameter is required.</p>
+   */
+  Attribute: VolumeAttributeName | string | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeVolumeAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVolumeAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeVolumeAttributeResult {
+  /**
+   * <p>The state of <code>autoEnableIO</code> attribute.</p>
+   */
+  AutoEnableIO?: AttributeBooleanValue;
+
+  /**
+   * <p>A list of product codes.</p>
+   */
+  ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId?: string;
+}
+
+export namespace DescribeVolumeAttributeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeVolumesRequest {
   /**
@@ -1128,8 +1203,8 @@ export interface DescribeVpcEndpointConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>vpc-endpoint-owner</code> - The AWS account number of the owner of the
-   *                     endpoint.</p>
+   *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
+   * 		        that owns the endpoint.</p>
    *             </li>
    *             <li>
    * 			            <p>
@@ -1185,7 +1260,7 @@ export interface VpcEndpointConnection {
   VpcEndpointId?: string;
 
   /**
-   * <p>The AWS account ID of the owner of the VPC endpoint.</p>
+   * <p>The ID of the Amazon Web Services account that owns the VPC endpoint.</p>
    */
   VpcEndpointOwner?: string;
 
@@ -1611,7 +1686,7 @@ export interface ServiceDetail {
   AvailabilityZones?: string[];
 
   /**
-   * <p>The AWS account ID of the service owner.</p>
+   * <p>The Amazon Web Services account ID of the service owner.</p>
    */
   Owner?: string;
 
@@ -4514,12 +4589,12 @@ export interface CoipAddressUsage {
   AllocationId?: string;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   AwsAccountId?: string;
 
   /**
-   * <p>The AWS service.</p>
+   * <p>The Amazon Web Services service.</p>
    */
   AwsService?: string;
 
@@ -6627,7 +6702,7 @@ export interface ImportImageRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html">AMI billing information fields</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The usage operation value. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#prerequisites">Licensing options</a> in the <i>VM Import/Export User Guide</i>.</p>
    */
   UsageOperation?: string;
 
@@ -7290,7 +7365,7 @@ export interface ModifyAvailabilityZoneGroupRequest {
 
   /**
    * <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
-   *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">AWS Support</a> to opt out of a Local Zone group, or Wavelength Zone group.</p>
+   *       only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
    */
   OptInStatus: ModifyAvailabilityZoneOptInStatus | string | undefined;
 
@@ -7787,7 +7862,7 @@ export interface LoadPermissionRequest {
   Group?: PermissionGroup | string;
 
   /**
-   * <p>The AWS account ID.</p>
+   * <p>The Amazon Web Services account ID.</p>
    */
   UserId?: string;
 }
@@ -7851,7 +7926,7 @@ export interface ModifyFpgaImageAttributeRequest {
   OperationType?: OperationType | string;
 
   /**
-   * <p>The AWS account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
+   * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
    */
   UserIds?: string[];
 
@@ -9524,156 +9599,3 @@ export namespace ModifyTrafficMirrorFilterNetworkServicesResult {
 }
 
 export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
-
-export interface ModifyTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>The type of traffic (<code>ingress</code> | <code>egress</code>) to assign to the rule.</p>
-   */
-  TrafficDirection?: TrafficDirection | string;
-
-  /**
-   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
-   *          direction. The rules are processed in ascending order by rule number.</p>
-   */
-  RuleNumber?: number;
-
-  /**
-   * <p>The action to assign to the rule.</p>
-   */
-  RuleAction?: TrafficMirrorRuleAction | string;
-
-  /**
-   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
-   */
-  DestinationPortRange?: TrafficMirrorPortRangeRequest;
-
-  /**
-   * <p>The port range to assign to the Traffic Mirror rule.</p>
-   */
-  SourcePortRange?: TrafficMirrorPortRangeRequest;
-
-  /**
-   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
-   */
-  Protocol?: number;
-
-  /**
-   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
-   */
-  SourceCidrBlock?: string;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
-   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
-   */
-  RemoveFields?: (TrafficMirrorFilterRuleField | string)[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyTrafficMirrorFilterRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyTrafficMirrorFilterRuleResult {
-  /**
-   * <p>Modifies a Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRule?: TrafficMirrorFilterRule;
-}
-
-export namespace ModifyTrafficMirrorFilterRuleResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterRuleResult): any => ({
-    ...obj,
-  });
-}
-
-export type TrafficMirrorSessionField = "description" | "packet-length" | "virtual-network-id";
-
-export interface ModifyTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId: string | undefined;
-
-  /**
-   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
-   */
-  TrafficMirrorTargetId?: string;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId?: string;
-
-  /**
-   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
-   */
-  PacketLength?: number;
-
-  /**
-   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
-   *          <p>Valid values are 1-32766.</p>
-   */
-  SessionNumber?: number;
-
-  /**
-   * <p>The virtual network ID of the Traffic Mirror session.</p>
-   */
-  VirtualNetworkId?: number;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror session.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
-   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
-   */
-  RemoveFields?: (TrafficMirrorSessionField | string)[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyTrafficMirrorSessionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTrafficMirrorSessionRequest): any => ({
-    ...obj,
-  });
-}

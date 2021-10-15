@@ -7609,8 +7609,21 @@ const serializeAws_restJson1BatchPolicy = (input: BatchPolicy, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1CommandList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Compute = (input: Compute, context: __SerdeContext): any => {
   return {
+    ...(input.computeType !== undefined && input.computeType !== null && { computeType: input.computeType }),
+    ...(input.gpuUnitLimit !== undefined && input.gpuUnitLimit !== null && { gpuUnitLimit: input.gpuUnitLimit }),
     ...(input.simulationUnitLimit !== undefined &&
       input.simulationUnitLimit !== null && { simulationUnitLimit: input.simulationUnitLimit }),
   };
@@ -7632,10 +7645,12 @@ const serializeAws_restJson1CreateSimulationJobRequests = (
 
 const serializeAws_restJson1DataSourceConfig = (input: DataSourceConfig, context: __SerdeContext): any => {
   return {
+    ...(input.destination !== undefined && input.destination !== null && { destination: input.destination }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.s3Bucket !== undefined && input.s3Bucket !== null && { s3Bucket: input.s3Bucket }),
     ...(input.s3Keys !== undefined &&
-      input.s3Keys !== null && { s3Keys: serializeAws_restJson1S3Keys(input.s3Keys, context) }),
+      input.s3Keys !== null && { s3Keys: serializeAws_restJson1S3KeysOrPrefixes(input.s3Keys, context) }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
   };
 };
 
@@ -7765,6 +7780,8 @@ const serializeAws_restJson1FilterValues = (input: string[], context: __SerdeCon
 
 const serializeAws_restJson1LaunchConfig = (input: LaunchConfig, context: __SerdeContext): any => {
   return {
+    ...(input.command !== undefined &&
+      input.command !== null && { command: serializeAws_restJson1CommandList(input.command, context) }),
     ...(input.environmentVariables !== undefined &&
       input.environmentVariables !== null && {
         environmentVariables: serializeAws_restJson1EnvironmentVariableMap(input.environmentVariables, context),
@@ -7884,7 +7901,7 @@ const serializeAws_restJson1S3Etags = (input: string[], context: __SerdeContext)
     });
 };
 
-const serializeAws_restJson1S3Keys = (input: string[], context: __SerdeContext): any => {
+const serializeAws_restJson1S3KeysOrPrefixes = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -8153,14 +8170,29 @@ const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_restJson1CommandList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): Compute => {
   return {
+    computeType: __expectString(output.computeType),
+    gpuUnitLimit: __expectInt32(output.gpuUnitLimit),
     simulationUnitLimit: __expectInt32(output.simulationUnitLimit),
   } as any;
 };
 
 const deserializeAws_restJson1ComputeResponse = (output: any, context: __SerdeContext): ComputeResponse => {
   return {
+    computeType: __expectString(output.computeType),
+    gpuUnitLimit: __expectInt32(output.gpuUnitLimit),
     simulationUnitLimit: __expectInt32(output.simulationUnitLimit),
   } as any;
 };
@@ -8181,23 +8213,27 @@ const deserializeAws_restJson1CreateSimulationJobRequests = (
 
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
+    destination: __expectString(output.destination),
     name: __expectString(output.name),
     s3Bucket: __expectString(output.s3Bucket),
     s3Keys:
       output.s3Keys !== undefined && output.s3Keys !== null
         ? deserializeAws_restJson1S3KeyOutputs(output.s3Keys, context)
         : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
 const deserializeAws_restJson1DataSourceConfig = (output: any, context: __SerdeContext): DataSourceConfig => {
   return {
+    destination: __expectString(output.destination),
     name: __expectString(output.name),
     s3Bucket: __expectString(output.s3Bucket),
     s3Keys:
       output.s3Keys !== undefined && output.s3Keys !== null
-        ? deserializeAws_restJson1S3Keys(output.s3Keys, context)
+        ? deserializeAws_restJson1S3KeysOrPrefixes(output.s3Keys, context)
         : undefined,
+    type: __expectString(output.type),
   } as any;
 };
 
@@ -8430,6 +8466,10 @@ const deserializeAws_restJson1Fleets = (output: any, context: __SerdeContext): F
 
 const deserializeAws_restJson1LaunchConfig = (output: any, context: __SerdeContext): LaunchConfig => {
   return {
+    command:
+      output.command !== undefined && output.command !== null
+        ? deserializeAws_restJson1CommandList(output.command, context)
+        : undefined,
     environmentVariables:
       output.environmentVariables !== undefined && output.environmentVariables !== null
         ? deserializeAws_restJson1EnvironmentVariableMap(output.environmentVariables, context)
@@ -8679,7 +8719,7 @@ const deserializeAws_restJson1S3KeyOutputs = (output: any, context: __SerdeConte
     });
 };
 
-const deserializeAws_restJson1S3Keys = (output: any, context: __SerdeContext): string[] => {
+const deserializeAws_restJson1S3KeysOrPrefixes = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -8962,6 +9002,7 @@ const deserializeAws_restJson1SimulationJobSummaries = (
 const deserializeAws_restJson1SimulationJobSummary = (output: any, context: __SerdeContext): SimulationJobSummary => {
   return {
     arn: __expectString(output.arn),
+    computeType: __expectString(output.computeType),
     dataSourceNames:
       output.dataSourceNames !== undefined && output.dataSourceNames !== null
         ? deserializeAws_restJson1DataSourceNames(output.dataSourceNames, context)

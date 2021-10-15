@@ -29,7 +29,7 @@ export interface UpdateModelVersionStatusCommandOutput extends UpdateModelVersio
  *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
  *             </li>
  *             <li>
- *                <p>Change <code>ACTIVE</code>to <code>INACTIVE</code>.</p>
+ *                <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>
  *             </li>
  *          </ol>
  * @example

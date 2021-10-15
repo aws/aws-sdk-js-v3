@@ -22,8 +22,9 @@ export interface ListGatewaysCommandInput extends ListGatewaysInput {}
 export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __MetadataBearer {}
 
 /**
- * <p>Lists gateways owned by an account in an Region specified in the request. The
- *          returned list is ordered by gateway Amazon Resource Name (ARN).</p>
+ * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
+ *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
+ *          (ARN).</p>
  *
  *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
  *          pagination that allows you to optionally reduce the number of gateways returned in a

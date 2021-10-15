@@ -71,12 +71,12 @@ export interface ActiveContext {
   timeToLive: ActiveContextTimeToLive | undefined;
 
   /**
-   * <p>A lis tof contexts active for the request. A context can be
+   * <p>A list of contexts active for the request. A context can be
    *          activated when a previous intent is fulfilled, or by including the
    *          context in the request.</p>
-   *          <p>If you don't specify a list of contexts, Amazon Lex will use the
-   *          current list of contexts for the session. If you specify an empty list,
-   *          all contexts for the session are cleared. </p>
+   *          <p>If you don't specify a list of contexts, Amazon Lex V2 will use the current
+   *          list of contexts for the session. If you specify an empty list, all
+   *          contexts for the session are cleared. </p>
    */
   contextAttributes: { [key: string]: string } | undefined;
 }
@@ -405,6 +405,7 @@ export namespace Value {
 export enum IntentState {
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
+  FULFILLMENT_IN_PROGRESS = "FulfillmentInProgress",
   IN_PROGRESS = "InProgress",
   READY_FOR_FULFILLMENT = "ReadyForFulfillment",
   WAITING = "Waiting",
@@ -623,6 +624,7 @@ export enum DialogActionType {
   DELEGATE = "Delegate",
   ELICIT_INTENT = "ElicitIntent",
   ELICIT_SLOT = "ElicitSlot",
+  NONE = "None",
 }
 
 /**
@@ -1290,8 +1292,8 @@ export interface Slot {
 
   /**
    * <p>A list of one or more values that the user provided for the slot.
-   *       For example, if a for a slot that elicits pizza toppings, the values might
-   *       be "pepperoni" and "pineapple." </p>
+   *          For example, if a for a slot that elicits pizza toppings, the values
+   *          might be "pepperoni" and "pineapple." </p>
    */
   values?: Slot[];
 }
@@ -1499,9 +1501,13 @@ export interface ConfigurationEvent {
 
   /**
    * <p>Determines whether Amazon Lex V2 should send audio responses to the client
-   *          application. When this parameter if <code>false</code>, the client
-   *          application needs to create responses for the user.
+   *          application.
    *       </p>
+   *          <p>Set this field to false when the client is operating in a playback
+   *          mode where audio responses are played to the user. If the client isn't
+   *          operating in playback mode, such as a text chat application, set this
+   *          to true so that Amazon Lex V2 doesn't wait for the prompt to finish playing on
+   *          the client.</p>
    */
   disablePlayback?: boolean;
 

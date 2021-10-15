@@ -22,12 +22,17 @@ export interface UpdateSecretCommandInput extends UpdateSecretRequest {}
 export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies many of the details of the specified secret. If you include a
- *         <code>ClientRequestToken</code> and <i>either</i>
- *             <code>SecretString</code> or <code>SecretBinary</code> then it also creates a new version
- *       attached to the secret.</p>
- *          <p>To modify the rotation configuration of a secret, use <a>RotateSecret</a>
+ * <p>Modifies many of the details of the specified secret. </p>
+ *          <p>To change the secret value, you can also use <a>PutSecretValue</a>.</p>
+ *          <p>To change the rotation configuration of a secret, use <a>RotateSecret</a>
  *       instead.</p>
+ *
+ *          <p>We recommend you avoid calling <code>UpdateSecret</code> at a sustained rate of more than
+ *       once every 10 minutes. When you call <code>UpdateSecret</code> to update the secret value, Secrets Manager creates a new version
+ *       of the secret. Secrets Manager removes outdated versions when there are more than 100, but it does not
+ *       remove versions created less than 24 hours ago. If you update the secret value more
+ *       than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach
+ *       the quota for secret versions.</p>
  *          <note>
  *             <p>The Secrets Manager console uses only the <code>SecretString</code> parameter and therefore limits
  *         you to encrypting and storing only a text string. To encrypt and store binary data as part

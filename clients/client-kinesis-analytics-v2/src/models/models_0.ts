@@ -252,14 +252,14 @@ export namespace InputParallelism {
 }
 
 /**
- * <p>An object that contains the Amazon Resource Name (ARN) of the AWS Lambda function that is
+ * <p>An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is
  *       used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application. </p>
  */
 export interface InputLambdaProcessor {
   /**
-   * <p>The ARN of the AWS Lambda function that operates on records in the stream.</p>
+   * <p>The ARN of the Amazon Lambda function that operates on records in the stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a>
    *             </p>
    *          </note>
    */
@@ -278,7 +278,7 @@ export namespace InputLambdaProcessor {
 /**
  * <p>For a SQL-based Kinesis Data Analytics application, describes a processor that is
  *       used to preprocess the records in the stream before being processed by your application code.
- *       Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
+ *       Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
  */
 export interface InputProcessingConfiguration {
   /**
@@ -604,22 +604,22 @@ export namespace AddApplicationInputRequest {
 
 /**
  * <p>For a SQL-based Kinesis Data Analytics application, an object that contains the
- *       Amazon Resource Name (ARN) of the AWS Lambda function that is used to preprocess records in
+ *       Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in
  *       the stream.</p>
  */
 export interface InputLambdaProcessorDescription {
   /**
-   * <p>The ARN of the AWS Lambda function that is used to preprocess the records in the
+   * <p>The ARN of the Amazon Lambda function that is used to preprocess the records in the
    *       stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a>
    *             </p>
    *          </note>
    */
   ResourceARN: string | undefined;
 
   /**
-   * <p>The ARN of the IAM role that is used to access the AWS Lambda function.</p>
+   * <p>The ARN of the IAM role that is used to access the Amazon Lambda function.</p>
    *          <note>
    *             <p>Provided for backward compatibility. Applications that are created with the current API
    *         version have an application-level service execution role rather than a resource-level
@@ -640,7 +640,7 @@ export namespace InputLambdaProcessorDescription {
 
 /**
  * <p>For a SQL-based Kinesis Data Analytics application, provides the configuration
- *         information about an input processor. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">AWS Lambda</a>.</p>
+ *         information about an input processor. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.</p>
  */
 export interface InputProcessingConfigurationDescription {
   /**
@@ -1007,14 +1007,14 @@ export namespace KinesisStreamsOutput {
 
 /**
  * <p>When you configure a SQL-based Kinesis Data Analytics application's output,
- *       identifies an AWS Lambda function as the destination. You provide the function Amazon Resource
+ *       identifies an Amazon Lambda function as the destination. You provide the function Amazon Resource
  *       Name (ARN) of the Lambda function. </p>
  */
 export interface LambdaOutput {
   /**
    * <p>The Amazon Resource Name (ARN) of the destination Lambda function to write to.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a>
    *             </p>
    *          </note>
    */
@@ -1056,7 +1056,7 @@ export interface Output {
   KinesisFirehoseOutput?: KinesisFirehoseOutput;
 
   /**
-   * <p>Identifies an AWS Lambda function as the destination.</p>
+   * <p>Identifies an Amazon Lambda function as the destination.</p>
    */
   LambdaOutput?: LambdaOutput;
 
@@ -1093,7 +1093,7 @@ export interface AddApplicationOutputRequest {
   /**
    * <p>An array of objects, each describing one output configuration. In the output
    *       configuration, you specify the name of an in-application stream, a destination (that is, a
-   *       Kinesis data stream, a Kinesis Data Firehose delivery stream, or an AWS Lambda function), and
+   *       Kinesis data stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function), and
    *       record the formation to use when writing to the destination.</p>
    */
   Output: Output | undefined;
@@ -1171,7 +1171,7 @@ export namespace KinesisStreamsOutputDescription {
 }
 
 /**
- * <p>For a SQL-based Kinesis Data Analytics application's output, describes the AWS
+ * <p>For a SQL-based Kinesis Data Analytics application's output, describes the Amazon
  *       Lambda function that is configured as its destination. </p>
  */
 export interface LambdaOutputDescription {
@@ -2195,11 +2195,11 @@ export namespace GlueDataCatalogConfiguration {
 }
 
 /**
- * <p>The configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfiguration {
   /**
-   * <p>The configuration parameters for the default AWS Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
    */
   GlueDataCatalogConfiguration: GlueDataCatalogConfiguration | undefined;
 }
@@ -2305,7 +2305,7 @@ export namespace S3ContentBaseLocation {
 }
 
 /**
- * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+ * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfiguration {
   /**
@@ -2353,12 +2353,12 @@ export interface ZeppelinApplicationConfiguration {
   MonitoringConfiguration?: ZeppelinMonitoringConfiguration;
 
   /**
-   * <p>The AWS Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.</p>
    */
   CatalogConfiguration?: CatalogConfiguration;
 
   /**
-   * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+   * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
    */
   DeployAsApplicationConfiguration?: DeployAsApplicationConfiguration;
 
@@ -2787,11 +2787,11 @@ export namespace GlueDataCatalogConfigurationDescription {
 }
 
 /**
- * <p>The configuration parameters for the default AWS Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfigurationDescription {
   /**
-   * <p>The configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
    */
   GlueDataCatalogConfigurationDescription: GlueDataCatalogConfigurationDescription | undefined;
 }
@@ -2910,12 +2910,12 @@ export interface ZeppelinApplicationConfigurationDescription {
   MonitoringConfigurationDescription: ZeppelinMonitoringConfigurationDescription | undefined;
 
   /**
-   * <p>The AWS Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   * <p>The Amazon Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
    */
   CatalogConfigurationDescription?: CatalogConfigurationDescription;
 
   /**
-   * <p>The parameters required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state..</p>
+   * <p>The parameters required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
    */
   DeployAsApplicationConfigurationDescription?: DeployAsApplicationConfigurationDescription;
 
@@ -3228,10 +3228,10 @@ export namespace InputParallelismUpdate {
  */
 export interface InputLambdaProcessorUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the new AWS Lambda function that is used to preprocess
+   * <p>The Amazon Resource Name (ARN) of the new Amazon Lambda function that is used to preprocess
    *       the records in the stream.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a>
    *             </p>
    *          </note>
    */
@@ -3439,13 +3439,13 @@ export namespace KinesisStreamsOutputUpdate {
 /**
  * <p>When you update an SQL-based Kinesis Data Analytics application's output
  *       configuration using the <a>UpdateApplication</a> operation, provides information
- *       about an AWS Lambda function that is configured as the destination.</p>
+ *       about an Amazon Lambda function that is configured as the destination.</p>
  */
 export interface LambdaOutputUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination AWS Lambda function.</p>
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon Lambda function.</p>
    *          <note>
-   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: AWS Lambda</a>
+   *             <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a>
    *             </p>
    *          </note>
    */
@@ -3490,7 +3490,7 @@ export interface OutputUpdate {
   KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
 
   /**
-   * <p>Describes an AWS Lambda function as the destination for the output.</p>
+   * <p>Describes an Amazon Lambda function as the destination for the output.</p>
    */
   LambdaOutputUpdate?: LambdaOutputUpdate;
 
@@ -3647,7 +3647,7 @@ export interface GlueDataCatalogConfigurationUpdate {
   /**
    * <p>The updated Amazon Resource Name (ARN) of the database.</p>
    */
-  DatabaseARNUpdate?: string;
+  DatabaseARNUpdate: string | undefined;
 }
 
 export namespace GlueDataCatalogConfigurationUpdate {
@@ -3660,11 +3660,11 @@ export namespace GlueDataCatalogConfigurationUpdate {
 }
 
 /**
- * <p>Updates to </p>
+ * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
  */
 export interface CatalogConfigurationUpdate {
   /**
-   * <p>Updates to the configuration parameters for the default AWS Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
    */
   GlueDataCatalogConfigurationUpdate: GlueDataCatalogConfigurationUpdate | undefined;
 }
@@ -3685,7 +3685,7 @@ export interface S3ContentBaseLocationUpdate {
   /**
    * <p>The updated Amazon Resource Name (ARN) of the S3 bucket.</p>
    */
-  BucketARNUpdate: string | undefined;
+  BucketARNUpdate?: string;
 
   /**
    * <p>The updated S3 bucket path.</p>
@@ -3703,13 +3703,13 @@ export namespace S3ContentBaseLocationUpdate {
 }
 
 /**
- * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state..</p>
+ * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfigurationUpdate {
   /**
    * <p>Updates to the location that holds the data required to specify an Amazon Data Analytics application.</p>
    */
-  S3ContentLocationUpdate: S3ContentBaseLocationUpdate | undefined;
+  S3ContentLocationUpdate?: S3ContentBaseLocationUpdate;
 }
 
 export namespace DeployAsApplicationConfigurationUpdate {
@@ -3750,12 +3750,12 @@ export interface ZeppelinApplicationConfigurationUpdate {
   MonitoringConfigurationUpdate?: ZeppelinMonitoringConfigurationUpdate;
 
   /**
-   * <p>Updates to the configuration of the AWS Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the configuration of the Amazon Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
    */
   CatalogConfigurationUpdate?: CatalogConfigurationUpdate;
 
   /**
-   * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state..</p>
+   * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
    */
   DeployAsApplicationConfigurationUpdate?: DeployAsApplicationConfigurationUpdate;
 
@@ -3870,10 +3870,12 @@ export enum ApplicationStatus {
 
 export enum RuntimeEnvironment {
   FLINK_1_11 = "FLINK-1_11",
+  FLINK_1_13 = "FLINK-1_13",
   FLINK_1_6 = "FLINK-1_6",
   FLINK_1_8 = "FLINK-1_8",
   SQL_1_0 = "SQL-1_0",
   ZEPPELIN_FLINK_1_0 = "ZEPPELIN-FLINK-1_0",
+  ZEPPELIN_FLINK_2_0 = "ZEPPELIN-FLINK-2_0",
 }
 
 /**
@@ -4092,7 +4094,7 @@ export namespace CloudWatchLoggingOptionUpdate {
 }
 
 /**
- * <p>A key-value pair (the value is optional) that you can define and assign to AWS resources.
+ * <p>A key-value pair (the value is optional) that you can define and assign to Amazon resources.
  *         If you specify a tag that already exists, the tag value is replaced with the value that you
  *         specify in the request. Note that
  *         the maximum number of application tags includes system tags. The maximum number of user-defined
@@ -4234,6 +4236,25 @@ export namespace TooManyTagsException {
   });
 }
 
+/**
+ * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ */
+export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
+  name: "UnsupportedOperationException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace UnsupportedOperationException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
+    ...obj,
+  });
+}
+
 export enum UrlType {
   FLINK_DASHBOARD_URL = "FLINK_DASHBOARD_URL",
   ZEPPELIN_UI_URL = "ZEPPELIN_UI_URL",
@@ -4310,25 +4331,6 @@ export namespace CreateApplicationSnapshotResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateApplicationSnapshotResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
- *       operation. </p>
- */
-export interface UnsupportedOperationException extends __SmithyException, $MetadataBearer {
-  name: "UnsupportedOperationException";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace UnsupportedOperationException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsupportedOperationException): any => ({
     ...obj,
   });
 }
@@ -5020,7 +5022,7 @@ export interface ListApplicationsRequest {
    * <p>If a previous command returned a pagination token,
    *       pass it into this value to retrieve the next set of results.
    *       For more information about pagination, see
-   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    */
   NextToken?: string;
 }
@@ -5044,7 +5046,7 @@ export interface ListApplicationsResponse {
    * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
    *       Pass this token into a subsequent command to retrieve the next set of items
    *       For more information about pagination, see
-   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    */
   NextToken?: string;
 }
@@ -5120,7 +5122,7 @@ export interface ListApplicationVersionsRequest {
 
   /**
    * <p>If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see
-   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    */
   NextToken?: string;
 }
@@ -5144,7 +5146,7 @@ export interface ListApplicationVersionsResponse {
   /**
    * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
    *       To retrieve the next set of items, pass this token into a subsequent invocation of this operation. For more information about pagination, see
-   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the AWS Command Line Interface's Pagination Options</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    */
   NextToken?: string;
 }

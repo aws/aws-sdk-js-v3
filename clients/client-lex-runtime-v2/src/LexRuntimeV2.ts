@@ -141,6 +141,32 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
    *          using the machine learning model that it build for the bot.</p>
    *          <p>In response, Amazon Lex V2 returns the next message to convey to the user
    *          and an optional response card to display.</p>
+   *          <p>If the optional post-fulfillment response is specified, the messages
+   *          are returned as follows. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html">PostFulfillmentStatusSpecification</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Success message</b> - Returned if
+   *                the Lambda function completes successfully and the intent state is
+   *                fulfilled or ready fulfillment if the message is present.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Failed message</b> - The failed
+   *                message is returned if the Lambda function throws an exception or
+   *                if the Lambda function returns a failed intent state without a
+   *                message.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Timeout message</b> - If you
+   *                don't configure a timeout message and a timeout, and the Lambda
+   *                function doesn't return within 30 seconds, the timeout message is
+   *                returned. If you configure a timeout, the timeout message is
+   *                returned when the period times out. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html">Completion message</a>.</p>
    */
   public recognizeText(
     args: RecognizeTextCommandInput,
@@ -209,6 +235,32 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
    *          <p>The example contains a Java application that compresses and encodes
    *          a Java object to send to Amazon Lex V2, and a second that decodes and
    *          decompresses a response from Amazon Lex V2.</p>
+   *          <p>If the optional post-fulfillment response is specified, the messages
+   *          are returned as follows. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html">PostFulfillmentStatusSpecification</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Success message</b> - Returned if
+   *                the Lambda function completes successfully and the intent state is
+   *                fulfilled or ready fulfillment if the message is present.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Failed message</b> - The failed
+   *                message is returned if the Lambda function throws an exception or
+   *                if the Lambda function returns a failed intent state without a
+   *                message.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Timeout message</b> - If you
+   *                don't configure a timeout message and a timeout, and the Lambda
+   *                function doesn't return within 30 seconds, the timeout message is
+   *                returned. If you configure a timeout, the timeout message is
+   *                returned when the period times out. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html">Completion message</a>.</p>
    */
   public recognizeUtterance(
     args: RecognizeUtteranceCommandInput,
@@ -249,6 +301,38 @@ export class LexRuntimeV2 extends LexRuntimeV2Client {
    *          <p>Audio input must be in the following format: <code>audio/lpcm
    *             sample-rate=8000 sample-size-bits=16 channel-count=1;
    *             is-big-endian=false</code>.</p>
+   *          <p>If the optional post-fulfillment response is specified, the messages
+   *          are returned as follows. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/API_PostFulfillmentStatusSpecification.html">PostFulfillmentStatusSpecification</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Success message</b> - Returned if
+   *                the Lambda function completes successfully and the intent state is
+   *                fulfilled or ready fulfillment if the message is present.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Failed message</b> - The failed
+   *                message is returned if the Lambda function throws an exception or
+   *                if the Lambda function returns a failed intent state without a
+   *                message.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Timeout message</b> - If you
+   *                don't configure a timeout message and a timeout, and the Lambda
+   *                function doesn't return within 30 seconds, the timeout message is
+   *                returned. If you configure a timeout, the timeout message is
+   *                returned when the period times out. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete.html">Completion message</a>.</p>
+   *          <p>If the optional update message is configured, it is played at the
+   *          specified frequency while the Lambda function is running and the update
+   *          message state is active. If the fulfillment update message is not
+   *          active, the Lambda function runs with a 30 second timeout. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-update.html">Update message </a>
+   *          </p>
    *          <p>The <code>StartConversation</code> operation is supported only in
    *          the following SDKs: </p>
    *          <ul>

@@ -41,7 +41,7 @@ const partitionHash: PartitionHash = {
     hostname: "route53-recovery-control-config.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["us-iso-east-1"],
+    regions: ["us-iso-east-1", "us-iso-west-1"],
     hostname: "route53-recovery-control-config.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

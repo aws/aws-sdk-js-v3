@@ -161,7 +161,7 @@ const partitionHash: PartitionHash = {
     hostname: "elasticfilesystem.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
-    regions: ["fips-us-iso-east-1", "us-iso-east-1"],
+    regions: ["fips-us-iso-east-1", "us-iso-east-1", "us-iso-west-1"],
     hostname: "elasticfilesystem.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {

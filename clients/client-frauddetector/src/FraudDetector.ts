@@ -11,10 +11,20 @@ import {
   BatchGetVariableCommandOutput,
 } from "./commands/BatchGetVariableCommand";
 import {
+  CancelBatchImportJobCommand,
+  CancelBatchImportJobCommandInput,
+  CancelBatchImportJobCommandOutput,
+} from "./commands/CancelBatchImportJobCommand";
+import {
   CancelBatchPredictionJobCommand,
   CancelBatchPredictionJobCommandInput,
   CancelBatchPredictionJobCommandOutput,
 } from "./commands/CancelBatchPredictionJobCommand";
+import {
+  CreateBatchImportJobCommand,
+  CreateBatchImportJobCommandInput,
+  CreateBatchImportJobCommandOutput,
+} from "./commands/CreateBatchImportJobCommand";
 import {
   CreateBatchPredictionJobCommand,
   CreateBatchPredictionJobCommandInput,
@@ -38,6 +48,11 @@ import {
   CreateVariableCommandOutput,
 } from "./commands/CreateVariableCommand";
 import {
+  DeleteBatchImportJobCommand,
+  DeleteBatchImportJobCommandInput,
+  DeleteBatchImportJobCommandOutput,
+} from "./commands/DeleteBatchImportJobCommand";
+import {
   DeleteBatchPredictionJobCommand,
   DeleteBatchPredictionJobCommandInput,
   DeleteBatchPredictionJobCommandOutput,
@@ -58,6 +73,11 @@ import {
   DeleteEntityTypeCommandOutput,
 } from "./commands/DeleteEntityTypeCommand";
 import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
+import {
+  DeleteEventsByEventTypeCommand,
+  DeleteEventsByEventTypeCommandInput,
+  DeleteEventsByEventTypeCommandOutput,
+} from "./commands/DeleteEventsByEventTypeCommand";
 import {
   DeleteEventTypeCommand,
   DeleteEventTypeCommandInput,
@@ -97,10 +117,20 @@ import {
   DescribeModelVersionsCommandOutput,
 } from "./commands/DescribeModelVersionsCommand";
 import {
+  GetBatchImportJobsCommand,
+  GetBatchImportJobsCommandInput,
+  GetBatchImportJobsCommandOutput,
+} from "./commands/GetBatchImportJobsCommand";
+import {
   GetBatchPredictionJobsCommand,
   GetBatchPredictionJobsCommandInput,
   GetBatchPredictionJobsCommandOutput,
 } from "./commands/GetBatchPredictionJobsCommand";
+import {
+  GetDeleteEventsByEventTypeStatusCommand,
+  GetDeleteEventsByEventTypeStatusCommandInput,
+  GetDeleteEventsByEventTypeStatusCommandOutput,
+} from "./commands/GetDeleteEventsByEventTypeStatusCommand";
 import {
   GetDetectorsCommand,
   GetDetectorsCommandInput,
@@ -116,6 +146,7 @@ import {
   GetEntityTypesCommandInput,
   GetEntityTypesCommandOutput,
 } from "./commands/GetEntityTypesCommand";
+import { GetEventCommand, GetEventCommandInput, GetEventCommandOutput } from "./commands/GetEventCommand";
 import {
   GetEventPredictionCommand,
   GetEventPredictionCommandInput,
@@ -178,6 +209,7 @@ import {
 } from "./commands/PutKMSEncryptionKeyCommand";
 import { PutLabelCommand, PutLabelCommandInput, PutLabelCommandOutput } from "./commands/PutLabelCommand";
 import { PutOutcomeCommand, PutOutcomeCommandInput, PutOutcomeCommandOutput } from "./commands/PutOutcomeCommand";
+import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -199,6 +231,11 @@ import {
   UpdateDetectorVersionStatusCommandInput,
   UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand";
+import {
+  UpdateEventLabelCommand,
+  UpdateEventLabelCommandInput,
+  UpdateEventLabelCommandOutput,
+} from "./commands/UpdateEventLabelCommand";
 import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
 import {
   UpdateModelVersionCommand,
@@ -298,6 +335,38 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p> Cancels an in-progress batch import job.</p>
+   */
+  public cancelBatchImportJob(
+    args: CancelBatchImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelBatchImportJobCommandOutput>;
+  public cancelBatchImportJob(
+    args: CancelBatchImportJobCommandInput,
+    cb: (err: any, data?: CancelBatchImportJobCommandOutput) => void
+  ): void;
+  public cancelBatchImportJob(
+    args: CancelBatchImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelBatchImportJobCommandOutput) => void
+  ): void;
+  public cancelBatchImportJob(
+    args: CancelBatchImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelBatchImportJobCommandOutput) => void),
+    cb?: (err: any, data?: CancelBatchImportJobCommandOutput) => void
+  ): Promise<CancelBatchImportJobCommandOutput> | void {
+    const command = new CancelBatchImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels the specified batch prediction job.</p>
    */
   public cancelBatchPredictionJob(
@@ -319,6 +388,38 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: CancelBatchPredictionJobCommandOutput) => void
   ): Promise<CancelBatchPredictionJobCommandOutput> | void {
     const command = new CancelBatchPredictionJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a batch import job. </p>
+   */
+  public createBatchImportJob(
+    args: CreateBatchImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBatchImportJobCommandOutput>;
+  public createBatchImportJob(
+    args: CreateBatchImportJobCommandInput,
+    cb: (err: any, data?: CreateBatchImportJobCommandOutput) => void
+  ): void;
+  public createBatchImportJob(
+    args: CreateBatchImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBatchImportJobCommandOutput) => void
+  ): void;
+  public createBatchImportJob(
+    args: CreateBatchImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchImportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateBatchImportJobCommandOutput) => void
+  ): Promise<CreateBatchImportJobCommandOutput> | void {
+    const command = new CreateBatchImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -511,6 +612,38 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Deletes data that was batch imported to Amazon Fraud Detector. </p>
+   */
+  public deleteBatchImportJob(
+    args: DeleteBatchImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBatchImportJobCommandOutput>;
+  public deleteBatchImportJob(
+    args: DeleteBatchImportJobCommandInput,
+    cb: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
+  ): void;
+  public deleteBatchImportJob(
+    args: DeleteBatchImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
+  ): void;
+  public deleteBatchImportJob(
+    args: DeleteBatchImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBatchImportJobCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBatchImportJobCommandOutput) => void
+  ): Promise<DeleteBatchImportJobCommandOutput> | void {
+    const command = new DeleteBatchImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a batch prediction job.</p>
    */
   public deleteBatchPredictionJob(
@@ -670,9 +803,41 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Deletes all events of a particular event type.</p>
+   */
+  public deleteEventsByEventType(
+    args: DeleteEventsByEventTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventsByEventTypeCommandOutput>;
+  public deleteEventsByEventType(
+    args: DeleteEventsByEventTypeCommandInput,
+    cb: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
+  ): void;
+  public deleteEventsByEventType(
+    args: DeleteEventsByEventTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
+  ): void;
+  public deleteEventsByEventType(
+    args: DeleteEventsByEventTypeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventsByEventTypeCommandOutput) => void),
+    cb?: (err: any, data?: DeleteEventsByEventTypeCommandOutput) => void
+  ): Promise<DeleteEventsByEventTypeCommandOutput> | void {
+    const command = new DeleteEventsByEventTypeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an event type.</p>
    * 	        <p>You cannot delete an event type that is used in a detector or a model.</p>
-   * 	        <p>When you delete an entity type, Amazon Fraud Detector permanently deletes that entity type and the data is no longer stored in Amazon Fraud Detector.</p>
+   * 	        <p>When you delete an event type, Amazon Fraud Detector permanently deletes that event type and the data is no longer stored in Amazon Fraud Detector.</p>
    */
   public deleteEventType(
     args: DeleteEventTypeCommandInput,
@@ -989,6 +1154,41 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
+   * <p>Gets all batch import jobs or a specific job of the specified ID. This is a paginated API. If you provide a null <code>maxResults</code>,
+   *          this action retrieves a maximum of 50 records per page. If you provide a <code>maxResults</code>, the value must be between 1 and 50.
+   *          To get the next page results, provide the pagination token from the <code>GetBatchImportJobsResponse</code> as part of your request.
+   *          A null pagination token fetches the records from the beginning.</p>
+   */
+  public getBatchImportJobs(
+    args: GetBatchImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBatchImportJobsCommandOutput>;
+  public getBatchImportJobs(
+    args: GetBatchImportJobsCommandInput,
+    cb: (err: any, data?: GetBatchImportJobsCommandOutput) => void
+  ): void;
+  public getBatchImportJobs(
+    args: GetBatchImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBatchImportJobsCommandOutput) => void
+  ): void;
+  public getBatchImportJobs(
+    args: GetBatchImportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBatchImportJobsCommandOutput) => void),
+    cb?: (err: any, data?: GetBatchImportJobsCommandOutput) => void
+  ): Promise<GetBatchImportJobsCommandOutput> | void {
+    const command = new GetBatchImportJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets all batch prediction jobs or a specific job if you specify a job ID. This is a paginated API. If you provide a null maxResults, this action retrieves a maximum of 50 records per page. If you provide a maxResults, the value must be between 1 and 50. To get the next page results, provide the pagination token from the GetBatchPredictionJobsResponse as part of your request. A null pagination token fetches the records from the beginning.</p>
    */
   public getBatchPredictionJobs(
@@ -1010,6 +1210,38 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: GetBatchPredictionJobsCommandOutput) => void
   ): Promise<GetBatchPredictionJobsCommandOutput> | void {
     const command = new GetBatchPredictionJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the status of a <code>DeleteEventsByEventType</code> action.</p>
+   */
+  public getDeleteEventsByEventTypeStatus(
+    args: GetDeleteEventsByEventTypeStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput>;
+  public getDeleteEventsByEventTypeStatus(
+    args: GetDeleteEventsByEventTypeStatusCommandInput,
+    cb: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
+  ): void;
+  public getDeleteEventsByEventTypeStatus(
+    args: GetDeleteEventsByEventTypeStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
+  ): void;
+  public getDeleteEventsByEventTypeStatus(
+    args: GetDeleteEventsByEventTypeStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetDeleteEventsByEventTypeStatusCommandOutput) => void
+  ): Promise<GetDeleteEventsByEventTypeStatusCommandOutput> | void {
+    const command = new GetDeleteEventsByEventTypeStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1113,6 +1345,32 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: GetEntityTypesCommandOutput) => void
   ): Promise<GetEntityTypesCommandOutput> | void {
     const command = new GetEntityTypesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves details of events stored with Amazon Fraud Detector. This action does not retrieve prediction results.</p>
+   */
+  public getEvent(args: GetEventCommandInput, options?: __HttpHandlerOptions): Promise<GetEventCommandOutput>;
+  public getEvent(args: GetEventCommandInput, cb: (err: any, data?: GetEventCommandOutput) => void): void;
+  public getEvent(
+    args: GetEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventCommandOutput) => void
+  ): void;
+  public getEvent(
+    args: GetEventCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEventCommandOutput) => void),
+    cb?: (err: any, data?: GetEventCommandOutput) => void
+  ): Promise<GetEventCommandOutput> | void {
+    const command = new GetEventCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1230,7 +1488,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   * <p>Gets the encryption key if a Key Management Service (KMS) customer master key (CMK) has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
+   * <p>Gets the encryption key if a KMS key has been specified to be used to encrypt content in Amazon Fraud Detector.</p>
    */
   public getKMSEncryptionKey(
     args: GetKMSEncryptionKeyCommandInput,
@@ -1602,7 +1860,7 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   * <p>Specifies the Key Management Service (KMS) customer master key (CMK) to be used to encrypt content in Amazon Fraud Detector.</p>
+   * <p>Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.</p>
    */
   public putKMSEncryptionKey(
     args: PutKMSEncryptionKeyCommandInput,
@@ -1675,6 +1933,32 @@ export class FraudDetector extends FraudDetectorClient {
     cb?: (err: any, data?: PutOutcomeCommandOutput) => void
   ): Promise<PutOutcomeCommandOutput> | void {
     const command = new PutOutcomeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stores events in Amazon Fraud Detector without generating fraud predictions for those events. For example, you can use <code>SendEvent</code> to upload a historical dataset, which you can then later use to train a model.</p>
+   */
+  public sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
+  public sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
+  public sendEvent(
+    args: SendEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendEventCommandOutput) => void
+  ): void;
+  public sendEvent(
+    args: SendEventCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendEventCommandOutput) => void),
+    cb?: (err: any, data?: SendEventCommandOutput) => void
+  ): Promise<SendEventCommandOutput> | void {
+    const command = new SendEventCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1842,7 +2126,39 @@ export class FraudDetector extends FraudDetectorClient {
   }
 
   /**
-   * <p>Updates a model. You can update the description attribute using this action.</p>
+   * <p>Updates the specified event with a new label.</p>
+   */
+  public updateEventLabel(
+    args: UpdateEventLabelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventLabelCommandOutput>;
+  public updateEventLabel(
+    args: UpdateEventLabelCommandInput,
+    cb: (err: any, data?: UpdateEventLabelCommandOutput) => void
+  ): void;
+  public updateEventLabel(
+    args: UpdateEventLabelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventLabelCommandOutput) => void
+  ): void;
+  public updateEventLabel(
+    args: UpdateEventLabelCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEventLabelCommandOutput) => void),
+    cb?: (err: any, data?: UpdateEventLabelCommandOutput) => void
+  ): Promise<UpdateEventLabelCommandOutput> | void {
+    const command = new UpdateEventLabelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates model description.</p>
    */
   public updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
   public updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
@@ -1907,7 +2223,7 @@ export class FraudDetector extends FraudDetectorClient {
    *                <p>Change the <code>TRAINING_COMPLETE</code> status to <code>ACTIVE</code>.</p>
    *             </li>
    *             <li>
-   *                <p>Change <code>ACTIVE</code>to <code>INACTIVE</code>.</p>
+   *                <p>Change <code>ACTIVE</code> to <code>INACTIVE</code>.</p>
    *             </li>
    *          </ol>
    */

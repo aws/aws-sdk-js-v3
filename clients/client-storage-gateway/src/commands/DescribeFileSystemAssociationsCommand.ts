@@ -24,8 +24,8 @@ export interface DescribeFileSystemAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the file system association information. This operation is only supported for
- *         FSx File Gateways.</p>
+ * <p>Gets the file system association information. This operation is only supported for FSx
+ *          File Gateways.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

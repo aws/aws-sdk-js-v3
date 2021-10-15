@@ -29,7 +29,6 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
-  TrunkInterfaceAssociation,
   UserIdGroupPair,
 } from "./models_0";
 import {
@@ -79,14 +78,204 @@ import {
   Filter,
   HypervisorType,
   IdFormat,
-  ImportImageTask,
+  ImportImageLicenseConfigurationResponse,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
   StateReason,
-  UserBucketDetails,
   VirtualizationType,
 } from "./models_2";
+
+/**
+ * <p>Describes the Amazon S3 bucket for the disk image.</p>
+ */
+export interface UserBucketDetails {
+  /**
+   * <p>The Amazon S3 bucket from which the disk image was created.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The file name of the disk image.</p>
+   */
+  S3Key?: string;
+}
+
+export namespace UserBucketDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UserBucketDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the snapshot created from the imported disk.</p>
+ */
+export interface SnapshotDetail {
+  /**
+   * <p>A description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The block device mapping for the snapshot.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The size of the disk in the snapshot, in GiB.</p>
+   */
+  DiskImageSize?: number;
+
+  /**
+   * <p>The format of the disk image from which the snapshot is created.</p>
+   */
+  Format?: string;
+
+  /**
+   * <p>The percentage of progress for the task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>The snapshot ID of the disk being imported.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>A brief status of the snapshot creation.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A detailed status message for the snapshot creation.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The URL used to access the disk image.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The Amazon S3 bucket for the disk image.</p>
+   */
+  UserBucket?: UserBucketDetails;
+}
+
+export namespace SnapshotDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SnapshotDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an import image task.</p>
+ */
+export interface ImportImageTask {
+  /**
+   * <p>The architecture of the virtual machine.</p>
+   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
+   *          </p>
+   */
+  Architecture?: string;
+
+  /**
+   * <p>A description of the import task.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Indicates whether the image is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The target hypervisor for the import task.</p>
+   *          <p>Valid values: <code>xen</code>
+   *          </p>
+   */
+  Hypervisor?: string;
+
+  /**
+   * <p>The ID of the Amazon Machine Image (AMI) of the imported virtual machine.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The ID of the import image task.</p>
+   */
+  ImportTaskId?: string;
+
+  /**
+   * <p>The identifier for the KMS key that was used to create the encrypted image.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The license type of the virtual machine.</p>
+   */
+  LicenseType?: string;
+
+  /**
+   * <p>The description string for the import image task.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The percentage of progress of the import image task.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   */
+  SnapshotDetails?: SnapshotDetail[];
+
+  /**
+   * <p>A brief status for the import image task.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A descriptive status message for the import image task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The tags for the import image task.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ARNs of the license configurations that are associated with the import image task.</p>
+   */
+  LicenseSpecifications?: ImportImageLicenseConfigurationResponse[];
+
+  /**
+   * <p>The usage operation value.</p>
+   */
+  UsageOperation?: string;
+
+  /**
+   * <p>The boot mode of the virtual machine.</p>
+   */
+  BootMode?: BootModeValues | string;
+}
+
+export namespace ImportImageTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportImageTask): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeImportImageTasksResult {
   /**
@@ -1510,17 +1699,12 @@ export interface InstanceMetadataOptionsResponse {
   HttpPutResponseHopLimit?: number;
 
   /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the default state is <code>enabled</code>.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
+   * <p>Indicates whether the HTTP metadata endpoint on your instances is enabled or disabled.</p>
    */
   HttpEndpoint?: InstanceMetadataEndpointState | string;
 
   /**
-   * <p>Whether or not the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
+   * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
 }
@@ -2772,9 +2956,14 @@ export interface DescribeInstanceTypesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>instance-storage-info.encryption-supported</code> - Indicates whether data is encrypted at rest
+   *      (<code>required</code> | <code>unsupported</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>instance-storage-info.nvme-support</code> - Indicates whether non-volatile memory
-   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code>)
-   *      | <code>unsupported</code>).</p>
+   *      express (NVMe) is supported for instance store (<code>required</code> | <code>supported</code> |
+   *      <code>unsupported</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3214,7 +3403,7 @@ export namespace InferenceAcceleratorInfo {
 export type DiskType = "hdd" | "ssd";
 
 /**
- * <p>Describes the disk.</p>
+ * <p>Describes a disk.</p>
  */
 export interface DiskInfo {
   /**
@@ -3242,6 +3431,11 @@ export namespace DiskInfo {
   });
 }
 
+export enum InstanceStorageEncryptionSupport {
+  required = "required",
+  unsupported = "unsupported",
+}
+
 export enum EphemeralNvmeSupport {
   REQUIRED = "required",
   SUPPORTED = "supported",
@@ -3249,7 +3443,7 @@ export enum EphemeralNvmeSupport {
 }
 
 /**
- * <p>Describes the disks that are available for the instance type.</p>
+ * <p>Describes the instance store features that are supported by the instance type.</p>
  */
 export interface InstanceStorageInfo {
   /**
@@ -3263,9 +3457,14 @@ export interface InstanceStorageInfo {
   Disks?: DiskInfo[];
 
   /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported for instance store.</p>
+   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
    */
   NvmeSupport?: EphemeralNvmeSupport | string;
+
+  /**
+   * <p>Indicates whether data is encrypted at rest.</p>
+   */
+  EncryptionSupport?: InstanceStorageEncryptionSupport | string;
 }
 
 export namespace InstanceStorageInfo {
@@ -3441,7 +3640,7 @@ export namespace PlacementGroupInfo {
   });
 }
 
-export type ArchitectureType = "arm64" | "i386" | "x86_64";
+export type ArchitectureType = "arm64" | "i386" | "x86_64" | "x86_64_mac";
 
 /**
  * <p>Describes the processor used by the instance type.</p>
@@ -4315,7 +4514,7 @@ export interface LocalGatewayRouteTable {
   OutpostArn?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway route table.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway route table.</p>
    */
   OwnerId?: string;
 
@@ -4453,7 +4652,7 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
   LocalGatewayRouteTableArn?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway virtual interface group association.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group association.</p>
    */
   OwnerId?: string;
 
@@ -4662,7 +4861,7 @@ export interface LocalGateway {
   OutpostArn?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway.</p>
    */
   OwnerId?: string;
 
@@ -4780,7 +4979,7 @@ export interface LocalGatewayVirtualInterfaceGroup {
   LocalGatewayId?: string;
 
   /**
-   * <p>The AWS account ID that owns the local gateway virtual interface group.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface group.</p>
    */
   OwnerId?: string;
 
@@ -4899,7 +5098,7 @@ export interface LocalGatewayVirtualInterface {
   PeerBgpAsn?: number;
 
   /**
-   * <p>The AWS account ID that owns the local gateway virtual interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the local gateway virtual interface.</p>
    */
   OwnerId?: string;
 
@@ -12856,83 +13055,6 @@ export namespace DescribeTrunkInterfaceAssociationsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeTrunkInterfaceAssociationsResult {
-  /**
-   * <p>Information about the trunk associations.</p>
-   */
-  InterfaceAssociations?: TrunkInterfaceAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeTrunkInterfaceAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export type VolumeAttributeName = "autoEnableIO" | "productCodes";
-
-export interface DescribeVolumeAttributeRequest {
-  /**
-   * <p>The attribute of the volume. This parameter is required.</p>
-   */
-  Attribute: VolumeAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeVolumeAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumeAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeVolumeAttributeResult {
-  /**
-   * <p>The state of <code>autoEnableIO</code> attribute.</p>
-   */
-  AutoEnableIO?: AttributeBooleanValue;
-
-  /**
-   * <p>A list of product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-}
-
-export namespace DescribeVolumeAttributeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeVolumeAttributeResult): any => ({
     ...obj,
   });
 }

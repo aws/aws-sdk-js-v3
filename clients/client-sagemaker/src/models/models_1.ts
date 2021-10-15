@@ -2384,7 +2384,7 @@ export interface ServiceCatalogProvisioningDetails {
   /**
    * <p>The ID of the provisioning artifact.</p>
    */
-  ProvisioningArtifactId: string | undefined;
+  ProvisioningArtifactId?: string;
 
   /**
    * <p>The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path. </p>
@@ -2418,8 +2418,9 @@ export interface CreateProjectInput {
   ProjectDescription?: string;
 
   /**
-   * <p>The product ID and provisioning artifact ID to provision a service catalog. For
-   *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   * <p>The product ID and provisioning artifact ID to provision a service catalog. The provisioning
+   *             artifact ID will default to the latest provisioning artifact ID of the product, if you don't
+   *             provide the provisioning artifact ID. For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
    *                 Catalog</a>.</p>
    */
   ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
@@ -5579,7 +5580,7 @@ export namespace DescribeCompilationJobRequest {
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
  *         <p>Model artifacts are the output that results from training a model, and typically
- *             consist of trained parameters, a model defintion that describes how to compute
+ *             consist of trained parameters, a model definition that describes how to compute
  *             inferences, and other metadata.</p>
  */
 export interface ModelArtifacts {

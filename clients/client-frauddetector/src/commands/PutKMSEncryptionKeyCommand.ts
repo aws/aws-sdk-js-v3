@@ -22,7 +22,7 @@ export interface PutKMSEncryptionKeyCommandInput extends PutKMSEncryptionKeyRequ
 export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyResult, __MetadataBearer {}
 
 /**
- * <p>Specifies the Key Management Service (KMS) customer master key (CMK) to be used to encrypt content in Amazon Fraud Detector.</p>
+ * <p>Specifies the KMS key to be used to encrypt content in Amazon Fraud Detector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

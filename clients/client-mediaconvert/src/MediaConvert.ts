@@ -24,6 +24,11 @@ import {
   DeleteJobTemplateCommandOutput,
 } from "./commands/DeleteJobTemplateCommand";
 import {
+  DeletePolicyCommand,
+  DeletePolicyCommandInput,
+  DeletePolicyCommandOutput,
+} from "./commands/DeletePolicyCommand";
+import {
   DeletePresetCommand,
   DeletePresetCommandInput,
   DeletePresetCommandOutput,
@@ -45,6 +50,7 @@ import {
   GetJobTemplateCommandInput,
   GetJobTemplateCommandOutput,
 } from "./commands/GetJobTemplateCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import { GetPresetCommand, GetPresetCommandInput, GetPresetCommandOutput } from "./commands/GetPresetCommand";
 import { GetQueueCommand, GetQueueCommandInput, GetQueueCommandOutput } from "./commands/GetQueueCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
@@ -60,6 +66,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -287,6 +294,35 @@ export class MediaConvert extends MediaConvertClient {
   }
 
   /**
+   * Permanently delete a policy that you created.
+   */
+  public deletePolicy(
+    args: DeletePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePolicyCommandOutput>;
+  public deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
+  public deletePolicy(
+    args: DeletePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): void;
+  public deletePolicy(
+    args: DeletePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeletePolicyCommandOutput) => void
+  ): Promise<DeletePolicyCommandOutput> | void {
+    const command = new DeletePolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * Permanently delete a preset you have created.
    */
   public deletePreset(
@@ -453,6 +489,32 @@ export class MediaConvert extends MediaConvertClient {
     cb?: (err: any, data?: GetJobTemplateCommandOutput) => void
   ): Promise<GetJobTemplateCommandOutput> | void {
     const command = new GetJobTemplateCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Retrieve the JSON for your policy.
+   */
+  public getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  public getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
+  ): void;
+  public getPolicy(
+    args: GetPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetPolicyCommandOutput) => void
+  ): Promise<GetPolicyCommandOutput> | void {
+    const command = new GetPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -647,6 +709,32 @@ export class MediaConvert extends MediaConvertClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Create or change your policy. For more information about policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+   */
+  public putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
+  public putPolicy(args: PutPolicyCommandInput, cb: (err: any, data?: PutPolicyCommandOutput) => void): void;
+  public putPolicy(
+    args: PutPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
+  public putPolicy(
+    args: PutPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutPolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutPolicyCommandOutput) => void
+  ): Promise<PutPolicyCommandOutput> | void {
+    const command = new PutPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
