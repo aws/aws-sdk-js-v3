@@ -13,3 +13,6 @@ export * from "./commands/TransactWriteCommand";
 export * from "./commands/UpdateCommand";
 export * from "./DynamoDBDocumentClient";
 export * from "./DynamoDBDocument";
+export * from "./pagination/Interfaces";
+export * from "./pagination/QueryPaginator";
+export * from "./pagination/ScanPaginator";
