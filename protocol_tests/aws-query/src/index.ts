@@ -1,5 +1,5 @@
-export * from "./QueryProtocolClient";
 export * from "./QueryProtocol";
+export * from "./QueryProtocolClient";
 export * from "./commands/EmptyInputAndEmptyOutputCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";
