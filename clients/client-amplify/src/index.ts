@@ -1,5 +1,5 @@
-export * from "./AmplifyClient";
 export * from "./Amplify";
+export * from "./AmplifyClient";
 export * from "./commands/CreateAppCommand";
 export * from "./commands/CreateBackendEnvironmentCommand";
 export * from "./commands/CreateBranchCommand";

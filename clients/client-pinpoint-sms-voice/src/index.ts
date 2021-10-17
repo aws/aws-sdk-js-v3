@@ -1,5 +1,5 @@
-export * from "./PinpointSMSVoiceClient";
 export * from "./PinpointSMSVoice";
+export * from "./PinpointSMSVoiceClient";
 export * from "./commands/CreateConfigurationSetCommand";
 export * from "./commands/CreateConfigurationSetEventDestinationCommand";
 export * from "./commands/DeleteConfigurationSetCommand";

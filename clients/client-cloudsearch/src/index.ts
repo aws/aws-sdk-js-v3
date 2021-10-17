@@ -1,5 +1,5 @@
-export * from "./CloudSearchClient";
 export * from "./CloudSearch";
+export * from "./CloudSearchClient";
 export * from "./commands/BuildSuggestersCommand";
 export * from "./commands/CreateDomainCommand";
 export * from "./commands/DefineAnalysisSchemeCommand";

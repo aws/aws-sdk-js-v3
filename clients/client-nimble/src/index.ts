@@ -1,5 +1,5 @@
-export * from "./NimbleClient";
 export * from "./Nimble";
+export * from "./NimbleClient";
 export * from "./commands/AcceptEulasCommand";
 export * from "./commands/CreateLaunchProfileCommand";
 export * from "./commands/CreateStreamingImageCommand";

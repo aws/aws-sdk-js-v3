@@ -1,5 +1,5 @@
-export * from "./FinspaceClient";
 export * from "./Finspace";
+export * from "./FinspaceClient";
 export * from "./commands/CreateEnvironmentCommand";
 export * from "./commands/DeleteEnvironmentCommand";
 export * from "./commands/GetEnvironmentCommand";

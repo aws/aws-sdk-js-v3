@@ -1,5 +1,5 @@
-export * from "./SSOOIDCClient";
 export * from "./SSOOIDC";
+export * from "./SSOOIDCClient";
 export * from "./commands/CreateTokenCommand";
 export * from "./commands/RegisterClientCommand";
 export * from "./commands/StartDeviceAuthorizationCommand";

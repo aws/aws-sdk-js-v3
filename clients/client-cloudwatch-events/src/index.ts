@@ -1,5 +1,5 @@
-export * from "./CloudWatchEventsClient";
 export * from "./CloudWatchEvents";
+export * from "./CloudWatchEventsClient";
 export * from "./commands/ActivateEventSourceCommand";
 export * from "./commands/CancelReplayCommand";
 export * from "./commands/CreateApiDestinationCommand";

@@ -1,5 +1,5 @@
-export * from "./IoTJobsDataPlaneClient";
 export * from "./IoTJobsDataPlane";
+export * from "./IoTJobsDataPlaneClient";
 export * from "./commands/DescribeJobExecutionCommand";
 export * from "./commands/GetPendingJobExecutionsCommand";
 export * from "./commands/StartNextPendingJobExecutionCommand";

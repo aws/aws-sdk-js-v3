@@ -1,5 +1,5 @@
-export * from "./MemoryDBClient";
 export * from "./MemoryDB";
+export * from "./MemoryDBClient";
 export * from "./commands/BatchUpdateClusterCommand";
 export * from "./commands/CopySnapshotCommand";
 export * from "./commands/CreateACLCommand";

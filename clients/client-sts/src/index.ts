@@ -1,5 +1,5 @@
-export * from "./STSClient";
 export * from "./STS";
+export * from "./STSClient";
 export * from "./commands/AssumeRoleCommand";
 export * from "./commands/AssumeRoleWithSAMLCommand";
 export * from "./commands/AssumeRoleWithWebIdentityCommand";

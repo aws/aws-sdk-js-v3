@@ -1,5 +1,5 @@
-export * from "./EventBridgeClient";
 export * from "./EventBridge";
+export * from "./EventBridgeClient";
 export * from "./commands/ActivateEventSourceCommand";
 export * from "./commands/CancelReplayCommand";
 export * from "./commands/CreateApiDestinationCommand";

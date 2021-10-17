@@ -1,5 +1,5 @@
-export * from "./AppSyncClient";
 export * from "./AppSync";
+export * from "./AppSyncClient";
 export * from "./commands/CreateApiCacheCommand";
 export * from "./commands/CreateApiKeyCommand";
 export * from "./commands/CreateDataSourceCommand";
@@ -27,8 +27,8 @@ export * from "./commands/ListApiKeysCommand";
 export * from "./commands/ListDataSourcesCommand";
 export * from "./commands/ListFunctionsCommand";
 export * from "./commands/ListGraphqlApisCommand";
-export * from "./commands/ListResolversCommand";
 export * from "./commands/ListResolversByFunctionCommand";
+export * from "./commands/ListResolversCommand";
 export * from "./commands/ListTagsForResourceCommand";
 export * from "./commands/ListTypesCommand";
 export * from "./commands/StartSchemaCreationCommand";

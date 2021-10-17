@@ -1,5 +1,5 @@
-export * from "./IoT1ClickDevicesServiceClient";
 export * from "./IoT1ClickDevicesService";
+export * from "./IoT1ClickDevicesServiceClient";
 export * from "./commands/ClaimDevicesByClaimCodeCommand";
 export * from "./commands/DescribeDeviceCommand";
 export * from "./commands/FinalizeDeviceClaimCommand";

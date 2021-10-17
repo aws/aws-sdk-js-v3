@@ -1,5 +1,5 @@
-export * from "./LicenseManagerClient";
 export * from "./LicenseManager";
+export * from "./LicenseManagerClient";
 export * from "./commands/AcceptGrantCommand";
 export * from "./commands/CheckInLicenseCommand";
 export * from "./commands/CheckoutBorrowLicenseCommand";
@@ -32,9 +32,9 @@ export * from "./commands/ListFailuresForLicenseConfigurationOperationsCommand";
 export * from "./commands/ListLicenseConfigurationsCommand";
 export * from "./commands/ListLicenseConversionTasksCommand";
 export * from "./commands/ListLicenseManagerReportGeneratorsCommand";
-export * from "./commands/ListLicensesCommand";
 export * from "./commands/ListLicenseSpecificationsForResourceCommand";
 export * from "./commands/ListLicenseVersionsCommand";
+export * from "./commands/ListLicensesCommand";
 export * from "./commands/ListReceivedGrantsCommand";
 export * from "./commands/ListReceivedLicensesCommand";
 export * from "./commands/ListResourceInventoryCommand";

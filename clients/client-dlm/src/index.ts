@@ -1,5 +1,5 @@
-export * from "./DLMClient";
 export * from "./DLM";
+export * from "./DLMClient";
 export * from "./commands/CreateLifecyclePolicyCommand";
 export * from "./commands/DeleteLifecyclePolicyCommand";
 export * from "./commands/GetLifecyclePoliciesCommand";

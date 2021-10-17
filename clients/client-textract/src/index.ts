@@ -1,5 +1,5 @@
-export * from "./TextractClient";
 export * from "./Textract";
+export * from "./TextractClient";
 export * from "./commands/AnalyzeDocumentCommand";
 export * from "./commands/AnalyzeExpenseCommand";
 export * from "./commands/DetectDocumentTextCommand";

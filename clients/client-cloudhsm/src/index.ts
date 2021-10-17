@@ -1,5 +1,5 @@
-export * from "./CloudHSMClient";
 export * from "./CloudHSM";
+export * from "./CloudHSMClient";
 export * from "./commands/AddTagsToResourceCommand";
 export * from "./commands/CreateHapgCommand";
 export * from "./commands/CreateHsmCommand";

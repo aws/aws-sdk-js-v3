@@ -1,5 +1,5 @@
-export * from "./WAFV2Client";
 export * from "./WAFV2";
+export * from "./WAFV2Client";
 export * from "./commands/AssociateWebACLCommand";
 export * from "./commands/CheckCapacityCommand";
 export * from "./commands/CreateIPSetCommand";
@@ -25,8 +25,8 @@ export * from "./commands/GetRuleGroupCommand";
 export * from "./commands/GetSampledRequestsCommand";
 export * from "./commands/GetWebACLCommand";
 export * from "./commands/GetWebACLForResourceCommand";
-export * from "./commands/ListAvailableManagedRuleGroupsCommand";
 export * from "./commands/ListAvailableManagedRuleGroupVersionsCommand";
+export * from "./commands/ListAvailableManagedRuleGroupsCommand";
 export * from "./commands/ListIPSetsCommand";
 export * from "./commands/ListLoggingConfigurationsCommand";
 export * from "./commands/ListManagedRuleSetsCommand";

@@ -1,5 +1,5 @@
-export * from "./PIClient";
 export * from "./PI";
+export * from "./PIClient";
 export * from "./commands/DescribeDimensionKeysCommand";
 export * from "./commands/GetDimensionKeyDetailsCommand";
 export * from "./commands/GetResourceMetricsCommand";

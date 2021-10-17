@@ -1,5 +1,5 @@
-export * from "./IoTEventsDataClient";
 export * from "./IoTEventsData";
+export * from "./IoTEventsDataClient";
 export * from "./commands/BatchAcknowledgeAlarmCommand";
 export * from "./commands/BatchDisableAlarmCommand";
 export * from "./commands/BatchEnableAlarmCommand";

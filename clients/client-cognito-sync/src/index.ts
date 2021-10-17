@@ -1,5 +1,5 @@
-export * from "./CognitoSyncClient";
 export * from "./CognitoSync";
+export * from "./CognitoSyncClient";
 export * from "./commands/BulkPublishCommand";
 export * from "./commands/DeleteDatasetCommand";
 export * from "./commands/DescribeDatasetCommand";
