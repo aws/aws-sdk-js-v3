@@ -39,7 +39,7 @@ const { defaultProvider } = require("@aws-sdk/credential-provider-node");
 const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
 
 const provider = defaultProvider({
-  roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity,
+  roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(),
 });
 
 const client = new S3Client({ credentialDefaultProvider: provider });
