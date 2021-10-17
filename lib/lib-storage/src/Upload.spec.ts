@@ -37,8 +37,9 @@ jest.mock("@aws-sdk/client-s3", () => ({
 }));
 
 import { S3 } from "@aws-sdk/client-s3";
-import { Upload, Progress } from "./index";
 import { Readable } from "stream";
+
+import { Progress, Upload } from "./index";
 
 const DEFAULT_PART_SIZE = 1024 * 1024 * 5;
 
@@ -459,7 +460,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    let received = [];
+    const received = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -496,7 +497,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    let received = [];
+    const received = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -527,7 +528,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    let received = [];
+    const received = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });
@@ -551,7 +552,7 @@ describe(Upload.name, () => {
       client: new S3({}),
     });
 
-    let received = [];
+    const received = [];
     upload.on("httpUploadProgress", (progress: Progress) => {
       received.push(progress);
     });

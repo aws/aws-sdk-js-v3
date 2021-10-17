@@ -1,5 +1,6 @@
-import { ClientSharedValues } from "./runtimeConfig.shared";
 import { lstatSync } from "fs";
+
+import { ClientSharedValues } from "./runtimeConfig.shared";
 
 /**
  * @internal
