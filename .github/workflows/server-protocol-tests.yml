@@ -22,11 +22,16 @@ jobs:
           node-version: '14'
           cache: 'yarn'
 
+      - uses: actions/checkout@v2
+        with:
+          repository: awslabs/smithy-typescript
+          path: smithy-typescript
+          fetch-depth: 1
+
       - name: build and publish smithy-typescript
         run: |
-          git clone --depth 1 https://github.com/awslabs/smithy-typescript.git
           cd smithy-typescript
-          ./gradlew clean build publishToMavenLocal
+          ./gradlew clean :smithy-typescript-codegen:publishToMavenLocal
           cd smithy-typescript-ssdk-libs
           yarn install
           yarn build
