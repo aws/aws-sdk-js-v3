@@ -1364,6 +1364,19 @@ export namespace OmitsNullSerializesEmptyStringInput {
   });
 }
 
+export interface PayloadConfig {
+  data?: number;
+}
+
+export namespace PayloadConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PayloadConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface QueryIdempotencyTokenAutoFillInput {
   token?: string;
 }
@@ -1465,6 +1478,74 @@ export namespace StreamingTraitsWithMediaTypeInputOutput {
    * @internal
    */
   export const filterSensitiveLog = (obj: StreamingTraitsWithMediaTypeInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface TestConfig {
+  timeout?: number;
+}
+
+export namespace TestConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface TestBodyStructureInputOutput {
+  testId?: string;
+  testConfig?: TestConfig;
+}
+
+export namespace TestBodyStructureInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestBodyStructureInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface TestNoPayloadInputOutput {
+  testId?: string;
+}
+
+export namespace TestNoPayloadInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestNoPayloadInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface TestPayloadBlobInputOutput {
+  contentType?: string;
+  data?: Uint8Array;
+}
+
+export namespace TestPayloadBlobInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestPayloadBlobInputOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface TestPayloadStructureInputOutput {
+  testId?: string;
+  payloadConfig?: PayloadConfig;
+}
+
+export namespace TestPayloadStructureInputOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TestPayloadStructureInputOutput): any => ({
     ...obj,
   });
 }

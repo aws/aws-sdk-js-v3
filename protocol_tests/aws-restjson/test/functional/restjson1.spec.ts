@@ -48,6 +48,10 @@ import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPr
 import { StreamingTraitsCommand } from "../../src/commands/StreamingTraitsCommand";
 import { StreamingTraitsRequireLengthCommand } from "../../src/commands/StreamingTraitsRequireLengthCommand";
 import { StreamingTraitsWithMediaTypeCommand } from "../../src/commands/StreamingTraitsWithMediaTypeCommand";
+import { TestBodyStructureCommand } from "../../src/commands/TestBodyStructureCommand";
+import { TestNoPayloadCommand } from "../../src/commands/TestNoPayloadCommand";
+import { TestPayloadBlobCommand } from "../../src/commands/TestPayloadBlobCommand";
+import { TestPayloadStructureCommand } from "../../src/commands/TestPayloadStructureCommand";
 import { TimestampFormatHeadersCommand } from "../../src/commands/TimestampFormatHeadersCommand";
 import { ComplexError, FooError, InvalidGreeting } from "../../src/models/models_0";
 import { RestJsonProtocolClient } from "../../src/RestJsonProtocolClient";
@@ -6177,9 +6181,6 @@ it.skip("RestJsonNoInputAndOutput:Request", async () => {
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/NoInputAndOutputOutput");
 
-    expect(r.headers["accept"]).toBeDefined();
-    expect(r.headers["accept"]).toBe("application/json");
-
     expect(r.body).toBeFalsy();
   }
 });
@@ -7464,6 +7465,332 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Response", async () => {
       expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
     }
   });
+});
+
+/**
+ * Serializes a structure
+ */
+it("RestJsonTestBodyStructure:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestBodyStructureCommand({
+    testConfig: {
+      timeout: 10,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/body");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{\"testConfig\":
+        {\"timeout\": 10}
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes an empty structure in the body
+ */
+it("RestJsonHttpWithEmptyBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestBodyStructureCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/body");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a GET request with no modeled body
+ */
+it("RestJsonHttpWithNoModeledBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestNoPayloadCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/no_payload");
+
+    expect(r.headers["content-length"]).toBeUndefined();
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a GET request with header member but no modeled body
+ */
+it("RestJsonHttpWithHeaderMemberNoModeledBody:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestNoPayloadCommand({
+    testId: "t-12345",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/no_payload");
+
+    expect(r.headers["content-length"]).toBeUndefined();
+    expect(r.headers["content-type"]).toBeUndefined();
+
+    expect(r.headers["x-amz-test-id"]).toBeDefined();
+    expect(r.headers["x-amz-test-id"]).toBe("t-12345");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a payload targeting an empty blob
+ */
+it("RestJsonHttpWithEmptyBlobPayload:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPayloadBlobCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/blob_payload");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/octet-stream");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a payload targeting a blob
+ */
+it("RestJsonTestPayloadBlob:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPayloadBlobCommand({
+    contentType: "image/jpg",
+
+    data: Uint8Array.from("1234", (c) => c.charCodeAt(0)),
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/payload_blob");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("image/jpg");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `1234
+    `;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a payload targeting an empty structure
+ */
+it("RestJsonHttpWithEmptyStructurePayload:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPayloadStructureCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/payload");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a payload targeting a structure
+ */
+it("RestJsonTestPayloadStructure:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPayloadStructureCommand({
+    testId: "t-12345",
+
+    payloadConfig: {
+      data: 25,
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/payload");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{\"data\": 25
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes an request with header members but no payload
+ */
+it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new TestPayloadStructureCommand({
+    testId: "t-12345",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/body");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{}`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
 });
 
 /**
