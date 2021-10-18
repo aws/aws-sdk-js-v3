@@ -1,5 +1,5 @@
-export * from "./ApiGatewayV2Client";
 export * from "./ApiGatewayV2";
+export * from "./ApiGatewayV2Client";
 export * from "./commands/CreateApiCommand";
 export * from "./commands/CreateApiMappingCommand";
 export * from "./commands/CreateAuthorizerCommand";
@@ -44,8 +44,8 @@ export * from "./commands/GetIntegrationResponseCommand";
 export * from "./commands/GetIntegrationResponsesCommand";
 export * from "./commands/GetIntegrationsCommand";
 export * from "./commands/GetModelCommand";
-export * from "./commands/GetModelsCommand";
 export * from "./commands/GetModelTemplateCommand";
+export * from "./commands/GetModelsCommand";
 export * from "./commands/GetRouteCommand";
 export * from "./commands/GetRouteResponseCommand";
 export * from "./commands/GetRouteResponsesCommand";

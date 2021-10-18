@@ -1,5 +1,5 @@
-export * from "./JSONRPC10Client";
 export * from "./JSONRPC10";
+export * from "./JSONRPC10Client";
 export * from "./commands/EmptyInputAndEmptyOutputCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";

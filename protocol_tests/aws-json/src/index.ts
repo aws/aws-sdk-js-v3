@@ -1,5 +1,5 @@
-export * from "./JsonProtocolClient";
 export * from "./JsonProtocol";
+export * from "./JsonProtocolClient";
 export * from "./commands/EmptyOperationCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";

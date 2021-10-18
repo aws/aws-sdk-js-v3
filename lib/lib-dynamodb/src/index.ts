@@ -1,7 +1,9 @@
 export * from "./commands/BatchExecuteStatementCommand";
 export * from "./commands/BatchGetCommand";
 export * from "./commands/BatchWriteCommand";
+export * from "./DynamoDBDocumentClient";
 export * from "./commands/DeleteCommand";
+export * from "./DynamoDBDocument";
 export * from "./commands/ExecuteStatementCommand";
 export * from "./commands/ExecuteTransactionCommand";
 export * from "./commands/GetCommand";
@@ -11,5 +13,3 @@ export * from "./commands/ScanCommand";
 export * from "./commands/TransactGetCommand";
 export * from "./commands/TransactWriteCommand";
 export * from "./commands/UpdateCommand";
-export * from "./DynamoDBDocumentClient";
-export * from "./DynamoDBDocument";

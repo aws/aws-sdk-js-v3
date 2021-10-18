@@ -1,5 +1,5 @@
-export * from "./KinesisVideoArchivedMediaClient";
 export * from "./KinesisVideoArchivedMedia";
+export * from "./KinesisVideoArchivedMediaClient";
 export * from "./commands/GetClipCommand";
 export * from "./commands/GetDASHStreamingSessionURLCommand";
 export * from "./commands/GetHLSStreamingSessionURLCommand";

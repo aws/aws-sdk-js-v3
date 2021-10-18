@@ -1,5 +1,5 @@
-export * from "./ComputeOptimizerClient";
 export * from "./ComputeOptimizer";
+export * from "./ComputeOptimizerClient";
 export * from "./commands/DescribeRecommendationExportJobsCommand";
 export * from "./commands/ExportAutoScalingGroupRecommendationsCommand";
 export * from "./commands/ExportEBSVolumeRecommendationsCommand";

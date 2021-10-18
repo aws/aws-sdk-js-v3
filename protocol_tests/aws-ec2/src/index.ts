@@ -1,5 +1,5 @@
-export * from "./EC2ProtocolClient";
 export * from "./EC2Protocol";
+export * from "./EC2ProtocolClient";
 export * from "./commands/EmptyInputAndEmptyOutputCommand";
 export * from "./commands/EndpointOperationCommand";
 export * from "./commands/EndpointWithHostLabelOperationCommand";

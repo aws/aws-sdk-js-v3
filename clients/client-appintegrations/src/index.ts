@@ -1,5 +1,5 @@
-export * from "./AppIntegrationsClient";
 export * from "./AppIntegrations";
+export * from "./AppIntegrationsClient";
 export * from "./commands/CreateDataIntegrationCommand";
 export * from "./commands/CreateEventIntegrationCommand";
 export * from "./commands/DeleteDataIntegrationCommand";

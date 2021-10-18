@@ -1,5 +1,5 @@
-export * from "./DynamoDBStreamsClient";
 export * from "./DynamoDBStreams";
+export * from "./DynamoDBStreamsClient";
 export * from "./commands/DescribeStreamCommand";
 export * from "./commands/GetRecordsCommand";
 export * from "./commands/GetShardIteratorCommand";

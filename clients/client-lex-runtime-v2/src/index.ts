@@ -1,5 +1,5 @@
-export * from "./LexRuntimeV2Client";
 export * from "./LexRuntimeV2";
+export * from "./LexRuntimeV2Client";
 export * from "./commands/DeleteSessionCommand";
 export * from "./commands/GetSessionCommand";
 export * from "./commands/PutSessionCommand";

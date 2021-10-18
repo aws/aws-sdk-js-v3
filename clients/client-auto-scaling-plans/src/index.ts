@@ -1,5 +1,5 @@
-export * from "./AutoScalingPlansClient";
 export * from "./AutoScalingPlans";
+export * from "./AutoScalingPlansClient";
 export * from "./commands/CreateScalingPlanCommand";
 export * from "./commands/DeleteScalingPlanCommand";
 export * from "./commands/DescribeScalingPlanResourcesCommand";

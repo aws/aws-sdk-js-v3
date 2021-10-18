@@ -1,5 +1,5 @@
-export * from "./RDSDataClient";
 export * from "./RDSData";
+export * from "./RDSDataClient";
 export * from "./commands/BatchExecuteStatementCommand";
 export * from "./commands/BeginTransactionCommand";
 export * from "./commands/CommitTransactionCommand";

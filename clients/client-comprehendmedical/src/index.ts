@@ -1,5 +1,5 @@
-export * from "./ComprehendMedicalClient";
 export * from "./ComprehendMedical";
+export * from "./ComprehendMedicalClient";
 export * from "./commands/DescribeEntitiesDetectionV2JobCommand";
 export * from "./commands/DescribeICD10CMInferenceJobCommand";
 export * from "./commands/DescribePHIDetectionJobCommand";

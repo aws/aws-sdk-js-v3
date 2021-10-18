@@ -1,5 +1,5 @@
-export * from "./WAFClient";
 export * from "./WAF";
+export * from "./WAFClient";
 export * from "./commands/CreateByteMatchSetCommand";
 export * from "./commands/CreateGeoMatchSetCommand";
 export * from "./commands/CreateIPSetCommand";

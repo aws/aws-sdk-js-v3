@@ -1,5 +1,5 @@
-export * from "./WAFRegionalClient";
 export * from "./WAFRegional";
+export * from "./WAFRegionalClient";
 export * from "./commands/AssociateWebACLCommand";
 export * from "./commands/CreateByteMatchSetCommand";
 export * from "./commands/CreateGeoMatchSetCommand";

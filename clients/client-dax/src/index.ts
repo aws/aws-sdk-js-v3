@@ -1,5 +1,5 @@
-export * from "./DAXClient";
 export * from "./DAX";
+export * from "./DAXClient";
 export * from "./commands/CreateClusterCommand";
 export * from "./commands/CreateParameterGroupCommand";
 export * from "./commands/CreateSubnetGroupCommand";
