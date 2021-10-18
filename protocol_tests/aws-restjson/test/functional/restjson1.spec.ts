@@ -7630,7 +7630,6 @@ it("RestJsonHttpWithEmptyBlobPayload:Request", async () => {
     const r = err.request;
     expect(r.method).toBe("POST");
     expect(r.path).toBe("/blob_payload");
-    expect(r.headers["content-length"]).toBeDefined();
 
     expect(r.headers["content-type"]).toBeDefined();
     expect(r.headers["content-type"]).toBe("application/octet-stream");
@@ -7664,7 +7663,7 @@ it("RestJsonTestPayloadBlob:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("POST");
-    expect(r.path).toBe("/payload_blob");
+    expect(r.path).toBe("/blob_payload");
     expect(r.headers["content-length"]).toBeDefined();
 
     expect(r.headers["content-type"]).toBeDefined();
@@ -7672,8 +7671,7 @@ it("RestJsonTestPayloadBlob:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `1234
-    `;
+    const bodyString = `1234`;
     const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
     expect(unequalParts).toBeUndefined();
   }
@@ -7779,7 +7777,7 @@ it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
     }
     const r = err.request;
     expect(r.method).toBe("POST");
-    expect(r.path).toBe("/body");
+    expect(r.path).toBe("/payload");
     expect(r.headers["content-length"]).toBeDefined();
 
     expect(r.headers["content-type"]).toBeDefined();
