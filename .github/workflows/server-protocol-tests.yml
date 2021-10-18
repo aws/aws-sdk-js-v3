@@ -45,7 +45,7 @@ jobs:
 
       - name: generate protocol tests
         run: |
-          yarn generate-clients --server-artifacts
+          yarn generate-clients --server-artifacts --skip-formatting
 
       # there are new dependencies as a result of generating server protocol tests
       - name: install dependencies again

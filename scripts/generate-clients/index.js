@@ -21,6 +21,7 @@ const {
   output: clientsDir,
   noProtocolTest,
   s: serverOnly,
+  skipFormatting,
 } = yargs
   .alias("m", "models")
   .string("m")
@@ -40,14 +41,18 @@ const {
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
   .conflicts("s", ["m", "g", "n"])
+  .boolean("skipFormatting")
+  .describe("skipFormatting", "Skip running prettier and eslint fix on generated code")
   .help().argv;
 
 (async () => {
   try {
     if (serverOnly === true) {
       await generateProtocolTests();
-      await eslintFixCode();
-      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      if (!skipFormatting) {
+        await eslintFixCode();
+        await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+      }
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
       emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
@@ -60,9 +65,11 @@ const {
     await generateClients(models || globs);
     if (!noProtocolTest) await generateProtocolTests();
 
-    await eslintFixCode();
-    await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!skipFormatting) {
+      await eslintFixCode();
+      await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
+      if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    }
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
     if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
