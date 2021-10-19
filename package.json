@@ -48,6 +48,8 @@
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
     "@mixer/parallel-prettier": "^2.0.1",
+    "@swc/core": "1.2.99",
+    "@swc/jest": "0.2.4",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^26.0.4",
