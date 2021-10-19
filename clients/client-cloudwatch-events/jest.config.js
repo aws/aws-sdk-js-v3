@@ -1,4 +1,6 @@
 module.exports = {
-  preset: "ts-jest",
+  transform: {
+    "^.+\\.ts$": "@swc/jest",
+  },
   testMatch: ["**/*.spec.ts", "!**/*.browser.spec.ts", "!**/*.integ.spec.ts"],
 };
