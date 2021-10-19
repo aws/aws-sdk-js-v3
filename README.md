@@ -433,7 +433,7 @@ const client = new S3({ region: "us-west-2" });
 client.middlewareStack.add(
   (next, context) => async (args) => {
     args.request.headers["x-amz-meta-foo"] = "bar";
-    const result = next(args);
+    const result = await next(args);
     // result.response contains data returned from next middleware.
     return result;
   },
