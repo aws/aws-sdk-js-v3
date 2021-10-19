@@ -29,19 +29,13 @@ const { models } = yargs
       await fsPromises.stat(smithyModelsFile);
       // File exists, copy it.
       try {
-        const fileContent = (await fsPromises.readFile(smithyModelsFile))
-          .toString()
-          // Fix for issue SMITHY-95
-          .replace('"smithy.api#authDefinition": {},', "");
+        const fileContent = (await fsPromises.readFile(smithyModelsFile)).toString();
 
         const sdkIdRE = /"sdkId": "([^"]*)"/;
         const sdkId = fileContent.match(sdkIdRE)[1].toLowerCase().replace(/\s/g, "-");
 
-        const versionRE = /"version": "([^"]*)"/;
-        const version = fileContent.match(versionRE)[1];
-
         // Copy file.
-        const outputFile = join(OUTPUT_DIR, `${sdkId}.${version}.json`);
+        const outputFile = join(OUTPUT_DIR, `${sdkId}.json`);
         await fsPromises.writeFile(outputFile, fileContent);
       } catch (e) {
         // Copy failed, log.
