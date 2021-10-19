@@ -26,7 +26,7 @@
     "mode": "file",
     "out": "docs",
     "theme": "minimal",
-    "plugin": ["@aws-sdk/client-documentation-generator"]
+    "plugin": ["@aws-sdk/service-client-documentation-generator"]
   },
   "exclude": ["test/**/*"]
 }

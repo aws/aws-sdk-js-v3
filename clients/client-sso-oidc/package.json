@@ -49,7 +49,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@aws-sdk/client-documentation-generator": "3.37.0",
+    "@aws-sdk/service-client-documentation-generator": "3.37.0",
     "@types/node": "^12.7.5",
     "downlevel-dts": "0.7.0",
     "jest": "^26.1.0",
