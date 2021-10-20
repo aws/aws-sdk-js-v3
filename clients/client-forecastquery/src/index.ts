@@ -1,4 +1,4 @@
 export * from "./Forecastquery";
 export * from "./ForecastqueryClient";
-export * from "./commands/QueryForecastCommand";
-export * from "./models/index";
+export * from "./commands";
+export * from "./models";
