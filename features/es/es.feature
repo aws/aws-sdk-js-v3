@@ -1,5 +1,5 @@
 # language: en
-@es
+@elasticsearchservice
 Feature: 
 
   I want to use Amazon ES

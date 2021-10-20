@@ -1,5 +1,5 @@
 # language: en
-@elb
+@elasticloadbalancing
 Feature: Elastic Load Balancing
 
   I want to use Elastic Load Balancing
