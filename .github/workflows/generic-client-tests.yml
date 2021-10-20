@@ -34,7 +34,14 @@ jobs:
           cd codegen
           ./gradlew clean smithy-aws-typescript-codegen:build generic-client-test-codegen:build
 
+      - name: link service-client-documentation-generator
+        run: |
+          cd packages/service-client-documentation-generator
+          yarn install && yarn build
+          yarn link
+
       - name: build generic client
         run: |
           cd codegen/generic-client-test-codegen/build/smithyprojections/generic-client-test-codegen/aws-echo-service/typescript-codegen/
+          yarn link "@aws-sdk/service-client-documentation-generator"
           yarn install && yarn build
