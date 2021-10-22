@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/service-client-documentation-generator",
-  "version": "3.37.0",
+  "version": "3.38.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
