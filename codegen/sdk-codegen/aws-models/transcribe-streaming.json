@@ -636,6 +636,16 @@
         "smithy.api#streaming": {}
       }
     },
+    "com.amazonaws.transcribestreaming#ModelName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 200
+        },
+        "smithy.api#pattern": "^[0-9a-zA-Z._-]+$"
+      }
+    },
     "com.amazonaws.transcribestreaming#NumberOfChannels": {
       "type": "integer",
       "traits": {
@@ -1160,8 +1170,15 @@
         "PiiEntityTypes": {
           "target": "com.amazonaws.transcribestreaming#PiiEntityTypes",
           "traits": {
-            "smithy.api#documentation": "<p>List the PII entity types you want to identify or redact. In order to specify entity types, you must have \n      either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code> enabled.</p>\n         <p> \n            <code>PIIEntityTypes</code> must be comma-separated; the available values are:\n      <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,\n      <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>, \n      <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>, \n      <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>, \n      <code>SSN</code>, and <code>ALL</code>.</p>\n         <p>\n            <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>",
+            "smithy.api#documentation": "<p>List the PII entity types you want to identify or redact. In order to specify entity types, you must have \n      either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code> enabled.</p>    \n         <p>\n            <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-pii-entity-types"
+          }
+        },
+        "LanguageModelName": {
+          "target": "com.amazonaws.transcribestreaming#ModelName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the language model you want to use.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-model-name"
           }
         }
       }
@@ -1287,6 +1304,12 @@
             "smithy.api#documentation": "<p>Lists the PII entity types you specified in your request.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-pii-entity-types"
           }
+        },
+        "LanguageModelName": {
+          "target": "com.amazonaws.transcribestreaming#ModelName",
+          "traits": {
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-model-name"
+          }
         }
       }
     },
@@ -1354,7 +1377,7 @@
         "TranscriptEvent": {
           "target": "com.amazonaws.transcribestreaming#TranscriptEvent",
           "traits": {
-            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream. </p>"
+            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream.\n      </p>"
           }
         },
         "BadRequestException": {

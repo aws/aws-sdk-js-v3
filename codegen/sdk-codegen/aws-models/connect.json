@@ -1774,7 +1774,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Creates hours of operation. </p>",
+        "smithy.api#documentation": "<p>Creates hours of operation. </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/hours-of-operations/{InstanceId}",
@@ -2862,7 +2862,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Deletes an hours of operation.</p>",
+        "smithy.api#documentation": "<p>Deletes an hours of operation.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/hours-of-operations/{InstanceId}/{HoursOfOperationId}",
@@ -3355,7 +3355,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Describes the hours of operation.</p>",
+        "smithy.api#documentation": "<p>Describes the hours of operation.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/hours-of-operations/{InstanceId}/{HoursOfOperationId}",
@@ -5493,14 +5493,14 @@
         "StartTime": {
           "target": "com.amazonaws.connect#HoursOfOperationTimeSlice",
           "traits": {
-            "smithy.api#documentation": "<p>The start time that your contact center is open.</p>",
+            "smithy.api#documentation": "<p>The start time that your contact center opens.</p>",
             "smithy.api#required": {}
           }
         },
         "EndTime": {
           "target": "com.amazonaws.connect#HoursOfOperationTimeSlice",
           "traits": {
-            "smithy.api#documentation": "<p>The end time that your contact center is closes.</p>",
+            "smithy.api#documentation": "<p>The end time that your contact center closes.</p>",
             "smithy.api#required": {}
           }
         }
@@ -7198,7 +7198,7 @@
           "target": "com.amazonaws.connect#MaxResult25",
           "traits": {
             "smithy.api#box": {},
-            "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>",
+            "smithy.api#documentation": "<p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>",
             "smithy.api#httpQuery": "maxResults"
           }
         }
@@ -11918,7 +11918,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>This API is in preview release for Amazon Connect and is subject to change.</p>\n         <p>Updates the hours of operation.</p>",
+        "smithy.api#documentation": "<p>Updates the hours of operation.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/hours-of-operations/{InstanceId}/{HoursOfOperationId}",

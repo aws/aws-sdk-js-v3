@@ -35,24 +35,24 @@
         "id": {
           "target": "com.amazonaws.auditmanager#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The identifier for the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The identifier for the specified Amazon Web Services account. \n</p>"
           }
         },
         "emailAddress": {
           "target": "com.amazonaws.auditmanager#EmailAddress",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The email address associated with the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The email address associated with the specified Amazon Web Services account. \n</p>"
           }
         },
         "name": {
           "target": "com.amazonaws.auditmanager#AccountName",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The name of the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The name of the specified Amazon Web Services account. \n</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n   The wrapper of account details, such as account ID, email address, and so on. \n</p>"
+        "smithy.api#documentation": "<p>\n   The wrapper of Amazon Web Services account details, such as account ID, email address, and so on. \n</p>"
       }
     },
     "com.amazonaws.auditmanager#AWSAccounts": {
@@ -217,7 +217,7 @@
         "awsAccount": {
           "target": "com.amazonaws.auditmanager#AWSAccount",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The account associated with the assessment. \n</p>"
+            "smithy.api#documentation": "<p>\n   The Amazon Web Services account associated with the assessment. \n</p>"
           }
         },
         "metadata": {
@@ -670,7 +670,7 @@
         "scope": {
           "target": "com.amazonaws.auditmanager#Scope",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The wrapper of accounts and services in scope for the assessment. \n</p>"
+            "smithy.api#documentation": "<p>\n   The wrapper of Amazon Web Services accounts and services in scope for the assessment. \n</p>"
           }
         },
         "roles": {
@@ -792,7 +792,7 @@
         "awsAccountId": {
           "target": "com.amazonaws.auditmanager#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The identifier for the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The identifier for the specified Amazon Web Services account. \n</p>"
           }
         },
         "assessmentId": {
@@ -2102,7 +2102,7 @@
           "min": 1,
           "max": 300
         },
-        "smithy.api#pattern": "^[^\\_]*$"
+        "smithy.api#pattern": "^[^\\\\\\_]*$"
       }
     },
     "com.amazonaws.auditmanager#ControlSetStatus": {
@@ -3139,7 +3139,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified member account as a delegated administrator for Audit Manager. </p> \n         <important>\n            <p>When you remove a delegated administrator from your Audit Manager settings, or when you\n        deregister a delegated administrator from Organizations, you continue to have access\n      to the evidence that you previously collected under that account. However, Audit Manager\n            will stop collecting and attaching evidence to that delegated administrator account\n            moving forward.</p>\n         </important>",
+        "smithy.api#documentation": "<p>Removes the specified member Amazon Web Services account as a delegated administrator for Audit Manager. </p> \n         <important>\n            <p>When you remove a delegated administrator from your Audit Manager settings, or when you\n        deregister a delegated administrator from Organizations, you continue to have access\n      to the evidence that you previously collected under that account. However, Audit Manager\n            will stop collecting and attaching evidence to that delegated administrator account\n            moving forward.</p>\n         </important>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/deregisterOrganizationAdminAccount",
@@ -3269,7 +3269,7 @@
         "evidenceAwsAccountId": {
           "target": "com.amazonaws.auditmanager#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The identifier for the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The identifier for the specified Amazon Web Services account. \n</p>"
           }
         },
         "time": {
@@ -3323,13 +3323,13 @@
         "awsOrganization": {
           "target": "com.amazonaws.auditmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The account from which the evidence is collected, and its organization path.\n</p>"
+            "smithy.api#documentation": "<p>\n   The Amazon Web Services account from which the evidence is collected, and its organization path.\n</p>"
           }
         },
         "awsAccountId": {
           "target": "com.amazonaws.auditmanager#AccountId",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The identifier for the specified account. \n</p>"
+            "smithy.api#documentation": "<p>\n   The identifier for the specified Amazon Web Services account. \n</p>"
           }
         },
         "evidenceFolderId": {
@@ -3625,7 +3625,7 @@
         "status": {
           "target": "com.amazonaws.auditmanager#AccountStatus",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The status of the specified account.\n</p>"
+            "smithy.api#documentation": "<p>\n   The status of the specified Amazon Web Services account.\n</p>"
           }
         }
       }
@@ -4552,7 +4552,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>\n   Returns the settings for the specified account. \n</p>",
+        "smithy.api#documentation": "<p>\n   Returns the settings for the specified Amazon Web Services account. \n</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/settings/{attribute}",
@@ -5325,7 +5325,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>\n   Enables Audit Manager for the specified account. \n</p>",
+        "smithy.api#documentation": "<p>\n   Enables Audit Manager for the specified Amazon Web Services account. \n</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/registerAccount",
@@ -5384,7 +5384,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>\n   Enables an account within the organization as the delegated administrator for Audit Manager.\n</p>",
+        "smithy.api#documentation": "<p>\n   Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager.\n</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/registerOrganizationAdminAccount",
@@ -5544,7 +5544,7 @@
         "awsAccounts": {
           "target": "com.amazonaws.auditmanager#AWSAccounts",
           "traits": {
-            "smithy.api#documentation": "<p>\n   The accounts included in the scope of the assessment. \n</p>"
+            "smithy.api#documentation": "<p>\n   The Amazon Web Services accounts included in the scope of the assessment. \n</p>"
           }
         },
         "awsServices": {
@@ -5555,7 +5555,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>\n   The wrapper that contains the accounts and services in scope for the assessment.\n</p>"
+        "smithy.api#documentation": "<p>\n   The wrapper that contains the Amazon Web Services accounts and services in scope for the assessment.\n</p>"
       }
     },
     "com.amazonaws.auditmanager#ServiceMetadata": {
