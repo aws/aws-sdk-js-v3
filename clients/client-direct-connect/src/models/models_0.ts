@@ -32,7 +32,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
   proposalId: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the virtual private gateway or transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the virtual private gateway or transit gateway.</p>
    */
   associatedGatewayOwnerAccount: string | undefined;
 
@@ -72,7 +72,7 @@ export interface AssociatedGateway {
   type?: GatewayType | string;
 
   /**
-   * <p>The ID of the account that owns the associated virtual private gateway or transit gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the associated virtual private gateway or transit gateway.</p>
    */
   ownerAccount?: string;
 
@@ -108,7 +108,7 @@ export interface DirectConnectGatewayAssociation {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the account that owns the associated gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the associated gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
@@ -163,12 +163,12 @@ export interface DirectConnectGatewayAssociation {
   /**
    * @deprecated
    *
-   * <p>The Region where the virtual private gateway is located.</p>
+   * <p>The Amazon Web Services Region where the virtual private gateway is located.</p>
    */
   virtualGatewayRegion?: string;
 
   /**
-   * <p>The ID of the account that owns the virtual private gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the virtual private gateway.</p>
    */
   virtualGatewayOwnerAccount?: string;
 }
@@ -239,6 +239,31 @@ export enum AddressFamily {
   IPv6 = "ipv6",
 }
 
+/**
+ * <p>The name and status of a customer agreement. </p>
+ */
+export interface CustomerAgreement {
+  /**
+   * <p>The name of the agreement.</p>
+   */
+  agreementName?: string;
+
+  /**
+   * <p>The status of the customer agreement. This will be either <code>signed</code> or <code>unsigned</code>
+   *          </p>
+   */
+  status?: string;
+}
+
+export namespace CustomerAgreement {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomerAgreement): any => ({
+    ...obj,
+  });
+}
+
 export interface AllocateConnectionOnInterconnectRequest {
   /**
    * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
@@ -254,7 +279,7 @@ export interface AllocateConnectionOnInterconnectRequest {
   connectionName: string | undefined;
 
   /**
-   * <p>The ID of the account of the customer for whom the connection will be provisioned.</p>
+   * <p>The ID of the Amazon Web Services account of the customer for whom the connection will be provisioned.</p>
    */
   ownerAccount: string | undefined;
 
@@ -377,7 +402,7 @@ export namespace Tag {
  */
 export interface Connection {
   /**
-   * <p>The ID of the account that owns the connection.</p>
+   * <p>The ID of the Amazon Web Services account that owns the connection.</p>
    */
   ownerAccount?: string;
 
@@ -435,7 +460,7 @@ export interface Connection {
   connectionState?: ConnectionState | string;
 
   /**
-   * <p>The Region where the connection is located.</p>
+   * <p>The Amazon Web Services Region where the connection is located.</p>
    */
   region?: string;
 
@@ -546,7 +571,7 @@ export interface AllocateHostedConnectionRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the account ID of the customer for the connection.</p>
+   * <p>The ID of the Amazon Web Services account ID of the customer for the connection.</p>
    */
   ownerAccount: string | undefined;
 
@@ -683,7 +708,7 @@ export interface AllocatePrivateVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the virtual private interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the virtual private interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -834,7 +859,7 @@ export type VirtualInterfaceState =
  */
 export interface VirtualInterface {
   /**
-   * <p>The ID of the account that owns the virtual interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the virtual interface.</p>
    */
   ownerAccount?: string;
 
@@ -978,7 +1003,7 @@ export interface VirtualInterface {
   bgpPeers?: BGPPeer[];
 
   /**
-   * <p>The Region where the virtual interface is located.</p>
+   * <p>The Amazon Web Services Region where the virtual interface is located.</p>
    */
   region?: string;
 
@@ -1075,7 +1100,7 @@ export interface AllocatePublicVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the public virtual interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the public virtual interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -1161,7 +1186,7 @@ export interface AllocateTransitVirtualInterfaceRequest {
   connectionId: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the transit virtual interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the transit virtual interface.</p>
    */
   ownerAccount: string | undefined;
 
@@ -1386,6 +1411,42 @@ export namespace ConfirmConnectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: ConfirmConnectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ConfirmCustomerAgreementRequest {
+  /**
+   * <p>
+   *       The name of the customer agreement.
+   *     </p>
+   */
+  agreementName?: string;
+}
+
+export namespace ConfirmCustomerAgreementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConfirmCustomerAgreementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ConfirmCustomerAgreementResponse {
+  /**
+   * <p>
+   *       The status of the customer agreement when the connection was created. This will be either <code>signed</code> or <code>unsigned</code>.
+   *     </p>
+   */
+  status?: string;
+}
+
+export namespace ConfirmCustomerAgreementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConfirmCustomerAgreementResponse): any => ({
     ...obj,
   });
 }
@@ -1799,7 +1860,7 @@ export interface DirectConnectGateway {
   amazonSideAsn?: number;
 
   /**
-   * <p>The ID of the account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
    */
   ownerAccount?: string;
 
@@ -1913,7 +1974,7 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   directConnectGatewayId: string | undefined;
 
   /**
-   * <p>The ID of the account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount: string | undefined;
 
@@ -1959,7 +2020,7 @@ export interface DirectConnectGatewayAssociationProposal {
   directConnectGatewayId?: string;
 
   /**
-   * <p>The ID of the account that owns the Direct Connect gateway.</p>
+   * <p>The ID of the Amazon Web Services account that owns the Direct Connect gateway.</p>
    */
   directConnectGatewayOwnerAccount?: string;
 
@@ -2117,7 +2178,7 @@ export interface Interconnect {
   interconnectState?: InterconnectState | string;
 
   /**
-   * <p>The Region where the connection is located.</p>
+   * <p>The Amazon Web Services Region where the connection is located.</p>
    */
   region?: string;
 
@@ -2273,7 +2334,7 @@ export interface Lag {
   lagId?: string;
 
   /**
-   * <p>The ID of the account that owns the LAG.</p>
+   * <p>The ID of the Amazon Web Services account that owns the LAG.</p>
    */
   ownerAccount?: string;
 
@@ -2324,7 +2385,7 @@ export interface Lag {
   location?: string;
 
   /**
-   * <p>The Region where the connection is located.</p>
+   * <p>The Amazon Web Services Region where the connection is located.</p>
    */
   region?: string;
 
@@ -3102,6 +3163,44 @@ export namespace DescribeConnectionsOnInterconnectRequest {
   });
 }
 
+export enum NniPartnerType {
+  NonPartner = "nonPartner",
+  V1 = "v1",
+  V2 = "v2",
+}
+
+export interface DescribeCustomerMetadataResponse {
+  /**
+   * <p>The list of customer agreements.</p>
+   */
+  agreements?: CustomerAgreement[];
+
+  /**
+   * <p>The type of network-to-network interface (NNI) partner. The partner type will be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>V1: This partner can only allocate 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps subgigabit connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>V2: This partner can only allocate 1GB, 2GB, 5GB, or 10GB hosted connections.</p>
+   *             </li>
+   *             <li>
+   *                <p>nonPartner: The customer is not a partner.</p>
+   *             </li>
+   *          </ul>
+   */
+  nniPartnerType?: NniPartnerType | string;
+}
+
+export namespace DescribeCustomerMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeCustomerMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   /**
    * <p>The ID of the Direct Connect gateway.</p>
@@ -3280,12 +3379,12 @@ export interface DirectConnectGatewayAttachment {
   virtualInterfaceId?: string;
 
   /**
-   * <p>The Region where the virtual interface is located.</p>
+   * <p>The Amazon Web Services Region where the virtual interface is located.</p>
    */
   virtualInterfaceRegion?: string;
 
   /**
-   * <p>The ID of the account that owns the virtual interface.</p>
+   * <p>The ID of the Amazon Web Services account that owns the virtual interface.</p>
    */
   virtualInterfaceOwnerAccount?: string;
 
@@ -3567,7 +3666,7 @@ export interface Location {
   locationName?: string;
 
   /**
-   * <p>The Region for the location.</p>
+   * <p>The Amazon Web Services Region for the location.</p>
    */
   region?: string;
 
@@ -3608,6 +3707,105 @@ export namespace Locations {
    * @internal
    */
   export const filterSensitiveLog = (obj: Locations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the details about a virtual interface's router.</p>
+ */
+export interface DescribeRouterConfigurationRequest {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  virtualInterfaceId: string | undefined;
+
+  /**
+   * <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
+   */
+  routerTypeIdentifier?: string;
+}
+
+export namespace DescribeRouterConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRouterConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the virtual router.</p>
+ */
+export interface RouterType {
+  /**
+   * <p>The vendor for the virtual interface's router.</p>
+   */
+  vendor?: string;
+
+  /**
+   * <p>The virtual interface router platform.</p>
+   */
+  platform?: string;
+
+  /**
+   * <p>The router software. </p>
+   */
+  software?: string;
+
+  /**
+   * <p>The template for the virtual interface's router.</p>
+   */
+  xsltTemplateName?: string;
+
+  /**
+   * <p>The MAC Security (MACsec) template for the virtual interface's router.</p>
+   */
+  xsltTemplateNameForMacSec?: string;
+
+  /**
+   * <p>Identifies the router by a combination of vendor, platform, and software version. For example, <code>CiscoSystemsInc-2900SeriesRouters-IOS124</code>.</p>
+   */
+  routerTypeIdentifier?: string;
+}
+
+export namespace RouterType {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouterType): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeRouterConfigurationResponse {
+  /**
+   * <p>The customer router configuration.</p>
+   */
+  customerRouterConfig?: string;
+
+  /**
+   * <p>The details about the router.</p>
+   */
+  router?: RouterType;
+
+  /**
+   * <p>The ID assigned to the virtual interface.</p>
+   */
+  virtualInterfaceId?: string;
+
+  /**
+   * <p>The name of the virtual interface assigned by the customer network.</p>
+   */
+  virtualInterfaceName?: string;
+}
+
+export namespace DescribeRouterConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeRouterConfigurationResponse): any => ({
     ...obj,
   });
 }
@@ -4111,6 +4309,43 @@ export namespace UpdateConnectionRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDirectConnectGatewayRequest {
+  /**
+   * <p>The ID of the Direct Connect gateway to update.</p>
+   */
+  directConnectGatewayId: string | undefined;
+
+  /**
+   * <p>The new name for the Direct Connect gateway.</p>
+   */
+  newDirectConnectGatewayName: string | undefined;
+}
+
+export namespace UpdateDirectConnectGatewayRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDirectConnectGatewayResponse {
+  /**
+   * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
+   */
+  directConnectGateway?: DirectConnectGateway;
+}
+
+export namespace UpdateDirectConnectGatewayResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDirectConnectGatewayResponse): any => ({
     ...obj,
   });
 }

@@ -2,10 +2,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import { ChimeSDKMessagingClient } from "./ChimeSDKMessagingClient";
 import {
+  AssociateChannelFlowCommand,
+  AssociateChannelFlowCommandInput,
+  AssociateChannelFlowCommandOutput,
+} from "./commands/AssociateChannelFlowCommand";
+import {
   BatchCreateChannelMembershipCommand,
   BatchCreateChannelMembershipCommandInput,
   BatchCreateChannelMembershipCommandOutput,
 } from "./commands/BatchCreateChannelMembershipCommand";
+import {
+  ChannelFlowCallbackCommand,
+  ChannelFlowCallbackCommandInput,
+  ChannelFlowCallbackCommandOutput,
+} from "./commands/ChannelFlowCallbackCommand";
 import {
   CreateChannelBanCommand,
   CreateChannelBanCommandInput,
@@ -16,6 +26,11 @@ import {
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
+import {
+  CreateChannelFlowCommand,
+  CreateChannelFlowCommandInput,
+  CreateChannelFlowCommandOutput,
+} from "./commands/CreateChannelFlowCommand";
 import {
   CreateChannelMembershipCommand,
   CreateChannelMembershipCommandInput,
@@ -36,6 +51,11 @@ import {
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
+import {
+  DeleteChannelFlowCommand,
+  DeleteChannelFlowCommandInput,
+  DeleteChannelFlowCommandOutput,
+} from "./commands/DeleteChannelFlowCommand";
 import {
   DeleteChannelMembershipCommand,
   DeleteChannelMembershipCommandInput,
@@ -62,6 +82,11 @@ import {
   DescribeChannelCommandOutput,
 } from "./commands/DescribeChannelCommand";
 import {
+  DescribeChannelFlowCommand,
+  DescribeChannelFlowCommandInput,
+  DescribeChannelFlowCommandOutput,
+} from "./commands/DescribeChannelFlowCommand";
+import {
   DescribeChannelMembershipCommand,
   DescribeChannelMembershipCommandInput,
   DescribeChannelMembershipCommandOutput,
@@ -82,10 +107,20 @@ import {
   DescribeChannelModeratorCommandOutput,
 } from "./commands/DescribeChannelModeratorCommand";
 import {
+  DisassociateChannelFlowCommand,
+  DisassociateChannelFlowCommandInput,
+  DisassociateChannelFlowCommandOutput,
+} from "./commands/DisassociateChannelFlowCommand";
+import {
   GetChannelMessageCommand,
   GetChannelMessageCommandInput,
   GetChannelMessageCommandOutput,
 } from "./commands/GetChannelMessageCommand";
+import {
+  GetChannelMessageStatusCommand,
+  GetChannelMessageStatusCommandInput,
+  GetChannelMessageStatusCommandOutput,
+} from "./commands/GetChannelMessageStatusCommand";
 import {
   GetMessagingSessionEndpointCommand,
   GetMessagingSessionEndpointCommandInput,
@@ -96,6 +131,11 @@ import {
   ListChannelBansCommandInput,
   ListChannelBansCommandOutput,
 } from "./commands/ListChannelBansCommand";
+import {
+  ListChannelFlowsCommand,
+  ListChannelFlowsCommandInput,
+  ListChannelFlowsCommandOutput,
+} from "./commands/ListChannelFlowsCommand";
 import {
   ListChannelMembershipsCommand,
   ListChannelMembershipsCommandInput,
@@ -117,6 +157,11 @@ import {
   ListChannelModeratorsCommandOutput,
 } from "./commands/ListChannelModeratorsCommand";
 import {
+  ListChannelsAssociatedWithChannelFlowCommand,
+  ListChannelsAssociatedWithChannelFlowCommandInput,
+  ListChannelsAssociatedWithChannelFlowCommandOutput,
+} from "./commands/ListChannelsAssociatedWithChannelFlowCommand";
+import {
   ListChannelsCommand,
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
@@ -127,6 +172,11 @@ import {
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RedactChannelMessageCommand,
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
@@ -136,11 +186,22 @@ import {
   SendChannelMessageCommandInput,
   SendChannelMessageCommandOutput,
 } from "./commands/SendChannelMessageCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateChannelCommand,
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
+import {
+  UpdateChannelFlowCommand,
+  UpdateChannelFlowCommandInput,
+  UpdateChannelFlowCommandOutput,
+} from "./commands/UpdateChannelFlowCommand";
 import {
   UpdateChannelMessageCommand,
   UpdateChannelMessageCommandInput,
@@ -160,6 +221,44 @@ import {
  *          </p>
  */
 export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
+  /**
+   * <p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the
+   *          <code>DisassociateChannelFlow</code> API.</p>
+   *
+   *          <note>
+   *             <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+   *          of the user that makes the API call as the value in the header.</p>
+   *          </note>
+   */
+  public associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateChannelFlowCommandOutput>;
+  public associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
+  ): void;
+  public associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateChannelFlowCommandOutput) => void
+  ): void;
+  public associateChannelFlow(
+    args: AssociateChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: AssociateChannelFlowCommandOutput) => void
+  ): Promise<AssociateChannelFlowCommandOutput> | void {
+    const command = new AssociateChannelFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Adds a specified number of users to a channel. </p>
    */
@@ -182,6 +281,50 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: BatchCreateChannelMembershipCommandOutput) => void
   ): Promise<BatchCreateChannelMembershipCommandOutput> | void {
     const command = new BatchCreateChannelMembershipCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>
+   *          <p>You can return one of the following processing responses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Update message content or metadata</p>
+   *             </li>
+   *             <li>
+   *                <p>Deny a message</p>
+   *             </li>
+   *             <li>
+   *                <p>Make no changes to the message</p>
+   *             </li>
+   *          </ul>
+   */
+  public channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ChannelFlowCallbackCommandOutput>;
+  public channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
+  ): void;
+  public channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
+  ): void;
+  public channelFlowCallback(
+    args: ChannelFlowCallbackCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ChannelFlowCallbackCommandOutput) => void),
+    cb?: (err: any, data?: ChannelFlowCallbackCommandOutput) => void
+  ): Promise<ChannelFlowCallbackCommandOutput> | void {
+    const command = new ChannelFlowCallbackCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -267,6 +410,59 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: CreateChannelBanCommandOutput) => void
   ): Promise<CreateChannelBanCommandOutput> | void {
     const command = new CreateChannelBanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions
+   *          that perform actions on chat messages, such as stripping out profanity. You can associate
+   *          channel flows with channels, and the processors in the channel flow then take action on all
+   *          messages sent to that channel. This is a developer API.</p>
+   *
+   *            <p>Channel flows process the following items:</p>
+   *          <ol>
+   *             <li>
+   *                <p>New and updated messages</p>
+   *             </li>
+   *             <li>
+   *                <p>Persistent and non-persistent messages</p>
+   *             </li>
+   *             <li>
+   *                <p>The Standard message type</p>
+   *             </li>
+   *          </ol>
+   *
+   *          <note>
+   *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to
+   *            <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>
+   *          </note>
+   */
+  public createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelFlowCommandOutput>;
+  public createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
+  ): void;
+  public createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelFlowCommandOutput) => void
+  ): void;
+  public createChannelFlow(
+    args: CreateChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: CreateChannelFlowCommandOutput) => void
+  ): Promise<CreateChannelFlowCommandOutput> | void {
+    const command = new CreateChannelFlowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -480,6 +676,42 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Deletes a channel flow, an irreversible process. This is a developer API.</p>
+   *          <note>
+   *             <p> This API works only when the channel flow is not associated with any channel. To get a list of all channels that a channel flow is associated with, use the
+   *            <code>ListChannelsAssociatedWithChannelFlow</code> API. Use the <code>DisassociateChannelFlow</code> API to disassociate a channel flow from all channels. </p>
+   *          </note>
+   */
+  public deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelFlowCommandOutput>;
+  public deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
+  ): void;
+  public deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelFlowCommandOutput) => void
+  ): void;
+  public deleteChannelFlow(
+    args: DeleteChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: DeleteChannelFlowCommandOutput) => void
+  ): Promise<DeleteChannelFlowCommandOutput> | void {
+    const command = new DeleteChannelFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Removes a member from a channel.</p>
    *
    *          <note>
@@ -675,6 +907,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Returns the full details of a channel flow in an Amazon Chime <code>AppInstance</code>. This is a developer API.</p>
+   */
+  public describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelFlowCommandOutput>;
+  public describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
+  ): void;
+  public describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelFlowCommandOutput) => void
+  ): void;
+  public describeChannelFlow(
+    args: DescribeChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: DescribeChannelFlowCommandOutput) => void
+  ): Promise<DescribeChannelFlowCommandOutput> | void {
+    const command = new DescribeChannelFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the full details of a user's channel membership.</p>
    *          <note>
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
@@ -831,6 +1095,43 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Disassociates a channel flow from all its channels. Once disassociated, all messages to
+   *          that channel stop going through the channel flow processor.</p>
+   *          <note>
+   *             <p>Only administrators or channel moderators can disassociate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code>
+   *            of the user that makes the API call as the value in the header.</p>
+   *          </note>
+   */
+  public disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateChannelFlowCommandOutput>;
+  public disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
+  ): void;
+  public disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
+  ): void;
+  public disassociateChannelFlow(
+    args: DisassociateChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateChannelFlowCommandOutput) => void
+  ): Promise<DisassociateChannelFlowCommandOutput> | void {
+    const command = new DisassociateChannelFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the full details of a channel message.</p>
    *
    *          <note>
@@ -858,6 +1159,74 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: GetChannelMessageCommandOutput) => void
   ): Promise<GetChannelMessageCommandOutput> | void {
     const command = new GetChannelMessageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
+   *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
+   *
+   *          <p>Messages can have any one of these statuses.</p>
+   *
+   *          <dl>
+   *             <dt>SENT</dt>
+   *             <dd>
+   *                <p>Message processed successfully</p>
+   *             </dd>
+   *             <dt>PENDING</dt>
+   *             <dd>
+   *                <p>Ongoing processing</p>
+   *             </dd>
+   *             <dt>FAILED</dt>
+   *             <dd>
+   *                <p>Processing failed</p>
+   *             </dd>
+   *             <dt>DENIED</dt>
+   *             <dd>
+   *                <p>Messasge denied by the processor</p>
+   *             </dd>
+   *          </dl>
+   *
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>
+   *                </li>
+   *                <li>
+   *                   <p>Only the message sender can invoke this API.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMessageStatusCommandOutput>;
+  public getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
+  ): void;
+  public getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
+  ): void;
+  public getChannelMessageStatus(
+    args: GetChannelMessageStatusCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMessageStatusCommandOutput) => void),
+    cb?: (err: any, data?: GetChannelMessageStatusCommandOutput) => void
+  ): Promise<GetChannelMessageStatusCommandOutput> | void {
+    const command = new GetChannelMessageStatusCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -928,6 +1297,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: ListChannelBansCommandOutput) => void
   ): Promise<ListChannelBansCommandOutput> | void {
     const command = new ListChannelBansCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated lists of all the channel flows created under a single Chime. This is a developer API.</p>
+   */
+  public listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelFlowsCommandOutput>;
+  public listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
+  ): void;
+  public listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelFlowsCommandOutput) => void
+  ): void;
+  public listChannelFlows(
+    args: ListChannelFlowsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChannelFlowsCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelFlowsCommandOutput) => void
+  ): Promise<ListChannelFlowsCommandOutput> | void {
+    const command = new ListChannelFlowsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1148,6 +1549,40 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Lists all channels associated with a specified channel flow. You can associate a channel flow with multiple channels, but you can only associate a channel with one channel flow. This is a developer API.</p>
+   */
+  public listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput>;
+  public listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
+  ): void;
+  public listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
+  ): void;
+  public listChannelsAssociatedWithChannelFlow(
+    args: ListChannelsAssociatedWithChannelFlowCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: ListChannelsAssociatedWithChannelFlowCommandOutput) => void
+  ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> | void {
+    const command = new ListChannelsAssociatedWithChannelFlowCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
    *
    *          <note>
@@ -1177,6 +1612,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: ListChannelsModeratedByAppInstanceUserCommandOutput) => void
   ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> | void {
     const command = new ListChannelsModeratedByAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the tags applied to an Amazon Chime SDK messaging resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1268,6 +1735,64 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Applies the specified tags to the specified Amazon Chime SDK messaging resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified tags from the specified Amazon Chime SDK messaging resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Update a channel's attributes.</p>
    *          <p>
    *             <b>Restriction</b>: You can't change a channel's privacy. </p>
@@ -1296,6 +1821,38 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: UpdateChannelCommandOutput) => void
   ): Promise<UpdateChannelCommandOutput> | void {
     const command = new UpdateChannelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates channel flow attributes. This is a developer API.</p>
+   */
+  public updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelFlowCommandOutput>;
+  public updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
+  ): void;
+  public updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelFlowCommandOutput) => void
+  ): void;
+  public updateChannelFlow(
+    args: UpdateChannelFlowCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateChannelFlowCommandOutput) => void),
+    cb?: (err: any, data?: UpdateChannelFlowCommandOutput) => void
+  ): Promise<UpdateChannelFlowCommandOutput> | void {
+    const command = new UpdateChannelFlowCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

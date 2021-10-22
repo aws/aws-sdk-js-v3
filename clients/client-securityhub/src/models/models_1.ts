@@ -4826,6 +4826,79 @@ export namespace ResourceConflictException {
   });
 }
 
+export interface CreateFindingAggregatorRequest {
+  /**
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
+   *          <p>The options are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *          </p>
+   *             </li>
+   *          </ul>
+   */
+  RegionLinkingMode: string | undefined;
+
+  /**
+   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
+   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.
+   *       </p>
+   */
+  Regions?: string[];
+}
+
+export namespace CreateFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop finding aggregation.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace CreateFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFindingAggregatorResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateInsightRequest {
   /**
    * <p>The name of the custom insight to create.</p>
@@ -4992,6 +5065,33 @@ export namespace DeleteActionTargetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator to delete. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+}
+
+export namespace DeleteFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFindingAggregatorResponse {}
+
+export namespace DeleteFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFindingAggregatorResponse): any => ({
     ...obj,
   });
 }
@@ -5817,6 +5917,25 @@ export namespace EnableSecurityHubResponse {
   });
 }
 
+/**
+ * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
+ */
+export interface FindingAggregator {
+  /**
+   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.</p>
+   */
+  FindingAggregatorArn?: string;
+}
+
+export namespace FindingAggregator {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FindingAggregator): any => ({
+    ...obj,
+  });
+}
+
 export interface GetAdministratorAccountRequest {}
 
 export namespace GetAdministratorAccountRequest {
@@ -5926,6 +6045,53 @@ export namespace GetEnabledStandardsResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+}
+
+export namespace GetFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace GetFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
     ...obj,
   });
 }
@@ -6466,6 +6632,50 @@ export namespace ListEnabledProductsForImportResponse {
   });
 }
 
+export interface ListFindingAggregatorsRequest {
+  /**
+   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFindingAggregatorsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFindingAggregatorsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFindingAggregatorsResponse {
+  /**
+   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   */
+  FindingAggregators?: FindingAggregator[];
+
+  /**
+   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
+   *          <p>This operation currently only returns a single result.
+   *       </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListFindingAggregatorsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFindingAggregatorsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListInvitationsRequest {
   /**
    * <p>The maximum number of items to return in the response. </p>
@@ -6742,6 +6952,83 @@ export namespace UpdateActionTargetResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateActionTargetResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFindingAggregatorRequest {
+  /**
+   * <p>The ARN of the finding aggregator. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
+   */
+  FindingAggregatorArn: string | undefined;
+
+  /**
+   * <p>Indicates whether to aggregate findings from all of the available Regions in the current partition. Also determines whether to automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.</p>
+   *          <p>The selected option also determines how to use the Regions provided in the Regions list.</p>
+   *          <p>The options are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_REGIONS_EXCEPT_SPECIFIED</code> - Indicates to aggregate findings from all of the Regions where Security Hub is enabled, except for the Regions listed in the <code>Regions</code> parameter. When you choose this option, Security Hub also automatically aggregates findings from new Regions as Security Hub supports them and you opt into them.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPECIFIED_REGIONS</code> - Indicates to aggregate findings only from the Regions listed in the <code>Regions</code> parameter. Security Hub does not automatically aggregate findings from new Regions.
+   *          </p>
+   *             </li>
+   *          </ul>
+   */
+  RegionLinkingMode: string | undefined;
+
+  /**
+   * <p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>
+   *          <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace UpdateFindingAggregatorRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFindingAggregatorRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFindingAggregatorResponse {
+  /**
+   * <p>The ARN of the finding aggregator.</p>
+   */
+  FindingAggregatorArn?: string;
+
+  /**
+   * <p>The aggregation Region.</p>
+   */
+  FindingAggregationRegion?: string;
+
+  /**
+   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
+   */
+  RegionLinkingMode?: string;
+
+  /**
+   * <p>The list of excluded Regions or included Regions.</p>
+   */
+  Regions?: string[];
+}
+
+export namespace UpdateFindingAggregatorResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFindingAggregatorResponse): any => ({
     ...obj,
   });
 }

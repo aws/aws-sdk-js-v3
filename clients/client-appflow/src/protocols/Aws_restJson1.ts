@@ -134,6 +134,7 @@ import {
   RedshiftMetadata,
   ResourceNotFoundException,
   S3DestinationProperties,
+  S3InputFormatConfig,
   S3Metadata,
   S3OutputFormatConfig,
   S3SourceProperties,
@@ -3015,6 +3016,13 @@ const serializeAws_restJson1S3DestinationProperties = (
   };
 };
 
+const serializeAws_restJson1S3InputFormatConfig = (input: S3InputFormatConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.s3InputFileType !== undefined &&
+      input.s3InputFileType !== null && { s3InputFileType: input.s3InputFileType }),
+  };
+};
+
 const serializeAws_restJson1S3OutputFormatConfig = (input: S3OutputFormatConfig, context: __SerdeContext): any => {
   return {
     ...(input.aggregationConfig !== undefined &&
@@ -3031,6 +3039,10 @@ const serializeAws_restJson1S3SourceProperties = (input: S3SourceProperties, con
   return {
     ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
     ...(input.bucketPrefix !== undefined && input.bucketPrefix !== null && { bucketPrefix: input.bucketPrefix }),
+    ...(input.s3InputFormatConfig !== undefined &&
+      input.s3InputFormatConfig !== null && {
+        s3InputFormatConfig: serializeAws_restJson1S3InputFormatConfig(input.s3InputFormatConfig, context),
+      }),
   };
 };
 
@@ -4490,6 +4502,12 @@ const deserializeAws_restJson1S3DestinationProperties = (
   } as any;
 };
 
+const deserializeAws_restJson1S3InputFormatConfig = (output: any, context: __SerdeContext): S3InputFormatConfig => {
+  return {
+    s3InputFileType: __expectString(output.s3InputFileType),
+  } as any;
+};
+
 const deserializeAws_restJson1S3Metadata = (output: any, context: __SerdeContext): S3Metadata => {
   return {} as any;
 };
@@ -4512,6 +4530,10 @@ const deserializeAws_restJson1S3SourceProperties = (output: any, context: __Serd
   return {
     bucketName: __expectString(output.bucketName),
     bucketPrefix: __expectString(output.bucketPrefix),
+    s3InputFormatConfig:
+      output.s3InputFormatConfig !== undefined && output.s3InputFormatConfig !== null
+        ? deserializeAws_restJson1S3InputFormatConfig(output.s3InputFormatConfig, context)
+        : undefined,
   } as any;
 };
 

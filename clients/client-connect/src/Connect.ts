@@ -859,8 +859,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Creates hours of operation. </p>
+   * <p>Creates hours of operation. </p>
    */
   public createHoursOfOperation(
     args: CreateHoursOfOperationCommandInput,
@@ -1145,8 +1144,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Deletes an hours of operation.</p>
+   * <p>Deletes an hours of operation.</p>
    */
   public deleteHoursOfOperation(
     args: DeleteHoursOfOperationCommandInput,
@@ -1440,8 +1438,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Describes the hours of operation.</p>
+   * <p>Describes the hours of operation.</p>
    */
   public describeHoursOfOperation(
     args: DescribeHoursOfOperationCommandInput,
@@ -3477,8 +3474,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *          <p>Updates the hours of operation.</p>
+   * <p>Updates the hours of operation.</p>
    */
   public updateHoursOfOperation(
     args: UpdateHoursOfOperationCommandInput,

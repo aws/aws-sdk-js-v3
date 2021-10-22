@@ -34,7 +34,7 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *       will be created on the same Direct Connect endpoint to which the dedicated connection terminates. Any
  *       virtual interfaces associated with the dedicated connection are automatically disassociated
  *       and re-associated with the LAG. The connection ID does not change.</p>
- *          <p>If the account used to create a LAG is a registered Direct Connect Partner, the LAG is
+ *          <p>If the Amazon Web Services account used to create a LAG is a registered Direct Connect Partner, the LAG is
  *       automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual
  *       interfaces cannot be directly configured.</p>
  * @example

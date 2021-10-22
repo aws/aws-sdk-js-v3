@@ -71,10 +71,18 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
+import {
+  CreateFindingAggregatorCommandInput,
+  CreateFindingAggregatorCommandOutput,
+} from "./commands/CreateFindingAggregatorCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteFindingAggregatorCommandInput,
+  DeleteFindingAggregatorCommandOutput,
+} from "./commands/DeleteFindingAggregatorCommand";
 import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand";
 import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand";
@@ -131,6 +139,10 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
+import {
+  GetFindingAggregatorCommandInput,
+  GetFindingAggregatorCommandOutput,
+} from "./commands/GetFindingAggregatorCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
@@ -145,6 +157,10 @@ import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
+import {
+  ListFindingAggregatorsCommandInput,
+  ListFindingAggregatorsCommandOutput,
+} from "./commands/ListFindingAggregatorsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
@@ -158,6 +174,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateFindingAggregatorCommandInput,
+  UpdateFindingAggregatorCommandOutput,
+} from "./commands/UpdateFindingAggregatorCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
 import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand";
 import {
@@ -182,10 +202,12 @@ export type ServiceInputTypes =
   | BatchImportFindingsCommandInput
   | BatchUpdateFindingsCommandInput
   | CreateActionTargetCommandInput
+  | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
   | DeclineInvitationsCommandInput
   | DeleteActionTargetCommandInput
+  | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
   | DeleteInvitationsCommandInput
   | DeleteMembersCommandInput
@@ -206,6 +228,7 @@ export type ServiceInputTypes =
   | EnableSecurityHubCommandInput
   | GetAdministratorAccountCommandInput
   | GetEnabledStandardsCommandInput
+  | GetFindingAggregatorCommandInput
   | GetFindingsCommandInput
   | GetInsightResultsCommandInput
   | GetInsightsCommandInput
@@ -214,6 +237,7 @@ export type ServiceInputTypes =
   | GetMembersCommandInput
   | InviteMembersCommandInput
   | ListEnabledProductsForImportCommandInput
+  | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
@@ -221,6 +245,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
+  | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
   | UpdateOrganizationConfigurationCommandInput
@@ -235,10 +260,12 @@ export type ServiceOutputTypes =
   | BatchImportFindingsCommandOutput
   | BatchUpdateFindingsCommandOutput
   | CreateActionTargetCommandOutput
+  | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteActionTargetCommandOutput
+  | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
   | DeleteInvitationsCommandOutput
   | DeleteMembersCommandOutput
@@ -259,6 +286,7 @@ export type ServiceOutputTypes =
   | EnableSecurityHubCommandOutput
   | GetAdministratorAccountCommandOutput
   | GetEnabledStandardsCommandOutput
+  | GetFindingAggregatorCommandOutput
   | GetFindingsCommandOutput
   | GetInsightResultsCommandOutput
   | GetInsightsCommandOutput
@@ -267,6 +295,7 @@ export type ServiceOutputTypes =
   | GetMembersCommandOutput
   | InviteMembersCommandOutput
   | ListEnabledProductsForImportCommandOutput
+  | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
@@ -274,6 +303,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
+  | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
   | UpdateOrganizationConfigurationCommandOutput

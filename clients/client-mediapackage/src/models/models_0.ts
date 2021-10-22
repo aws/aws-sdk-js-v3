@@ -883,6 +883,11 @@ export interface HlsPackage {
   Encryption?: HlsEncryption;
 
   /**
+   * When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+   */
+  IncludeDvbSubtitles?: boolean;
+
+  /**
    * When enabled, an I-Frame only stream will be included in the output.
    */
   IncludeIframeOnlyStream?: boolean;

@@ -7,6 +7,7 @@ export * from "./GetFindingsPaginator";
 export * from "./GetInsightsPaginator";
 export * from "./Interfaces";
 export * from "./ListEnabledProductsForImportPaginator";
+export * from "./ListFindingAggregatorsPaginator";
 export * from "./ListInvitationsPaginator";
 export * from "./ListMembersPaginator";
 export * from "./ListOrganizationAdminAccountsPaginator";

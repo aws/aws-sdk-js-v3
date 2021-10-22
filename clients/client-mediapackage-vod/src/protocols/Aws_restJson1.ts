@@ -2573,6 +2573,8 @@ const serializeAws_restJson1HlsPackage = (input: HlsPackage, context: __SerdeCon
       input.HlsManifests !== null && {
         hlsManifests: serializeAws_restJson1__listOfHlsManifest(input.HlsManifests, context),
       }),
+    ...(input.IncludeDvbSubtitles !== undefined &&
+      input.IncludeDvbSubtitles !== null && { includeDvbSubtitles: input.IncludeDvbSubtitles }),
     ...(input.SegmentDurationSeconds !== undefined &&
       input.SegmentDurationSeconds !== null && { segmentDurationSeconds: input.SegmentDurationSeconds }),
     ...(input.UseAudioRenditionGroup !== undefined &&
@@ -2899,6 +2901,7 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
       output.hlsManifests !== undefined && output.hlsManifests !== null
         ? deserializeAws_restJson1__listOfHlsManifest(output.hlsManifests, context)
         : undefined,
+    IncludeDvbSubtitles: __expectBoolean(output.includeDvbSubtitles),
     SegmentDurationSeconds: __expectInt32(output.segmentDurationSeconds),
     UseAudioRenditionGroup: __expectBoolean(output.useAudioRenditionGroup),
   } as any;

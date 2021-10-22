@@ -231,6 +231,11 @@ import {
   DescribeIngestionCommandOutput,
 } from "./commands/DescribeIngestionCommand";
 import {
+  DescribeIpRestrictionCommand,
+  DescribeIpRestrictionCommandInput,
+  DescribeIpRestrictionCommandOutput,
+} from "./commands/DescribeIpRestrictionCommand";
+import {
   DescribeNamespaceCommand,
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
@@ -487,6 +492,11 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIpRestrictionCommand,
+  UpdateIpRestrictionCommandInput,
+  UpdateIpRestrictionCommandOutput,
+} from "./commands/UpdateIpRestrictionCommand";
+import {
   UpdateTemplateAliasCommand,
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -556,7 +566,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Creates Amazon QuickSight customizations the current Amazon Web Services Region;. Currently, you can
+   * <p>Creates Amazon QuickSight customizations the current Amazon Web Services Region. Currently, you can
    *             add a custom default theme by using the <code>CreateAccountCustomization</code> or
    *                 <code>UpdateAccountCustomization</code> API operation. To further customize
    *             Amazon QuickSight by removing Amazon QuickSight sample assets and videos for all new users, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-quicksight.html">Customizing Amazon QuickSight</a> in the <i>Amazon QuickSight User
@@ -1108,7 +1118,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region; for the specified
+   * <p>Deletes all Amazon QuickSight customizations in this Amazon Web Services Region for the specified
    *             Amazon Web Services account and Amazon QuickSight namespace.</p>
    */
   public deleteAccountCustomization(
@@ -1652,7 +1662,7 @@ export class QuickSight extends QuickSightClient {
 
   /**
    * <p>Describes the customizations associated with the provided Amazon Web Services account and Amazon
-   *             Amazon QuickSight namespace in an Amazon Web Services Region;. The Amazon QuickSight console evaluates which
+   *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
    *             customizations to apply by running this API operation with the <code>Resolved</code> flag
    *             included. </p>
    *         <p>To determine what customizations display when you run this command, it can help to
@@ -1661,19 +1671,19 @@ export class QuickSight extends QuickSightClient {
    *             <li>
    *                 <p>
    *                   <code>Amazon Web Services account</code> - The Amazon Web Services account exists at the top of the hierarchy.
-   *                     It has the potential to use all of the Amazon Web Services Regions; and AWS Services. When you
-   *                     subscribe to Amazon QuickSight, you choose one Amazon Web Services Region; to use as your home Region.
+   *                     It has the potential to use all of the Amazon Web Services Regions and AWS Services. When you
+   *                     subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use as your home Region.
    *                     That's where your free SPICE capacity is located. You can use Amazon QuickSight in any
-   *                     supported Amazon Web Services Region;. </p>
+   *                     supported Amazon Web Services Region. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Amazon Web Services Region;</code> - In each Amazon Web Services Region; where you sign in to Amazon QuickSight
+   *                   <code>Amazon Web Services Region</code> - In each Amazon Web Services Region where you sign in to Amazon QuickSight
    *                     at least once, Amazon QuickSight acts as a separate instance of the same service. If
    *                     you have a user directory, it resides in us-east-1, which is the US East (N.
    *                     Virginia). Generally speaking, these users have access to Amazon QuickSight in any
-   *                     Amazon Web Services Region;, unless they are constrained to a namespace. </p>
-   *                 <p>To run the command in a different Amazon Web Services Region;, you change your Region settings.
+   *                     Amazon Web Services Region, unless they are constrained to a namespace. </p>
+   *                 <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
    *                     If you're using the AWS CLI, you can use one of the following options:</p>
    *                 <ul>
    *                   <li>
@@ -1683,7 +1693,7 @@ export class QuickSight extends QuickSightClient {
    *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
    *                     </li>
    *                   <li>
-   *                         <p>Run <code>aws configure</code> to change your default Amazon Web Services Region;. Use
+   *                         <p>Run <code>aws configure</code> to change your default Amazon Web Services Region. Use
    *                             Enter to key the same settings for your keys. For more information, see
    *                             <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the AWS CLI</a>.</p>
    *                     </li>
@@ -1696,16 +1706,16 @@ export class QuickSight extends QuickSightClient {
    *                     assets that are in a specific namespace, users and groups must also be part of
    *                     the same namespace. People who share a namespace are completely isolated from
    *                     users and assets in other namespaces, even if they are in the same Amazon Web Services account
-   *                     and Amazon Web Services Region;.</p>
+   *                     and Amazon Web Services Region.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>Applied customizations</code> -  Within an Amazon Web Services Region;, a set of
+   *                   <code>Applied customizations</code> -  Within an Amazon Web Services Region, a set of
    *                     Amazon QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
    *                     Settings that you apply to a namespace override settings that you apply to an
-   *                     Amazon Web Services account. All settings are isolated to a single Amazon Web Services Region;. To apply them in
-   *                     other Amazon Web Services Regions;, run the <code>CreateAccountCustomization</code> command in
-   *                     each Amazon Web Services Region; where you want to apply the same customizations. </p>
+   *                     Amazon Web Services account. All settings are isolated to a single Amazon Web Services Region. To apply them in
+   *                     other Amazon Web Services Regions, run the <code>CreateAccountCustomization</code> command in
+   *                     each Amazon Web Services Region where you want to apply the same customizations. </p>
    *             </li>
    *          </ul>
    */
@@ -2210,6 +2220,38 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: DescribeIngestionCommandOutput) => void
   ): Promise<DescribeIngestionCommandOutput> | void {
     const command = new DescribeIngestionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides a summary and status of IP Rules.</p>
+   */
+  public describeIpRestriction(
+    args: DescribeIpRestrictionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpRestrictionCommandOutput>;
+  public describeIpRestriction(
+    args: DescribeIpRestrictionCommandInput,
+    cb: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
+  ): void;
+  public describeIpRestriction(
+    args: DescribeIpRestrictionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
+  ): void;
+  public describeIpRestriction(
+    args: DescribeIpRestrictionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIpRestrictionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeIpRestrictionCommandOutput) => void
+  ): Promise<DescribeIpRestrictionCommandOutput> | void {
+    const command = new DescribeIpRestrictionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2779,7 +2821,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region;.</p>
+   * <p>Lists all of the datasets belonging to the current Amazon Web Services account in an Amazon Web Services Region.</p>
    * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/*</code>.</p>
    */
   public listDataSets(
@@ -2809,7 +2851,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Lists data sources in current Amazon Web Services Region; that belong to this Amazon Web Services account.</p>
+   * <p>Lists data sources in current Amazon Web Services Region that belong to this Amazon Web Services account.</p>
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -3606,7 +3648,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Updates Amazon QuickSight customizations the current Amazon Web Services Region;. Currently, the only
+   * <p>Updates Amazon QuickSight customizations the current Amazon Web Services Region. Currently, the only
    *             customization you can use is a theme.</p>
    *         <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
    *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override
@@ -4080,6 +4122,38 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: UpdateIAMPolicyAssignmentCommandOutput) => void
   ): Promise<UpdateIAMPolicyAssignmentCommandOutput> | void {
     const command = new UpdateIAMPolicyAssignmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates content and status of IP Rules.</p>
+   */
+  public updateIpRestriction(
+    args: UpdateIpRestrictionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIpRestrictionCommandOutput>;
+  public updateIpRestriction(
+    args: UpdateIpRestrictionCommandInput,
+    cb: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
+  ): void;
+  public updateIpRestriction(
+    args: UpdateIpRestrictionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
+  ): void;
+  public updateIpRestriction(
+    args: UpdateIpRestrictionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIpRestrictionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateIpRestrictionCommandOutput) => void
+  ): Promise<UpdateIpRestrictionCommandOutput> | void {
+    const command = new UpdateIpRestrictionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

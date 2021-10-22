@@ -1,6 +1,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -18,11 +19,20 @@ import {
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
+  AssociateChannelFlowCommandInput,
+  AssociateChannelFlowCommandOutput,
+} from "../commands/AssociateChannelFlowCommand";
+import {
   BatchCreateChannelMembershipCommandInput,
   BatchCreateChannelMembershipCommandOutput,
 } from "../commands/BatchCreateChannelMembershipCommand";
+import {
+  ChannelFlowCallbackCommandInput,
+  ChannelFlowCallbackCommandOutput,
+} from "../commands/ChannelFlowCallbackCommand";
 import { CreateChannelBanCommandInput, CreateChannelBanCommandOutput } from "../commands/CreateChannelBanCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import { CreateChannelFlowCommandInput, CreateChannelFlowCommandOutput } from "../commands/CreateChannelFlowCommand";
 import {
   CreateChannelMembershipCommandInput,
   CreateChannelMembershipCommandOutput,
@@ -33,6 +43,7 @@ import {
 } from "../commands/CreateChannelModeratorCommand";
 import { DeleteChannelBanCommandInput, DeleteChannelBanCommandOutput } from "../commands/DeleteChannelBanCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
+import { DeleteChannelFlowCommandInput, DeleteChannelFlowCommandOutput } from "../commands/DeleteChannelFlowCommand";
 import {
   DeleteChannelMembershipCommandInput,
   DeleteChannelMembershipCommandOutput,
@@ -47,6 +58,10 @@ import {
 } from "../commands/DeleteChannelModeratorCommand";
 import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "../commands/DescribeChannelBanCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "../commands/DescribeChannelCommand";
+import {
+  DescribeChannelFlowCommandInput,
+  DescribeChannelFlowCommandOutput,
+} from "../commands/DescribeChannelFlowCommand";
 import {
   DescribeChannelMembershipCommandInput,
   DescribeChannelMembershipCommandOutput,
@@ -63,12 +78,21 @@ import {
   DescribeChannelModeratorCommandInput,
   DescribeChannelModeratorCommandOutput,
 } from "../commands/DescribeChannelModeratorCommand";
+import {
+  DisassociateChannelFlowCommandInput,
+  DisassociateChannelFlowCommandOutput,
+} from "../commands/DisassociateChannelFlowCommand";
 import { GetChannelMessageCommandInput, GetChannelMessageCommandOutput } from "../commands/GetChannelMessageCommand";
+import {
+  GetChannelMessageStatusCommandInput,
+  GetChannelMessageStatusCommandOutput,
+} from "../commands/GetChannelMessageStatusCommand";
 import {
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
 } from "../commands/GetMessagingSessionEndpointCommand";
 import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "../commands/ListChannelBansCommand";
+import { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "../commands/ListChannelFlowsCommand";
 import {
   ListChannelMembershipsCommandInput,
   ListChannelMembershipsCommandOutput,
@@ -85,17 +109,28 @@ import {
   ListChannelModeratorsCommandInput,
   ListChannelModeratorsCommandOutput,
 } from "../commands/ListChannelModeratorsCommand";
+import {
+  ListChannelsAssociatedWithChannelFlowCommandInput,
+  ListChannelsAssociatedWithChannelFlowCommandOutput,
+} from "../commands/ListChannelsAssociatedWithChannelFlowCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
 import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "../commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
 } from "../commands/RedactChannelMessageCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "../commands/SendChannelMessageCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import { UpdateChannelFlowCommandInput, UpdateChannelFlowCommandOutput } from "../commands/UpdateChannelFlowCommand";
 import {
   UpdateChannelMessageCommandInput,
   UpdateChannelMessageCommandOutput,
@@ -110,12 +145,17 @@ import {
   BatchChannelMemberships,
   BatchCreateChannelMembershipError,
   Channel,
+  ChannelAssociatedWithFlowSummary,
   ChannelBan,
   ChannelBanSummary,
+  ChannelFlow,
+  ChannelFlowSummary,
   ChannelMembership,
   ChannelMembershipForAppInstanceUserSummary,
   ChannelMembershipSummary,
   ChannelMessage,
+  ChannelMessageCallback,
+  ChannelMessageStatusStructure,
   ChannelMessageSummary,
   ChannelModeratedByAppInstanceUserSummary,
   ChannelModerator,
@@ -124,8 +164,11 @@ import {
   ConflictException,
   ForbiddenException,
   Identity,
+  LambdaConfiguration,
   MessagingSessionEndpoint,
   NotFoundException,
+  Processor,
+  ProcessorConfiguration,
   ResourceLimitExceededException,
   ServiceFailureException,
   ServiceUnavailableException,
@@ -133,6 +176,42 @@ import {
   ThrottledClientException,
   UnauthorizedClientException,
 } from "../models/models_0";
+
+export const serializeAws_restJson1AssociateChannelFlowCommand = async (
+  input: AssociateChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/channel-flow";
+  if (input.ChannelArn !== undefined) {
+    const labelValue: string = input.ChannelArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelFlowArn !== undefined &&
+      input.ChannelFlowArn !== null && { ChannelFlowArn: input.ChannelFlowArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   input: BatchCreateChannelMembershipCommandInput,
@@ -162,6 +241,49 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
     ...(input.MemberArns !== undefined &&
       input.MemberArns !== null && { MemberArns: serializeAws_restJson1MemberArns(input.MemberArns, context) }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
+  input: ChannelFlowCallbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
+  if (input.ChannelArn !== undefined) {
+    const labelValue: string = input.ChannelArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelArn.");
+  }
+  const query: any = {
+    operation: "channel-flow-callback",
+  };
+  let body: any;
+  body = JSON.stringify({
+    CallbackId: input.CallbackId ?? generateIdempotencyToken(),
+    ...(input.ChannelMessage !== undefined &&
+      input.ChannelMessage !== null && {
+        ChannelMessage: serializeAws_restJson1ChannelMessageCallback(input.ChannelMessage, context),
+      }),
+    ...(input.DeleteResource !== undefined &&
+      input.DeleteResource !== null && { DeleteResource: input.DeleteResource }),
   });
   return new __HttpRequest({
     protocol,
@@ -231,6 +353,38 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.MemberArn !== undefined && input.MemberArn !== null && { MemberArn: input.MemberArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateChannelFlowCommand = async (
+  input: CreateChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AppInstanceArn !== undefined &&
+      input.AppInstanceArn !== null && { AppInstanceArn: input.AppInstanceArn }),
+    ...(input.ClientRequestToken !== undefined &&
+      input.ClientRequestToken !== null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Processors !== undefined &&
+      input.Processors !== null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -372,6 +526,35 @@ export const serializeAws_restJson1DeleteChannelBanCommand = async (
     resolvedPath = resolvedPath.replace("{MemberArn}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteChannelFlowCommand = async (
+  input: DeleteChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
+  if (input.ChannelFlowArn !== undefined) {
+    const labelValue: string = input.ChannelFlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelFlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelFlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelFlowArn.");
   }
   let body: any;
   return new __HttpRequest({
@@ -578,6 +761,35 @@ export const serializeAws_restJson1DescribeChannelBanCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeChannelFlowCommand = async (
+  input: DescribeChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
+  if (input.ChannelFlowArn !== undefined) {
+    const labelValue: string = input.ChannelFlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelFlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelFlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelFlowArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
   input: DescribeChannelMembershipCommandInput,
   context: __SerdeContext
@@ -730,6 +942,47 @@ export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateChannelFlowCommand = async (
+  input: DisassociateChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}";
+  if (input.ChannelArn !== undefined) {
+    const labelValue: string = input.ChannelArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelArn.");
+  }
+  if (input.ChannelFlowArn !== undefined) {
+    const labelValue: string = input.ChannelFlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelFlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelFlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelFlowArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetChannelMessageCommand = async (
   input: GetChannelMessageCommandInput,
   context: __SerdeContext
@@ -767,6 +1020,51 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetChannelMessageStatusCommand = async (
+  input: GetChannelMessageStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.ChimeBearer) && { "x-amz-chime-bearer": input.ChimeBearer! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/channels/{ChannelArn}/messages/{MessageId}";
+  if (input.ChannelArn !== undefined) {
+    const labelValue: string = input.ChannelArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelArn.");
+  }
+  if (input.MessageId !== undefined) {
+    const labelValue: string = input.MessageId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MessageId.");
+    }
+    resolvedPath = resolvedPath.replace("{MessageId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MessageId.");
+  }
+  const query: any = {
+    scope: "message-status",
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -814,6 +1112,31 @@ export const serializeAws_restJson1ListChannelBansCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelArn.");
   }
   const query: any = {
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListChannelFlowsCommand = async (
+  input: ListChannelFlowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
+  const query: any = {
+    ...(input.AppInstanceArn !== undefined && { "app-instance-arn": input.AppInstanceArn }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
   };
@@ -1000,6 +1323,32 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand = async (
+  input: ListChannelsAssociatedWithChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  const query: any = {
+    scope: "channel-flow-associations",
+    ...(input.ChannelFlowArn !== undefined && { "channel-flow-arn": input.ChannelFlowArn }),
+    ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand = async (
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
@@ -1014,6 +1363,29 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
     ...(input.AppInstanceUserArn !== undefined && { "app-instance-user-arn": input.AppInstanceUserArn }),
     ...(input.MaxResults !== undefined && { "max-results": input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { "next-token": input.NextToken }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = {
+    ...(input.ResourceARN !== undefined && { arn: input.ResourceARN }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1112,6 +1484,66 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   });
 };
 
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = {
+    operation: "tag-resource",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  const query: any = {
+    operation: "untag-resource",
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && input.ResourceARN !== null && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined &&
+      input.TagKeys !== null && { TagKeys: serializeAws_restJson1TagKeyList(input.TagKeys, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
@@ -1136,6 +1568,42 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
     ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
     ...(input.Mode !== undefined && input.Mode !== null && { Mode: input.Mode }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateChannelFlowCommand = async (
+  input: UpdateChannelFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
+  if (input.ChannelFlowArn !== undefined) {
+    const labelValue: string = input.ChannelFlowArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ChannelFlowArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ChannelFlowArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ChannelFlowArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Processors !== undefined &&
+      input.Processors !== null && { Processors: serializeAws_restJson1ProcessorList(input.Processors, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -1225,6 +1693,113 @@ export const serializeAws_restJson1UpdateChannelReadMarkerCommand = async (
   });
 };
 
+export const deserializeAws_restJson1AssociateChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateChannelFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateChannelFlowCommandError(output, context);
+  }
+  const contents: AssociateChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmessaging#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1266,6 +1841,113 @@ const deserializeAws_restJson1BatchCreateChannelMembershipCommandError = async (
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ChannelFlowCallbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChannelFlowCallbackCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ChannelFlowCallbackCommandError(output, context);
+  }
+  const contents: ChannelFlowCallbackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    CallbackId: undefined,
+    ChannelArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CallbackId !== undefined && data.CallbackId !== null) {
+    contents.CallbackId = __expectString(data.CallbackId);
+  }
+  if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
+    contents.ChannelArn = __expectString(data.ChannelArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ChannelFlowCallbackCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ChannelFlowCallbackCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1464,6 +2146,117 @@ const deserializeAws_restJson1CreateChannelBanCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelBanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelFlowCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateChannelFlowCommandError(output, context);
+  }
+  const contents: CreateChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChannelFlowArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelFlowArn !== undefined && data.ChannelFlowArn !== null) {
+    contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateChannelFlowCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1904,6 +2697,105 @@ const deserializeAws_restJson1DeleteChannelBanCommandError = async (
     case "com.amazonaws.chimesdkmessaging#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelFlowCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteChannelFlowCommandError(output, context);
+  }
+  const contents: DeleteChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2444,6 +3336,101 @@ const deserializeAws_restJson1DescribeChannelBanCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChannelFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeChannelFlowCommandError(output, context);
+  }
+  const contents: DescribeChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChannelFlow: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelFlow !== undefined && data.ChannelFlow !== null) {
+    contents.ChannelFlow = deserializeAws_restJson1ChannelFlow(data.ChannelFlow, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeChannelMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2843,6 +3830,113 @@ const deserializeAws_restJson1DescribeChannelModeratorCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DisassociateChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateChannelFlowCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateChannelFlowCommandError(output, context);
+  }
+  const contents: DisassociateChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.chimesdkmessaging#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2893,6 +3987,101 @@ const deserializeAws_restJson1GetChannelMessageCommandError = async (
     case "com.amazonaws.chimesdkmessaging#NotFoundException":
       response = {
         ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetChannelMessageStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelMessageStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetChannelMessageStatusCommandError(output, context);
+  }
+  const contents: GetChannelMessageStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetChannelMessageStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetChannelMessageStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3063,6 +4252,105 @@ const deserializeAws_restJson1ListChannelBansCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelBansCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListChannelFlowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelFlowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListChannelFlowsCommandError(output, context);
+  }
+  const contents: ListChannelFlowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChannelFlows: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelFlows !== undefined && data.ChannelFlows !== null) {
+    contents.ChannelFlows = deserializeAws_restJson1ChannelFlowSummaryList(data.ChannelFlows, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListChannelFlowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelFlowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3649,6 +4937,105 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError(output, context);
+  }
+  const contents: ListChannelsAssociatedWithChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Channels: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Channels !== undefined && data.Channels !== null) {
+    contents.Channels = deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList(data.Channels, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3675,6 +5062,101 @@ const deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Tags: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Tags !== undefined && data.Tags !== null) {
+    contents.Tags = deserializeAws_restJson1TagList(data.Tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3858,6 +5340,7 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelArn: undefined,
     MessageId: undefined,
+    Status: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
@@ -3865,6 +5348,9 @@ export const deserializeAws_restJson1SendChannelMessageCommand = async (
   }
   if (data.MessageId !== undefined && data.MessageId !== null) {
     contents.MessageId = __expectString(data.MessageId);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
   }
   return Promise.resolve(contents);
 };
@@ -3893,6 +5379,196 @@ const deserializeAws_restJson1SendChannelMessageCommandError = async (
     case "com.amazonaws.chimesdkmessaging#ConflictException":
       response = {
         ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4057,6 +5733,109 @@ const deserializeAws_restJson1UpdateChannelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateChannelFlowCommandError(output, context);
+  }
+  const contents: UpdateChannelFlowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ChannelFlowArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ChannelFlowArn !== undefined && data.ChannelFlowArn !== null) {
+    contents.ChannelFlowArn = __expectString(data.ChannelFlowArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateChannelFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.chimesdkmessaging#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmessaging#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceFailureException":
+    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottledClientException":
+    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottledClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedClientException":
+    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4068,6 +5847,7 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
     $metadata: deserializeMetadata(output),
     ChannelArn: undefined,
     MessageId: undefined,
+    Status: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.ChannelArn !== undefined && data.ChannelArn !== null) {
@@ -4075,6 +5855,9 @@ export const deserializeAws_restJson1UpdateChannelMessageCommand = async (
   }
   if (data.MessageId !== undefined && data.MessageId !== null) {
     contents.MessageId = __expectString(data.MessageId);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = deserializeAws_restJson1ChannelMessageStatusStructure(data.Status, context);
   }
   return Promise.resolve(contents);
 };
@@ -4456,6 +6239,22 @@ const deserializeAws_restJson1UnauthorizedClientExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1ChannelMessageCallback = (input: ChannelMessageCallback, context: __SerdeContext): any => {
+  return {
+    ...(input.Content !== undefined && input.Content !== null && { Content: input.Content }),
+    ...(input.MessageId !== undefined && input.MessageId !== null && { MessageId: input.MessageId }),
+    ...(input.Metadata !== undefined && input.Metadata !== null && { Metadata: input.Metadata }),
+  };
+};
+
+const serializeAws_restJson1LambdaConfiguration = (input: LambdaConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.InvocationType !== undefined &&
+      input.InvocationType !== null && { InvocationType: input.InvocationType }),
+    ...(input.ResourceArn !== undefined && input.ResourceArn !== null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4467,11 +6266,54 @@ const serializeAws_restJson1MemberArns = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1Processor = (input: Processor, context: __SerdeContext): any => {
+  return {
+    ...(input.Configuration !== undefined &&
+      input.Configuration !== null && {
+        Configuration: serializeAws_restJson1ProcessorConfiguration(input.Configuration, context),
+      }),
+    ...(input.ExecutionOrder !== undefined &&
+      input.ExecutionOrder !== null && { ExecutionOrder: input.ExecutionOrder }),
+    ...(input.FallbackAction !== undefined &&
+      input.FallbackAction !== null && { FallbackAction: input.FallbackAction }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1ProcessorConfiguration = (input: ProcessorConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Lambda !== undefined &&
+      input.Lambda !== null && { Lambda: serializeAws_restJson1LambdaConfiguration(input.Lambda, context) }),
+  };
+};
+
+const serializeAws_restJson1ProcessorList = (input: Processor[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1Processor(entry, context);
+    });
+};
+
 const serializeAws_restJson1Tag = (input: Tag, context: __SerdeContext): any => {
   return {
     ...(input.Key !== undefined && input.Key !== null && { Key: input.Key }),
     ...(input.Value !== undefined && input.Value !== null && { Value: input.Value }),
   };
+};
+
+const serializeAws_restJson1TagKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
 };
 
 const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): any => {
@@ -4544,6 +6386,7 @@ const deserializeAws_restJson1BatchCreateChannelMembershipErrors = (
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     ChannelArn: __expectString(output.ChannelArn),
+    ChannelFlowArn: __expectString(output.ChannelFlowArn),
     CreatedBy:
       output.CreatedBy !== undefined && output.CreatedBy !== null
         ? deserializeAws_restJson1Identity(output.CreatedBy, context)
@@ -4565,6 +6408,33 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
     Name: __expectString(output.Name),
     Privacy: __expectString(output.Privacy),
   } as any;
+};
+
+const deserializeAws_restJson1ChannelAssociatedWithFlowSummary = (
+  output: any,
+  context: __SerdeContext
+): ChannelAssociatedWithFlowSummary => {
+  return {
+    ChannelArn: __expectString(output.ChannelArn),
+    Metadata: __expectString(output.Metadata),
+    Mode: __expectString(output.Mode),
+    Name: __expectString(output.Name),
+    Privacy: __expectString(output.Privacy),
+  } as any;
+};
+
+const deserializeAws_restJson1ChannelAssociatedWithFlowSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ChannelAssociatedWithFlowSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelAssociatedWithFlowSummary(entry, context);
+    });
 };
 
 const deserializeAws_restJson1ChannelBan = (output: any, context: __SerdeContext): ChannelBan => {
@@ -4602,6 +6472,47 @@ const deserializeAws_restJson1ChannelBanSummaryList = (output: any, context: __S
         return null as any;
       }
       return deserializeAws_restJson1ChannelBanSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ChannelFlow = (output: any, context: __SerdeContext): ChannelFlow => {
+  return {
+    ChannelFlowArn: __expectString(output.ChannelFlowArn),
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
+        : undefined,
+    LastUpdatedTimestamp:
+      output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTimestamp)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Processors:
+      output.Processors !== undefined && output.Processors !== null
+        ? deserializeAws_restJson1ProcessorList(output.Processors, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ChannelFlowSummary = (output: any, context: __SerdeContext): ChannelFlowSummary => {
+  return {
+    ChannelFlowArn: __expectString(output.ChannelFlowArn),
+    Name: __expectString(output.Name),
+    Processors:
+      output.Processors !== undefined && output.Processors !== null
+        ? deserializeAws_restJson1ProcessorList(output.Processors, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ChannelFlowSummaryList = (output: any, context: __SerdeContext): ChannelFlowSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ChannelFlowSummary(entry, context);
     });
 };
 
@@ -4708,7 +6619,21 @@ const deserializeAws_restJson1ChannelMessage = (output: any, context: __SerdeCon
       output.Sender !== undefined && output.Sender !== null
         ? deserializeAws_restJson1Identity(output.Sender, context)
         : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context)
+        : undefined,
     Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1ChannelMessageStatusStructure = (
+  output: any,
+  context: __SerdeContext
+): ChannelMessageStatusStructure => {
+  return {
+    Detail: __expectString(output.Detail),
+    Value: __expectString(output.Value),
   } as any;
 };
 
@@ -4733,6 +6658,10 @@ const deserializeAws_restJson1ChannelMessageSummary = (output: any, context: __S
     Sender:
       output.Sender !== undefined && output.Sender !== null
         ? deserializeAws_restJson1Identity(output.Sender, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_restJson1ChannelMessageStatusStructure(output.Status, context)
         : undefined,
     Type: __expectString(output.Type),
   } as any;
@@ -4854,6 +6783,13 @@ const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1LambdaConfiguration = (output: any, context: __SerdeContext): LambdaConfiguration => {
+  return {
+    InvocationType: __expectString(output.InvocationType),
+    ResourceArn: __expectString(output.ResourceArn),
+  } as any;
+};
+
 const deserializeAws_restJson1Members = (output: any, context: __SerdeContext): Identity[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -4872,6 +6808,59 @@ const deserializeAws_restJson1MessagingSessionEndpoint = (
   return {
     Url: __expectString(output.Url),
   } as any;
+};
+
+const deserializeAws_restJson1Processor = (output: any, context: __SerdeContext): Processor => {
+  return {
+    Configuration:
+      output.Configuration !== undefined && output.Configuration !== null
+        ? deserializeAws_restJson1ProcessorConfiguration(output.Configuration, context)
+        : undefined,
+    ExecutionOrder: __expectInt32(output.ExecutionOrder),
+    FallbackAction: __expectString(output.FallbackAction),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1ProcessorConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ProcessorConfiguration => {
+  return {
+    Lambda:
+      output.Lambda !== undefined && output.Lambda !== null
+        ? deserializeAws_restJson1LambdaConfiguration(output.Lambda, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ProcessorList = (output: any, context: __SerdeContext): Processor[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Processor(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
+  return {
+    Key: __expectString(output.Key),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): Tag[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Tag(entry, context);
+    });
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

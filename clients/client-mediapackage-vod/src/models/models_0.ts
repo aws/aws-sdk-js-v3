@@ -470,6 +470,11 @@ export interface HlsPackage {
   HlsManifests: HlsManifest[] | undefined;
 
   /**
+   * When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
+   */
+  IncludeDvbSubtitles?: boolean;
+
+  /**
    * Duration (in seconds) of each fragment. Actual fragments will be
    * rounded to the nearest multiple of the source fragment duration.
    */

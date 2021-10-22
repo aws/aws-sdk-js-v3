@@ -3392,6 +3392,30 @@ export namespace MarketoSourceProperties {
   });
 }
 
+export enum S3InputFileType {
+  CSV = "CSV",
+  JSON = "JSON",
+}
+
+/**
+ * <p> When you use Amazon S3 as the source, the configuration format that you provide the flow input data. </p>
+ */
+export interface S3InputFormatConfig {
+  /**
+   * <p> The file type that Amazon AppFlow gets from your Amazon S3 bucket. </p>
+   */
+  s3InputFileType?: S3InputFileType | string;
+}
+
+export namespace S3InputFormatConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: S3InputFormatConfig): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p> The properties that are applied when Amazon S3 is being used as the flow source. </p>
  */
@@ -3405,6 +3429,11 @@ export interface S3SourceProperties {
    * <p> The object key for the Amazon S3 bucket in which the source files are stored. </p>
    */
   bucketPrefix?: string;
+
+  /**
+   * <p> When you use Amazon S3 as the source, the configuration format that you provide the flow input data. </p>
+   */
+  s3InputFormatConfig?: S3InputFormatConfig;
 }
 
 export namespace S3SourceProperties {

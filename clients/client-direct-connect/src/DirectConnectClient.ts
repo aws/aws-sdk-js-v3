@@ -88,6 +88,10 @@ import {
 } from "./commands/AssociateVirtualInterfaceCommand";
 import { ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput } from "./commands/ConfirmConnectionCommand";
 import {
+  ConfirmCustomerAgreementCommandInput,
+  ConfirmCustomerAgreementCommandOutput,
+} from "./commands/ConfirmCustomerAgreementCommand";
+import {
   ConfirmPrivateVirtualInterfaceCommandInput,
   ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "./commands/ConfirmPrivateVirtualInterfaceCommand";
@@ -160,6 +164,10 @@ import {
   DescribeConnectionsOnInterconnectCommandOutput,
 } from "./commands/DescribeConnectionsOnInterconnectCommand";
 import {
+  DescribeCustomerMetadataCommandInput,
+  DescribeCustomerMetadataCommandOutput,
+} from "./commands/DescribeCustomerMetadataCommand";
+import {
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "./commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
@@ -190,6 +198,10 @@ import {
 import { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "./commands/DescribeLagsCommand";
 import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand";
 import { DescribeLocationsCommandInput, DescribeLocationsCommandOutput } from "./commands/DescribeLocationsCommand";
+import {
+  DescribeRouterConfigurationCommandInput,
+  DescribeRouterConfigurationCommandOutput,
+} from "./commands/DescribeRouterConfigurationCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
 import {
   DescribeVirtualGatewaysCommandInput,
@@ -226,6 +238,10 @@ import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "./commands/UpdateDirectConnectGatewayAssociationCommand";
+import {
+  UpdateDirectConnectGatewayCommandInput,
+  UpdateDirectConnectGatewayCommandOutput,
+} from "./commands/UpdateDirectConnectGatewayCommand";
 import { UpdateLagCommandInput, UpdateLagCommandOutput } from "./commands/UpdateLagCommand";
 import {
   UpdateVirtualInterfaceAttributesCommandInput,
@@ -245,6 +261,7 @@ export type ServiceInputTypes =
   | AssociateMacSecKeyCommandInput
   | AssociateVirtualInterfaceCommandInput
   | ConfirmConnectionCommandInput
+  | ConfirmCustomerAgreementCommandInput
   | ConfirmPrivateVirtualInterfaceCommandInput
   | ConfirmPublicVirtualInterfaceCommandInput
   | ConfirmTransitVirtualInterfaceCommandInput
@@ -269,6 +286,7 @@ export type ServiceInputTypes =
   | DescribeConnectionLoaCommandInput
   | DescribeConnectionsCommandInput
   | DescribeConnectionsOnInterconnectCommandInput
+  | DescribeCustomerMetadataCommandInput
   | DescribeDirectConnectGatewayAssociationProposalsCommandInput
   | DescribeDirectConnectGatewayAssociationsCommandInput
   | DescribeDirectConnectGatewayAttachmentsCommandInput
@@ -279,6 +297,7 @@ export type ServiceInputTypes =
   | DescribeLagsCommandInput
   | DescribeLoaCommandInput
   | DescribeLocationsCommandInput
+  | DescribeRouterConfigurationCommandInput
   | DescribeTagsCommandInput
   | DescribeVirtualGatewaysCommandInput
   | DescribeVirtualInterfacesCommandInput
@@ -291,6 +310,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateConnectionCommandInput
   | UpdateDirectConnectGatewayAssociationCommandInput
+  | UpdateDirectConnectGatewayCommandInput
   | UpdateLagCommandInput
   | UpdateVirtualInterfaceAttributesCommandInput;
 
@@ -306,6 +326,7 @@ export type ServiceOutputTypes =
   | AssociateMacSecKeyCommandOutput
   | AssociateVirtualInterfaceCommandOutput
   | ConfirmConnectionCommandOutput
+  | ConfirmCustomerAgreementCommandOutput
   | ConfirmPrivateVirtualInterfaceCommandOutput
   | ConfirmPublicVirtualInterfaceCommandOutput
   | ConfirmTransitVirtualInterfaceCommandOutput
@@ -330,6 +351,7 @@ export type ServiceOutputTypes =
   | DescribeConnectionLoaCommandOutput
   | DescribeConnectionsCommandOutput
   | DescribeConnectionsOnInterconnectCommandOutput
+  | DescribeCustomerMetadataCommandOutput
   | DescribeDirectConnectGatewayAssociationProposalsCommandOutput
   | DescribeDirectConnectGatewayAssociationsCommandOutput
   | DescribeDirectConnectGatewayAttachmentsCommandOutput
@@ -340,6 +362,7 @@ export type ServiceOutputTypes =
   | DescribeLagsCommandOutput
   | DescribeLoaCommandOutput
   | DescribeLocationsCommandOutput
+  | DescribeRouterConfigurationCommandOutput
   | DescribeTagsCommandOutput
   | DescribeVirtualGatewaysCommandOutput
   | DescribeVirtualInterfacesCommandOutput
@@ -352,6 +375,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateDirectConnectGatewayAssociationCommandOutput
+  | UpdateDirectConnectGatewayCommandOutput
   | UpdateLagCommandOutput
   | UpdateVirtualInterfaceAttributesCommandOutput;
 
@@ -496,9 +520,9 @@ export interface DirectConnectClientResolvedConfig extends DirectConnectClientRe
 /**
  * <p>Direct Connect links your internal network to an Direct Connect location over a standard Ethernet fiber-optic cable.
  *       One end of the cable is connected to your router, the other to an Direct Connect router. With this connection
- *       in place, you can create virtual interfaces directly to the Cloud (for example, to Amazon EC2
+ *       in place, you can create virtual interfaces directly to the Amazon Web Services Cloud (for example, to Amazon EC2
  *       and Amazon S3) and to Amazon VPC, bypassing Internet service providers in your network path. A
- *       connection provides access to all Regions except the China (Beijing) and (China) Ningxia Regions.
+ *       connection provides access to all Amazon Web Services Regions except the China (Beijing) and (China) Ningxia Regions.
  *       Amazon Web Services resources in the China Regions can only be accessed through locations associated with those Regions.</p>
  */
 export class DirectConnectClient extends __Client<

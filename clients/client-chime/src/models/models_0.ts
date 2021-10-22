@@ -4543,6 +4543,11 @@ export interface VoiceConnector {
    * <p>The updated Amazon Chime Voice Connector timestamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ARN of the specified Amazon Chime Voice Connector.</p>
+   */
+  VoiceConnectorArn?: string;
 }
 
 export namespace VoiceConnector {
@@ -4648,6 +4653,11 @@ export interface VoiceConnectorGroup {
    * <p>The updated Amazon Chime Voice Connector group time stamp, in ISO 8601 format.</p>
    */
   UpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ARN of the specified Amazon Chime Voice Connector group.</p>
+   */
+  VoiceConnectorGroupArn?: string;
 }
 
 export namespace VoiceConnectorGroup {

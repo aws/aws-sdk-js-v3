@@ -22,7 +22,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about AWS tags for the specified ARN.</p>
+ * <p>Gets information about Amazon Web Services tags for the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
