@@ -30,6 +30,32 @@ export namespace AppInstanceUserMembershipSummary {
   });
 }
 
+export interface AssociateChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+}
+
+export namespace AssociateChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateChannelFlowRequest): any => ({
+    ...obj,
+  });
+}
+
 export enum ErrorCode {
   AccessDenied = "AccessDenied",
   BadRequest = "BadRequest",
@@ -63,6 +89,140 @@ export namespace BadRequestException {
    * @internal
    */
   export const filterSensitiveLog = (obj: BadRequestException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ */
+export interface ConflictException extends __SmithyException, $MetadataBearer {
+  name: "ConflictException";
+  $fault: "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace ConflictException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConflictException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The client is permanently forbidden from making the request.</p>
+ */
+export interface ForbiddenException extends __SmithyException, $MetadataBearer {
+  name: "ForbiddenException";
+  $fault: "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace ForbiddenException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>One or more of the resources in the request does not exist in the system.</p>
+ */
+export interface NotFoundException extends __SmithyException, $MetadataBearer {
+  name: "NotFoundException";
+  $fault: "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace NotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The service encountered an unexpected error.</p>
+ */
+export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
+  name: "ServiceFailureException";
+  $fault: "server";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace ServiceFailureException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The service is currently unavailable.</p>
+ */
+export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
+  name: "ServiceUnavailableException";
+  $fault: "server";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace ServiceUnavailableException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The client exceeded its request rate limit.</p>
+ */
+export interface ThrottledClientException extends __SmithyException, $MetadataBearer {
+  name: "ThrottledClientException";
+  $fault: "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace ThrottledClientException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ThrottledClientException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The client is not currently authorized to make the request.</p>
+ */
+export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
+  name: "UnauthorizedClientException";
+  $fault: "client";
+  Code?: ErrorCode | string;
+  Message?: string;
+}
+
+export namespace UnauthorizedClientException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
     ...obj,
   });
 }
@@ -218,101 +378,6 @@ export namespace BatchCreateChannelMembershipResponse {
   });
 }
 
-/**
- * <p>The client is permanently forbidden from making the request.</p>
- */
-export interface ForbiddenException extends __SmithyException, $MetadataBearer {
-  name: "ForbiddenException";
-  $fault: "client";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace ForbiddenException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ForbiddenException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The service encountered an unexpected error.</p>
- */
-export interface ServiceFailureException extends __SmithyException, $MetadataBearer {
-  name: "ServiceFailureException";
-  $fault: "server";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace ServiceFailureException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceFailureException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The service is currently unavailable.</p>
- */
-export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
-  name: "ServiceUnavailableException";
-  $fault: "server";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace ServiceUnavailableException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceUnavailableException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The client exceeded its request rate limit.</p>
- */
-export interface ThrottledClientException extends __SmithyException, $MetadataBearer {
-  name: "ThrottledClientException";
-  $fault: "client";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace ThrottledClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ThrottledClientException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The client is not currently authorized to make the request.</p>
- */
-export interface UnauthorizedClientException extends __SmithyException, $MetadataBearer {
-  name: "UnauthorizedClientException";
-  $fault: "client";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace UnauthorizedClientException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnauthorizedClientException): any => ({
-    ...obj,
-  });
-}
-
 export enum ChannelMode {
   RESTRICTED = "RESTRICTED",
   UNRESTRICTED = "UNRESTRICTED",
@@ -371,6 +436,11 @@ export interface Channel {
    * <p>The time at which a channel was last updated.</p>
    */
   LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn?: string;
 }
 
 export namespace Channel {
@@ -382,6 +452,47 @@ export namespace Channel {
     ...(obj.Name && { Name: SENSITIVE_STRING }),
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
     ...(obj.CreatedBy && { CreatedBy: Identity.filterSensitiveLog(obj.CreatedBy) }),
+  });
+}
+
+/**
+ * <p>Summary of details of a channel associated with channel flow.</p>
+ */
+export interface ChannelAssociatedWithFlowSummary {
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>The mode of the channel.</p>
+   */
+  Mode?: ChannelMode | string;
+
+  /**
+   * <p>The channel's privacy setting.</p>
+   */
+  Privacy?: ChannelPrivacy | string;
+
+  /**
+   * <p>The channel's metadata.</p>
+   */
+  Metadata?: string;
+}
+
+export namespace ChannelAssociatedWithFlowSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelAssociatedWithFlowSummary): any => ({
+    ...obj,
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
   });
 }
 
@@ -438,6 +549,251 @@ export namespace ChannelBanSummary {
   export const filterSensitiveLog = (obj: ChannelBanSummary): any => ({
     ...obj,
     ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
+  });
+}
+
+export enum InvocationType {
+  ASYNC = "ASYNC",
+}
+
+/**
+ * <p>Stores metadata about a Lambda processor.</p>
+ */
+export interface LambdaConfiguration {
+  /**
+   * <p>The ARN of the Lambda message processing function.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Controls how the Lambda function is invoked.</p>
+   */
+  InvocationType: InvocationType | string | undefined;
+}
+
+export namespace LambdaConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LambdaConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A processor's metadata.</p>
+ */
+export interface ProcessorConfiguration {
+  /**
+   * <p>Indicates that the processor is of type Lambda.</p>
+   */
+  Lambda: LambdaConfiguration | undefined;
+}
+
+export namespace ProcessorConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProcessorConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum FallbackAction {
+  ABORT = "ABORT",
+  CONTINUE = "CONTINUE",
+}
+
+/**
+ * <p>The information about a processor in a channel flow.</p>
+ */
+export interface Processor {
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The information about the type of processor and its identifier.</p>
+   */
+  Configuration: ProcessorConfiguration | undefined;
+
+  /**
+   * <p>The sequence in which processors run. If you have multiple processors in a channel flow, message processing goes through each processor in the sequence. The value determines the sequence.
+   *          At this point, we support only 1 processor within a flow.</p>
+   */
+  ExecutionOrder: number | undefined;
+
+  /**
+   * <p>Determines whether to continue or stop processing if communication with processor fails. If the last processor in a channel flow sequence has a fallback action of CONTINUE, and communication
+   *          with the processor fails, the message is considered processed and sent to the recipients in the channel.</p>
+   */
+  FallbackAction: FallbackAction | string | undefined;
+}
+
+export namespace Processor {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Processor): any => ({
+    ...obj,
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The details of a channel flow.</p>
+ */
+export interface ChannelFlow {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn?: string;
+
+  /**
+   * <p>Information about the processor Lambda functions.</p>
+   */
+  Processors?: Processor[];
+
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The time at which the channel flow was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The time at which a channel flow was updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+}
+
+export namespace ChannelFlow {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelFlow): any => ({
+    ...obj,
+    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>Stores information about a callback.</p>
+ */
+export interface ChannelMessageCallback {
+  /**
+   * <p>The message ID.</p>
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The message content.</p>
+   */
+  Content?: string;
+
+  /**
+   * <p>The message metadata.</p>
+   */
+  Metadata?: string;
+}
+
+export namespace ChannelMessageCallback {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelMessageCallback): any => ({
+    ...obj,
+    ...(obj.Content && { Content: SENSITIVE_STRING }),
+    ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+  });
+}
+
+export interface ChannelFlowCallbackRequest {
+  /**
+   * <p>The identifier passed to the processor by the service when invoked. Use the identifier to call back the service.</p>
+   */
+  CallbackId?: string;
+
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>When a processor determines that a message needs to be <code>DENIED</code>, pass this parameter with a value of true.</p>
+   */
+  DeleteResource?: boolean;
+
+  /**
+   * <p>Stores information about the processed message.</p>
+   */
+  ChannelMessage: ChannelMessageCallback | undefined;
+}
+
+export namespace ChannelFlowCallbackRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelFlowCallbackRequest): any => ({
+    ...obj,
+    ...(obj.ChannelMessage && { ChannelMessage: ChannelMessageCallback.filterSensitiveLog(obj.ChannelMessage) }),
+  });
+}
+
+export interface ChannelFlowCallbackResponse {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>The call back ID passed in the request.</p>
+   */
+  CallbackId?: string;
+}
+
+export namespace ChannelFlowCallbackResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelFlowCallbackResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary of details of a channel flow.</p>
+ */
+export interface ChannelFlowSummary {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn?: string;
+
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Information about the processor Lambda functions.</p>
+   */
+  Processors?: Processor[];
+}
+
+export namespace ChannelFlowSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelFlowSummary): any => ({
+    ...obj,
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
   });
 }
 
@@ -583,6 +939,37 @@ export enum ChannelMessagePersistenceType {
   PERSISTENT = "PERSISTENT",
 }
 
+export enum ChannelMessageStatus {
+  DENIED = "DENIED",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  SENT = "SENT",
+}
+
+/**
+ * <p>Stores information about a message status.</p>
+ */
+export interface ChannelMessageStatusStructure {
+  /**
+   * <p>The message status value.</p>
+   */
+  Value?: ChannelMessageStatus | string;
+
+  /**
+   * <p>Contains more details about the messasge status.</p>
+   */
+  Detail?: string;
+}
+
+export namespace ChannelMessageStatusStructure {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelMessageStatusStructure): any => ({
+    ...obj,
+  });
+}
+
 export enum ChannelMessageType {
   CONTROL = "CONTROL",
   STANDARD = "STANDARD",
@@ -646,6 +1033,11 @@ export interface ChannelMessage {
    * <p>The persistence setting for a channel message.</p>
    */
   Persistence?: ChannelMessagePersistenceType | string;
+
+  /**
+   * <p>The status of the channel message.</p>
+   */
+  Status?: ChannelMessageStatusStructure;
 }
 
 export namespace ChannelMessage {
@@ -708,6 +1100,12 @@ export interface ChannelMessageSummary {
    * <p>Indicates whether a message was redacted.</p>
    */
   Redacted?: boolean;
+
+  /**
+   * <p>The message status. The status value is <code>SENT</code> for messages sent to a channel without a channel flow. For channels associated with channel flow, the value determines the
+   *          processing stage.</p>
+   */
+  Status?: ChannelMessageStatusStructure;
 }
 
 export namespace ChannelMessageSummary {
@@ -799,36 +1197,16 @@ export namespace ChannelModeratorSummary {
 }
 
 /**
- * <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
- */
-export interface ConflictException extends __SmithyException, $MetadataBearer {
-  name: "ConflictException";
-  $fault: "client";
-  Code?: ErrorCode | string;
-  Message?: string;
-}
-
-export namespace ConflictException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ConflictException): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a tag applied to a resource.</p>
+ * <p>A tag object containing a key-value pair.</p>
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * <p>The key in a tag.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * <p>The value in a tag.</p>
    */
   Value: string | undefined;
 }
@@ -987,6 +1365,62 @@ export namespace CreateChannelBanResponse {
   });
 }
 
+export interface CreateChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel flow request.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>Information about the processor Lambda functions.</p>
+   */
+  Processors: Processor[] | undefined;
+
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The tags for the creation request.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The client token for the request. An Idempotency token.</p>
+   */
+  ClientRequestToken: string | undefined;
+}
+
+export namespace CreateChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateChannelFlowRequest): any => ({
+    ...obj,
+    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface CreateChannelFlowResponse {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn?: string;
+}
+
+export namespace CreateChannelFlowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateChannelFlowResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateChannelMembershipRequest {
   /**
    * <p>The ARN of the channel to which you're adding users.</p>
@@ -1135,6 +1569,22 @@ export namespace DeleteChannelBanRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteChannelBanRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
+}
+
+export namespace DeleteChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteChannelFlowRequest): any => ({
     ...obj,
   });
 }
@@ -1298,22 +1748,36 @@ export namespace DescribeChannelBanResponse {
   });
 }
 
-/**
- * <p>One or more of the resources in the request does not exist in the system.</p>
- */
-export interface NotFoundException extends __SmithyException, $MetadataBearer {
-  name: "NotFoundException";
-  $fault: "client";
-  Code?: ErrorCode | string;
-  Message?: string;
+export interface DescribeChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
 }
 
-export namespace NotFoundException {
+export namespace DescribeChannelFlowRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: NotFoundException): any => ({
+  export const filterSensitiveLog = (obj: DescribeChannelFlowRequest): any => ({
     ...obj,
+  });
+}
+
+export interface DescribeChannelFlowResponse {
+  /**
+   * <p>The channel flow details.</p>
+   */
+  ChannelFlow?: ChannelFlow;
+}
+
+export namespace DescribeChannelFlowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeChannelFlowResponse): any => ({
+    ...obj,
+    ...(obj.ChannelFlow && { ChannelFlow: ChannelFlow.filterSensitiveLog(obj.ChannelFlow) }),
   });
 }
 
@@ -1491,6 +1955,32 @@ export namespace DescribeChannelModeratorResponse {
   });
 }
 
+export interface DisassociateChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+}
+
+export namespace DisassociateChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface GetChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1531,6 +2021,48 @@ export namespace GetChannelMessageResponse {
   export const filterSensitiveLog = (obj: GetChannelMessageResponse): any => ({
     ...obj,
     ...(obj.ChannelMessage && { ChannelMessage: ChannelMessage.filterSensitiveLog(obj.ChannelMessage) }),
+  });
+}
+
+export interface GetChannelMessageStatusRequest {
+  /**
+   * <p>The ARN of the channel</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The ID of the message.</p>
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+}
+
+export namespace GetChannelMessageStatusRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetChannelMessageStatusRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetChannelMessageStatusResponse {
+  /**
+   * <p>The message status and details.</p>
+   */
+  Status?: ChannelMessageStatusStructure;
+}
+
+export namespace GetChannelMessageStatusResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetChannelMessageStatusResponse): any => ({
+    ...obj,
   });
 }
 
@@ -1637,6 +2169,58 @@ export namespace ListChannelBansResponse {
     ...obj,
     ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
     ...(obj.ChannelBans && { ChannelBans: obj.ChannelBans.map((item) => ChannelBanSummary.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListChannelFlowsRequest {
+  /**
+   * <p>The ARN of the app instance.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of channel flows that you want to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested channel flows are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListChannelFlowsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListChannelFlowsRequest): any => ({
+    ...obj,
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListChannelFlowsResponse {
+  /**
+   * <p>The information about each channel flow.</p>
+   */
+  ChannelFlows?: ChannelFlowSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListChannelFlowsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListChannelFlowsResponse): any => ({
+    ...obj,
+    ...(obj.ChannelFlows && {
+      ChannelFlows: obj.ChannelFlows.map((item) => ChannelFlowSummary.filterSensitiveLog(item)),
+    }),
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
   });
 }
 
@@ -1982,6 +2566,58 @@ export namespace ListChannelsResponse {
   });
 }
 
+export interface ListChannelsAssociatedWithChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
+
+  /**
+   * <p>The maximum number of channels that you want to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListChannelsAssociatedWithChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListChannelsAssociatedWithChannelFlowRequest): any => ({
+    ...obj,
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListChannelsAssociatedWithChannelFlowResponse {
+  /**
+   * <p>The information about each channel.</p>
+   */
+  Channels?: ChannelAssociatedWithFlowSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested channels are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListChannelsAssociatedWithChannelFlowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListChannelsAssociatedWithChannelFlowResponse): any => ({
+    ...obj,
+    ...(obj.Channels && {
+      Channels: obj.Channels.map((item) => ChannelAssociatedWithFlowSummary.filterSensitiveLog(item)),
+    }),
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
 export interface ListChannelsModeratedByAppInstanceUserRequest {
   /**
    * <p>The ARN of the user in the moderated channel.</p>
@@ -2038,6 +2674,39 @@ export namespace ListChannelsModeratedByAppInstanceUserResponse {
       Channels: obj.Channels.map((item) => ChannelModeratedByAppInstanceUserSummary.filterSensitiveLog(item)),
     }),
     ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2147,6 +2816,11 @@ export interface SendChannelMessageResponse {
    * <p>The ID string assigned to each message.</p>
    */
   MessageId?: string;
+
+  /**
+   * <p>The status of the channel message.</p>
+   */
+  Status?: ChannelMessageStatusStructure;
 }
 
 export namespace SendChannelMessageResponse {
@@ -2155,6 +2829,50 @@ export namespace SendChannelMessageResponse {
    */
   export const filterSensitiveLog = (obj: SendChannelMessageResponse): any => ({
     ...obj,
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag keys.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
 }
 
@@ -2212,6 +2930,50 @@ export namespace UpdateChannelResponse {
   });
 }
 
+export interface UpdateChannelFlowRequest {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn: string | undefined;
+
+  /**
+   * <p>Information about the processor Lambda functions </p>
+   */
+  Processors: Processor[] | undefined;
+
+  /**
+   * <p>The name of the channel flow.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace UpdateChannelFlowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateChannelFlowRequest): any => ({
+    ...obj,
+    ...(obj.Processors && { Processors: obj.Processors.map((item) => Processor.filterSensitiveLog(item)) }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateChannelFlowResponse {
+  /**
+   * <p>The ARN of the channel flow.</p>
+   */
+  ChannelFlowArn?: string;
+}
+
+export namespace UpdateChannelFlowResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateChannelFlowResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2260,6 +3022,11 @@ export interface UpdateChannelMessageResponse {
    * <p>The ID string of the message being updated.</p>
    */
   MessageId?: string;
+
+  /**
+   * <p>The status of the message update.</p>
+   */
+  Status?: ChannelMessageStatusStructure;
 }
 
 export namespace UpdateChannelMessageResponse {

@@ -23,7 +23,6 @@ import {
   DataSource,
   DataSourceCredentials,
   DataSourceParameters,
-  EmbeddingIdentityType,
   FieldFolder,
   FilterOperator,
   FolderType,
@@ -49,6 +48,61 @@ import {
   UserRole,
   VpcConnectionProperties,
 } from "./models_0";
+
+export interface DescribeUserResponse {
+  /**
+   * <p>The user name.</p>
+   */
+  User?: User;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export namespace DescribeUserResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeUserResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The domain specified isn't on the allow list. All domains for embedded dashboards must be
+ * 			added to the approved list by an Amazon QuickSight admin.</p>
+ */
+export interface DomainNotWhitelistedException extends __SmithyException, $MetadataBearer {
+  name: "DomainNotWhitelistedException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+}
+
+export namespace DomainNotWhitelistedException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainNotWhitelistedException): any => ({
+    ...obj,
+  });
+}
+
+export enum EmbeddingIdentityType {
+  ANONYMOUS = "ANONYMOUS",
+  IAM = "IAM",
+  QUICKSIGHT = "QUICKSIGHT",
+}
 
 export enum FolderFilterAttribute {
   PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
@@ -319,6 +373,26 @@ export namespace RegisteredUserDashboardEmbeddingConfiguration {
 }
 
 /**
+ * <p>Information about the Q search bar embedding experience.</p>
+ */
+export interface RegisteredUserQSearchBarEmbeddingConfiguration {
+  /**
+   * <p>The ID of the Q topic that you want to make the starting topic in the Q search bar. You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight application and opening a topic. The ID is in the URL for the topic that you open.</p>
+   *          <p>If you don't specify an initial topic, a list of all shared topics is shown in the Q bar for your readers. When you select an initial topic, you can specify whether or not readers are allowed to select other topics from the available ones in the list.</p>
+   */
+  InitialTopicId?: string;
+}
+
+export namespace RegisteredUserQSearchBarEmbeddingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisteredUserQSearchBarEmbeddingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Information about the Amazon QuickSight console that you want to embed.</p>
  */
 export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
@@ -410,6 +484,12 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *         <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
    */
   QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration;
+
+  /**
+   * <p>The configuration details for embedding the Q search bar.</p>
+   *          <p>For more information about embedding the Q search bar, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html">Embedding Overview</a>.</p>
+   */
+  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
 }
 
 export namespace RegisteredUserEmbeddingExperienceConfiguration {
@@ -438,7 +518,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
   UserArn: string | undefined;
 
   /**
-   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards or the entire Amazon QuickSight console.</p>
+   * <p>The experience you are embedding. For registered users, you can embed Amazon QuickSight dashboards, the entire Amazon QuickSight console, or the Amazon QuickSight Q search bar.</p>
    */
   ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration | undefined;
 }
@@ -454,7 +534,7 @@ export namespace GenerateEmbedUrlForRegisteredUserRequest {
 
 export interface GenerateEmbedUrlForRegisteredUserResponse {
   /**
-   * <p>The embed URL for the Amazon QuickSight dashboard or console.</p>
+   * <p>The embed URL for the Amazon QuickSight dashboard, console, or Q search bar.</p>
    */
   EmbedUrl: string | undefined;
 
@@ -1557,7 +1637,7 @@ export namespace ListNamespacesRequest {
 export interface ListNamespacesResponse {
   /**
    * <p>The information about the namespaces in this Amazon Web Services account. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region;, notification email address, creation status, and
+   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
    *         identity store.</p>
    */
   Namespaces?: NamespaceInfoV2[];
@@ -1728,7 +1808,7 @@ export interface TemplateSummary {
   Arn?: string;
 
   /**
-   * <p>The ID of the template. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   TemplateId?: string;
 
@@ -2016,7 +2096,7 @@ export interface ThemeSummary {
   Name?: string;
 
   /**
-   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   ThemeId?: string;
 
@@ -2842,7 +2922,7 @@ export interface UpdateAccountCustomizationRequest {
   Namespace?: string;
 
   /**
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    */
   AccountCustomization: AccountCustomization | undefined;
 }
@@ -2874,7 +2954,7 @@ export interface UpdateAccountCustomizationResponse {
   Namespace?: string;
 
   /**
-   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region;. </p>
+   * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    */
   AccountCustomization?: AccountCustomization;
 
@@ -3130,7 +3210,7 @@ export interface UpdateDashboardRequest {
    *             to a template by using the <a>CreateTemplate</a> API operation. For
    *             <code>SourceTemplate</code>, specify the Amazon Resource Name (ARN) of the source
    *             template. The <code>SourceTemplate</code> ARN can contain any Amazon Web Services account and any
-   *             Amazon QuickSight-supported Amazon Web Services Region;. </p>
+   *             Amazon QuickSight-supported Amazon Web Services Region. </p>
    *         <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
    *             each dataset must match its placeholder. </p>
@@ -3369,7 +3449,7 @@ export interface UpdateDataSetRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region; for each
+   * <p>The ID for the dataset that you want to update. This ID is unique per Amazon Web Services Region for each
    * 			Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
@@ -3466,7 +3546,7 @@ export interface UpdateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -3510,7 +3590,7 @@ export interface UpdateDataSetPermissionsRequest {
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId: string | undefined;
 
@@ -3542,7 +3622,7 @@ export interface UpdateDataSetPermissionsResponse {
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
-   * 			Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * 			Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSetId?: string;
 
@@ -3573,7 +3653,7 @@ export interface UpdateDataSourceRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3626,7 +3706,7 @@ export interface UpdateDataSourceResponse {
   Arn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -3662,7 +3742,7 @@ export interface UpdateDataSourcePermissionsRequest {
   AwsAccountId: string | undefined;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account. </p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account. </p>
    */
   DataSourceId: string | undefined;
 
@@ -3693,7 +3773,7 @@ export interface UpdateDataSourcePermissionsResponse {
   DataSourceArn?: string;
 
   /**
-   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region; for each Amazon Web Services account.</p>
+   * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    */
   DataSourceId?: string;
 
@@ -4016,6 +4096,58 @@ export namespace UpdateIAMPolicyAssignmentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateIAMPolicyAssignmentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIpRestrictionRequest {
+  /**
+   * <p>Your AWS account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Describes updated IP rules.</p>
+   */
+  IpRestrictionRuleMap?: { [key: string]: string };
+
+  /**
+   * <p>Whether or not IP rules are enabled.</p>
+   */
+  Enabled?: boolean;
+}
+
+export namespace UpdateIpRestrictionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIpRestrictionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateIpRestrictionResponse {
+  /**
+   * <p>Your AWS account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * <p>The ID of the update request.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The status of the updated IP rules. A successful request returns a 200 code.</p>
+   */
+  Status?: number;
+}
+
+export namespace UpdateIpRestrictionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateIpRestrictionResponse): any => ({
     ...obj,
   });
 }

@@ -22,7 +22,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or updates tags for the AWS resource with the specified ARN.</p>
+ * <p>Adds or updates tags for the Amazon Web Services resource with the specified ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

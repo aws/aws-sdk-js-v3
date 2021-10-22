@@ -27,7 +27,7 @@ export interface DeregisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Removes the specified member account as a delegated administrator for Audit Manager. </p>
+ * <p>Removes the specified member Amazon Web Services account as a delegated administrator for Audit Manager. </p>
  *          <important>
  *             <p>When you remove a delegated administrator from your Audit Manager settings, or when you
  *         deregister a delegated administrator from Organizations, you continue to have access

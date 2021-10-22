@@ -3077,6 +3077,8 @@ const serializeAws_restJson1HlsPackage = (input: HlsPackage, context: __SerdeCon
       input.AdsOnDeliveryRestrictions !== null && { adsOnDeliveryRestrictions: input.AdsOnDeliveryRestrictions }),
     ...(input.Encryption !== undefined &&
       input.Encryption !== null && { encryption: serializeAws_restJson1HlsEncryption(input.Encryption, context) }),
+    ...(input.IncludeDvbSubtitles !== undefined &&
+      input.IncludeDvbSubtitles !== null && { includeDvbSubtitles: input.IncludeDvbSubtitles }),
     ...(input.IncludeIframeOnlyStream !== undefined &&
       input.IncludeIframeOnlyStream !== null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
     ...(input.PlaylistType !== undefined && input.PlaylistType !== null && { playlistType: input.PlaylistType }),
@@ -3462,6 +3464,7 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1HlsEncryption(output.encryption, context)
         : undefined,
+    IncludeDvbSubtitles: __expectBoolean(output.includeDvbSubtitles),
     IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     PlaylistType: __expectString(output.playlistType),
     PlaylistWindowSeconds: __expectInt32(output.playlistWindowSeconds),

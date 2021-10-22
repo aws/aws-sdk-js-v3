@@ -22,7 +22,7 @@ export interface UpdateAccountCustomizationCommandInput extends UpdateAccountCus
 export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates Amazon QuickSight customizations the current Amazon Web Services Region;. Currently, the only
+ * <p>Updates Amazon QuickSight customizations the current Amazon Web Services Region. Currently, the only
  *             customization you can use is a theme.</p>
  *         <p>You can use customizations for your Amazon Web Services account or, if you specify a namespace, for a
  *             Amazon QuickSight namespace instead. Customizations that apply to a namespace override

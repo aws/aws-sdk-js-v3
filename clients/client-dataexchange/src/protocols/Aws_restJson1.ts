@@ -73,12 +73,16 @@ import {
   ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
   ImportAssetFromSignedUrlResponseDetails,
+  ImportAssetsFromRedshiftDataSharesRequestDetails,
+  ImportAssetsFromRedshiftDataSharesResponseDetails,
   ImportAssetsFromS3RequestDetails,
   ImportAssetsFromS3ResponseDetails,
   InternalServerException,
   JobEntry,
   JobError,
   OriginDetails,
+  RedshiftDataShareAsset,
+  RedshiftDataShareAssetSourceEntry,
   RequestDetails,
   ResourceNotFoundException,
   ResponseDetails,
@@ -3851,6 +3855,20 @@ const serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails = (
   };
 };
 
+const serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails = (
+  input: ImportAssetsFromRedshiftDataSharesRequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssetSources !== undefined &&
+      input.AssetSources !== null && {
+        AssetSources: serializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry(input.AssetSources, context),
+      }),
+    ...(input.DataSetId !== undefined && input.DataSetId !== null && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId !== undefined && input.RevisionId !== null && { RevisionId: input.RevisionId }),
+  };
+};
+
 const serializeAws_restJson1ImportAssetsFromS3RequestDetails = (
   input: ImportAssetsFromS3RequestDetails,
   context: __SerdeContext
@@ -3890,6 +3908,20 @@ const serializeAws_restJson1ListOfAssetSourceEntry = (input: AssetSourceEntry[],
     });
 };
 
+const serializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry = (
+  input: RedshiftDataShareAssetSourceEntry[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1RedshiftDataShareAssetSourceEntry(entry, context);
+    });
+};
+
 const serializeAws_restJson1ListOfRevisionDestinationEntry = (
   input: RevisionDestinationEntry[],
   context: __SerdeContext
@@ -3916,6 +3948,15 @@ const serializeAws_restJson1MapOf__string = (input: { [key: string]: string }, c
   }, {});
 };
 
+const serializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
+  input: RedshiftDataShareAssetSourceEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DataShareArn !== undefined && input.DataShareArn !== null && { DataShareArn: input.DataShareArn }),
+  };
+};
+
 const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __SerdeContext): any => {
   return {
     ...(input.ExportAssetToSignedUrl !== undefined &&
@@ -3940,6 +3981,13 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
       input.ImportAssetFromSignedUrl !== null && {
         ImportAssetFromSignedUrl: serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails(
           input.ImportAssetFromSignedUrl,
+          context
+        ),
+      }),
+    ...(input.ImportAssetsFromRedshiftDataShares !== undefined &&
+      input.ImportAssetsFromRedshiftDataShares !== null && {
+        ImportAssetsFromRedshiftDataShares: serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails(
+          input.ImportAssetsFromRedshiftDataShares,
           context
         ),
       }),
@@ -3986,6 +4034,10 @@ const deserializeAws_restJson1AssetDestinationEntry = (output: any, context: __S
 
 const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeContext): AssetDetails => {
   return {
+    RedshiftDataShareAsset:
+      output.RedshiftDataShareAsset !== undefined && output.RedshiftDataShareAsset !== null
+        ? deserializeAws_restJson1RedshiftDataShareAsset(output.RedshiftDataShareAsset, context)
+        : undefined,
     S3SnapshotAsset:
       output.S3SnapshotAsset !== undefined && output.S3SnapshotAsset !== null
         ? deserializeAws_restJson1S3SnapshotAsset(output.S3SnapshotAsset, context)
@@ -4167,6 +4219,7 @@ const deserializeAws_restJson1ExportRevisionsToS3ResponseDetails = (
       output.Encryption !== undefined && output.Encryption !== null
         ? deserializeAws_restJson1ExportServerSideEncryption(output.Encryption, context)
         : undefined,
+    EventActionArn: __expectString(output.EventActionArn),
     RevisionDestinations:
       output.RevisionDestinations !== undefined && output.RevisionDestinations !== null
         ? deserializeAws_restJson1ListOfRevisionDestinationEntry(output.RevisionDestinations, context)
@@ -4207,6 +4260,20 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
       output.SignedUrlExpiresAt !== undefined && output.SignedUrlExpiresAt !== null
         ? __expectNonNull(__parseRfc3339DateTime(output.SignedUrlExpiresAt))
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails = (
+  output: any,
+  context: __SerdeContext
+): ImportAssetsFromRedshiftDataSharesResponseDetails => {
+  return {
+    AssetSources:
+      output.AssetSources !== undefined && output.AssetSources !== null
+        ? deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry(output.AssetSources, context)
+        : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    RevisionId: __expectString(output.RevisionId),
   } as any;
 };
 
@@ -4344,6 +4411,20 @@ const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry = (
+  output: any,
+  context: __SerdeContext
+): RedshiftDataShareAssetSourceEntry[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RedshiftDataShareAssetSourceEntry(entry, context);
+    });
+};
+
 const deserializeAws_restJson1ListOfRevisionDestinationEntry = (
   output: any,
   context: __SerdeContext
@@ -4387,6 +4468,24 @@ const deserializeAws_restJson1OriginDetails = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1RedshiftDataShareAsset = (
+  output: any,
+  context: __SerdeContext
+): RedshiftDataShareAsset => {
+  return {
+    Arn: __expectString(output.Arn),
+  } as any;
+};
+
+const deserializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
+  output: any,
+  context: __SerdeContext
+): RedshiftDataShareAssetSourceEntry => {
+  return {
+    DataShareArn: __expectString(output.DataShareArn),
+  } as any;
+};
+
 const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeContext): ResponseDetails => {
   return {
     ExportAssetToSignedUrl:
@@ -4404,6 +4503,13 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
     ImportAssetFromSignedUrl:
       output.ImportAssetFromSignedUrl !== undefined && output.ImportAssetFromSignedUrl !== null
         ? deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails(output.ImportAssetFromSignedUrl, context)
+        : undefined,
+    ImportAssetsFromRedshiftDataShares:
+      output.ImportAssetsFromRedshiftDataShares !== undefined && output.ImportAssetsFromRedshiftDataShares !== null
+        ? deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails(
+            output.ImportAssetsFromRedshiftDataShares,
+            context
+          )
         : undefined,
     ImportAssetsFromS3:
       output.ImportAssetsFromS3 !== undefined && output.ImportAssetsFromS3 !== null

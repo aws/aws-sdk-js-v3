@@ -5280,6 +5280,8 @@ const serializeAws_restJson1FileSourceSettings = (input: FileSourceSettings, con
       }),
     ...(input.SourceFile !== undefined && input.SourceFile !== null && { sourceFile: input.SourceFile }),
     ...(input.TimeDelta !== undefined && input.TimeDelta !== null && { timeDelta: input.TimeDelta }),
+    ...(input.TimeDeltaUnits !== undefined &&
+      input.TimeDeltaUnits !== null && { timeDeltaUnits: input.TimeDeltaUnits }),
   };
 };
 
@@ -8528,6 +8530,7 @@ const deserializeAws_restJson1FileSourceSettings = (output: any, context: __Serd
         : undefined,
     SourceFile: __expectString(output.sourceFile),
     TimeDelta: __expectInt32(output.timeDelta),
+    TimeDeltaUnits: __expectString(output.timeDeltaUnits),
   } as any;
 };
 

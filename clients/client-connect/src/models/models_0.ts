@@ -1017,12 +1017,12 @@ export interface HoursOfOperationConfig {
   Day: HoursOfOperationDays | string | undefined;
 
   /**
-   * <p>The start time that your contact center is open.</p>
+   * <p>The start time that your contact center opens.</p>
    */
   StartTime: HoursOfOperationTimeSlice | undefined;
 
   /**
-   * <p>The end time that your contact center is closes.</p>
+   * <p>The end time that your contact center closes.</p>
    */
   EndTime: HoursOfOperationTimeSlice | undefined;
 }
@@ -4918,7 +4918,7 @@ export interface ListLexBotsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return per page.</p>
+   * <p>The maximum number of results to return per page. If no value is specified, the default is 10. </p>
    */
   MaxResults?: number;
 }

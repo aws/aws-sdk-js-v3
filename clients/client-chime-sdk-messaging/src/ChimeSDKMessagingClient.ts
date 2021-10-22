@@ -50,11 +50,20 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  AssociateChannelFlowCommandInput,
+  AssociateChannelFlowCommandOutput,
+} from "./commands/AssociateChannelFlowCommand";
+import {
   BatchCreateChannelMembershipCommandInput,
   BatchCreateChannelMembershipCommandOutput,
 } from "./commands/BatchCreateChannelMembershipCommand";
+import {
+  ChannelFlowCallbackCommandInput,
+  ChannelFlowCallbackCommandOutput,
+} from "./commands/ChannelFlowCallbackCommand";
 import { CreateChannelBanCommandInput, CreateChannelBanCommandOutput } from "./commands/CreateChannelBanCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateChannelFlowCommandInput, CreateChannelFlowCommandOutput } from "./commands/CreateChannelFlowCommand";
 import {
   CreateChannelMembershipCommandInput,
   CreateChannelMembershipCommandOutput,
@@ -65,6 +74,7 @@ import {
 } from "./commands/CreateChannelModeratorCommand";
 import { DeleteChannelBanCommandInput, DeleteChannelBanCommandOutput } from "./commands/DeleteChannelBanCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import { DeleteChannelFlowCommandInput, DeleteChannelFlowCommandOutput } from "./commands/DeleteChannelFlowCommand";
 import {
   DeleteChannelMembershipCommandInput,
   DeleteChannelMembershipCommandOutput,
@@ -79,6 +89,10 @@ import {
 } from "./commands/DeleteChannelModeratorCommand";
 import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "./commands/DescribeChannelBanCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
+import {
+  DescribeChannelFlowCommandInput,
+  DescribeChannelFlowCommandOutput,
+} from "./commands/DescribeChannelFlowCommand";
 import {
   DescribeChannelMembershipCommandInput,
   DescribeChannelMembershipCommandOutput,
@@ -95,12 +109,21 @@ import {
   DescribeChannelModeratorCommandInput,
   DescribeChannelModeratorCommandOutput,
 } from "./commands/DescribeChannelModeratorCommand";
+import {
+  DisassociateChannelFlowCommandInput,
+  DisassociateChannelFlowCommandOutput,
+} from "./commands/DisassociateChannelFlowCommand";
 import { GetChannelMessageCommandInput, GetChannelMessageCommandOutput } from "./commands/GetChannelMessageCommand";
+import {
+  GetChannelMessageStatusCommandInput,
+  GetChannelMessageStatusCommandOutput,
+} from "./commands/GetChannelMessageStatusCommand";
 import {
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
 import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
+import { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "./commands/ListChannelFlowsCommand";
 import {
   ListChannelMembershipsCommandInput,
   ListChannelMembershipsCommandOutput,
@@ -117,17 +140,28 @@ import {
   ListChannelModeratorsCommandInput,
   ListChannelModeratorsCommandOutput,
 } from "./commands/ListChannelModeratorsCommand";
+import {
+  ListChannelsAssociatedWithChannelFlowCommandInput,
+  ListChannelsAssociatedWithChannelFlowCommandOutput,
+} from "./commands/ListChannelsAssociatedWithChannelFlowCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import {
   ListChannelsModeratedByAppInstanceUserCommandInput,
   ListChannelsModeratedByAppInstanceUserCommandOutput,
 } from "./commands/ListChannelsModeratedByAppInstanceUserCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
 } from "./commands/RedactChannelMessageCommand";
 import { SendChannelMessageCommandInput, SendChannelMessageCommandOutput } from "./commands/SendChannelMessageCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import { UpdateChannelFlowCommandInput, UpdateChannelFlowCommandOutput } from "./commands/UpdateChannelFlowCommand";
 import {
   UpdateChannelMessageCommandInput,
   UpdateChannelMessageCommandOutput,
@@ -139,66 +173,92 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | AssociateChannelFlowCommandInput
   | BatchCreateChannelMembershipCommandInput
+  | ChannelFlowCallbackCommandInput
   | CreateChannelBanCommandInput
   | CreateChannelCommandInput
+  | CreateChannelFlowCommandInput
   | CreateChannelMembershipCommandInput
   | CreateChannelModeratorCommandInput
   | DeleteChannelBanCommandInput
   | DeleteChannelCommandInput
+  | DeleteChannelFlowCommandInput
   | DeleteChannelMembershipCommandInput
   | DeleteChannelMessageCommandInput
   | DeleteChannelModeratorCommandInput
   | DescribeChannelBanCommandInput
   | DescribeChannelCommandInput
+  | DescribeChannelFlowCommandInput
   | DescribeChannelMembershipCommandInput
   | DescribeChannelMembershipForAppInstanceUserCommandInput
   | DescribeChannelModeratedByAppInstanceUserCommandInput
   | DescribeChannelModeratorCommandInput
+  | DisassociateChannelFlowCommandInput
   | GetChannelMessageCommandInput
+  | GetChannelMessageStatusCommandInput
   | GetMessagingSessionEndpointCommandInput
   | ListChannelBansCommandInput
+  | ListChannelFlowsCommandInput
   | ListChannelMembershipsCommandInput
   | ListChannelMembershipsForAppInstanceUserCommandInput
   | ListChannelMessagesCommandInput
   | ListChannelModeratorsCommandInput
+  | ListChannelsAssociatedWithChannelFlowCommandInput
   | ListChannelsCommandInput
   | ListChannelsModeratedByAppInstanceUserCommandInput
+  | ListTagsForResourceCommandInput
   | RedactChannelMessageCommandInput
   | SendChannelMessageCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateChannelCommandInput
+  | UpdateChannelFlowCommandInput
   | UpdateChannelMessageCommandInput
   | UpdateChannelReadMarkerCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateChannelFlowCommandOutput
   | BatchCreateChannelMembershipCommandOutput
+  | ChannelFlowCallbackCommandOutput
   | CreateChannelBanCommandOutput
   | CreateChannelCommandOutput
+  | CreateChannelFlowCommandOutput
   | CreateChannelMembershipCommandOutput
   | CreateChannelModeratorCommandOutput
   | DeleteChannelBanCommandOutput
   | DeleteChannelCommandOutput
+  | DeleteChannelFlowCommandOutput
   | DeleteChannelMembershipCommandOutput
   | DeleteChannelMessageCommandOutput
   | DeleteChannelModeratorCommandOutput
   | DescribeChannelBanCommandOutput
   | DescribeChannelCommandOutput
+  | DescribeChannelFlowCommandOutput
   | DescribeChannelMembershipCommandOutput
   | DescribeChannelMembershipForAppInstanceUserCommandOutput
   | DescribeChannelModeratedByAppInstanceUserCommandOutput
   | DescribeChannelModeratorCommandOutput
+  | DisassociateChannelFlowCommandOutput
   | GetChannelMessageCommandOutput
+  | GetChannelMessageStatusCommandOutput
   | GetMessagingSessionEndpointCommandOutput
   | ListChannelBansCommandOutput
+  | ListChannelFlowsCommandOutput
   | ListChannelMembershipsCommandOutput
   | ListChannelMembershipsForAppInstanceUserCommandOutput
   | ListChannelMessagesCommandOutput
   | ListChannelModeratorsCommandOutput
+  | ListChannelsAssociatedWithChannelFlowCommandOutput
   | ListChannelsCommandOutput
   | ListChannelsModeratedByAppInstanceUserCommandOutput
+  | ListTagsForResourceCommandOutput
   | RedactChannelMessageCommandOutput
   | SendChannelMessageCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateChannelFlowCommandOutput
   | UpdateChannelMessageCommandOutput
   | UpdateChannelReadMarkerCommandOutput;
 

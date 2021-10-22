@@ -79,7 +79,7 @@ export namespace AutoExportRevisionDestinationEntry {
  */
 export interface AutoExportRevisionToS3RequestDetails {
   /**
-   * <p>Encryption configuration of the export job. Includes the encryption type in addition to the AWS KMS key. The KMS key is only necessary if you chose the KMS encryption. type.</p>
+   * <p>Encryption configuration for the auto export job.</p>
    */
   Encryption?: ExportServerSideEncryption;
 
@@ -98,9 +98,12 @@ export namespace AutoExportRevisionToS3RequestDetails {
   });
 }
 
+/**
+ * <p>What occurs after a certain event.</p>
+ */
 export interface Action {
   /**
-   * <p>Details of the operation to be performed by the job.</p>
+   * <p>Details for the export revision to Amazon S3 action.</p>
    */
   ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
 }
@@ -144,6 +147,25 @@ export namespace AssetDestinationEntry {
 }
 
 /**
+ * The Amazon Redshift datashare asset.
+ */
+export interface RedshiftDataShareAsset {
+  /**
+   * The Amazon Resource Name (ARN) of the datashare asset.
+   */
+  Arn: string | undefined;
+}
+
+export namespace RedshiftDataShareAsset {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RedshiftDataShareAsset): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The S3 object that is the asset.</p>
  */
 export interface S3SnapshotAsset {
@@ -162,11 +184,19 @@ export namespace S3SnapshotAsset {
   });
 }
 
+/**
+ * <p>Information about the asset.</p>
+ */
 export interface AssetDetails {
   /**
    * <p>The S3 object that is the asset.</p>
    */
   S3SnapshotAsset?: S3SnapshotAsset;
+
+  /**
+   * <p>The Amazon Redshift datashare that is the asset.</p>
+   */
+  RedshiftDataShareAsset?: RedshiftDataShareAsset;
 }
 
 export namespace AssetDetails {
@@ -179,11 +209,12 @@ export namespace AssetDetails {
 }
 
 export enum AssetType {
+  REDSHIFT_DATA_SHARE = "REDSHIFT_DATA_SHARE",
   S3_SNAPSHOT = "S3_SNAPSHOT",
 }
 
 /**
- * <p>An asset in AWS Data Exchange is a piece of data that can be stored as an S3 object. The asset can be a structured data file, an image file, or some other data file. When you create an import job for your files, you create an asset in AWS Data Exchange for each of those files.</p>
+ * <p>An asset in AWS Data Exchange is a piece of data. The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, or an Amazon Redshift datashare (Preview). When you create an import job for your files, you create an asset in AWS Data Exchange for each of those files.</p>
  */
 export interface AssetEntry {
   /**
@@ -192,12 +223,12 @@ export interface AssetEntry {
   Arn: string | undefined;
 
   /**
-   * <p>Information about the asset, including its size.</p>
+   * <p>Information about the asset.</p>
    */
   AssetDetails: AssetDetails | undefined;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType: AssetType | string | undefined;
 
@@ -444,7 +475,7 @@ export enum Code {
  */
 export interface CreateDataSetRequest {
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType: AssetType | string | undefined;
 
@@ -478,7 +509,13 @@ export enum Origin {
   OWNED = "OWNED",
 }
 
+/**
+ * <p>Information about the origin of the data set.</p>
+ */
 export interface OriginDetails {
+  /**
+   * <p>The product ID of the origin of the data set.</p>
+   */
   ProductId: string | undefined;
 }
 
@@ -498,7 +535,7 @@ export interface CreateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType?: AssetType | string;
 
@@ -558,6 +595,8 @@ export namespace CreateDataSetResponse {
 }
 
 export enum LimitName {
+  Amazon_Redshift_datashare_assets_per_import_job_from_Redshift = "Amazon Redshift datashare assets per import job from Redshift",
+  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
   Asset_per_export_job_from_Amazon_S3 = "Asset per export job from Amazon S3",
   Asset_size_in_GB = "Asset size in GB",
   Assets_per_import_job_from_Amazon_S3 = "Assets per import job from Amazon S3",
@@ -566,12 +605,14 @@ export enum LimitName {
   Concurrent_in_progress_jobs_to_export_assets_to_Amazon_S3 = "Concurrent in progress jobs to export assets to Amazon S3",
   Concurrent_in_progress_jobs_to_export_assets_to_a_signed_URL = "Concurrent in progress jobs to export assets to a signed URL",
   Concurrent_in_progress_jobs_to_export_revisions_to_Amazon_S3 = "Concurrent in progress jobs to export revisions to Amazon S3",
+  Concurrent_in_progress_jobs_to_import_assets_from_Amazon_Redshift_datashares = "Concurrent in progress jobs to import assets from Amazon Redshift datashares",
   Concurrent_in_progress_jobs_to_import_assets_from_Amazon_S3 = "Concurrent in progress jobs to import assets from Amazon S3",
   Concurrent_in_progress_jobs_to_import_assets_from_a_signed_URL = "Concurrent in progress jobs to import assets from a signed URL",
   Data_sets_per_account = "Data sets per account",
   Data_sets_per_product = "Data sets per product",
   Event_actions_per_account = "Event actions per account",
   Products_per_account = "Products per account",
+  Revisions_per_Amazon_Redshift_datashare_data_set = "Revisions per Amazon Redshift datashare data set",
   Revisions_per_data_set = "Revisions per data set",
 }
 
@@ -606,9 +647,12 @@ export namespace ServiceLimitExceededException {
   });
 }
 
+/**
+ * <p>Information about the published revision.</p>
+ */
 export interface RevisionPublished {
   /**
-   * <p>A unique identifier.</p>
+   * <p>The data set ID of the published revision.</p>
    */
   DataSetId: string | undefined;
 }
@@ -622,7 +666,13 @@ export namespace RevisionPublished {
   });
 }
 
+/**
+ * <p>What occurs to start an action.</p>
+ */
 export interface Event {
+  /**
+   * <p>What occurs to start the revision publish action.</p>
+   */
   RevisionPublished?: RevisionPublished;
 }
 
@@ -856,6 +906,54 @@ export namespace ImportAssetFromSignedUrlRequestDetails {
 }
 
 /**
+ * <p>The source of the Amazon Redshift datashare asset.</p>
+ */
+export interface RedshiftDataShareAssetSourceEntry {
+  /**
+   * The Amazon Resource Name (ARN) of the datashare asset.
+   */
+  DataShareArn: string | undefined;
+}
+
+export namespace RedshiftDataShareAssetSourceEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RedshiftDataShareAssetSourceEntry): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Details from an import from Amazon Redshift datashare request.
+ */
+export interface ImportAssetsFromRedshiftDataSharesRequestDetails {
+  /**
+   * A list of Amazon Redshift datashare assets.
+   */
+  AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
+
+  /**
+   * The unique identifier for the data set associated with this import job.
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * The unique identifier for the revision associated with this import job.
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace ImportAssetsFromRedshiftDataSharesRequestDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportAssetsFromRedshiftDataSharesRequestDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Details of the operation to be performed by the job.</p>
  */
 export interface ImportAssetsFromS3RequestDetails {
@@ -912,6 +1010,11 @@ export interface RequestDetails {
    * <p>Details about the import from Amazon S3 request.</p>
    */
   ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
+
+  /**
+   * <p>Details from an import from Amazon Redshift datashare request.</p>
+   */
+  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails;
 }
 
 export namespace RequestDetails {
@@ -927,6 +1030,7 @@ export enum Type {
   EXPORT_ASSETS_TO_S3 = "EXPORT_ASSETS_TO_S3",
   EXPORT_ASSET_TO_SIGNED_URL = "EXPORT_ASSET_TO_SIGNED_URL",
   EXPORT_REVISIONS_TO_S3 = "EXPORT_REVISIONS_TO_S3",
+  IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES = "IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES",
   IMPORT_ASSETS_FROM_S3 = "IMPORT_ASSETS_FROM_S3",
   IMPORT_ASSET_FROM_SIGNED_URL = "IMPORT_ASSET_FROM_SIGNED_URL",
 }
@@ -1046,6 +1150,11 @@ export interface ExportRevisionsToS3ResponseDetails {
    * <p>The destination in Amazon S3 where the revision is exported.</p>
    */
   RevisionDestinations: RevisionDestinationEntry[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the event action.</p>
+   */
+  EventActionArn?: string;
 }
 
 export namespace ExportRevisionsToS3ResponseDetails {
@@ -1062,7 +1171,7 @@ export namespace ExportRevisionsToS3ResponseDetails {
  */
 export interface ImportAssetFromSignedUrlResponseDetails {
   /**
-   * <p>The name for the asset associated with this import response.</p>
+   * <p>The name for the asset associated with this import job.</p>
    */
   AssetName: string | undefined;
 
@@ -1097,6 +1206,35 @@ export namespace ImportAssetFromSignedUrlResponseDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: ImportAssetFromSignedUrlResponseDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Details from an import from Amazon Redshift datashare response.
+ */
+export interface ImportAssetsFromRedshiftDataSharesResponseDetails {
+  /**
+   * A list of Amazon Redshift datashare asset sources.
+   */
+  AssetSources: RedshiftDataShareAssetSourceEntry[] | undefined;
+
+  /**
+   * The unique identifier for the data set associated with this import job.
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * The unique identifier for the revision associated with this import job.
+   */
+  RevisionId: string | undefined;
+}
+
+export namespace ImportAssetsFromRedshiftDataSharesResponseDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImportAssetsFromRedshiftDataSharesResponseDetails): any => ({
     ...obj,
   });
 }
@@ -1158,6 +1296,11 @@ export interface ResponseDetails {
    * <p>Details for the import from Amazon S3 response.</p>
    */
   ImportAssetsFromS3?: ImportAssetsFromS3ResponseDetails;
+
+  /**
+   * <p>Details from an import from Amazon Redshift datashare response.</p>
+   */
+  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesResponseDetails;
 }
 
 export namespace ResponseDetails {
@@ -1169,9 +1312,12 @@ export namespace ResponseDetails {
   });
 }
 
+/**
+ * <p>Information about the job error.</p>
+ */
 export interface ImportAssetFromSignedUrlJobErrorDetails {
   /**
-   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>Information about the job error.</p>
    */
   AssetName: string | undefined;
 }
@@ -1185,10 +1331,17 @@ export namespace ImportAssetFromSignedUrlJobErrorDetails {
   });
 }
 
+/**
+ * <p>Information about the job error.</p>
+ */
 export interface Details {
-  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
   /**
-   * <p>The list of sources for the assets.</p>
+   * <p>Information about the job error.</p>
+   */
+  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
+
+  /**
+   * <p>Information about the job error.</p>
    */
   ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
 }
@@ -1203,6 +1356,7 @@ export namespace Details {
 }
 
 export enum JobErrorLimitName {
+  Amazon_Redshift_datashare_assets_per_revision = "Amazon Redshift datashare assets per revision",
   Asset_size_in_GB = "Asset size in GB",
   Assets_per_revision = "Assets per revision",
 }
@@ -1222,7 +1376,11 @@ export interface JobError {
    */
   Code: Code | string | undefined;
 
+  /**
+   * <p>The details about the job error.</p>
+   */
   Details?: Details;
+
   /**
    * <p>The name of the limit that was reached.</p>
    */
@@ -1349,7 +1507,7 @@ export namespace CreateRevisionRequest {
 
 export interface CreateRevisionResponse {
   /**
-   * <p>The ARN for the revision</p>
+   * <p>The ARN for the revision.</p>
    */
   Arn?: string;
 
@@ -1515,12 +1673,12 @@ export interface GetAssetResponse {
   Arn?: string;
 
   /**
-   * <p>Information about the asset, including its size.</p>
+   * <p>Information about the asset.</p>
    */
   AssetDetails?: AssetDetails;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType?: AssetType | string;
 
@@ -1540,7 +1698,7 @@ export interface GetAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
   Name?: string;
 
@@ -1592,7 +1750,7 @@ export interface GetDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType?: AssetType | string;
 
@@ -1798,7 +1956,7 @@ export namespace GetRevisionRequest {
 
 export interface GetRevisionResponse {
   /**
-   * <p>The ARN for the revision</p>
+   * <p>The ARN for the revision.</p>
    */
   Arn?: string;
 
@@ -1989,7 +2147,7 @@ export interface DataSetEntry {
   Arn: string | undefined;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType: AssetType | string | undefined;
 
@@ -2100,7 +2258,7 @@ export interface EventActionEntry {
   Action: Action | undefined;
 
   /**
-   * <p>The ARN for the event action.</p>
+   * <p>The Amazon Resource Name (ARN) for the event action.</p>
    */
   Arn: string | undefined;
 
@@ -2458,12 +2616,12 @@ export interface UpdateAssetResponse {
   Arn?: string;
 
   /**
-   * <p>Information about the asset, including its size.</p>
+   * <p>Information about the asset.</p>
    */
   AssetDetails?: AssetDetails;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType?: AssetType | string;
 
@@ -2483,7 +2641,7 @@ export interface UpdateAssetResponse {
   Id?: string;
 
   /**
-   * <p>The name of the asset When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
+   * <p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key.</p>
    */
   Name?: string;
 
@@ -2548,7 +2706,7 @@ export interface UpdateDataSetResponse {
   Arn?: string;
 
   /**
-   * <p>The type of file your data is stored in. Currently, the supported asset type is S3_SNAPSHOT.</p>
+   * <p>The type of asset that is added to a data set.</p>
    */
   AssetType?: AssetType | string;
 

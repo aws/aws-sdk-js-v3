@@ -794,7 +794,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>Removes the specified member account as a delegated administrator for Audit Manager. </p>
+   * <p>Removes the specified member Amazon Web Services account as a delegated administrator for Audit Manager. </p>
    *          <important>
    *             <p>When you remove a delegated administrator from your Audit Manager settings, or when you
    *         deregister a delegated administrator from Organizations, you continue to have access
@@ -1336,7 +1336,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Returns the settings for the specified account.
+   *    Returns the settings for the specified Amazon Web Services account.
    * </p>
    */
   public getSettings(args: GetSettingsCommandInput, options?: __HttpHandlerOptions): Promise<GetSettingsCommandOutput>;
@@ -1599,7 +1599,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Enables Audit Manager for the specified account.
+   *    Enables Audit Manager for the specified Amazon Web Services account.
    * </p>
    */
   public registerAccount(
@@ -1633,7 +1633,7 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Enables an account within the organization as the delegated administrator for Audit Manager.
+   *    Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager.
    * </p>
    */
   public registerOrganizationAdminAccount(

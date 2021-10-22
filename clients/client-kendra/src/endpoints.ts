@@ -10,6 +10,10 @@ const regionHash: RegionHash = {
     hostname: "kendra-fips.us-east-2.amazonaws.com",
     signingRegion: "us-east-2",
   },
+  "fips-us-gov-west-1": {
+    hostname: "kendra-fips.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
   "fips-us-west-2": {
     hostname: "kendra-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
@@ -59,7 +63,7 @@ const partitionHash: PartitionHash = {
     hostname: "kendra.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     hostname: "kendra.{region}.amazonaws.com",
   },
 };

@@ -130,6 +130,10 @@ import {
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "../commands/DescribeIAMPolicyAssignmentCommand";
 import { DescribeIngestionCommandInput, DescribeIngestionCommandOutput } from "../commands/DescribeIngestionCommand";
+import {
+  DescribeIpRestrictionCommandInput,
+  DescribeIpRestrictionCommandOutput,
+} from "../commands/DescribeIpRestrictionCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "../commands/DescribeNamespaceCommand";
 import {
   DescribeTemplateAliasCommandInput,
@@ -253,6 +257,10 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "../commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIpRestrictionCommandInput,
+  UpdateIpRestrictionCommandOutput,
+} from "../commands/UpdateIpRestrictionCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "../commands/UpdateTemplateAliasCommand";
@@ -327,7 +335,6 @@ import {
   DataSourceParameters,
   DateTimeParameter,
   DecimalParameter,
-  DomainNotWhitelistedException,
   ErrorInfo,
   ExportToCSVOption,
   FieldFolder,
@@ -416,6 +423,7 @@ import {
   VpcConnectionProperties,
 } from "../models/models_0";
 import {
+  DomainNotWhitelistedException,
   FolderSearchFilter,
   FolderSummary,
   IAMPolicyAssignmentSummary,
@@ -424,6 +432,7 @@ import {
   QuickSightUserNotFoundException,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserEmbeddingExperienceConfiguration,
+  RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
@@ -1056,7 +1065,9 @@ export const serializeAws_restJson1CreateIngestionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}";
@@ -1088,6 +1099,9 @@ export const serializeAws_restJson1CreateIngestionCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
+  body = JSON.stringify({
+    ...(input.IngestionType !== undefined && input.IngestionType !== null && { IngestionType: input.IngestionType }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2750,6 +2764,35 @@ export const serializeAws_restJson1DescribeIngestionCommand = async (
     resolvedPath = resolvedPath.replace("{IngestionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: IngestionId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeIpRestrictionCommand = async (
+  input: DescribeIpRestrictionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/ip-restriction";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
   return new __HttpRequest({
@@ -5270,6 +5313,44 @@ export const serializeAws_restJson1UpdateIAMPolicyAssignmentCommand = async (
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateIpRestrictionCommand = async (
+  input: UpdateIpRestrictionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/ip-restriction";
+  if (input.AwsAccountId !== undefined) {
+    const labelValue: string = input.AwsAccountId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AwsAccountId.");
+    }
+    resolvedPath = resolvedPath.replace("{AwsAccountId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AwsAccountId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Enabled !== undefined && input.Enabled !== null && { Enabled: input.Enabled }),
+    ...(input.IpRestrictionRuleMap !== undefined &&
+      input.IpRestrictionRuleMap !== null && {
+        IpRestrictionRuleMap: serializeAws_restJson1IpRestrictionRuleMap(input.IpRestrictionRuleMap, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -11233,6 +11314,109 @@ const deserializeAws_restJson1DescribeIngestionCommandError = async (
     case "com.amazonaws.quicksight#ResourceExistsException":
       response = {
         ...(await deserializeAws_restJson1ResourceExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeIpRestrictionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpRestrictionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeIpRestrictionCommandError(output, context);
+  }
+  const contents: DescribeIpRestrictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AwsAccountId: undefined,
+    Enabled: undefined,
+    IpRestrictionRuleMap: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AwsAccountId !== undefined && data.AwsAccountId !== null) {
+    contents.AwsAccountId = __expectString(data.AwsAccountId);
+  }
+  if (data.Enabled !== undefined && data.Enabled !== null) {
+    contents.Enabled = __expectBoolean(data.Enabled);
+  }
+  if (data.IpRestrictionRuleMap !== undefined && data.IpRestrictionRuleMap !== null) {
+    contents.IpRestrictionRuleMap = deserializeAws_restJson1IpRestrictionRuleMap(data.IpRestrictionRuleMap, context);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeIpRestrictionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIpRestrictionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -17554,6 +17738,109 @@ const deserializeAws_restJson1UpdateIAMPolicyAssignmentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateIpRestrictionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIpRestrictionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateIpRestrictionCommandError(output, context);
+  }
+  const contents: UpdateIpRestrictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    AwsAccountId: undefined,
+    RequestId: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AwsAccountId !== undefined && data.AwsAccountId !== null) {
+    contents.AwsAccountId = __expectString(data.AwsAccountId);
+  }
+  if (data.RequestId !== undefined && data.RequestId !== null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  if (contents.Status === undefined) {
+    contents.Status = output.statusCode;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateIpRestrictionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIpRestrictionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.quicksight#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -19449,6 +19736,18 @@ const serializeAws_restJson1IntegerParameterList = (input: IntegerParameter[], c
     });
 };
 
+const serializeAws_restJson1IpRestrictionRuleMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
 const serializeAws_restJson1JiraParameters = (input: JiraParameters, context: __SerdeContext): any => {
   return {
     ...(input.SiteBaseUrl !== undefined && input.SiteBaseUrl !== null && { SiteBaseUrl: input.SiteBaseUrl }),
@@ -19692,6 +19991,10 @@ const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
       input.Dashboard !== null && {
         Dashboard: serializeAws_restJson1RegisteredUserDashboardEmbeddingConfiguration(input.Dashboard, context),
       }),
+    ...(input.QSearchBar !== undefined &&
+      input.QSearchBar !== null && {
+        QSearchBar: serializeAws_restJson1RegisteredUserQSearchBarEmbeddingConfiguration(input.QSearchBar, context),
+      }),
     ...(input.QuickSightConsole !== undefined &&
       input.QuickSightConsole !== null && {
         QuickSightConsole: serializeAws_restJson1RegisteredUserQuickSightConsoleEmbeddingConfiguration(
@@ -19699,6 +20002,16 @@ const serializeAws_restJson1RegisteredUserEmbeddingExperienceConfiguration = (
           context
         ),
       }),
+  };
+};
+
+const serializeAws_restJson1RegisteredUserQSearchBarEmbeddingConfiguration = (
+  input: RegisteredUserQSearchBarEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialTopicId !== undefined &&
+      input.InitialTopicId !== null && { InitialTopicId: input.InitialTopicId }),
   };
 };
 
@@ -21338,6 +21651,21 @@ const deserializeAws_restJson1InputColumnList = (output: any, context: __SerdeCo
     });
 };
 
+const deserializeAws_restJson1IpRestrictionRuleMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_restJson1JiraParameters = (output: any, context: __SerdeContext): JiraParameters => {
   return {
     SiteBaseUrl: __expectString(output.SiteBaseUrl),
@@ -21662,6 +21990,7 @@ const deserializeAws_restJson1RowInfo = (output: any, context: __SerdeContext): 
   return {
     RowsDropped: __expectLong(output.RowsDropped),
     RowsIngested: __expectLong(output.RowsIngested),
+    TotalRowsInDataset: __expectLong(output.TotalRowsInDataset),
   } as any;
 };
 

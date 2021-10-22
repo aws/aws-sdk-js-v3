@@ -159,6 +159,10 @@ import {
   DescribeIAMPolicyAssignmentCommandOutput,
 } from "./commands/DescribeIAMPolicyAssignmentCommand";
 import { DescribeIngestionCommandInput, DescribeIngestionCommandOutput } from "./commands/DescribeIngestionCommand";
+import {
+  DescribeIpRestrictionCommandInput,
+  DescribeIpRestrictionCommandOutput,
+} from "./commands/DescribeIpRestrictionCommand";
 import { DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput } from "./commands/DescribeNamespaceCommand";
 import {
   DescribeTemplateAliasCommandInput,
@@ -282,6 +286,10 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIpRestrictionCommandInput,
+  UpdateIpRestrictionCommandOutput,
+} from "./commands/UpdateIpRestrictionCommand";
+import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
 } from "./commands/UpdateTemplateAliasCommand";
@@ -350,6 +358,7 @@ export type ServiceInputTypes =
   | DescribeGroupCommandInput
   | DescribeIAMPolicyAssignmentCommandInput
   | DescribeIngestionCommandInput
+  | DescribeIpRestrictionCommandInput
   | DescribeNamespaceCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
@@ -406,6 +415,7 @@ export type ServiceInputTypes =
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
+  | UpdateIpRestrictionCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -465,6 +475,7 @@ export type ServiceOutputTypes =
   | DescribeGroupCommandOutput
   | DescribeIAMPolicyAssignmentCommandOutput
   | DescribeIngestionCommandOutput
+  | DescribeIpRestrictionCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
@@ -521,6 +532,7 @@ export type ServiceOutputTypes =
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
+  | UpdateIpRestrictionCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput

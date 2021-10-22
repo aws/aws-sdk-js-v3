@@ -1,7 +1,16 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "us-gov-east-1": {
+    hostname: "applicationinsights.us-gov-east-1.amazonaws.com",
+    signingRegion: "us-gov-east-1",
+  },
+  "us-gov-west-1": {
+    hostname: "applicationinsights.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {

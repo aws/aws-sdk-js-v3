@@ -142,6 +142,9 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
     ...(isSerializableHeaderValue(input.PiiEntityTypes) && {
       "x-amzn-transcribe-pii-entity-types": input.PiiEntityTypes!,
     }),
+    ...(isSerializableHeaderValue(input.LanguageModelName) && {
+      "x-amzn-transcribe-language-model-name": input.LanguageModelName!,
+    }),
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/stream-transcription";
   let body: any;
@@ -324,6 +327,7 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
     EnableChannelIdentification: undefined,
     EnablePartialResultsStabilization: undefined,
     LanguageCode: undefined,
+    LanguageModelName: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
     NumberOfChannels: undefined,
@@ -388,6 +392,9 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   if (output.headers["x-amzn-transcribe-pii-entity-types"] !== undefined) {
     contents.PiiEntityTypes = output.headers["x-amzn-transcribe-pii-entity-types"];
+  }
+  if (output.headers["x-amzn-transcribe-language-model-name"] !== undefined) {
+    contents.LanguageModelName = output.headers["x-amzn-transcribe-language-model-name"];
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];

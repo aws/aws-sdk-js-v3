@@ -39,27 +39,27 @@ export enum ActionEnum {
 
 /**
  * <p>
- *    The wrapper of account details, such as account ID, email address, and so on.
+ *    The wrapper of Amazon Web Services account details, such as account ID, email address, and so on.
  * </p>
  */
 export interface AWSAccount {
   /**
    * <p>
-   *    The identifier for the specified account.
+   *    The identifier for the specified Amazon Web Services account.
    * </p>
    */
   id?: string;
 
   /**
    * <p>
-   *    The email address associated with the specified account.
+   *    The email address associated with the specified Amazon Web Services account.
    * </p>
    */
   emailAddress?: string;
 
   /**
    * <p>
-   *    The name of the specified account.
+   *    The name of the specified Amazon Web Services account.
    * </p>
    */
   name?: string;
@@ -568,13 +568,13 @@ export namespace AWSService {
 
 /**
  * <p>
- *    The wrapper that contains the accounts and services in scope for the assessment.
+ *    The wrapper that contains the Amazon Web Services accounts and services in scope for the assessment.
  * </p>
  */
 export interface Scope {
   /**
    * <p>
-   *    The accounts included in the scope of the assessment.
+   *    The Amazon Web Services accounts included in the scope of the assessment.
    * </p>
    */
   awsAccounts?: AWSAccount[];
@@ -651,7 +651,7 @@ export interface AssessmentMetadata {
 
   /**
    * <p>
-   *    The wrapper of accounts and services in scope for the assessment.
+   *    The wrapper of Amazon Web Services accounts and services in scope for the assessment.
    * </p>
    */
   scope?: Scope;
@@ -709,7 +709,7 @@ export interface Assessment {
 
   /**
    * <p>
-   *    The account associated with the assessment.
+   *    The Amazon Web Services account associated with the assessment.
    * </p>
    */
   awsAccount?: AWSAccount;
@@ -1093,7 +1093,7 @@ export interface AssessmentReport {
 
   /**
    * <p>
-   *    The identifier for the specified account.
+   *    The identifier for the specified Amazon Web Services account.
    * </p>
    */
   awsAccountId?: string;
@@ -1882,7 +1882,7 @@ export interface CreateAssessmentRequest {
 
   /**
    * <p>
-   *    The wrapper that contains the accounts and services in scope for the assessment.
+   *    The wrapper that contains the Amazon Web Services accounts and services in scope for the assessment.
    * </p>
    */
   scope: Scope | undefined;
@@ -2881,7 +2881,7 @@ export namespace GetAccountStatusRequest {
 export interface GetAccountStatusResponse {
   /**
    * <p>
-   *    The status of the specified account.
+   *    The status of the specified Amazon Web Services account.
    * </p>
    */
   status?: AccountStatus | string;
@@ -3415,7 +3415,7 @@ export interface Evidence {
 
   /**
    * <p>
-   *    The identifier for the specified account.
+   *    The identifier for the specified Amazon Web Services account.
    * </p>
    */
   evidenceAwsAccountId?: string;
@@ -3479,14 +3479,14 @@ export interface Evidence {
 
   /**
    * <p>
-   *    The account from which the evidence is collected, and its organization path.
+   *    The Amazon Web Services account from which the evidence is collected, and its organization path.
    * </p>
    */
   awsOrganization?: string;
 
   /**
    * <p>
-   *    The identifier for the specified account.
+   *    The identifier for the specified Amazon Web Services account.
    * </p>
    */
   awsAccountId?: string;

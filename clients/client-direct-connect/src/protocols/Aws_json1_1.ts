@@ -56,6 +56,10 @@ import {
 } from "../commands/AssociateVirtualInterfaceCommand";
 import { ConfirmConnectionCommandInput, ConfirmConnectionCommandOutput } from "../commands/ConfirmConnectionCommand";
 import {
+  ConfirmCustomerAgreementCommandInput,
+  ConfirmCustomerAgreementCommandOutput,
+} from "../commands/ConfirmCustomerAgreementCommand";
+import {
   ConfirmPrivateVirtualInterfaceCommandInput,
   ConfirmPrivateVirtualInterfaceCommandOutput,
 } from "../commands/ConfirmPrivateVirtualInterfaceCommand";
@@ -128,6 +132,10 @@ import {
   DescribeConnectionsOnInterconnectCommandOutput,
 } from "../commands/DescribeConnectionsOnInterconnectCommand";
 import {
+  DescribeCustomerMetadataCommandInput,
+  DescribeCustomerMetadataCommandOutput,
+} from "../commands/DescribeCustomerMetadataCommand";
+import {
   DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
 } from "../commands/DescribeDirectConnectGatewayAssociationProposalsCommand";
@@ -158,6 +166,10 @@ import {
 import { DescribeLagsCommandInput, DescribeLagsCommandOutput } from "../commands/DescribeLagsCommand";
 import { DescribeLoaCommandInput, DescribeLoaCommandOutput } from "../commands/DescribeLoaCommand";
 import { DescribeLocationsCommandInput, DescribeLocationsCommandOutput } from "../commands/DescribeLocationsCommand";
+import {
+  DescribeRouterConfigurationCommandInput,
+  DescribeRouterConfigurationCommandOutput,
+} from "../commands/DescribeRouterConfigurationCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "../commands/DescribeTagsCommand";
 import {
   DescribeVirtualGatewaysCommandInput,
@@ -194,6 +206,10 @@ import {
   UpdateDirectConnectGatewayAssociationCommandInput,
   UpdateDirectConnectGatewayAssociationCommandOutput,
 } from "../commands/UpdateDirectConnectGatewayAssociationCommand";
+import {
+  UpdateDirectConnectGatewayCommandInput,
+  UpdateDirectConnectGatewayCommandOutput,
+} from "../commands/UpdateDirectConnectGatewayCommand";
 import { UpdateLagCommandInput, UpdateLagCommandOutput } from "../commands/UpdateLagCommand";
 import {
   UpdateVirtualInterfaceAttributesCommandInput,
@@ -217,6 +233,8 @@ import {
   BGPPeer,
   ConfirmConnectionRequest,
   ConfirmConnectionResponse,
+  ConfirmCustomerAgreementRequest,
+  ConfirmCustomerAgreementResponse,
   ConfirmPrivateVirtualInterfaceRequest,
   ConfirmPrivateVirtualInterfaceResponse,
   ConfirmPublicVirtualInterfaceRequest,
@@ -240,6 +258,7 @@ import {
   CreatePublicVirtualInterfaceRequest,
   CreateTransitVirtualInterfaceRequest,
   CreateTransitVirtualInterfaceResult,
+  CustomerAgreement,
   DeleteBGPPeerRequest,
   DeleteBGPPeerResponse,
   DeleteConnectionRequest,
@@ -258,6 +277,7 @@ import {
   DescribeConnectionLoaResponse,
   DescribeConnectionsOnInterconnectRequest,
   DescribeConnectionsRequest,
+  DescribeCustomerMetadataResponse,
   DescribeDirectConnectGatewayAssociationProposalsRequest,
   DescribeDirectConnectGatewayAssociationProposalsResult,
   DescribeDirectConnectGatewayAssociationsRequest,
@@ -272,6 +292,8 @@ import {
   DescribeInterconnectsRequest,
   DescribeLagsRequest,
   DescribeLoaRequest,
+  DescribeRouterConfigurationRequest,
+  DescribeRouterConfigurationResponse,
   DescribeTagsRequest,
   DescribeTagsResponse,
   DescribeVirtualInterfacesRequest,
@@ -304,6 +326,7 @@ import {
   NewTransitVirtualInterfaceAllocation,
   ResourceTag,
   RouteFilterPrefix,
+  RouterType,
   StartBgpFailoverTestRequest,
   StartBgpFailoverTestResponse,
   StopBgpFailoverTestRequest,
@@ -317,6 +340,8 @@ import {
   UpdateConnectionRequest,
   UpdateDirectConnectGatewayAssociationRequest,
   UpdateDirectConnectGatewayAssociationResult,
+  UpdateDirectConnectGatewayRequest,
+  UpdateDirectConnectGatewayResponse,
   UpdateLagRequest,
   UpdateVirtualInterfaceAttributesRequest,
   VirtualGateway,
@@ -466,6 +491,19 @@ export const serializeAws_json1_1ConfirmConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ConfirmConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ConfirmCustomerAgreementCommand = async (
+  input: ConfirmCustomerAgreementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.ConfirmCustomerAgreement",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ConfirmCustomerAgreementRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -781,6 +819,18 @@ export const serializeAws_json1_1DescribeConnectionsOnInterconnectCommand = asyn
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeCustomerMetadataCommand = async (
+  input: DescribeCustomerMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.DescribeCustomerMetadata",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand = async (
   input: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
   context: __SerdeContext
@@ -907,6 +957,19 @@ export const serializeAws_json1_1DescribeLocationsCommand = async (
     "x-amz-target": "OvertureService.DescribeLocations",
   };
   const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeRouterConfigurationCommand = async (
+  input: DescribeRouterConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.DescribeRouterConfiguration",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeRouterConfigurationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1049,6 +1112,19 @@ export const serializeAws_json1_1UpdateConnectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateConnectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateDirectConnectGatewayCommand = async (
+  input: UpdateDirectConnectGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "OvertureService.UpdateDirectConnectGateway",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateDirectConnectGatewayRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1796,6 +1872,68 @@ const deserializeAws_json1_1ConfirmConnectionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmConnectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ConfirmCustomerAgreementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfirmCustomerAgreementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ConfirmCustomerAgreementCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ConfirmCustomerAgreementResponse(data, context);
+  const response: ConfirmCustomerAgreementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ConfirmCustomerAgreementCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConfirmCustomerAgreementCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -3421,6 +3559,68 @@ const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError = asyn
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeCustomerMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomerMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeCustomerMetadataCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeCustomerMetadataResponse(data, context);
+  const response: DescribeCustomerMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeCustomerMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomerMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4000,6 +4200,68 @@ const deserializeAws_json1_1DescribeLocationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeRouterConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRouterConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeRouterConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeRouterConfigurationResponse(data, context);
+  const response: DescribeRouterConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeRouterConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRouterConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4739,6 +5001,68 @@ const deserializeAws_json1_1UpdateConnectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateDirectConnectGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateDirectConnectGatewayCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateDirectConnectGatewayResponse(data, context);
+  const response: UpdateDirectConnectGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateDirectConnectGatewayCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DirectConnectClientException":
+    case "com.amazonaws.directconnect#DirectConnectClientException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DirectConnectServerException":
+    case "com.amazonaws.directconnect#DirectConnectServerException":
+      response = {
+        ...(await deserializeAws_json1_1DirectConnectServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5149,6 +5473,15 @@ const serializeAws_json1_1ConfirmConnectionRequest = (
 ): any => {
   return {
     ...(input.connectionId !== undefined && input.connectionId !== null && { connectionId: input.connectionId }),
+  };
+};
+
+const serializeAws_json1_1ConfirmCustomerAgreementRequest = (
+  input: ConfirmCustomerAgreementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.agreementName !== undefined && input.agreementName !== null && { agreementName: input.agreementName }),
   };
 };
 
@@ -5563,6 +5896,18 @@ const serializeAws_json1_1DescribeLoaRequest = (input: DescribeLoaRequest, conte
   };
 };
 
+const serializeAws_json1_1DescribeRouterConfigurationRequest = (
+  input: DescribeRouterConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.routerTypeIdentifier !== undefined &&
+      input.routerTypeIdentifier !== null && { routerTypeIdentifier: input.routerTypeIdentifier }),
+    ...(input.virtualInterfaceId !== undefined &&
+      input.virtualInterfaceId !== null && { virtualInterfaceId: input.virtualInterfaceId }),
+  };
+};
+
 const serializeAws_json1_1DescribeTagsRequest = (input: DescribeTagsRequest, context: __SerdeContext): any => {
   return {
     ...(input.resourceArns !== undefined &&
@@ -5885,6 +6230,18 @@ const serializeAws_json1_1UpdateDirectConnectGatewayAssociationRequest = (
   };
 };
 
+const serializeAws_json1_1UpdateDirectConnectGatewayRequest = (
+  input: UpdateDirectConnectGatewayRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.directConnectGatewayId !== undefined &&
+      input.directConnectGatewayId !== null && { directConnectGatewayId: input.directConnectGatewayId }),
+    ...(input.newDirectConnectGatewayName !== undefined &&
+      input.newDirectConnectGatewayName !== null && { newDirectConnectGatewayName: input.newDirectConnectGatewayName }),
+  };
+};
+
 const serializeAws_json1_1UpdateLagRequest = (input: UpdateLagRequest, context: __SerdeContext): any => {
   return {
     ...(input.encryptionMode !== undefined &&
@@ -5916,6 +6273,17 @@ const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalResult 
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1AgreementList = (output: any, context: __SerdeContext): CustomerAgreement[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1CustomerAgreement(entry, context);
+    });
 };
 
 const deserializeAws_json1_1AllocateTransitVirtualInterfaceResult = (
@@ -6017,6 +6385,15 @@ const deserializeAws_json1_1ConfirmConnectionResponse = (
 ): ConfirmConnectionResponse => {
   return {
     connectionState: __expectString(output.connectionState),
+  } as any;
+};
+
+const deserializeAws_json1_1ConfirmCustomerAgreementResponse = (
+  output: any,
+  context: __SerdeContext
+): ConfirmCustomerAgreementResponse => {
+  return {
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -6164,6 +6541,13 @@ const deserializeAws_json1_1CreateTransitVirtualInterfaceResult = (
   } as any;
 };
 
+const deserializeAws_json1_1CustomerAgreement = (output: any, context: __SerdeContext): CustomerAgreement => {
+  return {
+    agreementName: __expectString(output.agreementName),
+    status: __expectString(output.status),
+  } as any;
+};
+
 const deserializeAws_json1_1DeleteBGPPeerResponse = (output: any, context: __SerdeContext): DeleteBGPPeerResponse => {
   return {
     virtualInterface:
@@ -6240,6 +6624,19 @@ const deserializeAws_json1_1DescribeConnectionLoaResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeCustomerMetadataResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCustomerMetadataResponse => {
+  return {
+    agreements:
+      output.agreements !== undefined && output.agreements !== null
+        ? deserializeAws_json1_1AgreementList(output.agreements, context)
+        : undefined,
+    nniPartnerType: __expectString(output.nniPartnerType),
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsResult = (
   output: any,
   context: __SerdeContext
@@ -6302,6 +6699,21 @@ const deserializeAws_json1_1DescribeInterconnectLoaResponse = (
 ): DescribeInterconnectLoaResponse => {
   return {
     loa: output.loa !== undefined && output.loa !== null ? deserializeAws_json1_1Loa(output.loa, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeRouterConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeRouterConfigurationResponse => {
+  return {
+    customerRouterConfig: __expectString(output.customerRouterConfig),
+    router:
+      output.router !== undefined && output.router !== null
+        ? deserializeAws_json1_1RouterType(output.router, context)
+        : undefined,
+    virtualInterfaceId: __expectString(output.virtualInterfaceId),
+    virtualInterfaceName: __expectString(output.virtualInterfaceName),
   } as any;
 };
 
@@ -6720,6 +7132,17 @@ const deserializeAws_json1_1RouteFilterPrefixList = (output: any, context: __Ser
     });
 };
 
+const deserializeAws_json1_1RouterType = (output: any, context: __SerdeContext): RouterType => {
+  return {
+    platform: __expectString(output.platform),
+    routerTypeIdentifier: __expectString(output.routerTypeIdentifier),
+    software: __expectString(output.software),
+    vendor: __expectString(output.vendor),
+    xsltTemplateName: __expectString(output.xsltTemplateName),
+    xsltTemplateNameForMacSec: __expectString(output.xsltTemplateNameForMacSec),
+  } as any;
+};
+
 const deserializeAws_json1_1StartBgpFailoverTestResponse = (
   output: any,
   context: __SerdeContext
@@ -6784,6 +7207,18 @@ const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationResult = (
     directConnectGatewayAssociation:
       output.directConnectGatewayAssociation !== undefined && output.directConnectGatewayAssociation !== null
         ? deserializeAws_json1_1DirectConnectGatewayAssociation(output.directConnectGatewayAssociation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateDirectConnectGatewayResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateDirectConnectGatewayResponse => {
+  return {
+    directConnectGateway:
+      output.directConnectGateway !== undefined && output.directConnectGateway !== null
+        ? deserializeAws_json1_1DirectConnectGateway(output.directConnectGateway, context)
         : undefined,
   } as any;
 };

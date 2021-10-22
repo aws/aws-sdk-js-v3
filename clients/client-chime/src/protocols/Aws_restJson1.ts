@@ -30234,6 +30234,7 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
       output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
         ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp))
         : undefined,
+    VoiceConnectorArn: __expectString(output.VoiceConnectorArn),
     VoiceConnectorId: __expectString(output.VoiceConnectorId),
   } as any;
 };
@@ -30249,6 +30250,7 @@ const deserializeAws_restJson1VoiceConnectorGroup = (output: any, context: __Ser
       output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
         ? __expectNonNull(__parseRfc3339DateTime(output.UpdatedTimestamp))
         : undefined,
+    VoiceConnectorGroupArn: __expectString(output.VoiceConnectorGroupArn),
     VoiceConnectorGroupId: __expectString(output.VoiceConnectorGroupId),
     VoiceConnectorItems:
       output.VoiceConnectorItems !== undefined && output.VoiceConnectorItems !== null

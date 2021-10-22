@@ -36,6 +36,11 @@ import {
   CreateActionTargetCommandOutput,
 } from "./commands/CreateActionTargetCommand";
 import {
+  CreateFindingAggregatorCommand,
+  CreateFindingAggregatorCommandInput,
+  CreateFindingAggregatorCommandOutput,
+} from "./commands/CreateFindingAggregatorCommand";
+import {
   CreateInsightCommand,
   CreateInsightCommandInput,
   CreateInsightCommandOutput,
@@ -55,6 +60,11 @@ import {
   DeleteActionTargetCommandInput,
   DeleteActionTargetCommandOutput,
 } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteFindingAggregatorCommand,
+  DeleteFindingAggregatorCommandInput,
+  DeleteFindingAggregatorCommandOutput,
+} from "./commands/DeleteFindingAggregatorCommand";
 import {
   DeleteInsightCommand,
   DeleteInsightCommandInput,
@@ -151,6 +161,11 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
+import {
+  GetFindingAggregatorCommand,
+  GetFindingAggregatorCommandInput,
+  GetFindingAggregatorCommandOutput,
+} from "./commands/GetFindingAggregatorCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
 import {
   GetInsightResultsCommand,
@@ -180,6 +195,11 @@ import {
   ListEnabledProductsForImportCommandOutput,
 } from "./commands/ListEnabledProductsForImportCommand";
 import {
+  ListFindingAggregatorsCommand,
+  ListFindingAggregatorsCommandInput,
+  ListFindingAggregatorsCommandOutput,
+} from "./commands/ListFindingAggregatorsCommand";
+import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
@@ -206,6 +226,11 @@ import {
   UpdateActionTargetCommandInput,
   UpdateActionTargetCommandOutput,
 } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateFindingAggregatorCommand,
+  UpdateFindingAggregatorCommandInput,
+  UpdateFindingAggregatorCommandOutput,
+} from "./commands/UpdateFindingAggregatorCommand";
 import {
   UpdateFindingsCommand,
   UpdateFindingsCommandInput,
@@ -643,6 +668,40 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * <p>Used to enable finding aggregation. Must be called from the aggregation Region.</p>
+   *          <p>For more details about cross-Region replication, see <a href="securityhub/latest/userguide/finding-aggregation.html">Configuring finding aggregation</a> in the <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  public createFindingAggregator(
+    args: CreateFindingAggregatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFindingAggregatorCommandOutput>;
+  public createFindingAggregator(
+    args: CreateFindingAggregatorCommandInput,
+    cb: (err: any, data?: CreateFindingAggregatorCommandOutput) => void
+  ): void;
+  public createFindingAggregator(
+    args: CreateFindingAggregatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFindingAggregatorCommandOutput) => void
+  ): void;
+  public createFindingAggregator(
+    args: CreateFindingAggregatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFindingAggregatorCommandOutput) => void),
+    cb?: (err: any, data?: CreateFindingAggregatorCommandOutput) => void
+  ): Promise<CreateFindingAggregatorCommandOutput> | void {
+    const command = new CreateFindingAggregatorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a custom insight in Security Hub. An insight is a consolidation of findings that relate
    *          to a security issue that requires attention or remediation.</p>
    *          <p>To group the related findings in the insight, use the
@@ -802,6 +861,40 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: DeleteActionTargetCommandOutput) => void
   ): Promise<DeleteActionTargetCommandOutput> | void {
     const command = new DeleteActionTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a finding aggregator. When you delete the finding aggregator, you stop finding aggregation.</p>
+   *          <p>When you stop finding aggregation, findings that were already aggregated to the aggregation Region are still visible from the aggregation Region. New findings and finding updates are not aggregated.
+   *       </p>
+   */
+  public deleteFindingAggregator(
+    args: DeleteFindingAggregatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFindingAggregatorCommandOutput>;
+  public deleteFindingAggregator(
+    args: DeleteFindingAggregatorCommandInput,
+    cb: (err: any, data?: DeleteFindingAggregatorCommandOutput) => void
+  ): void;
+  public deleteFindingAggregator(
+    args: DeleteFindingAggregatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFindingAggregatorCommandOutput) => void
+  ): void;
+  public deleteFindingAggregator(
+    args: DeleteFindingAggregatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFindingAggregatorCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFindingAggregatorCommandOutput) => void
+  ): Promise<DeleteFindingAggregatorCommandOutput> | void {
+    const command = new DeleteFindingAggregatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1509,7 +1602,40 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * <p>Returns the current finding aggregation configuration.</p>
+   */
+  public getFindingAggregator(
+    args: GetFindingAggregatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingAggregatorCommandOutput>;
+  public getFindingAggregator(
+    args: GetFindingAggregatorCommandInput,
+    cb: (err: any, data?: GetFindingAggregatorCommandOutput) => void
+  ): void;
+  public getFindingAggregator(
+    args: GetFindingAggregatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingAggregatorCommandOutput) => void
+  ): void;
+  public getFindingAggregator(
+    args: GetFindingAggregatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingAggregatorCommandOutput) => void),
+    cb?: (err: any, data?: GetFindingAggregatorCommandOutput) => void
+  ): Promise<GetFindingAggregatorCommandOutput> | void {
+    const command = new GetFindingAggregatorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of findings that match the specified criteria.</p>
+   *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
    */
   public getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
   public getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
@@ -1765,6 +1891,38 @@ export class SecurityHub extends SecurityHubClient {
   }
 
   /**
+   * <p>If finding aggregation is enabled, then <code>ListFindingAggregators</code> returns the ARN of the finding aggregator. You can run this operation from any Region.</p>
+   */
+  public listFindingAggregators(
+    args: ListFindingAggregatorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFindingAggregatorsCommandOutput>;
+  public listFindingAggregators(
+    args: ListFindingAggregatorsCommandInput,
+    cb: (err: any, data?: ListFindingAggregatorsCommandOutput) => void
+  ): void;
+  public listFindingAggregators(
+    args: ListFindingAggregatorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFindingAggregatorsCommandOutput) => void
+  ): void;
+  public listFindingAggregators(
+    args: ListFindingAggregatorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFindingAggregatorsCommandOutput) => void),
+    cb?: (err: any, data?: ListFindingAggregatorsCommandOutput) => void
+  ): Promise<ListFindingAggregatorsCommandOutput> | void {
+    const command = new ListFindingAggregatorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists all Security Hub membership invitations that were sent to the current Amazon Web Services account.</p>
    *          <p>This operation is only used by accounts that are managed by invitation.
    *          Accounts that are managed using the integration with Organizations do not receive invitations.</p>
@@ -1972,6 +2130,40 @@ export class SecurityHub extends SecurityHubClient {
     cb?: (err: any, data?: UpdateActionTargetCommandOutput) => void
   ): Promise<UpdateActionTargetCommandOutput> | void {
     const command = new UpdateActionTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the finding aggregation configuration. Used to update the Region linking mode and the list of included or excluded Regions. You cannot use <code>UpdateFindingAggregator</code> to change the aggregation Region.</p>
+   *          <p>You must run <code>UpdateFindingAggregator</code> from the current aggregation Region.
+   *       </p>
+   */
+  public updateFindingAggregator(
+    args: UpdateFindingAggregatorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFindingAggregatorCommandOutput>;
+  public updateFindingAggregator(
+    args: UpdateFindingAggregatorCommandInput,
+    cb: (err: any, data?: UpdateFindingAggregatorCommandOutput) => void
+  ): void;
+  public updateFindingAggregator(
+    args: UpdateFindingAggregatorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFindingAggregatorCommandOutput) => void
+  ): void;
+  public updateFindingAggregator(
+    args: UpdateFindingAggregatorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFindingAggregatorCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFindingAggregatorCommandOutput) => void
+  ): Promise<UpdateFindingAggregatorCommandOutput> | void {
+    const command = new UpdateFindingAggregatorCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

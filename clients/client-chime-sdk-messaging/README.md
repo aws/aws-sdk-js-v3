@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKMessagingClient` and
-the commands you need, for example `BatchCreateChannelMembershipCommand`:
+the commands you need, for example `AssociateChannelFlowCommand`:
 
 ```js
 // ES5 example
-const { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } = require("@aws-sdk/client-chime-sdk-messaging");
+const { ChimeSDKMessagingClient, AssociateChannelFlowCommand } = require("@aws-sdk/client-chime-sdk-messaging");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKMessagingClient, BatchCreateChannelMembershipCommand } from "@aws-sdk/client-chime-sdk-messaging";
+import { ChimeSDKMessagingClient, AssociateChannelFlowCommand } from "@aws-sdk/client-chime-sdk-messaging";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new ChimeSDKMessagingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchCreateChannelMembershipCommand(params);
+const command = new AssociateChannelFlowCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.ChimeSDKMessaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchCreateChannelMembership(params);
+  const data = await client.associateChannelFlow(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .batchCreateChannelMembership(params)
+  .associateChannelFlow(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.batchCreateChannelMembership(params, (err, data) => {
+client.associateChannelFlow(params, (err, data) => {
   // proccess err and data.
 });
 ```

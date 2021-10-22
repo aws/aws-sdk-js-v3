@@ -23,6 +23,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
 
 /**
  * <p>Returns a list of findings that match the specified criteria.</p>
+ *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

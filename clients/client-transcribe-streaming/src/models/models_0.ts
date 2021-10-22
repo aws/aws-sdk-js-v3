@@ -1067,16 +1067,14 @@ export interface StartStreamTranscriptionRequest {
    * <p>List the PII entity types you want to identify or redact. In order to specify entity types, you must have
    *       either <code>ContentIdentificationType</code> or <code>ContentRedactionType</code> enabled.</p>
    *          <p>
-   *             <code>PIIEntityTypes</code> must be comma-separated; the available values are:
-   *       <code>BANK_ACCOUNT_NUMBER</code>, <code>BANK_ROUTING</code>,
-   *       <code>CREDIT_DEBIT_NUMBER</code>, <code>CREDIT_DEBIT_CVV</code>,
-   *       <code>CREDIT_DEBIT_EXPIRY</code>, <code>PIN</code>, <code>EMAIL</code>,
-   *       <code>ADDRESS</code>, <code>NAME</code>, <code>PHONE</code>,
-   *       <code>SSN</code>, and <code>ALL</code>.</p>
-   *          <p>
    *             <code>PiiEntityTypes</code> is an optional parameter with a default value of <code>ALL</code>.</p>
    */
   PiiEntityTypes?: string;
+
+  /**
+   * <p>The name of the language model you want to use.</p>
+   */
+  LanguageModelName?: string;
 }
 
 export namespace StartStreamTranscriptionRequest {
@@ -1147,7 +1145,8 @@ export namespace TranscriptResultStream {
   /**
    * <p>A portion of the transcription of the audio stream. Events are sent periodically from
    *       Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio
-   *       stream, or it can be the entire transcription of that portion of the audio stream. </p>
+   *       stream, or it can be the entire transcription of that portion of the audio stream.
+   *       </p>
    */
   export interface TranscriptEventMember {
     TranscriptEvent: TranscriptEvent;
@@ -1368,6 +1367,8 @@ export interface StartStreamTranscriptionResponse {
    * <p>Lists the PII entity types you specified in your request.</p>
    */
   PiiEntityTypes?: string;
+
+  LanguageModelName?: string;
 }
 
 export namespace StartStreamTranscriptionResponse {

@@ -1,5 +1,9 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p/>
+ */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -60,8 +64,9 @@ export interface Channel {
 
   /**
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
-   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and
-   *       <code>NORMAL</code> correspond to Ultra-low and Standard, respectively.)</p>
+   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
+   *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
+   *       correspond to Ultra-low and Standard, respectively.)</p>
    */
   latencyMode?: ChannelLatencyMode | string;
 
@@ -74,13 +79,14 @@ export interface Channel {
    *                <p>
    *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
    *           automatically give viewers the best experience for their devices and network conditions.
-   *           Vertical resolution can be up to 1080 and bitrate can be up to 8.5 Mbps.</p>
+   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
+   *           for renditions 360p and below; above that, audio is passed through.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Vertical resolution can be up to
-   *           480 and bitrate can be up to 1.5 Mbps.</p>
+   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
+   *           bitrate can be up to 1.5 Mbps.</p>
    *             </li>
    *          </ul>
    */
@@ -154,7 +160,11 @@ export namespace BatchError {
 }
 
 export interface BatchGetChannelResponse {
+  /**
+   * <p/>
+   */
   channels?: Channel[];
+
   /**
    * <p>Each error object is related to a specific ARN in the request.</p>
    */
@@ -217,11 +227,19 @@ export namespace StreamKey {
    */
   export const filterSensitiveLog = (obj: StreamKey): any => ({
     ...obj,
+    ...(obj.value && { value: SENSITIVE_STRING }),
   });
 }
 
 export interface BatchGetStreamKeyResponse {
+  /**
+   * <p/>
+   */
   streamKeys?: StreamKey[];
+
+  /**
+   * <p/>
+   */
   errors?: BatchError[];
 }
 
@@ -231,6 +249,7 @@ export namespace BatchGetStreamKeyResponse {
    */
   export const filterSensitiveLog = (obj: BatchGetStreamKeyResponse): any => ({
     ...obj,
+    ...(obj.streamKeys && { streamKeys: obj.streamKeys.map((item) => StreamKey.filterSensitiveLog(item)) }),
   });
 }
 
@@ -243,8 +262,8 @@ export interface CreateChannelRequest {
   /**
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note: In the
-   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and Standard, respectively.)
-   *       Default: <code>LOW</code>.</p>
+   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and Standard,
+   *       respectively.) Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode | string;
 
@@ -257,13 +276,14 @@ export interface CreateChannelRequest {
    *                <p>
    *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
    *           automatically give viewers the best experience for their devices and network conditions.
-   *           Vertical resolution can be up to 1080 and bitrate can be up to 8.5 Mbps.</p>
+   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
+   *           for renditions 360p and below; above that, audio is passed through.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Vertical resolution can be up to
-   *           480 and bitrate can be up to 1.5 Mbps.</p>
+   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
+   *           bitrate can be up to 1.5 Mbps.</p>
    *             </li>
    *          </ul>
    */
@@ -297,12 +317,12 @@ export namespace CreateChannelRequest {
 
 export interface CreateChannelResponse {
   /**
-   * <p>Object specifying a channel.</p>
+   * <p/>
    */
   channel?: Channel;
 
   /**
-   * <p>Object specifying a stream key.</p>
+   * <p/>
    */
   streamKey?: StreamKey;
 }
@@ -313,9 +333,13 @@ export namespace CreateChannelResponse {
    */
   export const filterSensitiveLog = (obj: CreateChannelResponse): any => ({
     ...obj,
+    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
   });
 }
 
+/**
+ * <p/>
+ */
 export interface PendingVerification extends __SmithyException, $MetadataBearer {
   name: "PendingVerification";
   $fault: "client";
@@ -334,6 +358,9 @@ export namespace PendingVerification {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -352,6 +379,9 @@ export namespace ResourceNotFoundException {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -370,11 +400,14 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
   /**
-   * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+   * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
    */
   exceptionMessage?: string;
 }
@@ -388,6 +421,9 @@ export namespace ValidationException {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
@@ -448,8 +484,7 @@ export namespace DestinationConfiguration {
 
 export interface CreateRecordingConfigurationRequest {
   /**
-   * <p>An arbitrary string (a nickname) that helps the customer identify that resource. The value
-   *       does not need to be unique.</p>
+   * <p>Recording-configuration name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -490,8 +525,7 @@ export interface RecordingConfiguration {
   arn: string | undefined;
 
   /**
-   * <p>An arbitrary string (a nickname) assigned to a recording configuration that helps the
-   *       customer identify that resource. The value does not need to be unique.</p>
+   * <p>Recording-configuration name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -523,7 +557,7 @@ export namespace RecordingConfiguration {
 
 export interface CreateRecordingConfigurationResponse {
   /**
-   * <p>An object representing a configuration to record a channel stream.</p>
+   *
    */
   recordingConfiguration?: RecordingConfiguration;
 }
@@ -537,6 +571,9 @@ export namespace CreateRecordingConfigurationResponse {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface InternalServerException extends __SmithyException, $MetadataBearer {
   name: "InternalServerException";
   $fault: "server";
@@ -589,6 +626,7 @@ export namespace CreateStreamKeyResponse {
    */
   export const filterSensitiveLog = (obj: CreateStreamKeyResponse): any => ({
     ...obj,
+    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
   });
 }
 
@@ -685,7 +723,7 @@ export namespace GetChannelRequest {
 
 export interface GetChannelResponse {
   /**
-   * <p>Object specifying a channel.</p>
+   * <p/>
    */
   channel?: Channel;
 }
@@ -725,8 +763,7 @@ export interface PlaybackKeyPair {
   arn?: string;
 
   /**
-   * <p>An arbitrary string (a nickname) assigned to a playback key pair that helps the customer
-   *       identify that resource. The value does not need to be unique.</p>
+   * <p>Playback-key-pair name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -752,7 +789,7 @@ export namespace PlaybackKeyPair {
 
 export interface GetPlaybackKeyPairResponse {
   /**
-   * <p>A key pair used to sign and validate a playback authorization token.</p>
+   *
    */
   keyPair?: PlaybackKeyPair;
 }
@@ -784,7 +821,7 @@ export namespace GetRecordingConfigurationRequest {
 
 export interface GetRecordingConfigurationResponse {
   /**
-   * <p>An object representing a configuration to record a channel stream.</p>
+   *
    */
   recordingConfiguration?: RecordingConfiguration;
 }
@@ -798,6 +835,9 @@ export namespace GetRecordingConfigurationResponse {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ChannelNotBroadcasting extends __SmithyException, $MetadataBearer {
   name: "ChannelNotBroadcasting";
   $fault: "client";
@@ -858,7 +898,7 @@ export interface _Stream {
   playbackUrl?: string;
 
   /**
-   * <p>ISO-8601 formatted timestamp of the stream’s start.</p>
+   * <p>Time of the stream’s start. This is an ISO 8601 timestamp returned as a string.</p>
    */
   startTime?: Date;
 
@@ -873,8 +913,10 @@ export interface _Stream {
   health?: StreamHealth | string;
 
   /**
-   * <p>Number of current viewers of the stream. A value of -1 indicates that the request timed
-   *       out; in this case, retry.</p>
+   * <p>A count of concurrent views of the stream. Typically, a new view appears in
+   *         <code>viewerCount</code> within 15 seconds of when video playback starts and a view is
+   *       removed from <code>viewerCount</code> within 1 minute of when video playback ends. A value of
+   *       -1 indicates that the request timed out; in this case, retry.</p>
    */
   viewerCount?: number;
 }
@@ -890,7 +932,7 @@ export namespace _Stream {
 
 export interface GetStreamResponse {
   /**
-   * <p>Specifies a live video stream that has been ingested and distributed.</p>
+   * <p/>
    */
   stream?: _Stream;
 }
@@ -922,7 +964,7 @@ export namespace GetStreamKeyRequest {
 
 export interface GetStreamKeyResponse {
   /**
-   * <p>Object specifying a stream key.</p>
+   *
    */
   streamKey?: StreamKey;
 }
@@ -933,6 +975,7 @@ export namespace GetStreamKeyResponse {
    */
   export const filterSensitiveLog = (obj: GetStreamKeyResponse): any => ({
     ...obj,
+    ...(obj.streamKey && { streamKey: StreamKey.filterSensitiveLog(obj.streamKey) }),
   });
 }
 
@@ -943,8 +986,7 @@ export interface ImportPlaybackKeyPairRequest {
   publicKeyMaterial: string | undefined;
 
   /**
-   * <p>An arbitrary string (a nickname) assigned to a playback key pair that helps the customer
-   *       identify that resource. The value does not need to be unique.</p>
+   * <p>Playback-key-pair name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -965,7 +1007,7 @@ export namespace ImportPlaybackKeyPairRequest {
 
 export interface ImportPlaybackKeyPairResponse {
   /**
-   * <p>A key pair used to sign and validate a playback authorization token.</p>
+   * <p/>
    */
   keyPair?: PlaybackKeyPair;
 }
@@ -1026,14 +1068,16 @@ export interface ChannelSummary {
   name?: string;
 
   /**
-   * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to Full HD. Use
-   *       <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>. (Note: In the Amazon IVS
-   *       console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and Standard, respectively.)</p>
+   * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
+   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
+   *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
+   *       correspond to Ultra-low and Standard, respectively.)</p>
    */
   latencyMode?: ChannelLatencyMode | string;
 
   /**
-   * <p>Whether the channel is private (enabled for playback authorization). Default: <code>false</code>.</p>
+   * <p>Whether the channel is private (enabled for playback authorization). Default:
+   *         <code>false</code>.</p>
    */
   authorized?: boolean;
 
@@ -1112,8 +1156,7 @@ export interface PlaybackKeyPairSummary {
   arn?: string;
 
   /**
-   * <p>An arbitrary string (a nickname) assigned to a playback key pair that helps the customer
-   *       identify that resource. The value does not need to be unique.</p>
+   * <p>Playback-key-pair name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -1186,8 +1229,7 @@ export interface RecordingConfigurationSummary {
   arn: string | undefined;
 
   /**
-   * <p>An arbitrary string (a nickname) assigned to a recording configuration that helps the
-   *       customer identify that resource. The value does not need to be unique.</p>
+   * <p>Recording-configuration name. The value does not need to be unique.</p>
    */
   name?: string;
 
@@ -1198,7 +1240,7 @@ export interface RecordingConfigurationSummary {
 
   /**
    * <p>Indicates the current state of the recording configuration. When the state is
-   *       <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
+   *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
   state: RecordingConfigurationState | string | undefined;
 
@@ -1359,13 +1401,15 @@ export interface StreamSummary {
   health?: StreamHealth | string;
 
   /**
-   * <p>Number of current viewers of the stream. A value of -1 indicates that the request timed
-   *       out; in this case, retry.</p>
+   * <p>A count of concurrent views of the stream. Typically, a new view appears in
+   *         <code>viewerCount</code> within 15 seconds of when video playback starts and a view is
+   *       removed from <code>viewerCount</code> within 1 minute of when video playback ends. A value of
+   *       -1 indicates that the request timed out; in this case, retry.</p>
    */
   viewerCount?: number;
 
   /**
-   * <p>ISO-8601 formatted timestamp of the stream’s start.</p>
+   * <p>Time of the stream’s start. This is an ISO 8601 timestamp returned as a string.</p>
    */
   startTime?: Date;
 }
@@ -1406,17 +1450,6 @@ export interface ListTagsForResourceRequest {
    * <p>The ARN of the resource to be retrieved.</p>
    */
   resourceArn: string | undefined;
-
-  /**
-   * <p>The first tag to retrieve. This is used for pagination; see the <code>nextToken</code>
-   *       response field.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>Maximum number of tags to return. Default: 50.</p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListTagsForResourceRequest {
@@ -1429,12 +1462,10 @@ export namespace ListTagsForResourceRequest {
 }
 
 export interface ListTagsForResourceResponse {
-  tags: { [key: string]: string } | undefined;
   /**
-   * <p>If there are more tags than <code>maxResults</code>, use <code>nextToken</code> in the
-   *       request to get the next set.</p>
+   * <p/>
    */
-  nextToken?: string;
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace ListTagsForResourceResponse {
@@ -1465,9 +1496,13 @@ export namespace PutMetadataRequest {
    */
   export const filterSensitiveLog = (obj: PutMetadataRequest): any => ({
     ...obj,
+    ...(obj.metadata && { metadata: SENSITIVE_STRING }),
   });
 }
 
+/**
+ * <p/>
+ */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
@@ -1513,6 +1548,9 @@ export namespace StopStreamResponse {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface StreamUnavailable extends __SmithyException, $MetadataBearer {
   name: "StreamUnavailable";
   $fault: "server";
@@ -1623,13 +1661,14 @@ export interface UpdateChannelRequest {
    *                <p>
    *                   <code>STANDARD</code>: Multiple qualities are generated from the original input, to
    *           automatically give viewers the best experience for their devices and network conditions.
-   *           Vertical resolution can be up to 1080 and bitrate can be up to 8.5 Mbps.</p>
+   *           Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is transcoded only
+   *           for renditions 360p and below; above that, audio is passed through.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BASIC</code>: Amazon IVS delivers the original input to viewers. The viewer’s
-   *           video-quality choice is limited to the original input. Vertical resolution can be up to
-   *           480 and bitrate can be up to 1.5 Mbps.</p>
+   *           video-quality choice is limited to the original input. Resolution can be up to 480p and
+   *           bitrate can be up to 1.5 Mbps.</p>
    *             </li>
    *          </ul>
    */

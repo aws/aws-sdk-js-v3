@@ -41,10 +41,18 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "../commands/BatchUpdateFindingsCommand";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "../commands/CreateActionTargetCommand";
+import {
+  CreateFindingAggregatorCommandInput,
+  CreateFindingAggregatorCommandOutput,
+} from "../commands/CreateFindingAggregatorCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "../commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "../commands/CreateMembersCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "../commands/DeleteActionTargetCommand";
+import {
+  DeleteFindingAggregatorCommandInput,
+  DeleteFindingAggregatorCommandOutput,
+} from "../commands/DeleteFindingAggregatorCommand";
 import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "../commands/DeleteInsightCommand";
 import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "../commands/DeleteInvitationsCommand";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "../commands/DeleteMembersCommand";
@@ -101,6 +109,10 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "../commands/GetEnabledStandardsCommand";
+import {
+  GetFindingAggregatorCommandInput,
+  GetFindingAggregatorCommandOutput,
+} from "../commands/GetFindingAggregatorCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "../commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand";
@@ -115,6 +127,10 @@ import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
 } from "../commands/ListEnabledProductsForImportCommand";
+import {
+  ListFindingAggregatorsCommandInput,
+  ListFindingAggregatorsCommandOutput,
+} from "../commands/ListFindingAggregatorsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
@@ -128,6 +144,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "../commands/UpdateActionTargetCommand";
+import {
+  UpdateFindingAggregatorCommandInput,
+  UpdateFindingAggregatorCommandOutput,
+} from "../commands/UpdateFindingAggregatorCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "../commands/UpdateFindingsCommand";
 import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "../commands/UpdateInsightCommand";
 import {
@@ -481,6 +501,7 @@ import {
   DataClassificationDetails,
   DateFilter,
   DateRange,
+  FindingAggregator,
   FindingProviderFields,
   FindingProviderSeverity,
   ImportFindingsError,
@@ -748,6 +769,34 @@ export const serializeAws_restJson1CreateActionTargetCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateFindingAggregatorCommand = async (
+  input: CreateFindingAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/create";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.RegionLinkingMode !== undefined &&
+      input.RegionLinkingMode !== null && { RegionLinkingMode: input.RegionLinkingMode }),
+    ...(input.Regions !== undefined &&
+      input.Regions !== null && { Regions: serializeAws_restJson1StringList(input.Regions, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateInsightCommand = async (
   input: CreateInsightCommandInput,
   context: __SerdeContext
@@ -850,6 +899,42 @@ export const serializeAws_restJson1DeleteActionTargetCommand = async (
     );
   } else {
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteFindingAggregatorCommand = async (
+  input: DeleteFindingAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/findingAggregator/delete/{FindingAggregatorArn+}";
+  if (input.FindingAggregatorArn !== undefined) {
+    const labelValue: string = input.FindingAggregatorArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FindingAggregatorArn.");
+    }
+    resolvedPath = resolvedPath.replace(
+      "{FindingAggregatorArn+}",
+      labelValue
+        .split("/")
+        .map((segment) => __extendedEncodeURIComponent(segment))
+        .join("/")
+    );
+  } else {
+    throw new Error("No value provided for input HTTP label: FindingAggregatorArn.");
   }
   let body: any;
   return new __HttpRequest({
@@ -1396,6 +1481,42 @@ export const serializeAws_restJson1GetEnabledStandardsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetFindingAggregatorCommand = async (
+  input: GetFindingAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/findingAggregator/get/{FindingAggregatorArn+}";
+  if (input.FindingAggregatorArn !== undefined) {
+    const labelValue: string = input.FindingAggregatorArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: FindingAggregatorArn.");
+    }
+    resolvedPath = resolvedPath.replace(
+      "{FindingAggregatorArn+}",
+      labelValue
+        .split("/")
+        .map((segment) => __extendedEncodeURIComponent(segment))
+        .join("/")
+    );
+  } else {
+    throw new Error("No value provided for input HTTP label: FindingAggregatorArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetFindingsCommand = async (
   input: GetFindingsCommandInput,
   context: __SerdeContext
@@ -1588,6 +1709,31 @@ export const serializeAws_restJson1ListEnabledProductsForImportCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/productSubscriptions";
+  const query: any = {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListFindingAggregatorsCommand = async (
+  input: ListFindingAggregatorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/list";
   const query: any = {
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
@@ -1800,6 +1946,36 @@ export const serializeAws_restJson1UpdateActionTargetCommand = async (
   body = JSON.stringify({
     ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateFindingAggregatorCommand = async (
+  input: UpdateFindingAggregatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/update";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.FindingAggregatorArn !== undefined &&
+      input.FindingAggregatorArn !== null && { FindingAggregatorArn: input.FindingAggregatorArn }),
+    ...(input.RegionLinkingMode !== undefined &&
+      input.RegionLinkingMode !== null && { RegionLinkingMode: input.RegionLinkingMode }),
+    ...(input.Regions !== undefined &&
+      input.Regions !== null && { Regions: serializeAws_restJson1StringList(input.Regions, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -2568,6 +2744,105 @@ const deserializeAws_restJson1CreateActionTargetCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateFindingAggregatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFindingAggregatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateFindingAggregatorCommandError(output, context);
+  }
+  const contents: CreateFindingAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FindingAggregationRegion: undefined,
+    FindingAggregatorArn: undefined,
+    RegionLinkingMode: undefined,
+    Regions: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FindingAggregationRegion !== undefined && data.FindingAggregationRegion !== null) {
+    contents.FindingAggregationRegion = __expectString(data.FindingAggregationRegion);
+  }
+  if (data.FindingAggregatorArn !== undefined && data.FindingAggregatorArn !== null) {
+    contents.FindingAggregatorArn = __expectString(data.FindingAggregatorArn);
+  }
+  if (data.RegionLinkingMode !== undefined && data.RegionLinkingMode !== null) {
+    contents.RegionLinkingMode = __expectString(data.RegionLinkingMode);
+  }
+  if (data.Regions !== undefined && data.Regions !== null) {
+    contents.Regions = deserializeAws_restJson1StringList(data.Regions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateFindingAggregatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFindingAggregatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateInsightCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2871,6 +3146,97 @@ const deserializeAws_restJson1DeleteActionTargetCommandError = async (
     case "com.amazonaws.securityhub#InvalidInputException":
       response = {
         ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteFindingAggregatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFindingAggregatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFindingAggregatorCommandError(output, context);
+  }
+  const contents: DeleteFindingAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFindingAggregatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFindingAggregatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -4563,6 +4929,113 @@ const deserializeAws_restJson1GetEnabledStandardsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetFindingAggregatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingAggregatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetFindingAggregatorCommandError(output, context);
+  }
+  const contents: GetFindingAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FindingAggregationRegion: undefined,
+    FindingAggregatorArn: undefined,
+    RegionLinkingMode: undefined,
+    Regions: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FindingAggregationRegion !== undefined && data.FindingAggregationRegion !== null) {
+    contents.FindingAggregationRegion = __expectString(data.FindingAggregationRegion);
+  }
+  if (data.FindingAggregatorArn !== undefined && data.FindingAggregatorArn !== null) {
+    contents.FindingAggregatorArn = __expectString(data.FindingAggregatorArn);
+  }
+  if (data.RegionLinkingMode !== undefined && data.RegionLinkingMode !== null) {
+    contents.RegionLinkingMode = __expectString(data.RegionLinkingMode);
+  }
+  if (data.Regions !== undefined && data.Regions !== null) {
+    contents.Regions = deserializeAws_restJson1StringList(data.Regions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetFindingAggregatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingAggregatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5246,6 +5719,97 @@ const deserializeAws_restJson1ListEnabledProductsForImportCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListFindingAggregatorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFindingAggregatorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFindingAggregatorsCommandError(output, context);
+  }
+  const contents: ListFindingAggregatorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FindingAggregators: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FindingAggregators !== undefined && data.FindingAggregators !== null) {
+    contents.FindingAggregators = deserializeAws_restJson1FindingAggregatorList(data.FindingAggregators, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFindingAggregatorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFindingAggregatorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5746,6 +6310,113 @@ const deserializeAws_restJson1UpdateActionTargetCommandError = async (
     case "com.amazonaws.securityhub#InvalidInputException":
       response = {
         ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateFindingAggregatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFindingAggregatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFindingAggregatorCommandError(output, context);
+  }
+  const contents: UpdateFindingAggregatorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FindingAggregationRegion: undefined,
+    FindingAggregatorArn: undefined,
+    RegionLinkingMode: undefined,
+    Regions: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FindingAggregationRegion !== undefined && data.FindingAggregationRegion !== null) {
+    contents.FindingAggregationRegion = __expectString(data.FindingAggregationRegion);
+  }
+  if (data.FindingAggregatorArn !== undefined && data.FindingAggregatorArn !== null) {
+    contents.FindingAggregatorArn = __expectString(data.FindingAggregatorArn);
+  }
+  if (data.RegionLinkingMode !== undefined && data.RegionLinkingMode !== null) {
+    contents.RegionLinkingMode = __expectString(data.RegionLinkingMode);
+  }
+  if (data.Regions !== undefined && data.Regions !== null) {
+    contents.Regions = deserializeAws_restJson1StringList(data.Regions, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFindingAggregatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFindingAggregatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      response = {
+        ...(await deserializeAws_restJson1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidAccessExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      response = {
+        ...(await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -22777,6 +23448,23 @@ const deserializeAws_restJson1FieldMap = (output: any, context: __SerdeContext):
       [key]: __expectString(value) as any,
     };
   }, {});
+};
+
+const deserializeAws_restJson1FindingAggregator = (output: any, context: __SerdeContext): FindingAggregator => {
+  return {
+    FindingAggregatorArn: __expectString(output.FindingAggregatorArn),
+  } as any;
+};
+
+const deserializeAws_restJson1FindingAggregatorList = (output: any, context: __SerdeContext): FindingAggregator[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FindingAggregator(entry, context);
+    });
 };
 
 const deserializeAws_restJson1FindingProviderFields = (output: any, context: __SerdeContext): FindingProviderFields => {
