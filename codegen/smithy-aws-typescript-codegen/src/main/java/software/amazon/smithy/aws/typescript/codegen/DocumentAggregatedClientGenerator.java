@@ -31,7 +31,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 import software.amazon.smithy.utils.StringUtils;
 
 @SmithyInternalApi
-final class DocumentFullClientGenerator implements Runnable {
+final class DocumentAggregatedClientGenerator implements Runnable {
     static final String CLIENT_CONFIG_SECTION = "client_config";
     static final String CLIENT_PROPERTIES_SECTION = "client_properties";
     static final String CLIENT_CONSTRUCTOR_SECTION = "client_constructor";
@@ -44,7 +44,7 @@ final class DocumentFullClientGenerator implements Runnable {
     private final Symbol symbol;
     private final String serviceName;
 
-    DocumentFullClientGenerator(
+    DocumentAggregatedClientGenerator(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,

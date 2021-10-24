@@ -72,7 +72,7 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
                 writer -> new DocumentBareBonesClientGenerator(settings, model, symbolProvider, writer).run());
 
             writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_FULL_NAME),
-                writer -> new DocumentFullClientGenerator(settings, model, symbolProvider, writer).run());
+                writer -> new DocumentAggregatedClientGenerator(settings, model, symbolProvider, writer).run());
 
             writerFactory.accept(String.format("%sindex.ts", docClientPrefix), writer -> {
                 for (OperationShape operationOverriden: overridenOperationsList) {
