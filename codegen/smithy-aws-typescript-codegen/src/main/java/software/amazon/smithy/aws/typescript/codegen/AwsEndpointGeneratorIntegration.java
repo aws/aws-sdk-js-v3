@@ -49,7 +49,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             return;
         }
 
-        writerFactory.accept(CodegenUtils.SOURCE_FOLDER + "/endpoints.ts", writer -> {
+        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoints.ts").toString(), writer -> {
             new EndpointGenerator(settings.getService(model), writer).run();
         });
     }
