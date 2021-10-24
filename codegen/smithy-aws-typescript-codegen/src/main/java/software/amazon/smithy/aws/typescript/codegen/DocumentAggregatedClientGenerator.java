@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Paths;
 import java.util.Set;
 import java.util.TreeSet;
 import software.amazon.smithy.codegen.core.Symbol;
@@ -62,7 +63,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
     @Override
     public void run() {
         writer.addImport(DocumentClientUtils.CLIENT_NAME,
-            DocumentClientUtils.CLIENT_NAME, "./" + DocumentClientUtils.CLIENT_NAME);
+            DocumentClientUtils.CLIENT_NAME, Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
         writer.writeDocs(DocumentClientUtils.getClientDocs());
         writer.openBlock("export class $L extends $L {", "}",
             DocumentClientUtils.CLIENT_FULL_NAME, DocumentClientUtils.CLIENT_NAME, () -> {
@@ -76,7 +77,7 @@ final class DocumentAggregatedClientGenerator implements Runnable {
     private void generateStaticFactoryFrom() {
         String translateConfig = DocumentClientUtils.CLIENT_TRANSLATE_CONFIG_TYPE;
         writer.addImport(serviceName, serviceName, "@aws-sdk/client-dynamodb");
-        writer.addImport(translateConfig, translateConfig, "./" + DocumentClientUtils.CLIENT_NAME);
+        writer.addImport(translateConfig, translateConfig, Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
         writer.openBlock("static from(client: $L, translateConfig?: $L) {", "}",
             serviceName, translateConfig, () -> {
                 writer.write("return new $L(client, translateConfig);", DocumentClientUtils.CLIENT_FULL_NAME);

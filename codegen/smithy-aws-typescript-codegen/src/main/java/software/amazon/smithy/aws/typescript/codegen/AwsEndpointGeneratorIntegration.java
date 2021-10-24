@@ -17,6 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.BiConsumer;
@@ -85,7 +86,7 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
             case SHARED:
                 return MapUtils.of("regionInfoProvider", writer -> {
                     writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider",
-                            "./" + CodegenUtils.SOURCE_FOLDER + "/endpoints");
+                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoints").toString());
                     writer.write("defaultRegionInfoProvider");
                 });
             default:

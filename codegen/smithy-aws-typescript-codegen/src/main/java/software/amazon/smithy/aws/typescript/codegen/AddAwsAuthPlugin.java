@@ -20,6 +20,7 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -180,7 +181,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                                     AwsDependency.STS_CLIENT.packageName);
                         } else {
                             writer.addImport("decorateDefaultCredentialProvider", "decorateDefaultCredentialProvider",
-                                    "./" + CodegenUtils.SOURCE_FOLDER + "/" + STS_ROLE_ASSUMERS_FILE);
+                                Paths.get(".", CodegenUtils.SOURCE_FOLDER, STS_ROLE_ASSUMERS_FILE).toString());
                         }
                         writer.addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE);
                         writer.addImport("defaultProvider", "credentialDefaultProvider",
@@ -238,7 +239,7 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         if (!testServiceId(service, "STS")) {
             return;
         }
-        writer.write("export * from $S", "./" + ROLE_ASSUMERS_FILE);
+        writer.write("export * from $S", Paths.get(".", ROLE_ASSUMERS_FILE).toString());
     }
 
     private static boolean testServiceId(Shape serviceShape, String expectedId) {
