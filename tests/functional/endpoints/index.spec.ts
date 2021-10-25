@@ -1,5 +1,5 @@
-const { KNOWN_REGIONS } = require("./fixtures");
-const { getRegionInfoProvider } = require("../util/getRegionInfoProvider");
+import { getRegionInfoProvider } from "../util/getRegionInfoProvider";
+import { KNOWN_REGIONS } from "./fixtures";
 
 describe("hostname for know regions", () => {
   for (const region of Object.keys(KNOWN_REGIONS)) {
