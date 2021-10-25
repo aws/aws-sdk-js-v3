@@ -1,5 +1,5 @@
 //reference: https://github.com/boto/botocore/blob/develop/tests/functional/test_regions.py
-module.exports.KNOWN_REGIONS = {
+export const KNOWN_REGIONS = {
   "ap-northeast-1": {
     "api-gateway": "apigateway.ap-northeast-1.amazonaws.com",
     appstream: "appstream2.ap-northeast-1.amazonaws.com",
