@@ -20,7 +20,7 @@
     "build-documentation": "yarn remove-documentation && typedoc",
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}'",
-    "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
+    "test:functional": "jest --config tests/functional/jest.config.js",
     "test:integration:legacy": "cucumber-js --fail-fast",
     "test:integration:legacy:since:release": "./tests/integ-legacy/index.js",
     "test:integration": "jest --config jest.config.integ.js --passWithNoTests",
