@@ -32,7 +32,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 @SmithyInternalApi
-final class DocumentClientGenerator implements Runnable {
+final class DocumentBareBonesClientGenerator implements Runnable {
     static final String CLIENT_CONFIG_SECTION = "client_config";
     static final String CLIENT_PROPERTIES_SECTION = "client_properties";
     static final String CLIENT_CONSTRUCTOR_SECTION = "client_constructor";
@@ -46,7 +46,7 @@ final class DocumentClientGenerator implements Runnable {
     private final String serviceName;
     private final String configType;
 
-    DocumentClientGenerator(
+    DocumentBareBonesClientGenerator(
             TypeScriptSettings settings,
             Model model,
             SymbolProvider symbolProvider,
