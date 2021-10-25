@@ -1,0 +1,275 @@
+[
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "dms-fips",
+    "signingRegion": "us-west-1",
+    "hostname": "dms-fips.us-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "dms-fips",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "dms.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "dms-fips",
+    "signingRegion": "us-iso-east-1",
+    "hostname": "dms.us-iso-east-1.c2s.ic.gov"
+  },
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "dms-fips",
+    "signingRegion": "us-isob-east-1",
+    "hostname": "dms.us-isob-east-1.sc2s.sgov.gov"
+  },
+  {
+    "endpointPrefix": "waf",
+    "sdkId": "WAF",
+    "region": "aws-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "waf-fips.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iam",
+    "sdkId": "IAM",
+    "region": "iam-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "iam-fips.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "organizations",
+    "sdkId": "Organizations",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "organizations-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "route53",
+    "sdkId": "Route 53",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "route53-fips.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "shield",
+    "sdkId": "Shield",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "shield-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "servicediscovery-fips",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "servicediscovery-fips.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "servicediscovery-fips",
+    "signingRegion": "ca-central-1",
+    "hostname": "servicediscovery-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-gov-east-1",
+    "signingRegion": "us-gov-east-1",
+    "hostname": "api.tunneling.iot-fips.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-gov-west-1",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "api.tunneling.iot-fips.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-ca-central-1",
+    "signingRegion": "ca-central-1",
+    "hostname": "api.tunneling.iot-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-east-1",
+    "signingRegion": "us-east-1",
+    "hostname": "api.tunneling.iot-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-east-2",
+    "signingRegion": "us-east-2",
+    "hostname": "api.tunneling.iot-fips.us-east-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-west-1",
+    "signingRegion": "us-west-1",
+    "hostname": "api.tunneling.iot-fips.us-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "fips-us-west-2",
+    "signingRegion": "us-west-2",
+    "hostname": "api.tunneling.iot-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-ca-central-1",
+    "signingRegion": "ca-central-1",
+    "hostname": "data.iot-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-east-1",
+    "signingRegion": "us-east-1",
+    "hostname": "data.iot-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-east-2",
+    "signingRegion": "us-east-2",
+    "hostname": "data.iot-fips.us-east-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-west-1",
+    "signingRegion": "us-west-1",
+    "hostname": "data.iot-fips.us-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-west-2",
+    "signingRegion": "us-west-2",
+    "hostname": "data.iot-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-ca-central-1",
+    "signingRegion": "ca-central-1",
+    "hostname": "iot-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-east-1",
+    "signingRegion": "us-east-1",
+    "hostname": "iot-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-east-2",
+    "signingRegion": "us-east-2",
+    "hostname": "iot-fips.us-east-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-west-1",
+    "signingRegion": "us-west-1",
+    "hostname": "iot-fips.us-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-west-2",
+    "signingRegion": "us-west-2",
+    "hostname": "iot-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-ca-central-1",
+    "signingRegion": "ca-central-1",
+    "hostname": "s3-accesspoint-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-east-1",
+    "signingRegion": "us-east-1",
+    "hostname": "s3-accesspoint-fips.us-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-east-2",
+    "signingRegion": "us-east-2",
+    "hostname": "s3-accesspoint-fips.us-east-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-west-1",
+    "signingRegion": "us-west-1",
+    "hostname": "s3-accesspoint-fips.us-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-west-2",
+    "signingRegion": "us-west-2",
+    "hostname": "s3-accesspoint-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-gov-east-1",
+    "signingRegion": "us-gov-east-1",
+    "hostname": "data.iot-fips.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "fips-us-gov-west-1",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "data.iot-fips.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-gov-east-1",
+    "signingRegion": "us-gov-east-1",
+    "hostname": "iot-fips.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "fips-us-gov-west-1",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "iot-fips.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-gov-east-1",
+    "signingRegion": "us-gov-east-1",
+    "hostname": "s3-accesspoint-fips.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "fips-accesspoint-us-gov-west-1",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "s3-accesspoint-fips.us-gov-west-1.amazonaws.com"
+  }
+]
