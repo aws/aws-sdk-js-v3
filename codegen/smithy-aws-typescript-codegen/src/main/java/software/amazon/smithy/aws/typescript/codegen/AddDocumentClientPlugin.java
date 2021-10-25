@@ -74,14 +74,17 @@ public class AddDocumentClientPlugin implements TypeScriptIntegration {
             writerFactory.accept(String.format("%s%s.ts", docClientPrefix, DocumentClientUtils.CLIENT_FULL_NAME),
                 writer -> new DocumentFullClientGenerator(settings, model, symbolProvider, writer).run());
 
+            writerFactory.accept(String.format("%s%s/index.ts", docClientPrefix,
+                DocumentClientUtils.CLIENT_COMMANDS_FOLDER), writer -> {
+                    for (OperationShape operation : overridenOperationsList) {
+                        String operationFileName = DocumentClientUtils.getModifiedName(
+                            symbolProvider.toSymbol(operation).getName()
+                        );
+                        writer.write("export * from './$L';", operationFileName);
+                    }
+            });
             writerFactory.accept(String.format("%sindex.ts", docClientPrefix), writer -> {
-                for (OperationShape operationOverriden: overridenOperationsList) {
-                    String operationFileName = DocumentClientUtils.getModifiedName(
-                        symbolProvider.toSymbol(operationOverriden).getName()
-                    );
-                    writer.write("export * from './$L/$L';",
-                        DocumentClientUtils.CLIENT_COMMANDS_FOLDER, operationFileName);
-                }
+                writer.write("export * from './commands';");
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_NAME);
                 writer.write("export * from './$L';", DocumentClientUtils.CLIENT_FULL_NAME);
             });
