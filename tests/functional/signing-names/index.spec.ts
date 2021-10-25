@@ -1,5 +1,5 @@
 const { SIGNING_NAMES } = require("./fixtures");
-const { getRegionInfoProvider } = require("../util/regioninfo-provider");
+const { getRegionInfoProvider } = require("../util/getRegionInfoProvider");
 
 describe("signing names for know regions", () => {
   for (const region of Object.keys(SIGNING_NAMES)) {
