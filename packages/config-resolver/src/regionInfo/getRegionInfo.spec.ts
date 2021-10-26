@@ -1,6 +1,8 @@
 import { getRegionInfo } from "./getRegionInfo";
-import { getResolvedHostname, RegionHash } from "./getResolvedHostname";
-import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
+import { getResolvedHostname } from "./getResolvedHostname";
+import { getResolvedPartition } from "./getResolvedPartition";
+import { PartitionHash } from "./PartitionHash";
+import { RegionHash } from "./RegionHash";
 
 jest.mock("./getResolvedHostname");
 jest.mock("./getResolvedPartition");
