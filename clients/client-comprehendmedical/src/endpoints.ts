@@ -48,22 +48,27 @@ const partitionHash: PartitionHash = {
       "us-west-1",
       "us-west-2",
     ],
+    regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.amazonaws.com",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
+    regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.amazonaws.com.cn",
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
+    regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.c2s.ic.gov",
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
+    regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
     regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
+    regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.amazonaws.com",
   },
 };
