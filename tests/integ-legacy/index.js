@@ -25,6 +25,11 @@ const changedPackageTags = changedPackages
 
 const tagsToTest = changedPackageTags.filter((tag) => allTags.includes(tag));
 
+if (tagsToTest.length === 0) {
+  console.info("No clients with integration test cases has changed since last release.");
+  return;
+}
+
 // Cucumber requires cwd to contain the test cases.
 const command = `${join("node_modules", ".bin", "cucumber-js")}`;
 const args = ["--fail-fast", "-t", `"${tagsToTest.join(" or ")}"`];
