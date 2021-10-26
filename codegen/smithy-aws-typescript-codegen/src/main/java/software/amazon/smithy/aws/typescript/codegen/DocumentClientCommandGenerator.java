@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -84,11 +85,11 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     @Override
     public void run() {
-        String serviceName = DocumentClientUtils.CLIENT_NAME;
+        String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
         String configType = DocumentClientUtils.CLIENT_CONFIG_NAME;
 
         // Add required imports.
-        writer.addImport(configType, configType, "./" + serviceName);
+        writer.addImport(configType, configType, servicePath);
         writer.addImport("Command", "$Command", "@aws-sdk/smithy-client");
 
         generateInputAndOutputTypes();
@@ -139,9 +140,9 @@ final class DocumentClientCommandGenerator implements Runnable {
         String handler = "Handler";
         String middlewareStack = "MiddlewareStack";
 
-        String serviceName = DocumentClientUtils.CLIENT_NAME;
-        writer.addImport(serviceInputTypes, serviceInputTypes, "./" + serviceName);
-        writer.addImport(serviceOutputTypes, serviceOutputTypes, "./" + serviceName);
+        String servicePath = Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString();
+        writer.addImport(serviceInputTypes, serviceInputTypes, servicePath);
+        writer.addImport(serviceOutputTypes, serviceOutputTypes, servicePath);
         writer.addImport(handler, handler, "@aws-sdk/types");
         writer.addImport(middlewareStack, middlewareStack, "@aws-sdk/types");
 
