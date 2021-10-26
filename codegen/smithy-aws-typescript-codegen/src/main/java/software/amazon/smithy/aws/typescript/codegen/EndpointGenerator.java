@@ -130,6 +130,7 @@ final class EndpointGenerator implements Runnable {
                             writer.write("$S,", region);
                         }
                     });
+                    writer.write("regionRegex: $S,", partition.regionRegex);
                     OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
                         endpoint -> writer.write("endpoint: $S,", endpoint),
                         () -> writer.write("hostname: $S,", partition.hostnameTemplate));
@@ -177,6 +178,7 @@ final class EndpointGenerator implements Runnable {
         final String hostnameTemplate;
         final String dnsSuffix;
         final String identifier;
+        final String regionRegex;
         private final ObjectNode config;
 
         private Partition(ObjectNode config, String partition) {
@@ -193,6 +195,7 @@ final class EndpointGenerator implements Runnable {
 
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
+            regionRegex = config.expectStringMember("regionRegex").getValue();
         }
 
         ObjectNode getDefaults() {

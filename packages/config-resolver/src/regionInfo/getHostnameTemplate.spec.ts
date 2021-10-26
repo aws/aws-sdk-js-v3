@@ -8,6 +8,7 @@ const AWS_TEMPLATE = "{signingService}.{region}.amazonaws.com";
 describe(getHostnameTemplate.name, () => {
   const mockRegion = "mockRegion";
   const mockPartition = "mockPartition";
+  const mockRegionRegex = "mockRegionRegex";
   const mockHostname = "{region}.mockHostname.com";
   const mockSigningService = "mockSigningService";
 
@@ -24,6 +25,7 @@ describe(getHostnameTemplate.name, () => {
     const mockPartitionHash: PartitionHash = {
       [mockPartition]: {
         regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
+        regionRegex: mockRegionRegex,
         hostname: mockHostname,
       },
     };
