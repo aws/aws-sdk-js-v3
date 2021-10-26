@@ -1,9 +1,7 @@
 import { RegionInfo } from "@aws-sdk/types";
 
-import { getResolvedHostname, GetResolvedHostnameOptions, RegionHash } from "./getResolvedHostname";
-import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
-
-export { RegionHash, PartitionHash };
+import { getResolvedHostname, GetResolvedHostnameOptions } from "./getResolvedHostname";
+import { getResolvedPartition } from "./getResolvedPartition";
 
 export interface GetRegionInfoOptions extends GetResolvedHostnameOptions {}
 

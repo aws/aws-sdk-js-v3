@@ -1,9 +1,6 @@
-import { RegionInfo } from "@aws-sdk/types";
-
 import { getHostnameTemplate, GetHostnameTemplateOptions } from "./getHostnameTemplate";
 import { GetResolvedPartitionOptions } from "./getResolvedPartition";
-
-export type RegionHash = { [key: string]: Partial<Omit<RegionInfo, "partition" | "path">> };
+import { RegionHash } from "./RegionHash";
 
 export interface GetResolvedHostnameOptions extends GetHostnameTemplateOptions, GetResolvedPartitionOptions {
   /**

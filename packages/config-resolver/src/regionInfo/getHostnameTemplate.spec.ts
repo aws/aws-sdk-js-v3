@@ -1,5 +1,6 @@
 import { getHostnameTemplate } from "./getHostnameTemplate";
-import { getResolvedPartition, PartitionHash } from "./getResolvedPartition";
+import { getResolvedPartition } from "./getResolvedPartition";
+import { PartitionHash } from "./PartitionHash";
 
 jest.mock("./getResolvedPartition");
 
