@@ -2,7 +2,7 @@ import { RegionInfo } from "@aws-sdk/types";
 
 import { getResolvedHostname } from "./getResolvedHostname";
 import { getResolvedPartition } from "./getResolvedPartition";
-import { isFipsRegion } from "./isFipsRegion";
+import { getSigningRegion } from "./getSigningRegion";
 import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
@@ -24,20 +24,7 @@ export const getRegionInfo = (
     regionHostname: regionHash[resolvedRegion]?.hostname,
     partitionHostname: partitionHash[partition]?.hostname,
   });
-
-  let signingRegion: string | undefined;
-  if (regionHash[resolvedRegion]?.signingRegion) {
-    signingRegion = regionHash[resolvedRegion].signingRegion;
-  } else if (isFipsRegion(region)) {
-    const regionRegex = partitionHash[partition].regionRegex
-      .replace("\\\\", "\\")
-      .replace(/^\^/g, "")
-      .replace(/\$$/g, "");
-    const regionRegexmatchArray = hostname.match(regionRegex);
-    if (regionRegexmatchArray) {
-      signingRegion = regionRegexmatchArray[0];
-    }
-  }
+  const signingRegion = getSigningRegion(region, { hostname, partition, regionHash, partitionHash });
 
   return {
     partition,
