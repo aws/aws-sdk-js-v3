@@ -2,7 +2,7 @@ import { RegionInfo } from "@aws-sdk/types";
 
 import { getResolvedHostname } from "./getResolvedHostname";
 import { getResolvedPartition } from "./getResolvedPartition";
-import { getSigningRegion } from "./getSigningRegion";
+import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
 import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
@@ -24,7 +24,11 @@ export const getRegionInfo = (
     regionHostname: regionHash[resolvedRegion]?.hostname,
     partitionHostname: partitionHash[partition]?.hostname,
   });
-  const signingRegion = getSigningRegion(region, { hostname, partition, regionHash, partitionHash });
+  const signingRegion = getResolvedSigningRegion(region, {
+    hostname,
+    resolvedRegionHash: regionHash[resolvedRegion],
+    regionRegex: partitionHash[partition].regionRegex,
+  });
 
   return {
     partition,
