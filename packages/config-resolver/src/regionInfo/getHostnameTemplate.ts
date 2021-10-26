@@ -1,12 +1,11 @@
-import { getResolvedPartition, GetResolvedPartitionOptions } from "./getResolvedPartition";
+import { getResolvedPartition } from "./getResolvedPartition";
+import { PartitionHash } from "./PartitionHash";
 
 const AWS_TEMPLATE = "{signingService}.{region}.amazonaws.com";
 
-export interface GetHostnameTemplateOptions extends GetResolvedPartitionOptions {
-  /**
-   * The name to be used while signing the service request.
-   */
+export interface GetHostnameTemplateOptions {
   signingService: string;
+  partitionHash: PartitionHash;
 }
 
 export const getHostnameTemplate = (region: string, { signingService, partitionHash }: GetHostnameTemplateOptions) =>
