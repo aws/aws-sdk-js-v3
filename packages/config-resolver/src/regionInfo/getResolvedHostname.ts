@@ -1,13 +1,11 @@
-import { getHostnameTemplate, GetHostnameTemplateOptions } from "./getHostnameTemplate";
-import { GetResolvedPartitionOptions } from "./getResolvedPartition";
+import { getHostnameTemplate } from "./getHostnameTemplate";
+import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
-export interface GetResolvedHostnameOptions extends GetHostnameTemplateOptions, GetResolvedPartitionOptions {
-  /**
-   * The hash of region with the information specific to that region.
-   * The information can include hostname, signingService and signingRegion.
-   */
+export interface GetResolvedHostnameOptions {
+  signingService: string;
   regionHash: RegionHash;
+  partitionHash: PartitionHash;
 }
 
 export const getResolvedHostname = (

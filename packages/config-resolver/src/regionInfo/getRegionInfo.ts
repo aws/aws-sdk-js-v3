@@ -1,9 +1,15 @@
 import { RegionInfo } from "@aws-sdk/types";
 
-import { getResolvedHostname, GetResolvedHostnameOptions } from "./getResolvedHostname";
+import { getResolvedHostname } from "./getResolvedHostname";
 import { getResolvedPartition } from "./getResolvedPartition";
+import { PartitionHash } from "./PartitionHash";
+import { RegionHash } from "./RegionHash";
 
-export interface GetRegionInfoOptions extends GetResolvedHostnameOptions {}
+export interface GetRegionInfoOptions {
+  signingService: string;
+  regionHash: RegionHash;
+  partitionHash: PartitionHash;
+}
 
 export const getRegionInfo = (
   region: string,
