@@ -1,5 +1,6 @@
 import {
   CONFIG_USE_FIPS_ENDPOINT,
+  DEFAULT_USE_FIPS_ENDPOINT,
   ENV_USE_FIPS_ENDPOINT,
   USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "./UseFipsEndpointConfigOptions";
@@ -40,8 +41,8 @@ describe("USE_FIPS_ENDPOINT_CONFIG_OPTIONS", () => {
     test(configFileSelector, profileContent, CONFIG_USE_FIPS_ENDPOINT);
   });
 
-  it("returns false by default", () => {
+  it(`returns ${DEFAULT_USE_FIPS_ENDPOINT} by default`, () => {
     const { default: defaultValue } = USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
-    expect(defaultValue).toEqual(false);
+    expect(defaultValue).toEqual(DEFAULT_USE_FIPS_ENDPOINT);
   });
 });

@@ -2,6 +2,7 @@ import { LoadedConfigSelectors } from "@aws-sdk/node-config-provider";
 
 export const ENV_USE_FIPS_ENDPOINT = "AWS_USE_FIPS_ENDPOINT";
 export const CONFIG_USE_FIPS_ENDPOINT = "use_fips_endpoint";
+export const DEFAULT_USE_FIPS_ENDPOINT = false;
 
 export const USE_FIPS_ENDPOINT_CONFIG_OPTIONS: LoadedConfigSelectors<boolean> = {
   environmentVariableSelector: (env) => {
@@ -20,5 +21,5 @@ export const USE_FIPS_ENDPOINT_CONFIG_OPTIONS: LoadedConfigSelectors<boolean> = 
       `Cannot load shared config entry ${CONFIG_USE_FIPS_ENDPOINT}. Expected "true" or "false", got ${profile[CONFIG_USE_FIPS_ENDPOINT]}.`
     );
   },
-  default: false,
+  default: DEFAULT_USE_FIPS_ENDPOINT,
 };
