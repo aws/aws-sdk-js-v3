@@ -85,9 +85,10 @@ describe(getRegionInfo.name, () => {
         partition: mockPartition,
       });
 
-      expect(getResolvedHostname).toHaveBeenCalledWith(getMockResolvedRegion(regionCase), {
+      const mockResolvedRegion = getMockResolvedRegion(regionCase);
+      expect(getResolvedHostname).toHaveBeenCalledWith(mockResolvedRegion, {
         signingService: mockSigningService,
-        regionHostname: mockGetRegionInfoOptions.regionHash[mockRegion]?.hostname,
+        regionHostname: mockGetRegionInfoOptions.regionHash[mockResolvedRegion]?.hostname,
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
@@ -138,9 +139,10 @@ describe(getRegionInfo.name, () => {
         signingRegion: mockSigningRegion,
       });
 
-      expect(getResolvedHostname).toHaveBeenCalledWith(getMockResolvedRegion(regionCase), {
+      const mockResolvedRegion = getMockResolvedRegion(regionCase);
+      expect(getResolvedHostname).toHaveBeenCalledWith(mockResolvedRegion, {
         signingService: mockSigningService,
-        regionHostname: mockGetRegionInfoOptions.regionHash[mockRegion]?.hostname,
+        regionHostname: mockGetRegionInfoOptions.regionHash[mockResolvedRegion]?.hostname,
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
@@ -190,9 +192,10 @@ describe(getRegionInfo.name, () => {
         partition: mockPartition,
       });
 
-      expect(getResolvedHostname).toHaveBeenCalledWith(getMockResolvedRegion(regionCase), {
+      const mockResolvedRegion = getMockResolvedRegion(regionCase);
+      expect(getResolvedHostname).toHaveBeenCalledWith(mockResolvedRegion, {
         signingService: mockSigningService,
-        regionHostname: mockGetRegionInfoOptions.regionHash[mockRegion]?.hostname,
+        regionHostname: mockGetRegionInfoOptions.regionHash[mockResolvedRegion]?.hostname,
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);

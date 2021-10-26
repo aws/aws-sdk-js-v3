@@ -22,7 +22,7 @@ export const getRegionInfo = (
     signingService,
     hostname: getResolvedHostname(resolvedRegion, {
       signingService,
-      regionHostname: regionHash[region]?.hostname,
+      regionHostname: regionHash[resolvedRegion]?.hostname,
       partitionHostname: partitionHash[partition]?.hostname,
     }),
     ...(regionHash[resolvedRegion]?.signingRegion && {
