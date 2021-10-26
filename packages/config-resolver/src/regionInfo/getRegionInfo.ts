@@ -26,7 +26,7 @@ export const getRegionInfo = (
   });
   const signingRegion = getResolvedSigningRegion(region, {
     hostname,
-    resolvedRegionHash: regionHash[resolvedRegion],
+    signingRegion: regionHash[resolvedRegion]?.signingRegion,
     regionRegex: partitionHash[partition].regionRegex,
   });
 

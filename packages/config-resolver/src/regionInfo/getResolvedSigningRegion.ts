@@ -2,16 +2,16 @@ import { isFipsRegion } from "./isFipsRegion";
 
 export interface GetResolvedSigningRegionOptions {
   hostname: string;
-  resolvedRegionHash: { signingRegion?: string };
   regionRegex: string;
+  signingRegion?: string;
 }
 
 export const getResolvedSigningRegion = (
   region: string,
-  { hostname, resolvedRegionHash, regionRegex }: GetResolvedSigningRegionOptions
+  { hostname, signingRegion, regionRegex }: GetResolvedSigningRegionOptions
 ) => {
-  if (resolvedRegionHash?.signingRegion) {
-    return resolvedRegionHash.signingRegion;
+  if (signingRegion) {
+    return signingRegion;
   } else if (isFipsRegion(region)) {
     const regionRegexJs = regionRegex.replace("\\\\", "\\").replace(/^\^/g, "").replace(/\$$/g, "");
     const regionRegexmatchArray = hostname.match(regionRegexJs);
