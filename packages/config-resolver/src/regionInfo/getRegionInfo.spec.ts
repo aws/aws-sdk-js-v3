@@ -10,6 +10,7 @@ describe(getRegionInfo.name, () => {
   const mockSigningService = "mockSigningService";
 
   const mockRegion = "mockRegion";
+  const mockRegionRegex = "mockRegionRegex";
   const mockHostname = "{region}.mockHostname.com";
   const mockEndpointRegion = "mockEndpointRegion";
   const mockEndpointHostname = "{region}.mockEndpointHostname.com";
@@ -36,6 +37,7 @@ describe(getRegionInfo.name, () => {
   const getMockPartitionHash = (regionCase: RegionCase): PartitionHash => ({
     [mockPartition]: {
       regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
+      regionRegex: mockRegionRegex,
       ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
         hostname: mockHostname,
       }),

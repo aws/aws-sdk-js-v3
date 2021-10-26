@@ -8,6 +8,7 @@ describe(getResolvedHostname.name, () => {
   const mockSigningService = "mockSigningService";
   const mockRegion = "mockRegion";
   const mockPartition = "mockPartition";
+  const mockRegionRegex = "mockRegionRegex";
   const mockHostname = "{region}.mockHostname.com";
 
   afterEach(() => {
@@ -40,6 +41,7 @@ describe(getResolvedHostname.name, () => {
     const mockPartitionHash: PartitionHash = {
       [mockPartition]: {
         regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
+        regionRegex: mockRegionRegex,
         hostname: mockHostname,
       },
     };
