@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/aws-restxml",
-  "description": "@aws-sdk/aws-restxml client",
+  "name": "@aws-sdk/aws-protocoltests-restxml",
+  "description": "@aws-sdk/aws-protocoltests-restxml client",
   "version": "3.38.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",

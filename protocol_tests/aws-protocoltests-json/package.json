@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/aws-json",
-  "description": "@aws-sdk/aws-json client",
+  "name": "@aws-sdk/aws-protocoltests-json",
+  "description": "@aws-sdk/aws-protocoltests-json client",
   "version": "3.38.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",

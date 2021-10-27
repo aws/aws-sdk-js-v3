@@ -1,6 +1,6 @@
 {
-  "name": "@aws-sdk/aws-query",
-  "description": "@aws-sdk/aws-query client",
+  "name": "@aws-sdk/aws-protocoltests-query",
+  "description": "@aws-sdk/aws-protocoltests-query client",
   "version": "3.38.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
