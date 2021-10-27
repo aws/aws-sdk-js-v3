@@ -87,10 +87,10 @@
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "private": true,
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-ec2",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-query",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/aws-protocoltests-ec2"
+    "directory": "clients/aws-protocoltests-query"
   }
 }
