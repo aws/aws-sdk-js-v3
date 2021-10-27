@@ -4,7 +4,7 @@ export const ENV_USE_FIPS_ENDPOINT = "AWS_USE_FIPS_ENDPOINT";
 export const CONFIG_USE_FIPS_ENDPOINT = "use_fips_endpoint";
 export const DEFAULT_USE_FIPS_ENDPOINT = false;
 
-export const USE_FIPS_ENDPOINT_CONFIG_OPTIONS: LoadedConfigSelectors<boolean> = {
+export const NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS: LoadedConfigSelectors<boolean> = {
   environmentVariableSelector: (env) => {
     if (!Object.prototype.hasOwnProperty.call(env, ENV_USE_FIPS_ENDPOINT)) return undefined;
     if (env[ENV_USE_FIPS_ENDPOINT] === "true") return true;

@@ -2,10 +2,10 @@ import {
   CONFIG_USE_FIPS_ENDPOINT,
   DEFAULT_USE_FIPS_ENDPOINT,
   ENV_USE_FIPS_ENDPOINT,
-  USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
-} from "./UseFipsEndpointConfigOptions";
+  NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
+} from "./NodeUseFipsEndpointConfigOptions";
 
-describe("USE_FIPS_ENDPOINT_CONFIG_OPTIONS", () => {
+describe("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS", () => {
   const test = (selector, obj, key) => {
     beforeEach(() => {
       delete obj[key];
@@ -31,18 +31,18 @@ describe("USE_FIPS_ENDPOINT_CONFIG_OPTIONS", () => {
 
   describe("environment variable selector", () => {
     const env: { [ENV_USE_FIPS_ENDPOINT]: any } = {} as any;
-    const { environmentVariableSelector } = USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
+    const { environmentVariableSelector } = NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
     test(environmentVariableSelector, env, ENV_USE_FIPS_ENDPOINT);
   });
 
   describe("config file selector", () => {
     const profileContent: { [CONFIG_USE_FIPS_ENDPOINT]: any } = {} as any;
-    const { configFileSelector } = USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
+    const { configFileSelector } = NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
     test(configFileSelector, profileContent, CONFIG_USE_FIPS_ENDPOINT);
   });
 
   it(`returns ${DEFAULT_USE_FIPS_ENDPOINT} by default`, () => {
-    const { default: defaultValue } = USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
+    const { default: defaultValue } = NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS;
     expect(defaultValue).toEqual(DEFAULT_USE_FIPS_ENDPOINT);
   });
 });
