@@ -1,11 +1,13 @@
 import { getRegionInfo } from "./getRegionInfo";
 import { getResolvedHostname } from "./getResolvedHostname";
 import { getResolvedPartition } from "./getResolvedPartition";
+import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
 import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
 jest.mock("./getResolvedHostname");
 jest.mock("./getResolvedPartition");
+jest.mock("./getResolvedSigningRegion");
 
 describe(getRegionInfo.name, () => {
   const mockPartition = "mockPartition";
@@ -63,6 +65,7 @@ describe(getRegionInfo.name, () => {
   beforeEach(() => {
     (getResolvedHostname as jest.Mock).mockReturnValue(mockHostname);
     (getResolvedPartition as jest.Mock).mockReturnValue(mockPartition);
+    (getResolvedSigningRegion as jest.Mock).mockReturnValue(undefined);
   });
 
   afterEach(() => {
@@ -92,10 +95,14 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
+        hostname: mockHostname,
+        regionRegex: mockRegionRegex,
+      });
     });
   });
 
-  describe("returns signingRegion if present in regionHash", () => {
+  describe("returns signingRegion if resolved by getResolvedSigningRegion", () => {
     const getMockRegionHashWithSigningRegion = (
       regionCase: RegionCase,
       mockRegionHash: RegionHash,
@@ -118,6 +125,7 @@ describe(getRegionInfo.name, () => {
 
     it.each(Object.values(RegionCase))("%s", (regionCase) => {
       const mockSigningRegion = "mockSigningRegion";
+      (getResolvedSigningRegion as jest.Mock).mockReturnValueOnce(mockSigningRegion);
       const mockRegionHash = getMockRegionHash(regionCase);
       const mockPartitionHash = getMockPartitionHash(regionCase);
 
@@ -146,6 +154,11 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
+        hostname: mockHostname,
+        signingRegion: mockSigningRegion,
+        regionRegex: mockRegionRegex,
+      });
     });
   });
 
@@ -199,6 +212,10 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockGetRegionInfoOptions.partitionHash[mockPartition]?.hostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
+        hostname: mockHostname,
+        regionRegex: mockRegionRegex,
+      });
     });
   });
 });
