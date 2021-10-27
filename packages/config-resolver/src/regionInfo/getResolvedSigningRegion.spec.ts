@@ -46,15 +46,34 @@ describe(getResolvedSigningRegion.name, () => {
       expect(isFipsRegion).toHaveBeenCalledTimes(1);
       expect(isFipsRegion).toHaveBeenCalledWith(mockRegion);
     });
+
+    it("region is not present between dots in a hostname", () => {
+      const regionInHostname = "us-east-1";
+      (isFipsRegion as jest.Mock).mockReturnValueOnce(true);
+
+      expect(
+        getResolvedSigningRegion(mockRegion, {
+          ...mockOptions,
+          hostname: `test-${regionInHostname}.amazonaws.com`,
+          regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+        })
+      ).not.toBeDefined();
+      expect(isFipsRegion).toHaveBeenCalledTimes(1);
+      expect(isFipsRegion).toHaveBeenCalledWith(mockRegion);
+    });
   });
 
-  it("returns region from hostname is signingRegion is not present", () => {
+  it("returns region from hostname if signingRegion is not present", () => {
+    const regionInHostname = "us-east-1";
     (isFipsRegion as jest.Mock).mockReturnValueOnce(true);
-    const matchSpy = jest.spyOn(String.prototype, "match").mockReturnValueOnce([`.${mockSigningRegion}.`]);
 
-    expect(getResolvedSigningRegion(mockRegion, mockOptions)).toEqual(mockSigningRegion);
-    expect(matchSpy).toHaveBeenCalledTimes(1);
-    expect(matchSpy).toHaveBeenCalledWith(mockRegionRegex);
+    expect(
+      getResolvedSigningRegion(mockRegion, {
+        ...mockOptions,
+        hostname: `test.${regionInHostname}.amazonaws.com`,
+        regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+      })
+    ).toEqual(regionInHostname);
     expect(isFipsRegion).toHaveBeenCalledTimes(1);
     expect(isFipsRegion).toHaveBeenCalledWith(mockRegion);
   });
