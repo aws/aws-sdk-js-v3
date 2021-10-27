@@ -50,7 +50,7 @@ describe(getResolvedSigningRegion.name, () => {
 
   it("returns region from hostname is signingRegion is not present", () => {
     (isFipsRegion as jest.Mock).mockReturnValueOnce(true);
-    const matchSpy = jest.spyOn(String.prototype, "match").mockReturnValueOnce([mockSigningRegion]);
+    const matchSpy = jest.spyOn(String.prototype, "match").mockReturnValueOnce([`.${mockSigningRegion}.`]);
 
     expect(getResolvedSigningRegion(mockRegion, mockOptions)).toEqual(mockSigningRegion);
     expect(matchSpy).toHaveBeenCalledTimes(1);
