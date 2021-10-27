@@ -41,7 +41,7 @@ spawn("npx", args, pipeStdIo).on("close", (code) => {
   // Rollback the changes caused by the version bumping
   execSync("git checkout -- clients/*/package.json");
   execSync("git checkout -- packages/*/package.json");
-  execSync("git checkout -- protocol_tests/*/package.json");
+  execSync("git checkout -- private/*/package.json");
 
   // Kill the background verdaccio server
   verdaccio.kill();

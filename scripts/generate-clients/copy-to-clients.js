@@ -168,11 +168,11 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         const destManifest = existsSync(destSubPath) ? JSON.parse(readFileSync(destSubPath).toString()) : {};
         const mergedManifest = {
           ...mergeManifest(packageManifest, destManifest),
-          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/protocol_tests/${testName}`,
+          homepage: `https://github.com/aws/aws-sdk-js-v3/tree/main/private/${testName}`,
           repository: {
             type: "git",
             url: "https://github.com/aws/aws-sdk-js-v3.git",
-            directory: `protocol_tests/${testName}`,
+            directory: `private/${testName}`,
           },
         };
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
