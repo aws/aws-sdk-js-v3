@@ -2,6 +2,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
+import { DEFAULT_USE_FIPS_ENDPOINT } from "@aws-sdk/config-resolver";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
@@ -35,6 +36,7 @@ export const getRuntimeConfig = (config: DataBrewClientConfig) => {
     retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
+    useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT)),
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };

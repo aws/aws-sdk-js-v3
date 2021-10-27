@@ -2,6 +2,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
+import { DEFAULT_USE_FIPS_ENDPOINT } from "@aws-sdk/config-resolver";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidFunction, invalidProvider } from "@aws-sdk/invalid-dependency";
@@ -40,6 +41,7 @@ export const getRuntimeConfig = (config: LexRuntimeV2ClientConfig) => {
     retryMode: config?.retryMode ?? (() => Promise.resolve(DEFAULT_RETRY_MODE)),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,
+    useFipsEndpoint: config?.useFipsEndpoint ?? (() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT)),
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };

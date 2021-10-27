@@ -336,6 +336,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
+   * Enables FIPS compatible endpoints, if available.
+   */
+  useFipsEndpoint?: boolean | __Provider<boolean>;
+
+  /**
    * Unique service identifier.
    * @internal
    */
