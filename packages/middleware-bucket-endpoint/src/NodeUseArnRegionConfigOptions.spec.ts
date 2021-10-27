@@ -2,7 +2,8 @@ import {
   NODE_USE_ARN_REGION_CONFIG_OPTIONS as loadOptions,
   NODE_USE_ARN_REGION_ENV_NAME,
   NODE_USE_ARN_REGION_INI_NAME,
-} from "./configurations";
+} from "./NodeUseArnRegionConfigOptions";
+
 describe("Node useArnRegion config loader", () => {
   describe("environment variable selector", () => {
     const env: { [NODE_USE_ARN_REGION_ENV_NAME]: any } = {} as any;
