@@ -1,6 +1,6 @@
 export enum SelectorType {
   ENV = "env",
-  SHARED_CONFIG = "shared config entry",
+  CONFIG = "shared config entry",
 }
 
 export const booleanSelector = (obj: Object, key: string, type: SelectorType) => {
