@@ -29,8 +29,8 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new EmptyInputAndEmptyOutputCommand(input);
  * const response = await client.send(command);

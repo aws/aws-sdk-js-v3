@@ -26,8 +26,8 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, OmitsNullSerializesEmptyStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new OmitsNullSerializesEmptyStringCommand(input);
  * const response = await client.send(command);

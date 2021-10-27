@@ -28,8 +28,8 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new XmlTimestampsCommand(input);
  * const response = await client.send(command);

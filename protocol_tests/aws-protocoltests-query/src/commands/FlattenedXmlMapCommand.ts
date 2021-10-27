@@ -26,8 +26,8 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __M
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, FlattenedXmlMapCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, FlattenedXmlMapCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, FlattenedXmlMapCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, FlattenedXmlMapCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new FlattenedXmlMapCommand(input);
  * const response = await client.send(command);

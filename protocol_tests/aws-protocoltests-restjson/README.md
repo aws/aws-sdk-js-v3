@@ -1,7 +1,7 @@
-# @aws-sdk/aws-restjson
+# @aws-sdk/aws-protocoltests-restjson
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-restjson/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-restjson)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-restjson.svg)](https://www.npmjs.com/package/@aws-sdk/aws-restjson)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restjson/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restjson)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-restjson.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restjson)
 
 ## Description
 
@@ -11,12 +11,12 @@ A REST JSON service that sends JSON requests and responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-restjson
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-restjson
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-restjson`
-- `yarn add @aws-sdk/aws-restjson`
-- `pnpm add @aws-sdk/aws-restjson`
+- `npm install @aws-sdk/aws-protocoltests-restjson`
+- `yarn add @aws-sdk/aws-protocoltests-restjson`
+- `pnpm add @aws-sdk/aws-protocoltests-restjson`
 
 ## Getting Started
 
@@ -28,12 +28,12 @@ the commands you need, for example `AllQueryStringTypesCommand`:
 
 ```js
 // ES5 example
-const { RestJsonProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-restjson");
+const { RestJsonProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-protocoltests-restjson");
 ```
 
 ```ts
 // ES6+ example
-import { RestJsonProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-restjson";
+import { RestJsonProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-protocoltests-restjson";
 ```
 
 ### Usage
@@ -126,7 +126,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-restjson";
+import * as AWS from "@aws-sdk/aws-protocoltests-restjson";
 const client = new AWS.RestJsonProtocol({ region: "REGION" });
 
 // async/await.
@@ -193,7 +193,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-restjson` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-restjson` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License

@@ -26,8 +26,8 @@ export interface JsonBlobsCommandOutput extends JsonBlobsInputOutput, __Metadata
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, JsonBlobsCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, JsonBlobsCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new JsonBlobsCommand(input);
  * const response = await client.send(command);

@@ -27,8 +27,8 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, InputAndOutputWithHeadersCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new InputAndOutputWithHeadersCommand(input);
  * const response = await client.send(command);

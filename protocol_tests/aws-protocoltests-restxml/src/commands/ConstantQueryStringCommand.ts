@@ -29,8 +29,8 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, ConstantQueryStringCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, ConstantQueryStringCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new ConstantQueryStringCommand(input);
  * const response = await client.send(command);

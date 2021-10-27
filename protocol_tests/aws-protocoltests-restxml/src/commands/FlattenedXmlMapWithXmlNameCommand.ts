@@ -28,8 +28,8 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);

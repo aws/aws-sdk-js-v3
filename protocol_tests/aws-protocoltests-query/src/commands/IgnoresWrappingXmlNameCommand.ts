@@ -29,8 +29,8 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, IgnoresWrappingXmlNameCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, IgnoresWrappingXmlNameCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, IgnoresWrappingXmlNameCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, IgnoresWrappingXmlNameCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new IgnoresWrappingXmlNameCommand(input);
  * const response = await client.send(command);

@@ -29,8 +29,8 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2ProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
- * // const { EC2ProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
+ * import { EC2ProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);

@@ -26,8 +26,8 @@ export interface HttpPrefixHeadersResponseCommandOutput extends HttpPrefixHeader
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } from "@aws-sdk/aws-restjson"; // ES Modules import
- * // const { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } = require("@aws-sdk/aws-restjson"); // CommonJS import
+ * import { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpPrefixHeadersResponseCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const command = new HttpPrefixHeadersResponseCommand(input);
  * const response = await client.send(command);

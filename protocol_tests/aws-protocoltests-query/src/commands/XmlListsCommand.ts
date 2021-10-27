@@ -32,8 +32,8 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, XmlListsCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);

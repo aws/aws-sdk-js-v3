@@ -1,7 +1,7 @@
-# @aws-sdk/aws-json-10
+# @aws-sdk/aws-protocoltests-json-10
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-json-10/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-json-10)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-json-10.svg)](https://www.npmjs.com/package/@aws-sdk/aws-json-10)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-json-10/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json-10)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-json-10.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json-10)
 
 ## Description
 
@@ -9,12 +9,12 @@ AWS SDK for JavaScript JSONRPC10 Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-json-10
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-json-10
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-json-10`
-- `yarn add @aws-sdk/aws-json-10`
-- `pnpm add @aws-sdk/aws-json-10`
+- `npm install @aws-sdk/aws-protocoltests-json-10`
+- `yarn add @aws-sdk/aws-protocoltests-json-10`
+- `pnpm add @aws-sdk/aws-protocoltests-json-10`
 
 ## Getting Started
 
@@ -26,12 +26,12 @@ the commands you need, for example `EmptyInputAndEmptyOutputCommand`:
 
 ```js
 // ES5 example
-const { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-json-10");
+const { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10");
 ```
 
 ```ts
 // ES6+ example
-import { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-json-10";
+import { JSONRPC10Client, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-json-10";
 ```
 
 ### Usage
@@ -124,7 +124,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-json-10";
+import * as AWS from "@aws-sdk/aws-protocoltests-json-10";
 const client = new AWS.JSONRPC10({ region: "REGION" });
 
 // async/await.
@@ -191,7 +191,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-json-10` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-json-10` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License

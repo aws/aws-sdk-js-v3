@@ -29,8 +29,8 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RestXmlProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-restxml"; // ES Modules import
- * // const { RestXmlProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-restxml"); // CommonJS import
+ * import { RestXmlProtocolClient, NoInputAndOutputCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
+ * // const { RestXmlProtocolClient, NoInputAndOutputCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const command = new NoInputAndOutputCommand(input);
  * const response = await client.send(command);

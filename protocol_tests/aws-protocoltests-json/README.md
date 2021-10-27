@@ -1,7 +1,7 @@
-# @aws-sdk/aws-json
+# @aws-sdk/aws-protocoltests-json
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-json/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-json)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-json.svg)](https://www.npmjs.com/package/@aws-sdk/aws-json)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-json/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-json.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-json)
 
 ## Description
 
@@ -9,12 +9,12 @@ AWS SDK for JavaScript JsonProtocol Client for Node.js, Browser and React Native
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-json
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-json
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-json`
-- `yarn add @aws-sdk/aws-json`
-- `pnpm add @aws-sdk/aws-json`
+- `npm install @aws-sdk/aws-protocoltests-json`
+- `yarn add @aws-sdk/aws-protocoltests-json`
+- `pnpm add @aws-sdk/aws-protocoltests-json`
 
 ## Getting Started
 
@@ -26,12 +26,12 @@ the commands you need, for example `EmptyOperationCommand`:
 
 ```js
 // ES5 example
-const { JsonProtocolClient, EmptyOperationCommand } = require("@aws-sdk/aws-json");
+const { JsonProtocolClient, EmptyOperationCommand } = require("@aws-sdk/aws-protocoltests-json");
 ```
 
 ```ts
 // ES6+ example
-import { JsonProtocolClient, EmptyOperationCommand } from "@aws-sdk/aws-json";
+import { JsonProtocolClient, EmptyOperationCommand } from "@aws-sdk/aws-protocoltests-json";
 ```
 
 ### Usage
@@ -124,7 +124,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-json";
+import * as AWS from "@aws-sdk/aws-protocoltests-json";
 const client = new AWS.JsonProtocol({ region: "REGION" });
 
 // async/await.
@@ -191,7 +191,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-json` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-json` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License

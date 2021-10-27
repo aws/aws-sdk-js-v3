@@ -23,8 +23,8 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new XmlEnumsCommand(input);
  * const response = await client.send(command);

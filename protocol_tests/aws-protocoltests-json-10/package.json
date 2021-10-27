@@ -85,10 +85,10 @@
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "private": true,
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-json-10",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-json-10",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/aws-json-10"
+    "directory": "clients/aws-protocoltests-json-10"
   }
 }

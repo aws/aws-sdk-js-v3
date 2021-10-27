@@ -27,8 +27,8 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { JSONRPC10Client, NoInputAndNoOutputCommand } from "@aws-sdk/aws-json-10"; // ES Modules import
- * // const { JSONRPC10Client, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-json-10"); // CommonJS import
+ * import { JSONRPC10Client, NoInputAndNoOutputCommand } from "@aws-sdk/aws-protocoltests-json-10"; // ES Modules import
+ * // const { JSONRPC10Client, NoInputAndNoOutputCommand } = require("@aws-sdk/aws-protocoltests-json-10"); // CommonJS import
  * const client = new JSONRPC10Client(config);
  * const command = new NoInputAndNoOutputCommand(input);
  * const response = await client.send(command);

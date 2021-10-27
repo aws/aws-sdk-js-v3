@@ -1,7 +1,7 @@
-# @aws-sdk/aws-restxml
+# @aws-sdk/aws-protocoltests-restxml
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-restxml/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-restxml)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-restxml.svg)](https://www.npmjs.com/package/@aws-sdk/aws-restxml)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-restxml/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-restxml.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-restxml)
 
 ## Description
 
@@ -11,12 +11,12 @@ A REST XML service that sends XML requests and responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-restxml
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-restxml
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-restxml`
-- `yarn add @aws-sdk/aws-restxml`
-- `pnpm add @aws-sdk/aws-restxml`
+- `npm install @aws-sdk/aws-protocoltests-restxml`
+- `yarn add @aws-sdk/aws-protocoltests-restxml`
+- `pnpm add @aws-sdk/aws-protocoltests-restxml`
 
 ## Getting Started
 
@@ -28,12 +28,12 @@ the commands you need, for example `AllQueryStringTypesCommand`:
 
 ```js
 // ES5 example
-const { RestXmlProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-restxml");
+const { RestXmlProtocolClient, AllQueryStringTypesCommand } = require("@aws-sdk/aws-protocoltests-restxml");
 ```
 
 ```ts
 // ES6+ example
-import { RestXmlProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-restxml";
+import { RestXmlProtocolClient, AllQueryStringTypesCommand } from "@aws-sdk/aws-protocoltests-restxml";
 ```
 
 ### Usage
@@ -126,7 +126,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-restxml";
+import * as AWS from "@aws-sdk/aws-protocoltests-restxml";
 const client = new AWS.RestXmlProtocol({ region: "REGION" });
 
 // async/await.
@@ -193,7 +193,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-restxml` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-restxml` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License

@@ -26,8 +26,8 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EC2ProtocolClient, NestedStructuresCommand } from "@aws-sdk/aws-ec2"; // ES Modules import
- * // const { EC2ProtocolClient, NestedStructuresCommand } = require("@aws-sdk/aws-ec2"); // CommonJS import
+ * import { EC2ProtocolClient, NestedStructuresCommand } from "@aws-sdk/aws-protocoltests-ec2"; // ES Modules import
+ * // const { EC2ProtocolClient, NestedStructuresCommand } = require("@aws-sdk/aws-protocoltests-ec2"); // CommonJS import
  * const client = new EC2ProtocolClient(config);
  * const command = new NestedStructuresCommand(input);
  * const response = await client.send(command);

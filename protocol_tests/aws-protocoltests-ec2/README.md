@@ -1,7 +1,7 @@
-# @aws-sdk/aws-ec2
+# @aws-sdk/aws-protocoltests-ec2
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-ec2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-ec2)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-ec2.svg)](https://www.npmjs.com/package/@aws-sdk/aws-ec2)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-ec2/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-ec2)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-ec2.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-ec2)
 
 ## Description
 
@@ -11,12 +11,12 @@ An EC2 query service that sends query requests and XML responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-ec2
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-ec2
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-ec2`
-- `yarn add @aws-sdk/aws-ec2`
-- `pnpm add @aws-sdk/aws-ec2`
+- `npm install @aws-sdk/aws-protocoltests-ec2`
+- `yarn add @aws-sdk/aws-protocoltests-ec2`
+- `pnpm add @aws-sdk/aws-protocoltests-ec2`
 
 ## Getting Started
 
@@ -28,12 +28,12 @@ the commands you need, for example `EmptyInputAndEmptyOutputCommand`:
 
 ```js
 // ES5 example
-const { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-ec2");
+const { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-ec2");
 ```
 
 ```ts
 // ES6+ example
-import { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-ec2";
+import { EC2ProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-ec2";
 ```
 
 ### Usage
@@ -126,7 +126,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-ec2";
+import * as AWS from "@aws-sdk/aws-protocoltests-ec2";
 const client = new AWS.EC2Protocol({ region: "REGION" });
 
 // async/await.
@@ -193,7 +193,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-ec2` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-ec2` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License

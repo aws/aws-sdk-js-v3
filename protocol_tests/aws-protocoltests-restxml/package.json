@@ -89,10 +89,10 @@
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "private": true,
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-restxml",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-restxml",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/aws-restxml"
+    "directory": "clients/aws-protocoltests-restxml"
   }
 }

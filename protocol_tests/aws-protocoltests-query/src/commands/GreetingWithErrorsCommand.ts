@@ -30,8 +30,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QueryProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-query"; // ES Modules import
- * // const { QueryProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-query"); // CommonJS import
+ * import { QueryProtocolClient, GreetingWithErrorsCommand } from "@aws-sdk/aws-protocoltests-query"; // ES Modules import
+ * // const { QueryProtocolClient, GreetingWithErrorsCommand } = require("@aws-sdk/aws-protocoltests-query"); // CommonJS import
  * const client = new QueryProtocolClient(config);
  * const command = new GreetingWithErrorsCommand(input);
  * const response = await client.send(command);

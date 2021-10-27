@@ -1,7 +1,7 @@
-# @aws-sdk/aws-query
+# @aws-sdk/aws-protocoltests-query
 
-[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-query/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-query)
-[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-query.svg)](https://www.npmjs.com/package/@aws-sdk/aws-query)
+[![NPM version](https://img.shields.io/npm/v/@aws-sdk/aws-protocoltests-query/latest.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-query)
+[![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/aws-protocoltests-query.svg)](https://www.npmjs.com/package/@aws-sdk/aws-protocoltests-query)
 
 ## Description
 
@@ -11,12 +11,12 @@ A query service that sends query requests and XML responses.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/aws-query
+To install the this package, simply type add or install @aws-sdk/aws-protocoltests-query
 using your favorite package manager:
 
-- `npm install @aws-sdk/aws-query`
-- `yarn add @aws-sdk/aws-query`
-- `pnpm add @aws-sdk/aws-query`
+- `npm install @aws-sdk/aws-protocoltests-query`
+- `yarn add @aws-sdk/aws-protocoltests-query`
+- `pnpm add @aws-sdk/aws-protocoltests-query`
 
 ## Getting Started
 
@@ -28,12 +28,12 @@ the commands you need, for example `EmptyInputAndEmptyOutputCommand`:
 
 ```js
 // ES5 example
-const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-query");
+const { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } = require("@aws-sdk/aws-protocoltests-query");
 ```
 
 ```ts
 // ES6+ example
-import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-query";
+import { QueryProtocolClient, EmptyInputAndEmptyOutputCommand } from "@aws-sdk/aws-protocoltests-query";
 ```
 
 ### Usage
@@ -126,7 +126,7 @@ However, it results in a bigger bundle size and may be dropped in next major ver
 on [modular packages in AWS SDK for JavaScript](https://aws.amazon.com/blogs/developer/modular-packages-in-aws-sdk-for-javascript/)
 
 ```ts
-import * as AWS from "@aws-sdk/aws-query";
+import * as AWS from "@aws-sdk/aws-protocoltests-query";
 const client = new AWS.QueryProtocol({ region: "REGION" });
 
 // async/await.
@@ -193,7 +193,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
 ## Contributing
 
-This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-query` package is updated.
+This client code is generated automatically. Any modifications will be overwritten the next time the `@aws-sdk/aws-protocoltests-query` package is updated.
 To contribute to client you can check our [generate clients scripts](https://github.com/aws/aws-sdk-js-v3/tree/main/scripts/generate-clients).
 
 ## License
