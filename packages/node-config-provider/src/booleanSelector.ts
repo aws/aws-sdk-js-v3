@@ -3,7 +3,7 @@ export enum SelectorType {
   CONFIG = "shared config entry",
 }
 
-export const booleanSelector = (obj: Object, key: string, type: SelectorType) => {
+export const booleanSelector = (obj: { [key: string]: string }, key: string, type: SelectorType) => {
   if (!Object.prototype.hasOwnProperty.call(obj, key)) return undefined;
   if (obj[key] === "true") return true;
   if (obj[key] === "false") return false;
