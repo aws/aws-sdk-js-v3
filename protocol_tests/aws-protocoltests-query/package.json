@@ -1,11 +1,6 @@
 {
-<<<<<<< HEAD
   "name": "@aws-sdk/aws-protocoltests-query",
   "description": "@aws-sdk/aws-protocoltests-query client",
-=======
-  "name": "@aws-sdk/aws-protocoltests-ec2",
-  "description": "@aws-sdk/aws-protocoltests-ec2 client",
->>>>>>> 931416700e (chore(protocol_tests): : prefix aws-protocol_tests for protocol_tests)
   "version": "3.38.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
@@ -92,18 +87,10 @@
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
   "private": true,
-<<<<<<< HEAD
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-query",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "clients/aws-protocoltests-query"
-=======
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-ec2",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/aws-protocoltests-ec2"
->>>>>>> 931416700e (chore(protocol_tests): : prefix aws-protocol_tests for protocol_tests)
   }
 }
