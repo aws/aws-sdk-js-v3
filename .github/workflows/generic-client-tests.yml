@@ -34,6 +34,12 @@ jobs:
           cd codegen
           ./gradlew clean smithy-aws-typescript-codegen:build generic-client-test-codegen:build
 
+      - name: build config-resolver
+        run: |
+          cd packages/config-resolver
+          yarn install
+          ../../node_modules/.bin/lerna run --scope '@aws-sdk/config-resolver' --include-dependencies build
+
       - name: build service-client-documentation-generator
         run: |
           cd packages/service-client-documentation-generator
@@ -42,5 +48,6 @@ jobs:
       - name: build generic client
         run: |
           cd codegen/generic-client-test-codegen/build/smithyprojections/generic-client-test-codegen/aws-echo-service/typescript-codegen/
+          sed -i -e 's/"@aws-sdk\/config-resolver":\ "3\.38\.0"/"@aws-sdk\/config-resolver":\ "..\/..\/..\/..\/..\/..\/..\/packages\/config-resolver"/g' package.json
           sed -i -e 's/"@aws-sdk\/service-client-documentation-generator":\ "3\.37\.0"/"@aws-sdk\/service-client-documentation-generator":\ "..\/..\/..\/..\/..\/..\/..\/packages\/service-client-documentation-generator"/g' package.json
           yarn install && yarn build
