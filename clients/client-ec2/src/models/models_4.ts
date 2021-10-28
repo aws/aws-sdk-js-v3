@@ -2,9 +2,7 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   _InstanceType,
-  AddPrefixListEntry,
   AddressAttribute,
-  Affinity,
   AllowedPrincipal,
   AssociationStatus,
   AttributeValue,
@@ -19,22 +17,26 @@ import {
   HostRecovery,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
+  InstanceRequirementsRequest,
   Placement,
-  PlatformValues,
+  ResourceType,
   SelfServicePortal,
   SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TargetCapacitySpecificationRequest,
+  TargetCapacityUnitType,
   TargetConfigurationRequest,
   TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
+  TransitGatewayAttachmentState,
   TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UnsuccessfulItem,
-  VolumeType,
   Vpc,
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
@@ -46,55 +48,1254 @@ import {
   ConnectionNotification,
   DiskImageFormat,
   DnsEntry,
-  DnsNameState,
-  InstanceEventWindowTimeRangeRequest,
-  LaunchTemplate,
-  ManagedPrefixList,
+  PlatformValues,
   ResponseLaunchTemplateData,
-  ServiceConfiguration,
-  ServiceTypeDetail,
   ShutdownBehavior,
   State,
   SubnetCidrReservation,
   TrafficMirrorFilter,
-  TrafficMirrorNetworkService,
+  TrafficMirrorSession,
+  TrafficMirrorTarget,
+  TransitGateway,
+  TransitGatewayConnect,
+  TransitGatewayConnectPeer,
+  TransitGatewayMulticastDomain,
   TransitGatewayPrefixListReference,
+  TransitGatewayRouteTable,
   Volume,
+  VolumeType,
   VpcEndpoint,
 } from "./models_1";
 import {
-  ArchitectureValues,
-  BootModeValues,
   ConversionTask,
+  DnsNameState,
   ExportTaskS3Location,
   FastSnapshotRestoreStateCode,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
-  ImportImageLicenseConfigurationResponse,
-  LaunchPermission,
   PaymentOption,
   PermissionGroup,
   ProductCode,
+  ServiceConfiguration,
+  ServiceTypeDetail,
   VpnConnection,
   VpnGateway,
 } from "./models_2";
 import {
+  ArchitectureType,
+  ArchitectureValues,
   AttributeBooleanValue,
-  CreateVolumePermission,
-  ExcessCapacityTerminationPolicy,
-  HttpTokensState,
+  BootModeValues,
+  ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
-  InstanceMetadataEndpointState,
-  InstanceMetadataOptionsResponse,
-  InstanceMetadataProtocolState,
-  InstanceStatusEvent,
-  LaunchTemplateConfig,
-  ReservedInstancesConfiguration,
-  SnapshotAttributeName,
+  LaunchPermission,
   SnapshotDetail,
   SnapshotTaskDetail,
+  VirtualizationType,
 } from "./models_3";
+
+export interface DescribeTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>key</code> - The tag key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of the tag. For example,
+   *                 specify "tag:Owner" for the filter name and "TeamA" for the filter value to find
+   *                 resources with the tag "Owner=TeamA".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>value</code> - The tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *       This value can be between 5 and 1000.
+   * 			To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTagsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTagsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a tag.</p>
+ */
+export interface TagDescription {
+  /**
+   * <p>The tag key.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tag value.</p>
+   */
+  Value?: string;
+}
+
+export namespace TagDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagDescription): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTagsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is
+   *          <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: TagDescription[];
+}
+
+export namespace DescribeTagsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTagsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorFiltersRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror filter description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorFiltersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorFiltersResult {
+  /**
+   * <p>Information about one or more Traffic Mirror filters.</p>
+   */
+  TrafficMirrorFilters?: TrafficMirrorFilter[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorFiltersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorFiltersResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorSessionsRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror session description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>packet-length</code>: The assigned number of packets to mirror. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>session-number</code>: The assigned session number. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-filter-id</code>: The ID of the Traffic Mirror filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-session-id</code>: The ID of the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>virtual-network-id</code>: The virtual network ID of the Traffic Mirror session.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorSessionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorSessionsResult {
+  /**
+   * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
+   */
+  TrafficMirrorSessions?: TrafficMirrorSession[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorSessionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorSessionsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorTargetsRequest {
+  /**
+   * <p>The ID of the Traffic Mirror targets.</p>
+   */
+  TrafficMirrorTargetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code>: The Traffic Mirror target description.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-id</code>: The ID of the Traffic Mirror session network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-load-balancer-arn</code>: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code>: The ID of the account that owns the Traffic Mirror session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-mirror-target-id</code>: The ID of the Traffic Mirror target.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorTargetsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrafficMirrorTargetsResult {
+  /**
+   * <p>Information about one or more Traffic Mirror targets.</p>
+   */
+  TrafficMirrorTargets?: TrafficMirrorTarget[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTrafficMirrorTargetsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrafficMirrorTargetsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayAttachmentsRequest {
+  /**
+   * <p>The IDs of the attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> |
+   *                <code>disassociating</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-owner-id</code> - The ID of the Amazon Web Services account that owns the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code>
+   *                     | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>
+   *                     | <code>connect</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayAttachmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an association.</p>
+ */
+export interface TransitGatewayAttachmentAssociation {
+  /**
+   * <p>The ID of the route table for the transit gateway.</p>
+   */
+  TransitGatewayRouteTableId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  State?: TransitGatewayAssociationState | string;
+}
+
+export namespace TransitGatewayAttachmentAssociation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayAttachmentAssociation): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an attachment between a resource and a transit gateway.</p>
+ */
+export interface TransitGatewayAttachment {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The ID of the transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   */
+  TransitGatewayOwnerId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the resource.</p>
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
+   */
+  State?: TransitGatewayAttachmentState | string;
+
+  /**
+   * <p>The association.</p>
+   */
+  Association?: TransitGatewayAttachmentAssociation;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The tags for the attachment.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace TransitGatewayAttachment {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TransitGatewayAttachment): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayAttachmentsResult {
+  /**
+   * <p>Information about the attachments.</p>
+   */
+  TransitGatewayAttachments?: TransitGatewayAttachment[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayAttachmentsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayAttachmentsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayConnectPeersRequest {
+  /**
+   * <p>The IDs of the Connect peers.</p>
+   */
+  TransitGatewayConnectPeerIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the Connect peer (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayConnectPeersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayConnectPeersRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayConnectPeersResult {
+  /**
+   * <p>Information about the Connect peers.</p>
+   */
+  TransitGatewayConnectPeers?: TransitGatewayConnectPeer[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayConnectPeersResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayConnectPeersResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayConnectsRequest {
+  /**
+   * <p>The IDs of the attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>options.protocol</code> - The tunnel protocol (<code>gre</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment (<code>initiating</code> |
+   *                         <code>initiatingRequest</code> | <code>pendingAcceptance</code> |
+   *                         <code>rollingBack</code> | <code>pending</code> | <code>available</code> |
+   *                         <code>modifying</code> | <code>deleting</code> | <code>deleted</code> |
+   *                         <code>failed</code> | <code>rejected</code> | <code>rejecting</code> |
+   *                         <code>failing</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the
+   *                     Connect attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway attachment from which the Connect attachment was created.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayConnectsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayConnectsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayConnectsResult {
+  /**
+   * <p>Information about the Connect attachments.</p>
+   */
+  TransitGatewayConnects?: TransitGatewayConnect[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayConnectsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayConnectsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayMulticastDomainsRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>state</code> - The state of the transit gateway multicast domain. Valid values are <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-multicast-domain-id</code> - The ID of the transit gateway multicast domain.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayMulticastDomainsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayMulticastDomainsResult {
+  /**
+   * <p>Information about the transit gateway multicast domains.</p>
+   */
+  TransitGatewayMulticastDomains?: TransitGatewayMulticastDomain[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayMulticastDomainsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayMulticastDomainsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayPeeringAttachmentsRequest {
+  /**
+   * <p>One or more IDs of the transit gateway peering attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>local-owner-id</code> - The ID of your Amazon Web Services account.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>remote-owner-id</code> - The ID of the Amazon Web Services account in the remote Region that owns the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayPeeringAttachmentsResult {
+  /**
+   * <p>The transit gateway peering attachments.</p>
+   */
+  TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayPeeringAttachmentsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayPeeringAttachmentsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayRouteTablesRequest {
+  /**
+   * <p>The IDs of the transit gateway route tables.</p>
+   */
+  TransitGatewayRouteTableIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default-association-route-table</code> - Indicates whether this is the default
+   *                 association route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-propagation-route-table</code> - Indicates whether this is the default
+   *                propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayRouteTablesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayRouteTablesResult {
+  /**
+   * <p>Information about the transit gateway route tables.</p>
+   */
+  TransitGatewayRouteTables?: TransitGatewayRouteTable[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayRouteTablesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayRouteTablesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewaysRequest {
+  /**
+   * <p>The IDs of the transit gateways.</p>
+   */
+  TransitGatewayIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.association-default-route-table-id</code> - The ID of the default association route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically
+   *                associated with the default association route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate
+   *                routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled  (<code>enable</code> | <code>disable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewaysRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewaysRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewaysResult {
+  /**
+   * <p>Information about the transit gateways.</p>
+   */
+  TransitGateways?: TransitGateway[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewaysResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewaysResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayVpcAttachmentsRequest {
+  /**
+   * <p>The IDs of the attachments.</p>
+   */
+  TransitGatewayAttachmentIds?: string[];
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-id</code> - The ID of the transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeTransitGatewayVpcAttachmentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTransitGatewayVpcAttachmentsResult {
+  /**
+   * <p>Information about the VPC attachments.</p>
+   */
+  TransitGatewayVpcAttachments?: TransitGatewayVpcAttachment[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeTransitGatewayVpcAttachmentsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTransitGatewayVpcAttachmentsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  AssociationIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gre-key</code> - The ID of a trunk interface association.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *             To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeTrunkInterfaceAssociationsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrunkInterfaceAssociationsRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface DescribeTrunkInterfaceAssociationsResult {
   /**
@@ -5175,6 +6376,91 @@ export namespace GetHostReservationPurchasePreviewResult {
   });
 }
 
+export interface GetInstanceTypesFromInstanceRequirementsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The processor architecture type.</p>
+   */
+  ArchitectureTypes: (ArchitectureType | string)[] | undefined;
+
+  /**
+   * <p>The virtualization type.</p>
+   */
+  VirtualizationTypes: (VirtualizationType | string)[] | undefined;
+
+  /**
+   * <p>The attributes required for the instance types.</p>
+   */
+  InstanceRequirements: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
+   *          1000. The default value is 1000. To retrieve the remaining results, make another call with
+   *          the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetInstanceTypesFromInstanceRequirementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The list of instance types with the specified instance attributes.</p>
+ */
+export interface InstanceTypeInfoFromInstanceRequirements {
+  /**
+   * <p>The matching instance type.</p>
+   */
+  InstanceType?: string;
+}
+
+export namespace InstanceTypeInfoFromInstanceRequirements {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceTypeInfoFromInstanceRequirements): any => ({
+    ...obj,
+  });
+}
+
+export interface GetInstanceTypesFromInstanceRequirementsResult {
+  /**
+   * <p>The instance types with the specified instance attributes.</p>
+   */
+  InstanceTypes?: InstanceTypeInfoFromInstanceRequirements[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetInstanceTypesFromInstanceRequirementsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetInstanceTypesFromInstanceRequirementsResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetLaunchTemplateDataRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -5652,6 +6938,183 @@ export namespace GetSerialConsoleAccessStatusResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetSerialConsoleAccessStatusResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The architecture type, virtualization type, and other attributes for the instance types.
+ *          When you specify instance attributes, Amazon EC2 will identify instance types with those
+ *          attributes.</p>
+ *          <p>If you specify <code>InstanceRequirementsWithMetadataRequest</code>, you can't specify
+ *          <code>InstanceTypes</code>.</p>
+ */
+export interface InstanceRequirementsWithMetadataRequest {
+  /**
+   * <p>The architecture type.</p>
+   */
+  ArchitectureTypes?: (ArchitectureType | string)[];
+
+  /**
+   * <p>The virtualization type.</p>
+   */
+  VirtualizationTypes?: (VirtualizationType | string)[];
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
+}
+
+export namespace InstanceRequirementsWithMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirementsWithMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSpotPlacementScoresRequest {
+  /**
+   * <p>The instance types. We recommend that you specify at least three instance types. If you
+   *          specify one or two instance types, or specify variations of a single instance type (for
+   *          example, an <code>m3.xlarge</code> with and without instance storage), the returned
+   *          placement score will always be low. </p>
+   *          <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *             <code>InstanceRequirementsWithMetadata</code>.</p>
+   */
+  InstanceTypes?: string[];
+
+  /**
+   * <p>The target capacity.</p>
+   */
+  TargetCapacity: number | undefined;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+
+  /**
+   * <p>Specify <code>true</code> so that the response returns a list of scored Availability Zones.
+   *          Otherwise, the response returns a list of scored Regions.</p>
+   *          <p>A list of scored Availability Zones is useful if you want to launch all of your Spot
+   *          capacity into a single Availability Zone.</p>
+   */
+  SingleAvailabilityZone?: boolean;
+
+  /**
+   * <p>The Regions used to narrow down the list of Regions to be scored. Enter the Region code,
+   *          for example, <code>us-east-1</code>.</p>
+   */
+  RegionNames?: string[];
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <p>If you specify <code>InstanceRequirementsWithMetadata</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   */
+  InstanceRequirementsWithMetadata?: InstanceRequirementsWithMetadataRequest;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Specify a value between 1 and
+   *       1000. The default value is 1000. To retrieve the remaining results, make another call with
+   *       the returned <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetSpotPlacementScoresRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSpotPlacementScoresRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Spot placement score for this Region or Availability Zone. The score is calculated
+ *          based on the assumption that the <code>capacity-optimized</code> allocation strategy is
+ *          used and that all of the Availability Zones in the Region can be used.</p>
+ */
+export interface SpotPlacementScore {
+  /**
+   * <p>The Region.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The placement score, on a scale from <code>1</code> to <code>10</code>. A score of
+   *             <code>10</code> indicates that your Spot request is highly likely to succeed in this
+   *          Region or Availability Zone. A score of <code>1</code> indicates that your Spot request is
+   *          not likely to succeed. </p>
+   */
+  Score?: number;
+}
+
+export namespace SpotPlacementScore {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SpotPlacementScore): any => ({
+    ...obj,
+  });
+}
+
+export interface GetSpotPlacementScoresResult {
+  /**
+   * <p>The Spot placement score for the top 10 Regions or Availability Zones, scored on a scale
+   *          from 1 to 10. Each score  reflects how likely it is that each Region or Availability Zone
+   *          will succeed at fulfilling the specified target capacity  <i>at the time of the Spot
+   *             placement score request</i>. A score of <code>10</code> means that your Spot
+   *          capacity request is highly likely to succeed in that Region or Availability Zone. </p>
+   *          <p>If you request a Spot placement score for Regions, a high score assumes that your fleet
+   *          request will be configured to use all Availability Zones and the
+   *             <code>capacity-optimized</code> allocation strategy. If you request a Spot placement
+   *          score for Availability Zones, a high score assumes that your fleet request will be
+   *          configured to use a single Availability Zone and the <code>capacity-optimized</code>
+   *          allocation strategy.</p>
+   *          <p>Different  Regions or Availability Zones might return the same score.</p>
+   *          <note>
+   *             <p>The Spot placement score serves as a recommendation only. No score guarantees that your
+   *             Spot request will be fully or partially fulfilled.</p>
+   *          </note>
+   */
+  SpotPlacementScores?: SpotPlacementScore[];
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetSpotPlacementScoresResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetSpotPlacementScoresResult): any => ({
     ...obj,
   });
 }
@@ -7455,6 +8918,11 @@ export interface ModifyCapacityReservationRequest {
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  AdditionalInfo?: string;
 }
 
 export namespace ModifyCapacityReservationRequest {
@@ -8563,1039 +10031,3 @@ export namespace ModifyInstanceCreditSpecificationRequest {
     ...obj,
   });
 }
-
-/**
- * <p>Describes the burstable performance instance whose credit option for CPU usage was
- *             successfully modified.</p>
- */
-export interface SuccessfulInstanceCreditSpecificationItem {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-}
-
-export namespace SuccessfulInstanceCreditSpecificationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SuccessfulInstanceCreditSpecificationItem): any => ({
-    ...obj,
-  });
-}
-
-export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
-  INCORRECT_INSTANCE_STATE = "IncorrectInstanceState",
-  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported",
-  INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound",
-  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed",
-}
-
-/**
- * <p>Information about the error for the burstable performance instance whose credit option
- *             for CPU usage was not modified.</p>
- */
-export interface UnsuccessfulInstanceCreditSpecificationItemError {
-  /**
-   * <p>The error code.</p>
-   */
-  Code?: UnsuccessfulInstanceCreditSpecificationErrorCode | string;
-
-  /**
-   * <p>The applicable error message.</p>
-   */
-  Message?: string;
-}
-
-export namespace UnsuccessfulInstanceCreditSpecificationItemError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItemError): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the burstable performance instance whose credit option for CPU usage was not
- *             modified.</p>
- */
-export interface UnsuccessfulInstanceCreditSpecificationItem {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The applicable error for the burstable performance instance whose credit option for
-   *             CPU usage was not modified.</p>
-   */
-  Error?: UnsuccessfulInstanceCreditSpecificationItemError;
-}
-
-export namespace UnsuccessfulInstanceCreditSpecificationItem {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItem): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceCreditSpecificationResult {
-  /**
-   * <p>Information about the instances whose credit option for CPU usage was successfully
-   *             modified.</p>
-   */
-  SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[];
-
-  /**
-   * <p>Information about the instances whose credit option for CPU usage was not
-   *             modified.</p>
-   */
-  UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[];
-}
-
-export namespace ModifyInstanceCreditSpecificationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceEventStartTimeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance with the scheduled event.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the event whose date and time you are modifying.</p>
-   */
-  InstanceEventId: string | undefined;
-
-  /**
-   * <p>The new date and time when the event will take place.</p>
-   */
-  NotBefore: Date | undefined;
-}
-
-export namespace ModifyInstanceEventStartTimeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceEventStartTimeResult {
-  /**
-   * <p>Describes a scheduled event for an instance.</p>
-   */
-  Event?: InstanceStatusEvent;
-}
-
-export namespace ModifyInstanceEventStartTimeResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The name of the event window.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the event window.</p>
-   */
-  InstanceEventWindowId: string | undefined;
-
-  /**
-   * <p>The time ranges of the event window.</p>
-   */
-  TimeRanges?: InstanceEventWindowTimeRangeRequest[];
-
-  /**
-   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Only hour and day of the week values are supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>For day of the week values, you can specify either integers <code>0</code> through
-   *                   <code>6</code>, or alternative single values <code>SUN</code> through
-   *                   <code>SAT</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The minute, month, and year must be specified by <code>*</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
-   *                   <code>0-4,20-23</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
-   *                   <code>20-23</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
-   *                window must be >= 4 hours.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
-   *             website</i>.</p>
-   */
-  CronExpression?: string;
-}
-
-export namespace ModifyInstanceEventWindowRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceEventWindowRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceEventWindowResult {
-  /**
-   * <p>Information about the event window.</p>
-   */
-  InstanceEventWindow?: InstanceEventWindow;
-}
-
-export namespace ModifyInstanceEventWindowResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceEventWindowResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceMetadataOptionsRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The state of token usage for your instance metadata requests. If the parameter is not
-   *             specified in the request, the default state is <code>optional</code>.</p>
-   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
-   *             with or without a signed token header on your request. If you retrieve the IAM role
-   *             credentials without a token, the version 1.0 role credentials are returned. If you
-   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
-   *             credentials are returned.</p>
-   *         <p>If the state is <code>required</code>, you must send a signed token header with any
-   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
-   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
-   *             available.</p>
-   */
-  HttpTokens?: HttpTokensState | string;
-
-  /**
-   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
-   *             number, the further instance metadata requests can travel. If no parameter is specified, the existing state is maintained.</p>
-   *         <p>Possible values: Integers from 1 to 64</p>
-   */
-  HttpPutResponseHopLimit?: number;
-
-  /**
-   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
-   *             the parameter is not specified, the existing state is maintained.</p>
-   *         <note>
-   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
-   *                 instance metadata.</p>
-   *         </note>
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
-   */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
-}
-
-export namespace ModifyInstanceMetadataOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstanceMetadataOptionsResult {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The metadata options for the instance.</p>
-   */
-  InstanceMetadataOptions?: InstanceMetadataOptionsResponse;
-}
-
-export namespace ModifyInstanceMetadataOptionsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsResult): any => ({
-    ...obj,
-  });
-}
-
-export type HostTenancy = "dedicated" | "host";
-
-export interface ModifyInstancePlacementRequest {
-  /**
-   * <p>The affinity setting for the instance.</p>
-   */
-  Affinity?: Affinity | string;
-
-  /**
-   * <p>The name of the placement group in which to place the instance. For spread placement
-   *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
-   *             partition placement groups, the instance must have a tenancy of <code>default</code> or
-   *                 <code>dedicated</code>.</p>
-   *         <p>To remove an instance from a placement group, specify an empty string
-   *             ("").</p>
-   */
-  GroupName?: string;
-
-  /**
-   * <p>The ID of the Dedicated Host with which to associate the instance.</p>
-   */
-  HostId?: string;
-
-  /**
-   * <p>The ID of the instance that you are modifying.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The tenancy for the instance.</p>
-   *
-   *         <note>
-   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code>
-   *             to <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
-   *             Attempting to make one of these unsupported tenancy changes results in the
-   *             <code>InvalidTenancy</code> error code.</p>
-   *          </note>
-   */
-  Tenancy?: HostTenancy | string;
-
-  /**
-   * <p>Reserved for future use.</p>
-   */
-  PartitionNumber?: number;
-
-  /**
-   * <p>The ARN of the host resource group in which to place the instance.</p>
-   */
-  HostResourceGroupArn?: string;
-}
-
-export namespace ModifyInstancePlacementRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstancePlacementRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyInstancePlacementResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ModifyInstancePlacementResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyInstancePlacementResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyLaunchTemplateRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
-   *                 Idempotency</a>.</p>
-   *         <p>Constraint: Maximum 128 ASCII characters.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ID of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateId?: string;
-
-  /**
-   * <p>The name of the launch template. You must specify either the launch template ID or
-   *             launch template name in the request.</p>
-   */
-  LaunchTemplateName?: string;
-
-  /**
-   * <p>The version number of the launch template to set as the default version.</p>
-   */
-  DefaultVersion?: string;
-}
-
-export namespace ModifyLaunchTemplateRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLaunchTemplateRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyLaunchTemplateResult {
-  /**
-   * <p>Information about the launch template.</p>
-   */
-  LaunchTemplate?: LaunchTemplate;
-}
-
-export namespace ModifyLaunchTemplateResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyLaunchTemplateResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An entry for a prefix list.</p>
- */
-export interface RemovePrefixListEntry {
-  /**
-   * <p>The CIDR block.</p>
-   */
-  Cidr: string | undefined;
-}
-
-export namespace RemovePrefixListEntry {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RemovePrefixListEntry): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyManagedPrefixListRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The current version of the prefix list.</p>
-   */
-  CurrentVersion?: number;
-
-  /**
-   * <p>A name for the prefix list.</p>
-   */
-  PrefixListName?: string;
-
-  /**
-   * <p>One or more entries to add to the prefix list.</p>
-   */
-  AddEntries?: AddPrefixListEntry[];
-
-  /**
-   * <p>One or more entries to remove from the prefix list.</p>
-   */
-  RemoveEntries?: RemovePrefixListEntry[];
-
-  /**
-   * <p>The maximum number of entries for the prefix list. You cannot modify the entries
-   *             of a prefix list and modify the size of a prefix list at the same time.</p>
-   *         <p>If any of the resources that reference the prefix list cannot support the new
-   *             maximum size, the modify operation fails. Check the state message for the IDs of
-   *             the first ten resources that do not support the new maximum size.</p>
-   */
-  MaxEntries?: number;
-}
-
-export namespace ModifyManagedPrefixListRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyManagedPrefixListRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyManagedPrefixListResult {
-  /**
-   * <p>Information about the prefix list.</p>
-   */
-  PrefixList?: ManagedPrefixList;
-}
-
-export namespace ModifyManagedPrefixListResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyManagedPrefixListResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an attachment change.</p>
- */
-export interface NetworkInterfaceAttachmentChanges {
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-}
-
-export namespace NetworkInterfaceAttachmentChanges {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NetworkInterfaceAttachmentChanges): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
- */
-export interface ModifyNetworkInterfaceAttributeRequest {
-  /**
-   * <p>Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.</p>
-   */
-  Attachment?: NetworkInterfaceAttachmentChanges;
-
-  /**
-   * <p>A description for the network interface.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
-   */
-  Groups?: string[];
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>Enable or disable source/destination checks, which ensure that the instance
-   *             is either the source or the destination of any traffic that it receives.
-   *             If the value is <code>true</code>, source/destination checks are enabled;
-   *             otherwise, they are disabled. The default value is <code>true</code>.
-   *             You must disable source/destination checks if the instance runs services
-   *             such as network address translation, routing, or firewalls.</p>
-   */
-  SourceDestCheck?: AttributeBooleanValue;
-}
-
-export namespace ModifyNetworkInterfaceAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyNetworkInterfaceAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for ModifyReservedInstances.</p>
- */
-export interface ModifyReservedInstancesRequest {
-  /**
-   * <p>The IDs of the Reserved Instances to modify.</p>
-   */
-  ReservedInstancesIds: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see
-   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The configuration settings for the Reserved Instances to modify.</p>
-   */
-  TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
-}
-
-export namespace ModifyReservedInstancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReservedInstancesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of ModifyReservedInstances.</p>
- */
-export interface ModifyReservedInstancesResult {
-  /**
-   * <p>The ID for the modification.</p>
-   */
-  ReservedInstancesModificationId?: string;
-}
-
-export namespace ModifyReservedInstancesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyReservedInstancesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a security group rule.</p>
- *         <p>You must specify exactly one of the following parameters, based on the rule type:</p>
- *         <ul>
- *             <li>
- *                <p>CidrIpv4</p>
- *             </li>
- *             <li>
- *                <p>CidrIpv6</p>
- *             </li>
- *             <li>
- *                <p>PrefixListId</p>
- *             </li>
- *             <li>
- *                <p>ReferencedGroupId</p>
- *             </li>
- *          </ul>
- *         <p>When you modify a rule, you cannot change the rule type. For example, if the rule
- *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
- *             address range.</p>
- */
-export interface SecurityGroupRuleRequest {
-  /**
-   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
-   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
-   *         <p>Use <code>-1</code> to specify all protocols.</p>
-   */
-  IpProtocol?: string;
-
-  /**
-   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
-   */
-  ToPort?: number;
-
-  /**
-   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
-   */
-  CidrIpv4?: string;
-
-  /**
-   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
-   */
-  CidrIpv6?: string;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId?: string;
-
-  /**
-   * <p>The ID of the security group that is referenced in the security group rule.</p>
-   */
-  ReferencedGroupId?: string;
-
-  /**
-   * <p>The description of the security group rule.</p>
-   */
-  Description?: string;
-}
-
-export namespace SecurityGroupRuleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupRuleRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an update to a security group rule.</p>
- */
-export interface SecurityGroupRuleUpdate {
-  /**
-   * <p>The ID of the security group rule.</p>
-   */
-  SecurityGroupRuleId?: string;
-
-  /**
-   * <p>Information about the security group rule.</p>
-   */
-  SecurityGroupRule?: SecurityGroupRuleRequest;
-}
-
-export namespace SecurityGroupRuleUpdate {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SecurityGroupRuleUpdate): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifySecurityGroupRulesRequest {
-  /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>Information about the security group properties to update.</p>
-   */
-  SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifySecurityGroupRulesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifySecurityGroupRulesResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ModifySecurityGroupRulesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes modifications to the list of create volume permissions for a volume.</p>
- */
-export interface CreateVolumePermissionModifications {
-  /**
-   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
-   */
-  Add?: CreateVolumePermission[];
-
-  /**
-   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
-   */
-  Remove?: CreateVolumePermission[];
-}
-
-export namespace CreateVolumePermissionModifications {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVolumePermissionModifications): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifySnapshotAttributeRequest {
-  /**
-   * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
-   */
-  Attribute?: SnapshotAttributeName | string;
-
-  /**
-   * <p>A JSON representation of the snapshot attribute modification.</p>
-   */
-  CreateVolumePermission?: CreateVolumePermissionModifications;
-
-  /**
-   * <p>The group to modify for the snapshot.</p>
-   */
-  GroupNames?: string[];
-
-  /**
-   * <p>The type of operation to perform to the attribute.</p>
-   */
-  OperationType?: OperationType | string;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>The account ID to modify for the snapshot.</p>
-   */
-  UserIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifySnapshotAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySnapshotAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for ModifySpotFleetRequest.</p>
- */
-export interface ModifySpotFleetRequestRequest {
-  /**
-   * <p>Indicates whether running Spot Instances should be terminated if the target capacity
-   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
-   */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
-
-  /**
-   * <p>The launch template and overrides. You can only use this parameter if you specified a
-   *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
-   *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
-   *             parameter.</p>
-   */
-  LaunchTemplateConfigs?: LaunchTemplateConfig[];
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   */
-  SpotFleetRequestId: string | undefined;
-
-  /**
-   * <p>The size of the fleet.</p>
-   */
-  TargetCapacity?: number;
-
-  /**
-   * <p>The number of On-Demand Instances in the fleet.</p>
-   */
-  OnDemandTargetCapacity?: number;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  Context?: string;
-}
-
-export namespace ModifySpotFleetRequestRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySpotFleetRequestRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of ModifySpotFleetRequest.</p>
- */
-export interface ModifySpotFleetRequestResponse {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ModifySpotFleetRequestResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySpotFleetRequestResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifySubnetAttributeRequest {
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces created in the
-   *             specified subnet should be assigned an IPv6 address. This includes a network interface
-   *             that's created when launching an instance into the subnet (the instance therefore
-   *             receives an IPv6 address). </p>
-   *         <p>If you enable the IPv6 addressing feature for your subnet, your network interface
-   *             or instance only receives an IPv6 address if it's created using version
-   *                 <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
-   */
-  AssignIpv6AddressOnCreation?: AttributeBooleanValue;
-
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
-   *             specified subnet should be assigned a public IPv4 address.</p>
-   */
-  MapPublicIpOnLaunch?: AttributeBooleanValue;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to indicate that network interfaces  attached to instances created in the
-   *             specified subnet should be assigned a customer-owned IPv4 address.</p>
-   *         <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
-   */
-  MapCustomerOwnedIpOnLaunch?: AttributeBooleanValue;
-
-  /**
-   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
-   *         <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
-   */
-  CustomerOwnedIpv4Pool?: string;
-}
-
-export namespace ModifySubnetAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifySubnetAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
-   */
-  AddNetworkServices?: (TrafficMirrorNetworkService | string)[];
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
-   */
-  RemoveNetworkServices?: (TrafficMirrorNetworkService | string)[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace ModifyTrafficMirrorFilterNetworkServicesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ModifyTrafficMirrorFilterNetworkServicesResult {
-  /**
-   * <p>The Traffic Mirror filter that the network service is associated with.</p>
-   */
-  TrafficMirrorFilter?: TrafficMirrorFilter;
-}
-
-export namespace ModifyTrafficMirrorFilterNetworkServicesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesResult): any => ({
-    ...obj,
-  });
-}
-
-export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";

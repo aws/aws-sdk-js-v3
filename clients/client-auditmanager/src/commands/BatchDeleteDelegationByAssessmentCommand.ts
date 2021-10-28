@@ -27,9 +27,7 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Deletes the delegations in the specified Audit Manager assessment.
- *       </p>
+ * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -55,6 +55,10 @@ import {
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
+import {
+  BatchDescribeModelPackageCommandInput,
+  BatchDescribeModelPackageCommandOutput,
+} from "./commands/BatchDescribeModelPackageCommand";
 import { CreateActionCommandInput, CreateActionCommandOutput } from "./commands/CreateActionCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "./commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand";
@@ -634,6 +638,7 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "./commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand";
 import {
@@ -649,6 +654,7 @@ export type ServiceInputTypes =
   | AddAssociationCommandInput
   | AddTagsCommandInput
   | AssociateTrialComponentCommandInput
+  | BatchDescribeModelPackageCommandInput
   | CreateActionCommandInput
   | CreateAlgorithmCommandInput
   | CreateAppCommandInput
@@ -880,6 +886,7 @@ export type ServiceInputTypes =
   | UpdateNotebookInstanceLifecycleConfigCommandInput
   | UpdatePipelineCommandInput
   | UpdatePipelineExecutionCommandInput
+  | UpdateProjectCommandInput
   | UpdateTrainingJobCommandInput
   | UpdateTrialCommandInput
   | UpdateTrialComponentCommandInput
@@ -891,6 +898,7 @@ export type ServiceOutputTypes =
   | AddAssociationCommandOutput
   | AddTagsCommandOutput
   | AssociateTrialComponentCommandOutput
+  | BatchDescribeModelPackageCommandOutput
   | CreateActionCommandOutput
   | CreateAlgorithmCommandOutput
   | CreateAppCommandOutput
@@ -1122,6 +1130,7 @@ export type ServiceOutputTypes =
   | UpdateNotebookInstanceLifecycleConfigCommandOutput
   | UpdatePipelineCommandOutput
   | UpdatePipelineExecutionCommandOutput
+  | UpdateProjectCommandOutput
   | UpdateTrainingJobCommandOutput
   | UpdateTrialCommandOutput
   | UpdateTrialComponentCommandOutput

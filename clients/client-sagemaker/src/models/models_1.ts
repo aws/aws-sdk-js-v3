@@ -8,6 +8,7 @@ import {
   AlgorithmStatusDetails,
   AlgorithmValidationSpecification,
   AppNetworkAccessType,
+  AppSecurityGroupManagement,
   AppSpecification,
   AppStatus,
   AppType,
@@ -42,6 +43,7 @@ import {
   DataQualityAppSpecification,
   DataQualityBaselineConfig,
   DataQualityJobInput,
+  DomainSettings,
   EdgeOutputConfig,
   EdgePresetDeploymentType,
   EndpointInput,
@@ -56,21 +58,16 @@ import {
   HyperParameterTuningJobConfig,
   HyperParameterTuningJobObjectiveType,
   HyperParameterTuningJobWarmStartConfig,
-  InferenceExecutionConfig,
   InferenceSpecification,
   InputConfig,
   KernelGatewayImageConfig,
-  LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
-  LabelingJobOutputConfig,
-  LabelingJobStoppingConditions,
   MetadataProperties,
   MetricsSource,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
+  ModelApprovalStatus,
   ModelDeployConfig,
+  ModelPackageStatus,
   MonitoringConstraintsResource,
-  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutputConfig,
   MonitoringResources,
@@ -102,6 +99,597 @@ import {
   UserSettings,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Configure encryption on the storage volume attached to the ML compute instance used to
+ *             run automated data labeling model training and inference. </p>
+ */
+export interface LabelingJobResourceConfig {
+  /**
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
+   *             attached to the ML compute instance(s) that run the training and inference jobs used for
+   *             automated data labeling. </p>
+   *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
+   *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
+   *             You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for
+   *             automated data labeling model training and inference when you create a labeling job
+   *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
+   *                 Encryption</a>.</p>
+   *         <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>KMS Key ID</p>
+   *                 <p>
+   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>Amazon Resource Name (ARN) of a KMS Key</p>
+   *                 <p>
+   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeKmsKeyId?: string;
+}
+
+export namespace LabelingJobResourceConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobResourceConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides configuration information for auto-labeling of your data objects. A
+ *                 <code>LabelingJobAlgorithmsConfig</code> object must be supplied in order to use
+ *             auto-labeling.</p>
+ */
+export interface LabelingJobAlgorithmsConfig {
+  /**
+   * <p>Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You
+   *             must select one of the following ARNs:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <i>Image classification</i>
+   *                 </p>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/image-classification</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <i>Text classification</i>
+   *                 </p>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/text-classification</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <i>Object detection</i>
+   *                 </p>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/object-detection</code>
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <i>Semantic Segmentation</i>
+   *                 </p>
+   *                 <p>
+   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/semantic-segmentation</code>
+   *                 </p>
+   *             </li>
+   *          </ul>
+   */
+  LabelingJobAlgorithmSpecificationArn: string | undefined;
+
+  /**
+   * <p>At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN) of the final
+   *             model used for auto-labeling. You can use this model as the starting point for
+   *             subsequent similar jobs by providing the ARN of the model here. </p>
+   */
+  InitialActiveLearningModelArn?: string;
+
+  /**
+   * <p>Provides configuration information for a labeling job.</p>
+   */
+  LabelingJobResourceConfig?: LabelingJobResourceConfig;
+}
+
+export namespace LabelingJobAlgorithmsConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobAlgorithmsConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Output configuration information for a labeling job.</p>
+ */
+export interface LabelingJobOutputConfig {
+  /**
+   * <p>The Amazon S3 location to write output data.</p>
+   */
+  S3OutputPath: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Key Management Service ID of the key used to encrypt the output data, if any.</p>
+   *         <p>If you provide your own KMS key ID, you must add the required permissions to your KMS
+   *             key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt Output Data and Storage Volume with Amazon Web Services KMS</a>.</p>
+   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services KMS key for Amazon S3 for your
+   *             role's account to encrypt your output data.</p>
+   *         <p>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
+   *             allows objects with server-side encryption, set the condition key of
+   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
+   *                 Guide.</i>
+   *          </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>An Amazon Simple Notification Service (Amazon SNS) output topic ARN. Provide a <code>SnsTopicArn</code> if you want to
+   *             do real time chaining to another streaming job and receive an Amazon SNS notifications each
+   *             time a data object is submitted by a worker.</p>
+   *          <p>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
+   *             complete labeling tasks, Ground Truth will send labeling task output data to the SNS output
+   *             topic you specify here. </p>
+   *         <p>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive Output Data from a Streaming Labeling
+   *                 Job</a>. </p>
+   */
+  SnsTopicArn?: string;
+}
+
+export namespace LabelingJobOutputConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobOutputConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the
+ *             job is automatically stopped. You can use these conditions to control the cost of data
+ *             labeling.</p>
+ *         <note>
+ *             <p>Labeling jobs fail after 30 days with an appropriate client error message.</p>
+ *         </note>
+ */
+export interface LabelingJobStoppingConditions {
+  /**
+   * <p>The maximum number of objects that can be labeled by human workers.</p>
+   */
+  MaxHumanLabeledObjectCount?: number;
+
+  /**
+   * <p>The maximum number of input data objects that should be labeled.</p>
+   */
+  MaxPercentageOfInputDatasetLabeled?: number;
+}
+
+export namespace LabelingJobStoppingConditions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LabelingJobStoppingConditions): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job. This name is used to identify the job in a list of
+   *             labeling jobs. Labeling job names must be unique within an Amazon Web Services account and region.
+   *                 <code>LabelingJobName</code> is not case sensitive. For example, Example-job and
+   *             example-job are considered the same labeling job name by Ground Truth.</p>
+   */
+  LabelingJobName: string | undefined;
+
+  /**
+   * <p>The attribute name to use for the label in the output manifest file. This is the key
+   *             for the key/value pair formed with the label that a worker assigns to the object. The
+   *                 <code>LabelAttributeName</code> must meet the following requirements.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>The name can't end with "-metadata". </p>
+   *             </li>
+   *             <li>
+   *                 <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>,
+   *                     the attribute name <i>must</i> end with "-ref". If the task type
+   *                     you are using is not listed below, the attribute name <i>must
+   *                         not</i> end with "-ref".</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>Image semantic segmentation (<code>SemanticSegmentation)</code>, and
+   *                             adjustment (<code>AdjustmentSemanticSegmentation</code>) and
+   *                             verification (<code>VerificationSemanticSegmentation</code>) labeling
+   *                             jobs for this task type.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Video frame object detection (<code>VideoObjectDetection</code>), and
+   *                             adjustment and verification
+   *                             (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this
+   *                             task type.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>Video frame object tracking (<code>VideoObjectTracking</code>), and
+   *                             adjustment and verification (<code>AdjustmentVideoObjectTracking</code>)
+   *                             labeling jobs for this task type.</p>
+   *                     </li>
+   *                   <li>
+   *                         <p>3D point cloud semantic segmentation
+   *                                 (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and
+   *                             verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>)
+   *                             labeling jobs for this task type. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>3D point cloud object tracking
+   *                                 (<code>3DPointCloudObjectTracking</code>), and adjustment and
+   *                             verification (<code>Adjustment3DPointCloudObjectTracking</code>)
+   *                             labeling jobs for this task type. </p>
+   *                     </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *         <p></p>
+   *         <important>
+   *             <p>If you are creating an adjustment or verification labeling job, you must use a
+   *                     <i>different</i>
+   *                 <code>LabelAttributeName</code> than the one used in the original labeling job. The
+   *                 original labeling job is the Ground Truth labeling job that produced the labels that you
+   *                 want verified or adjusted. To learn more about adjustment and verification labeling
+   *                 jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust
+   *                     Labels</a>.</p>
+   *         </important>
+   */
+  LabelAttributeName: string | undefined;
+
+  /**
+   * <p>Input data for the labeling job, such as the Amazon S3 location of the data objects and the
+   *             location of the manifest file that describes the data objects.</p>
+   *         <p>You must specify at least one of the following: <code>S3DataSource</code> or
+   *                 <code>SnsDataSource</code>. </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Use <code>SnsDataSource</code> to specify an SNS input topic for a streaming
+   *                     labeling job. If you do not specify and SNS input topic ARN, Ground Truth will
+   *                     create a one-time labeling job that stops after all data objects in the input
+   *                     manifest file have been labeled.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Use <code>S3DataSource</code> to specify an input manifest file for both
+   *                     streaming and one-time labeling jobs. Adding an <code>S3DataSource</code> is
+   *                     optional if you use <code>SnsDataSource</code> to create a streaming labeling
+   *                     job.</p>
+   *             </li>
+   *          </ul>
+   *         <p>If you use the Amazon Mechanical Turk workforce, your input data should not include
+   *             confidential information, personal information or protected health information. Use
+   *                 <code>ContentClassifiers</code> to specify that your data is free of personally
+   *             identifiable information and adult content.</p>
+   */
+  InputConfig: LabelingJobInputConfig | undefined;
+
+  /**
+   * <p>The location of the output data and the Amazon Web Services Key Management Service key ID for the key used to encrypt
+   *             the output data, if any.</p>
+   */
+  OutputConfig: LabelingJobOutputConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf
+   *             during data labeling. You must grant this role the necessary permissions so that Amazon SageMaker
+   *             can successfully complete data labeling.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The S3 URI of the file, referred to as a <i>label category configuration
+   *                 file</i>, that defines the categories used to label the data objects.</p>
+   *         <p>For 3D point cloud and video frame task types, you can add label category attributes
+   *             and frame attributes to your label category configuration file. To learn how, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create a
+   *                 Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </p>
+   *         <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
+   *             provide worker instructions in the label category configuration file using the
+   *                 <code>"instructions"</code> parameter: <code>"instructions":
+   *                 {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>",
+   *                 "fullInstruction":"<p>Add additional instructions.</p>"}</code>. For details
+   *             and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create a
+   *                 Named Entity Recognition Labeling Job (API) </a>.</p>
+   *         <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
+   *                 tasks</a>, your label category configuration file must be a JSON file in the
+   *             following format. Identify the labels you want to use by replacing <code>label_1</code>,
+   *                 <code>label_2</code>,<code>...</code>,<code>label_n</code> with your label
+   *             categories.</p>
+   *         <p>
+   *             <code>{ </code>
+   *          </p>
+   *         <p>
+   *             <code>"document-version": "2018-11-28",</code>
+   *          </p>
+   *         <p>
+   *             <code>"labels": [{"label": "label_1"},{"label": "label_2"},...{"label":
+   *                 "label_n"}]</code>
+   *          </p>
+   *         <p>
+   *             <code>}</code>
+   *          </p>
+   *         <p>Note the following about the label category configuration file:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For image classification and text classification (single and multi-label) you
+   *                     must specify at least two label categories. For all other task types, the
+   *                     minimum number of label categories required is one. </p>
+   *             </li>
+   *             <li>
+   *                 <p>Each label category must be unique, you cannot specify duplicate label
+   *                     categories.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you create a 3D point cloud or video frame adjustment or verification
+   *                     labeling job, you must include <code>auditLabelAttributeName</code> in the label
+   *                     category configuration. Use this parameter to enter the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName">
+   *                      <code>LabelAttributeName</code>
+   *                   </a> of the labeling job you want to
+   *                     adjust or verify annotations of.</p>
+   *             </li>
+   *          </ul>
+   */
+  LabelCategoryConfigS3Uri?: string;
+
+  /**
+   * <p>A set of conditions for stopping the labeling job. If any of the conditions are met,
+   *             the job is automatically stopped. You can use these conditions to control the cost of
+   *             data labeling.</p>
+   */
+  StoppingConditions?: LabelingJobStoppingConditions;
+
+  /**
+   * <p>Configures the information required to perform automated data labeling.</p>
+   */
+  LabelingJobAlgorithmsConfig?: LabelingJobAlgorithmsConfig;
+
+  /**
+   * <p>Configures the labeling task and how it is presented to workers; including, but not limited to price, keywords, and batch size (task count).</p>
+   */
+  HumanTaskConfig: HumanTaskConfig | undefined;
+
+  /**
+   * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
+   *                 User Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateLabelingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLabelingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLabelingJobResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the
+   *             labeling job.</p>
+   */
+  LabelingJobArn: string | undefined;
+}
+
+export namespace CreateLabelingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLabelingJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum InferenceExecutionMode {
+  DIRECT = "Direct",
+  SERIAL = "Serial",
+}
+
+/**
+ * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
+ */
+export interface InferenceExecutionConfig {
+  /**
+   * <p>How containers in a multi-container are run. The following values are valid.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>SERIAL</code> - Containers run as a serial pipeline.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT</code> - Only the individual container that you specify is
+   *                     run.</p>
+   *             </li>
+   *          </ul>
+   */
+  Mode: InferenceExecutionMode | string | undefined;
+}
+
+export namespace InferenceExecutionConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceExecutionConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelInput {
+  /**
+   * <p>The name of the new model.</p>
+   */
+  ModelName: string | undefined;
+
+  /**
+   * <p>The location of the primary docker image containing inference code, associated
+   *             artifacts, and custom environment map that the inference code uses when the model is
+   *             deployed for predictions. </p>
+   */
+  PrimaryContainer?: ContainerDefinition;
+
+  /**
+   * <p>Specifies the containers in the inference pipeline.</p>
+   */
+  Containers?: ContainerDefinition[];
+
+  /**
+   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
+   */
+  InferenceExecutionConfig?: InferenceExecutionConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model
+   *             artifacts and docker image for deployment on ML compute instances or for batch transform
+   *             jobs. Deploying on ML compute instances is part of model hosting. For more information,
+   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
+   *                 Roles</a>. </p>
+   *         <note>
+   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
+   *                     <code>iam:PassRole</code> permission.</p>
+   *         </note>
+   */
+  ExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
+   *             different ways, for example, by purpose, owner, or environment. For more information,
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *                 Resources</a>.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your model
+   *             to connect to. Control access to and from your model container by configuring the VPC.
+   *                 <code>VpcConfig</code> is used in hosting services and in batch transform. For more
+   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch
+   *                 Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
+   */
+  VpcConfig?: VpcConfig;
+
+  /**
+   * <p>Isolates the model container. No inbound or outbound network calls can be made to or
+   *             from the model container.</p>
+   */
+  EnableNetworkIsolation?: boolean;
+}
+
+export namespace CreateModelInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelInput): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateModelOutput {
+  /**
+   * <p>The ARN of the model created in Amazon SageMaker.</p>
+   */
+  ModelArn: string | undefined;
+}
+
+export namespace CreateModelOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateModelOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Docker container image configuration object for the model bias job.</p>
+ */
+export interface ModelBiasAppSpecification {
+  /**
+   * <p>The container image to be run by the model bias job.</p>
+   */
+  ImageUri: string | undefined;
+
+  /**
+   * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON
+   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html">Configure bias
+   *          parameters</a>.</p>
+   */
+  ConfigUri: string | undefined;
+
+  /**
+   * <p>Sets the environment variables in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace ModelBiasAppSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelBiasAppSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The configuration for a baseline model bias job.</p>
+ */
+export interface ModelBiasBaselineConfig {
+  /**
+   * <p>The name of the baseline model bias job.</p>
+   */
+  BaseliningJobName?: string;
+
+  /**
+   * <p>The constraints resource for a monitoring job.</p>
+   */
+  ConstraintsResource?: MonitoringConstraintsResource;
+}
+
+export namespace ModelBiasBaselineConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelBiasBaselineConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The ground truth labels for the dataset used for the monitoring job.</p>
+ */
+export interface MonitoringGroundTruthS3Input {
+  /**
+   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
+   */
+  S3Uri?: string;
+}
+
+export namespace MonitoringGroundTruthS3Input {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MonitoringGroundTruthS3Input): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Inputs for the model bias job.</p>
@@ -362,12 +950,6 @@ export namespace CreateModelExplainabilityJobDefinitionResponse {
   });
 }
 
-export enum ModelApprovalStatus {
-  APPROVED = "Approved",
-  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
-  REJECTED = "Rejected",
-}
-
 /**
  * <p>Contains explainability metrics for a model.</p>
  */
@@ -585,7 +1167,7 @@ export interface CreateModelPackageInput {
   ModelPackageName?: string;
 
   /**
-   * <p>The name of the model group that this model version belongs to.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p>
    *         <p>This parameter is required for versioned models, and does not apply to unversioned
    *             models.</p>
    */
@@ -663,6 +1245,11 @@ export interface CreateModelPackageInput {
    * <p>A unique token that guarantees that the call to this API is idempotent.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: { [key: string]: string };
 }
 
 export namespace CreateModelPackageInput {
@@ -6209,6 +6796,22 @@ export interface DescribeDomainResponse {
    *          the EFS volume attached to the domain.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app communication in <code>VPCOnly</code> mode.
+   *             Required when <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is provided.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+
+  /**
+   * <p>The ID of the security group that authorizes traffic between the <code>RSessionGateway</code> apps and the <code>RStudioServerPro</code> app.</p>
+   */
+  SecurityGroupIdForDomainBoundary?: string;
 }
 
 export namespace DescribeDomainResponse {
@@ -8116,7 +8719,7 @@ export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
    *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
-   *           characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+   *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
 }
@@ -8128,14 +8731,6 @@ export namespace DescribeModelPackageInput {
   export const filterSensitiveLog = (obj: DescribeModelPackageInput): any => ({
     ...obj,
   });
-}
-
-export enum ModelPackageStatus {
-  COMPLETED = "Completed",
-  DELETING = "Deleting",
-  FAILED = "Failed",
-  IN_PROGRESS = "InProgress",
-  PENDING = "Pending",
 }
 
 export enum DetailedModelPackageStatus {
@@ -8242,7 +8837,7 @@ export interface DescribeModelPackageOutput {
   SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
 
   /**
-   * <p>Configurations for one or more transform jobs that Amazon SageMaker runs to test the model
+   * <p>Configurations for one or more transform jobs that SageMaker runs to test the model
    *             package.</p>
    */
   ValidationSpecification?: ModelPackageValidationSpecification;
@@ -8298,6 +8893,11 @@ export interface DescribeModelPackageOutput {
    * <p>A description provided for the model approval.</p>
    */
   ApprovalDescription?: string;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: { [key: string]: string };
 }
 
 export namespace DescribeModelPackageOutput {
@@ -9291,327 +9891,7 @@ export enum ProjectStatus {
   DELETE_FAILED = "DeleteFailed",
   DELETE_IN_PROGRESS = "DeleteInProgress",
   PENDING = "Pending",
-}
-
-/**
- * <p>Details of a provisioned service catalog product. For information about service catalog,
- *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
- *                 Catalog</a>.</p>
- */
-export interface ServiceCatalogProvisionedProductDetails {
-  /**
-   * <p>The ID of the provisioned product.</p>
-   */
-  ProvisionedProductId?: string;
-
-  /**
-   * <p>The current status of the product.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
-   *             </li>
-   *          </ul>
-   */
-  ProvisionedProductStatusMessage?: string;
-}
-
-export namespace ServiceCatalogProvisionedProductDetails {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceCatalogProvisionedProductDetails): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeProjectOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the project.</p>
-   */
-  ProjectArn: string | undefined;
-
-  /**
-   * <p>The name of the project.</p>
-   */
-  ProjectName: string | undefined;
-
-  /**
-   * <p>The ID of the project.</p>
-   */
-  ProjectId: string | undefined;
-
-  /**
-   * <p>The description of the project.</p>
-   */
-  ProjectDescription?: string;
-
-  /**
-   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
-   *             Catalog</a>.</p>
-   */
-  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
-
-  /**
-   * <p>Information about a provisioned service catalog product.</p>
-   */
-  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
-
-  /**
-   * <p>The status of the project.</p>
-   */
-  ProjectStatus: ProjectStatus | string | undefined;
-
-  /**
-   * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, or project.</p>
-   */
-  CreatedBy?: UserContext;
-
-  /**
-   * <p>The time when the project was created.</p>
-   */
-  CreationTime: Date | undefined;
-}
-
-export namespace DescribeProjectOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeProjectOutput): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStudioLifecycleConfigRequest {
-  /**
-   * <p>The name of the Studio Lifecycle Configuration to describe.</p>
-   */
-  StudioLifecycleConfigName: string | undefined;
-}
-
-export namespace DescribeStudioLifecycleConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStudioLifecycleConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeStudioLifecycleConfigResponse {
-  /**
-   * <p>The ARN of the Lifecycle Configuration to describe.</p>
-   */
-  StudioLifecycleConfigArn?: string;
-
-  /**
-   * <p>The name of the Studio Lifecycle Configuration that is described.</p>
-   */
-  StudioLifecycleConfigName?: string;
-
-  /**
-   * <p>The creation time of the Studio Lifecycle Configuration.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The content of your Studio Lifecycle Configuration script.</p>
-   */
-  StudioLifecycleConfigContent?: string;
-
-  /**
-   * <p>The App type that the Lifecycle Configuration is attached to.</p>
-   */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
-}
-
-export namespace DescribeStudioLifecycleConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeStudioLifecycleConfigResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSubscribedWorkteamRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
-   */
-  WorkteamArn: string | undefined;
-}
-
-export namespace DescribeSubscribedWorkteamRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a work team of a vendor that does the a labelling job.</p>
- */
-export interface SubscribedWorkteam {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>
-   */
-  WorkteamArn: string | undefined;
-
-  /**
-   * <p>The title of the service provided by the vendor in the Amazon Marketplace.</p>
-   */
-  MarketplaceTitle?: string;
-
-  /**
-   * <p>The name of the vendor in the Amazon Marketplace.</p>
-   */
-  SellerName?: string;
-
-  /**
-   * <p>The description of the vendor from the Amazon Marketplace.</p>
-   */
-  MarketplaceDescription?: string;
-
-  /**
-   * <p>Marketplace product listing ID.</p>
-   */
-  ListingId?: string;
-}
-
-export namespace SubscribedWorkteam {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: SubscribedWorkteam): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSubscribedWorkteamResponse {
-  /**
-   * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
-   */
-  SubscribedWorkteam: SubscribedWorkteam | undefined;
-}
-
-export namespace DescribeSubscribedWorkteamResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeTrainingJobRequest {
-  /**
-   * <p>The name of the training job.</p>
-   */
-  TrainingJobName: string | undefined;
-}
-
-export namespace DescribeTrainingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeTrainingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
- */
-export interface MetricData {
-  /**
-   * <p>The name of the metric.</p>
-   */
-  MetricName?: string;
-
-  /**
-   * <p>The value of the metric.</p>
-   */
-  Value?: number;
-
-  /**
-   * <p>The date and time that the algorithm emitted the metric.</p>
-   */
-  Timestamp?: Date;
-}
-
-export namespace MetricData {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MetricData): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the status of the rule evaluation.</p>
- */
-export interface ProfilerRuleEvaluationStatus {
-  /**
-   * <p>The name of the rule configuration.</p>
-   */
-  RuleConfigurationName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
-   */
-  RuleEvaluationJobArn?: string;
-
-  /**
-   * <p>Status of the rule evaluation.</p>
-   */
-  RuleEvaluationStatus?: RuleEvaluationStatus | string;
-
-  /**
-   * <p>Details from the rule evaluation.</p>
-   */
-  StatusDetails?: string;
-
-  /**
-   * <p>Timestamp when the rule evaluation status was last modified.</p>
-   */
-  LastModifiedTime?: Date;
-}
-
-export namespace ProfilerRuleEvaluationStatus {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ProfilerRuleEvaluationStatus): any => ({
-    ...obj,
-  });
-}
-
-export enum ProfilingStatus {
-  DISABLED = "Disabled",
-  ENABLED = "Enabled",
+  UPDATE_COMPLETED = "UpdateCompleted",
+  UPDATE_FAILED = "UpdateFailed",
+  UPDATE_IN_PROGRESS = "UpdateInProgress",
 }

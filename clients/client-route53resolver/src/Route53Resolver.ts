@@ -126,6 +126,11 @@ import {
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
 import {
+  GetResolverConfigCommand,
+  GetResolverConfigCommandInput,
+  GetResolverConfigCommandOutput,
+} from "./commands/GetResolverConfigCommand";
+import {
   GetResolverDnssecConfigCommand,
   GetResolverDnssecConfigCommandInput,
   GetResolverDnssecConfigCommandOutput,
@@ -200,6 +205,11 @@ import {
   ListFirewallRulesCommandInput,
   ListFirewallRulesCommandOutput,
 } from "./commands/ListFirewallRulesCommand";
+import {
+  ListResolverConfigsCommand,
+  ListResolverConfigsCommandInput,
+  ListResolverConfigsCommandOutput,
+} from "./commands/ListResolverConfigsCommand";
 import {
   ListResolverDnssecConfigsCommand,
   ListResolverDnssecConfigsCommandInput,
@@ -281,6 +291,11 @@ import {
   UpdateFirewallRuleGroupAssociationCommandInput,
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
+import {
+  UpdateResolverConfigCommand,
+  UpdateResolverConfigCommandInput,
+  UpdateResolverConfigCommandOutput,
+} from "./commands/UpdateResolverConfigCommand";
 import {
   UpdateResolverDnssecConfigCommand,
   UpdateResolverDnssecConfigCommandInput,
@@ -1223,6 +1238,39 @@ export class Route53Resolver extends Route53ResolverClient {
   }
 
   /**
+   * <p>Retrieves the behavior configuration of Route 53 Resolver behavior for a single VPC from
+   * 				Amazon Virtual Private Cloud.</p>
+   */
+  public getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResolverConfigCommandOutput>;
+  public getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
+  ): void;
+  public getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResolverConfigCommandOutput) => void
+  ): void;
+  public getResolverConfig(
+    args: GetResolverConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetResolverConfigCommandOutput) => void
+  ): Promise<GetResolverConfigCommandOutput> | void {
+    const command = new GetResolverConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets DNSSEC validation information for a specified resource.</p>
    */
   public getResolverDnssecConfig(
@@ -1720,6 +1768,39 @@ export class Route53Resolver extends Route53ResolverClient {
     cb?: (err: any, data?: ListFirewallRulesCommandOutput) => void
   ): Promise<ListFirewallRulesCommandOutput> | void {
     const command = new ListFirewallRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the Resolver configurations that you have defined.
+   * 			Route 53 Resolver uses the configurations to manage DNS resolution behavior for your VPCs.</p>
+   */
+  public listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolverConfigsCommandOutput>;
+  public listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
+  ): void;
+  public listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolverConfigsCommandOutput) => void
+  ): void;
+  public listResolverConfigs(
+    args: ListResolverConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolverConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListResolverConfigsCommandOutput) => void
+  ): Promise<ListResolverConfigsCommandOutput> | void {
+    const command = new ListResolverConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2266,6 +2347,39 @@ export class Route53Resolver extends Route53ResolverClient {
     cb?: (err: any, data?: UpdateFirewallRuleGroupAssociationCommandOutput) => void
   ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> | void {
     const command = new UpdateFirewallRuleGroupAssociationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the behavior configuration of Route 53 Resolver behavior for a single VPC from
+   * 				Amazon Virtual Private Cloud.</p>
+   */
+  public updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResolverConfigCommandOutput>;
+  public updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
+  ): void;
+  public updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResolverConfigCommandOutput) => void
+  ): void;
+  public updateResolverConfig(
+    args: UpdateResolverConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResolverConfigCommandOutput) => void
+  ): Promise<UpdateResolverConfigCommandOutput> | void {
+    const command = new UpdateResolverConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

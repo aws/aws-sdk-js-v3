@@ -22,9 +22,7 @@ export interface CreateAssessmentReportCommandInput extends CreateAssessmentRepo
 export interface CreateAssessmentReportCommandOutput extends CreateAssessmentReportResponse, __MetadataBearer {}
 
 /**
- * <p>
- * Creates an assessment report for the specified assessment.
- * </p>
+ * <p> Creates an assessment report for the specified assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

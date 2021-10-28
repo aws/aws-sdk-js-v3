@@ -25,7 +25,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
  *          text and the words that make up a line of text.</p>
  *          <p>
- *             <code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The
+ *             <code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
  *         documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
  *         of the document.
  *      </p>

@@ -22,7 +22,7 @@ export interface ListTimelineEventsCommandInput extends ListTimelineEventsInput 
 export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists timeline events of the specified incident record.</p>
+ * <p>Lists timeline events for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

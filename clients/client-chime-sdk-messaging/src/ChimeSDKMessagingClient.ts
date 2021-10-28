@@ -113,6 +113,10 @@ import {
   DisassociateChannelFlowCommandInput,
   DisassociateChannelFlowCommandOutput,
 } from "./commands/DisassociateChannelFlowCommand";
+import {
+  GetChannelMembershipPreferencesCommandInput,
+  GetChannelMembershipPreferencesCommandOutput,
+} from "./commands/GetChannelMembershipPreferencesCommand";
 import { GetChannelMessageCommandInput, GetChannelMessageCommandOutput } from "./commands/GetChannelMessageCommand";
 import {
   GetChannelMessageStatusCommandInput,
@@ -153,6 +157,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutChannelMembershipPreferencesCommandInput,
+  PutChannelMembershipPreferencesCommandOutput,
+} from "./commands/PutChannelMembershipPreferencesCommand";
 import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
@@ -195,6 +203,7 @@ export type ServiceInputTypes =
   | DescribeChannelModeratedByAppInstanceUserCommandInput
   | DescribeChannelModeratorCommandInput
   | DisassociateChannelFlowCommandInput
+  | GetChannelMembershipPreferencesCommandInput
   | GetChannelMessageCommandInput
   | GetChannelMessageStatusCommandInput
   | GetMessagingSessionEndpointCommandInput
@@ -208,6 +217,7 @@ export type ServiceInputTypes =
   | ListChannelsCommandInput
   | ListChannelsModeratedByAppInstanceUserCommandInput
   | ListTagsForResourceCommandInput
+  | PutChannelMembershipPreferencesCommandInput
   | RedactChannelMessageCommandInput
   | SendChannelMessageCommandInput
   | TagResourceCommandInput
@@ -240,6 +250,7 @@ export type ServiceOutputTypes =
   | DescribeChannelModeratedByAppInstanceUserCommandOutput
   | DescribeChannelModeratorCommandOutput
   | DisassociateChannelFlowCommandOutput
+  | GetChannelMembershipPreferencesCommandOutput
   | GetChannelMessageCommandOutput
   | GetChannelMessageStatusCommandOutput
   | GetMessagingSessionEndpointCommandOutput
@@ -253,6 +264,7 @@ export type ServiceOutputTypes =
   | ListChannelsCommandOutput
   | ListChannelsModeratedByAppInstanceUserCommandOutput
   | ListTagsForResourceCommandOutput
+  | PutChannelMembershipPreferencesCommandOutput
   | RedactChannelMessageCommandOutput
   | SendChannelMessageCommandOutput
   | TagResourceCommandOutput

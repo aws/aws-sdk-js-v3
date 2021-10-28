@@ -28,9 +28,7 @@ export interface DisassociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Disassociates an evidence folder from the specified assessment report in Audit Manager.
- * </p>
+ * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -24,9 +24,8 @@ export interface GetOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Returns the name of the delegated Amazon Web Services administrator account for the organization.
- * </p>
+ * <p> Returns the name of the delegated Amazon Web Services administrator account for the
+ *          organization. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

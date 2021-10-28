@@ -28,9 +28,8 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Associates an evidence folder to the specified assessment report in Audit Manager.
- *       </p>
+ * <p> Associates an evidence folder to an assessment report in a Audit Manager
+ *          assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

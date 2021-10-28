@@ -57,6 +57,10 @@ import {
   DeleteAssessmentFrameworkCommandOutput,
 } from "../commands/DeleteAssessmentFrameworkCommand";
 import {
+  DeleteAssessmentFrameworkShareCommandInput,
+  DeleteAssessmentFrameworkShareCommandOutput,
+} from "../commands/DeleteAssessmentFrameworkShareCommand";
+import {
   DeleteAssessmentReportCommandInput,
   DeleteAssessmentReportCommandOutput,
 } from "../commands/DeleteAssessmentReportCommand";
@@ -108,6 +112,10 @@ import {
   ListAssessmentFrameworksCommandOutput,
 } from "../commands/ListAssessmentFrameworksCommand";
 import {
+  ListAssessmentFrameworkShareRequestsCommandInput,
+  ListAssessmentFrameworkShareRequestsCommandOutput,
+} from "../commands/ListAssessmentFrameworkShareRequestsCommand";
+import {
   ListAssessmentReportsCommandInput,
   ListAssessmentReportsCommandOutput,
 } from "../commands/ListAssessmentReportsCommand";
@@ -127,6 +135,10 @@ import {
   RegisterOrganizationAdminAccountCommandInput,
   RegisterOrganizationAdminAccountCommandOutput,
 } from "../commands/RegisterOrganizationAdminAccountCommand";
+import {
+  StartAssessmentFrameworkShareCommandInput,
+  StartAssessmentFrameworkShareCommandOutput,
+} from "../commands/StartAssessmentFrameworkShareCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAssessmentCommandInput, UpdateAssessmentCommandOutput } from "../commands/UpdateAssessmentCommand";
@@ -142,6 +154,10 @@ import {
   UpdateAssessmentFrameworkCommandInput,
   UpdateAssessmentFrameworkCommandOutput,
 } from "../commands/UpdateAssessmentFrameworkCommand";
+import {
+  UpdateAssessmentFrameworkShareCommandInput,
+  UpdateAssessmentFrameworkShareCommandOutput,
+} from "../commands/UpdateAssessmentFrameworkShareCommand";
 import {
   UpdateAssessmentStatusCommandInput,
   UpdateAssessmentStatusCommandOutput,
@@ -160,6 +176,7 @@ import {
   AssessmentEvidenceFolder,
   AssessmentFramework,
   AssessmentFrameworkMetadata,
+  AssessmentFrameworkShareRequest,
   AssessmentMetadata,
   AssessmentMetadataItem,
   AssessmentReport,
@@ -642,6 +659,40 @@ export const serializeAws_restJson1DeleteAssessmentFrameworkCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async (
+  input: DeleteAssessmentFrameworkShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/assessmentFrameworkShareRequests/{requestId}";
+  if (input.requestId !== undefined) {
+    const labelValue: string = input.requestId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: requestId.");
+    }
+    resolvedPath = resolvedPath.replace("{requestId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: requestId.");
+  }
+  const query: any = {
+    ...(input.requestType !== undefined && { requestType: input.requestType }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1350,6 +1401,32 @@ export const serializeAws_restJson1ListAssessmentFrameworksCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand = async (
+  input: ListAssessmentFrameworkShareRequestsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworkShareRequests";
+  const query: any = {
+    ...(input.requestType !== undefined && { requestType: input.requestType }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListAssessmentReportsCommand = async (
   input: ListAssessmentReportsCommandInput,
   context: __SerdeContext
@@ -1541,6 +1618,45 @@ export const serializeAws_restJson1RegisterOrganizationAdminAccountCommand = asy
   body = JSON.stringify({
     ...(input.adminAccountId !== undefined &&
       input.adminAccountId !== null && { adminAccountId: input.adminAccountId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartAssessmentFrameworkShareCommand = async (
+  input: StartAssessmentFrameworkShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/assessmentFrameworks/{frameworkId}/shareRequests";
+  if (input.frameworkId !== undefined) {
+    const labelValue: string = input.frameworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: frameworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{frameworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: frameworkId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.comment !== undefined && input.comment !== null && { comment: input.comment }),
+    ...(input.destinationAccount !== undefined &&
+      input.destinationAccount !== null && { destinationAccount: input.destinationAccount }),
+    ...(input.destinationRegion !== undefined &&
+      input.destinationRegion !== null && { destinationRegion: input.destinationRegion }),
   });
   return new __HttpRequest({
     protocol,
@@ -1794,6 +1910,42 @@ export const serializeAws_restJson1UpdateAssessmentFrameworkCommand = async (
       }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async (
+  input: UpdateAssessmentFrameworkShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/assessmentFrameworkShareRequests/{requestId}";
+  if (input.requestId !== undefined) {
+    const labelValue: string = input.requestId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: requestId.");
+    }
+    resolvedPath = resolvedPath.replace("{requestId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: requestId.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.action !== undefined && input.action !== null && { action: input.action }),
+    ...(input.requestType !== undefined && input.requestType !== null && { requestType: input.requestType }),
   });
   return new __HttpRequest({
     protocol,
@@ -2837,6 +2989,81 @@ const deserializeAws_restJson1DeleteAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssessmentFrameworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.auditmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.auditmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.auditmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.auditmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssessmentFrameworkShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError(output, context);
+  }
+  const contents: DeleteAssessmentFrameworkShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAssessmentFrameworkShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssessmentFrameworkShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -4505,6 +4732,84 @@ const deserializeAws_restJson1ListAssessmentFrameworksCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError(output, context);
+  }
+  const contents: ListAssessmentFrameworkShareRequestsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessmentFrameworkShareRequests: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessmentFrameworkShareRequests !== undefined && data.assessmentFrameworkShareRequests !== null) {
+    contents.assessmentFrameworkShareRequests = deserializeAws_restJson1AssessmentFrameworkShareRequestList(
+      data.assessmentFrameworkShareRequests,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.auditmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.auditmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.auditmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListAssessmentReportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5113,6 +5418,88 @@ const deserializeAws_restJson1RegisterOrganizationAdminAccountCommandError = asy
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartAssessmentFrameworkShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAssessmentFrameworkShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartAssessmentFrameworkShareCommandError(output, context);
+  }
+  const contents: StartAssessmentFrameworkShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessmentFrameworkShareRequest: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessmentFrameworkShareRequest !== undefined && data.assessmentFrameworkShareRequest !== null) {
+    contents.assessmentFrameworkShareRequest = deserializeAws_restJson1AssessmentFrameworkShareRequest(
+      data.assessmentFrameworkShareRequest,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartAssessmentFrameworkShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAssessmentFrameworkShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.auditmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.auditmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.auditmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.auditmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5506,6 +5893,88 @@ const deserializeAws_restJson1UpdateAssessmentFrameworkCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssessmentFrameworkCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.auditmanager#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.auditmanager#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.auditmanager#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.auditmanager#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssessmentFrameworkShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError(output, context);
+  }
+  const contents: UpdateAssessmentFrameworkShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessmentFrameworkShareRequest: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessmentFrameworkShareRequest !== undefined && data.assessmentFrameworkShareRequest !== null) {
+    contents.assessmentFrameworkShareRequest = deserializeAws_restJson1AssessmentFrameworkShareRequest(
+      data.assessmentFrameworkShareRequest,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAssessmentFrameworkShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssessmentFrameworkShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6446,6 +6915,52 @@ const deserializeAws_restJson1AssessmentFrameworkMetadata = (
     name: __expectString(output.name),
     type: __expectString(output.type),
   } as any;
+};
+
+const deserializeAws_restJson1AssessmentFrameworkShareRequest = (
+  output: any,
+  context: __SerdeContext
+): AssessmentFrameworkShareRequest => {
+  return {
+    comment: __expectString(output.comment),
+    complianceType: __expectString(output.complianceType),
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
+        : undefined,
+    customControlsCount: __expectInt32(output.customControlsCount),
+    destinationAccount: __expectString(output.destinationAccount),
+    destinationRegion: __expectString(output.destinationRegion),
+    expirationTime:
+      output.expirationTime !== undefined && output.expirationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationTime)))
+        : undefined,
+    frameworkDescription: __expectString(output.frameworkDescription),
+    frameworkId: __expectString(output.frameworkId),
+    frameworkName: __expectString(output.frameworkName),
+    id: __expectString(output.id),
+    lastUpdated:
+      output.lastUpdated !== undefined && output.lastUpdated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
+        : undefined,
+    sourceAccount: __expectString(output.sourceAccount),
+    standardControlsCount: __expectInt32(output.standardControlsCount),
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1AssessmentFrameworkShareRequestList = (
+  output: any,
+  context: __SerdeContext
+): AssessmentFrameworkShareRequest[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AssessmentFrameworkShareRequest(entry, context);
+    });
 };
 
 const deserializeAws_restJson1AssessmentMetadata = (output: any, context: __SerdeContext): AssessmentMetadata => {

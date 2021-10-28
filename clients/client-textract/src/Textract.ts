@@ -26,6 +26,11 @@ import {
   GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
 import {
+  GetExpenseAnalysisCommand,
+  GetExpenseAnalysisCommandInput,
+  GetExpenseAnalysisCommandOutput,
+} from "./commands/GetExpenseAnalysisCommand";
+import {
   StartDocumentAnalysisCommand,
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -35,6 +40,11 @@ import {
   StartDocumentTextDetectionCommandInput,
   StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
+import {
+  StartExpenseAnalysisCommand,
+  StartExpenseAnalysisCommandInput,
+  StartExpenseAnalysisCommandOutput,
+} from "./commands/StartExpenseAnalysisCommand";
 import { TextractClient } from "./TextractClient";
 
 /**
@@ -325,11 +335,59 @@ export class Textract extends TextractClient {
   }
 
   /**
+   * <p>Gets the results for an Amazon Textract asynchronous operation that analyzes invoices and
+   *    receipts. Amazon Textract finds contact information, items purchased, and vendor name, from input
+   *    invoices and receipts.</p>
+   *          <p>You start asynchronous invoice/receipt analysis by calling <a>StartExpenseAnalysis</a>, which returns a job identifier (<code>JobId</code>). Upon
+   *    completion of the invoice/receipt analysis, Amazon Textract publishes the completion status to the
+   *    Amazon Simple Notification Service (Amazon SNS) topic. This topic must be registered in the initial call to
+   *     <code>StartExpenseAnalysis</code>. To get the results of the invoice/receipt analysis operation,
+   *    first ensure that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so,
+   *    call <code>GetExpenseAnalysis</code>, and pass the job identifier (<code>JobId</code>) from the
+   *    initial call to <code>StartExpenseAnalysis</code>.</p>
+   *          <p>Use the MaxResults parameter to limit the number of blocks that are returned. If there are
+   *    more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code> in
+   *    the operation response contains a pagination token for getting the next set of results. To get
+   *    the next page of results, call <code>GetExpenseAnalysis</code>, and populate the
+   *     <code>NextToken</code> request parameter with the token value that's returned from the previous
+   *    call to <code>GetExpenseAnalysis</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoices-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+   */
+  public getExpenseAnalysis(
+    args: GetExpenseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExpenseAnalysisCommandOutput>;
+  public getExpenseAnalysis(
+    args: GetExpenseAnalysisCommandInput,
+    cb: (err: any, data?: GetExpenseAnalysisCommandOutput) => void
+  ): void;
+  public getExpenseAnalysis(
+    args: GetExpenseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExpenseAnalysisCommandOutput) => void
+  ): void;
+  public getExpenseAnalysis(
+    args: GetExpenseAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExpenseAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: GetExpenseAnalysisCommandOutput) => void
+  ): Promise<GetExpenseAnalysisCommandOutput> | void {
+    const command = new GetExpenseAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts the asynchronous analysis of an input document for relationships between detected
    *          items such as key-value pairs, tables, and selection elements.</p>
    *
    *          <p>
-   *             <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The
+   *             <code>StartDocumentAnalysis</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
    *          documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
    *          of the document.
    *          </p>
@@ -377,7 +435,7 @@ export class Textract extends TextractClient {
    * <p>Starts the asynchronous detection of text in a document. Amazon Textract can detect lines of
    *          text and the words that make up a line of text.</p>
    *          <p>
-   *             <code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, and PDF format. The
+   *             <code>StartDocumentTextDetection</code> can analyze text in documents that are in JPEG, PNG, TIFF, and PDF format. The
    *         documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and file name
    *         of the document.
    *      </p>
@@ -411,6 +469,53 @@ export class Textract extends TextractClient {
     cb?: (err: any, data?: StartDocumentTextDetectionCommandOutput) => void
   ): Promise<StartDocumentTextDetectionCommandOutput> | void {
     const command = new StartDocumentTextDetectionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts the asynchronous analysis of invoices or receipts for data like contact information,
+   *    items purchased, and vendor names.</p>
+   *
+   *          <p>
+   *             <code>StartExpenseAnalysis</code> can analyze text in documents that are in JPEG, PNG, and
+   *    PDF format. The documents must be stored in an Amazon S3 bucket. Use the <a>DocumentLocation</a> parameter to specify the name of your S3 bucket and the name of the
+   *    document in that bucket. </p>
+   *          <p>
+   *             <code>StartExpenseAnalysis</code> returns a job identifier (<code>JobId</code>) that you
+   *    will provide to <code>GetExpenseAnalysis</code> to retrieve the results of the operation. When
+   *    the analysis of the input invoices/receipts is finished, Amazon Textract publishes a completion
+   *    status to the Amazon Simple Notification Service (Amazon SNS) topic that you provide to the <code>NotificationChannel</code>.
+   *    To obtain the results of the invoice and receipt analysis operation, ensure that the status value
+   *    published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetExpenseAnalysis</a>, and pass the job identifier (<code>JobId</code>) that was
+   *    returned by your call to <code>StartExpenseAnalysis</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/invoice-receipts.html">Analyzing Invoices and Receipts</a>.</p>
+   */
+  public startExpenseAnalysis(
+    args: StartExpenseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExpenseAnalysisCommandOutput>;
+  public startExpenseAnalysis(
+    args: StartExpenseAnalysisCommandInput,
+    cb: (err: any, data?: StartExpenseAnalysisCommandOutput) => void
+  ): void;
+  public startExpenseAnalysis(
+    args: StartExpenseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExpenseAnalysisCommandOutput) => void
+  ): void;
+  public startExpenseAnalysis(
+    args: StartExpenseAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExpenseAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartExpenseAnalysisCommandOutput) => void
+  ): Promise<StartExpenseAnalysisCommandOutput> | void {
+    const command = new StartExpenseAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -22,9 +22,7 @@ export interface DeleteControlCommandInput extends DeleteControlRequest {}
 export interface DeleteControlCommandOutput extends DeleteControlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Deletes a custom control in Audit Manager.
- * </p>
+ * <p> Deletes a custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -60,6 +60,7 @@ import { StartJobRunCommandInput, StartJobRunCommandOutput } from "../commands/S
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  Certificate,
   CloudWatchMonitoringConfiguration,
   Configuration,
   ConfigurationOverrides,
@@ -1901,6 +1902,13 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
   }, {});
 };
 
+const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
+  return {
+    certificateArn: __expectString(output.certificateArn),
+    certificateData: __expectString(output.certificateData),
+  } as any;
+};
+
 const deserializeAws_restJson1CloudWatchMonitoringConfiguration = (
   output: any,
   context: __SerdeContext
@@ -1982,6 +1990,10 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
   return {
     arn: __expectString(output.arn),
     certificateArn: __expectString(output.certificateArn),
+    certificateAuthority:
+      output.certificateAuthority !== undefined && output.certificateAuthority !== null
+        ? deserializeAws_restJson1Certificate(output.certificateAuthority, context)
+        : undefined,
     configurationOverrides:
       output.configurationOverrides !== undefined && output.configurationOverrides !== null
         ? deserializeAws_restJson1ConfigurationOverrides(output.configurationOverrides, context)

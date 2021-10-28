@@ -22,9 +22,7 @@ export interface UpdateAssessmentFrameworkCommandInput extends UpdateAssessmentF
 export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Updates a custom framework in Audit Manager.
- * </p>
+ * <p> Updates a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

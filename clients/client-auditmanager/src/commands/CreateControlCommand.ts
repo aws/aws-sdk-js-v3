@@ -22,9 +22,7 @@ export interface CreateControlCommandInput extends CreateControlRequest {}
 export interface CreateControlCommandOutput extends CreateControlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Creates a new custom control in Audit Manager.
- * </p>
+ * <p> Creates a new custom control in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

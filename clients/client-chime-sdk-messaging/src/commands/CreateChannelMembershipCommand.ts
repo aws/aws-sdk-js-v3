@@ -26,7 +26,7 @@ export interface CreateChannelMembershipCommandInput extends CreateChannelMember
 export interface CreateChannelMembershipCommandOutput extends CreateChannelMembershipResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
+ * <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the
  *          request header. A channel member can:</p>
  *
  *          <ul>

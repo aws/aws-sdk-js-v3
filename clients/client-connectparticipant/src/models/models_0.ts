@@ -159,10 +159,16 @@ export interface CreateParticipantConnectionRequest {
 
   /**
    * <p>This is a header parameter.</p>
-   *         <p>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
+   *         <p>The ParticipantToken as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a>
    *             API response.</p>
    */
   ParticipantToken: string | undefined;
+
+  /**
+   * <p>Amazon Connect Participant is used to mark the participant as connected for message
+   *             streaming.</p>
+   */
+  ConnectParticipant?: boolean;
 }
 
 export namespace CreateParticipantConnectionRequest {
@@ -304,7 +310,8 @@ export namespace GetAttachmentRequest {
 
 export interface GetAttachmentResponse {
   /**
-   * <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+   * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
+   * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
    */
   Url?: string;
 
@@ -466,6 +473,10 @@ export enum ChatItemType {
   CONNECTION_ACK = "CONNECTION_ACK",
   EVENT = "EVENT",
   MESSAGE = "MESSAGE",
+  PARTICIPANT_ACTIVE = "PARTICIPANT_ACTIVE",
+  PARTICIPANT_DISENGAGED = "PARTICIPANT_DISENGAGED",
+  PARTICIPANT_ENGAGED = "PARTICIPANT_ENGAGED",
+  PARTICIPANT_INACTIVE = "PARTICIPANT_INACTIVE",
   PARTICIPANT_JOINED = "PARTICIPANT_JOINED",
   PARTICIPANT_LEFT = "PARTICIPANT_LEFT",
   TRANSFER_FAILED = "TRANSFER_FAILED",
@@ -722,7 +733,8 @@ export namespace StartAttachmentUploadRequest {
  */
 export interface UploadMetadata {
   /**
-   * <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+   * <p>This is the pre-signed URL that can be used for uploading the file to Amazon S3 when used in response
+   * to <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html">StartAttachmentUpload</a>.</p>
    */
   Url?: string;
 

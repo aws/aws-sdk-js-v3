@@ -3535,6 +3535,7 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
     message: undefined,
     resourceIdentifier: undefined,
     resourceType: undefined,
+    retryAfter: undefined,
   };
   const data: any = parsedOutput.body;
   if (data.message !== undefined && data.message !== null) {
@@ -3545,6 +3546,9 @@ const deserializeAws_restJson1ConflictExceptionResponse = async (
   }
   if (data.resourceType !== undefined && data.resourceType !== null) {
     contents.resourceType = __expectString(data.resourceType);
+  }
+  if (data.retryAfter !== undefined && data.retryAfter !== null) {
+    contents.retryAfter = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.retryAfter)));
   }
   return contents;
 };

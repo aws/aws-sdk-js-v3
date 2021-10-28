@@ -1,7 +1,7 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>You don't have sufficient access to perform this action.</p>
+ * <p>You don't have sufficient access to perform this operation.</p>
  */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
@@ -24,7 +24,8 @@ export enum SsmTargetAccount {
 }
 
 /**
- * <p>Details about the Systems Manager automation document that will be used as a runbook during an incident.</p>
+ * <p>Details about the Systems Manager automation document that will be used as a runbook
+ *          during an incident.</p>
  */
 export interface SsmAutomation {
   /**
@@ -70,8 +71,8 @@ export type Action = Action.SsmAutomationMember | Action.$UnknownMember;
 
 export namespace Action {
   /**
-   * <p>The Systems Manager automation document to start as the runbook at the beginning of the
-   *          incident.</p>
+   * <p>The Systems Manager automation document to start as the runbook at the beginning of
+   *          the incident.</p>
    */
   export interface SsmAutomationMember {
     ssmAutomation: SsmAutomation;
@@ -103,11 +104,12 @@ export namespace Action {
 }
 
 /**
- * <p>Defines the Region and KMS key to add to the replication set. </p>
+ * <p>Defines the Amazon Web Services Region and KMS key to add to the
+ *          replication set. </p>
  */
 export interface AddRegionAction {
   /**
-   * <p>The Region name to add to the replication set.</p>
+   * <p>The Amazon Web Services Region name to add to the replication set.</p>
    */
   regionName: string | undefined;
 
@@ -182,9 +184,8 @@ export namespace AttributeValueList {
 }
 
 /**
- * <p>The Systems Manager automation document
- *          process
- *          to start as the runbook at the beginning of the incident.</p>
+ * <p>The Systems Manager automation document process to start as the runbook at the
+ *          beginning of the incident.</p>
  */
 export type AutomationExecution = AutomationExecution.SsmExecutionArnMember | AutomationExecution.$UnknownMember;
 
@@ -236,7 +237,8 @@ export namespace EmptyChatChannel {
 }
 
 /**
- * <p>The AWS Chatbot chat channel used for collaboration during an incident.</p>
+ * <p>The Chatbot chat channel used for collaboration during an
+ *          incident.</p>
  */
 export type ChatChannel = ChatChannel.ChatbotSnsMember | ChatChannel.EmptyMember | ChatChannel.$UnknownMember;
 
@@ -251,10 +253,11 @@ export namespace ChatChannel {
   }
 
   /**
-   * <p>The SNS targets that AWS Chatbot uses to notify the chat channel of updates to an
-   *          incident. You can also make updates to the incident through the chat channel
+   * <p>The Amazon SNS targets that Chatbot uses to notify the chat channel
+   *          of updates to an incident. You can also make updates to the incident through the chat
+   *          channel
    *          by
-   *          using the SNS topics. </p>
+   *          using the Amazon SNS topics. </p>
    */
   export interface ChatbotSnsMember {
     empty?: never;
@@ -389,6 +392,11 @@ export interface ConflictException extends __SmithyException, $MetadataBearer {
    * The resource type
    */
   resourceType?: ResourceType | string;
+
+  /**
+   * If present in the output, the operation can be retried after this time
+   */
+  retryAfter?: Date;
 }
 
 export namespace ConflictException {
@@ -401,7 +409,8 @@ export namespace ConflictException {
 }
 
 /**
- * <p>The mapping between a Region and the key that's used to encrypt the data.</p>
+ * <p>The mapping between a Amazon Web Services Region and the key that's used to encrypt the
+ *          data.</p>
  */
 export interface RegionMapInputValue {
   /**
@@ -427,7 +436,8 @@ export interface CreateReplicationSetInput {
   regions: { [key: string]: RegionMapInputValue } | undefined;
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 }
@@ -545,7 +555,8 @@ export namespace ThrottlingException {
 }
 
 /**
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *       service.</p>
  */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
@@ -626,7 +637,8 @@ export interface IncidentTemplate {
   dedupeString?: string;
 
   /**
-   * <p>The SNS targets that are notified when updates are made to an incident.</p>
+   * <p>The Amazon SNS targets that are notified when updates are made to an
+   *          incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
@@ -645,7 +657,8 @@ export namespace IncidentTemplate {
 
 export interface CreateResponsePlanInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
@@ -665,9 +678,8 @@ export interface CreateResponsePlanInput {
   incidentTemplate: IncidentTemplate | undefined;
 
   /**
-   * <p>The
-   *             AWS Chatbot
-   *             chat channel used for collaboration during an incident.</p>
+   * <p>The Chatbot chat channel used for collaboration during an
+   *             incident.</p>
    */
   chatChannel?: ChatChannel;
 
@@ -717,7 +729,7 @@ export namespace CreateResponsePlanOutput {
 }
 
 /**
- * <p>Request references a resource which does not exist. </p>
+ * <p>Request references a resource which doesn't exist. </p>
  */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
@@ -745,13 +757,14 @@ export namespace ResourceNotFoundException {
 
 export interface CreateTimelineEventInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the action is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident record you are adding the event
-   *             to.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident record to which the event will be
+   *             added.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -767,7 +780,8 @@ export interface CreateTimelineEventInput {
   eventType: string | undefined;
 
   /**
-   * <p>A valid JSON string. There is no other schema imposed. A short description of the event.</p>
+   * <p>A short description of the event as a valid JSON string. There is no other schema
+   *             imposed.</p>
    */
   eventData: string | undefined;
 }
@@ -830,12 +844,13 @@ export namespace DeleteIncidentRecordOutput {
 }
 
 /**
- * <p>Defines the information about the Region you're deleting from your replication
- *          set.</p>
+ * <p>Defines the information about the Amazon Web Services Region you're deleting from your
+ *          replication set.</p>
  */
 export interface DeleteRegionAction {
   /**
-   * <p>The name of the Region you're deleting from the replication set.</p>
+   * <p>The name of the Amazon Web Services Region you're deleting from the replication
+   *          set.</p>
    */
   regionName: string | undefined;
 }
@@ -937,12 +952,14 @@ export namespace DeleteResponsePlanOutput {
 
 export interface DeleteTimelineEventInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that the event is part of.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
+   *             event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>The ID of the event you are updating. You can find this by using <code>ListTimelineEvents</code>.</p>
+   * <p>The ID of the event you are updating. You can find this by using
+   *                 <code>ListTimelineEvents</code>.</p>
    */
   eventId: string | undefined;
 }
@@ -1048,7 +1065,7 @@ export namespace GetIncidentRecordInput {
 }
 
 /**
- * <p>Details about how the incident record was created and when.</p>
+ * <p>Details about what created the incident record and when it was created.</p>
  */
 export interface IncidentRecordSource {
   /**
@@ -1068,11 +1085,8 @@ export interface IncidentRecordSource {
 
   /**
    * <p>The service that started the incident. This can be manually created from Incident Manager,
-   *          automatically created using an
-   *          AWS
-   *          CloudWatch alarm, or
-   *          Amazon
-   *          EventBridge event.</p>
+   *          automatically created using an Amazon CloudWatch alarm, or Amazon EventBridge
+   *          event.</p>
    */
   source: string | undefined;
 }
@@ -1106,7 +1120,8 @@ export interface IncidentRecord {
   title: string | undefined;
 
   /**
-   * <p>The summary of the incident. The summary is a brief synopsis of what occurred, what is currently happening, and context.</p>
+   * <p>The summary of the incident. The summary is a brief synopsis of what occurred, what's
+   *          currently happening, and context of the incident.</p>
    */
   summary?: string;
 
@@ -1151,7 +1166,7 @@ export interface IncidentRecord {
   incidentRecordSource: IncidentRecordSource | undefined;
 
   /**
-   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same incident.</p>
+   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same incident in the same account.</p>
    */
   dedupeString: string | undefined;
 
@@ -1161,7 +1176,8 @@ export interface IncidentRecord {
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The SNS targets that are notified when updates are made to an incident.</p>
+   * <p>The Amazon SNS targets that are notified when updates are made to an
+   *          incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
 }
@@ -1184,7 +1200,7 @@ export namespace IncidentRecord {
 
 export interface GetIncidentRecordOutput {
   /**
-   * <p>Details structure of the incident record.</p>
+   * <p>Details the structure of the incident record.</p>
    */
   incidentRecord: IncidentRecord | undefined;
 }
@@ -1235,26 +1251,26 @@ export enum RegionStatus {
 }
 
 /**
- * <p>Information about a Region in your replication set.</p>
+ * <p>Information about a Amazon Web Services Region in your replication set.</p>
  */
 export interface RegionInfo {
   /**
-   * <p>The ID of the KMS key used to encrypt the data in this Region.</p>
+   * <p>The ID of the KMS key used to encrypt the data in this Amazon Web Services Region.</p>
    */
   sseKmsKeyId?: string;
 
   /**
-   * <p>The status of the Region in the replication set.</p>
+   * <p>The status of the Amazon Web Services Region in the replication set.</p>
    */
   status: RegionStatus | string | undefined;
 
   /**
-   * <p>Information displayed about the status of the Region.</p>
+   * <p>Information displayed about the status of the Amazon Web Services Region.</p>
    */
   statusMessage?: string;
 
   /**
-   * <p>The most recent date and time that the Region's status was updated.</p>
+   * <p>The most recent date and time that Incident Manager updated the Amazon Web Services Region's status.</p>
    */
   statusUpdateDateTime: Date | undefined;
 }
@@ -1292,8 +1308,8 @@ export enum ReplicationSetStatus {
 }
 
 /**
- * <p>The set of Regions that your Incident Manager data will be replicated to and the KMS key used
- *          to encrypt the data. </p>
+ * <p>The set of Amazon Web Services Region that your Incident Manager data will be replicated to
+ *          and the KMS key used to encrypt the data. </p>
  */
 export interface ReplicationSet {
   /**
@@ -1302,8 +1318,7 @@ export interface ReplicationSet {
   arn?: string;
 
   /**
-   * <p>The map between each Region in your replication set and the KMS key that is used to
-   *          encrypt the data in that Region.</p>
+   * <p>The map between each Amazon Web Services Region in your replication set and the KMS key that's used to encrypt the data in that Region.</p>
    */
   regionMap: { [key: string]: RegionInfo } | undefined;
 
@@ -1315,7 +1330,8 @@ export interface ReplicationSet {
 
   /**
    * <p>Determines if the replication set deletion protection is enabled or not. If deletion
-   *          protection is enabled, you can't delete the last Region in the replication set. </p>
+   *          protection is enabled, you can't delete the last Amazon Web Services Region in the
+   *          replication set. </p>
    */
   deletionProtected: boolean | undefined;
 
@@ -1406,7 +1422,7 @@ export interface ResourcePolicy {
   policyId: string | undefined;
 
   /**
-   * <p>The Region that policy allows resources to be used in.</p>
+   * <p>The Amazon Web Services Region that policy allows resources to be used in.</p>
    */
   ramResourceShareRegion: string | undefined;
 }
@@ -1464,7 +1480,7 @@ export interface GetResponsePlanOutput {
   arn: string | undefined;
 
   /**
-   * <p>The short format name of the response plan. Can't contain spaces.</p>
+   * <p>The short format name of the response plan. The name can't contain spaces.</p>
    */
   name: string | undefined;
 
@@ -1479,9 +1495,7 @@ export interface GetResponsePlanOutput {
   incidentTemplate: IncidentTemplate | undefined;
 
   /**
-   * <p>The
-   *             AWS
-   *             Chatbot chat channel used for collaboration during an
+   * <p>The Chatbot chat channel used for collaboration during an
    *             incident.</p>
    */
   chatChannel?: ChatChannel;
@@ -1512,12 +1526,14 @@ export namespace GetResponsePlanOutput {
 
 export interface GetTimelineEventInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that the timeline event is part of.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
+   *             event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>The ID of the event. You can get an event's ID when you create it or by using <code>ListTimelineEvents</code>.</p>
+   * <p>The ID of the event. You can get an event's ID when you create it, or by using
+   *                 <code>ListTimelineEvents</code>.</p>
    */
   eventId: string | undefined;
 }
@@ -1673,7 +1689,7 @@ export namespace ItemValue {
   }
 
   /**
-   * <p>The URL, if the related item is a non-AWS resource.</p>
+   * <p>The URL, if the related item is a non-Amazon Web Services resource.</p>
    */
   export interface UrlMember {
     arn?: never;
@@ -1683,7 +1699,7 @@ export namespace ItemValue {
   }
 
   /**
-   * <p>The metric definition, if the related item is a metric in CloudWatch.</p>
+   * <p>The metric definition, if the related item is a metric in Amazon CloudWatch.</p>
    */
   export interface MetricDefinitionMember {
     arn?: never;
@@ -1783,8 +1799,8 @@ export namespace ItemIdentifier {
 
 export interface ListIncidentRecordsInput {
   /**
-   * <p>Filter the list of incident records you are searching through. You can filter on the
-   *             following keys:</p>
+   * <p>Filters the list of incident records through which you are searching. You can filter
+   *             on the following keys:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -1805,6 +1821,21 @@ export interface ListIncidentRecordsInput {
    *                 <p>
    *                   <code>createdBy</code>
    *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>Note the following when deciding how to use Filters:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If you don't specify a Filter, the response includes all incident
+   *                     records.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you specify more than one filter in a single request, the response returns
+   *                     incident records that match all filters.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you specify a filter with more than one value, the response returns
+   *                     incident records that match any of the values provided.</p>
    *             </li>
    *          </ul>
    */
@@ -1854,7 +1885,8 @@ export namespace ListIncidentRecordsOutput {
 
 export interface ListRelatedItemsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident record that you are listing related items for.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident record containing the listed related
+   *             items.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -2081,7 +2113,8 @@ export enum SortOrder {
 
 export interface ListTimelineEventsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that the event is part of.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
+   *             event.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -2098,6 +2131,21 @@ export interface ListTimelineEventsInput {
    *                 <p>
    *                   <code>eventType</code>
    *                </p>
+   *             </li>
+   *          </ul>
+   *         <p>Note the following when deciding how to use Filters:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If you don't specify a Filter, the response includes all timeline
+   *                     events.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you specify more than one filter in a single request, the response returns
+   *                     timeline events that match all filters.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you specify a filter with more than one value, the response returns
+   *                     timeline events that match any of the values provided.</p>
    *             </li>
    *          </ul>
    */
@@ -2254,14 +2302,14 @@ export namespace RelatedItemsUpdate {
  */
 export interface TriggerDetails {
   /**
-   * <p>Identifies the service that sourced the event. All events sourced from within AWS begin
-   *          with "aws." Customer-generated events can have any value here, as long as it doesn't begin
-   *          with "aws." We recommend the use of Java package-name style reverse domain-name strings. </p>
+   * <p>Identifies the service that sourced the event. All events sourced from within Amazon Web Services begin with "<code>aws.</code>" Customer-generated events can have any value
+   *          here, as long as it doesn't begin with "<code>aws.</code>" We recommend the use of Java
+   *          package-name style reverse domain-name strings. </p>
    */
   source: string | undefined;
 
   /**
-   * <p>The ARN of the source that detected the incident.</p>
+   * <p>The Amazon Resource Name (ARN) of the source that detected the incident.</p>
    */
   triggerArn?: string;
 
@@ -2271,8 +2319,7 @@ export interface TriggerDetails {
   timestamp: Date | undefined;
 
   /**
-   * <p>Raw data passed from either EventBridge, CloudWatch, or Incident Manager when an
-   *          incident is created.</p>
+   * <p>Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or Incident Manager when an incident is created.</p>
    */
   rawData?: string;
 }
@@ -2288,13 +2335,14 @@ export namespace TriggerDetails {
 
 export interface StartIncidentInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat
-   *             channels, SNS topics, runbooks, title, and impact of the incident. </p>
+   *             channels, Amazon SNS topics, runbooks, title, and impact of the incident. </p>
    */
   responsePlanArn: string | undefined;
 
@@ -2347,7 +2395,7 @@ export interface StartIncidentInput {
 
   /**
    * <p>Add related items to the incident for other responders to use. Related items are AWS
-   *             resources, external links, or files uploaded to an S3 bucket. </p>
+   *             resources, external links, or files uploaded to an Amazon S3 bucket. </p>
    */
   relatedItems?: RelatedItem[];
 }
@@ -2454,7 +2502,8 @@ export interface UpdateDeletionProtectionInput {
   deletionProtected: boolean | undefined;
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 }
@@ -2481,7 +2530,8 @@ export namespace UpdateDeletionProtectionOutput {
 
 export interface UpdateIncidentRecordInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token that ensures that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
@@ -2491,26 +2541,26 @@ export interface UpdateIncidentRecordInput {
   arn: string | undefined;
 
   /**
-   * <p>The title of the incident is a brief and easily recognizable.</p>
+   * <p>A brief description of the incident.</p>
    */
   title?: string;
 
   /**
-   * <p>The summary describes what has happened during the incident.</p>
+   * <p>A longer description of what occurred during the incident.</p>
    */
   summary?: string;
 
   /**
-   * <p>Defines the impact to customers and applications. Providing an impact overwrites the
-   *             impact provided by the response plan.</p>
+   * <p>Defines the impact of the incident to customers and applications. Providing an impact
+   *             overwrites the impact provided by the response plan.</p>
    *         <p class="title">
    *             <b>Possible impacts:</b>
    *          </p>
    *          <ul>
    *             <li>
    *                 <p>
-   *                   <code>1</code> - Critical impact, this typically relates to full application
-   *                     failure that impacts many to all customers. </p>
+   *                   <code>1</code> - Critical impact, full application failure that impacts many
+   *                     to all customers. </p>
    *             </li>
    *             <li>
    *                 <p>
@@ -2519,12 +2569,12 @@ export interface UpdateIncidentRecordInput {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>3</code> -  Medium impact, the application is providing reduced service
+   *                   <code>3</code> - Medium impact, the application is providing reduced service
    *                     to customers.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>4</code> -  Low impact, customer might aren't impacted by the problem
+   *                   <code>4</code> - Low impact, customer aren't impacted by the problem
    *                     yet.</p>
    *             </li>
    *             <li>
@@ -2537,18 +2587,20 @@ export interface UpdateIncidentRecordInput {
   impact?: number;
 
   /**
-   * <p>The status of the incident. An incident can be <code>Open</code> or <code>Resolved</code>.</p>
+   * <p>The status of the incident. An incident can be <code>Open</code> or
+   *                 <code>Resolved</code>.</p>
    */
   status?: IncidentRecordStatus | string;
 
   /**
-   * <p>The AWS Chatbot chat channel for responders to collaborate in.</p>
+   * <p>The Chatbot chat channel where responders can collaborate.</p>
    */
   chatChannel?: ChatChannel;
 
   /**
-   * <p>The SNS targets that are notified when updates are made to an incident.</p>
-   *         <p>Using multiple SNS topics creates redundancy in the case that a Region is down during
+   * <p>The Amazon SNS targets that are notified when updates are made to an
+   *             incident.</p>
+   *         <p>Using multiple SNS topics creates redundancy in the event that a Region is down during
    *             the incident.</p>
    */
   notificationTargets?: NotificationTargetItem[];
@@ -2580,13 +2632,14 @@ export namespace UpdateIncidentRecordOutput {
 
 export interface UpdateRelatedItemsInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident record you are updating related items
-   *             in.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident record containing the related items you
+   *             are updating.</p>
    */
   incidentRecordArn: string | undefined;
 
@@ -2629,7 +2682,8 @@ export type UpdateReplicationSetAction =
 
 export namespace UpdateReplicationSetAction {
   /**
-   * <p>Details about the Region that you're adding to the replication set.</p>
+   * <p>Details about the Amazon Web Services Region that you're adding to the replication
+   *          set.</p>
    */
   export interface AddRegionActionMember {
     addRegionAction: AddRegionAction;
@@ -2638,7 +2692,8 @@ export namespace UpdateReplicationSetAction {
   }
 
   /**
-   * <p>Details about the Region that you're deleting to the replication set.</p>
+   * <p>Details about the Amazon Web Services Region that you're deleting to the replication
+   *          set.</p>
    */
   export interface DeleteRegionActionMember {
     addRegionAction?: never;
@@ -2688,7 +2743,8 @@ export interface UpdateReplicationSetInput {
   actions: UpdateReplicationSetAction[] | undefined;
 
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 }
@@ -2716,7 +2772,8 @@ export namespace UpdateReplicationSetOutput {
 
 export interface UpdateResponsePlanInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
@@ -2726,12 +2783,13 @@ export interface UpdateResponsePlanInput {
   arn: string | undefined;
 
   /**
-   * <p>The long format name of the response plan. Can't contain spaces.</p>
+   * <p>The long format name of the response plan. The display name can't contain
+   *             spaces.</p>
    */
   displayName?: string;
 
   /**
-   * <p>The short format name of the incident. Can't contain spaces.</p>
+   * <p>The short format name of the incident. The title can't contain spaces.</p>
    */
   incidentTemplateTitle?: string;
 
@@ -2773,19 +2831,19 @@ export interface UpdateResponsePlanInput {
   incidentTemplateSummary?: string;
 
   /**
-   * <p>Used to create only one incident record for an incident.</p>
+   * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the
+   *             same incident in the same account.</p>
    */
   incidentTemplateDedupeString?: string;
 
   /**
-   * <p>The SNS targets that are notified when updates are made to an incident.</p>
+   * <p>The Amazon SNS targets that are notified when updates are made to an
+   *             incident.</p>
    */
   incidentTemplateNotificationTargets?: NotificationTargetItem[];
 
   /**
-   * <p>The
-   *             AWS
-   *             Chatbot chat channel used for collaboration during an
+   * <p>The Chatbot chat channel used for collaboration during an
    *             incident.</p>
    *         <p>Use the empty structure to remove the chat channel from the response plan.</p>
    */
@@ -2831,18 +2889,20 @@ export namespace UpdateResponsePlanOutput {
 
 export interface UpdateTimelineEventInput {
   /**
-   * <p>A token ensuring that the action is called only once with the specified details.</p>
+   * <p>A token ensuring that the operation is called only once with the specified
+   *             details.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the incident that the timeline event is part
-   *             of.</p>
+   * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline
+   *             event.</p>
    */
   incidentRecordArn: string | undefined;
 
   /**
-   * <p>The ID of the event you are updating. You can find this by using <code>ListTimelineEvents</code>.</p>
+   * <p>The ID of the event you are updating. You can find this by using
+   *                 <code>ListTimelineEvents</code>.</p>
    */
   eventId: string | undefined;
 

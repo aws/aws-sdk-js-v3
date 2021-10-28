@@ -68,6 +68,10 @@ import {
   DeleteAppInstanceUserCommandOutput,
 } from "./commands/DeleteAppInstanceUserCommand";
 import {
+  DeregisterAppInstanceUserEndpointCommandInput,
+  DeregisterAppInstanceUserEndpointCommandOutput,
+} from "./commands/DeregisterAppInstanceUserEndpointCommand";
+import {
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
 } from "./commands/DescribeAppInstanceAdminCommand";
@@ -80,6 +84,10 @@ import {
   DescribeAppInstanceUserCommandOutput,
 } from "./commands/DescribeAppInstanceUserCommand";
 import {
+  DescribeAppInstanceUserEndpointCommandInput,
+  DescribeAppInstanceUserEndpointCommandOutput,
+} from "./commands/DescribeAppInstanceUserEndpointCommand";
+import {
   GetAppInstanceRetentionSettingsCommandInput,
   GetAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/GetAppInstanceRetentionSettingsCommand";
@@ -89,18 +97,36 @@ import {
 } from "./commands/ListAppInstanceAdminsCommand";
 import { ListAppInstancesCommandInput, ListAppInstancesCommandOutput } from "./commands/ListAppInstancesCommand";
 import {
+  ListAppInstanceUserEndpointsCommandInput,
+  ListAppInstanceUserEndpointsCommandOutput,
+} from "./commands/ListAppInstanceUserEndpointsCommand";
+import {
   ListAppInstanceUsersCommandInput,
   ListAppInstanceUsersCommandOutput,
 } from "./commands/ListAppInstanceUsersCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutAppInstanceRetentionSettingsCommandInput,
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
+import {
+  RegisterAppInstanceUserEndpointCommandInput,
+  RegisterAppInstanceUserEndpointCommandOutput,
+} from "./commands/RegisterAppInstanceUserEndpointCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAppInstanceCommandInput, UpdateAppInstanceCommandOutput } from "./commands/UpdateAppInstanceCommand";
 import {
   UpdateAppInstanceUserCommandInput,
   UpdateAppInstanceUserCommandOutput,
 } from "./commands/UpdateAppInstanceUserCommand";
+import {
+  UpdateAppInstanceUserEndpointCommandInput,
+  UpdateAppInstanceUserEndpointCommandOutput,
+} from "./commands/UpdateAppInstanceUserEndpointCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -110,16 +136,24 @@ export type ServiceInputTypes =
   | DeleteAppInstanceAdminCommandInput
   | DeleteAppInstanceCommandInput
   | DeleteAppInstanceUserCommandInput
+  | DeregisterAppInstanceUserEndpointCommandInput
   | DescribeAppInstanceAdminCommandInput
   | DescribeAppInstanceCommandInput
   | DescribeAppInstanceUserCommandInput
+  | DescribeAppInstanceUserEndpointCommandInput
   | GetAppInstanceRetentionSettingsCommandInput
   | ListAppInstanceAdminsCommandInput
+  | ListAppInstanceUserEndpointsCommandInput
   | ListAppInstanceUsersCommandInput
   | ListAppInstancesCommandInput
+  | ListTagsForResourceCommandInput
   | PutAppInstanceRetentionSettingsCommandInput
+  | RegisterAppInstanceUserEndpointCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateAppInstanceCommandInput
-  | UpdateAppInstanceUserCommandInput;
+  | UpdateAppInstanceUserCommandInput
+  | UpdateAppInstanceUserEndpointCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAppInstanceAdminCommandOutput
@@ -128,16 +162,24 @@ export type ServiceOutputTypes =
   | DeleteAppInstanceAdminCommandOutput
   | DeleteAppInstanceCommandOutput
   | DeleteAppInstanceUserCommandOutput
+  | DeregisterAppInstanceUserEndpointCommandOutput
   | DescribeAppInstanceAdminCommandOutput
   | DescribeAppInstanceCommandOutput
   | DescribeAppInstanceUserCommandOutput
+  | DescribeAppInstanceUserEndpointCommandOutput
   | GetAppInstanceRetentionSettingsCommandOutput
   | ListAppInstanceAdminsCommandOutput
+  | ListAppInstanceUserEndpointsCommandOutput
   | ListAppInstanceUsersCommandOutput
   | ListAppInstancesCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutAppInstanceRetentionSettingsCommandOutput
+  | RegisterAppInstanceUserEndpointCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateAppInstanceCommandOutput
-  | UpdateAppInstanceUserCommandOutput;
+  | UpdateAppInstanceUserCommandOutput
+  | UpdateAppInstanceUserEndpointCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

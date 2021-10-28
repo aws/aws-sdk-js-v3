@@ -11,7 +11,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse } from "../models/models_0";
+import { DescribeDBProxyTargetsRequest } from "../models/models_0";
+import { DescribeDBProxyTargetsResponse } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBProxyTargetsCommand,
   serializeAws_queryDescribeDBProxyTargetsCommand,

@@ -29,6 +29,10 @@ import {
   AssociateTrialComponentCommandInput,
   AssociateTrialComponentCommandOutput,
 } from "../commands/AssociateTrialComponentCommand";
+import {
+  BatchDescribeModelPackageCommandInput,
+  BatchDescribeModelPackageCommandOutput,
+} from "../commands/BatchDescribeModelPackageCommand";
 import { CreateActionCommandInput, CreateActionCommandOutput } from "../commands/CreateActionCommand";
 import { CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput } from "../commands/CreateAlgorithmCommand";
 import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
@@ -608,6 +612,7 @@ import {
   UpdatePipelineExecutionCommandInput,
   UpdatePipelineExecutionCommandOutput,
 } from "../commands/UpdatePipelineExecutionCommand";
+import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
 import { UpdateTrainingJobCommandInput, UpdateTrainingJobCommandOutput } from "../commands/UpdateTrainingJobCommand";
 import { UpdateTrialCommandInput, UpdateTrialCommandOutput } from "../commands/UpdateTrialCommand";
 import {
@@ -662,6 +667,10 @@ import {
   AutoMLS3DataSource,
   AutoMLSecurityConfig,
   AutoRollbackConfig,
+  BatchDescribeModelPackageError,
+  BatchDescribeModelPackageInput,
+  BatchDescribeModelPackageOutput,
+  BatchDescribeModelPackageSummary,
   Bias,
   BlueGreenUpdatePolicy,
   CacheHitResult,
@@ -732,10 +741,6 @@ import {
   CreateImageResponse,
   CreateImageVersionRequest,
   CreateImageVersionResponse,
-  CreateLabelingJobRequest,
-  CreateLabelingJobResponse,
-  CreateModelInput,
-  CreateModelOutput,
   CustomImage,
   DataCaptureConfig,
   DataCatalogConfig,
@@ -743,6 +748,7 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
+  DomainSettings,
   EdgeOutputConfig,
   EndpointInput,
   FeatureDefinition,
@@ -763,7 +769,6 @@ import {
   HyperParameterTuningJobObjective,
   HyperParameterTuningJobWarmStartConfig,
   ImageConfig,
-  InferenceExecutionConfig,
   InferenceSpecification,
   InputConfig,
   IntegerParameterRange,
@@ -772,26 +777,19 @@ import {
   KernelGatewayAppSettings,
   KernelGatewayImageConfig,
   KernelSpec,
-  LabelingJobAlgorithmsConfig,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
   LabelingJobInputConfig,
-  LabelingJobOutputConfig,
-  LabelingJobResourceConfig,
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
-  LabelingJobStoppingConditions,
   MetadataProperties,
   MetricDatum,
   MetricDefinition,
   MetricsSource,
-  ModelBiasAppSpecification,
-  ModelBiasBaselineConfig,
   ModelDeployConfig,
   ModelPackageContainerDefinition,
   MonitoringClusterConfig,
   MonitoringConstraintsResource,
-  MonitoringGroundTruthS3Input,
   MonitoringNetworkConfig,
   MonitoringOutput,
   MonitoringOutputConfig,
@@ -822,6 +820,9 @@ import {
   ResourceNotFound,
   ResourceSpec,
   RetryStrategy,
+  RSessionAppSettings,
+  RStudioServerProAppSettings,
+  RStudioServerProDomainSettings,
   S3DataSource,
   S3StorageConfig,
   SharingSettings,
@@ -851,10 +852,14 @@ import {
   VpcConfig,
 } from "../models/models_0";
 import {
+  CreateLabelingJobRequest,
+  CreateLabelingJobResponse,
   CreateModelBiasJobDefinitionRequest,
   CreateModelBiasJobDefinitionResponse,
   CreateModelExplainabilityJobDefinitionRequest,
   CreateModelExplainabilityJobDefinitionResponse,
+  CreateModelInput,
+  CreateModelOutput,
   CreateModelPackageGroupInput,
   CreateModelPackageGroupOutput,
   CreateModelPackageInput,
@@ -1030,12 +1035,6 @@ import {
   DescribeProcessingJobRequest,
   DescribeProcessingJobResponse,
   DescribeProjectInput,
-  DescribeProjectOutput,
-  DescribeStudioLifecycleConfigRequest,
-  DescribeStudioLifecycleConfigResponse,
-  DescribeSubscribedWorkteamRequest,
-  DescribeSubscribedWorkteamResponse,
-  DescribeTrainingJobRequest,
   EdgeModel,
   EdgePresetDeploymentOutput,
   ExperimentConfig,
@@ -1043,11 +1042,17 @@ import {
   Explainability,
   FinalHyperParameterTuningJobObjectiveMetric,
   HyperParameterTrainingJobSummary,
+  InferenceExecutionConfig,
   LabelCounters,
+  LabelingJobAlgorithmsConfig,
   LabelingJobOutput,
+  LabelingJobOutputConfig,
+  LabelingJobResourceConfig,
+  LabelingJobStoppingConditions,
   MemberDefinition,
-  MetricData,
   ModelArtifacts,
+  ModelBiasAppSpecification,
+  ModelBiasBaselineConfig,
   ModelBiasJobInput,
   ModelClientConfig,
   ModelDataQuality,
@@ -1068,6 +1073,7 @@ import {
   MonitoringAppSpecification,
   MonitoringBaselineConfig,
   MonitoringExecutionSummary,
+  MonitoringGroundTruthS3Input,
   MonitoringInput,
   MonitoringJobDefinition,
   MonitoringScheduleConfig,
@@ -1092,18 +1098,15 @@ import {
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  ProfilerRuleEvaluationStatus,
   ProvisioningParameter,
   RedshiftDatasetDefinition,
   ResolvedAttributes,
   RetentionPolicy,
   ScheduleConfig,
-  ServiceCatalogProvisionedProductDetails,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithm,
   SourceAlgorithmSpecification,
   SourceIpConfig,
-  SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatusCounters,
   TrialComponentArtifact,
@@ -1112,6 +1115,12 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeProjectOutput,
+  DescribeStudioLifecycleConfigRequest,
+  DescribeStudioLifecycleConfigResponse,
+  DescribeSubscribedWorkteamRequest,
+  DescribeSubscribedWorkteamResponse,
+  DescribeTrainingJobRequest,
   DescribeTrainingJobResponse,
   DescribeTransformJobRequest,
   DescribeTransformJobResponse,
@@ -1135,6 +1144,7 @@ import {
   DisassociateTrialComponentRequest,
   DisassociateTrialComponentResponse,
   DomainDetails,
+  DomainSettingsForUpdate,
   EdgeModelStat,
   EdgeModelSummary,
   EdgePackagingJobSummary,
@@ -1274,6 +1284,7 @@ import {
   ListWorkforcesResponse,
   ListWorkteamsRequest,
   ListWorkteamsResponse,
+  MetricData,
   ModelPackage,
   ModelPackageGroup,
   ModelPackageGroupSummary,
@@ -1299,6 +1310,7 @@ import {
   ProcessingJobStepMetadata,
   ProcessingJobSummary,
   ProfilerConfigForUpdate,
+  ProfilerRuleEvaluationStatus,
   Project,
   ProjectSummary,
   PropertyNameQuery,
@@ -1313,6 +1325,7 @@ import {
   RenderUiTemplateResponse,
   RetryPipelineExecutionRequest,
   RetryPipelineExecutionResponse,
+  RStudioServerProDomainSettingsForUpdate,
   SearchRecord,
   SearchResponse,
   SecondaryStatusTransition,
@@ -1320,6 +1333,7 @@ import {
   SendPipelineExecutionStepFailureResponse,
   SendPipelineExecutionStepSuccessRequest,
   SendPipelineExecutionStepSuccessResponse,
+  ServiceCatalogProvisionedProductDetails,
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
@@ -1327,16 +1341,8 @@ import {
   StopAutoMLJobRequest,
   StopCompilationJobRequest,
   StopEdgePackagingJobRequest,
-  StopHyperParameterTuningJobRequest,
-  StopLabelingJobRequest,
-  StopMonitoringScheduleRequest,
-  StopNotebookInstanceInput,
-  StopPipelineExecutionRequest,
-  StopPipelineExecutionResponse,
-  StopProcessingJobRequest,
-  StopTrainingJobRequest,
-  StopTransformJobRequest,
   StudioLifecycleConfigDetails,
+  SubscribedWorkteam,
   SuggestionQuery,
   TrainingJob,
   TrainingJobStepMetadata,
@@ -1354,10 +1360,6 @@ import {
   TrialSource,
   TrialSummary,
   TuningJobStepMetaData,
-  UpdateActionRequest,
-  UpdateActionResponse,
-  UpdateAppImageConfigRequest,
-  UpdateAppImageConfigResponse,
   UserProfileDetails,
   Workforce,
   Workteam,
@@ -1365,6 +1367,20 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  ServiceCatalogProvisioningUpdateDetails,
+  StopHyperParameterTuningJobRequest,
+  StopLabelingJobRequest,
+  StopMonitoringScheduleRequest,
+  StopNotebookInstanceInput,
+  StopPipelineExecutionRequest,
+  StopPipelineExecutionResponse,
+  StopProcessingJobRequest,
+  StopTrainingJobRequest,
+  StopTransformJobRequest,
+  UpdateActionRequest,
+  UpdateActionResponse,
+  UpdateAppImageConfigRequest,
+  UpdateAppImageConfigResponse,
   UpdateArtifactRequest,
   UpdateArtifactResponse,
   UpdateCodeRepositoryInput,
@@ -1395,6 +1411,8 @@ import {
   UpdatePipelineExecutionResponse,
   UpdatePipelineRequest,
   UpdatePipelineResponse,
+  UpdateProjectInput,
+  UpdateProjectOutput,
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
@@ -1446,6 +1464,19 @@ export const serializeAws_json1_1AssociateTrialComponentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateTrialComponentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchDescribeModelPackageCommand = async (
+  input: BatchDescribeModelPackageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.BatchDescribeModelPackage",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchDescribeModelPackageInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -4452,6 +4483,19 @@ export const serializeAws_json1_1UpdatePipelineExecutionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateProjectCommand = async (
+  input: UpdateProjectCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateProject",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateProjectInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateTrainingJobCommand = async (
   input: UpdateTrainingJobCommandInput,
   context: __SerdeContext
@@ -4683,6 +4727,52 @@ const deserializeAws_json1_1AssociateTrialComponentCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1BatchDescribeModelPackageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeModelPackageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchDescribeModelPackageCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchDescribeModelPackageOutput(data, context);
+  const response: BatchDescribeModelPackageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchDescribeModelPackageCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDescribeModelPackageCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -16795,6 +16885,52 @@ const deserializeAws_json1_1UpdatePipelineExecutionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateProjectCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateProjectOutput(data, context);
+  const response: UpdateProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateProjectCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateTrainingJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -17558,6 +17694,18 @@ const serializeAws_json1_1AutoRollbackConfig = (input: AutoRollbackConfig, conte
   };
 };
 
+const serializeAws_json1_1BatchDescribeModelPackageInput = (
+  input: BatchDescribeModelPackageInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelPackageArnList !== undefined &&
+      input.ModelPackageArnList !== null && {
+        ModelPackageArnList: serializeAws_json1_1ModelPackageArnList(input.ModelPackageArnList, context),
+      }),
+  };
+};
+
 const serializeAws_json1_1Bias = (input: Bias, context: __SerdeContext): any => {
   return {
     ...(input.Report !== undefined &&
@@ -18157,12 +18305,18 @@ const serializeAws_json1_1CreateDomainRequest = (input: CreateDomainRequest, con
   return {
     ...(input.AppNetworkAccessType !== undefined &&
       input.AppNetworkAccessType !== null && { AppNetworkAccessType: input.AppNetworkAccessType }),
+    ...(input.AppSecurityGroupManagement !== undefined &&
+      input.AppSecurityGroupManagement !== null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
     ...(input.AuthMode !== undefined && input.AuthMode !== null && { AuthMode: input.AuthMode }),
     ...(input.DefaultUserSettings !== undefined &&
       input.DefaultUserSettings !== null && {
         DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
       }),
     ...(input.DomainName !== undefined && input.DomainName !== null && { DomainName: input.DomainName }),
+    ...(input.DomainSettings !== undefined &&
+      input.DomainSettings !== null && {
+        DomainSettings: serializeAws_json1_1DomainSettings(input.DomainSettings, context),
+      }),
     ...(input.HomeEfsFileSystemKmsKeyId !== undefined &&
       input.HomeEfsFileSystemKmsKeyId !== null && { HomeEfsFileSystemKmsKeyId: input.HomeEfsFileSystemKmsKeyId }),
     ...(input.KmsKeyId !== undefined && input.KmsKeyId !== null && { KmsKeyId: input.KmsKeyId }),
@@ -18546,6 +18700,10 @@ const serializeAws_json1_1CreateModelPackageInput = (input: CreateModelPackageIn
     ...(input.CertifyForMarketplace !== undefined &&
       input.CertifyForMarketplace !== null && { CertifyForMarketplace: input.CertifyForMarketplace }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.CustomerMetadataProperties !== undefined &&
+      input.CustomerMetadataProperties !== null && {
+        CustomerMetadataProperties: serializeAws_json1_1CustomerMetadataMap(input.CustomerMetadataProperties, context),
+      }),
     ...(input.InferenceSpecification !== undefined &&
       input.InferenceSpecification !== null && {
         InferenceSpecification: serializeAws_json1_1InferenceSpecification(input.InferenceSpecification, context),
@@ -19074,6 +19232,29 @@ const serializeAws_json1_1CsvContentTypes = (input: string[], context: __SerdeCo
       }
       return entry;
     });
+};
+
+const serializeAws_json1_1CustomerMetadataKeyList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1CustomerMetadataMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_json1_1CustomImage = (input: CustomImage, context: __SerdeContext): any => {
@@ -20111,6 +20292,45 @@ const serializeAws_json1_1DisassociateTrialComponentRequest = (
     ...(input.TrialComponentName !== undefined &&
       input.TrialComponentName !== null && { TrialComponentName: input.TrialComponentName }),
     ...(input.TrialName !== undefined && input.TrialName !== null && { TrialName: input.TrialName }),
+  };
+};
+
+const serializeAws_json1_1DomainSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_json1_1DomainSettings = (input: DomainSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.RStudioServerProDomainSettings !== undefined &&
+      input.RStudioServerProDomainSettings !== null && {
+        RStudioServerProDomainSettings: serializeAws_json1_1RStudioServerProDomainSettings(
+          input.RStudioServerProDomainSettings,
+          context
+        ),
+      }),
+    ...(input.SecurityGroupIds !== undefined &&
+      input.SecurityGroupIds !== null && {
+        SecurityGroupIds: serializeAws_json1_1DomainSecurityGroupIds(input.SecurityGroupIds, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpdate, context: __SerdeContext): any => {
+  return {
+    ...(input.RStudioServerProDomainSettingsForUpdate !== undefined &&
+      input.RStudioServerProDomainSettingsForUpdate !== null && {
+        RStudioServerProDomainSettingsForUpdate: serializeAws_json1_1RStudioServerProDomainSettingsForUpdate(
+          input.RStudioServerProDomainSettingsForUpdate,
+          context
+        ),
+      }),
   };
 };
 
@@ -22277,6 +22497,17 @@ const serializeAws_json1_1ModelMetrics = (input: ModelMetrics, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1ModelPackageArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ModelPackageContainerDefinition = (
   input: ModelPackageContainerDefinition,
   context: __SerdeContext
@@ -23420,6 +23651,52 @@ const serializeAws_json1_1RetryStrategy = (input: RetryStrategy, context: __Serd
   };
 };
 
+const serializeAws_json1_1RSessionAppSettings = (input: RSessionAppSettings, context: __SerdeContext): any => {
+  return {};
+};
+
+const serializeAws_json1_1RStudioServerProAppSettings = (
+  input: RStudioServerProAppSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessStatus !== undefined && input.AccessStatus !== null && { AccessStatus: input.AccessStatus }),
+    ...(input.UserGroup !== undefined && input.UserGroup !== null && { UserGroup: input.UserGroup }),
+  };
+};
+
+const serializeAws_json1_1RStudioServerProDomainSettings = (
+  input: RStudioServerProDomainSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultResourceSpec !== undefined &&
+      input.DefaultResourceSpec !== null && {
+        DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
+      }),
+    ...(input.DomainExecutionRoleArn !== undefined &&
+      input.DomainExecutionRoleArn !== null && { DomainExecutionRoleArn: input.DomainExecutionRoleArn }),
+    ...(input.RStudioConnectUrl !== undefined &&
+      input.RStudioConnectUrl !== null && { RStudioConnectUrl: input.RStudioConnectUrl }),
+    ...(input.RStudioPackageManagerUrl !== undefined &&
+      input.RStudioPackageManagerUrl !== null && { RStudioPackageManagerUrl: input.RStudioPackageManagerUrl }),
+  };
+};
+
+const serializeAws_json1_1RStudioServerProDomainSettingsForUpdate = (
+  input: RStudioServerProDomainSettingsForUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DefaultResourceSpec !== undefined &&
+      input.DefaultResourceSpec !== null && {
+        DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
+      }),
+    ...(input.DomainExecutionRoleArn !== undefined &&
+      input.DomainExecutionRoleArn !== null && { DomainExecutionRoleArn: input.DomainExecutionRoleArn }),
+  };
+};
+
 const serializeAws_json1_1RuleParameters = (input: { [key: string]: string }, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
     if (value === null) {
@@ -23545,6 +23822,20 @@ const serializeAws_json1_1ServiceCatalogProvisioningDetails = (
   return {
     ...(input.PathId !== undefined && input.PathId !== null && { PathId: input.PathId }),
     ...(input.ProductId !== undefined && input.ProductId !== null && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined &&
+      input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+    ...(input.ProvisioningParameters !== undefined &&
+      input.ProvisioningParameters !== null && {
+        ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(input.ProvisioningParameters, context),
+      }),
+  };
+};
+
+const serializeAws_json1_1ServiceCatalogProvisioningUpdateDetails = (
+  input: ServiceCatalogProvisioningUpdateDetails,
+  context: __SerdeContext
+): any => {
+  return {
     ...(input.ProvisioningArtifactId !== undefined &&
       input.ProvisioningArtifactId !== null && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
     ...(input.ProvisioningParameters !== undefined &&
@@ -24229,6 +24520,10 @@ const serializeAws_json1_1UpdateDomainRequest = (input: UpdateDomainRequest, con
         DefaultUserSettings: serializeAws_json1_1UserSettings(input.DefaultUserSettings, context),
       }),
     ...(input.DomainId !== undefined && input.DomainId !== null && { DomainId: input.DomainId }),
+    ...(input.DomainSettingsForUpdate !== undefined &&
+      input.DomainSettingsForUpdate !== null && {
+        DomainSettingsForUpdate: serializeAws_json1_1DomainSettingsForUpdate(input.DomainSettingsForUpdate, context),
+      }),
   };
 };
 
@@ -24295,6 +24590,17 @@ const serializeAws_json1_1UpdateModelPackageInput = (input: UpdateModelPackageIn
   return {
     ...(input.ApprovalDescription !== undefined &&
       input.ApprovalDescription !== null && { ApprovalDescription: input.ApprovalDescription }),
+    ...(input.CustomerMetadataProperties !== undefined &&
+      input.CustomerMetadataProperties !== null && {
+        CustomerMetadataProperties: serializeAws_json1_1CustomerMetadataMap(input.CustomerMetadataProperties, context),
+      }),
+    ...(input.CustomerMetadataPropertiesToRemove !== undefined &&
+      input.CustomerMetadataPropertiesToRemove !== null && {
+        CustomerMetadataPropertiesToRemove: serializeAws_json1_1CustomerMetadataKeyList(
+          input.CustomerMetadataPropertiesToRemove,
+          context
+        ),
+      }),
     ...(input.ModelApprovalStatus !== undefined &&
       input.ModelApprovalStatus !== null && { ModelApprovalStatus: input.ModelApprovalStatus }),
     ...(input.ModelPackageArn !== undefined &&
@@ -24408,6 +24714,22 @@ const serializeAws_json1_1UpdatePipelineRequest = (input: UpdatePipelineRequest,
       input.PipelineDisplayName !== null && { PipelineDisplayName: input.PipelineDisplayName }),
     ...(input.PipelineName !== undefined && input.PipelineName !== null && { PipelineName: input.PipelineName }),
     ...(input.RoleArn !== undefined && input.RoleArn !== null && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateProjectInput = (input: UpdateProjectInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ProjectDescription !== undefined &&
+      input.ProjectDescription !== null && { ProjectDescription: input.ProjectDescription }),
+    ...(input.ProjectName !== undefined && input.ProjectName !== null && { ProjectName: input.ProjectName }),
+    ...(input.ServiceCatalogProvisioningUpdateDetails !== undefined &&
+      input.ServiceCatalogProvisioningUpdateDetails !== null && {
+        ServiceCatalogProvisioningUpdateDetails: serializeAws_json1_1ServiceCatalogProvisioningUpdateDetails(
+          input.ServiceCatalogProvisioningUpdateDetails,
+          context
+        ),
+      }),
+    ...(input.Tags !== undefined && input.Tags !== null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -24542,6 +24864,17 @@ const serializeAws_json1_1UserSettings = (input: UserSettings, context: __SerdeC
     ...(input.KernelGatewayAppSettings !== undefined &&
       input.KernelGatewayAppSettings !== null && {
         KernelGatewayAppSettings: serializeAws_json1_1KernelGatewayAppSettings(input.KernelGatewayAppSettings, context),
+      }),
+    ...(input.RSessionAppSettings !== undefined &&
+      input.RSessionAppSettings !== null && {
+        RSessionAppSettings: serializeAws_json1_1RSessionAppSettings(input.RSessionAppSettings, context),
+      }),
+    ...(input.RStudioServerProAppSettings !== undefined &&
+      input.RStudioServerProAppSettings !== null && {
+        RStudioServerProAppSettings: serializeAws_json1_1RStudioServerProAppSettings(
+          input.RStudioServerProAppSettings,
+          context
+        ),
       }),
     ...(input.SecurityGroups !== undefined &&
       input.SecurityGroups !== null && {
@@ -25307,6 +25640,72 @@ const deserializeAws_json1_1AutoRollbackConfig = (output: any, context: __SerdeC
       output.Alarms !== undefined && output.Alarms !== null
         ? deserializeAws_json1_1AlarmList(output.Alarms, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDescribeModelPackageError = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeModelPackageError => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorResponse: __expectString(output.ErrorResponse),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDescribeModelPackageErrorMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: BatchDescribeModelPackageError } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: BatchDescribeModelPackageError }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1BatchDescribeModelPackageError(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_json1_1BatchDescribeModelPackageOutput = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeModelPackageOutput => {
+  return {
+    BatchDescribeModelPackageErrorMap:
+      output.BatchDescribeModelPackageErrorMap !== undefined && output.BatchDescribeModelPackageErrorMap !== null
+        ? deserializeAws_json1_1BatchDescribeModelPackageErrorMap(output.BatchDescribeModelPackageErrorMap, context)
+        : undefined,
+    ModelPackageSummaries:
+      output.ModelPackageSummaries !== undefined && output.ModelPackageSummaries !== null
+        ? deserializeAws_json1_1ModelPackageSummaries(output.ModelPackageSummaries, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDescribeModelPackageSummary = (
+  output: any,
+  context: __SerdeContext
+): BatchDescribeModelPackageSummary => {
+  return {
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    InferenceSpecification:
+      output.InferenceSpecification !== undefined && output.InferenceSpecification !== null
+        ? deserializeAws_json1_1InferenceSpecification(output.InferenceSpecification, context)
+        : undefined,
+    ModelApprovalStatus: __expectString(output.ModelApprovalStatus),
+    ModelPackageArn: __expectString(output.ModelPackageArn),
+    ModelPackageDescription: __expectString(output.ModelPackageDescription),
+    ModelPackageGroupName: __expectString(output.ModelPackageGroupName),
+    ModelPackageStatus: __expectString(output.ModelPackageStatus),
+    ModelPackageVersion: __expectInt32(output.ModelPackageVersion),
   } as any;
 };
 
@@ -26200,6 +26599,18 @@ const deserializeAws_json1_1CsvContentTypes = (output: any, context: __SerdeCont
     });
 };
 
+const deserializeAws_json1_1CustomerMetadataMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
 const deserializeAws_json1_1CustomImage = (output: any, context: __SerdeContext): CustomImage => {
   return {
     AppImageConfigName: __expectString(output.AppImageConfigName),
@@ -26988,6 +27399,7 @@ const deserializeAws_json1_1DescribeDeviceResponse = (output: any, context: __Se
 const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __SerdeContext): DescribeDomainResponse => {
   return {
     AppNetworkAccessType: __expectString(output.AppNetworkAccessType),
+    AppSecurityGroupManagement: __expectString(output.AppSecurityGroupManagement),
     AuthMode: __expectString(output.AuthMode),
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
@@ -27000,6 +27412,10 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
     DomainArn: __expectString(output.DomainArn),
     DomainId: __expectString(output.DomainId),
     DomainName: __expectString(output.DomainName),
+    DomainSettings:
+      output.DomainSettings !== undefined && output.DomainSettings !== null
+        ? deserializeAws_json1_1DomainSettings(output.DomainSettings, context)
+        : undefined,
     FailureReason: __expectString(output.FailureReason),
     HomeEfsFileSystemId: __expectString(output.HomeEfsFileSystemId),
     HomeEfsFileSystemKmsKeyId: __expectString(output.HomeEfsFileSystemKmsKeyId),
@@ -27008,6 +27424,7 @@ const deserializeAws_json1_1DescribeDomainResponse = (output: any, context: __Se
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    SecurityGroupIdForDomainBoundary: __expectString(output.SecurityGroupIdForDomainBoundary),
     SingleSignOnManagedApplicationInstanceId: __expectString(output.SingleSignOnManagedApplicationInstanceId),
     Status: __expectString(output.Status),
     SubnetIds:
@@ -27541,6 +27958,10 @@ const deserializeAws_json1_1DescribeModelPackageOutput = (
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    CustomerMetadataProperties:
+      output.CustomerMetadataProperties !== undefined && output.CustomerMetadataProperties !== null
+        ? deserializeAws_json1_1CustomerMetadataMap(output.CustomerMetadataProperties, context)
+        : undefined,
     InferenceSpecification:
       output.InferenceSpecification !== undefined && output.InferenceSpecification !== null
         ? deserializeAws_json1_1InferenceSpecification(output.InferenceSpecification, context)
@@ -27882,6 +28303,14 @@ const deserializeAws_json1_1DescribeProjectOutput = (output: any, context: __Ser
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
     ProjectArn: __expectString(output.ProjectArn),
     ProjectDescription: __expectString(output.ProjectDescription),
@@ -28374,6 +28803,30 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
       }
       return deserializeAws_json1_1DomainDetails(entry, context);
     });
+};
+
+const deserializeAws_json1_1DomainSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_json1_1DomainSettings = (output: any, context: __SerdeContext): DomainSettings => {
+  return {
+    RStudioServerProDomainSettings:
+      output.RStudioServerProDomainSettings !== undefined && output.RStudioServerProDomainSettings !== null
+        ? deserializeAws_json1_1RStudioServerProDomainSettings(output.RStudioServerProDomainSettings, context)
+        : undefined,
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_1DomainSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1EdgeModel = (output: any, context: __SerdeContext): EdgeModel => {
@@ -30764,6 +31217,10 @@ const deserializeAws_json1_1ModelPackage = (output: any, context: __SerdeContext
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    CustomerMetadataProperties:
+      output.CustomerMetadataProperties !== undefined && output.CustomerMetadataProperties !== null
+        ? deserializeAws_json1_1CustomerMetadataMap(output.CustomerMetadataProperties, context)
+        : undefined,
     InferenceSpecification:
       output.InferenceSpecification !== undefined && output.InferenceSpecification !== null
         ? deserializeAws_json1_1InferenceSpecification(output.InferenceSpecification, context)
@@ -30928,6 +31385,24 @@ const deserializeAws_json1_1ModelPackageStatusItemList = (
       }
       return deserializeAws_json1_1ModelPackageStatusItem(entry, context);
     });
+};
+
+const deserializeAws_json1_1ModelPackageSummaries = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: BatchDescribeModelPackageSummary } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: BatchDescribeModelPackageSummary }, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context),
+      };
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1ModelPackageSummary = (output: any, context: __SerdeContext): ModelPackageSummary => {
@@ -32520,6 +32995,14 @@ const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Pr
       output.CreationTime !== undefined && output.CreationTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? deserializeAws_json1_1UserContext(output.LastModifiedBy, context)
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
     ProjectArn: __expectString(output.ProjectArn),
     ProjectDescription: __expectString(output.ProjectDescription),
     ProjectId: __expectString(output.ProjectId),
@@ -32788,6 +33271,35 @@ const deserializeAws_json1_1RetryPipelineExecutionResponse = (
 const deserializeAws_json1_1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
     MaximumRetryAttempts: __expectInt32(output.MaximumRetryAttempts),
+  } as any;
+};
+
+const deserializeAws_json1_1RSessionAppSettings = (output: any, context: __SerdeContext): RSessionAppSettings => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1RStudioServerProAppSettings = (
+  output: any,
+  context: __SerdeContext
+): RStudioServerProAppSettings => {
+  return {
+    AccessStatus: __expectString(output.AccessStatus),
+    UserGroup: __expectString(output.UserGroup),
+  } as any;
+};
+
+const deserializeAws_json1_1RStudioServerProDomainSettings = (
+  output: any,
+  context: __SerdeContext
+): RStudioServerProDomainSettings => {
+  return {
+    DefaultResourceSpec:
+      output.DefaultResourceSpec !== undefined && output.DefaultResourceSpec !== null
+        ? deserializeAws_json1_1ResourceSpec(output.DefaultResourceSpec, context)
+        : undefined,
+    DomainExecutionRoleArn: __expectString(output.DomainExecutionRoleArn),
+    RStudioConnectUrl: __expectString(output.RStudioConnectUrl),
+    RStudioPackageManagerUrl: __expectString(output.RStudioPackageManagerUrl),
   } as any;
 };
 
@@ -34154,6 +34666,12 @@ const deserializeAws_json1_1UpdatePipelineResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
+  return {
+    ProjectArn: __expectString(output.ProjectArn),
+  } as any;
+};
+
 const deserializeAws_json1_1UpdateTrainingJobResponse = (
   output: any,
   context: __SerdeContext
@@ -34261,6 +34779,14 @@ const deserializeAws_json1_1UserSettings = (output: any, context: __SerdeContext
     KernelGatewayAppSettings:
       output.KernelGatewayAppSettings !== undefined && output.KernelGatewayAppSettings !== null
         ? deserializeAws_json1_1KernelGatewayAppSettings(output.KernelGatewayAppSettings, context)
+        : undefined,
+    RSessionAppSettings:
+      output.RSessionAppSettings !== undefined && output.RSessionAppSettings !== null
+        ? deserializeAws_json1_1RSessionAppSettings(output.RSessionAppSettings, context)
+        : undefined,
+    RStudioServerProAppSettings:
+      output.RStudioServerProAppSettings !== undefined && output.RStudioServerProAppSettings !== null
+        ? deserializeAws_json1_1RStudioServerProAppSettings(output.RStudioServerProAppSettings, context)
         : undefined,
     SecurityGroups:
       output.SecurityGroups !== undefined && output.SecurityGroups !== null

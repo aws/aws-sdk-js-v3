@@ -1,5 +1,4 @@
 import {
-  ActionStatus,
   ActionSummary,
   AgentVersion,
   AlgorithmSortBy,
@@ -37,15 +36,17 @@ import {
   FeatureDefinition,
   HyperParameterTuningJobStrategyType,
   InferenceSpecification,
-  KernelGatewayImageConfig,
   LabelingJobInputConfig,
   MetadataProperties,
+  ModelApprovalStatus,
+  ModelPackageStatus,
   OfflineStoreConfig,
   OnlineStoreConfig,
   OutputDataConfig,
   OutputParameter,
   ResourceConfig,
   ResourceLimits,
+  ResourceSpec,
   RetryStrategy,
   StoppingCondition,
   Tag,
@@ -80,13 +81,10 @@ import {
   LabelingJobOutput,
   LabelingJobStatus,
   MemberDefinition,
-  MetricData,
-  ModelApprovalStatus,
   ModelArtifacts,
   ModelClientConfig,
   ModelMetrics,
   ModelPackageGroupStatus,
-  ModelPackageStatus,
   ModelPackageStatusDetails,
   ModelPackageValidationSpecification,
   MonitoringExecutionSummary,
@@ -109,16 +107,13 @@ import {
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  ProfilerRuleEvaluationStatus,
-  ProfilingStatus,
   ProjectStatus,
+  RuleEvaluationStatus,
   ScheduleStatus,
-  ServiceCatalogProvisionedProductDetails,
   ServiceCatalogProvisioningDetails,
   SourceAlgorithmSpecification,
   SourceIpConfig,
   StudioLifecycleConfigAppType,
-  SubscribedWorkteam,
   TensorBoardOutputConfig,
   TrainingJobStatus,
   TrainingJobStatusCounters,
@@ -126,6 +121,340 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+/**
+ * <p>Details of a provisioned service catalog product. For information about service catalog,
+ *             see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+ *                 Catalog</a>.</p>
+ */
+export interface ServiceCatalogProvisionedProductDetails {
+  /**
+   * <p>The ID of the provisioned product.</p>
+   */
+  ProvisionedProductId?: string;
+
+  /**
+   * <p>The current status of the product.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
+   *             </li>
+   *          </ul>
+   */
+  ProvisionedProductStatusMessage?: string;
+}
+
+export namespace ServiceCatalogProvisionedProductDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceCatalogProvisionedProductDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The ID of the project.</p>
+   */
+  ProjectId: string | undefined;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>Information used to provision a service catalog product. For information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service
+   *             Catalog</a>.</p>
+   */
+  ServiceCatalogProvisioningDetails: ServiceCatalogProvisioningDetails | undefined;
+
+  /**
+   * <p>Information about a provisioned service catalog product.</p>
+   */
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
+
+  /**
+   * <p>The status of the project.</p>
+   */
+  ProjectStatus: ProjectStatus | string | undefined;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
+   */
+  CreatedBy?: UserContext;
+
+  /**
+   * <p>The time when the project was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when project was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
+   */
+  LastModifiedBy?: UserContext;
+}
+
+export namespace DescribeProjectOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeProjectOutput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStudioLifecycleConfigRequest {
+  /**
+   * <p>The name of the Studio Lifecycle Configuration to describe.</p>
+   */
+  StudioLifecycleConfigName: string | undefined;
+}
+
+export namespace DescribeStudioLifecycleConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStudioLifecycleConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeStudioLifecycleConfigResponse {
+  /**
+   * <p>The ARN of the Lifecycle Configuration to describe.</p>
+   */
+  StudioLifecycleConfigArn?: string;
+
+  /**
+   * <p>The name of the Studio Lifecycle Configuration that is described.</p>
+   */
+  StudioLifecycleConfigName?: string;
+
+  /**
+   * <p>The creation time of the Studio Lifecycle Configuration.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>This value is equivalent to CreationTime because Studio Lifecycle Configurations are immutable.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The content of your Studio Lifecycle Configuration script.</p>
+   */
+  StudioLifecycleConfigContent?: string;
+
+  /**
+   * <p>The App type that the Lifecycle Configuration is attached to.</p>
+   */
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | string;
+}
+
+export namespace DescribeStudioLifecycleConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeStudioLifecycleConfigResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSubscribedWorkteamRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>
+   */
+  WorkteamArn: string | undefined;
+}
+
+export namespace DescribeSubscribedWorkteamRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a work team of a vendor that does the a labelling job.</p>
+ */
+export interface SubscribedWorkteam {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the vendor that you have subscribed.</p>
+   */
+  WorkteamArn: string | undefined;
+
+  /**
+   * <p>The title of the service provided by the vendor in the Amazon Marketplace.</p>
+   */
+  MarketplaceTitle?: string;
+
+  /**
+   * <p>The name of the vendor in the Amazon Marketplace.</p>
+   */
+  SellerName?: string;
+
+  /**
+   * <p>The description of the vendor from the Amazon Marketplace.</p>
+   */
+  MarketplaceDescription?: string;
+
+  /**
+   * <p>Marketplace product listing ID.</p>
+   */
+  ListingId?: string;
+}
+
+export namespace SubscribedWorkteam {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SubscribedWorkteam): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSubscribedWorkteamResponse {
+  /**
+   * <p>A <code>Workteam</code> instance that contains information about the work team.</p>
+   */
+  SubscribedWorkteam: SubscribedWorkteam | undefined;
+}
+
+export namespace DescribeSubscribedWorkteamResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSubscribedWorkteamResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeTrainingJobRequest {
+  /**
+   * <p>The name of the training job.</p>
+   */
+  TrainingJobName: string | undefined;
+}
+
+export namespace DescribeTrainingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeTrainingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.</p>
+ */
+export interface MetricData {
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The value of the metric.</p>
+   */
+  Value?: number;
+
+  /**
+   * <p>The date and time that the algorithm emitted the metric.</p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace MetricData {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MetricData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the status of the rule evaluation.</p>
+ */
+export interface ProfilerRuleEvaluationStatus {
+  /**
+   * <p>The name of the rule configuration.</p>
+   */
+  RuleConfigurationName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule evaluation job.</p>
+   */
+  RuleEvaluationJobArn?: string;
+
+  /**
+   * <p>Status of the rule evaluation.</p>
+   */
+  RuleEvaluationStatus?: RuleEvaluationStatus | string;
+
+  /**
+   * <p>Details from the rule evaluation.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * <p>Timestamp when the rule evaluation status was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+}
+
+export namespace ProfilerRuleEvaluationStatus {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProfilerRuleEvaluationStatus): any => ({
+    ...obj,
+  });
+}
+
+export enum ProfilingStatus {
+  DISABLED = "Disabled",
+  ENABLED = "Enabled",
+}
 
 export enum SecondaryStatus {
   COMPLETED = "Completed",
@@ -1922,6 +2251,50 @@ export namespace DomainDetails {
    * @internal
    */
   export const filterSensitiveLog = (obj: DomainDetails): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings that update the current configuration for the <code>RStudioServerPro</code> Domain-level app.</p>
+ */
+export interface RStudioServerProDomainSettingsForUpdate {
+  /**
+   * <p>The execution role for the <code>RStudioServerPro</code> Domain-level app.</p>
+   */
+  DomainExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+}
+
+export namespace RStudioServerProDomainSettingsForUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RStudioServerProDomainSettingsForUpdate): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of <code>Domain</code> configuration settings to update.</p>
+ */
+export interface DomainSettingsForUpdate {
+  /**
+   * <p>A collection of <code>RStudioServerPro</code> Domain-level app settings to update.</p>
+   */
+  RStudioServerProDomainSettingsForUpdate?: RStudioServerProDomainSettingsForUpdate;
+}
+
+export namespace DomainSettingsForUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainSettingsForUpdate): any => ({
     ...obj,
   });
 }
@@ -9178,6 +9551,11 @@ export interface ModelPackage {
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The metadata properties for the model package. </p>
+   */
+  CustomerMetadataProperties?: { [key: string]: string };
 }
 
 export namespace ModelPackage {
@@ -9743,6 +10121,17 @@ export interface Project {
    *                 Resources</a>.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>A timestamp container for when the project was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>Information about the user who created or modified an experiment, trial, trial
+   *       component, or project.</p>
+   */
+  LastModifiedBy?: UserContext;
 }
 
 export namespace Project {
@@ -11117,245 +11506,6 @@ export namespace StopEdgePackagingJobRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job to stop.</p>
-   */
-  HyperParameterTuningJobName: string | undefined;
-}
-
-export namespace StopHyperParameterTuningJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopHyperParameterTuningJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job to stop.</p>
-   */
-  LabelingJobName: string | undefined;
-}
-
-export namespace StopLabelingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopLabelingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopMonitoringScheduleRequest {
-  /**
-   * <p>The name of the schedule to stop.</p>
-   */
-  MonitoringScheduleName: string | undefined;
-}
-
-export namespace StopMonitoringScheduleRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopMonitoringScheduleRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopNotebookInstanceInput {
-  /**
-   * <p>The name of the notebook instance to terminate.</p>
-   */
-  NotebookInstanceName: string | undefined;
-}
-
-export namespace StopNotebookInstanceInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopNotebookInstanceInput): any => ({
-    ...obj,
-  });
-}
-
-export interface StopPipelineExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *          operation. An idempotent operation completes no more than once.</p>
-   */
-  ClientRequestToken?: string;
-}
-
-export namespace StopPipelineExecutionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPipelineExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-export namespace StopPipelineExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopPipelineExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopProcessingJobRequest {
-  /**
-   * <p>The name of the processing job to stop.</p>
-   */
-  ProcessingJobName: string | undefined;
-}
-
-export namespace StopProcessingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopProcessingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopTrainingJobRequest {
-  /**
-   * <p>The name of the training job to stop.</p>
-   */
-  TrainingJobName: string | undefined;
-}
-
-export namespace StopTrainingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTrainingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopTransformJobRequest {
-  /**
-   * <p>The name of the transform job to stop.</p>
-   */
-  TransformJobName: string | undefined;
-}
-
-export namespace StopTransformJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopTransformJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateActionRequest {
-  /**
-   * <p>The name of the action to update.</p>
-   */
-  ActionName: string | undefined;
-
-  /**
-   * <p>The new description for the action.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new status for the action.</p>
-   */
-  Status?: ActionStatus | string;
-
-  /**
-   * <p>The new list of properties. Overwrites the current property list.</p>
-   */
-  Properties?: { [key: string]: string };
-
-  /**
-   * <p>A list of properties to remove.</p>
-   */
-  PropertiesToRemove?: string[];
-}
-
-export namespace UpdateActionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateActionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action.</p>
-   */
-  ActionArn?: string;
-}
-
-export namespace UpdateActionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateActionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAppImageConfigRequest {
-  /**
-   * <p>The name of the AppImageConfig to update.</p>
-   */
-  AppImageConfigName: string | undefined;
-
-  /**
-   * <p>The new KernelGateway app to run on the image.</p>
-   */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
-}
-
-export namespace UpdateAppImageConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppImageConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateAppImageConfigResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
-   */
-  AppImageConfigArn?: string;
-}
-
-export namespace UpdateAppImageConfigResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateAppImageConfigResponse): any => ({
     ...obj,
   });
 }

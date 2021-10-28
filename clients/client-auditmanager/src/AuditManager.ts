@@ -62,6 +62,11 @@ import {
   DeleteAssessmentFrameworkCommandOutput,
 } from "./commands/DeleteAssessmentFrameworkCommand";
 import {
+  DeleteAssessmentFrameworkShareCommand,
+  DeleteAssessmentFrameworkShareCommandInput,
+  DeleteAssessmentFrameworkShareCommandOutput,
+} from "./commands/DeleteAssessmentFrameworkShareCommand";
+import {
   DeleteAssessmentReportCommand,
   DeleteAssessmentReportCommandInput,
   DeleteAssessmentReportCommandOutput,
@@ -155,6 +160,11 @@ import {
   ListAssessmentFrameworksCommandOutput,
 } from "./commands/ListAssessmentFrameworksCommand";
 import {
+  ListAssessmentFrameworkShareRequestsCommand,
+  ListAssessmentFrameworkShareRequestsCommandInput,
+  ListAssessmentFrameworkShareRequestsCommandOutput,
+} from "./commands/ListAssessmentFrameworkShareRequestsCommand";
+import {
   ListAssessmentReportsCommand,
   ListAssessmentReportsCommandInput,
   ListAssessmentReportsCommandOutput,
@@ -194,6 +204,11 @@ import {
   RegisterOrganizationAdminAccountCommandInput,
   RegisterOrganizationAdminAccountCommandOutput,
 } from "./commands/RegisterOrganizationAdminAccountCommand";
+import {
+  StartAssessmentFrameworkShareCommand,
+  StartAssessmentFrameworkShareCommandInput,
+  StartAssessmentFrameworkShareCommandOutput,
+} from "./commands/StartAssessmentFrameworkShareCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -221,6 +236,11 @@ import {
   UpdateAssessmentFrameworkCommandOutput,
 } from "./commands/UpdateAssessmentFrameworkCommand";
 import {
+  UpdateAssessmentFrameworkShareCommand,
+  UpdateAssessmentFrameworkShareCommandInput,
+  UpdateAssessmentFrameworkShareCommandOutput,
+} from "./commands/UpdateAssessmentFrameworkShareCommand";
+import {
   UpdateAssessmentStatusCommand,
   UpdateAssessmentStatusCommandInput,
   UpdateAssessmentStatusCommandOutput,
@@ -242,43 +262,47 @@ import {
 } from "./commands/ValidateAssessmentReportIntegrityCommand";
 
 /**
- * <p>Welcome to the Audit Manager API reference. This guide is for developers who need detailed information about the Audit Manager API operations, data types, and errors. </p>
- *          <p>Audit Manager is a service that provides automated evidence collection so that you
- *          can continuously audit your Amazon Web Services usage, and assess the effectiveness of your controls to
- *          better manage risk and simplify compliance.</p>
- *          <p>Audit Manager provides pre-built frameworks that structure and automate assessments
- *          for a given compliance standard. Frameworks include a pre-built collection of controls with
- *          descriptions and testing procedures, which are grouped according to the requirements of the
- *          specified compliance standard or regulation. You can also customize frameworks and controls
- *          to support internal audits with unique requirements. </p>
- *
+ * <p>Welcome to the Audit Manager API reference. This guide is for developers who
+ *          need detailed information about the Audit Manager API operations, data types, and
+ *          errors. </p>
+ *          <p>Audit Manager is a service that provides automated evidence collection so that
+ *          you can continually audit your Amazon Web Services usage. You can use it to assess the
+ *          effectiveness of your controls, manage risk, and simplify compliance.</p>
+ *          <p>Audit Manager provides prebuilt frameworks that structure and automate
+ *          assessments for a given compliance standard. Frameworks include a prebuilt collection of
+ *          controls with descriptions and testing procedures. These controls are grouped according to
+ *          the requirements of the specified compliance standard or regulation. You can also customize
+ *          frameworks and controls to support internal audits with specific requirements. </p>
  *          <p>Use the following links to get started with the Audit Manager API:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html">Actions</a>: An alphabetical list of all Audit Manager API operations.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Operations.html">Actions</a>: An
+ *                alphabetical list of all Audit Manager API operations.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html">Data types</a>: An alphabetical list of all Audit Manager data types.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Types.html">Data types</a>: An alphabetical list of all Audit Manager data
+ *                types.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html">Common parameters</a>: Parameters that all Query operations can use.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonParameters.html">Common
+ *                   parameters</a>: Parameters that all Query operations can use.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html">Common errors</a>: Client and server errors that all operations can return.</p>
+ *                   <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/CommonErrors.html">Common errors</a>:
+ *                Client and server errors that all operations can return.</p>
  *             </li>
  *          </ul>
- *
- *          <p>If you're new to Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html"> Audit Manager User Guide</a>.</p>
+ *          <p>If you're new to Audit Manager, we recommend that you review the <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.html">
+ *             Audit Manager User Guide</a>.</p>
  */
 export class AuditManager extends AuditManagerClient {
   /**
-   * <p>
-   *          Associates an evidence folder to the specified assessment report in Audit Manager.
-   *       </p>
+   * <p> Associates an evidence folder to an assessment report in a Audit Manager
+   *          assessment. </p>
    */
   public associateAssessmentReportEvidenceFolder(
     args: AssociateAssessmentReportEvidenceFolderCommandInput,
@@ -312,9 +336,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Associates a list of evidence to an assessment report in an Audit Manager assessment.
-   *       </p>
+   * <p> Associates a list of evidence to an assessment report in an Audit Manager
+   *          assessment. </p>
    */
   public batchAssociateAssessmentReportEvidence(
     args: BatchAssociateAssessmentReportEvidenceCommandInput,
@@ -348,9 +371,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Create a batch of delegations for a specified assessment in Audit Manager.
-   *       </p>
+   * <p> Creates a batch of delegations for an assessment in Audit Manager. </p>
    */
   public batchCreateDelegationByAssessment(
     args: BatchCreateDelegationByAssessmentCommandInput,
@@ -382,9 +403,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Deletes the delegations in the specified Audit Manager assessment.
-   *       </p>
+   * <p> Deletes a batch of delegations for an assessment in Audit Manager. </p>
    */
   public batchDeleteDelegationByAssessment(
     args: BatchDeleteDelegationByAssessmentCommandInput,
@@ -416,8 +435,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Disassociates a list of evidence from the specified assessment report in Audit Manager.
+   * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
    *       </p>
    */
   public batchDisassociateAssessmentReportEvidence(
@@ -452,9 +470,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *          Uploads one or more pieces of evidence to the specified control in the assessment in Audit Manager.
-   *       </p>
+   * <p> Uploads one or more pieces of evidence to a control in an Audit Manager
+   *          assessment. </p>
    */
   public batchImportEvidenceToAssessmentControl(
     args: BatchImportEvidenceToAssessmentControlCommandInput,
@@ -488,9 +505,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Creates an assessment in Audit Manager.
-   * </p>
+   * <p> Creates an assessment in Audit Manager. </p>
    */
   public createAssessment(
     args: CreateAssessmentCommandInput,
@@ -522,9 +537,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Creates a custom framework in Audit Manager.
-   * </p>
+   * <p> Creates a custom framework in Audit Manager. </p>
    */
   public createAssessmentFramework(
     args: CreateAssessmentFrameworkCommandInput,
@@ -556,9 +569,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   * Creates an assessment report for the specified assessment.
-   * </p>
+   * <p> Creates an assessment report for the specified assessment. </p>
    */
   public createAssessmentReport(
     args: CreateAssessmentReportCommandInput,
@@ -590,9 +601,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Creates a new custom control in Audit Manager.
-   * </p>
+   * <p> Creates a new custom control in Audit Manager. </p>
    */
   public createControl(
     args: CreateControlCommandInput,
@@ -624,9 +633,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Deletes an assessment in Audit Manager.
-   * </p>
+   * <p> Deletes an assessment in Audit Manager. </p>
    */
   public deleteAssessment(
     args: DeleteAssessmentCommandInput,
@@ -658,9 +665,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Deletes a custom framework in Audit Manager.
-   * </p>
+   * <p> Deletes a custom framework in Audit Manager. </p>
    */
   public deleteAssessmentFramework(
     args: DeleteAssessmentFrameworkCommandInput,
@@ -693,8 +698,40 @@ export class AuditManager extends AuditManagerClient {
 
   /**
    * <p>
-   *    Deletes an assessment report from an assessment in Audit Manager.
-   * </p>
+   *          Deletes a share request for a custom framework in Audit Manager.
+   *       </p>
+   */
+  public deleteAssessmentFrameworkShare(
+    args: DeleteAssessmentFrameworkShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssessmentFrameworkShareCommandOutput>;
+  public deleteAssessmentFrameworkShare(
+    args: DeleteAssessmentFrameworkShareCommandInput,
+    cb: (err: any, data?: DeleteAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public deleteAssessmentFrameworkShare(
+    args: DeleteAssessmentFrameworkShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public deleteAssessmentFrameworkShare(
+    args: DeleteAssessmentFrameworkShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssessmentFrameworkShareCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAssessmentFrameworkShareCommandOutput) => void
+  ): Promise<DeleteAssessmentFrameworkShareCommandOutput> | void {
+    const command = new DeleteAssessmentFrameworkShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Deletes an assessment report from an assessment in Audit Manager. </p>
    */
   public deleteAssessmentReport(
     args: DeleteAssessmentReportCommandInput,
@@ -726,9 +763,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Deletes a custom control in Audit Manager.
-   * </p>
+   * <p> Deletes a custom control in Audit Manager. </p>
    */
   public deleteControl(
     args: DeleteControlCommandInput,
@@ -760,9 +795,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Deregisters an account in Audit Manager.
-   * </p>
+   * <p> Deregisters an account in Audit Manager. </p>
    */
   public deregisterAccount(
     args: DeregisterAccountCommandInput,
@@ -794,13 +827,14 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>Removes the specified member Amazon Web Services account as a delegated administrator for Audit Manager. </p>
+   * <p>Removes the specified member Amazon Web Services account as a delegated administrator for
+   *          Audit Manager. </p>
    *          <important>
-   *             <p>When you remove a delegated administrator from your Audit Manager settings, or when you
-   *         deregister a delegated administrator from Organizations, you continue to have access
-   *       to the evidence that you previously collected under that account. However, Audit Manager
-   *             will stop collecting and attaching evidence to that delegated administrator account
-   *             moving forward.</p>
+   *             <p>When you remove a delegated administrator from your Audit Manager settings, you
+   *             continue to have access to the evidence that you previously collected under that
+   *             account. This is also the case when you deregister a delegated administrator from
+   *             Audit Manager. However, Audit Manager will stop collecting and attaching
+   *             evidence to that delegated administrator account moving forward.</p>
    *          </important>
    */
   public deregisterOrganizationAdminAccount(
@@ -833,9 +867,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Disassociates an evidence folder from the specified assessment report in Audit Manager.
-   * </p>
+   * <p> Disassociates an evidence folder from the specified assessment report in Audit Manager. </p>
    */
   public disassociateAssessmentReportEvidenceFolder(
     args: DisassociateAssessmentReportEvidenceFolderCommandInput,
@@ -869,9 +901,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns the registration status of an account in Audit Manager.
-   * </p>
+   * <p> Returns the registration status of an account in Audit Manager. </p>
    */
   public getAccountStatus(
     args: GetAccountStatusCommandInput,
@@ -903,9 +933,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns an assessment from Audit Manager.
-   * </p>
+   * <p> Returns an assessment from Audit Manager. </p>
    */
   public getAssessment(
     args: GetAssessmentCommandInput,
@@ -937,9 +965,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a framework from Audit Manager.
-   * </p>
+   * <p> Returns a framework from Audit Manager. </p>
    */
   public getAssessmentFramework(
     args: GetAssessmentFrameworkCommandInput,
@@ -971,9 +997,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns the URL of a specified assessment report in Audit Manager.
-   * </p>
+   * <p> Returns the URL of an assessment report in Audit Manager. </p>
    */
   public getAssessmentReportUrl(
     args: GetAssessmentReportUrlCommandInput,
@@ -1005,9 +1029,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of changelogs from Audit Manager.
-   * </p>
+   * <p> Returns a list of changelogs from Audit Manager. </p>
    */
   public getChangeLogs(
     args: GetChangeLogsCommandInput,
@@ -1039,9 +1061,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a control from Audit Manager.
-   * </p>
+   * <p> Returns a control from Audit Manager. </p>
    */
   public getControl(args: GetControlCommandInput, options?: __HttpHandlerOptions): Promise<GetControlCommandOutput>;
   public getControl(args: GetControlCommandInput, cb: (err: any, data?: GetControlCommandOutput) => void): void;
@@ -1067,9 +1087,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of delegations from an audit owner to a delegate.
-   * </p>
+   * <p> Returns a list of delegations from an audit owner to a delegate. </p>
    */
   public getDelegations(
     args: GetDelegationsCommandInput,
@@ -1101,9 +1119,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns evidence from Audit Manager.
-   * </p>
+   * <p> Returns evidence from Audit Manager. </p>
    */
   public getEvidence(args: GetEvidenceCommandInput, options?: __HttpHandlerOptions): Promise<GetEvidenceCommandOutput>;
   public getEvidence(args: GetEvidenceCommandInput, cb: (err: any, data?: GetEvidenceCommandOutput) => void): void;
@@ -1129,9 +1145,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns all evidence from a specified evidence folder in Audit Manager.
-   * </p>
+   * <p> Returns all evidence from a specified evidence folder in Audit Manager. </p>
    */
   public getEvidenceByEvidenceFolder(
     args: GetEvidenceByEvidenceFolderCommandInput,
@@ -1163,9 +1177,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns an evidence folder from the specified assessment in Audit Manager.
-   * </p>
+   * <p> Returns an evidence folder from the specified assessment in Audit Manager.
+   *       </p>
    */
   public getEvidenceFolder(
     args: GetEvidenceFolderCommandInput,
@@ -1197,9 +1210,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns the evidence folders from a specified assessment in Audit Manager.
-   * </p>
+   * <p> Returns the evidence folders from a specified assessment in Audit Manager.
+   *       </p>
    */
   public getEvidenceFoldersByAssessment(
     args: GetEvidenceFoldersByAssessmentCommandInput,
@@ -1231,9 +1243,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of evidence folders associated with a specified control of an assessment in Audit Manager.
-   * </p>
+   * <p> Returns a list of evidence folders that are associated with a specified control of an
+   *          assessment in Audit Manager. </p>
    */
   public getEvidenceFoldersByAssessmentControl(
     args: GetEvidenceFoldersByAssessmentControlCommandInput,
@@ -1267,9 +1278,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns the name of the delegated Amazon Web Services administrator account for the organization.
-   * </p>
+   * <p> Returns the name of the delegated Amazon Web Services administrator account for the
+   *          organization. </p>
    */
   public getOrganizationAdminAccount(
     args: GetOrganizationAdminAccountCommandInput,
@@ -1301,9 +1311,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of the in-scope Amazon Web Services services for the specified assessment.
-   * </p>
+   * <p> Returns a list of the in-scope Amazon Web Services services for the specified
+   *          assessment. </p>
    */
   public getServicesInScope(
     args: GetServicesInScopeCommandInput,
@@ -1335,9 +1344,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns the settings for the specified Amazon Web Services account.
-   * </p>
+   * <p> Returns the settings for the specified Amazon Web Services account. </p>
    */
   public getSettings(args: GetSettingsCommandInput, options?: __HttpHandlerOptions): Promise<GetSettingsCommandOutput>;
   public getSettings(args: GetSettingsCommandInput, cb: (err: any, data?: GetSettingsCommandOutput) => void): void;
@@ -1363,9 +1370,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of the frameworks available in the Audit Manager framework library.
-   * </p>
+   * <p> Returns a list of the frameworks that are available in the Audit Manager
+   *          framework library. </p>
    */
   public listAssessmentFrameworks(
     args: ListAssessmentFrameworksCommandInput,
@@ -1397,9 +1403,39 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of assessment reports created in Audit Manager.
-   * </p>
+   * <p> Returns a list of sent or received share requests for custom frameworks in Audit Manager. </p>
+   */
+  public listAssessmentFrameworkShareRequests(
+    args: ListAssessmentFrameworkShareRequestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput>;
+  public listAssessmentFrameworkShareRequests(
+    args: ListAssessmentFrameworkShareRequestsCommandInput,
+    cb: (err: any, data?: ListAssessmentFrameworkShareRequestsCommandOutput) => void
+  ): void;
+  public listAssessmentFrameworkShareRequests(
+    args: ListAssessmentFrameworkShareRequestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssessmentFrameworkShareRequestsCommandOutput) => void
+  ): void;
+  public listAssessmentFrameworkShareRequests(
+    args: ListAssessmentFrameworkShareRequestsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssessmentFrameworkShareRequestsCommandOutput) => void),
+    cb?: (err: any, data?: ListAssessmentFrameworkShareRequestsCommandOutput) => void
+  ): Promise<ListAssessmentFrameworkShareRequestsCommandOutput> | void {
+    const command = new ListAssessmentFrameworkShareRequestsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Returns a list of assessment reports created in Audit Manager. </p>
    */
   public listAssessmentReports(
     args: ListAssessmentReportsCommandInput,
@@ -1431,9 +1467,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of current and past assessments from Audit Manager.
-   * </p>
+   * <p> Returns a list of current and past assessments from Audit Manager. </p>
    */
   public listAssessments(
     args: ListAssessmentsCommandInput,
@@ -1465,9 +1499,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of controls from Audit Manager.
-   * </p>
+   * <p> Returns a list of controls from Audit Manager. </p>
    */
   public listControls(
     args: ListControlsCommandInput,
@@ -1496,9 +1528,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   * Returns a list of keywords that pre-mapped to the specified control data source.
-   * </p>
+   * <p> Returns a list of keywords that are pre-mapped to the specified control data source. </p>
    */
   public listKeywordsForDataSource(
     args: ListKeywordsForDataSourceCommandInput,
@@ -1530,9 +1560,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of all Audit Manager notifications.
-   * </p>
+   * <p> Returns a list of all Audit Manager notifications. </p>
    */
   public listNotifications(
     args: ListNotificationsCommandInput,
@@ -1564,9 +1592,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Returns a list of tags for the specified resource in Audit Manager.
-   * </p>
+   * <p> Returns a list of tags for the specified resource in Audit Manager. </p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1598,9 +1624,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Enables Audit Manager for the specified Amazon Web Services account.
-   * </p>
+   * <p> Enables Audit Manager for the specified Amazon Web Services account. </p>
    */
   public registerAccount(
     args: RegisterAccountCommandInput,
@@ -1632,9 +1656,8 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager.
-   * </p>
+   * <p> Enables an Amazon Web Services account within the organization as the delegated
+   *          administrator for Audit Manager. </p>
    */
   public registerOrganizationAdminAccount(
     args: RegisterOrganizationAdminAccountCommandInput,
@@ -1666,9 +1689,49 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Tags the specified resource in Audit Manager.
-   * </p>
+   * <p> Creates a share request for a custom framework in Audit Manager. </p>
+   *          <p>The share request specifies a recipient and notifies them that a custom framework is available. Recipients have 120 days to accept or decline the request. If no action is taken, the share request expires.</p>
+   *          <important>
+   *             <p>When you invoke the <code>StartAssessmentFrameworkShare</code> API, you are about to
+   *             share a custom framework with another Amazon Web Services account. You may not share a
+   *             custom framework that is derived from a standard framework if the standard framework is
+   *             designated as not eligible for sharing by Amazon Web Services, unless you have obtained
+   *             permission to do so from the owner of the standard framework. To learn more about which
+   *             standard frameworks are eligible for sharing, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/share-custom-framework-concepts-and-terminology.html#eligibility">Framework sharing eligibility</a> in the <i>Audit Manager User
+   *                Guide</i>.</p>
+   *          </important>
+   */
+  public startAssessmentFrameworkShare(
+    args: StartAssessmentFrameworkShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAssessmentFrameworkShareCommandOutput>;
+  public startAssessmentFrameworkShare(
+    args: StartAssessmentFrameworkShareCommandInput,
+    cb: (err: any, data?: StartAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public startAssessmentFrameworkShare(
+    args: StartAssessmentFrameworkShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public startAssessmentFrameworkShare(
+    args: StartAssessmentFrameworkShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartAssessmentFrameworkShareCommandOutput) => void),
+    cb?: (err: any, data?: StartAssessmentFrameworkShareCommandOutput) => void
+  ): Promise<StartAssessmentFrameworkShareCommandOutput> | void {
+    const command = new StartAssessmentFrameworkShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Tags the specified resource in Audit Manager. </p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1694,9 +1757,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Removes a tag from a resource in Audit Manager.
-   * </p>
+   * <p> Removes a tag from a resource in Audit Manager. </p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1728,9 +1789,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Edits an Audit Manager assessment.
-   * </p>
+   * <p> Edits an Audit Manager assessment. </p>
    */
   public updateAssessment(
     args: UpdateAssessmentCommandInput,
@@ -1762,9 +1821,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates a control within an assessment in Audit Manager.
-   * </p>
+   * <p> Updates a control within an assessment in Audit Manager. </p>
    */
   public updateAssessmentControl(
     args: UpdateAssessmentControlCommandInput,
@@ -1796,9 +1853,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates the status of a control set in an Audit Manager assessment.
-   * </p>
+   * <p> Updates the status of a control set in an Audit Manager assessment. </p>
    */
   public updateAssessmentControlSetStatus(
     args: UpdateAssessmentControlSetStatusCommandInput,
@@ -1830,9 +1885,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates a custom framework in Audit Manager.
-   * </p>
+   * <p> Updates a custom framework in Audit Manager. </p>
    */
   public updateAssessmentFramework(
     args: UpdateAssessmentFrameworkCommandInput,
@@ -1864,9 +1917,39 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates the status of an assessment in Audit Manager.
-   * </p>
+   * <p> Updates a share request for a custom framework in Audit Manager. </p>
+   */
+  public updateAssessmentFrameworkShare(
+    args: UpdateAssessmentFrameworkShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssessmentFrameworkShareCommandOutput>;
+  public updateAssessmentFrameworkShare(
+    args: UpdateAssessmentFrameworkShareCommandInput,
+    cb: (err: any, data?: UpdateAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public updateAssessmentFrameworkShare(
+    args: UpdateAssessmentFrameworkShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssessmentFrameworkShareCommandOutput) => void
+  ): void;
+  public updateAssessmentFrameworkShare(
+    args: UpdateAssessmentFrameworkShareCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssessmentFrameworkShareCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAssessmentFrameworkShareCommandOutput) => void
+  ): Promise<UpdateAssessmentFrameworkShareCommandOutput> | void {
+    const command = new UpdateAssessmentFrameworkShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Updates the status of an assessment in Audit Manager. </p>
    */
   public updateAssessmentStatus(
     args: UpdateAssessmentStatusCommandInput,
@@ -1898,9 +1981,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates a custom control in Audit Manager.
-   * </p>
+   * <p> Updates a custom control in Audit Manager. </p>
    */
   public updateControl(
     args: UpdateControlCommandInput,
@@ -1932,9 +2013,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Updates Audit Manager settings for the current user account.
-   * </p>
+   * <p> Updates Audit Manager settings for the current user account. </p>
    */
   public updateSettings(
     args: UpdateSettingsCommandInput,
@@ -1966,9 +2045,7 @@ export class AuditManager extends AuditManagerClient {
   }
 
   /**
-   * <p>
-   *    Validates the integrity of an assessment report in Audit Manager.
-   * </p>
+   * <p> Validates the integrity of an assessment report in Audit Manager. </p>
    */
   public validateAssessmentReportIntegrity(
     args: ValidateAssessmentReportIntegrityCommandInput,

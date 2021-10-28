@@ -22,9 +22,7 @@ export interface GetAssessmentCommandInput extends GetAssessmentRequest {}
 export interface GetAssessmentCommandOutput extends GetAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns an assessment from Audit Manager.
- * </p>
+ * <p> Returns an assessment from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

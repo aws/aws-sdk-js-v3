@@ -2,15 +2,30 @@ import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
 import {
   _InstanceType,
+  AcceleratorCount,
+  AcceleratorManufacturer,
+  AcceleratorName,
+  AcceleratorTotalMemoryMiB,
+  AcceleratorType,
   AddPrefixListEntry,
   ApplianceModeSupportValue,
   AttachmentStatus,
+  BareMetal,
+  BaselineEbsBandwidthMbps,
+  BurstablePerformance,
+  CpuManufacturer,
   CurrencyCodeValues,
   DnsSupportValue,
+  FleetLaunchTemplateSpecification,
   InstanceEventWindow,
+  InstanceGeneration,
+  InstanceRequirementsRequest,
   InternetGatewayAttachment,
   Ipv4PrefixSpecification,
   Ipv6SupportValue,
+  LocalStorage,
+  LocalStorageType,
+  MemoryGiBPerVCpu,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
@@ -22,12 +37,1178 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
+  UnsuccessfulItem,
   VolumeAttachment,
-  VolumeType,
   Vpc,
-  VpcPeeringConnection,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
+ */
+export interface MemoryMiB {
+  /**
+   * <p>The minimum amount of memory, in MiB. If this parameter is not specified, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of memory, in MiB. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryMiB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryMiB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of network interfaces.</p>
+ */
+export interface NetworkInterfaceCount {
+  /**
+   * <p>The minimum number of network interfaces. If this parameter is not specified, there is no
+   *          minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of network interfaces. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace NetworkInterfaceCount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceCount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total local storage, in GB.</p>
+ */
+export interface TotalLocalStorageGB {
+  /**
+   * <p>The minimum amount of total local storage, in GB. If this parameter is not specified, there is
+   *          no minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of total local storage, in GB. If this parameter is not specified, there is
+   *          no maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace TotalLocalStorageGB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TotalLocalStorageGB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of vCPUs.</p>
+ */
+export interface VCpuCountRange {
+  /**
+   * <p>The minimum number of vCPUs. If the value is <code>0</code>, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of vCPUs. If this parameter is not specified, there is no maximum
+   *          limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace VCpuCountRange {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VCpuCountRange): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+ *          identify instance types with these attributes.</p>
+ *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
+ *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          types that satisfy any of the specified values.</p>
+ *          <note>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
+ *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface InstanceRequirements {
+  /**
+   * <p>The minimum and maximum number of vCPUs.</p>
+   */
+  VCpuCount?: VCpuCountRange;
+
+  /**
+   * <p>The minimum and maximum amount of memory, in MiB.</p>
+   */
+  MemoryMiB?: MemoryMiB;
+
+  /**
+   * <p>The CPU manufacturers to include.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
+   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
+   *          specify in your launch template.</p>
+   *          </note>
+   *          <p>Default: Any manufacturer</p>
+   */
+  CpuManufacturers?: (CpuManufacturer | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpu;
+
+  /**
+   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   *       an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The
+   *       following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *       <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*.*</code>, Amazon EC2 will exclude the entire C5
+   *          instance family (all C5a and C5n instance types). If you specify <code>c5a.*</code>, Amazon EC2
+   *          excludes all the C5a instance types, but does not exclude the C5n instance types.</p>
+   *          <p>Default: No excluded instance types</p>
+   */
+  ExcludedInstanceTypes?: string[];
+
+  /**
+   * <p>Indicates whether current or previous generation instance types are included. The
+   *       current generation instance types are recommended for use. Current generation instance types are
+   *       typically the latest two to three generations in each instance family. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For current generation instance types, specify <code>current</code>.</p>
+   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *          <p>Default: Current and previous generation instance types</p>
+   */
+  InstanceGenerations?: (InstanceGeneration | string)[];
+
+  /**
+   * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BareMetal?: BareMetal | string;
+
+  /**
+   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BurstablePerformance?: BurstablePerformance | string;
+
+  /**
+   * <p>Indicates whether instance types must support hibernation for On-Demand
+   *          Instances.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCount;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+   *             EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with instance store volumes, specify
+   *                <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only instance types with instance store volumes, specify
+   *                   <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude instance types with instance store volumes, specify
+   *                <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>included</code>
+   *          </p>
+   */
+  LocalStorage?: LocalStorage | string;
+
+  /**
+   * <p>The type of local storage that is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          </p>
+   */
+  LocalStorageTypes?: (LocalStorageType | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total local storage, in GB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGB;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbps;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with inference accelerators, specify <code>inference</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator type</p>
+   */
+  AcceleratorTypes?: (AcceleratorType | string)[];
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
+   *          an instance.</p>
+   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorCount?: AcceleratorCount;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any manufacturer</p>
+   */
+  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+
+  /**
+   * <p>The accelerators that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator</p>
+   */
+  AcceleratorNames?: (AcceleratorName | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiB;
+}
+
+export namespace InstanceRequirements {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirements): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the placement of an instance.</p>
+ */
+export interface PlacementResponse {
+  /**
+   * <p>The name of the placement group that the instance is in.</p>
+   */
+  GroupName?: string;
+}
+
+export namespace PlacementResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PlacementResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes overrides for a launch template.</p>
+ */
+export interface FleetLaunchTemplateOverrides {
+  /**
+   * <p>The instance type.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *                <code>InstanceRequirements</code>.</p>
+   *          </note>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>The ID of the subnet in which to launch the instances.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The Availability Zone in which to launch the instances.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The number of units provided by the specified instance type.</p>
+   */
+  WeightedCapacity?: number;
+
+  /**
+   * <p>The priority for the launch template override. The highest priority is launched
+   *          first.</p>
+   *          <p>If the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>,
+   *          EC2 Fleet uses priority to determine which launch template override to use first in fulfilling
+   *          On-Demand capacity.</p>
+   *          <p>If the Spot <code>AllocationStrategy</code> is set to
+   *             <code>capacity-optimized-prioritized</code>, EC2 Fleet uses priority on a best-effort basis
+   *          to determine which launch template override to use in fulfilling Spot capacity, but
+   *          optimizes for capacity first.</p>
+   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
+   *          higher the priority. If no number is set, the override has the lowest priority. You can set
+   *          the same priority for different launch template overrides.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The location where the instance launched, if applicable.</p>
+   */
+  Placement?: PlacementResponse;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   *          </note>
+   */
+  InstanceRequirements?: InstanceRequirements;
+}
+
+export namespace FleetLaunchTemplateOverrides {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverrides): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a launch template and overrides.</p>
+ */
+export interface LaunchTemplateAndOverridesResponse {
+  /**
+   * <p>The launch template.</p>
+   */
+  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
+
+  /**
+   * <p>Any parameters that you specify override the same parameters in the launch
+   *          template.</p>
+   */
+  Overrides?: FleetLaunchTemplateOverrides;
+}
+
+export namespace LaunchTemplateAndOverridesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LaunchTemplateAndOverridesResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum InstanceLifecycle {
+  ON_DEMAND = "on-demand",
+  SPOT = "spot",
+}
+
+/**
+ * <p>Describes the instances that could not be launched by the fleet.</p>
+ */
+export interface CreateFleetError {
+  /**
+   * <p>The launch templates and overrides that were used for launching the instances. The
+   *          values that you specify in the Overrides replace the values in the launch template.</p>
+   */
+  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
+
+  /**
+   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+   */
+  Lifecycle?: InstanceLifecycle | string;
+
+  /**
+   * <p>The error code that indicates why the instance could not be launched. For more
+   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message that describes why the instance could not be launched. For more
+   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export namespace CreateFleetError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetError): any => ({
+    ...obj,
+  });
+}
+
+export type PlatformValues = "Windows";
+
+/**
+ * <p>Describes the instances that were launched by the fleet.</p>
+ */
+export interface CreateFleetInstance {
+  /**
+   * <p>The launch templates and overrides that were used for launching the instances. The
+   *          values that you specify in the Overrides replace the values in the launch template.</p>
+   */
+  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
+
+  /**
+   * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
+   */
+  Lifecycle?: InstanceLifecycle | string;
+
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds?: string[];
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
+   *          blank.</p>
+   */
+  Platform?: PlatformValues | string;
+}
+
+export namespace CreateFleetInstance {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetInstance): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFleetResult {
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   */
+  FleetId?: string;
+
+  /**
+   * <p>Information about the instances that could not be launched by the fleet. Supported only for
+   *             fleets of type <code>instant</code>.</p>
+   */
+  Errors?: CreateFleetError[];
+
+  /**
+   * <p>Information about the instances that were launched by the fleet. Supported only for
+   *             fleets of type <code>instant</code>.</p>
+   */
+  Instances?: CreateFleetInstance[];
+}
+
+export namespace CreateFleetResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
+    ...obj,
+  });
+}
+
+export enum DestinationFileFormat {
+  parquet = "parquet",
+  plain_text = "plain-text",
+}
+
+/**
+ * <p>Describes the destination options for a flow log.</p>
+ */
+export interface DestinationOptionsRequest {
+  /**
+   * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
+   */
+  FileFormat?: DestinationFileFormat | string;
+
+  /**
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
+   *             The default is <code>false</code>.</p>
+   */
+  HiveCompatiblePartitions?: boolean;
+
+  /**
+   * <p>Indicates whether to partition the flow log per hour. This reduces the cost and response
+   *             time for queries. The default is <code>false</code>.</p>
+   */
+  PerHourPartition?: boolean;
+}
+
+export namespace DestinationOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DestinationOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export type LogDestinationType = "cloud-watch-logs" | "s3";
+
+export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
+
+export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
+
+export interface CreateFlowLogsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group
+   *             in your account.</p>
+   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
+   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
+   */
+  DeliverLogsPermissionArn?: string;
+
+  /**
+   * <p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p>
+   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
+   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
+   */
+  LogGroupName?: string;
+
+  /**
+   * <p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p>
+   *         <p>Constraints: Maximum of 1000 resources</p>
+   */
+  ResourceIds: string[] | undefined;
+
+  /**
+   * <p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for
+   *             the <code>ResourceId</code> property, specify <code>VPC</code> for this property.</p>
+   */
+  ResourceType: FlowLogsResourceType | string | undefined;
+
+  /**
+   * <p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>
+   */
+  TrafficType: TrafficType | string | undefined;
+
+  /**
+   * <p>The type of destination to which the flow log data is to be published. Flow log data can be
+   *             published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To
+   *             publish flow log data to Amazon S3, specify <code>s3</code>.</p>
+   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
+   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
+   *         <p>Default: <code>cloud-watch-logs</code>
+   *          </p>
+   */
+  LogDestinationType?: LogDestinationType | string;
+
+  /**
+   * <p>The destination to which the flow log data is to be published. Flow log data can be published
+   *             to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified
+   *             for <code>LogDestinationType</code>.</p>
+   *         <p>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
+   *             specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish
+   *             to a log group called <code>my-logs</code>, specify
+   *             <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>. Alternatively,
+   *             use <code>LogGroupName</code> instead.</p>
+   *         <p>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket. You can also specify a
+   *             subfolder in the bucket. To specify a subfolder in the bucket, use the following  ARN format:
+   *             <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder named <code>my-logs</code> in a
+   *             bucket named <code>my-bucket</code>, use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You
+   *             cannot use <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
+   */
+  LogDestination?: string;
+
+  /**
+   * <p>The fields to include in the flow log record, in the order in which they should
+   *             appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>. If you
+   *             omit this parameter, the flow log is created using the default format. If you specify this parameter,
+   *             you must specify at least one field.</p>
+   *         <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For
+   *             the CLI, surround this parameter value with single quotes on Linux or
+   *             double quotes on Windows.</p>
+   */
+  LogFormat?: string;
+
+  /**
+   * <p>The tags to apply to the flow logs.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p>
+   *         <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+   *                 instance</a>, the aggregation interval is always 60 seconds or less, regardless
+   *             of the value that you specify.</p>
+   *         <p>Default: 600</p>
+   */
+  MaxAggregationInterval?: number;
+
+  /**
+   * <p>The destination options.</p>
+   */
+  DestinationOptions?: DestinationOptionsRequest;
+}
+
+export namespace CreateFlowLogsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFlowLogsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFlowLogsResult {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The IDs of the flow logs.</p>
+   */
+  FlowLogIds?: string[];
+
+  /**
+   * <p>Information about the flow logs that could not be created successfully.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export namespace CreateFlowLogsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFlowLogsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a storage location in Amazon S3.</p>
+ */
+export interface StorageLocation {
+  /**
+   * <p>The name of the S3 bucket.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The key.</p>
+   */
+  Key?: string;
+}
+
+export namespace StorageLocation {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StorageLocation): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFpgaImageRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.</p>
+   */
+  InputStorageLocation: StorageLocation | undefined;
+
+  /**
+   * <p>The location in Amazon S3 for the output logs.</p>
+   */
+  LogsStorageLocation?: StorageLocation;
+
+  /**
+   * <p>A description for the AFI.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A name for the AFI.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to apply to the FPGA image during creation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateFpgaImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFpgaImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFpgaImageResult {
+  /**
+   * <p>The FPGA image identifier (AFI ID).</p>
+   */
+  FpgaImageId?: string;
+
+  /**
+   * <p>The global FPGA image identifier (AGFI ID).</p>
+   */
+  FpgaImageGlobalId?: string;
+}
+
+export namespace CreateFpgaImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFpgaImageResult): any => ({
+    ...obj,
+  });
+}
+
+export type VolumeType = "gp2" | "gp3" | "io1" | "io2" | "sc1" | "st1" | "standard";
+
+/**
+ * <p>Describes a block device for an EBS volume.</p>
+ */
+export interface EbsBlockDevice {
+  /**
+   * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving Amazon EBS volumes on instance termination</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this
+   *             represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this
+   *             represents the baseline performance of the volume and the rate at which the volume accumulates
+   *             I/O credits for bursting.</p>
+   *         <p>The following are the supported values for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *             </li>
+   *          </ul>
+   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance
+   *             up to 32,000 IOPS.</p>
+   *         <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.
+   *             The default for <code>gp3</code> volumes is 3,000 IOPS.
+   *             This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+   *             If you specify a snapshot, the default is the snapshot size. You can specify a volume
+   *             size that is equal to or larger than the snapshot size.</p>
+   *         <p>The following are the supported volumes sizes for each volume type:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>gp2</code> and <code>gp3</code>:1-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1-1,024</p>
+   *             </li>
+   *          </ul>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
+   *             <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>,
+   *             you must specify the IOPS that the volume supports.</p>
+   */
+  VolumeType?: VolumeType | string;
+
+  /**
+   * <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under
+   *             which the EBS volume is encrypted.</p>
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
+   *             and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   *     	    <p>This parameter is valid only for <code>gp3</code> volumes.</p>
+   *     	    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+   */
+  Throughput?: number;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>Indicates whether the encryption state of an EBS volume is changed while being
+   *             restored from a backing snapshot.
+   *             The effect of setting the encryption state to <code>true</code> depends on
+   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>In no case can you remove encryption from an encrypted volume.</p>
+   *         <p>Encrypted volumes can only be attached to instances that support Amazon EBS
+   *             encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
+   *         <p>This parameter is not returned by .</p>
+   */
+  Encrypted?: boolean;
+}
+
+export namespace EbsBlockDevice {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a block device mapping, which defines the EBS volumes and instance store
+ *             volumes to attach to an instance at launch.</p>
+ */
+export interface BlockDeviceMapping {
+  /**
+   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>The virtual device name (<code>ephemeral</code>N). Instance store volumes are numbered
+   *             starting from 0. An instance type with 2 available instance store volumes can specify
+   *             mappings for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of
+   *             available instance store volumes depends on the instance type. After you connect to the
+   *             instance, you must mount the volume.</p>
+   *         <p>NVMe instance store volumes are automatically enumerated and assigned a device name.
+   *             Including them in your block device mapping has no effect.</p>
+   *         <p>Constraints: For M3 instances, you must specify instance store volumes in the block
+   *             device mapping for the instance. When you launch an M3 instance, we ignore any instance
+   *             store volumes specified in the block device mapping for the AMI.</p>
+   */
+  VirtualName?: string;
+
+  /**
+   * <p>Parameters used to automatically set up EBS volumes when the instance is
+   *             launched.</p>
+   */
+  Ebs?: EbsBlockDevice;
+
+  /**
+   * <p>To omit the device from the block device mapping, specify an empty string. When this
+   *             property is specified, the device is removed from the block device mapping regardless of
+   *             the assigned value.</p>
+   */
+  NoDevice?: string;
+}
+
+export namespace BlockDeviceMapping {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateImageRequest {
+  /**
+   * <p>The block device mappings. This parameter cannot be used to modify the encryption
+   *    		status of existing volumes or snapshots. To create an AMI with encrypted snapshots,
+   *    		use the <a>CopyImage</a> action.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
+
+  /**
+   * <p>A description for the new image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A name for the new image.</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.
+   *        If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating
+   *        the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted
+   *        at the same time), but not application consistent (all the operating system buffers are not flushed
+   *        to disk before the snapshots are created).</p>
+   */
+  NoReboot?: boolean;
+
+  /**
+   * <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the
+   *       snapshots, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
+   *             </li>
+   *             <li>
+   *       	        <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
+   *           are attached to the instance, the value for <code>ResourceType</code> must be
+   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
+   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateImageRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateImageResult {
+  /**
+   * <p>The ID of the new AMI.</p>
+   */
+  ImageId?: string;
+}
+
+export namespace CreateImageResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateImageResult): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The start day and time and the end day and time of the time range, in UTC.</p>
@@ -1384,6 +2565,8 @@ export interface RequestLaunchTemplateData {
   /**
    * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *                 <code>InstanceRequirements</code>.</p>
    */
   InstanceType?: _InstanceType | string;
 
@@ -1531,6 +2714,14 @@ export interface RequestLaunchTemplateData {
    * 		       <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same instance.</p>
    */
   EnclaveOptions?: LaunchTemplateEnclaveOptionsRequest;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with these attributes.</p>
+   *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceTypes</code>.</p>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
 }
 
 export namespace RequestLaunchTemplateData {
@@ -2623,6 +3814,14 @@ export interface ResponseLaunchTemplateData {
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
    */
   EnclaveOptions?: LaunchTemplateEnclaveOptions;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with these attributes.</p>
+   *          <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *          <code>InstanceTypes</code>.</p>
+   */
+  InstanceRequirements?: InstanceRequirements;
 }
 
 export namespace ResponseLaunchTemplateData {
@@ -4225,6 +5424,15 @@ export interface NetworkInterface {
    * <p>The ID of the VPC.</p>
    */
   VpcId?: string;
+
+  /**
+   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
+   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
+   *             is dropped and you cannot assign an elastic IP address to the network interface. The
+   *             network interface is reachable from peered VPCs and resources connected through a
+   *             transit gateway, including on-premises networks.</p>
+   */
+  DenyAllIgwTraffic?: boolean;
 }
 
 export namespace NetworkInterface {
@@ -8652,915 +9860,6 @@ export namespace CreateVpcEndpointConnectionNotificationResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateVpcEndpointConnectionNotificationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcEndpointServiceConfigurationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether requests from service consumers to create an endpoint to your service must
-   *             be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
-   *             service.</p>
-   */
-  NetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
-   */
-  GatewayLoadBalancerArns?: string[];
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The tags to associate with the service.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateVpcEndpointServiceConfigurationRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum DnsNameState {
-  Failed = "failed",
-  PendingVerification = "pendingVerification",
-  Verified = "verified",
-}
-
-/**
- * <p>Information about the private DNS name for the service endpoint. For more information
- *             about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service
- *                 Private DNS Name Verification</a> in the
- *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
- */
-export interface PrivateDnsNameConfiguration {
-  /**
-   * <p>The verification state of the VPC endpoint service.</p>
-   *         <p>>Consumers
-   *             of the endpoint service can use the private name only when the state is
-   *                 <code>verified</code>.</p>
-   */
-  State?: DnsNameState | string;
-
-  /**
-   * <p>The endpoint service verification type, for example TXT.</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The value the service provider adds to the private DNS name domain record before verification.</p>
-   */
-  Value?: string;
-
-  /**
-   * <p>The name of the record subdomain the service provider needs to create. The service provider adds the <code>value</code> text to the <code>name</code>.</p>
-   */
-  Name?: string;
-}
-
-export namespace PrivateDnsNameConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PrivateDnsNameConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export enum ServiceState {
-  Available = "Available",
-  Deleted = "Deleted",
-  Deleting = "Deleting",
-  Failed = "Failed",
-  Pending = "Pending",
-}
-
-export enum ServiceType {
-  Gateway = "Gateway",
-  GatewayLoadBalancer = "GatewayLoadBalancer",
-  Interface = "Interface",
-}
-
-/**
- * <p>Describes the type of service for a VPC endpoint.</p>
- */
-export interface ServiceTypeDetail {
-  /**
-   * <p>The type of service.</p>
-   */
-  ServiceType?: ServiceType | string;
-}
-
-export namespace ServiceTypeDetail {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceTypeDetail): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a service configuration for a VPC endpoint service.</p>
- */
-export interface ServiceConfiguration {
-  /**
-   * <p>The type of service.</p>
-   */
-  ServiceType?: ServiceTypeDetail[];
-
-  /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>The name of the service.</p>
-   */
-  ServiceName?: string;
-
-  /**
-   * <p>The service state.</p>
-   */
-  ServiceState?: ServiceState | string;
-
-  /**
-   * <p>The Availability Zones in which the service is available.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
-   *             endpoints using the VPC endpoint API is restricted.</p>
-   */
-  ManagesVpcEndpoints?: boolean;
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
-   */
-  NetworkLoadBalancerArns?: string[];
-
-  /**
-   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
-   */
-  GatewayLoadBalancerArns?: string[];
-
-  /**
-   * <p>The DNS names for the service.</p>
-   */
-  BaseEndpointDnsNames?: string[];
-
-  /**
-   * <p>The private DNS name for the service.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>Information about the endpoint service private DNS name configuration.</p>
-   */
-  PrivateDnsNameConfiguration?: PrivateDnsNameConfiguration;
-
-  /**
-   * <p>Any tags assigned to the service.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace ServiceConfiguration {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ServiceConfiguration): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcEndpointServiceConfigurationResult {
-  /**
-   * <p>Information about the service configuration.</p>
-   */
-  ServiceConfiguration?: ServiceConfiguration;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
-}
-
-export namespace CreateVpcEndpointServiceConfigurationResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
-   *          <p>Default: Your Amazon Web Services account ID</p>
-   */
-  PeerOwnerId?: string;
-
-  /**
-   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
-   * 			specify this parameter in the request.</p>
-   */
-  PeerVpcId?: string;
-
-  /**
-   * <p>The ID of the requester VPC. You must specify this parameter in the
-   * 			request.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
-   *             other than the Region in which you make the request.</p>
-   * 		       <p>Default: The Region in which you make the request.</p>
-   */
-  PeerRegion?: string;
-
-  /**
-   * <p>The tags to assign to the peering connection.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateVpcPeeringConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateVpcPeeringConnectionResult {
-  /**
-   * <p>Information about the VPC peering connection.</p>
-   */
-  VpcPeeringConnection?: VpcPeeringConnection;
-}
-
-export namespace CreateVpcPeeringConnectionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionResult): any => ({
-    ...obj,
-  });
-}
-
-export type TunnelInsideIpVersion = "ipv4" | "ipv6";
-
-/**
- * <p>The IKE version that is permitted for the VPN tunnel.</p>
- */
-export interface IKEVersionsRequestListValue {
-  /**
-   * <p>The IKE version.</p>
-   */
-  Value?: string;
-}
-
-export namespace IKEVersionsRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IKEVersionsRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- */
-export interface Phase1DHGroupNumbersRequestListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   */
-  Value?: number;
-}
-
-export namespace Phase1DHGroupNumbersRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- */
-export interface Phase1EncryptionAlgorithmsRequestListValue {
-  /**
-   * <p>The value for the encryption algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase1EncryptionAlgorithmsRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
- *             negotiations.</p>
- */
-export interface Phase1IntegrityAlgorithmsRequestListValue {
-  /**
-   * <p>The value for the integrity algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase1IntegrityAlgorithmsRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- */
-export interface Phase2DHGroupNumbersRequestListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   */
-  Value?: number;
-}
-
-export namespace Phase2DHGroupNumbersRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- */
-export interface Phase2EncryptionAlgorithmsRequestListValue {
-  /**
-   * <p>The encryption algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase2EncryptionAlgorithmsRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
- *             negotiations.</p>
- */
-export interface Phase2IntegrityAlgorithmsRequestListValue {
-  /**
-   * <p>The integrity algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase2IntegrityAlgorithmsRequestListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsRequestListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The tunnel options for a single VPN tunnel.</p>
- */
-export interface VpnTunnelOptionsSpecification {
-  /**
-   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same virtual private gateway. </p>
-   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
-   *             following CIDR blocks are reserved and cannot be used:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.0.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.1.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.2.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.3.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.4.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.5.0/30</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>169.254.169.252/30</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  TunnelInsideCidr?: string;
-
-  /**
-   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
-   *             unique across all VPN connections that use the same transit gateway.</p>
-   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
-   */
-  TunnelInsideIpv6Cidr?: string;
-
-  /**
-   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
-   *             private gateway and customer gateway.</p>
-   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
-   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
-   *             zero (0).</p>
-   */
-  PreSharedKey?: string;
-
-  /**
-   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 28,800.</p>
-   *         <p>Default: <code>28800</code>
-   *          </p>
-   */
-  Phase1LifetimeSeconds?: number;
-
-  /**
-   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
-   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
-   *                 <code>Phase1LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>3600</code>
-   *          </p>
-   */
-  Phase2LifetimeSeconds?: number;
-
-  /**
-   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
-   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
-   *             of the rekey is randomly selected based on the value for
-   *                 <code>RekeyFuzzPercentage</code>.</p>
-   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *         <p>Default: <code>540</code>
-   *          </p>
-   */
-  RekeyMarginTimeSeconds?: number;
-
-  /**
-   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
-   *             during which the rekey time is randomly selected.</p>
-   *         <p>Constraints: A value between 0 and 100.</p>
-   *         <p>Default: <code>100</code>
-   *          </p>
-   */
-  RekeyFuzzPercentage?: number;
-
-  /**
-   * <p>The number of packets in an IKE replay window.</p>
-   *         <p>Constraints: A value between 64 and 2048.</p>
-   *         <p>Default: <code>1024</code>
-   *          </p>
-   */
-  ReplayWindowSize?: number;
-
-  /**
-   * <p>The number of seconds after which a DPD timeout occurs.</p>
-   *         <p>Constraints: A value between 0 and 30.</p>
-   *         <p>Default: <code>30</code>
-   *          </p>
-   */
-  DPDTimeoutSeconds?: number;
-
-  /**
-   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
-   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
-   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
-   *          </p>
-   *         <p>Default: <code>clear</code>
-   *          </p>
-   */
-  DPDTimeoutAction?: string;
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
-   *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
-   *             IKE negotiations.</p>
-   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
-   *                 <code>AES256-GCM-16</code>
-   *          </p>
-   */
-  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
-   *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
-   *             negotiations.</p>
-   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
-   *                 <code>SHA2-512</code>
-   *          </p>
-   */
-  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 1 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
-   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
-   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
-   *          </p>
-   */
-  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
-   *             phase 2 IKE negotiations.</p>
-   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
-   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
-   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
-   *                 <code>24</code>
-   *          </p>
-   */
-  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
-
-  /**
-   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
-   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
-   *          </p>
-   */
-  IKEVersions?: IKEVersionsRequestListValue[];
-
-  /**
-   * <p>The action to take when the establishing the tunnel for the VPN connection. By
-   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
-   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
-   *             negotiation.</p>
-   *         <p>Valid Values: <code>add</code> | <code>start</code>
-   *          </p>
-   *         <p>Default: <code>add</code>
-   *          </p>
-   */
-  StartupAction?: string;
-}
-
-export namespace VpnTunnelOptionsSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes VPN connection options.</p>
- */
-export interface VpnConnectionOptionsSpecification {
-  /**
-   * <p>Indicate whether to enable acceleration for the VPN connection.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  EnableAcceleration?: boolean;
-
-  /**
-   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
-   *             connection for a device that does not support BGP, you must specify <code>true</code>.
-   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  StaticRoutesOnly?: boolean;
-
-  /**
-   * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
-   *         <p>Default: <code>ipv4</code>
-   *          </p>
-   */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
-
-  /**
-   * <p>The tunnel options for the VPN connection.</p>
-   */
-  TunnelOptions?: VpnTunnelOptionsSpecification[];
-
-  /**
-   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  LocalIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>0.0.0.0/0</code>
-   *          </p>
-   */
-  RemoteIpv4NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  LocalIpv6NetworkCidr?: string;
-
-  /**
-   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
-   *         <p>Default: <code>::/0</code>
-   *          </p>
-   */
-  RemoteIpv6NetworkCidr?: string;
-}
-
-export namespace VpnConnectionOptionsSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for CreateVpnConnection.</p>
- */
-export interface CreateVpnConnectionRequest {
-  /**
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId: string | undefined;
-
-  /**
-   * <p>The type of VPN connection (<code>ipsec.1</code>).</p>
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you
-   *             cannot specify a transit gateway.</p>
-   */
-  VpnGatewayId?: string;
-
-  /**
-   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private
-   *             gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The options for the VPN connection.</p>
-   */
-  Options?: VpnConnectionOptionsSpecification;
-
-  /**
-   * <p>The tags to apply to the VPN connection.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateVpnConnectionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
- */
-export interface IKEVersionsListValue {
-  /**
-   * <p>The IKE version.</p>
-   */
-  Value?: string;
-}
-
-export namespace IKEVersionsListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
- */
-export interface Phase1DHGroupNumbersListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   */
-  Value?: number;
-}
-
-export namespace Phase1DHGroupNumbersListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
- */
-export interface Phase1EncryptionAlgorithmsListValue {
-  /**
-   * <p>The value for the encryption algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase1EncryptionAlgorithmsListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
- */
-export interface Phase1IntegrityAlgorithmsListValue {
-  /**
-   * <p>The value for the integrity algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase1IntegrityAlgorithmsListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
- */
-export interface Phase2DHGroupNumbersListValue {
-  /**
-   * <p>The Diffie-Hellmann group number.</p>
-   */
-  Value?: number;
-}
-
-export namespace Phase2DHGroupNumbersListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
- */
-export interface Phase2EncryptionAlgorithmsListValue {
-  /**
-   * <p>The encryption algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase2EncryptionAlgorithmsListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsListValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
- */
-export interface Phase2IntegrityAlgorithmsListValue {
-  /**
-   * <p>The integrity algorithm.</p>
-   */
-  Value?: string;
-}
-
-export namespace Phase2IntegrityAlgorithmsListValue {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsListValue): any => ({
     ...obj,
   });
 }

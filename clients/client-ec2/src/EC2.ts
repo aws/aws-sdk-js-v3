@@ -1696,6 +1696,11 @@ import {
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
+  GetInstanceTypesFromInstanceRequirementsCommand,
+  GetInstanceTypesFromInstanceRequirementsCommandInput,
+  GetInstanceTypesFromInstanceRequirementsCommandOutput,
+} from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
+import {
   GetLaunchTemplateDataCommand,
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
@@ -1725,6 +1730,11 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSpotPlacementScoresCommand,
+  GetSpotPlacementScoresCommandInput,
+  GetSpotPlacementScoresCommandOutput,
+} from "./commands/GetSpotPlacementScoresCommand";
 import {
   GetSubnetCidrReservationsCommand,
   GetSubnetCidrReservationsCommandInput,
@@ -14932,6 +14942,49 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Returns a list of instance types with the specified instance attributes. You can
+   *          use the response to preview the instance types without launching instances. Note
+   *          that the response does not consider capacity.</p>
+   *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
+   *          specified parameters. If you specify multiple values for a parameter, you get instance
+   *          types that satisfy any of the specified values.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html#spotfleet-get-instance-types-from-instance-requirements">Preview instance types with specified attributes</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+   *             placement score</a> in the <i>Amazon EC2 User Guide</i>, and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating an
+   *             Auto Scaling group using attribute-based instance type selection</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  public getInstanceTypesFromInstanceRequirements(
+    args: GetInstanceTypesFromInstanceRequirementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput>;
+  public getInstanceTypesFromInstanceRequirements(
+    args: GetInstanceTypesFromInstanceRequirementsCommandInput,
+    cb: (err: any, data?: GetInstanceTypesFromInstanceRequirementsCommandOutput) => void
+  ): void;
+  public getInstanceTypesFromInstanceRequirements(
+    args: GetInstanceTypesFromInstanceRequirementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInstanceTypesFromInstanceRequirementsCommandOutput) => void
+  ): void;
+  public getInstanceTypesFromInstanceRequirements(
+    args: GetInstanceTypesFromInstanceRequirementsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInstanceTypesFromInstanceRequirementsCommandOutput) => void),
+    cb?: (err: any, data?: GetInstanceTypesFromInstanceRequirementsCommandOutput) => void
+  ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> | void {
+    const command = new GetInstanceTypesFromInstanceRequirementsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the configuration data of the specified instance. You can use this data
    *             to create a launch template. </p>
    *         <p>This action calls on other describe actions to get instance information. Depending on your instance configuration, you may need to allow the following
@@ -15134,6 +15187,45 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
   ): Promise<GetSerialConsoleAccessStatusCommandOutput> | void {
     const command = new GetSerialConsoleAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Calculates the Spot placement score for a Region or Availability Zone based on the
+   *          specified target capacity and compute requirements.</p>
+   *          <p>You can specify your compute requirements either by using
+   *             <code>InstanceRequirementsWithMetadata</code> and letting Amazon EC2 choose the optimal
+   *          instance types to fulfill your Spot request, or you can specify the instance types by using
+   *             <code>InstanceTypes</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in
+   *          the Amazon EC2 User Guide.</p>
+   */
+  public getSpotPlacementScores(
+    args: GetSpotPlacementScoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpotPlacementScoresCommandOutput>;
+  public getSpotPlacementScores(
+    args: GetSpotPlacementScoresCommandInput,
+    cb: (err: any, data?: GetSpotPlacementScoresCommandOutput) => void
+  ): void;
+  public getSpotPlacementScores(
+    args: GetSpotPlacementScoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpotPlacementScoresCommandOutput) => void
+  ): void;
+  public getSpotPlacementScores(
+    args: GetSpotPlacementScoresCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSpotPlacementScoresCommandOutput) => void),
+    cb?: (err: any, data?: GetSpotPlacementScoresCommandOutput) => void
+  ): Promise<GetSpotPlacementScoresCommandOutput> | void {
+    const command = new GetSpotPlacementScoresCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

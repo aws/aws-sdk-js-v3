@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopMonitoringScheduleRequest } from "../models/models_2";
+import { StopMonitoringScheduleRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1StopMonitoringScheduleCommand,
   serializeAws_json1_1StopMonitoringScheduleCommand,

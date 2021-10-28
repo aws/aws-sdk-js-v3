@@ -22,9 +22,7 @@ export interface DeleteAssessmentFrameworkCommandInput extends DeleteAssessmentF
 export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Deletes a custom framework in Audit Manager.
- * </p>
+ * <p> Deletes a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

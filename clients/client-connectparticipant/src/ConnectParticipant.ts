@@ -46,6 +46,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL
    *             provided in StartAttachmentUpload API. </p>
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
    */
   public completeAttachmentUpload(
     args: CompleteAttachmentUploadCommandInput,
@@ -77,29 +79,35 @@ export class ConnectParticipant extends ConnectParticipantClient {
   }
 
   /**
-   * <p>Creates the participant's connection. Note that ParticipantToken is used for invoking
-   *             this API instead of ConnectionToken.</p>
-   *         <p>The participant token is valid for the lifetime of the participant – until they are
-   *             part of a contact.</p>
+   * <p>Creates the participant's connection.  Note that ParticipantToken is used for invoking this API instead of
+   *             ConnectionToken.</p>
+   *         <p>The participant token is valid for the lifetime of the participant –
+   *             until they are part of a contact.</p>
    *         <p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s.
    *             Clients must manually connect to the returned websocket URL and subscribe to the desired
    *             topic. </p>
    *         <p>For chat, you need to publish the following on the established websocket
    *             connection:</p>
-   *
-   *
    *         <p>
    *             <code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code>
    *          </p>
-   *
    *         <p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter,
    *             clients need to call this API again to obtain a new websocket URL and perform the same
    *             steps as before.</p>
-   *
+   *         <p>
+   *             <b>Message streaming support</b>: This API can also be used together with the
+   *             <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
+   *             API to create a participant connection for chat contacts that are
+   *             not using a websocket. For more information about message streaming, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message streaming</a> in the <i>Amazon Connect
+   *                     Administrator Guide</i>.</p>
+   *         <p>
+   *             <b>Feature specifications</b>: For information about feature specifications, such as the allowed number of open
+   *             websocket connections per participant, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator
+   *                 Guide</i>. </p>
    *         <note>
    *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
    *                     authentication</a>.</p>
-   *         </note>
+   *          </note>
    */
   public createParticipantConnection(
     args: CreateParticipantConnectionCommandInput,
@@ -133,8 +141,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API
    *             instead of ParticipantToken.</p>
-   *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
-   *                 authentication</a>.</p>
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
    */
   public disconnectParticipant(
     args: DisconnectParticipantCommandInput,
@@ -168,6 +176,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Provides a pre-signed URL for download of a completed attachment. This is an
    *             asynchronous API for use with active contacts.</p>
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
    */
   public getAttachment(
     args: GetAttachmentCommandInput,
@@ -202,7 +212,7 @@ export class ConnectParticipant extends ConnectParticipantClient {
    * <p>Retrieves a transcript of the session, including details about any attachments. Note
    *             that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
    *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
-   *                 authentication</a>.</p>
+   *                     authentication</a>.</p>
    */
   public getTranscript(
     args: GetTranscriptCommandInput,
@@ -236,8 +246,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
-   *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
-   *                 authentication</a>.</p>
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
    */
   public sendEvent(args: SendEventCommandInput, options?: __HttpHandlerOptions): Promise<SendEventCommandOutput>;
   public sendEvent(args: SendEventCommandInput, cb: (err: any, data?: SendEventCommandOutput) => void): void;
@@ -265,10 +275,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of
    *             ParticipantToken.</p>
-   *         <note>
-   *             <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
    *                     authentication</a>.</p>
-   *         </note>
    */
   public sendMessage(args: SendMessageCommandInput, options?: __HttpHandlerOptions): Promise<SendMessageCommandOutput>;
   public sendMessage(args: SendMessageCommandInput, cb: (err: any, data?: SendMessageCommandOutput) => void): void;
@@ -296,6 +304,8 @@ export class ConnectParticipant extends ConnectParticipantClient {
   /**
    * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
    *             S3.</p>
+   *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+   *                     authentication</a>.</p>
    */
   public startAttachmentUpload(
     args: StartAttachmentUploadCommandInput,

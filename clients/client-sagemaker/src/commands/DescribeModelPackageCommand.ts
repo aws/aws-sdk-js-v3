@@ -22,9 +22,9 @@ export interface DescribeModelPackageCommandInput extends DescribeModelPackageIn
 export interface DescribeModelPackageCommandOutput extends DescribeModelPackageOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
+ * <p>Returns a description of the specified model package, which is used to create SageMaker
  *             models or list them on Amazon Web Services Marketplace.</p>
- *         <p>To create models in Amazon SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
+ *         <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
  *             Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

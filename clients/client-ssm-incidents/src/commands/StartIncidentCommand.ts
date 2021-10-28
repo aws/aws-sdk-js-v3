@@ -22,7 +22,8 @@ export interface StartIncidentCommandInput extends StartIncidentInput {}
 export interface StartIncidentCommandOutput extends StartIncidentOutput, __MetadataBearer {}
 
 /**
- * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or manually. </p>
+ * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
+ *             manually. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

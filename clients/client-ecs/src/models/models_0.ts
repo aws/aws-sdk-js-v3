@@ -508,8 +508,8 @@ export interface ExecuteCommandLogConfiguration {
   s3BucketName?: string;
 
   /**
-   * <p>Whether or not to enable encryption on the CloudWatch logs. If not specified,
-   * 			encryption will be disabled.</p>
+   * <p>Whether or not to use encryption on the S3 logs. If not specified,
+   * 			encryption is not used.</p>
    */
   s3EncryptionEnabled?: boolean;
 
@@ -1949,6 +1949,12 @@ export interface Deployment {
   platformVersion?: string;
 
   /**
+   * <p>The operating system  that your tasks in the service, or tasks are running on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p> All tasks that run as part of this service must use the same <code>platformFamily</code> value as the service, for example, <code> LINUX.</code>.</p>
+   */
+  platformFamily?: string;
+
+  /**
    * <p>The VPC subnet and security group configuration for tasks that receive their own
    *             elastic network interface by using the <code>awsvpc</code> networking mode.</p>
    */
@@ -2171,6 +2177,12 @@ export interface TaskSet {
   platformVersion?: string;
 
   /**
+   * <p>The operating system  that your tasks in the set are running on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p> All tasks in the set must have the same value.</p>
+   */
+  platformFamily?: string;
+
+  /**
    * <p>The network configuration for the task set.</p>
    */
   networkConfiguration?: NetworkConfiguration;
@@ -2348,6 +2360,12 @@ export interface Service {
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
+
+  /**
+   * <p>The operating system  that your tasks in the service are running on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p> All tasks that run as part of this service must use the same <code>platformFamily</code> value as the service, for example, <code>LINUX</code>.</p>
+   */
+  platformFamily?: string;
 
   /**
    * <p>The task definition to use for tasks in the service. This value is specified when the
@@ -3586,8 +3604,17 @@ export enum ContainerCondition {
  * 				<code>20190301</code> or later, then they contain the required versions of the
  * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
- * 			         <p>For tasks using the Fargate launch type, this parameter requires
- * 				that the task or service uses platform version 1.3.0 or later.</p>
+ * 			         <p>For tasks using the Fargate launch type, the task or service requires the followiwng platforms:</p>
+ * 			         <ul>
+ *                <li>
+ * 					             <p>Linux platform
+ * 						version <code>1.3.0</code> or later.</p>
+ * 				           </li>
+ *                <li>
+ * 					             <p>Windows platform
+ * 						version <code>1.0.0</code> or later.</p>
+ * 				           </li>
+ *             </ul>
  * 		       </note>
  */
 export interface ContainerDependency {
@@ -3659,8 +3686,17 @@ export enum EnvironmentFileType {
  * 			same variable, they are processed from the top down. It is recommended to use unique
  * 			variable names. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html">Specifying environment
  * 				variables</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>This field is only valid for containers in Fargate tasks that use
- * 			platform version <code>1.4.0</code> or later.</p>
+ * 		       <p>This parameter is only supported for tasks hosted on Fargate using the following platform versions:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>Linux platform
+ * 					version <code>1.4.0</code> or later.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>Windows platform
+ * 					version <code>1.0.0</code> or later.</p>
+ * 			         </li>
+ *          </ul>
  */
 export interface EnvironmentFile {
   /**
@@ -4879,8 +4915,17 @@ export interface ContainerDefinition {
    * 				<code>ecs-init</code> package. If your container instances are launched from version
    * 				<code>20190301</code> or later, then they contain the required versions of the
    * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>For tasks using the Fargate launch type, the task or service requires
-   * 			platform version <code>1.3.0</code> or later.</p>
+   * 		       <p>For tasks using the Fargate launch type, the task or service requires the followiwng platforms:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Linux platform
+   * 					version <code>1.3.0</code> or later.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Windows platform
+   * 					version <code>1.0.0</code> or later.</p>
+   * 			         </li>
+   *          </ul>
    */
   dependsOn?: ContainerDependency[];
 
@@ -4896,8 +4941,17 @@ export interface ContainerDefinition {
    * 			         <p>When the <code>ECS_CONTAINER_START_TIMEOUT</code> container agent configuration
    * 				variable is used, it is enforced indendently from this start timeout value.</p>
    * 		       </note>
-   * 		       <p>For tasks using the Fargate launch type, this parameter requires that
-   * 			the task or service uses platform version 1.3.0 or later.</p>
+   * 		       <p>For tasks using the Fargate launch type, the task or service requires the followiwng platforms:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Linux platform
+   * 					version <code>1.3.0</code> or later.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Windows platform
+   * 					version <code>1.0.0</code> or later.</p>
+   * 			         </li>
+   *          </ul>
    * 		       <p>For tasks using the EC2 launch type, your container instances require at
    * 			least version <code>1.26.0</code> of the container agent to enable a container start
    * 			timeout value. However, we recommend using the latest container agent version. For
@@ -4914,8 +4968,18 @@ export interface ContainerDefinition {
   /**
    * <p>Time duration (in seconds) to wait before the container is forcefully killed if it
    * 			doesn't exit normally on its own.</p>
-   * 		       <p>For tasks using the Fargate launch type, the task or service requires
-   * 			platform version 1.3.0 or later. The max stop timeout value is 120 seconds and if the
+   * 		       <p>For tasks using the Fargate launch type, the task or service requires the followiwng platforms:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Linux platform
+   * 					version <code>1.3.0</code> or later.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Windows platform
+   * 					version <code>1.0.0</code> or later.</p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>The max stop timeout value is 120 seconds and if the
    * 			parameter is not specified, the default value of 30 seconds is used.</p>
    * 		       <p>For tasks using the EC2 launch type, if the <code>stopTimeout</code>
    * 			parameter is not specified, the value set for the Amazon ECS container agent configuration
@@ -5225,8 +5289,17 @@ export namespace ContainerDefinition {
  * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
  * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
  * 		       <note>
- * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
- * 				version <code>1.4.0</code> or later.</p>
+ * 			         <p>This parameter is only supported for tasks hosted on Fargate using the following platform versions:</p>
+ * 			         <ul>
+ *                <li>
+ * 					             <p>Linux platform
+ * 						version <code>1.4.0</code> or later.</p>
+ * 				           </li>
+ *                <li>
+ * 					             <p>Windows platform
+ * 						version <code>1.0.0</code> or later.</p>
+ * 				           </li>
+ *             </ul>
  * 		       </note>
  */
 export interface EphemeralStorage {
@@ -5409,6 +5482,46 @@ export namespace ProxyConfiguration {
    * @internal
    */
   export const filterSensitiveLog = (obj: ProxyConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum CPUArchitecture {
+  ARM64 = "ARM64",
+  X86_64 = "X86_64",
+}
+
+export enum OSFamily {
+  LINUX = "LINUX",
+  WINDOWS_SERVER_2004_CORE = "WINDOWS_SERVER_2004_CORE",
+  WINDOWS_SERVER_2016_FULL = "WINDOWS_SERVER_2016_FULL",
+  WINDOWS_SERVER_2019_CORE = "WINDOWS_SERVER_2019_CORE",
+  WINDOWS_SERVER_2019_FULL = "WINDOWS_SERVER_2019_FULL",
+  WINDOWS_SERVER_2022_CORE = "WINDOWS_SERVER_2022_CORE",
+  WINDOWS_SERVER_2022_FULL = "WINDOWS_SERVER_2022_FULL",
+  WINDOWS_SERVER_20H2_CORE = "WINDOWS_SERVER_20H2_CORE",
+}
+
+/**
+ * <p>Information about the platform for the Amazon ECS service or task.</p>
+ */
+export interface RuntimePlatform {
+  /**
+   * <p>The CPU architecture.</p>
+   */
+  cpuArchitecture?: CPUArchitecture | string;
+
+  /**
+   * <p>The operating system.</p>
+   */
+  operatingSystemFamily?: OSFamily | string;
+}
+
+export namespace RuntimePlatform {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RuntimePlatform): any => ({
     ...obj,
   });
 }
@@ -5872,6 +5985,12 @@ export interface TaskDefinition {
    * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   compatibilities?: (Compatibility | string)[];
+
+  /**
+   * <p>The operating system  that your task definitions are running on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p>When you specify a task in a service, this value must match the <code>runtimePlatform</code> value of the service.</p>
+   */
+  runtimePlatform?: RuntimePlatform;
 
   /**
    * <p>The task launch types the task definition was validated against. To determine which
@@ -6821,8 +6940,17 @@ export interface TaskOverride {
   /**
    * <p>The ephemeral storage setting override for the task.</p>
    * 		       <note>
-   * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
-   * 				version <code>1.4.0</code> or later.</p>
+   * 			         <p>This parameter is only supported for tasks hosted on Fargate using the following platform versions:</p>
+   * 			         <ul>
+   *                <li>
+   * 					             <p>Linux platform
+   * 						version <code>1.4.0</code> or later.</p>
+   * 				           </li>
+   *                <li>
+   * 					             <p>Windows platform
+   * 						version <code>1.0.0</code> or later.</p>
+   * 				           </li>
+   *             </ul>
    * 		       </note>
    */
   ephemeralStorage?: EphemeralStorage;
@@ -7032,6 +7160,12 @@ export interface Task {
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
+
+  /**
+   * <p>The operating system  that your tasks are running on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p> All tasks that run as part of this service must use the same <code>platformFamily</code> value as the service, for example, <code>LINUX.</code>.</p>
+   */
+  platformFamily?: string;
 
   /**
    * <p>The Unix timestamp for when the container image pull began.</p>
@@ -8817,11 +8951,26 @@ export interface RegisterTaskDefinitionRequest {
    * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
    * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
    * 		       <note>
-   * 			         <p>This parameter is only supported for tasks hosted on Fargate using platform
-   * 				version <code>1.4.0</code> or later.</p>
+   * 			         <p>This parameter is only supported for tasks hosted on Fargate using the following platform versions:</p>
+   * 			         <ul>
+   *                <li>
+   * 					             <p>Linux platform
+   * 						version <code>1.4.0</code> or later.</p>
+   * 				           </li>
+   *                <li>
+   * 					             <p>Windows platform
+   * 						version <code>1.0.0</code> or later.</p>
+   * 				           </li>
+   *             </ul>
    * 		       </note>
    */
   ephemeralStorage?: EphemeralStorage;
+
+  /**
+   * <p>The operating system  that your tasks definitions run on. A platform family is specified only for tasks using the Fargate launch type. </p>
+   * 		       <p>When you specify a task definition in a service, this value must match the <code>runtimePlatform</code> value of the service.</p>
+   */
+  runtimePlatform?: RuntimePlatform;
 }
 
 export namespace RegisterTaskDefinitionRequest {

@@ -15,7 +15,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeTransitGatewayVpcAttachmentsRequest,
   DescribeTransitGatewayVpcAttachmentsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,
   serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand,

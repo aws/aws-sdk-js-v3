@@ -60,6 +60,7 @@ import {
   GetDocumentTextDetectionCommandInput,
   GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
+import { GetExpenseAnalysisCommandInput, GetExpenseAnalysisCommandOutput } from "./commands/GetExpenseAnalysisCommand";
 import {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -68,6 +69,10 @@ import {
   StartDocumentTextDetectionCommandInput,
   StartDocumentTextDetectionCommandOutput,
 } from "./commands/StartDocumentTextDetectionCommand";
+import {
+  StartExpenseAnalysisCommandInput,
+  StartExpenseAnalysisCommandOutput,
+} from "./commands/StartExpenseAnalysisCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
@@ -76,8 +81,10 @@ export type ServiceInputTypes =
   | DetectDocumentTextCommandInput
   | GetDocumentAnalysisCommandInput
   | GetDocumentTextDetectionCommandInput
+  | GetExpenseAnalysisCommandInput
   | StartDocumentAnalysisCommandInput
-  | StartDocumentTextDetectionCommandInput;
+  | StartDocumentTextDetectionCommandInput
+  | StartExpenseAnalysisCommandInput;
 
 export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
@@ -85,8 +92,10 @@ export type ServiceOutputTypes =
   | DetectDocumentTextCommandOutput
   | GetDocumentAnalysisCommandOutput
   | GetDocumentTextDetectionCommandOutput
+  | GetExpenseAnalysisCommandOutput
   | StartDocumentAnalysisCommandOutput
-  | StartDocumentTextDetectionCommandOutput;
+  | StartDocumentTextDetectionCommandOutput
+  | StartExpenseAnalysisCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

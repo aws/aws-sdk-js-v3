@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResult } from "../models/models_3";
+import { DescribeTrafficMirrorTargetsRequest, DescribeTrafficMirrorTargetsResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeTrafficMirrorTargetsCommand,
   serializeAws_ec2DescribeTrafficMirrorTargetsCommand,

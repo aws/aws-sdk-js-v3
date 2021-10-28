@@ -22,9 +22,7 @@ export interface CreateAssessmentFrameworkCommandInput extends CreateAssessmentF
 export interface CreateAssessmentFrameworkCommandOutput extends CreateAssessmentFrameworkResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Creates a custom framework in Audit Manager.
- * </p>
+ * <p> Creates a custom framework in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

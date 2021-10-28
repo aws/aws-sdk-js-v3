@@ -32,6 +32,11 @@ import {
   DeleteAppInstanceUserCommandOutput,
 } from "./commands/DeleteAppInstanceUserCommand";
 import {
+  DeregisterAppInstanceUserEndpointCommand,
+  DeregisterAppInstanceUserEndpointCommandInput,
+  DeregisterAppInstanceUserEndpointCommandOutput,
+} from "./commands/DeregisterAppInstanceUserEndpointCommand";
+import {
   DescribeAppInstanceAdminCommand,
   DescribeAppInstanceAdminCommandInput,
   DescribeAppInstanceAdminCommandOutput,
@@ -46,6 +51,11 @@ import {
   DescribeAppInstanceUserCommandInput,
   DescribeAppInstanceUserCommandOutput,
 } from "./commands/DescribeAppInstanceUserCommand";
+import {
+  DescribeAppInstanceUserEndpointCommand,
+  DescribeAppInstanceUserEndpointCommandInput,
+  DescribeAppInstanceUserEndpointCommandOutput,
+} from "./commands/DescribeAppInstanceUserEndpointCommand";
 import {
   GetAppInstanceRetentionSettingsCommand,
   GetAppInstanceRetentionSettingsCommandInput,
@@ -62,15 +72,36 @@ import {
   ListAppInstancesCommandOutput,
 } from "./commands/ListAppInstancesCommand";
 import {
+  ListAppInstanceUserEndpointsCommand,
+  ListAppInstanceUserEndpointsCommandInput,
+  ListAppInstanceUserEndpointsCommandOutput,
+} from "./commands/ListAppInstanceUserEndpointsCommand";
+import {
   ListAppInstanceUsersCommand,
   ListAppInstanceUsersCommandInput,
   ListAppInstanceUsersCommandOutput,
 } from "./commands/ListAppInstanceUsersCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutAppInstanceRetentionSettingsCommand,
   PutAppInstanceRetentionSettingsCommandInput,
   PutAppInstanceRetentionSettingsCommandOutput,
 } from "./commands/PutAppInstanceRetentionSettingsCommand";
+import {
+  RegisterAppInstanceUserEndpointCommand,
+  RegisterAppInstanceUserEndpointCommandInput,
+  RegisterAppInstanceUserEndpointCommandOutput,
+} from "./commands/RegisterAppInstanceUserEndpointCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateAppInstanceCommand,
   UpdateAppInstanceCommandInput,
@@ -81,6 +112,11 @@ import {
   UpdateAppInstanceUserCommandInput,
   UpdateAppInstanceUserCommandOutput,
 } from "./commands/UpdateAppInstanceUserCommand";
+import {
+  UpdateAppInstanceUserEndpointCommand,
+  UpdateAppInstanceUserEndpointCommandInput,
+  UpdateAppInstanceUserEndpointCommandOutput,
+} from "./commands/UpdateAppInstanceUserEndpointCommand";
 
 /**
  * <p>The Amazon Chime SDK Identity APIs in this section allow software developers to create
@@ -303,6 +339,38 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * <p>Deregisters an <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  public deregisterAppInstanceUserEndpoint(
+    args: DeregisterAppInstanceUserEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterAppInstanceUserEndpointCommandOutput>;
+  public deregisterAppInstanceUserEndpoint(
+    args: DeregisterAppInstanceUserEndpointCommandInput,
+    cb: (err: any, data?: DeregisterAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public deregisterAppInstanceUserEndpoint(
+    args: DeregisterAppInstanceUserEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public deregisterAppInstanceUserEndpoint(
+    args: DeregisterAppInstanceUserEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterAppInstanceUserEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeregisterAppInstanceUserEndpointCommandOutput) => void
+  ): Promise<DeregisterAppInstanceUserEndpointCommandOutput> | void {
+    const command = new DeregisterAppInstanceUserEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the full details of an <code>AppInstance</code>.</p>
    */
   public describeAppInstance(
@@ -388,6 +456,38 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
     cb?: (err: any, data?: DescribeAppInstanceUserCommandOutput) => void
   ): Promise<DescribeAppInstanceUserCommandOutput> | void {
     const command = new DescribeAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the full details of an <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  public describeAppInstanceUserEndpoint(
+    args: DescribeAppInstanceUserEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAppInstanceUserEndpointCommandOutput>;
+  public describeAppInstanceUserEndpoint(
+    args: DescribeAppInstanceUserEndpointCommandInput,
+    cb: (err: any, data?: DescribeAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public describeAppInstanceUserEndpoint(
+    args: DescribeAppInstanceUserEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public describeAppInstanceUserEndpoint(
+    args: DescribeAppInstanceUserEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppInstanceUserEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAppInstanceUserEndpointCommandOutput) => void
+  ): Promise<DescribeAppInstanceUserEndpointCommandOutput> | void {
+    const command = new DescribeAppInstanceUserEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -496,6 +596,38 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * <p>Lists all the <code>AppInstanceUserEndpoints</code> created under a single <code>AppInstanceUser</code>.</p>
+   */
+  public listAppInstanceUserEndpoints(
+    args: ListAppInstanceUserEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAppInstanceUserEndpointsCommandOutput>;
+  public listAppInstanceUserEndpoints(
+    args: ListAppInstanceUserEndpointsCommandInput,
+    cb: (err: any, data?: ListAppInstanceUserEndpointsCommandOutput) => void
+  ): void;
+  public listAppInstanceUserEndpoints(
+    args: ListAppInstanceUserEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAppInstanceUserEndpointsCommandOutput) => void
+  ): void;
+  public listAppInstanceUserEndpoints(
+    args: ListAppInstanceUserEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppInstanceUserEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: ListAppInstanceUserEndpointsCommandOutput) => void
+  ): Promise<ListAppInstanceUserEndpointsCommandOutput> | void {
+    const command = new ListAppInstanceUserEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List all <code>AppInstanceUsers</code> created under a single
    *          <code>AppInstance</code>.</p>
    */
@@ -529,6 +661,38 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
   }
 
   /**
+   * <p>Lists the tags applied to an Amazon Chime SDK identity resource.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains
    *          data.</p>
    */
@@ -551,6 +715,96 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
     cb?: (err: any, data?: PutAppInstanceRetentionSettingsCommandOutput) => void
   ): Promise<PutAppInstanceRetentionSettingsCommandOutput> | void {
     const command = new PutAppInstanceRetentionSettingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Registers an endpoint under an Amazon Chime <code>AppInstanceUser</code>. The endpoint receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
+   */
+  public registerAppInstanceUserEndpoint(
+    args: RegisterAppInstanceUserEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterAppInstanceUserEndpointCommandOutput>;
+  public registerAppInstanceUserEndpoint(
+    args: RegisterAppInstanceUserEndpointCommandInput,
+    cb: (err: any, data?: RegisterAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public registerAppInstanceUserEndpoint(
+    args: RegisterAppInstanceUserEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public registerAppInstanceUserEndpoint(
+    args: RegisterAppInstanceUserEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterAppInstanceUserEndpointCommandOutput) => void),
+    cb?: (err: any, data?: RegisterAppInstanceUserEndpointCommandOutput) => void
+  ): Promise<RegisterAppInstanceUserEndpointCommandOutput> | void {
+    const command = new RegisterAppInstanceUserEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies the specified tags to the specified Amazon Chime SDK identity resource.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes the specified tags from the specified Amazon Chime SDK identity resource.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -616,6 +870,38 @@ export class ChimeSDKIdentity extends ChimeSDKIdentityClient {
     cb?: (err: any, data?: UpdateAppInstanceUserCommandOutput) => void
   ): Promise<UpdateAppInstanceUserCommandOutput> | void {
     const command = new UpdateAppInstanceUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the details of an <code>AppInstanceUserEndpoint</code>. You can update the name and <code>AllowMessage</code> values.</p>
+   */
+  public updateAppInstanceUserEndpoint(
+    args: UpdateAppInstanceUserEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAppInstanceUserEndpointCommandOutput>;
+  public updateAppInstanceUserEndpoint(
+    args: UpdateAppInstanceUserEndpointCommandInput,
+    cb: (err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public updateAppInstanceUserEndpoint(
+    args: UpdateAppInstanceUserEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void
+  ): void;
+  public updateAppInstanceUserEndpoint(
+    args: UpdateAppInstanceUserEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAppInstanceUserEndpointCommandOutput) => void
+  ): Promise<UpdateAppInstanceUserEndpointCommandOutput> | void {
+    const command = new UpdateAppInstanceUserEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -3,5 +3,7 @@ export * from "./AnalyzeExpenseCommand";
 export * from "./DetectDocumentTextCommand";
 export * from "./GetDocumentAnalysisCommand";
 export * from "./GetDocumentTextDetectionCommand";
+export * from "./GetExpenseAnalysisCommand";
 export * from "./StartDocumentAnalysisCommand";
 export * from "./StartDocumentTextDetectionCommand";
+export * from "./StartExpenseAnalysisCommand";

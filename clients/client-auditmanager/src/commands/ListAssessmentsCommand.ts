@@ -22,9 +22,7 @@ export interface ListAssessmentsCommandInput extends ListAssessmentsRequest {}
 export interface ListAssessmentsCommandOutput extends ListAssessmentsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns a list of current and past assessments from Audit Manager.
- * </p>
+ * <p> Returns a list of current and past assessments from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

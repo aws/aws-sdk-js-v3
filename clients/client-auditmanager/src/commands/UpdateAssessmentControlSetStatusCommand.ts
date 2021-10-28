@@ -24,9 +24,7 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Updates the status of a control set in an Audit Manager assessment.
- * </p>
+ * <p> Updates the status of a control set in an Audit Manager assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

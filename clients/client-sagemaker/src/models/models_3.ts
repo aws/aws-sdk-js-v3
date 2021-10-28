@@ -1,15 +1,23 @@
-import { BooleanOperator, EdgeOutputConfig, UserSettings } from "./models_0";
+import {
+  ActionStatus,
+  BooleanOperator,
+  EdgeOutputConfig,
+  KernelGatewayImageConfig,
+  ModelApprovalStatus,
+  Tag,
+  UserSettings,
+} from "./models_0";
 import {
   _InstanceType,
   DeploymentConfig,
   MemberDefinition,
-  ModelApprovalStatus,
   MonitoringScheduleConfig,
   NotebookInstanceAcceleratorType,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
   OidcConfig,
   ProfilerRuleConfiguration,
+  ProvisioningParameter,
   RootAccess,
   SourceIpConfig,
   TrialComponentArtifact,
@@ -19,6 +27,7 @@ import {
 import {
   DesiredWeightAndCapacity,
   Device,
+  DomainSettingsForUpdate,
   Filter,
   GitConfigForUpdate,
   NestedFilters,
@@ -28,6 +37,245 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface StopHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job to stop.</p>
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
+
+export namespace StopHyperParameterTuningJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopHyperParameterTuningJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopLabelingJobRequest {
+  /**
+   * <p>The name of the labeling job to stop.</p>
+   */
+  LabelingJobName: string | undefined;
+}
+
+export namespace StopLabelingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopLabelingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopMonitoringScheduleRequest {
+  /**
+   * <p>The name of the schedule to stop.</p>
+   */
+  MonitoringScheduleName: string | undefined;
+}
+
+export namespace StopMonitoringScheduleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopMonitoringScheduleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopNotebookInstanceInput {
+  /**
+   * <p>The name of the notebook instance to terminate.</p>
+   */
+  NotebookInstanceName: string | undefined;
+}
+
+export namespace StopNotebookInstanceInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopNotebookInstanceInput): any => ({
+    ...obj,
+  });
+}
+
+export interface StopPipelineExecutionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          operation. An idempotent operation completes no more than once.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+export namespace StopPipelineExecutionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopPipelineExecutionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace StopPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopPipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopProcessingJobRequest {
+  /**
+   * <p>The name of the processing job to stop.</p>
+   */
+  ProcessingJobName: string | undefined;
+}
+
+export namespace StopProcessingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopProcessingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopTrainingJobRequest {
+  /**
+   * <p>The name of the training job to stop.</p>
+   */
+  TrainingJobName: string | undefined;
+}
+
+export namespace StopTrainingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopTrainingJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopTransformJobRequest {
+  /**
+   * <p>The name of the transform job to stop.</p>
+   */
+  TransformJobName: string | undefined;
+}
+
+export namespace StopTransformJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopTransformJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionRequest {
+  /**
+   * <p>The name of the action to update.</p>
+   */
+  ActionName: string | undefined;
+
+  /**
+   * <p>The new description for the action.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new status for the action.</p>
+   */
+  Status?: ActionStatus | string;
+
+  /**
+   * <p>The new list of properties. Overwrites the current property list.</p>
+   */
+  Properties?: { [key: string]: string };
+
+  /**
+   * <p>A list of properties to remove.</p>
+   */
+  PropertiesToRemove?: string[];
+}
+
+export namespace UpdateActionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateActionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  ActionArn?: string;
+}
+
+export namespace UpdateActionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateActionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAppImageConfigRequest {
+  /**
+   * <p>The name of the AppImageConfig to update.</p>
+   */
+  AppImageConfigName: string | undefined;
+
+  /**
+   * <p>The new KernelGateway app to run on the image.</p>
+   */
+  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+}
+
+export namespace UpdateAppImageConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppImageConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAppImageConfigResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppImageConfig.</p>
+   */
+  AppImageConfigArn?: string;
+}
+
+export namespace UpdateAppImageConfigResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppImageConfigResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateArtifactRequest {
   /**
@@ -238,6 +486,11 @@ export interface UpdateDomainRequest {
    * <p>A collection of settings.</p>
    */
   DefaultUserSettings?: UserSettings;
+
+  /**
+   * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
+   */
+  DomainSettingsForUpdate?: DomainSettingsForUpdate;
 }
 
 export namespace UpdateDomainRequest {
@@ -507,19 +760,29 @@ export namespace UpdateImageResponse {
 
 export interface UpdateModelPackageInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the model.</p>
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
    */
   ModelPackageArn: string | undefined;
 
   /**
    * <p>The approval status of the model.</p>
    */
-  ModelApprovalStatus: ModelApprovalStatus | string | undefined;
+  ModelApprovalStatus?: ModelApprovalStatus | string;
 
   /**
    * <p>A description for the approval status of the model.</p>
    */
   ApprovalDescription?: string;
+
+  /**
+   * <p>The metadata properties associated with the model package versions.</p>
+   */
+  CustomerMetadataProperties?: { [key: string]: string };
+
+  /**
+   * <p>The metadata properties associated with the model package versions to remove.</p>
+   */
+  CustomerMetadataPropertiesToRemove?: string[];
 }
 
 export namespace UpdateModelPackageInput {
@@ -845,6 +1108,85 @@ export namespace UpdatePipelineExecutionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdatePipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Details that you specify to provision a service catalog product.
+ *             For information about service catalog, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.
+ *         </p>
+ */
+export interface ServiceCatalogProvisioningUpdateDetails {
+  /**
+   * <p>The ID of the provisioning artifact.</p>
+   */
+  ProvisioningArtifactId?: string;
+
+  /**
+   * <p>A list of key value pairs that you specify when you provision a product.</p>
+   */
+  ProvisioningParameters?: ProvisioningParameter[];
+}
+
+export namespace ServiceCatalogProvisioningUpdateDetails {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceCatalogProvisioningUpdateDetails): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProjectInput {
+  /**
+   * <p>The name of the project.</p>
+   */
+  ProjectName: string | undefined;
+
+  /**
+   * <p>The description for the project.</p>
+   */
+  ProjectDescription?: string;
+
+  /**
+   * <p>The product ID and provisioning artifact ID to provision a service catalog.
+   *             The provisioning artifact ID will default to the latest provisioning artifact
+   *             ID of the product, if you don't provide the provisioning artifact ID. For more
+   *             information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html">What is Amazon Web Services Service Catalog</a>.
+   *         </p>
+   */
+  ServiceCatalogProvisioningUpdateDetails?: ServiceCatalogProvisioningUpdateDetails;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your
+   *             Amazon Web Services resources in different ways, for example, by purpose, owner, or
+   *             environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace UpdateProjectInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateProjectInput): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateProjectOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the project.</p>
+   */
+  ProjectArn: string | undefined;
+}
+
+export namespace UpdateProjectOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateProjectOutput): any => ({
     ...obj,
   });
 }

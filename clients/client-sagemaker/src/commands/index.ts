@@ -1,6 +1,7 @@
 export * from "./AddAssociationCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociateTrialComponentCommand";
+export * from "./BatchDescribeModelPackageCommand";
 export * from "./CreateActionCommand";
 export * from "./CreateAlgorithmCommand";
 export * from "./CreateAppCommand";
@@ -232,6 +233,7 @@ export * from "./UpdateNotebookInstanceCommand";
 export * from "./UpdateNotebookInstanceLifecycleConfigCommand";
 export * from "./UpdatePipelineCommand";
 export * from "./UpdatePipelineExecutionCommand";
+export * from "./UpdateProjectCommand";
 export * from "./UpdateTrainingJobCommand";
 export * from "./UpdateTrialCommand";
 export * from "./UpdateTrialComponentCommand";

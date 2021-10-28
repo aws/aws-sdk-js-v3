@@ -1,6 +1,11 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AllowMessages {
+  ALL = "ALL",
+  NONE = "NONE",
+}
+
 /**
  * <p>The details of an <code>AppInstance</code>, an instance of an Amazon Chime SDK messaging
  *          application.</p>
@@ -229,6 +234,232 @@ export namespace AppInstanceUser {
 }
 
 /**
+ * <p>The attributes of an <code>Endpoint</code>.</p>
+ */
+export interface EndpointAttributes {
+  /**
+   * <p>The device token for the GCM, APNS, and APNS_SANDBOX endpoint types.</p>
+   */
+  DeviceToken: string | undefined;
+
+  /**
+   * <p>The VOIP device token for the APNS and APNS_SANDBOX endpoint types.</p>
+   */
+  VoipDeviceToken?: string;
+}
+
+export namespace EndpointAttributes {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointAttributes): any => ({
+    ...obj,
+    ...(obj.DeviceToken && { DeviceToken: SENSITIVE_STRING }),
+    ...(obj.VoipDeviceToken && { VoipDeviceToken: SENSITIVE_STRING }),
+  });
+}
+
+export enum EndpointStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
+
+export enum EndpointStatusReason {
+  INVALID_DEVICE_TOKEN = "INVALID_DEVICE_TOKEN",
+  INVALID_PINPOINT_ARN = "INVALID_PINPOINT_ARN",
+}
+
+/**
+ * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is active and able to receive messages. When <code>ACTIVE</code>, the <code>EndpointStatusReason</code> remains empty.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>INACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is inactive and can't receive
+ *                message. When INACTIVE, the corresponding reason will be conveyed through
+ *                EndpointStatusReason.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>INVALID_DEVICE_TOKEN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to invalid device token</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>INVALID_PINPOINT_ARN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to an invalid pinpoint ARN that was input through the <code>ResourceArn</code> field.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface EndpointState {
+  /**
+   * <p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Status: EndpointStatus | string | undefined;
+
+  /**
+   * <p>The reason for the <code>EndpointStatus</code>.</p>
+   */
+  StatusReason?: EndpointStatusReason | string;
+}
+
+export namespace EndpointState {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: EndpointState): any => ({
+    ...obj,
+  });
+}
+
+export enum AppInstanceUserEndpointType {
+  APNS = "APNS",
+  APNS_SANDBOX = "APNS_SANDBOX",
+  GCM = "GCM",
+}
+
+/**
+ * <p>An endpoint under an Amazon Chime <code>AppInstanceUser</code> that receives messages for a user. For push notifications, the endpoint is a mobile device used to receive mobile push notifications for a user.</p>
+ */
+export interface AppInstanceUserEndpoint {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Type?: AppInstanceUserEndpointType | string;
+
+  /**
+   * <p>The ARN of the resource to which the endpoint belongs.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The attributes of an <code>Endpoint</code>.</p>
+   */
+  EndpointAttributes?: EndpointAttributes;
+
+  /**
+   * <p>The time at which an <code>AppInstanceUserEndpoint</code> was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * <p>The time at which an <code>AppInstanceUserEndpoint</code> was last updated.</p>
+   */
+  LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
+   *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
+   */
+  AllowMessages?: AllowMessages | string;
+
+  /**
+   * <p>A read-only field that represents the state of an <code>AppInstanceUserEndpoint</code>. Supported values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is active and able to receive messages. When <code>ACTIVE</code>, the <code>EndpointStatusReason</code> remains empty.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code>: The <code>AppInstanceUserEndpoint</code> is inactive and can't receive message. When <code>INACTIVE</code>, the corresponding reason will be
+   *             conveyed through <code>EndpointStatusReason</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_DEVICE_TOKEN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to invalid device token</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INVALID_PINPOINT_ARN</code> indicates that an <code>AppInstanceUserEndpoint</code> is <code>INACTIVE</code> due to an invalid pinpoint ARN that was input
+   *             through the <code>ResourceArn</code> field.</p>
+   *             </li>
+   *          </ul>
+   */
+  EndpointState?: EndpointState;
+}
+
+export namespace AppInstanceUserEndpoint {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppInstanceUserEndpoint): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
+    ...(obj.EndpointAttributes && {
+      EndpointAttributes: EndpointAttributes.filterSensitiveLog(obj.EndpointAttributes),
+    }),
+  });
+}
+
+/**
+ * <p>Summary of the details of an <code>AppInstanceUserEndpoint</code>.</p>
+ */
+export interface AppInstanceUserEndpointSummary {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Type?: AppInstanceUserEndpointType | string;
+
+  /**
+   * <p>BBoolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
+   *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
+   */
+  AllowMessages?: AllowMessages | string;
+
+  /**
+   * <p>A read-only field that represent the state of an <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointState?: EndpointState;
+}
+
+export namespace AppInstanceUserEndpointSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AppInstanceUserEndpointSummary): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+  });
+}
+
+/**
  * <p>Summary of the details of an <code>AppInstanceUser</code>.</p>
  */
 export interface AppInstanceUserSummary {
@@ -317,16 +548,16 @@ export namespace ConflictException {
 }
 
 /**
- * <p>Describes a tag applied to a resource.</p>
+ * <p>A tag object containing a key-value pair.</p>
  */
 export interface Tag {
   /**
-   * <p>The key of the tag.</p>
+   * <p>The key in a tag.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>The value of the tag.</p>
+   * <p>The value in a tag.</p>
    */
   Value: string | undefined;
 }
@@ -665,6 +896,29 @@ export namespace DeleteAppInstanceUserRequest {
   });
 }
 
+export interface DeregisterAppInstanceUserEndpointRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId: string | undefined;
+}
+
+export namespace DeregisterAppInstanceUserEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeregisterAppInstanceUserEndpointRequest): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  });
+}
+
 export interface DescribeAppInstanceRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -769,6 +1023,49 @@ export namespace DescribeAppInstanceUserResponse {
   export const filterSensitiveLog = (obj: DescribeAppInstanceUserResponse): any => ({
     ...obj,
     ...(obj.AppInstanceUser && { AppInstanceUser: AppInstanceUser.filterSensitiveLog(obj.AppInstanceUser) }),
+  });
+}
+
+export interface DescribeAppInstanceUserEndpointRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId: string | undefined;
+}
+
+export namespace DescribeAppInstanceUserEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAppInstanceUserEndpointRequest): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  });
+}
+
+export interface DescribeAppInstanceUserEndpointResponse {
+  /**
+   * <p>The full details of an <code>AppInstanceUserEndpoint</code>: the <code>AppInstanceUserArn</code>, ID, name, type, resource ARN, attributes,
+   *          allow messages, state, and created and last updated timestamps. All timestamps use epoch milliseconds.</p>
+   */
+  AppInstanceUserEndpoint?: AppInstanceUserEndpoint;
+}
+
+export namespace DescribeAppInstanceUserEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeAppInstanceUserEndpointResponse): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserEndpoint && {
+      AppInstanceUserEndpoint: AppInstanceUserEndpoint.filterSensitiveLog(obj.AppInstanceUserEndpoint),
+    }),
   });
 }
 
@@ -918,6 +1215,61 @@ export namespace ListAppInstancesResponse {
   });
 }
 
+export interface ListAppInstanceUserEndpointsRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>The maximum number of endpoints that you want to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token passed by previous API calls until all requested endpoints are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAppInstanceUserEndpointsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAppInstanceUserEndpointsRequest): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface ListAppInstanceUserEndpointsResponse {
+  /**
+   * <p>The information for each requested <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  AppInstanceUserEndpoints?: AppInstanceUserEndpointSummary[];
+
+  /**
+   * <p>The token passed by previous API calls until all requested endpoints are returned.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListAppInstanceUserEndpointsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListAppInstanceUserEndpointsResponse): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserEndpoints && {
+      AppInstanceUserEndpoints: obj.AppInstanceUserEndpoints.map((item) =>
+        AppInstanceUserEndpointSummary.filterSensitiveLog(item)
+      ),
+    }),
+    ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
+  });
+}
+
 export interface ListAppInstanceUsersRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -975,6 +1327,39 @@ export namespace ListAppInstanceUsersResponse {
   });
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
 export interface PutAppInstanceRetentionSettingsRequest {
   /**
    * <p>The ARN of the <code>AppInstance</code>.</p>
@@ -1014,6 +1399,142 @@ export namespace PutAppInstanceRetentionSettingsResponse {
    */
   export const filterSensitiveLog = (obj: PutAppInstanceRetentionSettingsResponse): any => ({
     ...obj,
+  });
+}
+
+export interface RegisterAppInstanceUserEndpointRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the <code>AppInstanceUserEndpoint</code>. Supported types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>APNS</code>: The mobile notification service for an Apple device.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>APNS_SANDBOX</code>: The sandbox environment of the mobile notification service for an Apple device.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GCM</code>: The mobile notification service for an Android device.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
+   */
+  Type: AppInstanceUserEndpointType | string | undefined;
+
+  /**
+   * <p>The ARN of the resource to which the endpoint belongs.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The attributes of an <code>Endpoint</code>.</p>
+   */
+  EndpointAttributes: EndpointAttributes | undefined;
+
+  /**
+   * <p>The idempotency token for each client request. </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages.
+   *          <code>NONE</code> indicates the endpoint receives no messages.</p>
+   */
+  AllowMessages?: AllowMessages | string;
+}
+
+export namespace RegisterAppInstanceUserEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterAppInstanceUserEndpointRequest): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+    ...(obj.ResourceArn && { ResourceArn: SENSITIVE_STRING }),
+    ...(obj.EndpointAttributes && {
+      EndpointAttributes: EndpointAttributes.filterSensitiveLog(obj.EndpointAttributes),
+    }),
+    ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+  });
+}
+
+export interface RegisterAppInstanceUserEndpointResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId?: string;
+}
+
+export namespace RegisterAppInstanceUserEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RegisterAppInstanceUserEndpointResponse): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+  });
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag key-value pairs.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+    ...(obj.Tags && { Tags: obj.Tags.map((item) => Tag.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The resource ARN.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tag keys.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+    ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
   });
 }
 
@@ -1102,5 +1623,63 @@ export namespace UpdateAppInstanceUserResponse {
    */
   export const filterSensitiveLog = (obj: UpdateAppInstanceUserResponse): any => ({
     ...obj,
+  });
+}
+
+export interface UpdateAppInstanceUserEndpointRequest {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId: string | undefined;
+
+  /**
+   * <p>The name of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
+   *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
+   */
+  AllowMessages?: AllowMessages | string;
+}
+
+export namespace UpdateAppInstanceUserEndpointRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppInstanceUserEndpointRequest): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
+    ...(obj.Name && { Name: SENSITIVE_STRING }),
+  });
+}
+
+export interface UpdateAppInstanceUserEndpointResponse {
+  /**
+   * <p>The ARN of the <code>AppInstanceUser</code>.</p>
+   */
+  AppInstanceUserArn?: string;
+
+  /**
+   * <p>The unique identifier of the <code>AppInstanceUserEndpoint</code>.</p>
+   */
+  EndpointId?: string;
+}
+
+export namespace UpdateAppInstanceUserEndpointResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateAppInstanceUserEndpointResponse): any => ({
+    ...obj,
+    ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
+    ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
   });
 }

@@ -47,7 +47,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *               <ul>
  *                   <li>
  *                      <p>
- *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
+ *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB
  *                       cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
  *                       action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
  *                   </li>
@@ -64,7 +64,6 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *                   </li>
  *                </ul>
  *               <p>To learn how to generate a Signature Version 4 signed request, see
- *
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
  *                       Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
  *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">

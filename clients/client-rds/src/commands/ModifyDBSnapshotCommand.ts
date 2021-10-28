@@ -27,7 +27,8 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  *
  *         </p>
  *
- *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
+ *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This command
+ *           doesn't apply to RDS Custom.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
