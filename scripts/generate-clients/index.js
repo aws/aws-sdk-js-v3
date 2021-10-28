@@ -2,10 +2,11 @@
 const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync, rmdirSync } = require("fs-extra");
-const { generateClients, generateProtocolTests } = require("./code-gen");
+const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
+  CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR,
   CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR,
   TEMP_CODE_GEN_INPUT_DIR,
 } = require("./code-gen-dir");
@@ -13,13 +14,13 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
-const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
+const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
 
 const {
   models,
   globs,
   output: clientsDir,
-  noProtocolTest,
+  noPrivateClients,
   s: serverOnly,
 } = yargs
   .alias("m", "models")
@@ -33,9 +34,9 @@ const {
   .string("o")
   .describe("o", "The output directory for built clients")
   .default("o", SDK_CLIENTS_DIR)
-  .alias("n", "noProtocolTest")
+  .alias("n", "noPrivateClients")
   .boolean("n")
-  .describe("n", "Disable generating protocol test files")
+  .describe("n", "Disable generating private clients")
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
@@ -48,7 +49,7 @@ const {
       await generateProtocolTests();
       await eslintFixCode();
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
-      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
 
       emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
@@ -58,17 +59,29 @@ const {
     }
 
     await generateClients(models || globs);
-    if (!noProtocolTest) await generateProtocolTests();
+    if (!noPrivateClients) {
+      await generateGenericClient();
+      await generateProtocolTests();
+    }
 
     await eslintFixCode();
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noPrivateClients) {
+      await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
+      await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    }
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-    if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+    if (!noPrivateClients) {
+      await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
+      await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
+    }
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noPrivateClients) {
+      emptyDirSync(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
+      emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    }
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
 
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
