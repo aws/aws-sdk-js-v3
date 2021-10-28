@@ -19,7 +19,7 @@ const {
   models,
   globs,
   output: clientsDir,
-  noProtocolTest,
+  noPrivateClients,
   s: serverOnly,
 } = yargs
   .alias("m", "models")
@@ -33,9 +33,9 @@ const {
   .string("o")
   .describe("o", "The output directory for built clients")
   .default("o", SDK_CLIENTS_DIR)
-  .alias("n", "noProtocolTest")
+  .alias("n", "noPrivateClients")
   .boolean("n")
-  .describe("n", "Disable generating protocol test files")
+  .describe("n", "Disable generating private clients")
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
@@ -58,17 +58,17 @@ const {
     }
 
     await generateClients(models || globs);
-    if (!noProtocolTest) await generateProtocolTests();
+    if (!noPrivateClients) await generateProtocolTests();
 
     await eslintFixCode();
     await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noPrivateClients) await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
-    if (!noProtocolTest) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+    if (!noPrivateClients) await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
-    if (!noProtocolTest) emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
+    if (!noPrivateClients) emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
 
     rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
