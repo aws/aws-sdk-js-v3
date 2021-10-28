@@ -8,6 +8,7 @@
     "copy-models": "node ./scripts/copy-models",
     "downlevel-dts": "node --es-module-specifier-resolution=node ./scripts/downlevel-dts",
     "generate-clients": "node ./scripts/generate-clients",
+    "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/dist ./clients/*/dist ./lib/*/dist ./private/*/dist",
