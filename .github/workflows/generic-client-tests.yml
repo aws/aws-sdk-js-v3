@@ -34,5 +34,4 @@ jobs:
 
       - name: build generic client
         run: |
-          cd private/aws-echo-service
-          yarn build
+          yarn build:clients:generic
