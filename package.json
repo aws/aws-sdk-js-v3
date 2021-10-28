@@ -10,8 +10,8 @@
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
-    "clear-build-cache": "rimraf ./packages/*/dist ./clients/*/dist ./lib/*/dist ./protocol_tests/*/dist",
-    "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo ./protocol_tests/**/*.tsbuildinfo",
+    "clear-build-cache": "rimraf ./packages/*/dist ./clients/*/dist ./lib/*/dist ./private/*/dist",
+    "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo ./private/**/*.tsbuildinfo",
     "remove-documentation": "rimraf ./docs",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/{types,util-utf8-browser,util-locate-window,hash-node}' --include-dependencies build",
     "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/aws-protocoltests-*' --include-dependencies build",
@@ -107,7 +107,7 @@
       "clients/*",
       "lib/*",
       "packages/*",
-      "protocol_tests/*"
+      "private/*"
     ],
     "nohoist": [
       "**/karma*",

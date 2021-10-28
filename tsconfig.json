@@ -11,7 +11,7 @@
     "paths": {
       "@aws-sdk/*": ["packages/*/src"],
       "@aws-sdk/client-*": ["clients/client-*/"],
-      "@aws-sdk/aws-*": ["protocol_tests/aws-*/"],
+      "@aws-sdk/aws-*": ["private/aws-*/"],
       "@aws-sdk/lib-*": ["lib/*"]
     },
     "preserveConstEnums": true,
