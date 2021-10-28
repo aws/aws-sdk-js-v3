@@ -17,7 +17,12 @@ const allTags = execSync(`grep -h ^@ ${join(FEATURES_FOLDER, "**", "*.feature")}
 
 console.info(`Looking for changed clients that has the legacy integration test tag: ${allTags}`);
 
-const changedPackages = execSync(`${join(ROOT_BIN, "lerna")} changed`, execOptions).split("\n");
+let changedPackages = [];
+try {
+  changedPackages = execSync(`${join(ROOT_BIN, "lerna")} changed`, execOptions).split("\n");
+} catch (e) {
+  // Swallow error because Lerna throws if no package changes.
+}
 const changedPackageTags = changedPackages
   .map((name) => name.replace("@aws-sdk/client-", ""))
   .map((name) => name.replace("-"))

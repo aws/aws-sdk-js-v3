@@ -1,4 +1,4 @@
-const { execSync, spawn } = require("child_process");
+const { execSync } = require("child_process");
 const { join } = require("path");
 const { readFileSync, existsSync } = require("fs");
 const { spawnPromise } = require("./spawn-promise");
@@ -17,9 +17,12 @@ exports.runE2ETests = async (resourcesEnv) => {
    /path/to/package:@aws-sdk/client-acm-pca:1.0.0-gamma.3
    /path/to/package:@aws-sdk/client-acm:1.0.0-gamma.3
    */
-  const changedPackagesRecord = execSync(
-    "./node_modules/.bin/lerna  changed --all --parseable --long --loglevel silent"
-  );
+  let changedPackagesRecord = "";
+  try {
+    changedPackagesRecord = execSync("./node_modules/.bin/lerna changed --all --parseable --long --loglevel silent");
+  } catch (e) {
+    // Swallow error because Lerna throws if no package changes.
+  }
   // Get array for changed package's path
   const changedPackages = changedPackagesRecord
     .toString()
