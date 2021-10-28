@@ -30,7 +30,7 @@ jobs:
           cd ..
 
       - name: build codegen and generate generic client
-        run: yarn generate:clients:generic
+        run: yarn && yarn generate:clients:generic
 
       - name: build generic client
         run: |
