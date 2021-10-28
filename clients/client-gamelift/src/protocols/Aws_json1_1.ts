@@ -2219,6 +2219,14 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2301,6 +2309,14 @@ const deserializeAws_json1_1CreateFleetLocationsCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2513,6 +2529,14 @@ const deserializeAws_json1_1CreateGameSessionCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3564,6 +3588,14 @@ const deserializeAws_json1_1DeleteFleetLocationsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4515,6 +4547,14 @@ const deserializeAws_json1_1DescribeEC2InstanceLimitsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4827,6 +4867,14 @@ const deserializeAws_json1_1DescribeFleetLocationAttributesCommandError = async 
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4905,6 +4953,14 @@ const deserializeAws_json1_1DescribeFleetLocationCapacityCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -4979,6 +5035,14 @@ const deserializeAws_json1_1DescribeFleetLocationUtilizationCommandError = async
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5459,6 +5523,14 @@ const deserializeAws_json1_1DescribeGameSessionDetailsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5701,6 +5773,14 @@ const deserializeAws_json1_1DescribeGameSessionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -5775,6 +5855,14 @@ const deserializeAws_json1_1DescribeInstancesCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6227,6 +6315,14 @@ const deserializeAws_json1_1DescribeScalingPoliciesCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7611,6 +7707,14 @@ const deserializeAws_json1_1SearchGameSessionsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -7685,6 +7789,14 @@ const deserializeAws_json1_1StartFleetActionsCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -7997,6 +8109,14 @@ const deserializeAws_json1_1StopFleetActionsCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8747,6 +8867,14 @@ const deserializeAws_json1_1UpdateFleetCapacityCommandError = async (
     case "com.amazonaws.gamelift#UnauthorizedException":
       response = {
         ...(await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      response = {
+        ...(await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };

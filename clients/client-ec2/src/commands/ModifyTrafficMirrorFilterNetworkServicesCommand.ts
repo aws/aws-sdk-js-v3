@@ -15,7 +15,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
   serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,

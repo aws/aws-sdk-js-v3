@@ -24,9 +24,8 @@ export interface GetEvidenceFoldersByAssessmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Returns the evidence folders from a specified assessment in Audit Manager.
- * </p>
+ * <p> Returns the evidence folders from a specified assessment in Audit Manager.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

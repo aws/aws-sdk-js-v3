@@ -134,6 +134,7 @@ import {
   GetFirewallRuleGroupPolicyCommandInput,
   GetFirewallRuleGroupPolicyCommandOutput,
 } from "./commands/GetFirewallRuleGroupPolicyCommand";
+import { GetResolverConfigCommandInput, GetResolverConfigCommandOutput } from "./commands/GetResolverConfigCommand";
 import {
   GetResolverDnssecConfigCommandInput,
   GetResolverDnssecConfigCommandOutput,
@@ -188,6 +189,10 @@ import {
   ListFirewallRuleGroupsCommandOutput,
 } from "./commands/ListFirewallRuleGroupsCommand";
 import { ListFirewallRulesCommandInput, ListFirewallRulesCommandOutput } from "./commands/ListFirewallRulesCommand";
+import {
+  ListResolverConfigsCommandInput,
+  ListResolverConfigsCommandOutput,
+} from "./commands/ListResolverConfigsCommand";
 import {
   ListResolverDnssecConfigsCommandInput,
   ListResolverDnssecConfigsCommandOutput,
@@ -245,6 +250,10 @@ import {
   UpdateFirewallRuleGroupAssociationCommandOutput,
 } from "./commands/UpdateFirewallRuleGroupAssociationCommand";
 import {
+  UpdateResolverConfigCommandInput,
+  UpdateResolverConfigCommandOutput,
+} from "./commands/UpdateResolverConfigCommand";
+import {
   UpdateResolverDnssecConfigCommandInput,
   UpdateResolverDnssecConfigCommandOutput,
 } from "./commands/UpdateResolverDnssecConfigCommand";
@@ -281,6 +290,7 @@ export type ServiceInputTypes =
   | GetFirewallRuleGroupAssociationCommandInput
   | GetFirewallRuleGroupCommandInput
   | GetFirewallRuleGroupPolicyCommandInput
+  | GetResolverConfigCommandInput
   | GetResolverDnssecConfigCommandInput
   | GetResolverEndpointCommandInput
   | GetResolverQueryLogConfigAssociationCommandInput
@@ -296,6 +306,7 @@ export type ServiceInputTypes =
   | ListFirewallRuleGroupAssociationsCommandInput
   | ListFirewallRuleGroupsCommandInput
   | ListFirewallRulesCommandInput
+  | ListResolverConfigsCommandInput
   | ListResolverDnssecConfigsCommandInput
   | ListResolverEndpointIpAddressesCommandInput
   | ListResolverEndpointsCommandInput
@@ -313,6 +324,7 @@ export type ServiceInputTypes =
   | UpdateFirewallDomainsCommandInput
   | UpdateFirewallRuleCommandInput
   | UpdateFirewallRuleGroupAssociationCommandInput
+  | UpdateResolverConfigCommandInput
   | UpdateResolverDnssecConfigCommandInput
   | UpdateResolverEndpointCommandInput
   | UpdateResolverRuleCommandInput;
@@ -343,6 +355,7 @@ export type ServiceOutputTypes =
   | GetFirewallRuleGroupAssociationCommandOutput
   | GetFirewallRuleGroupCommandOutput
   | GetFirewallRuleGroupPolicyCommandOutput
+  | GetResolverConfigCommandOutput
   | GetResolverDnssecConfigCommandOutput
   | GetResolverEndpointCommandOutput
   | GetResolverQueryLogConfigAssociationCommandOutput
@@ -358,6 +371,7 @@ export type ServiceOutputTypes =
   | ListFirewallRuleGroupAssociationsCommandOutput
   | ListFirewallRuleGroupsCommandOutput
   | ListFirewallRulesCommandOutput
+  | ListResolverConfigsCommandOutput
   | ListResolverDnssecConfigsCommandOutput
   | ListResolverEndpointIpAddressesCommandOutput
   | ListResolverEndpointsCommandOutput
@@ -375,6 +389,7 @@ export type ServiceOutputTypes =
   | UpdateFirewallDomainsCommandOutput
   | UpdateFirewallRuleCommandOutput
   | UpdateFirewallRuleGroupAssociationCommandOutput
+  | UpdateResolverConfigCommandOutput
   | UpdateResolverDnssecConfigCommandOutput
   | UpdateResolverEndpointCommandOutput
   | UpdateResolverRuleCommandOutput;

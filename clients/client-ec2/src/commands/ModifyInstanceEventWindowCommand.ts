@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_4";
+import { ModifyInstanceEventWindowRequest, ModifyInstanceEventWindowResult } from "../models/models_5";
 import {
   deserializeAws_ec2ModifyInstanceEventWindowCommand,
   serializeAws_ec2ModifyInstanceEventWindowCommand,

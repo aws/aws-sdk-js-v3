@@ -303,6 +303,7 @@ import {
   ResourceRequirement,
   RunTaskRequest,
   RunTaskResponse,
+  RuntimePlatform,
   Scale,
   Secret,
   ServerException,
@@ -7203,6 +7204,10 @@ const serializeAws_json1_1RegisterTaskDefinitionRequest = (
       input.requiresCompatibilities !== null && {
         requiresCompatibilities: serializeAws_json1_1CompatibilityList(input.requiresCompatibilities, context),
       }),
+    ...(input.runtimePlatform !== undefined &&
+      input.runtimePlatform !== null && {
+        runtimePlatform: serializeAws_json1_1RuntimePlatform(input.runtimePlatform, context),
+      }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.taskRoleArn !== undefined && input.taskRoleArn !== null && { taskRoleArn: input.taskRoleArn }),
     ...(input.volumes !== undefined &&
@@ -7297,6 +7302,15 @@ const serializeAws_json1_1RunTaskRequest = (input: RunTaskRequest, context: __Se
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
     ...(input.taskDefinition !== undefined &&
       input.taskDefinition !== null && { taskDefinition: input.taskDefinition }),
+  };
+};
+
+const serializeAws_json1_1RuntimePlatform = (input: RuntimePlatform, context: __SerdeContext): any => {
+  return {
+    ...(input.cpuArchitecture !== undefined &&
+      input.cpuArchitecture !== null && { cpuArchitecture: input.cpuArchitecture }),
+    ...(input.operatingSystemFamily !== undefined &&
+      input.operatingSystemFamily !== null && { operatingSystemFamily: input.operatingSystemFamily }),
   };
 };
 
@@ -8535,6 +8549,7 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
         ? deserializeAws_json1_1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
     pendingCount: __expectInt32(output.pendingCount),
+    platformFamily: __expectString(output.platformFamily),
     platformVersion: __expectString(output.platformVersion),
     rolloutState: __expectString(output.rolloutState),
     rolloutStateReason: __expectString(output.rolloutStateReason),
@@ -9631,6 +9646,13 @@ const deserializeAws_json1_1RunTaskResponse = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1RuntimePlatform = (output: any, context: __SerdeContext): RuntimePlatform => {
+  return {
+    cpuArchitecture: __expectString(output.cpuArchitecture),
+    operatingSystemFamily: __expectString(output.operatingSystemFamily),
+  } as any;
+};
+
 const deserializeAws_json1_1Scale = (output: any, context: __SerdeContext): Scale => {
   return {
     unit: __expectString(output.unit),
@@ -9712,6 +9734,7 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
       output.placementStrategy !== undefined && output.placementStrategy !== null
         ? deserializeAws_json1_1PlacementStrategies(output.placementStrategy, context)
         : undefined,
+    platformFamily: __expectString(output.platformFamily),
     platformVersion: __expectString(output.platformVersion),
     propagateTags: __expectString(output.propagateTags),
     roleArn: __expectString(output.roleArn),
@@ -10022,6 +10045,7 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
       output.overrides !== undefined && output.overrides !== null
         ? deserializeAws_json1_1TaskOverride(output.overrides, context)
         : undefined,
+    platformFamily: __expectString(output.platformFamily),
     platformVersion: __expectString(output.platformVersion),
     pullStartedAt:
       output.pullStartedAt !== undefined && output.pullStartedAt !== null
@@ -10105,6 +10129,10 @@ const deserializeAws_json1_1TaskDefinition = (output: any, context: __SerdeConte
         ? deserializeAws_json1_1CompatibilityList(output.requiresCompatibilities, context)
         : undefined,
     revision: __expectInt32(output.revision),
+    runtimePlatform:
+      output.runtimePlatform !== undefined && output.runtimePlatform !== null
+        ? deserializeAws_json1_1RuntimePlatform(output.runtimePlatform, context)
+        : undefined,
     status: __expectString(output.status),
     taskDefinitionArn: __expectString(output.taskDefinitionArn),
     taskRoleArn: __expectString(output.taskRoleArn),
@@ -10195,6 +10223,7 @@ const deserializeAws_json1_1TaskSet = (output: any, context: __SerdeContext): Ta
         ? deserializeAws_json1_1NetworkConfiguration(output.networkConfiguration, context)
         : undefined,
     pendingCount: __expectInt32(output.pendingCount),
+    platformFamily: __expectString(output.platformFamily),
     platformVersion: __expectString(output.platformVersion),
     runningCount: __expectInt32(output.runningCount),
     scale:

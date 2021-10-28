@@ -22,7 +22,7 @@ export interface GetIncidentRecordCommandInput extends GetIncidentRecordInput {}
 export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of the specified incident record.</p>
+ * <p>Returns the details for the specified incident record.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

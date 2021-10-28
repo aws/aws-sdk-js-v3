@@ -3,6 +3,7 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 import {
   ActivityStreamMode,
   ActivityStreamStatus,
+  AutomationMode,
   AvailabilityZone,
   Certificate,
   DBCluster,
@@ -11,7 +12,6 @@ import {
   DBInstanceAutomatedBackup,
   DBProxy,
   DBProxyEndpoint,
-  DBProxyTarget,
   DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
@@ -31,6 +31,149 @@ import {
   Tag,
   UserAuthConfig,
 } from "./models_0";
+
+export enum TargetRole {
+  READ_ONLY = "READ_ONLY",
+  READ_WRITE = "READ_WRITE",
+  UNKNOWN = "UNKNOWN",
+}
+
+export enum TargetHealthReason {
+  AUTH_FAILURE = "AUTH_FAILURE",
+  CONNECTION_FAILED = "CONNECTION_FAILED",
+  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
+  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
+  UNREACHABLE = "UNREACHABLE",
+}
+
+export enum TargetState {
+  available = "AVAILABLE",
+  registering = "REGISTERING",
+  unavailable = "UNAVAILABLE",
+}
+
+/**
+ * <p>Information about the connection health of an RDS Proxy target.</p>
+ */
+export interface TargetHealth {
+  /**
+   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
+   *            The following is a typical lifecycle example for the states of an RDS Proxy target:
+   *        </p>
+   *          <p>
+   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
+   *          </p>
+   */
+  State?: TargetState | string;
+
+  /**
+   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
+   */
+  Reason?: TargetHealthReason | string;
+
+  /**
+   * <p>A description of the health of the RDS Proxy target.
+   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
+   */
+  Description?: string;
+}
+
+export namespace TargetHealth {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TargetHealth): any => ({
+    ...obj,
+  });
+}
+
+export enum TargetType {
+  RDS_INSTANCE = "RDS_INSTANCE",
+  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
+  TRACKED_CLUSTER = "TRACKED_CLUSTER",
+}
+
+/**
+ * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
+ *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
+ *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
+ */
+export interface DBProxyTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
+   */
+  TrackedClusterId?: string;
+
+  /**
+   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
+   *         or the cluster identifier for an Aurora DB cluster.</p>
+   */
+  RdsResourceId?: string;
+
+  /**
+   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
+   */
+  Type?: TargetType | string;
+
+  /**
+   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
+   */
+  Role?: TargetRole | string;
+
+  /**
+   * <p>Information about the connection health of the RDS Proxy target.</p>
+   */
+  TargetHealth?: TargetHealth;
+}
+
+export namespace DBProxyTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBProxyTarget): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDBProxyTargetsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
+   */
+  Targets?: DBProxyTarget[];
+
+  /**
+   * <p>
+   *         An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.
+   *       </p>
+   */
+  Marker?: string;
+}
+
+export namespace DescribeDBProxyTargetsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>
@@ -383,6 +526,7 @@ export interface DescribeDBSnapshotsMessage {
    *           permission to copy or restore. By default, these snapshots are not included.</p>
    *          <p>You can give an Amazon Web Services account permission to restore a manual DB snapshot from
    *     another Amazon Web Services account by using the <code>ModifyDBSnapshotAttribute</code> API action.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   IncludeShared?: boolean;
 
@@ -390,6 +534,7 @@ export interface DescribeDBSnapshotsMessage {
    * <p>A value that indicates whether to include manual DB cluster snapshots that are public and can be copied
    *           or restored by any Amazon Web Services account. By default, the public snapshots are not included.</p>
    *          <p>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a> API.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   IncludePublic?: boolean;
 
@@ -722,6 +867,7 @@ export namespace EventCategoriesMessage {
 }
 
 export type SourceType =
+  | "custom-engine-version"
   | "db-cluster"
   | "db-cluster-snapshot"
   | "db-instance"
@@ -1026,7 +1172,34 @@ export interface DescribeExportTasksMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>status</code> - The status of the export task. Must be lowercase, for example, <code>complete</code>.</p>
+   *                     <code>status</code> - The status of the export task. Must be lowercase. Valid statuses are the following:</p>
+   *                 <ul>
+   *                   <li>
+   *                         <p>
+   *                         <code>canceled</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>canceling</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>complete</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>failed</code>
+   *                      </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>
+   *                         <code>starting</code>
+   *                      </p>
+   *                     </li>
+   *                </ul>
    *             </li>
    *          </ul>
    */
@@ -1812,18 +1985,24 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   DBInstanceClass?: string;
 
   /**
-   * <p>The license model filter value. Specify this parameter to show only the available offerings matching the specified license model.</p>
+   * <p>The license model filter value. Specify this parameter to show only the available offerings
+   *           matching the specified license model.</p>
+   *          <p>RDS Custom supports only the BYOL licensing model.</p>
    */
   LicenseModel?: string;
 
   /**
    * <p>The Availability Zone group associated with a Local Zone. Specify this parameter to retrieve available offerings for the Local Zones in the group.</p>
    *         <p>Omit this parameter to show the available offerings in the specified Amazon Web Services Region.</p>
+   *         <p> This setting doesn't apply to RDS Custom.</p>
    */
   AvailabilityZoneGroup?: string;
 
   /**
-   * <p>A value that indicates whether to show only VPC or non-VPC offerings.</p>
+   * <p>A value that indicates whether to show only VPC or non-VPC offerings. RDS Custom supports
+   *       only VPC offerings.</p>
+   *          <p>RDS Custom supports only VPC offerings. If you describe non-VPC offerings for RDS Custom, the output
+   *           shows VPC offerings.</p>
    */
   Vpc?: boolean;
 
@@ -3450,6 +3629,62 @@ export namespace ModifyCurrentDBClusterCapacityMessage {
   });
 }
 
+export enum CustomEngineVersionStatus {
+  available = "available",
+  inactive = "inactive",
+  inactive_except_restore = "inactive-except-restore",
+}
+
+export interface ModifyCustomDBEngineVersionMessage {
+  /**
+   * <p>The DB engine. The only supported value is <code>custom-oracle-ee</code>.</p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>The custom engine version (CEV) that you want to modify. This option is required for
+   *             RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
+   *             <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
+   */
+  EngineVersion: string | undefined;
+
+  /**
+   * <p>An optional description of your CEV.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The availability status to be assigned to the CEV. Valid values are as follows:</p>
+   *         <dl>
+   *             <dt>available</dt>
+   *             <dd>
+   *                <p>You can use this CEV to create a new RDS Custom DB instance.</p>
+   *             </dd>
+   *             <dt>inactive</dt>
+   *             <dd>
+   *                <p>You can create a new RDS Custom instance by restoring a DB snapshot with this CEV.
+   *                     You can't patch or create new instances with this CEV.</p>
+   *             </dd>
+   *          </dl>
+   *         <p>You can change any status to any status. A typical reason to change status is to prevent the accidental
+   *             use of a CEV, or to make a deprecated CEV eligible for use again. For example, you might change the status
+   *             of your CEV from <code>available</code> to <code>inactive</code>, and from <code>inactive</code> back to
+   *             <code>available</code>. To change the availability status of the CEV, it must not currently be in use by an
+   *             RDS Custom instance, snapshot, or automated backup.
+   *         </p>
+   */
+  Status?: CustomEngineVersionStatus | string;
+}
+
+export namespace ModifyCustomDBEngineVersionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyCustomDBEngineVersionMessage): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The configuration setting for the log types to be enabled for export to CloudWatch
  *             Logs for a specific DB instance or DB cluster.</p>
@@ -4031,12 +4266,13 @@ export interface ModifyDBInstanceMessage {
    *           Not all DB instance classes are available in all Amazon Web Services Regions, or for all database engines.
    *           For the full list of DB instance classes,
    *           and availability for your engine, see
-   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the <i>Amazon RDS User Guide</i>.
+   *       </p>
    *          <p>If you modify the DB instance class, an outage occurs during the change.
    *         The change is applied during the next maintenance window,
    *         unless <code>ApplyImmediately</code> is enabled for this request.
    *         </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: Uses existing setting</p>
    */
   DBInstanceClass?: string;
@@ -4048,12 +4284,12 @@ export interface ModifyDBInstanceMessage {
    *           If your DB instance isn't in a VPC, you can also use this parameter to move your DB instance into a VPC.
    *           For more information, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working with a DB instance in a VPC</a>
-   *           in the <i>Amazon RDS User Guide.</i>
-   *          </p>
+   *           in the <i>Amazon RDS User Guide</i>.
+   *       </p>
    *          <p>Changing the subnet group causes an outage during the change.
    *         The change is applied during the next maintenance window,
-   *         unless you enable <code>ApplyImmediately</code>.
-   *     </p>
+   *         unless you enable <code>ApplyImmediately</code>.</p>
+   *          <p> This parameter doesn't apply to RDS Custom.</p>
    *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
    *          <p>Example: <code>mySubnetGroup</code>
    *          </p>
@@ -4061,7 +4297,9 @@ export interface ModifyDBInstanceMessage {
   DBSubnetGroupName?: string;
 
   /**
-   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
+   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting doesn't
+   *           result in an outage and the change is asynchronously applied as soon as possible.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4072,7 +4310,9 @@ export interface ModifyDBInstanceMessage {
   DBSecurityGroups?: string[];
 
   /**
-   * <p>A list of EC2 VPC security groups to authorize on this DB instance. This change is asynchronously applied as soon as possible.</p>
+   * <p>A list of Amazon EC2 VPC security groups to authorize on this DB instance. This change is
+   *           asynchronously applied as soon as possible.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
@@ -4106,14 +4346,15 @@ export interface ModifyDBInstanceMessage {
   ApplyImmediately?: boolean;
 
   /**
-   * <p>The new password for the master user. The password can include any printable ASCII character except "/", """, or "@".</p>
+   * <p>The new password for the master user. The password can include any printable ASCII
+   *           character except "/", """, or "@".</p>
    *          <p>
    *         Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.
    *         Between the time of the request and the completion of the request,
    *         the <code>MasterUserPassword</code> element exists in the
-   *         <code>PendingModifiedValues</code> element of the operation response.
-   *         </p>
-   *
+   *           <code>PendingModifiedValues</code> element of the operation response.
+   *       </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
@@ -4158,13 +4399,16 @@ export interface ModifyDBInstanceMessage {
   MasterUserPassword?: string;
 
   /**
-   * <p>The name of the DB parameter group to apply to the DB instance. Changing this
-   *             setting doesn't result in an outage. The parameter group name itself is changed
-   *             immediately, but the actual parameter changes are not applied until you reboot the
-   *             instance without failover. In this case, the DB instance isn't rebooted automatically and the
-   *             parameter changes isn't applied during the next maintenance window.</p>
+   * <p>The name of the DB parameter group to apply to the DB instance.</p>
+   *          <p>Changing this setting doesn't result in an outage. The parameter group name itself is changed
+   *           immediately, but the actual parameter changes are not applied until you reboot the
+   *           instance without failover. In this case, the DB instance isn't rebooted automatically, and the
+   *           parameter changes aren't applied during the next maintenance window. However, if you modify
+   *           dynamic parameters in the newly associated DB parameter group, these changes are applied
+   *           immediately without a reboot.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: Uses existing setting</p>
-   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as this DB instance.</p>
+   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as the DB instance.</p>
    */
   DBParameterGroupName?: string;
 
@@ -4185,18 +4429,16 @@ export interface ModifyDBInstanceMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must be a value from 0 to 35</p>
+   *                <p>It must be a value from 0 to 35. It can't be set to 0 if the DB instance is a source to
+   *               read replicas. It can't be set to 0 or 35 for an RDS Custom DB instance.</p>
    *             </li>
    *             <li>
-   *                <p>Can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
-   *                     later</p>
+   *                <p>It can be specified for a MySQL read replica only if the source is running MySQL 5.6 or
+   *                     later.</p>
    *             </li>
    *             <li>
-   *                <p>Can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
-   *                     9.3.5</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
+   *                <p>It can be specified for a PostgreSQL read replica only if the source is running PostgreSQL
+   *                     9.3.5.</p>
    *             </li>
    *          </ul>
    */
@@ -4255,12 +4497,11 @@ export interface ModifyDBInstanceMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.
-   *     Changing this parameter doesn't result in an outage and the change
-   *     is applied during the next maintenance window
-   *     unless the <code>ApplyImmediately</code> parameter is
-   *         enabled for this request.
-   *     </p>
+   * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. Changing this parameter doesn't result
+   *           in an outage. The change is applied during the next maintenance window unless the <code>ApplyImmediately</code>
+   *           parameter is enabled for this request.
+   *       </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MultiAZ?: boolean;
 
@@ -4279,29 +4520,45 @@ export interface ModifyDBInstanceMessage {
    *           default minor version if the current minor version is lower.
    *           For information about valid engine versions, see <code>CreateDBInstance</code>,
    *           or call <code>DescribeDBEngineVersions</code>.</p>
+   *          <p>In RDS Custom, this parameter is supported for read replicas only if they are in the
+   *           <code>PATCH_DB_FAILURE</code> lifecycle.
+   *       </p>
    */
   EngineVersion?: string;
 
   /**
-   * <p>A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't result in an outage and the change is asynchronously applied as soon as possible.</p>
-   *          <p>Constraints: Major version upgrades must be allowed when specifying a value for the EngineVersion parameter that is a different major version than the DB instance's current version.</p>
+   * <p>A value that indicates whether major version upgrades are allowed. Changing this parameter doesn't
+   *           result in an outage and the change is asynchronously applied as soon as possible.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>Constraints: Major version upgrades must be allowed when specifying a value
+   *           for the EngineVersion parameter that is a different major version than the DB instance's current version.</p>
    */
   AllowMajorVersionUpgrade?: boolean;
 
   /**
-   * <p>
-   *     A value that indicates whether minor version upgrades are applied automatically
-   *     to the DB instance during the maintenance window.
-   *     Changing this parameter doesn't result in an outage except in the following case
-   *     and the change is asynchronously applied as soon as possible.
-   *     An outage results if this parameter is enabled during the maintenance window,
-   *     and a newer minor version is available, and RDS has enabled auto patching for that engine version.
-   *     </p>
+   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance
+   *           during the maintenance window. An outage occurs when all the following conditions are met:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The automatic upgrade is enabled for the maintenance window.</p>
+   *             </li>
+   *             <li>
+   *                <p>A newer minor version is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>RDS has enabled automatic patching for the engine version.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If any of the preceding conditions isn't met, RDS applies the change as soon as possible and
+   *       doesn't cause an outage.</p>
+   *          <p>For an RDS Custom DB instance, set <code>AutoMinorVersionUpgrade</code>
+   *           to <code>false</code>. Otherwise, the operation returns an error.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The license model for the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
    *             <code>general-public-license</code>
    *          </p>
@@ -4337,28 +4594,25 @@ export interface ModifyDBInstanceMessage {
   Iops?: number;
 
   /**
-   * <p>
-   *             A value that indicates the DB instance should be associated with the specified option group.
-   *             Changing this parameter doesn't result in an outage except in the following case and the change
-   *             is applied during the next maintenance window
-   *             unless the <code>ApplyImmediately</code> parameter is enabled
-   *             for this request. If the parameter change results in an option group that
-   *             enables OEM, this change can cause a brief (sub-second) period during which new connections
-   *             are rejected but existing connections are not interrupted.
-   *         </p>
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
+   * <p>A value that indicates the DB instance should be associated with the specified option group.</p>
+   *          <p>Changing this parameter doesn't result in an outage, with one exception. If the parameter change results
+   *           in an option group that enables OEM, it can cause a brief period, lasting less than a second, during which
+   *           new connections are rejected but existing connections aren't interrupted.</p>
+   *          <p>The change is applied during the next maintenance window unless the <code>ApplyImmediately</code> parameter
+   *           is enabled for this request.</p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed
+   *           from an option group, and that option group can't be removed from a DB instance after
+   *           it is associated with a DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   OptionGroupName?: string;
 
   /**
-   * <p>
-   *             The new DB instance identifier for the DB instance when renaming a DB
-   *             instance. When you change the DB instance identifier, an instance
-   *             reboot occurs immediately if you enable <code>ApplyImmediately</code>, or will occur
-   *             during the next maintenance window if you disable Apply Immediately. This value is stored
-   *             as a lowercase string.
-   *         </p>
-   *
+   * <p>The new DB instance identifier for the DB instance when renaming a DB instance. When you change the DB instance
+   *           identifier, an instance reboot occurs immediately if you enable <code>ApplyImmediately</code>, or will occur
+   *           during the next maintenance window if you disable Apply Immediately. This value is stored as a lowercase string.
+   *       </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4404,26 +4658,30 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialArn?: string;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialPassword?: string;
 
   /**
-   * <p>Indicates the certificate that needs to be associated with the instance.</p>
+   * <p>Specifies the certificate to associate with the DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   CACertificateIdentifier?: string;
 
   /**
    * <p>The Active Directory directory ID to move the DB instance to.
    *           Specify <code>none</code> to remove the instance from its current domain.
-   *           The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL
-   *           Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
+   *           You must create the domain before this operation. Currently, you can create only MySQL, Microsoft SQL
+   *           Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *           Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   Domain?: string;
 
@@ -4439,9 +4697,10 @@ export interface ModifyDBInstanceMessage {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
-   *       to a value other than 0.</p>
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+   *           for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0, which is the default.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, set <code>MonitoringInterval</code> to a value other than 0.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
    *          </p>
    */
@@ -4449,10 +4708,11 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The port number on which the database accepts connections.</p>
-   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values specified for options in the option
-   *       group for the DB instance.</p>
-   *          <p>Your database will restart when you change the <code>DBPortNumber</code> value regardless of the value of the <code>ApplyImmediately</code>
-   *       parameter.</p>
+   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values
+   *           specified for options in the option group for the DB instance.</p>
+   *          <p>If you change the <code>DBPortNumber</code> value, your database restarts regardless of
+   *           the value of the <code>ApplyImmediately</code> parameter.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>
    *             <b>MySQL</b>
    *          </p>
@@ -4492,7 +4752,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>
    *       Default: <code>1433</code>
    *          </p>
-   *         <p> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
+   *          <p> Valid values: <code>1150-65535</code> except <code>1234</code>, <code>1434</code>,
    *                 <code>3260</code>, <code>3343</code>, <code>3389</code>, <code>47001</code>, and
    *                 <code>49152-49156</code>.</p>
    *          <p>
@@ -4502,7 +4762,7 @@ export interface ModifyDBInstanceMessage {
    *       Default: <code>3306</code>
    *          </p>
    *          <p> Valid values: <code>1150-65535</code>
-   *         </p>
+   *          </p>
    */
   DBPortNumber?: number;
 
@@ -4514,27 +4774,30 @@ export interface ModifyDBInstanceMessage {
    *           and that public access is not permitted if the security group assigned to the DB instance doesn't permit it.</p>
    *          <p>When the DB instance isn't publicly accessible, it is an internal DB instance with a DNS name that resolves to a private IP address.</p>
    *          <p>
-   *             <code>PubliclyAccessible</code> only applies to DB instances in a VPC.
-   *       The DB instance must be part of a public subnet and
-   *       <code>PubliclyAccessible</code> must be enabled for it to be publicly accessible.
+   *             <code>PubliclyAccessible</code> only applies to DB instances in a VPC. The DB instance must be part of a
+   *           public subnet and <code>PubliclyAccessible</code> must be enabled for it to be publicly accessible.
    *       </p>
    *          <p>Changes to the <code>PubliclyAccessible</code> parameter are applied immediately regardless
    *       of the value of the <code>ApplyImmediately</code> parameter.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   PubliclyAccessible?: boolean;
 
   /**
    * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
    *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
-   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
    *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, supply a <code>MonitoringRoleArn</code>
+   *           value.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MonitoringRoleArn?: string;
 
   /**
    * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
 
@@ -4542,8 +4805,9 @@ export interface ModifyDBInstanceMessage {
    * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
    *       after a failure of the existing primary instance. For more information,
    *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
-   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-   *     </p>
+   *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.
+   *       </p>
    *          <p>Default: 1</p>
    *          <p>Valid Values: 0 - 15</p>
    */
@@ -4552,14 +4816,13 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
    *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
    *           cluster.</p>
-   *
    *          <p>For more information about IAM database authentication, see
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
    *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -4569,38 +4832,45 @@ export interface ModifyDBInstanceMessage {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
    *                     User Guide</i>.
    *         </p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnablePerformanceInsights?: boolean;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
-   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
+   *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
   /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance.</p>
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs for a
+   *             specific DB instance.</p>
    *         <p>A change to the <code>CloudwatchLogsExportConfiguration</code> parameter is always applied to the DB instance
    *             immediately. Therefore, the <code>ApplyImmediately</code> parameter has no effect.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>A value that indicates whether the DB instance class of the DB instance uses its default
    *             processor features.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   UseDefaultProcessorFeatures?: boolean;
 
@@ -4620,6 +4890,7 @@ export interface ModifyDBInstanceMessage {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -4647,6 +4918,7 @@ export interface ModifyDBInstanceMessage {
    *                </p>
    *             </li>
    *          </ul>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   CertificateRotationRestart?: boolean;
 
@@ -4661,6 +4933,7 @@ export interface ModifyDBInstanceMessage {
    *             accept user connections, a mounted replica can't serve a read-only workload.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ReplicaMode?: ReplicaMode | string;
 
@@ -4679,8 +4952,24 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * <p>The automation mode of the RDS Custom DB instance: <code>full</code> or <code>all paused</code>.
+   *             If <code>full</code>, the DB instance automates monitoring and instance recovery. If
+   *             <code>all paused</code>, the instance pauses automation for the duration set by
+   *             <code>ResumeFullAutomationModeMinutes</code>.</p>
+   */
+  AutomationMode?: AutomationMode | string;
+
+  /**
+   * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes
+   *             full automation. The minimum value is <code>60</code> (default). The maximum value is <code>1,440</code>.
+   *         </p>
+   */
+  ResumeFullAutomationModeMinutes?: number;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -5950,7 +6239,7 @@ export interface RemoveRoleFromDBClusterMessage {
 
   /**
    * <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   *             For information about supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
 }
@@ -5997,7 +6286,7 @@ export interface RemoveRoleFromDBInstanceMessage {
 
   /**
    * <p>The name of the feature for the DB instance that the IAM role is to be disassociated from.
-   *             For the list of supported feature names, see <code>DBEngineVersion</code>.
+   *             For information about supported feature names, see <code>DBEngineVersion</code>.
    *         </p>
    */
   FeatureName: string | undefined;
@@ -6401,13 +6690,13 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *             To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>If the StorageEncrypted parameter is enabled, and you do
    *             not specify a value for the <code>KmsKeyId</code> parameter, then
-   *             Amazon RDS will use your default CMK. There is a
-   *             default CMK for your Amazon Web Services account. Your Amazon Web Services account has a different
-   *             default CMK for each Amazon Web Services Region.</p>
+   *             Amazon RDS will use your default KMS key. There is a
+   *             default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different
+   *             default KMS key for each Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -6696,15 +6985,15 @@ export interface RestoreDBClusterFromSnapshotMessage {
   /**
    * <p>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster from a DB
    *             snapshot or DB cluster snapshot.</p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *           To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>When you don't specify a value for the <code>KmsKeyId</code> parameter, then the
    *             following occurs:</p>
    *         <ul>
    *             <li>
    *                 <p>If the DB snapshot or DB cluster snapshot in
-   *                         <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
-   *                     is encrypted using the Amazon Web Services KMS CMK that was used to encrypt the DB snapshot or DB
+   *                     <code>SnapshotIdentifier</code> is encrypted, then the restored DB cluster
+   *                     is encrypted using the KMS key that was used to encrypt the DB snapshot or DB
    *                     cluster snapshot.</p>
    *             </li>
    *             <li>
@@ -6964,15 +7253,15 @@ export interface RestoreDBClusterToPointInTimeMessage {
 
   /**
    * <p>The Amazon Web Services KMS key identifier to use when restoring an encrypted DB cluster from an encrypted DB cluster.</p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
-   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a Amazon Web Services KMS CMK that is different than the
-   *       Amazon Web Services KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the Amazon Web Services KMS CMK
-   *       identified by the <code>KmsKeyId</code> parameter.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *           To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key that is different from the
+   *           KMS key used to encrypt the source DB cluster. The new DB cluster is encrypted with the KMS key
+   *           identified by the <code>KmsKeyId</code> parameter.</p>
    *          <p>If you don't specify a value for the <code>KmsKeyId</code> parameter, then the following occurs:</p>
    *          <ul>
    *             <li>
-   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the Amazon Web Services KMS CMK that was used to encrypt the source DB cluster.</p>
+   *                <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the KMS key that was used to encrypt the source DB cluster.</p>
    *             </li>
    *             <li>
    *                <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't encrypted.</p>
@@ -7189,6 +7478,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
    */
   MultiAZ?: boolean;
@@ -7204,12 +7494,15 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   PubliclyAccessible?: boolean;
 
   /**
-   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
+   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance
+   *           during the maintenance window.</p>
+   *          <p>If you restore an RDS Custom DB instance, you must disable this parameter.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>License model information for the restored DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: Same as source.</p>
    *          <p>
    *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
@@ -7219,14 +7512,14 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>The database name for the restored DB instance.</p>
-   *          <note>
-   *             <p>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines.</p>
-   *          </note>
+   *          <p>This parameter doesn't apply to the MySQL, PostgreSQL, or MariaDB engines. It also doesn't apply to RDS
+   *           Custom DB instances.</p>
    */
   DBName?: string;
 
   /**
    * <p>The database engine to use for the new instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: The same as source</p>
    *          <p>Constraint: Must be compatible with the engine of the source. For example, you can restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot.</p>
    *
@@ -7310,7 +7603,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * <p>The name of the option group to be used for the restored DB instance.</p>
    *
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option
+   *         group, and that option group can't be removed from a DB instance after it is associated with a DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   OptionGroupName?: string;
 
@@ -7339,11 +7634,13 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialArn?: string;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialPassword?: string;
 
@@ -7359,10 +7656,11 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>Specify the Active Directory directory ID to restore the DB instance in.
-   *            The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL
-   *            Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
+   *            The domain/ must be created prior to this operation. Currently, you can create only MySQL, Microsoft SQL
+   *            Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *            Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   Domain?: string;
 
@@ -7373,6 +7671,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
 
@@ -7384,6 +7683,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
    *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
@@ -7391,24 +7691,28 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
    *             in the list depend on the DB engine being used. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>A value that indicates whether the DB instance class of the DB instance uses its default
    *             processor features.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   UseDefaultProcessorFeatures?: boolean;
 
   /**
    * <p>The name of the DB parameter group to associate with this DB instance.</p>
-   *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
-   *             for the specified DB engine is used.</p>
+   *         <p>If you don't specify a value for <code>DBParameterGroupName</code>, then RDS uses the default <code>DBParameterGroup</code>
+   *             for the specified DB engine.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -7443,12 +7747,35 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
+
+  /**
+   * <p>The instance profile associated with the underlying Amazon EC2 instance of an
+   *             RDS Custom DB instance. The instance profile must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The profile must exist in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The profile must have an IAM role that Amazon EC2 has permissions to assume.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance profile name and the associated IAM role name must start with the prefix <code>AWSRDSCustom</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For the list of permissions required for the IAM role, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.</p>
+   *         <p>This setting is required for RDS Custom.</p>
+   */
+  CustomIamInstanceProfile?: string;
 }
 
 export namespace RestoreDBInstanceFromDBSnapshotMessage {
@@ -7773,13 +8100,13 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB instance.
    *         </p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *             To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *         <p>If the <code>StorageEncrypted</code> parameter is enabled,
    *             and you do not specify a value for the <code>KmsKeyId</code> parameter,
-   *             then Amazon RDS will use your default CMK.
-   *             There is a default CMK for your Amazon Web Services account.
-   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.
+   *             then Amazon RDS will use your default KMS key.
+   *             There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.
    *         </p>
    */
   KmsKeyId?: string;
@@ -7880,10 +8207,10 @@ export interface RestoreDBInstanceFromS3Message {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
-   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
+   *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -8076,7 +8403,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>A value that indicates whether the DB instance is a Multi-AZ deployment.</p>
-   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
+   *          <p>Constraint: You can't specify the <code>AvailabilityZone</code> parameter if the DB instance is a
+   *           Multi-AZ deployment.</p>
    */
   MultiAZ?: boolean;
 
@@ -8091,12 +8420,15 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   PubliclyAccessible?: boolean;
 
   /**
-   * <p>A value that indicates whether minor version upgrades are applied automatically to the DB instance during the maintenance window.</p>
+   * <p>A value that indicates whether minor version upgrades are applied automatically to the
+   *           DB instance during the maintenance window.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>License model information for the restored DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: Same as source.</p>
    *          <p>
    *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
@@ -8107,13 +8439,14 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>The database name for the restored DB instance.</p>
    *          <note>
-   *             <p>This parameter isn't used for the MySQL or MariaDB engines.</p>
+   *             <p>This parameter isn't supported for the MySQL or MariaDB engines. It also doesn't apply to RDS Custom.</p>
    *          </note>
    */
   DBName?: string;
 
   /**
    * <p>The database engine to use for the new instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: The same as source</p>
    *          <p>Constraint: Must be compatible with the engine of the source</p>
    *
@@ -8192,7 +8525,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * <p>The name of the option group to be used for the restored DB instance.</p>
    *
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group, and that option group can't be removed from a DB instance once it is associated with a DB instance</p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an
+   *         option group, and that option group can't be removed from a DB instance after it is associated with a DB instance</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   OptionGroupName?: string;
 
@@ -8226,11 +8561,13 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialArn?: string;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialPassword?: string;
 
@@ -8246,8 +8583,9 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>Specify the Active Directory directory ID to restore the DB instance in.
-   *           The domain must be created prior to this operation. Currently, only MySQL, Microsoft SQL
-   *           Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
+   *           Create the domain before running this command. Currently, you can create only the MySQL, Microsoft SQL
+   *           Server, Oracle, and PostgreSQL DB instances in an Active Directory Domain.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *           Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
    */
@@ -8255,12 +8593,15 @@ export interface RestoreDBInstanceToPointInTimeMessage {
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
 
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *           Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
+   *
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *
    *          <p>For more information about IAM database authentication, see
    *         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
@@ -8273,16 +8614,19 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The list of logs that the restored DB instance is to export to CloudWatch Logs. The values
    *             in the list depend on the DB engine being used. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>A value that indicates whether the DB instance class of the DB instance uses its default processor features.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   UseDefaultProcessorFeatures?: boolean;
 
@@ -8290,6 +8634,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    * <p>The name of the DB parameter group to associate with this DB instance.</p>
    *         <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the default <code>DBParameterGroup</code>
    *                 for the specified DB engine is used.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -8329,12 +8674,14 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *               Managing capacity automatically with Amazon RDS storage autoscaling</a>
    *           in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MaxAllocatedStorage?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replicated automated backups from which to restore, for example,
    *             <code>arn:aws:rds:useast-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   SourceDBInstanceAutomatedBackupsArn?: string;
 
@@ -8344,12 +8691,35 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *             your Outpost subnets through your on-premises network. For some use cases, a CoIP can
    *             provide lower latency for connections to the DB instance from outside of its virtual
    *             private cloud (VPC) on your local network.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
+
+  /**
+   * <p>The instance profile associated with the underlying Amazon EC2 instance of an
+   *             RDS Custom DB instance. The instance profile must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The profile must exist in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The profile must have an IAM role that Amazon EC2 has permissions to assume.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance profile name and the associated IAM role name must start with the prefix <code>AWSRDSCustom</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For the list of permissions required for the IAM role, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.</p>
+   *         <p>This setting is required for RDS Custom.</p>
+   */
+  CustomIamInstanceProfile?: string;
 }
 
 export namespace RestoreDBInstanceToPointInTimeMessage {
@@ -8475,7 +8845,7 @@ export interface StartActivityStreamRequest {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encrypting messages in the database activity stream.
-   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId: string | undefined;
 
@@ -8785,10 +9155,10 @@ export interface StartExportTaskMessage {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services KMS customer master key (CMK) to use to encrypt the snapshot exported to Amazon S3. The Amazon Web Services KMS
-   *             key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *             The caller of this operation must be authorized to
-   *             execute the following operations. These can be set in the Amazon Web Services KMS key policy: </p>
+   * <p>The ID of the Amazon Web Services KMS key to use to encrypt the snapshot exported to Amazon S3. The Amazon Web Services KMS
+   *             key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             The caller of this operation must be authorized to execute the following operations.
+   *             These can be set in the Amazon Web Services KMS key policy: </p>
    *         <ul>
    *             <li>
    *                <p>GrantOperation.Encrypt</p>
@@ -8894,7 +9264,7 @@ export namespace StopActivityStreamRequest {
 export interface StopActivityStreamResponse {
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 

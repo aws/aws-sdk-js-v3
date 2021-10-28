@@ -1219,6 +1219,10 @@ import {
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
+  GetInstanceTypesFromInstanceRequirementsCommandInput,
+  GetInstanceTypesFromInstanceRequirementsCommandOutput,
+} from "./commands/GetInstanceTypesFromInstanceRequirementsCommand";
+import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
 } from "./commands/GetLaunchTemplateDataCommand";
@@ -1239,6 +1243,10 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSpotPlacementScoresCommandInput,
+  GetSpotPlacementScoresCommandOutput,
+} from "./commands/GetSpotPlacementScoresCommand";
 import {
   GetSubnetCidrReservationsCommandInput,
   GetSubnetCidrReservationsCommandOutput,
@@ -1980,12 +1988,14 @@ export type ServiceInputTypes =
   | GetFlowLogsIntegrationTemplateCommandInput
   | GetGroupsForCapacityReservationCommandInput
   | GetHostReservationPurchasePreviewCommandInput
+  | GetInstanceTypesFromInstanceRequirementsCommandInput
   | GetLaunchTemplateDataCommandInput
   | GetManagedPrefixListAssociationsCommandInput
   | GetManagedPrefixListEntriesCommandInput
   | GetPasswordDataCommandInput
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetSerialConsoleAccessStatusCommandInput
+  | GetSpotPlacementScoresCommandInput
   | GetSubnetCidrReservationsCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
@@ -2453,12 +2463,14 @@ export type ServiceOutputTypes =
   | GetFlowLogsIntegrationTemplateCommandOutput
   | GetGroupsForCapacityReservationCommandOutput
   | GetHostReservationPurchasePreviewCommandOutput
+  | GetInstanceTypesFromInstanceRequirementsCommandOutput
   | GetLaunchTemplateDataCommandOutput
   | GetManagedPrefixListAssociationsCommandOutput
   | GetManagedPrefixListEntriesCommandOutput
   | GetPasswordDataCommandOutput
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetSerialConsoleAccessStatusCommandOutput
+  | GetSpotPlacementScoresCommandOutput
   | GetSubnetCidrReservationsCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput

@@ -112,6 +112,11 @@ import {
   DisassociateChannelFlowCommandOutput,
 } from "./commands/DisassociateChannelFlowCommand";
 import {
+  GetChannelMembershipPreferencesCommand,
+  GetChannelMembershipPreferencesCommandInput,
+  GetChannelMembershipPreferencesCommandOutput,
+} from "./commands/GetChannelMembershipPreferencesCommand";
+import {
   GetChannelMessageCommand,
   GetChannelMessageCommandInput,
   GetChannelMessageCommandOutput,
@@ -176,6 +181,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PutChannelMembershipPreferencesCommand,
+  PutChannelMembershipPreferencesCommandInput,
+  PutChannelMembershipPreferencesCommandOutput,
+} from "./commands/PutChannelMembershipPreferencesCommand";
 import {
   RedactChannelMessageCommand,
   RedactChannelMessageCommandInput,
@@ -474,7 +484,7 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
-   * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
+   * <p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the
    *          request header. A channel member can:</p>
    *
    *          <ul>
@@ -1132,6 +1142,40 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
   }
 
   /**
+   * <p>Gets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
+   *          Only the <code>AppInstanceUser</code> who owns the membership can retrieve preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't retrieve preferences for other users.
+   *          Banned users can't retrieve membership preferences for the channel from which they are banned.</p>
+   */
+  public getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetChannelMembershipPreferencesCommandOutput>;
+  public getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  public getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  public getChannelMembershipPreferences(
+    args: GetChannelMembershipPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: GetChannelMembershipPreferencesCommandOutput) => void
+  ): Promise<GetChannelMembershipPreferencesCommandOutput> | void {
+    const command = new GetChannelMembershipPreferencesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets the full details of a channel message.</p>
    *
    *          <note>
@@ -1343,11 +1387,13 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
    * <p>Lists all channel memberships in a channel.</p>
    *
    *          <note>
-   *
    *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
    *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
    *             the header.</p>
    *          </note>
+   *
+   *          <p>If you want to list the channels to which a specific app instance user belongs, see the
+   *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
    */
   public listChannelMemberships(
     args: ListChannelMembershipsCommandInput,
@@ -1644,6 +1690,40 @@ export class ChimeSDKMessaging extends ChimeSDKMessagingClient {
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Sets the membership preferences of an <code>AppInstanceUser</code> for the specified channel. The <code>AppInstanceUser</code> must be a member of the channel.
+   *          Only the <code>AppInstanceUser</code> who owns the membership can set preferences. Users in the <code>AppInstanceAdmin</code> and channel moderator roles can't set preferences for other users.
+   *          Banned users can't set membership preferences for the channel from which they are banned.</p>
+   */
+  public putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutChannelMembershipPreferencesCommandOutput>;
+  public putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  public putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
+  ): void;
+  public putChannelMembershipPreferences(
+    args: PutChannelMembershipPreferencesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void),
+    cb?: (err: any, data?: PutChannelMembershipPreferencesCommandOutput) => void
+  ): Promise<PutChannelMembershipPreferencesCommandOutput> | void {
+    const command = new PutChannelMembershipPreferencesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

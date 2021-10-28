@@ -22,9 +22,7 @@ export interface GetControlCommandInput extends GetControlRequest {}
 export interface GetControlCommandOutput extends GetControlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns a control from Audit Manager.
- * </p>
+ * <p> Returns a control from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1,6 +1,79 @@
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
+ * <p>Specifies the minimum and maximum for the <code>AcceleratorCount</code> object when
+ *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface AcceleratorCountRequest {
+  /**
+   * <p>The minimum value.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum value.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  NVIDIA = "nvidia",
+  XILINX = "xilinx",
+}
+
+export enum AcceleratorName {
+  A100 = "a100",
+  K80 = "k80",
+  M60 = "m60",
+  RADEON_PRO_V520 = "radeon-pro-v520",
+  T4 = "t4",
+  V100 = "v100",
+  VU9P = "vu9p",
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>AcceleratorTotalMemoryMiB</code>
+ *             object when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface AcceleratorTotalMemoryMiBRequest {
+  /**
+   * <p>The memory minimum in MiB.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The memory maximum in MiB.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorTotalMemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorType {
+  FPGA = "fpga",
+  GPU = "gpu",
+  INFERENCE = "inference",
+}
+
+/**
  * <p>The request failed because an active instance refresh for the specified Auto Scaling group was
  *             not found. </p>
  */
@@ -771,44 +844,41 @@ export namespace LifecycleHookSpecification {
 }
 
 /**
- * <p>Describes an instances distribution for an Auto Scaling group with a <a>MixedInstancesPolicy</a>.</p>
- *         <p>The instances distribution specifies the distribution of On-Demand Instances and Spot
- *             Instances, the maximum price to pay for Spot Instances, and how the Auto Scaling group allocates
- *             instance types to fulfill On-Demand and Spot capacities.</p>
- *         <p>When you modify <code>SpotAllocationStrategy</code>, <code>SpotInstancePools</code>,
- *             or <code>SpotMaxPrice</code> in the <a>UpdateAutoScalingGroup</a> API call,
- *             this update action does not deploy any changes across the running Amazon EC2 instances
- *             in the group. Your existing Spot Instances continue to run as long as the maximum price
- *             for those instances is higher than the current Spot price. When scale out occurs,
- *             Amazon EC2 Auto Scaling launches instances based on the new settings. When scale in occurs, Amazon EC2 Auto Scaling
- *             terminates instances according to the group's termination policies.</p>
+ * <p>Describes an instances distribution for an Auto Scaling group.</p>
  */
 export interface InstancesDistribution {
   /**
-   * <p>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid
-   *             value is <code>prioritized</code>, which is also the default value. This strategy uses
-   *             the order of instance types in the <code>LaunchTemplateOverrides</code> to define the
-   *             launch priority of each instance type. The first instance type in the array is
-   *             prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled
-   *             using your highest priority instance, then the Auto Scaling groups launches the remaining
-   *             capacity using the second priority instance type, and so on.</p>
+   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity. </p>
+   *         <p>If you specify <code>lowest-price</code>, Amazon EC2 Auto Scaling uses price to determine the order,
+   *             launching the lowest price first. </p>
+   *         <p>If you specify <code>prioritized</code>, Amazon EC2 Auto Scaling uses the priority that you assigned
+   *             to each launch template override, launching the highest priority first. If all your
+   *             On-Demand capacity cannot be fulfilled using your highest priority instance, then
+   *             Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so
+   *             on.</p>
+   *         <p>Default: <code>lowest-price</code> for Auto Scaling groups that specify <a>InstanceRequirements</a> in the overrides and <code>prioritized</code> for
+   *             Auto Scaling groups that don't.</p>
    */
   OnDemandAllocationStrategy?: string;
 
   /**
    * <p>The minimum amount of the Auto Scaling group's capacity that must be fulfilled by On-Demand
-   *             Instances. This base portion is provisioned first as your group scales. Defaults to 0 if
-   *             not specified. If you specify weights for the instance types in the overrides, set the
-   *             value of <code>OnDemandBaseCapacity</code> in terms of the number of capacity units, and
-   *             not the number of instances.</p>
+   *             Instances. This base portion is launched first as your group scales.</p>
+   *         <p>If you specify weights for the instance types in the overrides, the base capacity is
+   *             measured in the same unit of measurement as the instance types. If you specify <a>InstanceRequirements</a> in the overrides, the base capacity is measured in
+   *             the same unit of measurement as your group's desired capacity.</p>
+   *         <p>Default: <code>0</code>
+   *          </p>
    */
   OnDemandBaseCapacity?: number;
 
   /**
    * <p>Controls the percentages of On-Demand Instances and Spot Instances for your additional
    *             capacity beyond <code>OnDemandBaseCapacity</code>. Expressed as a number (for example,
-   *             20 specifies 20% On-Demand Instances, 80% Spot Instances). Defaults to 100 if not
-   *             specified. If set to 100, only On-Demand Instances are provisioned.</p>
+   *             20 specifies 20% On-Demand Instances, 80% Spot Instances). If set to 100, only On-Demand
+   *             Instances are used.</p>
+   *         <p>Default: <code>100</code>
+   *          </p>
    */
   OnDemandPercentageAboveBaseCapacity?: number;
 
@@ -816,8 +886,7 @@ export interface InstancesDistribution {
    * <p>Indicates how to allocate instances across Spot Instance pools. </p>
    *         <p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches
    *             instances using the Spot pools with the lowest price, and evenly allocates your
-   *             instances across the number of Spot pools that you specify. Defaults to
-   *                 <code>lowest-price</code> if not specified.</p>
+   *             instances across the number of Spot pools that you specify. </p>
    *         <p>If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling
    *             group launches instances using Spot pools that are optimally chosen based on the
    *             available Spot capacity. Alternatively, you can use
@@ -825,6 +894,8 @@ export interface InstancesDistribution {
    *             the list of launch template overrides from highest to lowest priority (from first to
    *             last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis
    *             but optimizes for capacity first. </p>
+   *         <p>Default: <code>lowest-price</code>
+   *          </p>
    */
   SpotAllocationStrategy?: string;
 
@@ -832,15 +903,17 @@ export interface InstancesDistribution {
    * <p>The number of Spot Instance pools across which to allocate your Spot Instances. The
    *             Spot pools are determined from the different instance types in the overrides. Valid only
    *             when the Spot allocation strategy is <code>lowest-price</code>. Value must be in the
-   *             range of 1 to 20. Defaults to 2 if not specified.</p>
+   *             range of 1–20.</p>
+   *         <p>Default: <code>2</code>
+   *          </p>
    */
   SpotInstancePools?: number;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If
-   *             you leave the value at its default (empty), Amazon EC2 Auto Scaling uses the On-Demand price as the
-   *             maximum Spot price. To remove a value that you previously set, include the property but
-   *             specify an empty string ("") for the value.</p>
+   *             you keep the value at its default (unspecified), Amazon EC2 Auto Scaling uses the On-Demand price as
+   *             the maximum Spot price. To remove a value that you previously set, include the property
+   *             but specify an empty string ("") for the value.</p>
    */
   SpotMaxPrice?: string;
 }
@@ -854,12 +927,465 @@ export namespace InstancesDistribution {
   });
 }
 
+export enum BareMetal {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
 /**
- * <p>Describes an override for a launch template. The maximum number of instance types that
- *             can be associated with an Auto Scaling group is 40. The maximum number of distinct launch
- *             templates you can define for an Auto Scaling group is 20. For more information about configuring
- *             overrides, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-override-options.html">Configuring
- *                 overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
+ * <p>Specifies the minimum and maximum for the <code>BaselineEbsBandwidthMbps</code> object
+ *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface BaselineEbsBandwidthMbpsRequest {
+  /**
+   * <p>The minimum value in Mbps.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum value in Mbps.</p>
+   */
+  Max?: number;
+}
+
+export namespace BaselineEbsBandwidthMbpsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BurstablePerformance {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+export enum CpuManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  INTEL = "intel",
+}
+
+export enum InstanceGeneration {
+  CURRENT = "current",
+  PREVIOUS = "previous",
+}
+
+export enum LocalStorage {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+export enum LocalStorageType {
+  HDD = "hdd",
+  SSD = "ssd",
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>MemoryGiBPerVCpu</code> object when
+ *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface MemoryGiBPerVCpuRequest {
+  /**
+   * <p>The memory minimum in GiB.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The memory maximum in GiB.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryGiBPerVCpuRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>MemoryMiB</code> object when you
+ *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface MemoryMiBRequest {
+  /**
+   * <p>The memory minimum in MiB.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The memory maximum in MiB.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>NetworkInterfaceCount</code> object
+ *             when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface NetworkInterfaceCountRequest {
+  /**
+   * <p>The minimum number of network interfaces.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of network interfaces.</p>
+   */
+  Max?: number;
+}
+
+export namespace NetworkInterfaceCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>TotalLocalStorageGB</code> object when
+ *             you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface TotalLocalStorageGBRequest {
+  /**
+   * <p>The storage minimum in GB.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The storage maximum in GB.</p>
+   */
+  Max?: number;
+}
+
+export namespace TotalLocalStorageGBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the minimum and maximum for the <code>VCpuCount</code> object when you
+ *             specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>
+ */
+export interface VCpuCountRequest {
+  /**
+   * <p>The minimum number of vCPUs.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum number of vCPUs.</p>
+   */
+  Max?: number;
+}
+
+export namespace VCpuCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VCpuCountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>When you specify multiple parameters, you get instance types that satisfy all of the
+ *             specified parameters. If you specify multiple values for a parameter, you get instance
+ *             types that satisfy any of the specified values.</p>
+ *
+ *
+ *         <p>Represents requirements for the types of instances that can be launched. You
+ *             must specify <code>VCpuCount</code> and <code>MemoryMiB</code>, but all other parameters
+ *             are optional. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+ *                 an Auto Scaling group using attribute-based instance type selection</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+export interface InstanceRequirements {
+  /**
+   * <p>The minimum and maximum number of vCPUs for an instance type.</p>
+   */
+  VCpuCount: VCpuCountRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum instance memory size for an instance type, in MiB.</p>
+   */
+  MemoryMiB: MemoryMiBRequest | undefined;
+
+  /**
+   * <p>Lists which specific CPU manufacturers to include.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with Amazon Web Services CPUs, specify
+   *                     <code>amazon-web-services</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <note>
+   *             <p>Don't confuse the CPU hardware manufacturer with the CPU hardware architecture.
+   *                 Instances will be launched with a compatible CPU architecture based on the Amazon
+   *                 Machine Image (AMI) that you specify in your launch template. </p>
+   *         </note>
+   *         <p>Default: Any manufacturer</p>
+   */
+  CpuManufacturers?: (CpuManufacturer | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
+
+  /**
+   * <p>Lists which instance types to exclude. You can use strings with one or more wild
+   *             cards, represented by an asterisk (<code>*</code>). The following are examples:
+   *                 <code>c5*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p>
+   *         <p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance
+   *             family, which includes all C5a and C5n instance types. If you specify
+   *             <code>m5a.*</code>, you are excluding all the M5a instance types, but not the M5n
+   *             instance types.</p>
+   *         <p>Default: No excluded instance types</p>
+   */
+  ExcludedInstanceTypes?: string[];
+
+  /**
+   * <p>Indicates whether current or previous generation instance types are included.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For current generation instance types, specify <code>current</code>. The
+   *                     current generation includes EC2 instance types currently recommended for use.
+   *                     This typically includes the latest two to three generations in each instance
+   *                     family. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in
+   *                     the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: Any current or previous generation</p>
+   */
+  InstanceGenerations?: (InstanceGeneration | string)[];
+
+  /**
+   * <p>The price protection threshold for Spot Instances. This is the maximum you’ll pay for
+   *             a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance
+   *             type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your
+   *             attributes, we will exclude instance types whose price is higher than your threshold.
+   *             The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off
+   *             price protection, specify a high value, such as <code>999999</code>. </p>
+   *         <p>Default: <code>100</code>
+   *          </p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay
+   *             for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R
+   *             instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with
+   *             your attributes, we will exclude instance types whose price is higher than your
+   *             threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.
+   *             To turn off price protection, specify a high value, such as <code>999999</code>. </p>
+   *         <p>Default: <code>20</code>
+   *          </p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>Indicates whether bare metal instance types are included, excluded, or
+   *             required.</p>
+   *         <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BareMetal?: BareMetal | string;
+
+  /**
+   * <p>Indicates whether burstable performance instance types are included, excluded, or
+   *             required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide for Linux
+   *                 Instances</i>.</p>
+   *         <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BurstablePerformance?: BurstablePerformance | string;
+
+  /**
+   * <p>Indicates whether instance types must provide On-Demand Instance hibernation
+   *             support.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces for an instance type.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCountRequest;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded,
+   *             or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in
+   *             the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <p>Default: <code>included</code>
+   *          </p>
+   */
+  LocalStorage?: LocalStorage | string;
+
+  /**
+   * <p>Indicates the type of local storage that is required.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For instance types with hard disk drive (HDD) storage, specify
+   *                         <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with solid state drive (SSD) storage, specify
+   *                         <code>sdd</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: Any local storage type</p>
+   */
+  LocalStorageTypes?: (LocalStorageType | string)[];
+
+  /**
+   * <p>The minimum and maximum total local storage size for an instance type, in GB.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGBRequest;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances</a>
+   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+
+  /**
+   * <p>Lists the accelerator types that must be on an instance type.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For instance types with GPU accelerators, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with FPGA accelerators, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with inference accelerators, specify
+   *                     <code>inference</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: Any accelerator type</p>
+   */
+  AcceleratorTypes?: (AcceleratorType | string)[];
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia
+   *             chips) for an instance type.</p>
+   *         <p>To exclude accelerator-enabled instance types, set <code>Max</code> to
+   *             <code>0</code>.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  AcceleratorCount?: AcceleratorCountRequest;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific
+   *             manufacturers.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with Amazon Web Services devices, specify
+   *                         <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: Any manufacturer</p>
+   */
+  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+
+  /**
+   * <p>Lists the accelerators that must be on an instance type.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with AMD Radeon Pro V520 GPUs, specify
+   *                         <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Default: Any accelerator</p>
+   */
+  AcceleratorNames?: (AcceleratorName | string)[];
+
+  /**
+   * <p>The minimum and maximum total memory size for the accelerators on an instance type, in
+   *             MiB.</p>
+   *         <p>Default: No minimum or maximum</p>
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
+}
+
+export namespace InstanceRequirements {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirements): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an override for a launch template. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-override-options.html">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
  */
 export interface LaunchTemplateOverrides {
   /**
@@ -871,27 +1397,37 @@ export interface LaunchTemplateOverrides {
   InstanceType?: string;
 
   /**
-   * <p>The number of capacity units provided by the specified instance type in terms of
-   *             virtual CPUs, memory, storage, throughput, or other relative performance characteristic.
-   *             When a Spot or On-Demand Instance is provisioned, the capacity units count toward the
-   *             desired capacity. Amazon EC2 Auto Scaling provisions instances until the desired capacity is totally
-   *             fulfilled, even if this results in an overage. For example, if there are 2 units
-   *             remaining to fulfill capacity, and Amazon EC2 Auto Scaling can only provision an instance with a
-   *                 <code>WeightedCapacity</code> of 5 units, the instance is provisioned, and the
-   *             desired capacity is exceeded by 3 units. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance weighting for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-   *             Value must be in the range of 1 to 999.</p>
+   * <p>The number of capacity units provided by the instance type specified in
+   *                 <code>InstanceType</code> in terms of virtual CPUs, memory, storage, throughput, or
+   *             other relative performance characteristic. When a Spot or On-Demand Instance is
+   *             launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches
+   *             instances until the desired capacity is totally fulfilled, even if this results in an
+   *             overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling
+   *             can only launch an instance with a <code>WeightedCapacity</code> of five units, the
+   *             instance is launched, and the desired capacity is exceeded by three units. For more
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html">Instance weighting for
+   *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the
+   *             range of 1–999.</p>
    */
   WeightedCapacity?: string;
 
   /**
-   * <p>Provides the launch template to be used when launching the instance type. For example,
-   *             some instance types might require a launch template with a different AMI. If not
-   *             provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed instances
-   *             policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-template-overrides.html">Specifying a
+   * <p>Provides the launch template to be used when launching the instance type specified in
+   *                 <code>InstanceType</code>. For example, some instance types might require a launch
+   *             template with a different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's
+   *             defined for your mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-template-overrides.html">Specifying a
    *                 different launch template for an instance type</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    */
   LaunchTemplateSpecification?: LaunchTemplateSpecification;
+
+  /**
+   * <p>The instance requirements. When you specify instance requirements, Amazon EC2 Auto Scaling finds
+   *             instance types that satisfy your requirements, and then uses your On-Demand and Spot
+   *             allocation strategies to launch instances from these instance types, in the same way as
+   *             when you specify a list of specific instance types. </p>
+   */
+  InstanceRequirements?: InstanceRequirements;
 }
 
 export namespace LaunchTemplateOverrides {
@@ -904,12 +1440,8 @@ export namespace LaunchTemplateOverrides {
 }
 
 /**
- * <p>Describes a launch template and overrides. </p>
- *         <p>You specify these properties as part of a mixed instances policy. </p>
- *         <p>When you update the launch template or overrides in the <a>UpdateAutoScalingGroup</a> API call, existing Amazon EC2 instances continue to
- *             run. When scale out occurs, Amazon EC2 Auto Scaling launches instances to match the new settings. When
- *             scale in occurs, Amazon EC2 Auto Scaling terminates instances according to the group's termination
- *             policies.</p>
+ * <p>Describes a launch template and overrides. You specify these properties as part of a
+ *             mixed instances policy. </p>
  */
 export interface LaunchTemplate {
   /**
@@ -919,8 +1451,10 @@ export interface LaunchTemplate {
 
   /**
    * <p>Any properties that you specify override the same properties in the launch template.
-   *             If not provided, Amazon EC2 Auto Scaling uses the instance type specified in the launch template when
-   *             it launches an instance. </p>
+   *             If not provided, Amazon EC2 Auto Scaling uses the instance type or instance type requirements specified
+   *             in the launch template when it launches an instance.</p>
+   *         <p>The overrides can include either one or more instance types or a set of instance
+   *             requirements, but not both.</p>
    */
   Overrides?: LaunchTemplateOverrides[];
 }
@@ -936,22 +1470,21 @@ export namespace LaunchTemplate {
 
 /**
  * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
- *             types Amazon EC2 Auto Scaling can launch, and other information Amazon EC2 Auto Scaling can use to launch instances to
- *             help you optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
- *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
- *                 Guide</i>.</p>
+ *             types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch
+ *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling
+ *                 groups with multiple instance types and purchase options</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface MixedInstancesPolicy {
   /**
    * <p>Specifies the launch template to use and the instance types (overrides) that are used
-   *             to provision EC2 instances to fulfill On-Demand and Spot capacities. Required when
-   *             creating a mixed instances policy.</p>
+   *             to launch EC2 instances to fulfill On-Demand and Spot capacities. Required when creating
+   *             a mixed instances policy.</p>
    */
   LaunchTemplate?: LaunchTemplate;
 
   /**
-   * <p>Specifies the instances distribution. If not provided, the value for each property in
-   *                 <code>InstancesDistribution</code> uses a default value.</p>
+   * <p>Specifies the instances distribution.</p>
    */
   InstancesDistribution?: InstancesDistribution;
 }
@@ -1035,16 +1568,11 @@ export interface CreateAutoScalingGroupType {
   LaunchTemplate?: LaunchTemplateSpecification;
 
   /**
-   * <p>An embedded object that specifies a mixed instances policy. The required properties
-   *             must be specified. If optional properties are unspecified, their default values are
-   *             used.</p>
-   *         <p>The policy includes properties that not only define the distribution of On-Demand
-   *             Instances and Spot Instances, the maximum price to pay for Spot Instances, and how the
-   *             Auto Scaling group allocates instance types to fulfill On-Demand and Spot capacities, but also
-   *             the properties that specify the instance configuration information—the launch template
-   *             and instance types. The policy can also include a weight for each instance type and
-   *             different launch templates for individual instance types. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+   * <p>An embedded object that specifies a mixed instances policy.</p>
+   *
+   *
+   *
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
    *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
    *                 Guide</i>.</p>
    */
@@ -1220,6 +1748,20 @@ export interface CreateAutoScalingGroupType {
    * <p>Reserved.</p>
    */
   Context?: string;
+
+  /**
+   * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
+   *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
+   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
+   *             instances.</p>
+   *
+   *         <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
+   *          </p>
+   */
+  DesiredCapacityType?: string;
 }
 
 export namespace CreateAutoScalingGroupType {
@@ -1962,16 +2504,17 @@ export namespace DescribeAdjustmentTypesAnswer {
 /**
  * <p>Describes a filter that is used to return a more specific list of results from a
  *             describe operation.</p>
- *         <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and
- *             the request returns only results that match all of the specified filters. </p>
+ *         <p>If you specify multiple filters, the filters are automatically logically joined with
+ *             an <code>AND</code>, and the request returns only the results that match all of the
+ *             specified filters. </p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging Auto Scaling groups and
  *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 export interface Filter {
   /**
    * <p>The name of the filter.</p>
-   *         <p>The valid values for <code>Name</code> depend on the API operation that you are
-   *             including the filter in, <a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>.</p>
+   *         <p>The valid values for <code>Name</code> depend on which API operation you're using with
+   *             the filter (<a>DescribeAutoScalingGroups</a> or <a>DescribeTags</a>).</p>
    *         <p>
    *             <b>DescribeAutoScalingGroups</b>
    *          </p>
@@ -1979,19 +2522,19 @@ export interface Filter {
    *         <ul>
    *             <li>
    *                 <p>
-   *                   <code>tag-key</code> - Accepts tag keys. The results will only include
-   *                     information about the Auto Scaling groups associated with these tag keys. </p>
+   *                   <code>tag-key</code> - Accepts tag keys. The results only include information
+   *                     about the Auto Scaling groups associated with these tag keys. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>tag-value</code> - Accepts tag values. The results will only include
+   *                   <code>tag-value</code> - Accepts tag values. The results only include
    *                     information about the Auto Scaling groups associated with these tag values. </p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>tag:<key></code> - Accepts the key/value combination of the tag.
    *                     Use the tag key in the filter name and the tag value as the filter value. The
-   *                     results will only include information about the Auto Scaling groups associated with the
+   *                     results only include information about the Auto Scaling groups associated with the
    *                     specified key/value combination. </p>
    *             </li>
    *          </ul>
@@ -2003,24 +2546,24 @@ export interface Filter {
    *             <li>
    *                 <p>
    *                   <code>auto-scaling-group</code> - Accepts the names of Auto Scaling groups. The
-   *                     results will only include information about the tags associated with these Auto Scaling
+   *                     results only include information about the tags associated with these Auto Scaling
    *                     groups. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>key</code> - Accepts tag keys. The results will only include information
+   *                   <code>key</code> - Accepts tag keys. The results only include information
    *                     about the tags associated with these tag keys. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>value</code> - Accepts tag values. The results will only include
-   *                     information about the tags associated with these tag values. </p>
+   *                     <code>value</code> - Accepts tag values. The results only include information
+   *                     about the tags associated with these tag values. </p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>propagate-at-launch</code> - Accepts a boolean value, which specifies
-   *                     whether tags propagate to instances at launch. The results will only include
-   *                     information about the tags associated with the specified boolean value. </p>
+   *                   <code>propagate-at-launch</code> - Accepts a Boolean value, which specifies
+   *                     whether tags propagate to instances at launch. The results only include
+   *                     information about the tags associated with the specified Boolean value. </p>
    *             </li>
    *          </ul>
    */
@@ -2028,9 +2571,9 @@ export interface Filter {
 
   /**
    * <p>One or more filter values. Filter values are case-sensitive. </p>
-   *         <p>If you specify multiple values for a filter, the values are joined with an
-   *                 <code>OR</code>, and the request returns all results that match any of the specified
-   *             values. For example, specify "tag:environment" for the filter name and
+   *         <p>If you specify multiple values for a filter, the values are automatically logically
+   *             joined with an <code>OR</code>, and the request returns all results that match any of
+   *             the specified values. For example, specify "tag:environment" for the filter name and
    *             "production,development" for the filter values to find Auto Scaling groups with the tag
    *             "environment=production" or "environment=development".</p>
    */
@@ -2575,6 +3118,19 @@ export interface AutoScalingGroup {
    * <p>Reserved.</p>
    */
   Context?: string;
+
+  /**
+   * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
+   *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
+   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
+   *             instances.</p>
+   *         <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
+   *          </p>
+   */
+  DesiredCapacityType?: string;
 }
 
 export namespace AutoScalingGroup {
@@ -2799,10 +3355,10 @@ export interface DesiredConfiguration {
 
   /**
    * <p>Describes a mixed instances policy. A mixed instances policy contains the instance
-   *             types Amazon EC2 Auto Scaling can launch, and other information Amazon EC2 Auto Scaling can use to launch instances to
-   *             help you optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
-   *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
-   *                 Guide</i>.</p>
+   *             types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch
+   *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling
+   *                 groups with multiple instance types and purchase options</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   MixedInstancesPolicy?: MixedInstancesPolicy;
 }
@@ -6586,9 +7142,8 @@ export interface UpdateAutoScalingGroupType {
   LaunchTemplate?: LaunchTemplateSpecification;
 
   /**
-   * <p>An embedded object that specifies a mixed instances policy. When you make changes to
-   *             an existing policy, all optional properties are left unchanged if not specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
+   * <p>An embedded object that specifies a mixed instances policy. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto Scaling groups with multiple
    *                 instance types and purchase options</a> in the <i>Amazon EC2 Auto Scaling User
    *                 Guide</i>.</p>
    */
@@ -6708,6 +7263,19 @@ export interface UpdateAutoScalingGroupType {
    * <p>Reserved.</p>
    */
   Context?: string;
+
+  /**
+   * <p>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto Scaling
+   *             supports <code>DesiredCapacityType</code> for attribute-based instance type selection
+   *             only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
+   *                 an Auto Scaling group using attribute-based instance type selection</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *         <p>By default, Amazon EC2 Auto Scaling specifies <code>units</code>, which translates into number of
+   *             instances.</p>
+   *         <p>Valid values: <code>units</code> | <code>vcpu</code> | <code>memory-mib</code>
+   *          </p>
+   */
+  DesiredCapacityType?: string;
 }
 
 export namespace UpdateAutoScalingGroupType {

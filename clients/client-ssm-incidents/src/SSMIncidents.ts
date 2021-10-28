@@ -144,14 +144,14 @@ import {
 import { SSMIncidentsClient } from "./SSMIncidentsClient";
 
 /**
- * <p>AWS Systems Manager Incident Manager is an incident management console designed to help
- *       users mitigate and recover from incidents affecting their AWS-hosted applications. An incident
- *       is any unplanned interruption or reduction in quality of services. </p>
+ * <p>Systems Manager Incident Manager is an incident management console designed to help users
+ *       mitigate and recover from incidents affecting their Amazon Web Services-hosted applications. An
+ *       incident is any unplanned interruption or reduction in quality of services. </p>
  *          <p>Incident Manager increases incident resolution by notifying responders of impact,
  *       highlighting relevant troubleshooting data, and providing collaboration tools to get services
  *       back up and running. To achieve the primary goal of reducing the time-to-resolution of
- *       critical incidents, Incident Manager automates response plans and enables responder team
- *       escalation. </p>
+ *       critical incidents, Incident Manager automates response plans and enables responder
+ *       team escalation. </p>
  */
 export class SSMIncidents extends SSMIncidentsClient {
   /**
@@ -189,9 +189,8 @@ export class SSMIncidents extends SSMIncidentsClient {
 
   /**
    * <p>Creates a response plan that automates the initial response to incidents. A response
-   *             plan engages contacts, starts chat channel collaboration, and
-   *             initiates
-   *             runbooks at the beginning of an incident.</p>
+   *             plan engages contacts, starts chat channel collaboration, and initiates runbooks at the
+   *             beginning of an incident.</p>
    */
   public createResponsePlan(
     args: CreateResponsePlanCommandInput,
@@ -323,9 +322,8 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Deletes the resource policy that
-   *             AWS
-   *             Resource Access Manager uses to share your Incident Manager resource.</p>
+   * <p>Deletes the resource policy that Resource Access Manager uses to share your Incident Manager
+   *             resource.</p>
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -357,9 +355,8 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Deletes the specified response plan. Deleting a response plan stops all linked
-   *             CloudWatch alarms and EventBridge events from creating an incident with this response
-   *             plan.</p>
+   * <p>Deletes the specified response plan. Deleting a response plan stops all linked CloudWatch alarms and EventBridge events from creating an incident with this
+   *             response plan.</p>
    */
   public deleteResponsePlan(
     args: DeleteResponsePlanCommandInput,
@@ -423,7 +420,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Returns the details of the specified incident record.</p>
+   * <p>Returns the details for the specified incident record.</p>
    */
   public getIncidentRecord(
     args: GetIncidentRecordCommandInput,
@@ -744,7 +741,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Lists timeline events of the specified incident record.</p>
+   * <p>Lists timeline events for the specified incident record.</p>
    */
   public listTimelineEvents(
     args: ListTimelineEventsCommandInput,
@@ -808,7 +805,8 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or manually. </p>
+   * <p>Used to start an incident from CloudWatch alarms, EventBridge events, or
+   *             manually. </p>
    */
   public startIncident(
     args: StartIncidentCommandInput,
@@ -931,7 +929,7 @@ export class SSMIncidents extends SSMIncidentsClient {
   }
 
   /**
-   * <p>Update the details of an incident record. You can use this action to update an
+   * <p>Update the details of an incident record. You can use this operation to update an
    *             incident record from the defined chat channel. For more information about using actions
    *             in chat channels, see <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/chat.html#chat-interact">Interacting through chat</a>.</p>
    */

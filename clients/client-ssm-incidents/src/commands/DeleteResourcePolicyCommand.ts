@@ -22,9 +22,8 @@ export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyIn
 export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the resource policy that
- *             AWS
- *             Resource Access Manager uses to share your Incident Manager resource.</p>
+ * <p>Deletes the resource policy that Resource Access Manager uses to share your Incident Manager
+ *             resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

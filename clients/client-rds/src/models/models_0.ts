@@ -177,7 +177,7 @@ export interface AddRoleToDBClusterMessage {
 
   /**
    * <p>The name of the feature for the DB cluster that the IAM role is to be associated with.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   *             For information about supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
 }
@@ -279,7 +279,7 @@ export interface AddRoleToDBInstanceMessage {
 
   /**
    * <p>The name of the feature for the DB instance that the IAM role is to be associated with.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.
+   *             For information about supported feature names, see <a>DBEngineVersion</a>.
    *         </p>
    */
   FeatureName: string | undefined;
@@ -1321,9 +1321,9 @@ export interface ExportTask {
   IamRoleArn?: string;
 
   /**
-   * <p>The key identifier of the Amazon Web Services KMS customer master key (CMK) that is used to encrypt the snapshot when it's exported to
-   *             Amazon S3. The Amazon Web Services KMS CMK identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
-   *             must have encryption and decryption permissions to use this Amazon Web Services KMS CMK. </p>
+   * <p>The key identifier of the Amazon Web Services KMS key that is used to encrypt the snapshot when it's exported to
+   *             Amazon S3. The KMS key identifier is its key ARN, key ID, alias ARN, or alias name. The IAM role used for the snapshot export
+   *             must have encryption and decryption permissions to use this KMS key. </p>
    */
   KmsKeyId?: string;
 
@@ -1622,16 +1622,17 @@ export interface CopyDBClusterSnapshotMessage {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster snapshot.
-   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS key.</p>
    *
-   *         <p>If you copy an encrypted DB cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new Amazon Web Services KMS CMK.
-   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same Amazon Web Services KMS key as the source DB cluster snapshot.
+   *         <p>If you copy an encrypted DB cluster snapshot from your Amazon Web Services account, you can specify a value for <code>KmsKeyId</code> to encrypt the copy with a new KMS key.
+   *             If you don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is encrypted with the same KMS key as the source DB cluster snapshot.
    *         </p>
    *
    *         <p>If you copy an encrypted DB cluster snapshot that is shared from another Amazon Web Services account, then you must specify a value for <code>KmsKeyId</code>. </p>
    *
-   *         <p>To copy an encrypted DB cluster snapshot to another Amazon Web Services Region, you must set <code>KmsKeyId</code> to the Amazon Web Services KMS key identifier you want to use to encrypt the copy of the DB cluster snapshot
-   *             in the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services Region that they are created in, and you can't use CMKs from one Amazon Web Services Region
+   *         <p>To copy an encrypted DB cluster snapshot to another Amazon Web Services Region, you must set <code>KmsKeyId</code> to the Amazon Web Services KMS key identifier
+   *             you want to use to encrypt the copy of the DB cluster snapshot in the destination Amazon Web Services Region. KMS keys are specific to the Amazon Web Services
+   *             Region that they are created in, and you can't use KMS keys from one Amazon Web Services Region
    *             in another Amazon Web Services Region.</p>
    *
    *         <p>If you copy an unencrypted DB cluster snapshot and specify a value for the <code>KmsKeyId</code> parameter,
@@ -1650,7 +1651,7 @@ export interface CopyDBClusterSnapshotMessage {
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB
    *                 cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
    *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *             </li>
@@ -1800,7 +1801,7 @@ export interface DBClusterSnapshot {
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier for the encrypted DB cluster snapshot.</p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 
@@ -2138,11 +2139,11 @@ export interface CopyDBSnapshotMessage {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB snapshot.
-   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
    *         </p>
    *
    *         <p>If you copy an encrypted DB snapshot from your Amazon Web Services account,
-   *             you can specify a value for this parameter to encrypt the copy with a new Amazon Web Services KMS CMK.
+   *             you can specify a value for this parameter to encrypt the copy with a new KMS key.
    *             If you don't specify a value for this parameter,
    *             then the copy of the DB snapshot is encrypted with the same Amazon Web Services KMS key as the source DB snapshot.
    *         </p>
@@ -2156,8 +2157,8 @@ export interface CopyDBSnapshotMessage {
    *         </p>
    *
    *         <p>If you copy an encrypted snapshot to a different Amazon Web Services Region, then you must specify
-   *             a Amazon Web Services KMS key identifier for the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to the Amazon Web Services Region
-   *             that they are created in, and you can't use CMKs from one Amazon Web Services Region in another
+   *             an Amazon Web Services KMS key identifier for the destination Amazon Web Services Region. KMS keys are specific to the Amazon Web Services Region
+   *             that they are created in, and you can't use KMS keys from one Amazon Web Services Region in another
    *             Amazon Web Services Region.
    *         </p>
    */
@@ -2205,7 +2206,7 @@ export interface CopyDBSnapshotMessage {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB snapshot in the destination Amazon Web Services Region.
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB snapshot in the destination Amazon Web Services Region.
    *                     This is the same identifier for both the <code>CopyDBSnapshot</code> action that is called in the destination Amazon Web Services Region,
    *                     and the action contained in the presigned URL.
    *                 </p>
@@ -2480,7 +2481,7 @@ export interface DBSnapshot {
    *             If <code>Encrypted</code> is true, the Amazon Web Services KMS key identifier
    *             for the encrypted DB snapshot.
    *         </p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 
@@ -3184,6 +3185,410 @@ export namespace CustomAvailabilityZoneQuotaExceededFault {
   });
 }
 
+export interface CreateCustomDBEngineVersionMessage {
+  /**
+   * <p>The database engine to use for your custom engine version (CEV). The only supported value is
+   *             <code>custom-oracle-ee</code>.</p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>The name of your CEV. The name format is <code>19.<i>customized_string</i>
+   *             </code>. For example,
+   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom, but optional for Amazon RDS.
+   *             The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Region.</p>
+   */
+  EngineVersion: string | undefined;
+
+  /**
+   * <p>The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid
+   *             bucket name is <code>my-custom-installation-files</code>.</p>
+   */
+  DatabaseInstallationFilesS3BucketName: string | undefined;
+
+  /**
+   * <p>The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid
+   *             bucket name is <code>123456789012/cev1</code>. If this setting isn't specified, no prefix is assumed.</p>
+   */
+  DatabaseInstallationFilesS3Prefix?: string;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for an encrypted CEV. A symmetric KMS key is required for
+   *             RDS Custom, but optional for Amazon RDS.</p>
+   *         <p>If you have an existing symmetric KMS key in your account, you can use it with RDS Custom.
+   *             No further action is necessary. If you don't already have a symmetric KMS key in your account,
+   *             follow the instructions in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk">
+   *                 Creating symmetric KMS keys</a> in the <i>Amazon Web Services Key Management Service
+   *                     Developer Guide</i>.</p>
+   *         <p>You can choose the same symmetric key when you create a CEV and a DB instance, or choose different keys.</p>
+   */
+  KMSKeyId: string | undefined;
+
+  /**
+   * <p>An optional description of your CEV.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3.
+   *             Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which
+   *             they are listed.</p>
+   *         <p>The following JSON fields are valid:</p>
+   *         <dl>
+   *             <dt>MediaImportTemplateVersion</dt>
+   *             <dd>
+   *                <p>Version of the CEV manifest. The date is in the format <code>YYYY-MM-DD</code>.</p>
+   *             </dd>
+   *             <dt>databaseInstallationFileNames</dt>
+   *             <dd>
+   *                <p>Ordered list of installation files for the CEV.</p>
+   *             </dd>
+   *             <dt>opatchFileNames</dt>
+   *             <dd>
+   *                <p>Ordered list of OPatch installers used for the Oracle DB engine.</p>
+   *             </dd>
+   *             <dt>psuRuPatchFileNames</dt>
+   *             <dd>
+   *                <p>The PSU and RU patches for this CEV.</p>
+   *             </dd>
+   *             <dt>OtherPatchFileNames</dt>
+   *             <dd>
+   *                <p>The patches that are not in the list of PSU and RU patches.
+   *                     Amazon RDS applies these patches after applying the PSU and RU patches. </p>
+   *             </dd>
+   *          </dl>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
+   *             Creating the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  Manifest: string | undefined;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateCustomDBEngineVersionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateCustomDBEngineVersionMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A CEV with the specified name already exists.</p>
+ */
+export interface CustomDBEngineVersionAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "CustomDBEngineVersionAlreadyExistsFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CustomDBEngineVersionAlreadyExistsFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDBEngineVersionAlreadyExistsFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have exceeded your CEV quota.</p>
+ */
+export interface CustomDBEngineVersionQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "CustomDBEngineVersionQuotaExceededFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CustomDBEngineVersionQuotaExceededFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDBEngineVersionQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             This data type is used as a response element in the action <code>DescribeDBEngineVersions</code>.
+ *         </p>
+ */
+export interface CharacterSet {
+  /**
+   * <p>The name of the character set.</p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>The description of the character set.</p>
+   */
+  CharacterSetDescription?: string;
+}
+
+export namespace CharacterSet {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CharacterSet): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A time zone associated with a
+ *             <code>DBInstance</code>
+ *             or a <code>DBSnapshot</code>.
+ *             This data type is an element in the response to
+ *             the <code>DescribeDBInstances</code>,
+ *             the <code>DescribeDBSnapshots</code>,
+ *             and the <code>DescribeDBEngineVersions</code>
+ *             actions.
+ *         </p>
+ */
+export interface Timezone {
+  /**
+   * <p>The name of the time zone.</p>
+   */
+  TimezoneName?: string;
+}
+
+export namespace Timezone {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Timezone): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The version of the database engine that a DB instance can be upgraded to.</p>
+ */
+export interface UpgradeTarget {
+  /**
+   * <p>The name of the upgrade target database engine.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version number of the upgrade target database engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The version of the database engine that a DB instance can be upgraded to.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
+   */
+  AutoUpgrade?: boolean;
+
+  /**
+   * <p>A value that indicates whether upgrading to the target version requires upgrading the major version of the database engine.</p>
+   */
+  IsMajorVersionUpgrade?: boolean;
+
+  /**
+   * <p>A list of the supported DB engine modes for the target engine version.</p>
+   */
+  SupportedEngineModes?: string[];
+
+  /**
+   * <p>A value that indicates whether you can use Aurora parallel query with the target engine version.</p>
+   */
+  SupportsParallelQuery?: boolean;
+
+  /**
+   * <p>A value that indicates whether you can use Aurora global databases with the target engine version.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
+}
+
+export namespace UpgradeTarget {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *             This data type is used as a response element in the action <code>DescribeDBEngineVersions</code>.
+ *         </p>
+ */
+export interface DBEngineVersion {
+  /**
+   * <p>The name of the database engine.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version number of the database engine.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The name of the DB parameter group family for the database engine.</p>
+   */
+  DBParameterGroupFamily?: string;
+
+  /**
+   * <p>The description of the database engine.</p>
+   */
+  DBEngineDescription?: string;
+
+  /**
+   * <p>The description of the database engine version.</p>
+   */
+  DBEngineVersionDescription?: string;
+
+  /**
+   * <p>
+   *             The default character set for new instances of this engine version,
+   *             if the <code>CharacterSetName</code> parameter of the CreateDBInstance API
+   *             isn't specified.
+   *         </p>
+   */
+  DefaultCharacterSet?: CharacterSet;
+
+  /**
+   * <p>A list of the character sets supported by this engine for the <code>CharacterSetName</code> parameter of the <code>CreateDBInstance</code> operation.
+   *       </p>
+   */
+  SupportedCharacterSets?: CharacterSet[];
+
+  /**
+   * <p>A list of the character sets supported by the Oracle DB engine for the <code>NcharCharacterSetName</code> parameter of the <code>CreateDBInstance</code> operation.
+   *       </p>
+   */
+  SupportedNcharCharacterSets?: CharacterSet[];
+
+  /**
+   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
+   */
+  ValidUpgradeTarget?: UpgradeTarget[];
+
+  /**
+   * <p>A list of the time zones supported by this engine for the
+   *             <code>Timezone</code> parameter of the <code>CreateDBInstance</code> action.
+   *         </p>
+   */
+  SupportedTimezones?: Timezone[];
+
+  /**
+   * <p>The types of logs that the database engine has available for export to CloudWatch Logs.</p>
+   */
+  ExportableLogTypes?: string[];
+
+  /**
+   * <p>A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.</p>
+   */
+  SupportsLogExportsToCloudwatchLogs?: boolean;
+
+  /**
+   * <p>Indicates whether the database engine version supports read replicas.</p>
+   */
+  SupportsReadReplica?: boolean;
+
+  /**
+   * <p>A list of the supported DB engine modes.</p>
+   */
+  SupportedEngineModes?: string[];
+
+  /**
+   * <p>
+   *         A list of features supported by the DB engine.
+   *     </p>
+   *          <p>The supported features vary by DB engine and DB engine version.</p>
+   *          <p>To determine the supported features for a specific DB engine and DB engine version using the CLI,
+   *         use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine <engine_name> --engine-version <engine_version></code>
+   *          </p>
+   *          <p>For example, to determine the supported features for RDS for PostgreSQL version 13.3 using the CLI,
+   *         use the following command:</p>
+   *          <p>
+   *             <code>aws rds describe-db-engine-versions --engine postgres --engine-version 13.3</code>
+   *          </p>
+   *          <p>The supported features are listed under <code>SupportedFeatureNames</code> in the output.</p>
+   */
+  SupportedFeatureNames?: string[];
+
+  /**
+   * <p>The status of the DB engine version, either <code>available</code> or <code>deprecated</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>A value that indicates whether you can use Aurora parallel query with a specific DB engine version.</p>
+   */
+  SupportsParallelQuery?: boolean;
+
+  /**
+   * <p>A value that indicates whether you can use Aurora global databases with a specific DB engine version.</p>
+   */
+  SupportsGlobalDatabases?: boolean;
+
+  /**
+   * <p>The major engine version of the CEV.</p>
+   */
+  MajorEngineVersion?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains your database installation files.</p>
+   */
+  DatabaseInstallationFilesS3BucketName?: string;
+
+  /**
+   * <p>The Amazon S3 directory that contains the database installation files.
+   *             If not specified, then no prefix is assumed.</p>
+   */
+  DatabaseInstallationFilesS3Prefix?: string;
+
+  /**
+   * <p>The ARN of the custom engine version.</p>
+   */
+  DBEngineVersionArn?: string;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier for an encrypted CEV. This parameter is required for
+   *             RDS Custom, but optional for Amazon RDS.</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * <p>The creation time of the DB engine version.</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  TagList?: Tag[];
+}
+
+export namespace DBEngineVersion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Contains the scaling configuration of an Aurora Serverless DB cluster.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using Amazon Aurora Serverless</a> in the
@@ -3471,26 +3876,26 @@ export interface CreateDBClusterMessage {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB cluster.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *                  To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
-   *         <p>When a CMK isn't specified in <code>KmsKeyId</code>:</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *                  To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *         <p>When a KMS key isn't specified in <code>KmsKeyId</code>:</p>
    *         <ul>
    *             <li>
    *                 <p>If <code>ReplicationSourceIdentifier</code> identifies an encrypted
-   *                     source, then Amazon RDS will use the CMK used to encrypt the
-   *                     source. Otherwise, Amazon RDS will use your default CMK. </p>
+   *                     source, then Amazon RDS will use the KMS key used to encrypt the
+   *                     source. Otherwise, Amazon RDS will use your default KMS key. </p>
    *             </li>
    *             <li>
    *                 <p>If the <code>StorageEncrypted</code> parameter is enabled and
    *                         <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS
-   *                     will use your default CMK.</p>
+   *                     will use your default KMS key.</p>
    *             </li>
    *          </ul>
-   *         <p>There is a default CMK for your Amazon Web Services account. Your Amazon Web Services account
-   *             has a different default CMK for each Amazon Web Services Region.</p>
+   *         <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
    *         <p>If you create a read replica of an encrypted DB cluster in another Amazon Web Services Region, you
-   *             must set <code>KmsKeyId</code> to a Amazon Web Services KMS key identifier that is valid in the destination Amazon Web Services
-   *             Region. This CMK is used to encrypt the read replica in that Amazon Web Services Region.</p>
+   *             must set <code>KmsKeyId</code> to a KMS key identifier that is valid in the destination Amazon Web Services
+   *             Region. This KMS key is used to encrypt the read replica in that Amazon Web Services Region.</p>
    */
   KmsKeyId?: string;
 
@@ -3505,8 +3910,8 @@ export interface CreateDBClusterMessage {
    *         <ul>
    *             <li>
    *                <p>
-   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the key to use to encrypt the copy of
-   *                 the DB cluster in the destination Amazon Web Services Region. This should refer to the same Amazon Web Services KMS CMK for both the <code>CreateDBCluster</code>
+   *                   <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of
+   *                 the DB cluster in the destination Amazon Web Services Region. This should refer to the same KMS key for both the <code>CreateDBCluster</code>
    *                 action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *             </li>
    *             <li>
@@ -3728,7 +4133,7 @@ export interface DBClusterRole {
 
   /**
    * <p>The name of the feature associated with the Amazon Web Services Identity and Access Management (IAM) role.
-   *             For the list of supported feature names, see <a>DBEngineVersion</a>.
+   *             For information about supported feature names, see <a>DBEngineVersion</a>.
    *         </p>
    */
   FeatureName?: string;
@@ -4144,13 +4549,13 @@ export interface DBCluster {
 
   /**
    * <p>If <code>StorageEncrypted</code> is enabled, the Amazon Web Services KMS key identifier for the encrypted DB cluster.</p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The Amazon Web Services Region-unique, immutable identifier for the DB cluster. This identifier is found in Amazon Web Services CloudTrail log entries whenever
-   *           the Amazon Web Services KMS CMK for the DB cluster is accessed.</p>
+   *           the KMS key for the DB cluster is accessed.</p>
    */
   DbClusterResourceId?: string;
 
@@ -4260,7 +4665,7 @@ export interface DBCluster {
 
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   ActivityStreamKmsKeyId?: string;
 
@@ -5038,6 +5443,26 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *          </ul>
    *          <p>
+   *             <b>Amazon RDS Custom</b>
+   *          </p>
+   *          <p>The Oracle System ID (SID) of the created RDS Custom DB instance.
+   *           If you don't specify a value, the default value is <code>ORCL</code>.
+   *       </p>
+   *          <p>Default: <code>ORCL</code>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>It must contain 1 to 8 alphanumeric characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>It must contain a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>It can't be a word reserved by the database engine.</p>
+   *             </li>
+   *          </ul>
+   *          <p>
    *             <b>SQL Server</b>
    *          </p>
    *          <p>Not applicable. Must be null.</p>
@@ -5107,6 +5532,20 @@ export interface CreateDBInstanceMessage {
    *          </p>
    *          <p>Not applicable. Aurora cluster volumes automatically grow as the amount of data in your
    *           database increases, though you are only charged for the space that you use in an Aurora cluster volume.</p>
+   *
+   *          <p>
+   *             <b>Amazon RDS Custom</b>
+   *          </p>
+   *          <p>Constraints to the amount of storage for each storage type are the following:
+   *       </p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose (SSD) storage (gp2): Must be an integer from 40 to 65536.</p>
+   *             </li>
+   *             <li>
+   *                <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536.</p>
+   *             </li>
+   *          </ul>
    *
    *          <p>
    *             <b>MySQL</b>
@@ -5250,6 +5689,11 @@ export interface CreateDBInstanceMessage {
    *             <li>
    *                <p>
    *                   <code>aurora-postgresql</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>custom-oracle-ee (for RDS Custom instances)</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5522,6 +5966,7 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>The name of the DB parameter group to associate with this DB instance. If you do not specify a value, then
    *           the default DB parameter group for the specified DB engine and version is used.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -5538,12 +5983,12 @@ export interface CreateDBInstanceMessage {
   DBParameterGroupName?: string;
 
   /**
-   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables backups. Setting this parameter to 0 disables automated backups.</p>
+   * <p>The number of days for which automated backups are retained. Setting this parameter to a positive number enables
+   *           backups. Setting this parameter to 0 disables automated backups.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *          <p>Not applicable. The retention period for automated backups is managed by the DB
-   *           cluster.</p>
+   *          <p>Not applicable. The retention period for automated backups is managed by the DB cluster.</p>
    *          <p>Default: 1</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -5552,6 +5997,9 @@ export interface CreateDBInstanceMessage {
    *             </li>
    *             <li>
    *                <p>Can't be set to 0 if the DB instance is a source to read replicas</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be set to 0 or 35 for an RDS Custom DB instance</p>
    *             </li>
    *          </ul>
    */
@@ -5651,6 +6099,7 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>A value that indicates whether the DB instance is a Multi-AZ deployment. You can't set
    *           the <code>AvailabilityZone</code> parameter if the DB instance is a Multi-AZ deployment.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MultiAZ?: boolean;
 
@@ -5665,6 +6114,15 @@ export interface CreateDBInstanceMessage {
    *          </p>
    *         <p>Not applicable. The version number of the database engine to be used by the DB
    *             instance is managed by the DB cluster.</p>
+   *
+   *          <p>
+   *             <b>Amazon RDS Custom</b>
+   *          </p>
+   *          <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom. The CEV
+   *           name has the following format: <code>19.<i>customized_string</i>
+   *             </code>. An example identifier is
+   *           <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
+   *               Creating an RDS Custom DB instance</a> in the <i>Amazon RDS User Guide.</i>.</p>
    *
    *          <p>
    *             <b>MariaDB</b>
@@ -5711,6 +6169,8 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window.
    *           By default, minor engine upgrades are applied automatically.</p>
+   *          <p>If you create an RDS Custom DB instance, you must set <code>AutoMinorVersionUpgrade</code> to
+   *           <code>false</code>.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -5719,6 +6179,7 @@ export interface CreateDBInstanceMessage {
    *          <p>
    *             Valid values:  <code>license-included</code> | <code>bring-your-own-license</code> | <code>general-public-license</code>
    *          </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   LicenseModel?: string;
 
@@ -5734,13 +6195,18 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>A value that indicates that the DB instance should be associated with the specified option group.</p>
-   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed from an option group. Also, that option group can't be removed from a DB instance once it is associated with a DB instance</p>
+   *          <p>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't be removed
+   *           from an option group. Also, that option group can't be removed from a DB instance after it is
+   *           associated with a DB instance.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   OptionGroupName?: string;
 
   /**
-   * <p>For supported engines, indicates that the DB instance should be associated with the specified CharacterSet.</p>
-   *
+   * <p>For supported engines, this value indicates that the DB instance should be associated with the
+   *           specified <code>CharacterSet</code>.</p>
+   *          <p>This setting doesn't apply to RDS Custom. However, if you need to change the character set,
+   *           you can change it on the database itself.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
@@ -5751,6 +6217,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The name of the NCHAR character set for the Oracle DB instance.</p>
+   *         <p>This parameter doesn't apply to RDS Custom.</p>
    */
   NcharCharacterSetName?: string;
 
@@ -5789,6 +6256,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The identifier of the DB cluster that the instance will belong to.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DBClusterIdentifier?: string;
 
@@ -5810,29 +6278,31 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialArn?: string;
 
   /**
    * <p>The password for the given ARN from the key store in order to access the device.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   TdeCredentialPassword?: string;
 
   /**
    * <p>A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.</p>
-   *
+   *          <p>For RDS Custom Oracle instances, either set this parameter to <code>true</code> or leave it unset.
+   *           If you set this parameter to <code>false</code>, RDS reports an error.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
-   *          <p>Not applicable. The encryption for DB instances is managed by
-   *           the DB cluster.</p>
+   *          <p>Not applicable. The encryption for DB instances is managed by the DB cluster.</p>
    */
   StorageEncrypted?: boolean;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted DB instance.</p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).
-   *           To use a CMK in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *           To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
    *          <p>
    *             <b>Amazon Aurora</b>
    *          </p>
@@ -5840,9 +6310,15 @@ export interface CreateDBInstanceMessage {
    *           the DB cluster. For more information, see <code>CreateDBCluster</code>.</p>
    *          <p>If <code>StorageEncrypted</code> is enabled, and you do
    *         not specify a value for the <code>KmsKeyId</code> parameter, then
-   *         Amazon RDS uses your default CMK. There is a
-   *         default CMK for your Amazon Web Services account. Your Amazon Web Services account has a different
-   *         default CMK for each Amazon Web Services Region.</p>
+   *         Amazon RDS uses your default KMS key. There is a
+   *         default KMS key for your Amazon Web Services account. Your Amazon Web Services account has a different
+   *         default KMS key for each Amazon Web Services Region.</p>
+   *          <p>
+   *             <b>Amazon RDS Custom</b>
+   *          </p>
+   *          <p>A KMS key is required for RDS Custom Oracle instances. For most RDS engines, if you leave this parameter empty
+   *           while enabling <code>StorageEncrypted</code>, the engine uses the default KMS key. However, RDS Custom for Oracle
+   *           doesn't use the default key when this parameter is empty. You must explicitly specify a key.</p>
    */
   KmsKeyId?: string;
 
@@ -5851,6 +6327,7 @@ export interface CreateDBInstanceMessage {
    *             Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *            Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   Domain?: string;
 
@@ -5865,9 +6342,11 @@ export interface CreateDBInstanceMessage {
   CopyTagsToSnapshot?: boolean;
 
   /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected for
+   *           the DB instance. To disable collection of Enhanced Monitoring metrics, specify 0. The default is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must set <code>MonitoringInterval</code>
    *       to a value other than 0.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
    *          </p>
    */
@@ -5875,24 +6354,27 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon CloudWatch Logs. For
-   *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
-   *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
+   *           example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
+   *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling">Setting Up and Enabling Enhanced Monitoring</a>
    *           in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MonitoringRoleArn?: string;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
 
   /**
    * <p>A value that specifies the order in which an Aurora Replica is promoted to the primary instance
-   *       after a failure of the existing primary instance. For more information,
+   *           after a failure of the existing primary instance. For more information,
    *       see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance">
    *           Fault Tolerance for an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide</i>.
-   *     </p>
+   *       </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: 1</p>
    *          <p>Valid Values: 0 - 15</p>
    */
@@ -5909,10 +6391,8 @@ export interface CreateDBInstanceMessage {
   /**
    * <p>A value that indicates whether to enable mapping of Amazon Web Services Identity and Access
    *             Management (IAM) accounts to database accounts. By default, mapping is disabled.</p>
-   *
-   *          <p>This setting doesn't apply to Amazon Aurora. Mapping Amazon Web Services IAM accounts to database accounts is managed by the DB
-   *         cluster.</p>
-   *
+   *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora. In Aurora, mapping Amazon Web Services IAM accounts
+   *         to database accounts is managed by the DB cluster.</p>
    *          <p>For more information, see
    *        <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
    *            IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
@@ -5921,38 +6401,44 @@ export interface CreateDBInstanceMessage {
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the DB instance.
-   *         </p>
-   *         <p>For more information, see
+   * <p>A value that indicates whether to enable Performance Insights for the DB instance. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using Amazon Performance Insights</a> in the <i>Amazon Relational Database Service
    *                     User Guide</i>.
    *         </p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnablePerformanceInsights?: boolean;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
-   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
+   *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
   /**
-   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
+   * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years).</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
   /**
    * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs. The values
-   *             in the list depend on the DB engine being used. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Relational Database
+   *             in the list depend on the DB engine. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Relational Database
    *                     Service User Guide</i>.</p>
    *         <p>
    *             <b>Amazon Aurora</b>
    *         </p>
    *         <p>Not applicable. CloudWatch Logs exports are managed by the DB cluster.
+   *         </p>
+   *         <p>
+   *             <b>RDS Custom</b>
+   *         </p>
+   *         <p>Not applicable.
    *         </p>
    *         <p>
    *             <b>MariaDB</b>
@@ -5985,6 +6471,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
@@ -6011,6 +6498,7 @@ export interface CreateDBInstanceMessage {
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling">
    *                 Managing capacity automatically with Amazon RDS storage autoscaling</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   MaxAllocatedStorage?: number;
 
@@ -6027,6 +6515,28 @@ export interface CreateDBInstanceMessage {
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
+
+  /**
+   * <p>The instance profile associated with the underlying Amazon EC2 instance of an
+   *             RDS Custom DB instance. The instance profile must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The profile must exist in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The profile must have an IAM role that Amazon EC2 has permissions to assume.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance profile name and the associated IAM role name must start with the prefix <code>AWSRDSCustom</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For the list of permissions required for the IAM role, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.</p>
+   *         <p>This setting is required for RDS Custom.</p>
+   */
+  CustomIamInstanceProfile?: string;
 }
 
 export namespace CreateDBInstanceMessage {
@@ -6050,7 +6560,7 @@ export interface DBInstanceRole {
 
   /**
    * <p>The name of the feature associated with the Amazon Web Services Identity and Access Management (IAM) role.
-   *             For the list of supported feature names, see <code>DBEngineVersion</code>.
+   *             For information about supported feature names, see <code>DBEngineVersion</code>.
    *         </p>
    */
   FeatureName?: string;
@@ -6085,6 +6595,11 @@ export namespace DBInstanceRole {
   export const filterSensitiveLog = (obj: DBInstanceRole): any => ({
     ...obj,
   });
+}
+
+export enum AutomationMode {
+  ALL_PAUSED = "all-paused",
+  FULL = "full",
 }
 
 /**
@@ -6469,6 +6984,21 @@ export interface PendingModifiedValues {
    * <p>Whether mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
    */
   IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>The automation mode of the RDS Custom DB instance: <code>full</code> or <code>all-paused</code>.
+   *             If <code>full</code>, the DB instance automates monitoring and instance recovery. If
+   *             <code>all-paused</code>, the instance pauses automation for the duration set by
+   *             <code>--resume-full-automation-mode-minutes</code>.</p>
+   */
+  AutomationMode?: AutomationMode | string;
+
+  /**
+   * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation.
+   *             The minimum value is 60 (default). The maximum value is 1,440.
+   *         </p>
+   */
+  ResumeFullAutomationModeTime?: Date;
 }
 
 export namespace PendingModifiedValues {
@@ -6652,7 +7182,7 @@ export interface DBInstance {
   LatestRestorableTime?: Date;
 
   /**
-   * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
+   * <p>Specifies if the DB instance is a Multi-AZ deployment. This setting doesn't apply to RDS Custom.</p>
    */
   MultiAZ?: boolean;
 
@@ -6701,7 +7231,7 @@ export interface DBInstance {
   ReplicaMode?: ReplicaMode | string;
 
   /**
-   * <p>License model information for this DB instance.</p>
+   * <p>License model information for this DB instance. This setting doesn't apply to RDS Custom.</p>
    */
   LicenseModel?: string;
 
@@ -6778,13 +7308,13 @@ export interface DBInstance {
    *             If <code>StorageEncrypted</code> is true, the Amazon Web Services KMS key identifier
    *             for the encrypted DB instance.
    *         </p>
-   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 
   /**
    * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is found in Amazon Web Services CloudTrail log
-   *           entries whenever the Amazon Web Services KMS customer master key (CMK) for the DB instance is accessed.</p>
+   *           entries whenever the Amazon Web Services KMS key for the DB instance is accessed.</p>
    */
   DbiResourceId?: string;
 
@@ -6873,7 +7403,7 @@ export interface DBInstance {
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
@@ -6959,8 +7489,7 @@ export interface DBInstance {
 
   /**
    * <p>The Amazon Web Services KMS key identifier used for encrypting messages in the database activity stream.
-   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS
-   *             customer master key (CMK).</p>
+   *             The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   ActivityStreamKmsKeyId?: string;
 
@@ -6979,6 +7508,42 @@ export interface DBInstance {
    * <p>Indicates whether engine-native audit fields are included in the database activity stream.</p>
    */
   ActivityStreamEngineNativeAuditFieldsIncluded?: boolean;
+
+  /**
+   * <p>The automation mode of the RDS Custom DB instance: <code>full</code> or <code>all paused</code>.
+   *             If <code>full</code>, the DB instance automates monitoring and instance recovery. If
+   *             <code>all paused</code>, the instance pauses automation for the duration set by
+   *             <code>--resume-full-automation-mode-minutes</code>.</p>
+   */
+  AutomationMode?: AutomationMode | string;
+
+  /**
+   * <p>The number of minutes to pause the automation. When the time period ends, RDS Custom resumes full automation.
+   *             The minimum value is 60 (default). The maximum value is 1,440.
+   *         </p>
+   */
+  ResumeFullAutomationModeTime?: Date;
+
+  /**
+   * <p>The instance profile associated with the underlying Amazon EC2 instance of an
+   *             RDS Custom DB instance. The instance profile must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The profile must exist in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The profile must have an IAM role that Amazon EC2 has permissions to assume.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance profile name and the associated IAM role name must start with the prefix <code>AWSRDSCustom</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For the list of permissions required for the IAM role, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.</p>
+   */
+  CustomIamInstanceProfile?: string;
 }
 
 export namespace DBInstance {
@@ -7145,7 +7710,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             <li>
    *                <p>If the source DB instance is in a different Amazon Web Services Region from the read replica, specify a valid DB instance ARN.
    *              For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">Constructing an ARN for Amazon RDS</a>
-   *              in the <i>Amazon RDS User Guide</i>. This doesn't apply to SQL Server, which doesn't support cross-region replicas.</p>
+   *              in the <i>Amazon RDS User Guide</i>. This doesn't apply to SQL Server or RDS Custom, which don't support
+   *              cross-Region replicas.</p>
    *             </li>
    *          </ul>
    */
@@ -7185,13 +7751,15 @@ export interface CreateDBInstanceReadReplicaMessage {
    *         <p>You can create a read replica as a Multi-AZ DB instance. RDS creates a standby of
    *             your replica in another Availability Zone for failover support for the replica. Creating
    *             your read replica as a Multi-AZ DB instance is independent of whether the source
-   *             database is a Multi-AZ DB instance. </p>
+   *             database is a Multi-AZ DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   MultiAZ?: boolean;
 
   /**
    * <p>A value that indicates whether minor engine upgrades are applied automatically to the
    *             read replica during the maintenance window.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Default: Inherits from the source DB instance</p>
    */
   AutoMinorVersionUpgrade?: boolean;
@@ -7207,6 +7775,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             <p>For SQL Server, you must use the option group associated with the source
    *                 instance.</p>
    *         </note>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   OptionGroupName?: string;
 
@@ -7216,9 +7785,8 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             uses the <code>DBParameterGroup</code> of source DB instance for a same region read
    *             replica, or the default <code>DBParameterGroup</code> for the specified DB engine for a
    *             cross region read replica.</p>
-   *         <note>
-   *             <p>Currently, specifying a parameter group for this operation is only supported for Oracle DB instances.</p>
-   *         </note>
+   *         <p>Specifying a parameter group for this operation is only supported for Oracle DB instances. It
+   *         isn't supported for RDS Custom.</p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
@@ -7285,7 +7853,8 @@ export interface CreateDBInstanceReadReplicaMessage {
   DBSubnetGroupName?: string;
 
   /**
-   * <p> A list of EC2 VPC security groups to associate with the read replica. </p>
+   * <p> A list of Amazon EC2 VPC security groups to associate with the read replica. </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *         <p>
    *             Default: The default EC2 VPC security group for the DB subnet group's VPC.
    *         </p>
@@ -7320,6 +7889,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             specify 0. The default is 0.</p>
    *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set <code>MonitoringInterval</code>
    *       to a value other than 0.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
    *          </p>
    */
@@ -7330,21 +7900,25 @@ export interface CreateDBInstanceReadReplicaMessage {
    *       example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information on creating a monitoring role,
    *       go to <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
    *           create an IAM role for Amazon RDS Enhanced Monitoring</a> in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a <code>MonitoringRoleArn</code> value.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must
+   *           supply a <code>MonitoringRoleArn</code> value.</p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   MonitoringRoleArn?: string;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for an encrypted read replica.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS CMK.</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *         <p>If you create an encrypted read replica in the same Amazon Web Services Region as the source DB
-   *             instance, then do not specify a value for this parameter. A read replica in the same Region
-   *             is always encrypted with the same Amazon Web Services KMS CMK as the source DB instance.</p>
+   *             instance, then do not specify a value for this parameter. A read replica in the same Amazon Web Services Region
+   *             is always encrypted with the same KMS key as the source DB instance.</p>
    *         <p>If you create an encrypted read replica in a different Amazon Web Services Region, then you must
-   *             specify a Amazon Web Services KMS key identifier for the destination Amazon Web Services Region. Amazon Web Services KMS CMKs are specific to
-   *             the Amazon Web Services Region that they are created in, and you can't use CMKs from one
+   *             specify a KMS key identifier for the destination Amazon Web Services Region. KMS keys are specific to
+   *             the Amazon Web Services Region that they are created in, and you can't use KMS keys from one
    *             Amazon Web Services Region in another Amazon Web Services Region.</p>
    *         <p>You can't create an encrypted read replica from an unencrypted DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom, which uses the same KMS key as the primary
+   *             replica.</p>
    */
   KmsKeyId?: string;
 
@@ -7414,6 +7988,7 @@ export interface CreateDBInstanceReadReplicaMessage {
    *                <code>SourceRegion</code> isn't supported for SQL Server, because SQL Server on Amazon RDS
    *                 doesn't support cross-region read replicas.</p>
    *         </note>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PreSignedUrl?: string;
 
@@ -7425,28 +8000,32 @@ export interface CreateDBInstanceReadReplicaMessage {
    *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
    *               IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>A value that indicates whether to enable Performance Insights for the read replica. </p>
+   * <p>A value that indicates whether to enable Performance Insights for the read replica.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
    *             Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>.
    *         </p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnablePerformanceInsights?: boolean;
 
   /**
    * <p>The Amazon Web Services KMS key identifier for encryption of Performance Insights data.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    *         <p>If you do not specify a value for <code>PerformanceInsightsKMSKeyId</code>, then Amazon RDS
-   *             uses your default CMK. There is a default CMK for your Amazon Web Services account.
-   *             Your Amazon Web Services account has a different default CMK for each Amazon Web Services Region.</p>
+   *             uses your default KMS key. There is a default KMS key for your Amazon Web Services account.
+   *             Your Amazon Web Services account has a different default KMS key for each Amazon Web Services Region.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
 
   /**
    * <p>The amount of time, in days, to retain Performance Insights data. Valid values are 7 or 731 (2 years). </p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   PerformanceInsightsRetentionPeriod?: number;
 
@@ -7455,17 +8034,20 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             in the list depend on the DB engine being used. For more information, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
    *                 Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   ProcessorFeatures?: ProcessorFeature[];
 
   /**
    * <p>A value that indicates whether the DB instance class of the DB instance uses its default
    *             processor features.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   UseDefaultProcessorFeatures?: boolean;
 
@@ -7484,11 +8066,13 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html">
    *             Kerberos Authentication</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   Domain?: string;
 
   /**
    * <p>Specify the name of the IAM role to be used when making API calls to the Directory Service.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   DomainIAMRoleName?: string;
 
@@ -7497,13 +8081,15 @@ export interface CreateDBInstanceReadReplicaMessage {
    *         <note>
    *             <p>This parameter is only supported for Oracle DB instances.</p>
    *         </note>
-   *         <p>Mounted DB replicas are included in Oracle Enterprise Edition. The main use case for
+   *         <p>Mounted DB replicas are included in Oracle Database Enterprise Edition. The main use case for
    *             mounted replicas is cross-Region disaster recovery. The primary database doesn't use Active
    *             Data Guard to transmit information to the mounted replica. Because it doesn't accept
    *             user connections, a mounted replica can't serve a read-only workload.</p>
    *         <p>You can create a combination of mounted and read-only DB replicas for the same primary DB instance.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Working with Oracle Read Replicas for Amazon RDS</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>For RDS Custom, you must specify this parameter and set it to <code>mounted</code>. The value won't be set by default.
+   *             After replica creation, you can manage the open mode manually.</p>
    */
   ReplicaMode?: ReplicaMode | string;
 
@@ -7515,6 +8101,28 @@ export interface CreateDBInstanceReadReplicaMessage {
    *             in the <i>Amazon RDS User Guide</i>.</p>
    */
   MaxAllocatedStorage?: number;
+
+  /**
+   * <p>The instance profile associated with the underlying Amazon EC2 instance of an
+   *             RDS Custom DB instance. The instance profile must meet the following requirements:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The profile must exist in your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>The profile must have an IAM role that Amazon EC2 has permissions to assume.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance profile name and the associated IAM role name must start with the prefix <code>AWSRDSCustom</code>.</p>
+   *             </li>
+   *          </ul>
+   *         <p>For the list of permissions required for the IAM role, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc">
+   *                 Configure IAM and your VPC</a> in the <i>Amazon Relational Database Service
+   *                     User Guide</i>.</p>
+   *         <p>This setting is required for RDS Custom.</p>
+   */
+  CustomIamInstanceProfile?: string;
 }
 
 export namespace CreateDBInstanceReadReplicaMessage {
@@ -8977,7 +9585,7 @@ export interface GlobalCluster {
   /**
    * <p>
    *         The Amazon Web Services Region-unique, immutable identifier for the global database cluster. This identifier is found in
-   *         Amazon Web Services CloudTrail log entries whenever the Amazon Web Services KMS customer master key (CMK) for the DB cluster is accessed.
+   *         Amazon Web Services CloudTrail log entries whenever the Amazon Web Services KMS key for the DB cluster is accessed.
    *       </p>
    */
   GlobalClusterResourceId?: string;
@@ -9270,6 +9878,65 @@ export namespace DeleteCustomAvailabilityZoneResult {
 }
 
 /**
+ * <p>The specified CEV was not found.</p>
+ */
+export interface CustomDBEngineVersionNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "CustomDBEngineVersionNotFoundFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace CustomDBEngineVersionNotFoundFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CustomDBEngineVersionNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteCustomDBEngineVersionMessage {
+  /**
+   * <p>The database engine. The only supported engine is <code>custom-oracle-ee</code>.</p>
+   */
+  Engine: string | undefined;
+
+  /**
+   * <p>The custom engine version (CEV) for your DB instance. This option is required for
+   *             RDS Custom, but optional for Amazon RDS. The combination of <code>Engine</code> and
+   *             <code>EngineVersion</code> is unique per customer per Amazon Web Services Region.</p>
+   */
+  EngineVersion: string | undefined;
+}
+
+export namespace DeleteCustomDBEngineVersionMessage {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteCustomDBEngineVersionMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You can't delete the CEV.</p>
+ */
+export interface InvalidCustomDBEngineVersionStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidCustomDBEngineVersionStateFault";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidCustomDBEngineVersionStateFault {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InvalidCustomDBEngineVersionStateFault): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p></p>
  */
 export interface DeleteDBClusterMessage {
@@ -9529,14 +10196,17 @@ export interface DeleteDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>A value that indicates whether to skip the creation of a final DB snapshot before the DB instance is deleted.
-   *           If skip is specified, no DB snapshot is created. If skip isn't specified, a DB snapshot
-   *           is created before the DB instance is deleted. By default, skip isn't specified, and the DB snapshot is created.</p>
-   *          <p>When a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore', or 'incompatible-network', it can only be deleted when skip is specified.</p>
-   *          <p>Specify skip when deleting a read replica.</p>
+   * <p>A value that indicates whether to skip the creation of a final DB snapshot before deleting the instance.
+   *           If you enable this parameter, RDS doesn't create a DB snapshot. If you don't enable this parameter,
+   *           RDS creates a DB snapshot before the DB instance is deleted. By default, skip isn't enabled,
+   *           and the DB snapshot is created.</p>
    *          <note>
-   *             <p>The FinalDBSnapshotIdentifier parameter must be specified if skip isn't specified.</p>
+   *             <p>If you don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code> parameter.</p>
    *          </note>
+   *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
+   *           or <code>incompatible-network</code>, RDS can delete the instance only if you enable this parameter.</p>
+   *          <p>If you delete a read replica or an RDS Custom instance, you must enable this setting.</p>
+   *          <p>This setting is required for RDS Custom.</p>
    */
   SkipFinalSnapshot?: boolean;
 
@@ -9546,8 +10216,9 @@ export interface DeleteDBInstanceMessage {
    *         parameter is disabled.
    *         </p>
    *          <note>
-   *             <p>Specifying this parameter and also specifying to skip final DB snapshot creation in SkipFinalShapshot results in an error.</p>
+   *             <p>If you enable this parameter and also enable SkipFinalShapshot, the command results in an error.</p>
    *          </note>
+   *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -9632,6 +10303,7 @@ export interface DeleteDBInstanceAutomatedBackupMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the automated backups to delete, for example,
    *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   DBInstanceAutomatedBackupsArn?: string;
 }
@@ -9799,7 +10471,7 @@ export interface DBInstanceAutomatedBackup {
 
   /**
    * <p>The Amazon Web Services KMS key ID for an automated backup.</p>
-   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the Amazon Web Services KMS customer master key (CMK).</p>
+   *         <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.</p>
    */
   KmsKeyId?: string;
 
@@ -11602,234 +12274,6 @@ export namespace DescribeDBClusterSnapshotsMessage {
 
 /**
  * <p>
- *             This data type is used as a response element in the action <code>DescribeDBEngineVersions</code>.
- *         </p>
- */
-export interface CharacterSet {
-  /**
-   * <p>The name of the character set.</p>
-   */
-  CharacterSetName?: string;
-
-  /**
-   * <p>The description of the character set.</p>
-   */
-  CharacterSetDescription?: string;
-}
-
-export namespace CharacterSet {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CharacterSet): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A time zone associated with a
- *             <code>DBInstance</code>
- *             or a <code>DBSnapshot</code>.
- *             This data type is an element in the response to
- *             the <code>DescribeDBInstances</code>,
- *             the <code>DescribeDBSnapshots</code>,
- *             and the <code>DescribeDBEngineVersions</code>
- *             actions.
- *         </p>
- */
-export interface Timezone {
-  /**
-   * <p>The name of the time zone.</p>
-   */
-  TimezoneName?: string;
-}
-
-export namespace Timezone {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Timezone): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The version of the database engine that a DB instance can be upgraded to.</p>
- */
-export interface UpgradeTarget {
-  /**
-   * <p>The name of the upgrade target database engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The version number of the upgrade target database engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The version of the database engine that a DB instance can be upgraded to.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A value that indicates whether the target version is applied to any source DB instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
-   */
-  AutoUpgrade?: boolean;
-
-  /**
-   * <p>A value that indicates whether upgrading to the target version requires upgrading the major version of the database engine.</p>
-   */
-  IsMajorVersionUpgrade?: boolean;
-
-  /**
-   * <p>A list of the supported DB engine modes for the target engine version.</p>
-   */
-  SupportedEngineModes?: string[];
-
-  /**
-   * <p>A value that indicates whether you can use Aurora parallel query with the target engine version.</p>
-   */
-  SupportsParallelQuery?: boolean;
-
-  /**
-   * <p>A value that indicates whether you can use Aurora global databases with the target engine version.</p>
-   */
-  SupportsGlobalDatabases?: boolean;
-}
-
-export namespace UpgradeTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpgradeTarget): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
- *             This data type is used as a response element in the action <code>DescribeDBEngineVersions</code>.
- *         </p>
- */
-export interface DBEngineVersion {
-  /**
-   * <p>The name of the database engine.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The version number of the database engine.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The name of the DB parameter group family for the database engine.</p>
-   */
-  DBParameterGroupFamily?: string;
-
-  /**
-   * <p>The description of the database engine.</p>
-   */
-  DBEngineDescription?: string;
-
-  /**
-   * <p>The description of the database engine version.</p>
-   */
-  DBEngineVersionDescription?: string;
-
-  /**
-   * <p>
-   *             The default character set for new instances of this engine version,
-   *             if the <code>CharacterSetName</code> parameter of the CreateDBInstance API
-   *             isn't specified.
-   *         </p>
-   */
-  DefaultCharacterSet?: CharacterSet;
-
-  /**
-   * <p>A list of the character sets supported by this engine for the <code>CharacterSetName</code> parameter of the <code>CreateDBInstance</code> operation.
-   *       </p>
-   */
-  SupportedCharacterSets?: CharacterSet[];
-
-  /**
-   * <p>A list of the character sets supported by the Oracle DB engine for the <code>NcharCharacterSetName</code> parameter of the <code>CreateDBInstance</code> operation.
-   *       </p>
-   */
-  SupportedNcharCharacterSets?: CharacterSet[];
-
-  /**
-   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
-   */
-  ValidUpgradeTarget?: UpgradeTarget[];
-
-  /**
-   * <p>A list of the time zones supported by this engine for the
-   *             <code>Timezone</code> parameter of the <code>CreateDBInstance</code> action.
-   *         </p>
-   */
-  SupportedTimezones?: Timezone[];
-
-  /**
-   * <p>The types of logs that the database engine has available for export to CloudWatch Logs.</p>
-   */
-  ExportableLogTypes?: string[];
-
-  /**
-   * <p>A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.</p>
-   */
-  SupportsLogExportsToCloudwatchLogs?: boolean;
-
-  /**
-   * <p>Indicates whether the database engine version supports read replicas.</p>
-   */
-  SupportsReadReplica?: boolean;
-
-  /**
-   * <p>A list of the supported DB engine modes.</p>
-   */
-  SupportedEngineModes?: string[];
-
-  /**
-   * <p>
-   *         A list of features supported by the DB engine. Supported feature names include the following.
-   *     </p>
-   *          <ul>
-   *             <li>
-   *                <p>s3Import</p>
-   *             </li>
-   *          </ul>
-   */
-  SupportedFeatureNames?: string[];
-
-  /**
-   * <p>The status of the DB engine version, either <code>available</code> or <code>deprecated</code>.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>A value that indicates whether you can use Aurora parallel query with a specific DB engine version.</p>
-   */
-  SupportsParallelQuery?: boolean;
-
-  /**
-   * <p>A value that indicates whether you can use Aurora global databases with a specific DB engine version.</p>
-   */
-  SupportsGlobalDatabases?: boolean;
-}
-
-export namespace DBEngineVersion {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBEngineVersion): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>
  *             Contains the result of a successful invocation of the <code>DescribeDBEngineVersions</code> action.
  *         </p>
  */
@@ -11990,8 +12434,11 @@ export interface DescribeDBEngineVersionsMessage {
 
   /**
    * <p>A value that indicates whether to list the supported character sets for each engine version.</p>
-   *          <p>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>,
-   *           the response includes a list of supported character sets for each engine version.
+   *          <p>If this parameter is enabled and the requested engine supports the <code>CharacterSetName</code> parameter for
+   *                 <code>CreateDBInstance</code>, the response includes a list of supported character sets for each engine
+   *             version.</p>
+   *          <p>For RDS Custom, the default is not to list supported character sets. If you set <code>ListSupportedCharacterSets</code>
+   *           to <code>true</code>, RDS Custom returns no results.
    *       </p>
    */
   ListSupportedCharacterSets?: boolean;
@@ -12000,6 +12447,9 @@ export interface DescribeDBEngineVersionsMessage {
    * <p>A value that indicates whether to list the supported time zones for each engine version.</p>
    *         <p>If this parameter is enabled and the requested engine supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
    *             the response includes a list of supported time zones for each engine version.
+   *         </p>
+   *         <p>For RDS Custom, the default is not to list supported time zones. If you set <code>ListSupportedTimezones</code>
+   *             to <code>true</code>, RDS Custom returns no results.
    *         </p>
    */
   ListSupportedTimezones?: boolean;
@@ -12123,6 +12573,7 @@ export interface DescribeDBInstanceAutomatedBackupsMessage {
   /**
    * <p>The Amazon Resource Name (ARN) of the replicated automated backups, for example,
    *             <code>arn:aws:rds:us-east-1:123456789012:auto-backup:ab-L2IJCEXJP7XQ7HOJ4SIEXAMPLE</code>.</p>
+   *         <p>This setting doesn't apply to RDS Custom.</p>
    */
   DBInstanceAutomatedBackupsArn?: string;
 }
@@ -12909,149 +13360,6 @@ export namespace DescribeDBProxyTargetsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum TargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum TargetHealthReason {
-  AUTH_FAILURE = "AUTH_FAILURE",
-  CONNECTION_FAILED = "CONNECTION_FAILED",
-  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
-  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
-  UNREACHABLE = "UNREACHABLE",
-}
-
-export enum TargetState {
-  available = "AVAILABLE",
-  registering = "REGISTERING",
-  unavailable = "UNAVAILABLE",
-}
-
-/**
- * <p>Information about the connection health of an RDS Proxy target.</p>
- */
-export interface TargetHealth {
-  /**
-   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
-   *            The following is a typical lifecycle example for the states of an RDS Proxy target:
-   *        </p>
-   *          <p>
-   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
-   *          </p>
-   */
-  State?: TargetState | string;
-
-  /**
-   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
-   */
-  Reason?: TargetHealthReason | string;
-
-  /**
-   * <p>A description of the health of the RDS Proxy target.
-   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
-   */
-  Description?: string;
-}
-
-export namespace TargetHealth {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TargetHealth): any => ({
-    ...obj,
-  });
-}
-
-export enum TargetType {
-  RDS_INSTANCE = "RDS_INSTANCE",
-  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
-  TRACKED_CLUSTER = "TRACKED_CLUSTER",
-}
-
-/**
- * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
- *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
- *          <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
- */
-export interface DBProxyTarget {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
-   */
-  TrackedClusterId?: string;
-
-  /**
-   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
-   *         or the cluster identifier for an Aurora DB cluster.</p>
-   */
-  RdsResourceId?: string;
-
-  /**
-   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
-   */
-  Type?: TargetType | string;
-
-  /**
-   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
-   */
-  Role?: TargetRole | string;
-
-  /**
-   * <p>Information about the connection health of the RDS Proxy target.</p>
-   */
-  TargetHealth?: TargetHealth;
-}
-
-export namespace DBProxyTarget {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DBProxyTarget): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeDBProxyTargetsResponse {
-  /**
-   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
-   */
-  Targets?: DBProxyTarget[];
-
-  /**
-   * <p>
-   *         An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.
-   *       </p>
-   */
-  Marker?: string;
-}
-
-export namespace DescribeDBProxyTargetsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
     ...obj,
   });
 }

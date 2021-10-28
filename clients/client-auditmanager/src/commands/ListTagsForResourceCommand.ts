@@ -22,9 +22,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns a list of tags for the specified resource in Audit Manager.
- * </p>
+ * <p> Returns a list of tags for the specified resource in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

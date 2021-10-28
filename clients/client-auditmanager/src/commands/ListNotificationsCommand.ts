@@ -22,9 +22,7 @@ export interface ListNotificationsCommandInput extends ListNotificationsRequest 
 export interface ListNotificationsCommandOutput extends ListNotificationsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns a list of all Audit Manager notifications.
- * </p>
+ * <p> Returns a list of all Audit Manager notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

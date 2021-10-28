@@ -12,6 +12,11 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  BatchDescribeModelPackageCommand,
+  BatchDescribeModelPackageCommandInput,
+  BatchDescribeModelPackageCommandOutput,
+} from "./commands/BatchDescribeModelPackageCommand";
+import {
   CreateActionCommand,
   CreateActionCommandInput,
   CreateActionCommandOutput,
@@ -1087,6 +1092,11 @@ import {
   UpdatePipelineExecutionCommandOutput,
 } from "./commands/UpdatePipelineExecutionCommand";
 import {
+  UpdateProjectCommand,
+  UpdateProjectCommandInput,
+  UpdateProjectCommandOutput,
+} from "./commands/UpdateProjectCommand";
+import {
   UpdateTrainingJobCommand,
   UpdateTrainingJobCommandInput,
   UpdateTrainingJobCommandOutput,
@@ -1243,6 +1253,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: AssociateTrialComponentCommandOutput) => void
   ): Promise<AssociateTrialComponentCommandOutput> | void {
     const command = new AssociateTrialComponentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action batch describes a list of versioned model packages</p>
+   */
+  public batchDescribeModelPackage(
+    args: BatchDescribeModelPackageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDescribeModelPackageCommandOutput>;
+  public batchDescribeModelPackage(
+    args: BatchDescribeModelPackageCommandInput,
+    cb: (err: any, data?: BatchDescribeModelPackageCommandOutput) => void
+  ): void;
+  public batchDescribeModelPackage(
+    args: BatchDescribeModelPackageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDescribeModelPackageCommandOutput) => void
+  ): void;
+  public batchDescribeModelPackage(
+    args: BatchDescribeModelPackageCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDescribeModelPackageCommandOutput) => void),
+    cb?: (err: any, data?: BatchDescribeModelPackageCommandOutput) => void
+  ): Promise<BatchDescribeModelPackageCommandOutput> | void {
+    const command = new BatchDescribeModelPackageCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5386,9 +5428,9 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
-   * <p>Returns a description of the specified model package, which is used to create Amazon SageMaker
+   * <p>Returns a description of the specified model package, which is used to create SageMaker
    *             models or list them on Amazon Web Services Marketplace.</p>
-   *         <p>To create models in Amazon SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
+   *         <p>To create models in SageMaker, buyers can subscribe to model packages listed on Amazon Web Services
    *             Marketplace.</p>
    */
   public describeModelPackage(
@@ -9348,6 +9390,45 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdatePipelineExecutionCommandOutput) => void
   ): Promise<UpdatePipelineExecutionCommandOutput> | void {
     const command = new UpdatePipelineExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a machine learning (ML) project that is created from a template that
+   *             sets up an ML pipeline from training to deploying an approved model.</p>
+   *         <note>
+   *             <p>You must not update a project that is in use. If you update the
+   *                     <code>ServiceCatalogProvisioningUpdateDetails</code> of a project that is active
+   *                 or being created, or updated, you may lose resources already created by the
+   *                 project.</p>
+   *             </note>
+   */
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProjectCommandOutput>;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+  public updateProject(
+    args: UpdateProjectCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    cb?: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): Promise<UpdateProjectCommandOutput> | void {
+    const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

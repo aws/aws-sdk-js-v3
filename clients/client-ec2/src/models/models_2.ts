@@ -6,12 +6,7 @@ import {
   Address,
   AddressAttribute,
   AddressAttributeName,
-  AllocationState,
-  AllowsMultipleInstanceTypes,
   AssociationStatus,
-  AttributeValue,
-  AutoPlacement,
-  BlockDeviceMapping,
   BundleTask,
   ByoipCidr,
   CapacityReservation,
@@ -24,7 +19,6 @@ import {
   CurrencyCodeValues,
   CustomerGateway,
   DefaultTargetCapacityType,
-  DestinationFileFormat,
   DhcpOptions,
   EgressOnlyInternetGateway,
   FleetCapacityReservation,
@@ -32,46 +26,40 @@ import {
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
   FleetInstanceMatchCriteria,
-  FleetLaunchTemplateOverrides,
   FleetLaunchTemplateSpecification,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
   FleetType,
   GatewayType,
-  HostRecovery,
-  IamInstanceProfileAssociation,
   InstanceEventWindowState,
-  InstanceLifecycle,
-  LaunchTemplateAndOverridesResponse,
-  LogDestinationType,
-  PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   Tag,
   TagSpecification,
-  TrafficType,
+  TargetCapacityUnitType,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TransportProtocol,
   UnsuccessfulItem,
   VpcAttachment,
+  VpcPeeringConnection,
 } from "./models_0";
 import {
+  DestinationFileFormat,
   DiskImageFormat,
   ExportTask,
+  FleetLaunchTemplateOverrides,
   GroupIdentifier,
-  IKEVersionsListValue,
+  InstanceLifecycle,
   LaunchTemplate,
+  LaunchTemplateAndOverridesResponse,
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
+  LogDestinationType,
   ManagedPrefixList,
-  Phase1DHGroupNumbersListValue,
-  Phase1EncryptionAlgorithmsListValue,
-  Phase1IntegrityAlgorithmsListValue,
-  Phase2DHGroupNumbersListValue,
-  Phase2EncryptionAlgorithmsListValue,
-  Phase2IntegrityAlgorithmsListValue,
+  PlatformValues,
   SubnetCidrReservation,
+  TrafficType,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -79,8 +67,916 @@ import {
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
-  TunnelInsideIpVersion,
 } from "./models_1";
+
+export interface CreateVpcEndpointServiceConfigurationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether requests from service consumers to create an endpoint to your service must
+   *             be accepted. To accept a request, use <a>AcceptVpcEndpointConnections</a>.</p>
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your
+   *             service.</p>
+   */
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The tags to associate with the service.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateVpcEndpointServiceConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum DnsNameState {
+  Failed = "failed",
+  PendingVerification = "pendingVerification",
+  Verified = "verified",
+}
+
+/**
+ * <p>Information about the private DNS name for the service endpoint. For more information
+ *             about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service
+ *                 Private DNS Name Verification</a> in the
+ *             <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ */
+export interface PrivateDnsNameConfiguration {
+  /**
+   * <p>The verification state of the VPC endpoint service.</p>
+   *         <p>>Consumers
+   *             of the endpoint service can use the private name only when the state is
+   *                 <code>verified</code>.</p>
+   */
+  State?: DnsNameState | string;
+
+  /**
+   * <p>The endpoint service verification type, for example TXT.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The value the service provider adds to the private DNS name domain record before verification.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The name of the record subdomain the service provider needs to create. The service provider adds the <code>value</code> text to the <code>name</code>.</p>
+   */
+  Name?: string;
+}
+
+export namespace PrivateDnsNameConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PrivateDnsNameConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum ServiceState {
+  Available = "Available",
+  Deleted = "Deleted",
+  Deleting = "Deleting",
+  Failed = "Failed",
+  Pending = "Pending",
+}
+
+export enum ServiceType {
+  Gateway = "Gateway",
+  GatewayLoadBalancer = "GatewayLoadBalancer",
+  Interface = "Interface",
+}
+
+/**
+ * <p>Describes the type of service for a VPC endpoint.</p>
+ */
+export interface ServiceTypeDetail {
+  /**
+   * <p>The type of service.</p>
+   */
+  ServiceType?: ServiceType | string;
+}
+
+export namespace ServiceTypeDetail {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceTypeDetail): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a service configuration for a VPC endpoint service.</p>
+ */
+export interface ServiceConfiguration {
+  /**
+   * <p>The type of service.</p>
+   */
+  ServiceType?: ServiceTypeDetail[];
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The name of the service.</p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>The service state.</p>
+   */
+  ServiceState?: ServiceState | string;
+
+  /**
+   * <p>The Availability Zones in which the service is available.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>Indicates whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>
+   */
+  AcceptanceRequired?: boolean;
+
+  /**
+   * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
+   *             endpoints using the VPC endpoint API is restricted.</p>
+   */
+  ManagesVpcEndpoints?: boolean;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Network Load Balancers for the service.</p>
+   */
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
+
+  /**
+   * <p>The DNS names for the service.</p>
+   */
+  BaseEndpointDnsNames?: string[];
+
+  /**
+   * <p>The private DNS name for the service.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>Information about the endpoint service private DNS name configuration.</p>
+   */
+  PrivateDnsNameConfiguration?: PrivateDnsNameConfiguration;
+
+  /**
+   * <p>Any tags assigned to the service.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace ServiceConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ServiceConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcEndpointServiceConfigurationResult {
+  /**
+   * <p>Information about the service configuration.</p>
+   */
+  ServiceConfiguration?: ServiceConfiguration;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace CreateVpcEndpointServiceConfigurationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcEndpointServiceConfigurationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcPeeringConnectionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the accepter VPC.</p>
+   *          <p>Default: Your Amazon Web Services account ID</p>
+   */
+  PeerOwnerId?: string;
+
+  /**
+   * <p>The ID of the VPC with which you are creating the VPC peering connection. You must
+   * 			specify this parameter in the request.</p>
+   */
+  PeerVpcId?: string;
+
+  /**
+   * <p>The ID of the requester VPC. You must specify this parameter in the
+   * 			request.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The Region code for the accepter VPC, if the accepter VPC is located in a Region
+   *             other than the Region in which you make the request.</p>
+   * 		       <p>Default: The Region in which you make the request.</p>
+   */
+  PeerRegion?: string;
+
+  /**
+   * <p>The tags to assign to the peering connection.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateVpcPeeringConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateVpcPeeringConnectionResult {
+  /**
+   * <p>Information about the VPC peering connection.</p>
+   */
+  VpcPeeringConnection?: VpcPeeringConnection;
+}
+
+export namespace CreateVpcPeeringConnectionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpcPeeringConnectionResult): any => ({
+    ...obj,
+  });
+}
+
+export type TunnelInsideIpVersion = "ipv4" | "ipv6";
+
+/**
+ * <p>The IKE version that is permitted for the VPN tunnel.</p>
+ */
+export interface IKEVersionsRequestListValue {
+  /**
+   * <p>The IKE version.</p>
+   */
+  Value?: string;
+}
+
+export namespace IKEVersionsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IKEVersionsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase1DHGroupNumbersRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1EncryptionAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
+ *             negotiations.</p>
+ */
+export interface Phase1IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The value for the integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1IntegrityAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2DHGroupNumbersRequestListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase2DHGroupNumbersRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2EncryptionAlgorithmsRequestListValue {
+  /**
+   * <p>The encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2EncryptionAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
+ *             negotiations.</p>
+ */
+export interface Phase2IntegrityAlgorithmsRequestListValue {
+  /**
+   * <p>The integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2IntegrityAlgorithmsRequestListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsRequestListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The tunnel options for a single VPN tunnel.</p>
+ */
+export interface VpnTunnelOptionsSpecification {
+  /**
+   * <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same virtual private gateway. </p>
+   *         <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The
+   *             following CIDR blocks are reserved and cannot be used:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.0.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.1.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.2.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.3.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.4.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.5.0/30</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>169.254.169.252/30</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  TunnelInsideCidr?: string;
+
+  /**
+   * <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be
+   *             unique across all VPN connections that use the same transit gateway.</p>
+   *         <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+   */
+  TunnelInsideIpv6Cidr?: string;
+
+  /**
+   * <p>The pre-shared key (PSK) to establish initial authentication between the virtual
+   *             private gateway and customer gateway.</p>
+   *         <p>Constraints: Allowed characters are alphanumeric characters, periods (.), and
+   *             underscores (_). Must be between 8 and 64 characters in length and cannot start with
+   *             zero (0).</p>
+   */
+  PreSharedKey?: string;
+
+  /**
+   * <p>The lifetime for phase 1 of the IKE negotiation, in seconds.</p>
+   *         <p>Constraints: A value between 900 and 28,800.</p>
+   *         <p>Default: <code>28800</code>
+   *          </p>
+   */
+  Phase1LifetimeSeconds?: number;
+
+  /**
+   * <p>The lifetime for phase 2 of the IKE negotiation, in seconds.</p>
+   *         <p>Constraints: A value between 900 and 3,600. The value must be less than the value for
+   *                 <code>Phase1LifetimeSeconds</code>.</p>
+   *         <p>Default: <code>3600</code>
+   *          </p>
+   */
+  Phase2LifetimeSeconds?: number;
+
+  /**
+   * <p>The margin time, in seconds, before the phase 2 lifetime expires, during which the
+   *                 Amazon Web Services side of the VPN connection performs an IKE rekey. The exact time
+   *             of the rekey is randomly selected based on the value for
+   *                 <code>RekeyFuzzPercentage</code>.</p>
+   *         <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
+   *         <p>Default: <code>540</code>
+   *          </p>
+   */
+  RekeyMarginTimeSeconds?: number;
+
+  /**
+   * <p>The percentage of the rekey window (determined by <code>RekeyMarginTimeSeconds</code>)
+   *             during which the rekey time is randomly selected.</p>
+   *         <p>Constraints: A value between 0 and 100.</p>
+   *         <p>Default: <code>100</code>
+   *          </p>
+   */
+  RekeyFuzzPercentage?: number;
+
+  /**
+   * <p>The number of packets in an IKE replay window.</p>
+   *         <p>Constraints: A value between 64 and 2048.</p>
+   *         <p>Default: <code>1024</code>
+   *          </p>
+   */
+  ReplayWindowSize?: number;
+
+  /**
+   * <p>The number of seconds after which a DPD timeout occurs.</p>
+   *         <p>Constraints: A value between 0 and 30.</p>
+   *         <p>Default: <code>30</code>
+   *          </p>
+   */
+  DPDTimeoutSeconds?: number;
+
+  /**
+   * <p>The action to take after DPD timeout occurs. Specify <code>restart</code> to restart
+   *             the IKE initiation. Specify <code>clear</code> to end the IKE session.</p>
+   *         <p>Valid Values: <code>clear</code> | <code>none</code> | <code>restart</code>
+   *          </p>
+   *         <p>Default: <code>clear</code>
+   *          </p>
+   */
+  DPDTimeoutAction?: string;
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   */
+  Phase1EncryptionAlgorithms?: Phase1EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2
+   *             IKE negotiations.</p>
+   *         <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> |
+   *                 <code>AES256-GCM-16</code>
+   *          </p>
+   */
+  Phase2EncryptionAlgorithms?: Phase2EncryptionAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   */
+  Phase1IntegrityAlgorithms?: Phase1IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE
+   *             negotiations.</p>
+   *         <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> |
+   *                 <code>SHA2-512</code>
+   *          </p>
+   */
+  Phase2IntegrityAlgorithms?: Phase2IntegrityAlgorithmsRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 1 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> |
+   *                 <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> |
+   *                 <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code>
+   *          </p>
+   */
+  Phase1DHGroupNumbers?: Phase1DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for
+   *             phase 2 IKE negotiations.</p>
+   *         <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> |
+   *                 <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> |
+   *                 <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> |
+   *                 <code>24</code>
+   *          </p>
+   */
+  Phase2DHGroupNumbers?: Phase2DHGroupNumbersRequestListValue[];
+
+  /**
+   * <p>The IKE versions that are permitted for the VPN tunnel.</p>
+   *         <p>Valid values: <code>ikev1</code> | <code>ikev2</code>
+   *          </p>
+   */
+  IKEVersions?: IKEVersionsRequestListValue[];
+
+  /**
+   * <p>The action to take when the establishing the tunnel for the VPN connection. By
+   *             default, your customer gateway device must initiate the IKE negotiation and bring up the
+   *             tunnel. Specify <code>start</code> for Amazon Web Services to initiate the IKE
+   *             negotiation.</p>
+   *         <p>Valid Values: <code>add</code> | <code>start</code>
+   *          </p>
+   *         <p>Default: <code>add</code>
+   *          </p>
+   */
+  StartupAction?: string;
+}
+
+export namespace VpnTunnelOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpnTunnelOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes VPN connection options.</p>
+ */
+export interface VpnConnectionOptionsSpecification {
+  /**
+   * <p>Indicate whether to enable acceleration for the VPN connection.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableAcceleration?: boolean;
+
+  /**
+   * <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN
+   *             connection for a device that does not support BGP, you must specify <code>true</code>.
+   *             Use <a>CreateVpnConnectionRoute</a> to create a static route.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  StaticRoutesOnly?: boolean;
+
+  /**
+   * <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+   *         <p>Default: <code>ipv4</code>
+   *          </p>
+   */
+  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+
+  /**
+   * <p>The tunnel options for the VPN connection.</p>
+   */
+  TunnelOptions?: VpnTunnelOptionsSpecification[];
+
+  /**
+   * <p>The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *         <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   */
+  LocalIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv4 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *         <p>Default: <code>0.0.0.0/0</code>
+   *          </p>
+   */
+  RemoteIpv4NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.</p>
+   *         <p>Default: <code>::/0</code>
+   *          </p>
+   */
+  LocalIpv6NetworkCidr?: string;
+
+  /**
+   * <p>The IPv6 CIDR on the Amazon Web Services side of the VPN connection.</p>
+   *         <p>Default: <code>::/0</code>
+   *          </p>
+   */
+  RemoteIpv6NetworkCidr?: string;
+}
+
+export namespace VpnConnectionOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VpnConnectionOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for CreateVpnConnection.</p>
+ */
+export interface CreateVpnConnectionRequest {
+  /**
+   * <p>The ID of the customer gateway.</p>
+   */
+  CustomerGatewayId: string | undefined;
+
+  /**
+   * <p>The type of VPN connection (<code>ipsec.1</code>).</p>
+   */
+  Type: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway. If you specify a virtual private gateway, you
+   *             cannot specify a transit gateway.</p>
+   */
+  VpnGatewayId?: string;
+
+  /**
+   * <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private
+   *             gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The options for the VPN connection.</p>
+   */
+  Options?: VpnConnectionOptionsSpecification;
+
+  /**
+   * <p>The tags to apply to the VPN connection.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
+
+export namespace CreateVpnConnectionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVpnConnectionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
+ */
+export interface IKEVersionsListValue {
+  /**
+   * <p>The IKE version.</p>
+   */
+  Value?: string;
+}
+
+export namespace IKEVersionsListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: IKEVersionsListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
+ */
+export interface Phase1DHGroupNumbersListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase1DHGroupNumbersListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1DHGroupNumbersListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption algorithm for phase 1 IKE negotiations.</p>
+ */
+export interface Phase1EncryptionAlgorithmsListValue {
+  /**
+   * <p>The value for the encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1EncryptionAlgorithmsListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1EncryptionAlgorithmsListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The integrity algorithm for phase 1 IKE negotiations.</p>
+ */
+export interface Phase1IntegrityAlgorithmsListValue {
+  /**
+   * <p>The value for the integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase1IntegrityAlgorithmsListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase1IntegrityAlgorithmsListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
+ */
+export interface Phase2DHGroupNumbersListValue {
+  /**
+   * <p>The Diffie-Hellmann group number.</p>
+   */
+  Value?: number;
+}
+
+export namespace Phase2DHGroupNumbersListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2DHGroupNumbersListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The encryption algorithm for phase 2 IKE negotiations.</p>
+ */
+export interface Phase2EncryptionAlgorithmsListValue {
+  /**
+   * <p>The encryption algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2EncryptionAlgorithmsListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2EncryptionAlgorithmsListValue): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The integrity algorithm for phase 2 IKE negotiations.</p>
+ */
+export interface Phase2IntegrityAlgorithmsListValue {
+  /**
+   * <p>The integrity algorithm.</p>
+   */
+  Value?: string;
+}
+
+export namespace Phase2IntegrityAlgorithmsListValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Phase2IntegrityAlgorithmsListValue): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The VPN tunnel options.</p>
@@ -383,6 +1279,21 @@ export interface VpnConnection {
    * <p>The ID of the transit gateway associated with the VPN connection.</p>
    */
   TransitGatewayId?: string;
+
+  /**
+   * <p>The ARN of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The ARN of the core network attachment.</p>
+   */
+  CoreNetworkAttachmentArn?: string;
+
+  /**
+   * <p>The current state of the gateway association.</p>
+   */
+  GatewayAssociationState?: string;
 
   /**
    * <p>The VPN connection options.</p>
@@ -7326,6 +8237,12 @@ export interface TargetCapacitySpecification {
    *             <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | string;
 }
 
 export namespace TargetCapacitySpecification {
@@ -8567,1065 +9484,6 @@ export namespace InstanceCapacity {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
- */
-export interface AvailableCapacity {
-  /**
-   * <p>The number of instances that can be launched onto the Dedicated Host depending on
-   *     		the host's available capacity. For Dedicated Hosts that support multiple instance types,
-   *     		this parameter represents the number of instances for each instance size that is
-   *     		supported on the host.</p>
-   */
-  AvailableInstanceCapacity?: InstanceCapacity[];
-
-  /**
-   * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
-   */
-  AvailableVCpus?: number;
-}
-
-export namespace AvailableCapacity {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: AvailableCapacity): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the properties of a Dedicated Host.</p>
- */
-export interface HostProperties {
-  /**
-   * <p>The number of cores on the Dedicated Host.</p>
-   */
-  Cores?: number;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
-   *         	If the host supports multiple instance types, no <b>instanceType</b>
-   *         	is returned.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The instance family supported by the Dedicated Host. For example, <code>m5</code>.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The number of sockets on the Dedicated Host.</p>
-   */
-  Sockets?: number;
-
-  /**
-   * <p>The total number of vCPUs on the Dedicated Host.</p>
-   */
-  TotalVCpus?: number;
-}
-
-export namespace HostProperties {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostProperties): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an instance running on a Dedicated Host.</p>
- */
-export interface HostInstance {
-  /**
-   * <p>The ID of instance that is running on the Dedicated Host.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The instance type (for example, <code>m3.medium</code>) of the running instance.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
-   */
-  OwnerId?: string;
-}
-
-export namespace HostInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: HostInstance): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the properties of the Dedicated Host.</p>
- */
-export interface Host {
-  /**
-   * <p>Whether auto-placement is on or off.</p>
-   */
-  AutoPlacement?: AutoPlacement | string;
-
-  /**
-   * <p>The Availability Zone of the Dedicated Host.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Information about the instances running on the Dedicated Host.</p>
-   */
-  AvailableCapacity?: AvailableCapacity;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ID of the Dedicated Host.</p>
-   */
-  HostId?: string;
-
-  /**
-   * <p>The hardware specifications of the Dedicated Host.</p>
-   */
-  HostProperties?: HostProperties;
-
-  /**
-   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response
-   *             if the Dedicated Host doesn't have an associated reservation.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The IDs and instance type that are currently running on the Dedicated
-   *             Host.</p>
-   */
-  Instances?: HostInstance[];
-
-  /**
-   * <p>The Dedicated Host's state.</p>
-   */
-  State?: AllocationState | string;
-
-  /**
-   * <p>The time that the Dedicated Host was allocated.</p>
-   */
-  AllocationTime?: Date;
-
-  /**
-   * <p>The time that the Dedicated Host was released.</p>
-   */
-  ReleaseTime?: Date;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
-   */
-  HostRecovery?: HostRecovery | string;
-
-  /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family.
-   * 			If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family.
-   * 		    If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
-   */
-  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the Dedicated Host.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Dedicated Host is allocated.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>Indicates whether the Dedicated Host is in a host resource group. If
-   * 			<b>memberOfServiceLinkedResourceGroup</b> is
-   * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
-   */
-  MemberOfServiceLinkedResourceGroup?: boolean;
-}
-
-export namespace Host {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Host): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeHostsResult {
-  /**
-   * <p>Information about the Dedicated Hosts.</p>
-   */
-  Hosts?: Host[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeHostsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeHostsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIamInstanceProfileAssociationsRequest {
-  /**
-   * <p>The IAM instance profile associations.</p>
-   */
-  AssociationIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association (<code>associating</code> |
-   *                 <code>associated</code> | <code>disassociating</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeIamInstanceProfileAssociationsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIamInstanceProfileAssociationsResult {
-  /**
-   * <p>Information about the IAM instance profile associations.</p>
-   */
-  IamInstanceProfileAssociations?: IamInstanceProfileAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeIamInstanceProfileAssociationsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIamInstanceProfileAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdentityIdFormatRequest {
-  /**
-   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
-   */
-  PrincipalArn: string | undefined;
-
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *           <code>network-acl</code> | <code>network-acl-association</code> |
-   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *           <code>route-table-association</code> | <code>security-group</code> |
-   *           <code>snapshot</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resource?: string;
-}
-
-export namespace DescribeIdentityIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdentityIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resources.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace DescribeIdentityIdFormatResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdentityIdFormatResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *            <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *            <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *            <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *            <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *            <code>network-acl</code> | <code>network-acl-association</code> |
-   *            <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *            <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *            <code>route-table-association</code> | <code>security-group</code> |
-   *            <code>snapshot</code> | <code>subnet</code> |
-   *            <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *            | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *            <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   */
-  Resource?: string;
-}
-
-export namespace DescribeIdFormatRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdFormatRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resource.</p>
-   */
-  Statuses?: IdFormat[];
-}
-
-export namespace DescribeIdFormatResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeIdFormatResult): any => ({
-    ...obj,
-  });
-}
-
-export type ImageAttributeName =
-  | "blockDeviceMapping"
-  | "bootMode"
-  | "description"
-  | "kernel"
-  | "launchPermission"
-  | "productCodes"
-  | "ramdisk"
-  | "sriovNetSupport";
-
-/**
- * <p>Contains the parameters for DescribeImageAttribute.</p>
- */
-export interface DescribeImageAttributeRequest {
-  /**
-   * <p>The AMI attribute.</p>
-   *    	     <p>
-   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
-   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
-   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
-   */
-  Attribute: ImageAttributeName | string | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeImageAttributeRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImageAttributeRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch permission.</p>
- */
-export interface LaunchPermission {
-  /**
-   * <p>The name of the group.</p>
-   */
-  Group?: PermissionGroup | string;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
-   */
-  UserId?: string;
-}
-
-export namespace LaunchPermission {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchPermission): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an image attribute.</p>
- */
-export interface ImageAttribute {
-  /**
-   * <p>The block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The launch permissions.</p>
-   */
-  LaunchPermissions?: LaunchPermission[];
-
-  /**
-   * <p>The product codes.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>A description for the AMI.</p>
-   */
-  Description?: AttributeValue;
-
-  /**
-   * <p>The kernel ID.</p>
-   */
-  KernelId?: AttributeValue;
-
-  /**
-   * <p>The RAM disk ID.</p>
-   */
-  RamdiskId?: AttributeValue;
-
-  /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   */
-  SriovNetSupport?: AttributeValue;
-
-  /**
-   * <p>Describes a value for a resource attribute that is a String.</p>
-   */
-  BootMode?: AttributeValue;
-}
-
-export namespace ImageAttribute {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImageAttribute): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImagesRequest {
-  /**
-   * <p>Scopes the images by users with explicit launch permissions.
-   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
-   * 				or <code>all</code> (public AMIs).</p>
-   */
-  ExecutableUsers?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
-   *             <code>x86_64</code> | <code>arm64</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
-   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *         	         <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
-   *           volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *         	         <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
-   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
-   *           </code>| <code>st1</code> | <code>standard</code>).</p>
-   *             </li>
-   *             <li>
-   *     		         <p>
-   *     			           <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
-   *     	       </li>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the image (provided during image
-   *           creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
-   *           with ENA is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
-   *           <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-id</code> - The ID of the image.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
-   *             <code>ramdisk</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manifest-location</code> - The location of the image manifest.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
-   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
-   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
-   *         	request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
-   *       		<b>Owner</b> request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform. To only list Windows-based AMIs, use
-   *             <code>windows</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
-   *             <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
-   *           | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-message</code> - The message for the state change.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
-   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
-   *             <code>hvm</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The image IDs.</p>
-   *          <p>Default: Describes all images available to you.</p>
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
-   *       If you omit this parameter, the results include all images for which you have launch permissions,
-   *       regardless of ownership.</p>
-   */
-  Owners?: string[];
-
-  /**
-   * <p>If <code>true</code>, all deprecated AMIs are included in the response. If
-   *         <code>false</code>, no deprecated AMIs are included in the response. If no value is
-   *       specified, the default value is <code>false</code>.</p>
-   *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p>
-   *          </note>
-   */
-  IncludeDeprecated?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace DescribeImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesRequest): any => ({
-    ...obj,
-  });
-}
-
-export type ArchitectureValues = "arm64" | "i386" | "x86_64" | "x86_64_mac";
-
-export type BootModeValues = "legacy-bios" | "uefi";
-
-export type HypervisorType = "ovm" | "xen";
-
-export type ImageTypeValues = "kernel" | "machine" | "ramdisk";
-
-export type DeviceType = "ebs" | "instance-store";
-
-export type ImageState = "available" | "deregistered" | "error" | "failed" | "invalid" | "pending" | "transient";
-
-/**
- * <p>Describes a state change.</p>
- */
-export interface StateReason {
-  /**
-   * <p>The reason code for the state change.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>The message for the state change.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.InsufficientInstanceCapacity</code>: There was insufficient
-   *                     capacity available to satisfy the launch request.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.InternalError</code>: An internal error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.ScheduledStop</code>: The instance was stopped due to a scheduled
-   *                     retirement.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.SpotInstanceShutdown</code>: The instance was stopped because the
-   *                     number of Spot requests with a maximum price equal to or higher than the Spot
-   *                     price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Server.SpotInstanceTermination</code>: The instance was terminated
-   *                     because the number of Spot requests with a maximum price equal to or higher than
-   *                     the Spot price exceeded available capacity or because of an increase in the Spot
-   *                     price.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     using the <code>shutdown -h</code> command from the instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InstanceTerminated</code>: The instance was terminated or
-   *                     rebooted during AMI creation.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InternalError</code>: A client error caused the instance to
-   *                     terminate during launch.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.InvalidSnapshot.NotFound</code>: The specified snapshot was not
-   *                     found.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.UserInitiatedHibernate</code>: Hibernation was initiated on the
-   *                     instance.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.UserInitiatedShutdown</code>: The instance was shut down using
-   *                     the Amazon EC2 API.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>Client.VolumeLimitExceeded</code>: The limit on the number of EBS
-   *                     volumes or total storage was exceeded. Decrease usage or request an increase in
-   *                     your account limits.</p>
-   *             </li>
-   *          </ul>
-   */
-  Message?: string;
-}
-
-export namespace StateReason {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StateReason): any => ({
-    ...obj,
-  });
-}
-
-export type VirtualizationType = "hvm" | "paravirtual";
-
-/**
- * <p>Describes an image.</p>
- */
-export interface Image {
-  /**
-   * <p>The architecture of the image.</p>
-   */
-  Architecture?: ArchitectureValues | string;
-
-  /**
-   * <p>The date and time the image was created.</p>
-   */
-  CreationDate?: string;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The location of the AMI.</p>
-   */
-  ImageLocation?: string;
-
-  /**
-   * <p>The type of image.</p>
-   */
-  ImageType?: ImageTypeValues | string;
-
-  /**
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
-   * 				this image has public launch permissions or <code>false</code>
-   * 				if it has only implicit and explicit launch permissions.</p>
-   */
-  Public?: boolean;
-
-  /**
-   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
-   */
-  KernelId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the image.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
-   */
-  Platform?: PlatformValues | string;
-
-  /**
-   * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-   *         AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  PlatformDetails?: string;
-
-  /**
-   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         	List API</a>. You can view these fields on the <b>Instances</b> or
-   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
-   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
-   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
-   *     	command in the CLI.</p>
-   */
-  UsageOperation?: string;
-
-  /**
-   * <p>Any product codes associated with the AMI.</p>
-   */
-  ProductCodes?: ProductCode[];
-
-  /**
-   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
-   */
-  RamdiskId?: string;
-
-  /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
-   */
-  State?: ImageState | string;
-
-  /**
-   * <p>Any block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The description of the AMI that was provided during image creation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   */
-  EnaSupport?: boolean;
-
-  /**
-   * <p>The hypervisor type of the image.</p>
-   */
-  Hypervisor?: HypervisorType | string;
-
-  /**
-   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>) or
-   *        the Amazon Web Services account ID of the AMI owner.</p>
-   */
-  ImageOwnerAlias?: string;
-
-  /**
-   * <p>The name of the AMI that was provided during image creation.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   */
-  RootDeviceName?: string;
-
-  /**
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
-   */
-  RootDeviceType?: DeviceType | string;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
-   */
-  SriovNetSupport?: string;
-
-  /**
-   * <p>The reason for the state change.</p>
-   */
-  StateReason?: StateReason;
-
-  /**
-   * <p>Any tags assigned to the image.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The type of virtualization of the AMI.</p>
-   */
-  VirtualizationType?: VirtualizationType | string;
-
-  /**
-   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  BootMode?: BootModeValues | string;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
-   */
-  DeprecationTime?: string;
-}
-
-export namespace Image {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: Image): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImagesResult {
-  /**
-   * <p>Information about the images.</p>
-   */
-  Images?: Image[];
-}
-
-export namespace DescribeImagesResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImagesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeImportImageTasksRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Filter tasks using the <code>task-state</code> filter and one of the following values: <code>active</code>,
-   *     <code>completed</code>, <code>deleting</code>, or <code>deleted</code>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The IDs of the import image tasks.</p>
-   */
-  ImportTaskIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A token that indicates the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeImportImageTasksRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeImportImageTasksRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p> The response information for license configurations.</p>
- */
-export interface ImportImageLicenseConfigurationResponse {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace ImportImageLicenseConfigurationResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationResponse): any => ({
     ...obj,
   });
 }

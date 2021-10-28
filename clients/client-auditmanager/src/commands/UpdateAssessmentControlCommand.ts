@@ -22,9 +22,7 @@ export interface UpdateAssessmentControlCommandInput extends UpdateAssessmentCon
 export interface UpdateAssessmentControlCommandOutput extends UpdateAssessmentControlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Updates a control within an assessment in Audit Manager.
- * </p>
+ * <p> Updates a control within an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

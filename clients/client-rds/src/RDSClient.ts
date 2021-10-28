@@ -87,6 +87,10 @@ import {
   CreateCustomAvailabilityZoneCommandInput,
   CreateCustomAvailabilityZoneCommandOutput,
 } from "./commands/CreateCustomAvailabilityZoneCommand";
+import {
+  CreateCustomDBEngineVersionCommandInput,
+  CreateCustomDBEngineVersionCommandOutput,
+} from "./commands/CreateCustomDBEngineVersionCommand";
 import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "./commands/CreateDBClusterCommand";
 import {
   CreateDBClusterEndpointCommandInput,
@@ -136,6 +140,10 @@ import {
   DeleteCustomAvailabilityZoneCommandInput,
   DeleteCustomAvailabilityZoneCommandOutput,
 } from "./commands/DeleteCustomAvailabilityZoneCommand";
+import {
+  DeleteCustomDBEngineVersionCommandInput,
+  DeleteCustomDBEngineVersionCommandOutput,
+} from "./commands/DeleteCustomDBEngineVersionCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "./commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
@@ -359,6 +367,10 @@ import {
   ModifyCurrentDBClusterCapacityCommandInput,
   ModifyCurrentDBClusterCapacityCommandOutput,
 } from "./commands/ModifyCurrentDBClusterCapacityCommand";
+import {
+  ModifyCustomDBEngineVersionCommandInput,
+  ModifyCustomDBEngineVersionCommandOutput,
+} from "./commands/ModifyCustomDBEngineVersionCommand";
 import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "./commands/ModifyDBClusterCommand";
 import {
   ModifyDBClusterEndpointCommandInput,
@@ -509,6 +521,7 @@ export type ServiceInputTypes =
   | CopyDBSnapshotCommandInput
   | CopyOptionGroupCommandInput
   | CreateCustomAvailabilityZoneCommandInput
+  | CreateCustomDBEngineVersionCommandInput
   | CreateDBClusterCommandInput
   | CreateDBClusterEndpointCommandInput
   | CreateDBClusterParameterGroupCommandInput
@@ -525,6 +538,7 @@ export type ServiceInputTypes =
   | CreateGlobalClusterCommandInput
   | CreateOptionGroupCommandInput
   | DeleteCustomAvailabilityZoneCommandInput
+  | DeleteCustomDBEngineVersionCommandInput
   | DeleteDBClusterCommandInput
   | DeleteDBClusterEndpointCommandInput
   | DeleteDBClusterParameterGroupCommandInput
@@ -589,6 +603,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ModifyCertificatesCommandInput
   | ModifyCurrentDBClusterCapacityCommandInput
+  | ModifyCustomDBEngineVersionCommandInput
   | ModifyDBClusterCommandInput
   | ModifyDBClusterEndpointCommandInput
   | ModifyDBClusterParameterGroupCommandInput
@@ -648,6 +663,7 @@ export type ServiceOutputTypes =
   | CopyDBSnapshotCommandOutput
   | CopyOptionGroupCommandOutput
   | CreateCustomAvailabilityZoneCommandOutput
+  | CreateCustomDBEngineVersionCommandOutput
   | CreateDBClusterCommandOutput
   | CreateDBClusterEndpointCommandOutput
   | CreateDBClusterParameterGroupCommandOutput
@@ -664,6 +680,7 @@ export type ServiceOutputTypes =
   | CreateGlobalClusterCommandOutput
   | CreateOptionGroupCommandOutput
   | DeleteCustomAvailabilityZoneCommandOutput
+  | DeleteCustomDBEngineVersionCommandOutput
   | DeleteDBClusterCommandOutput
   | DeleteDBClusterEndpointCommandOutput
   | DeleteDBClusterParameterGroupCommandOutput
@@ -728,6 +745,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ModifyCertificatesCommandOutput
   | ModifyCurrentDBClusterCapacityCommandOutput
+  | ModifyCustomDBEngineVersionCommandOutput
   | ModifyDBClusterCommandOutput
   | ModifyDBClusterEndpointCommandOutput
   | ModifyDBClusterParameterGroupCommandOutput

@@ -22,9 +22,7 @@ export interface ListControlsCommandInput extends ListControlsRequest {}
 export interface ListControlsCommandOutput extends ListControlsResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns a list of controls from Audit Manager.
- * </p>
+ * <p> Returns a list of controls from Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

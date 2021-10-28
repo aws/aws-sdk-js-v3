@@ -22,9 +22,7 @@ export interface GetAssessmentReportUrlCommandInput extends GetAssessmentReportU
 export interface GetAssessmentReportUrlCommandOutput extends GetAssessmentReportUrlResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Returns the URL of a specified assessment report in Audit Manager.
- * </p>
+ * <p> Returns the URL of an assessment report in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

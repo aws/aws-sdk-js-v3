@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopNotebookInstanceInput } from "../models/models_2";
+import { StopNotebookInstanceInput } from "../models/models_3";
 import {
   deserializeAws_json1_1StopNotebookInstanceCommand,
   serializeAws_json1_1StopNotebookInstanceCommand,

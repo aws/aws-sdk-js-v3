@@ -22,9 +22,7 @@ export interface DeleteAssessmentCommandInput extends DeleteAssessmentRequest {}
 export interface DeleteAssessmentCommandOutput extends DeleteAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>
- *    Deletes an assessment in Audit Manager.
- * </p>
+ * <p> Deletes an assessment in Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

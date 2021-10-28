@@ -28,9 +28,8 @@ export interface BatchImportEvidenceToAssessmentControlCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Uploads one or more pieces of evidence to the specified control in the assessment in Audit Manager.
- *       </p>
+ * <p> Uploads one or more pieces of evidence to a control in an Audit Manager
+ *          assessment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

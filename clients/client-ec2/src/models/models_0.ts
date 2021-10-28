@@ -1,4 +1,135 @@
 /**
+ * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
+ *          on an instance.</p>
+ */
+export interface AcceleratorCount {
+  /**
+   * <p>The minimum number of accelerators. If this parameter is not specified, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of accelerators. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorCount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorCount): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
+ *          on an instance. To exclude accelerator-enabled instance types, set <code>Max</code> to
+ *             <code>0</code>.</p>
+ */
+export interface AcceleratorCountRequest {
+  /**
+   * <p>The minimum number of accelerators. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of accelerators. To specify no maximum limit, omit this
+   *          parameter. To exclude accelerator-enabled instance types, set <code>Max</code> to
+   *          <code>0</code>.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorCountRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  NVIDIA = "nvidia",
+  XILINX = "xilinx",
+}
+
+export enum AcceleratorName {
+  A100 = "a100",
+  K80 = "k80",
+  M60 = "m60",
+  RADEON_PRO_V520 = "radeon-pro-v520",
+  T4 = "t4",
+  V100 = "v100",
+  VU9P = "vu9p",
+}
+
+/**
+ * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+ */
+export interface AcceleratorTotalMemoryMiB {
+  /**
+   * <p>The minimum amount of accelerator memory, in MiB. If this parameter is not specified,
+   *          there is no minimum limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of accelerator memory, in MiB. If this parameter is not specified,
+   *          there is no maximum limit.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorTotalMemoryMiB {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiB): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+ */
+export interface AcceleratorTotalMemoryMiBRequest {
+  /**
+   * <p>The minimum amount of accelerator memory, in MiB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of accelerator memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace AcceleratorTotalMemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AcceleratorTotalMemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum AcceleratorType {
+  FPGA = "fpga",
+  GPU = "gpu",
+  INFERENCE = "inference",
+}
+
+/**
  * <p>Details about the target configuration.</p>
  */
 export interface TargetConfigurationRequest {
@@ -5664,6 +5795,7 @@ export type _InstanceType =
   | "d3en.6xlarge"
   | "d3en.8xlarge"
   | "d3en.xlarge"
+  | "dl1.24xlarge"
   | "f1.16xlarge"
   | "f1.2xlarge"
   | "f1.4xlarge"
@@ -7504,6 +7636,491 @@ export namespace FleetLaunchTemplateSpecificationRequest {
   });
 }
 
+export enum BareMetal {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+/**
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface BaselineEbsBandwidthMbpsRequest {
+  /**
+   * <p>The minimum baseline bandwidth, in Mbps. To specify no minimum limit, omit
+   *          this parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. To specify no maximum limit, omit
+   *          this parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace BaselineEbsBandwidthMbpsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbpsRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum BurstablePerformance {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+export enum CpuManufacturer {
+  AMAZON_WEB_SERVICES = "amazon-web-services",
+  AMD = "amd",
+  INTEL = "intel",
+}
+
+export enum InstanceGeneration {
+  CURRENT = "current",
+  PREVIOUS = "previous",
+}
+
+export enum LocalStorage {
+  EXCLUDED = "excluded",
+  INCLUDED = "included",
+  REQUIRED = "required",
+}
+
+export enum LocalStorageType {
+  HDD = "hdd",
+  SSD = "ssd",
+}
+
+/**
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ */
+export interface MemoryGiBPerVCpuRequest {
+  /**
+   * <p>The minimum amount of memory per vCPU, in GiB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of memory per vCPU, in GiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryGiBPerVCpuRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpuRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of memory, in MiB.</p>
+ */
+export interface MemoryMiBRequest {
+  /**
+   * <p>The minimum amount of memory, in MiB. To specify no minimum limit, specify
+   *          <code>0</code>.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum amount of memory, in MiB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace MemoryMiBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MemoryMiBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of network interfaces.</p>
+ */
+export interface NetworkInterfaceCountRequest {
+  /**
+   * <p>The minimum number of network interfaces. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum number of network interfaces. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace NetworkInterfaceCountRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum amount of total local storage, in GB.</p>
+ */
+export interface TotalLocalStorageGBRequest {
+  /**
+   * <p>The minimum amount of total local storage, in GB. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of total local storage, in GB. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace TotalLocalStorageGBRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TotalLocalStorageGBRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The minimum and maximum number of vCPUs.</p>
+ */
+export interface VCpuCountRangeRequest {
+  /**
+   * <p>The minimum number of vCPUs. To specify no minimum limit, specify <code>0</code>.</p>
+   */
+  Min: number | undefined;
+
+  /**
+   * <p>The maximum number of vCPUs. To specify no maximum limit, omit this parameter.</p>
+   */
+  Max?: number;
+}
+
+export namespace VCpuCountRangeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: VCpuCountRangeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+ *       identify instance types with these attributes.</p>
+ *          <p>When you specify multiple parameters, you get instance types that satisfy all of the
+ *          specified parameters. If you specify multiple values for a parameter, you get instance
+ *          types that satisfy any of the specified values.</p>
+ *          <note>
+ *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other parameters
+ *             are optional. Any unspecified optional parameter is set to its default.</p>
+ *          </note>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ */
+export interface InstanceRequirementsRequest {
+  /**
+   * <p>The minimum and maximum number of vCPUs.</p>
+   */
+  VCpuCount: VCpuCountRangeRequest | undefined;
+
+  /**
+   * <p>The minimum and maximum amount of memory, in MiB.</p>
+   */
+  MemoryMiB: MemoryMiBRequest | undefined;
+
+  /**
+   * <p>The CPU manufacturers to include.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with Intel CPUs, specify <code>intel</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD CPUs, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
+   *          be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you
+   *          specify in your launch template.</p>
+   *          </note>
+   *          <p>Default: Any manufacturer</p>
+   */
+  CpuManufacturers?: (CpuManufacturer | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  MemoryGiBPerVCpu?: MemoryGiBPerVCpuRequest;
+
+  /**
+   * <p>The instance types to exclude. You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *             <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*.*</code>, Amazon EC2 will exclude the entire C5
+   *          instance family (all C5a and C5n instance types). If you specify <code>c5a.*</code>, Amazon EC2
+   *          excludes all the C5a instance types, but does not exclude the C5n instance types.</p>
+   *          <p>Default: No excluded instance types</p>
+   */
+  ExcludedInstanceTypes?: string[];
+
+  /**
+   * <p>Indicates whether current or previous generation instance types are included. The
+   *       current generation instance types are recommended for use. Current generation instance types are
+   *       typically the latest two to three generations in each instance family. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>For current generation instance types, specify <code>current</code>.</p>
+   *          <p>For previous generation instance types, specify <code>previous</code>.</p>
+   *          <p>Default: Current and previous generation instance types</p>
+   */
+  InstanceGenerations?: (InstanceGeneration | string)[];
+
+  /**
+   * <p>The price protection threshold for Spot Instance. This is the maximum you’ll pay for an Spot Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <p>Default: <code>100</code>
+   *          </p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance,
+   *          expressed as a percentage above the cheapest M, C, or R instance type with your specified
+   *          attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance
+   *          types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
+   *          <p>Default: <code>20</code>
+   *          </p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include bare metal instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only bare metal instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude bare metal instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BareMetal?: BareMetal | string;
+
+  /**
+   * <p>Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include burstable performance instance types, specify <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only burstable performance instance types, specify <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude burstable performance instance types, specify <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>excluded</code>
+   *          </p>
+   */
+  BurstablePerformance?: BurstablePerformance | string;
+
+  /**
+   * <p>Indicates whether instance types must support hibernation for On-Demand Instances.</p>
+   *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>The minimum and maximum number of network interfaces.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkInterfaceCount?: NetworkInterfaceCountRequest;
+
+  /**
+   * <p>Indicates whether instance types with instance store volumes are included, excluded, or required. For more information,
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+   *          EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with instance store volumes, specify
+   *                   <code>included</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To require only instance types with instance store volumes, specify
+   *                   <code>required</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To exclude instance types with instance store volumes, specify
+   *                   <code>excluded</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>included</code>
+   *          </p>
+   */
+  LocalStorage?: LocalStorage | string;
+
+  /**
+   * <p>The type of local storage that is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with hard disk drive (HDD) storage, specify <code>hdd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with solid state drive (SDD) storage, specify <code>sdd</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: <code>hdd</code> and <code>sdd</code>
+   *          </p>
+   */
+  LocalStorageTypes?: (LocalStorageType | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total local storage, in GB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  TotalLocalStorageGB?: TotalLocalStorageGBRequest;
+
+  /**
+   * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+   *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  BaselineEbsBandwidthMbps?: BaselineEbsBandwidthMbpsRequest;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To include instance types with GPU hardware, specify <code>gpu</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To include instance types with FPGA hardware, specify <code>fpga</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To include instance types with inference hardware, specify <code>inference</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator type</p>
+   */
+  AcceleratorTypes?: (AcceleratorType | string)[];
+
+  /**
+   * <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on
+   *          an instance.</p>
+   *          <p>To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorCount?: AcceleratorCountRequest;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any manufacturer</p>
+   */
+  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+
+  /**
+   * <p>The accelerators that must be on the instance type.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Any accelerator</p>
+   */
+  AcceleratorNames?: (AcceleratorName | string)[];
+
+  /**
+   * <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
+}
+
+export namespace InstanceRequirementsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceRequirementsRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the placement of an instance.</p>
  */
@@ -7582,6 +8199,10 @@ export namespace Placement {
 export interface FleetLaunchTemplateOverridesRequest {
   /**
    * <p>The instance type.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceTypes</code>, you can't specify
+   *                <code>InstanceRequirements</code>.</p>
+   *          </note>
    */
   InstanceType?: _InstanceType | string;
 
@@ -7625,6 +8246,16 @@ export interface FleetLaunchTemplateOverridesRequest {
    * <p>The location where the instance launched, if applicable.</p>
    */
   Placement?: Placement;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *                <code>InstanceTypes</code>.</p>
+   *          </note>
+   */
+  InstanceRequirements?: InstanceRequirementsRequest;
 }
 
 export namespace FleetLaunchTemplateOverridesRequest {
@@ -7912,6 +8543,12 @@ export enum DefaultTargetCapacityType {
   SPOT = "spot",
 }
 
+export enum TargetCapacityUnitType {
+  MEMORY_MIB = "memory-mib",
+  UNITS = "units",
+  VCPU = "vcpu",
+}
+
 /**
  * <p>The number of units to request. You can choose to set the target capacity as the number of
  *          instances. Or you can set the target capacity to a performance characteristic that is important to your application workload,
@@ -7948,6 +8585,12 @@ export interface TargetCapacitySpecificationRequest {
    *             <code>On-Demand</code>.</p>
    */
   DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
+
+  /**
+   * <p>The unit for the target capacity.</p>
+   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   */
+  TargetCapacityUnitType?: TargetCapacityUnitType | string;
 }
 
 export namespace TargetCapacitySpecificationRequest {
@@ -8126,754 +8769,56 @@ export namespace FleetLaunchTemplateSpecification {
 }
 
 /**
- * <p>Describes the placement of an instance.</p>
+ * <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
+ *             EBS–optimized instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
-export interface PlacementResponse {
+export interface BaselineEbsBandwidthMbps {
   /**
-   * <p>The name of the placement group that the instance is in.</p>
+   * <p>The minimum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          minimum limit.</p>
    */
-  GroupName?: string;
+  Min?: number;
+
+  /**
+   * <p>The maximum baseline bandwidth, in Mbps. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
 }
 
-export namespace PlacementResponse {
+export namespace BaselineEbsBandwidthMbps {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: PlacementResponse): any => ({
+  export const filterSensitiveLog = (obj: BaselineEbsBandwidthMbps): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>Describes overrides for a launch template.</p>
+ * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
+ *          <p></p>
  */
-export interface FleetLaunchTemplateOverrides {
+export interface MemoryGiBPerVCpu {
   /**
-   * <p>The instance type.</p>
+   * <p>The minimum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no minimum limit.</p>
    */
-  InstanceType?: _InstanceType | string;
+  Min?: number;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The maximum amount of memory per vCPU, in GiB. If this parameter is not specified, there is
+   *          no maximum limit.</p>
    */
-  MaxPrice?: string;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instances.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The Availability Zone in which to launch the instances.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The number of units provided by the specified instance type.</p>
-   */
-  WeightedCapacity?: number;
-
-  /**
-   * <p>The priority for the launch template override. The highest priority is launched
-   *          first.</p>
-   *          <p>If the On-Demand <code>AllocationStrategy</code> is set to <code>prioritized</code>,
-   *          EC2 Fleet uses priority to determine which launch template override to use first in fulfilling
-   *          On-Demand capacity.</p>
-   *          <p>If the Spot <code>AllocationStrategy</code> is set to
-   *             <code>capacity-optimized-prioritized</code>, EC2 Fleet uses priority on a best-effort basis
-   *          to determine which launch template override to use in fulfilling Spot capacity, but
-   *          optimizes for capacity first.</p>
-   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
-   *          higher the priority. If no number is set, the override has the lowest priority. You can set
-   *          the same priority for different launch template overrides.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The location where the instance launched, if applicable.</p>
-   */
-  Placement?: PlacementResponse;
+  Max?: number;
 }
 
-export namespace FleetLaunchTemplateOverrides {
+export namespace MemoryGiBPerVCpu {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: FleetLaunchTemplateOverrides): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a launch template and overrides.</p>
- */
-export interface LaunchTemplateAndOverridesResponse {
-  /**
-   * <p>The launch template.</p>
-   */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification;
-
-  /**
-   * <p>Any parameters that you specify override the same parameters in the launch
-   *          template.</p>
-   */
-  Overrides?: FleetLaunchTemplateOverrides;
-}
-
-export namespace LaunchTemplateAndOverridesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LaunchTemplateAndOverridesResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum InstanceLifecycle {
-  ON_DEMAND = "on-demand",
-  SPOT = "spot",
-}
-
-/**
- * <p>Describes the instances that could not be launched by the fleet.</p>
- */
-export interface CreateFleetError {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
-
-  /**
-   * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
-   */
-  Lifecycle?: InstanceLifecycle | string;
-
-  /**
-   * <p>The error code that indicates why the instance could not be launched. For more
-   *          information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>The error message that describes why the instance could not be launched. For more
-   *          information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
-   */
-  ErrorMessage?: string;
-}
-
-export namespace CreateFleetError {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetError): any => ({
-    ...obj,
-  });
-}
-
-export type PlatformValues = "Windows";
-
-/**
- * <p>Describes the instances that were launched by the fleet.</p>
- */
-export interface CreateFleetInstance {
-  /**
-   * <p>The launch templates and overrides that were used for launching the instances. The
-   *          values that you specify in the Overrides replace the values in the launch template.</p>
-   */
-  LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse;
-
-  /**
-   * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
-   */
-  Lifecycle?: InstanceLifecycle | string;
-
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds?: string[];
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
-   *          blank.</p>
-   */
-  Platform?: PlatformValues | string;
-}
-
-export namespace CreateFleetInstance {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetInstance): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateFleetResult {
-  /**
-   * <p>The ID of the EC2 Fleet.</p>
-   */
-  FleetId?: string;
-
-  /**
-   * <p>Information about the instances that could not be launched by the fleet. Supported only for
-   *             fleets of type <code>instant</code>.</p>
-   */
-  Errors?: CreateFleetError[];
-
-  /**
-   * <p>Information about the instances that were launched by the fleet. Supported only for
-   *             fleets of type <code>instant</code>.</p>
-   */
-  Instances?: CreateFleetInstance[];
-}
-
-export namespace CreateFleetResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFleetResult): any => ({
-    ...obj,
-  });
-}
-
-export enum DestinationFileFormat {
-  parquet = "parquet",
-  plain_text = "plain-text",
-}
-
-/**
- * <p>Describes the destination options for a flow log.</p>
- */
-export interface DestinationOptionsRequest {
-  /**
-   * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
-   */
-  FileFormat?: DestinationFileFormat | string;
-
-  /**
-   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.
-   *             The default is <code>false</code>.</p>
-   */
-  HiveCompatiblePartitions?: boolean;
-
-  /**
-   * <p>Indicates whether to partition the flow log per hour. This reduces the cost and response
-   *             time for queries. The default is <code>false</code>.</p>
-   */
-  PerHourPartition?: boolean;
-}
-
-export namespace DestinationOptionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DestinationOptionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export type LogDestinationType = "cloud-watch-logs" | "s3";
-
-export type FlowLogsResourceType = "NetworkInterface" | "Subnet" | "VPC";
-
-export type TrafficType = "ACCEPT" | "ALL" | "REJECT";
-
-export interface CreateFlowLogsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The ARN for the IAM role that permits Amazon EC2 to publish flow logs to a CloudWatch Logs log group
-   *             in your account.</p>
-   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
-   */
-  DeliverLogsPermissionArn?: string;
-
-  /**
-   * <p>The name of a new or existing CloudWatch Logs log group where Amazon EC2 publishes your flow logs.</p>
-   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
-   */
-  LogGroupName?: string;
-
-  /**
-   * <p>The ID of the subnet, network interface, or VPC for which you want to create a flow log.</p>
-   *         <p>Constraints: Maximum of 1000 resources</p>
-   */
-  ResourceIds: string[] | undefined;
-
-  /**
-   * <p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for
-   *             the <code>ResourceId</code> property, specify <code>VPC</code> for this property.</p>
-   */
-  ResourceType: FlowLogsResourceType | string | undefined;
-
-  /**
-   * <p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>
-   */
-  TrafficType: TrafficType | string | undefined;
-
-  /**
-   * <p>The type of destination to which the flow log data is to be published. Flow log data can be
-   *             published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To
-   *             publish flow log data to Amazon S3, specify <code>s3</code>.</p>
-   *         <p>If you specify <code>LogDestinationType</code> as <code>s3</code>, do not specify
-   *             <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
-   *         <p>Default: <code>cloud-watch-logs</code>
-   *          </p>
-   */
-  LogDestinationType?: LogDestinationType | string;
-
-  /**
-   * <p>The destination to which the flow log data is to be published. Flow log data can be published
-   *             to a CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified
-   *             for <code>LogDestinationType</code>.</p>
-   *         <p>If <code>LogDestinationType</code> is not specified or <code>cloud-watch-logs</code>,
-   *             specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group. For example, to publish
-   *             to a log group called <code>my-logs</code>, specify
-   *             <code>arn:aws:logs:us-east-1:123456789012:log-group:my-logs</code>. Alternatively,
-   *             use <code>LogGroupName</code> instead.</p>
-   *         <p>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket. You can also specify a
-   *             subfolder in the bucket. To specify a subfolder in the bucket, use the following  ARN format:
-   *             <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder named <code>my-logs</code> in a
-   *             bucket named <code>my-bucket</code>, use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>. You
-   *             cannot use <code>AWSLogs</code> as a subfolder name. This is a reserved term.</p>
-   */
-  LogDestination?: string;
-
-  /**
-   * <p>The fields to include in the flow log record, in the order in which they should
-   *             appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow log records</a>. If you
-   *             omit this parameter, the flow log is created using the default format. If you specify this parameter,
-   *             you must specify at least one field.</p>
-   *         <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For
-   *             the CLI, surround this parameter value with single quotes on Linux or
-   *             double quotes on Windows.</p>
-   */
-  LogFormat?: string;
-
-  /**
-   * <p>The tags to apply to the flow logs.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The maximum interval of time during which a flow of packets is captured and aggregated into a flow log record. You can specify 60 seconds (1 minute) or 600 seconds (10 minutes).</p>
-   *         <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
-   *                 instance</a>, the aggregation interval is always 60 seconds or less, regardless
-   *             of the value that you specify.</p>
-   *         <p>Default: 600</p>
-   */
-  MaxAggregationInterval?: number;
-
-  /**
-   * <p>The destination options.</p>
-   */
-  DestinationOptions?: DestinationOptionsRequest;
-}
-
-export namespace CreateFlowLogsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowLogsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateFlowLogsResult {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The IDs of the flow logs.</p>
-   */
-  FlowLogIds?: string[];
-
-  /**
-   * <p>Information about the flow logs that could not be created successfully.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export namespace CreateFlowLogsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFlowLogsResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a storage location in Amazon S3.</p>
- */
-export interface StorageLocation {
-  /**
-   * <p>The name of the S3 bucket.</p>
-   */
-  Bucket?: string;
-
-  /**
-   * <p>The key.</p>
-   */
-  Key?: string;
-}
-
-export namespace StorageLocation {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StorageLocation): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateFpgaImageRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.</p>
-   */
-  InputStorageLocation: StorageLocation | undefined;
-
-  /**
-   * <p>The location in Amazon S3 for the output logs.</p>
-   */
-  LogsStorageLocation?: StorageLocation;
-
-  /**
-   * <p>A description for the AFI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A name for the AFI.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The tags to apply to the FPGA image during creation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateFpgaImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFpgaImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateFpgaImageResult {
-  /**
-   * <p>The FPGA image identifier (AFI ID).</p>
-   */
-  FpgaImageId?: string;
-
-  /**
-   * <p>The global FPGA image identifier (AGFI ID).</p>
-   */
-  FpgaImageGlobalId?: string;
-}
-
-export namespace CreateFpgaImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateFpgaImageResult): any => ({
-    ...obj,
-  });
-}
-
-export type VolumeType = "gp2" | "gp3" | "io1" | "io2" | "sc1" | "st1" | "standard";
-
-/**
- * <p>Describes a block device for an EBS volume.</p>
- */
-export interface EbsBlockDevice {
-  /**
-   * <p>Indicates whether the EBS volume is deleted on instance termination. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving Amazon EBS volumes on instance termination</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The number of I/O operations per second (IOPS). For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this
-   *             represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this
-   *             represents the baseline performance of the volume and the rate at which the volume accumulates
-   *             I/O credits for bursting.</p>
-   *         <p>The following are the supported values for each volume type:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>io1</code>: 100-64,000 IOPS</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>io2</code>: 100-64,000 IOPS</p>
-   *             </li>
-   *          </ul>
-   *         <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance
-   *             up to 32,000 IOPS.</p>
-   *         <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.
-   *             The default for <code>gp3</code> volumes is 3,000 IOPS.
-   *             This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
-   *             If you specify a snapshot, the default is the snapshot size. You can specify a volume
-   *             size that is equal to or larger than the snapshot size.</p>
-   *         <p>The following are the supported volumes sizes for each volume type:</p>
-   *         <ul>
-   *             <li>
-   *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>:1-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>standard</code>: 1-1,024</p>
-   *             </li>
-   *          </ul>
-   */
-  VolumeSize?: number;
-
-  /**
-   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *             <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>,
-   *             you must specify the IOPS that the volume supports.</p>
-   */
-  VolumeType?: VolumeType | string;
-
-  /**
-   * <p>Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer managed CMK under
-   *             which the EBS volume is encrypted.</p>
-   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html">RequestSpotFleet</a>,
-   *             and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html">RequestSpotInstances</a>.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The throughput that the volume supports, in MiB/s.</p>
-   *     	    <p>This parameter is valid only for <code>gp3</code> volumes.</p>
-   *     	    <p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
-   */
-  Throughput?: number;
-
-  /**
-   * <p>The ARN of the Outpost on which the snapshot is stored.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>Indicates whether the encryption state of an EBS volume is changed while being
-   *             restored from a backing snapshot.
-   *             The effect of setting the encryption state to <code>true</code> depends on
-   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a>
-   *             in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>In no case can you remove encryption from an encrypted volume.</p>
-   *         <p>Encrypted volumes can only be attached to instances that support Amazon EBS
-   *             encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
-   *         <p>This parameter is not returned by .</p>
-   */
-  Encrypted?: boolean;
-}
-
-export namespace EbsBlockDevice {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: EbsBlockDevice): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a block device mapping, which defines the EBS volumes and instance store
- *             volumes to attach to an instance at launch.</p>
- */
-export interface BlockDeviceMapping {
-  /**
-   * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The virtual device name (<code>ephemeral</code>N). Instance store volumes are numbered
-   *             starting from 0. An instance type with 2 available instance store volumes can specify
-   *             mappings for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of
-   *             available instance store volumes depends on the instance type. After you connect to the
-   *             instance, you must mount the volume.</p>
-   *         <p>NVMe instance store volumes are automatically enumerated and assigned a device name.
-   *             Including them in your block device mapping has no effect.</p>
-   *         <p>Constraints: For M3 instances, you must specify instance store volumes in the block
-   *             device mapping for the instance. When you launch an M3 instance, we ignore any instance
-   *             store volumes specified in the block device mapping for the AMI.</p>
-   */
-  VirtualName?: string;
-
-  /**
-   * <p>Parameters used to automatically set up EBS volumes when the instance is
-   *             launched.</p>
-   */
-  Ebs?: EbsBlockDevice;
-
-  /**
-   * <p>To omit the device from the block device mapping, specify an empty string. When this
-   *             property is specified, the device is removed from the block device mapping regardless of
-   *             the assigned value.</p>
-   */
-  NoDevice?: string;
-}
-
-export namespace BlockDeviceMapping {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: BlockDeviceMapping): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateImageRequest {
-  /**
-   * <p>The block device mappings. This parameter cannot be used to modify the encryption
-   *    		status of existing volumes or snapshots. To create an AMI with encrypted snapshots,
-   *    		use the <a>CopyImage</a> action.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>A description for the new image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A name for the new image.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image.
-   *        If the <code>No Reboot</code> option is set, Amazon EC2 doesn't shut down the instance before creating
-   *        the image. Without a reboot, the AMI will be crash consistent (all the volumes are snapshotted
-   *        at the same time), but not application consistent (all the operating system buffers are not flushed
-   *        to disk before the snapshots are created).</p>
-   */
-  NoReboot?: boolean;
-
-  /**
-   * <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the
-   *       snapshots, or both.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
-   *           <code>image</code>.</p>
-   *             </li>
-   *             <li>
-   *       	        <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
-   *           are attached to the instance, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
-   *           created.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
-   *          <p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
-
-export namespace CreateImageRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateImageResult {
-  /**
-   * <p>The ID of the new AMI.</p>
-   */
-  ImageId?: string;
-}
-
-export namespace CreateImageResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateImageResult): any => ({
+  export const filterSensitiveLog = (obj: MemoryGiBPerVCpu): any => ({
     ...obj,
   });
 }

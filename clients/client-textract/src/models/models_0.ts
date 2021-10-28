@@ -40,7 +40,7 @@ export interface S3Object {
 
   /**
    * <p>The file name of the input document. Synchronous operations can use image files that are
-   *          in JPEG or PNG format. Asynchronous operations also support PDF format files.</p>
+   *          in JPEG or PNG format. Asynchronous operations also support PDF and TIFF format files.</p>
    */
   Name?: string;
 
@@ -554,7 +554,7 @@ export interface Block {
   /**
    * <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous
    *          operations. Page values greater than 1 are only returned for multipage documents that are
-   *          in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
+   *          in PDF or TIFF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is
    *          considered to be a single-page document. The value of <code>Page</code> is always 1.
    *          Synchronous operations don't return <code>Page</code> because every input document is
    *          considered to be a single-page document.</p>
@@ -1363,6 +1363,85 @@ export namespace GetDocumentTextDetectionResponse {
   });
 }
 
+export interface GetExpenseAnalysisRequest {
+  /**
+   * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
+   *     <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+   */
+  JobId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can
+   *    specify is 20. If you specify a value greater than 20, a maximum of 20 results is
+   *    returned. The default value is 20.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was incomplete (because there are more blocks to retrieve), Amazon Textract returns a pagination
+   *    token in the response. You can use this pagination token to retrieve the next set of blocks.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetExpenseAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExpenseAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetExpenseAnalysisResponse {
+  /**
+   * <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is
+   *    returned in every page of paginated responses from an Amazon Textract operation.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The current status of the text detection job.</p>
+   */
+  JobStatus?: JobStatus | string;
+
+  /**
+   * <p>If the response is truncated, Amazon Textract returns this token. You can use this token in
+   *    the subsequent request to retrieve the next set of text-detection results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The expenses detected by Amazon Textract.</p>
+   */
+  ExpenseDocuments?: ExpenseDocument[];
+
+  /**
+   * <p>A list of warnings that occurred during the text-detection operation for the
+   *    document.</p>
+   */
+  Warnings?: Warning[];
+
+  /**
+   * <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The current model version of AnalyzeExpense.</p>
+   */
+  AnalyzeExpenseModelVersion?: string;
+}
+
+export namespace GetExpenseAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetExpenseAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
  *          least one of the other input parameters is different from the previous call to the
@@ -1622,6 +1701,77 @@ export namespace StartDocumentTextDetectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartDocumentTextDetectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartExpenseAnalysisRequest {
+  /**
+   * <p>The location of the document to be processed.</p>
+   */
+  DocumentLocation: DocumentLocation | undefined;
+
+  /**
+   * <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned.
+   *    Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once.
+   *    For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>
+   *          </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>An identifier you specify that's included in the completion notification published
+   *    to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of
+   *    document that the completion notification corresponds to (such as a tax form or a
+   *    receipt).</p>
+   */
+  JobTag?: string;
+
+  /**
+   * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the
+   *    operation to. </p>
+   */
+  NotificationChannel?: NotificationChannel;
+
+  /**
+   * <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will
+   *    save the results internally to be accessed by the <code>GetExpenseAnalysis</code>
+   *    operation.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * <p>The KMS key used to encrypt the inference results. This can be
+   *    in either Key ID or Key Alias format. When a KMS key is provided, the
+   *    KMS key will be used for server-side encryption of the objects in the
+   *    customer bucket. When this parameter is not enabled, the result will
+   *    be encrypted server side,using SSE-S3.</p>
+   */
+  KMSKeyId?: string;
+}
+
+export namespace StartExpenseAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartExpenseAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartExpenseAnalysisResponse {
+  /**
+   * <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from
+   *     <code>StartExpenseAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
+   */
+  JobId?: string;
+}
+
+export namespace StartExpenseAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartExpenseAnalysisResponse): any => ({
     ...obj,
   });
 }

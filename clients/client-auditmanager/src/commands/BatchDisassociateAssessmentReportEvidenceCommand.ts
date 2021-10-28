@@ -28,8 +28,7 @@ export interface BatchDisassociateAssessmentReportEvidenceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *          Disassociates a list of evidence from the specified assessment report in Audit Manager.
+ * <p> Disassociates a list of evidence from an assessment report in Audit Manager.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

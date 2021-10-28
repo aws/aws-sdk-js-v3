@@ -1,15 +1,18 @@
 import {
   _InstanceType,
+  AddPrefixListEntry,
   AddressAttribute,
   AddressAttributeName,
+  Affinity,
   ApplianceModeSupportValue,
-  BlockDeviceMapping,
+  AttributeValue,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   DnsSupportValue,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
+  InstanceEventWindow,
   IpPermission,
   Ipv6SupportValue,
   Placement,
@@ -20,59 +23,70 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
-  VolumeType,
 } from "./models_0";
 import {
   AutoAcceptSharedAttachmentsValue,
+  BlockDeviceMapping,
   CreditSpecificationRequest,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   ElasticGpuSpecification,
   IcmpTypeCode,
-  IKEVersionsRequestListValue,
+  InstanceEventWindowTimeRangeRequest,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
+  LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
   MarketType,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   PortRange,
   RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
   TrafficDirection,
+  TrafficMirrorFilter,
   TrafficMirrorFilterRule,
+  TrafficMirrorNetworkService,
   TrafficMirrorPortRangeRequest,
   TrafficMirrorRuleAction,
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
+  VolumeType,
   VpnEcmpSupportValue,
 } from "./models_1";
 import {
-  ArchitectureValues,
-  BootModeValues,
   ClientVpnConnectionStatus,
   Filter,
+  IKEVersionsRequestListValue,
   InstanceTagNotificationAttribute,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
   VpnConnection,
 } from "./models_2";
 import {
+  ArchitectureValues,
   AttributeBooleanValue,
+  BootModeValues,
+  CreateVolumePermission,
+  ExcessCapacityTerminationPolicy,
   HttpTokensState,
   InstanceAttributeName,
   InstanceMetadataEndpointState,
+  InstanceMetadataOptionsResponse,
   InstanceMetadataProtocolState,
   InstanceNetworkInterfaceSpecification,
   InstanceState,
+  InstanceStatusEvent,
+  LaunchTemplateConfig,
   Monitoring,
   NetworkInsightsAnalysis,
+  ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   SnapshotAttributeName,
@@ -80,12 +94,1043 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_3";
-import {
-  CapacityReservationSpecification,
-  Purchase,
-  TrafficMirrorFilterRuleField,
-  VolumeModification,
-} from "./models_4";
+import { CapacityReservationSpecification, OperationType, Purchase, VolumeModification } from "./models_4";
+
+/**
+ * <p>Describes the burstable performance instance whose credit option for CPU usage was
+ *             successfully modified.</p>
+ */
+export interface SuccessfulInstanceCreditSpecificationItem {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+}
+
+export namespace SuccessfulInstanceCreditSpecificationItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuccessfulInstanceCreditSpecificationItem): any => ({
+    ...obj,
+  });
+}
+
+export enum UnsuccessfulInstanceCreditSpecificationErrorCode {
+  INCORRECT_INSTANCE_STATE = "IncorrectInstanceState",
+  INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported",
+  INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound",
+  INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed",
+}
+
+/**
+ * <p>Information about the error for the burstable performance instance whose credit option
+ *             for CPU usage was not modified.</p>
+ */
+export interface UnsuccessfulInstanceCreditSpecificationItemError {
+  /**
+   * <p>The error code.</p>
+   */
+  Code?: UnsuccessfulInstanceCreditSpecificationErrorCode | string;
+
+  /**
+   * <p>The applicable error message.</p>
+   */
+  Message?: string;
+}
+
+export namespace UnsuccessfulInstanceCreditSpecificationItemError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItemError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the burstable performance instance whose credit option for CPU usage was not
+ *             modified.</p>
+ */
+export interface UnsuccessfulInstanceCreditSpecificationItem {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The applicable error for the burstable performance instance whose credit option for
+   *             CPU usage was not modified.</p>
+   */
+  Error?: UnsuccessfulInstanceCreditSpecificationItemError;
+}
+
+export namespace UnsuccessfulInstanceCreditSpecificationItem {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UnsuccessfulInstanceCreditSpecificationItem): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceCreditSpecificationResult {
+  /**
+   * <p>Information about the instances whose credit option for CPU usage was successfully
+   *             modified.</p>
+   */
+  SuccessfulInstanceCreditSpecifications?: SuccessfulInstanceCreditSpecificationItem[];
+
+  /**
+   * <p>Information about the instances whose credit option for CPU usage was not
+   *             modified.</p>
+   */
+  UnsuccessfulInstanceCreditSpecifications?: UnsuccessfulInstanceCreditSpecificationItem[];
+}
+
+export namespace ModifyInstanceCreditSpecificationResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceCreditSpecificationResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceEventStartTimeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the instance with the scheduled event.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the event whose date and time you are modifying.</p>
+   */
+  InstanceEventId: string | undefined;
+
+  /**
+   * <p>The new date and time when the event will take place.</p>
+   */
+  NotBefore: Date | undefined;
+}
+
+export namespace ModifyInstanceEventStartTimeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceEventStartTimeResult {
+  /**
+   * <p>Describes a scheduled event for an instance.</p>
+   */
+  Event?: InstanceStatusEvent;
+}
+
+export namespace ModifyInstanceEventStartTimeResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceEventStartTimeResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The name of the event window.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The ID of the event window.</p>
+   */
+  InstanceEventWindowId: string | undefined;
+
+  /**
+   * <p>The time ranges of the event window.</p>
+   */
+  TimeRanges?: InstanceEventWindowTimeRangeRequest[];
+
+  /**
+   * <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Only hour and day of the week values are supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>For day of the week values, you can specify either integers <code>0</code> through
+   *                   <code>6</code>, or alternative single values <code>SUN</code> through
+   *                   <code>SAT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The minute, month, and year must be specified by <code>*</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The hour value must be one or a multiple range, for example, <code>0-4</code> or
+   *                   <code>0-4,20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Each hour range must be >= 2 hours, for example, <code>0-2</code> or
+   *                   <code>20-23</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>The event window must be >= 4 hours. The combined total time ranges in the event
+   *                window must be >= 4 hours.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia
+   *             website</i>.</p>
+   */
+  CronExpression?: string;
+}
+
+export namespace ModifyInstanceEventWindowRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceEventWindowRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceEventWindowResult {
+  /**
+   * <p>Information about the event window.</p>
+   */
+  InstanceEventWindow?: InstanceEventWindow;
+}
+
+export namespace ModifyInstanceEventWindowResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceEventWindowResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceMetadataOptionsRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The state of token usage for your instance metadata requests. If the parameter is not
+   *             specified in the request, the default state is <code>optional</code>.</p>
+   *         <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata
+   *             with or without a signed token header on your request. If you retrieve the IAM role
+   *             credentials without a token, the version 1.0 role credentials are returned. If you
+   *             retrieve the IAM role credentials using a valid signed token, the version 2.0 role
+   *             credentials are returned.</p>
+   *         <p>If the state is <code>required</code>, you must send a signed token header with any
+   *             instance metadata retrieval requests. In this state, retrieving the IAM role credential
+   *             always returns the version 2.0 credentials; the version 1.0 credentials are not
+   *             available.</p>
+   */
+  HttpTokens?: HttpTokensState | string;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *             number, the further instance metadata requests can travel. If no parameter is specified, the existing state is maintained.</p>
+   *         <p>Possible values: Integers from 1 to 64</p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If
+   *             the parameter is not specified, the existing state is maintained.</p>
+   *         <note>
+   *             <p>If you specify a value of <code>disabled</code>, you will not be able to access your
+   *                 instance metadata.</p>
+   *         </note>
+   */
+  HttpEndpoint?: InstanceMetadataEndpointState | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   */
+  HttpProtocolIpv6?: InstanceMetadataProtocolState | string;
+}
+
+export namespace ModifyInstanceMetadataOptionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstanceMetadataOptionsResult {
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The metadata options for the instance.</p>
+   */
+  InstanceMetadataOptions?: InstanceMetadataOptionsResponse;
+}
+
+export namespace ModifyInstanceMetadataOptionsResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstanceMetadataOptionsResult): any => ({
+    ...obj,
+  });
+}
+
+export type HostTenancy = "dedicated" | "host";
+
+export interface ModifyInstancePlacementRequest {
+  /**
+   * <p>The affinity setting for the instance.</p>
+   */
+  Affinity?: Affinity | string;
+
+  /**
+   * <p>The name of the placement group in which to place the instance. For spread placement
+   *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
+   *             partition placement groups, the instance must have a tenancy of <code>default</code> or
+   *                 <code>dedicated</code>.</p>
+   *         <p>To remove an instance from a placement group, specify an empty string
+   *             ("").</p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>The ID of the Dedicated Host with which to associate the instance.</p>
+   */
+  HostId?: string;
+
+  /**
+   * <p>The ID of the instance that you are modifying.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The tenancy for the instance.</p>
+   *
+   *         <note>
+   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code>
+   *             to <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
+   *             Attempting to make one of these unsupported tenancy changes results in the
+   *             <code>InvalidTenancy</code> error code.</p>
+   *          </note>
+   */
+  Tenancy?: HostTenancy | string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  PartitionNumber?: number;
+
+  /**
+   * <p>The ARN of the host resource group in which to place the instance.</p>
+   */
+  HostResourceGroupArn?: string;
+}
+
+export namespace ModifyInstancePlacementRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstancePlacementRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyInstancePlacementResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifyInstancePlacementResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyInstancePlacementResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyLaunchTemplateRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *                 Idempotency</a>.</p>
+   *         <p>Constraint: Maximum 128 ASCII characters.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The ID of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateId?: string;
+
+  /**
+   * <p>The name of the launch template. You must specify either the launch template ID or
+   *             launch template name in the request.</p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>The version number of the launch template to set as the default version.</p>
+   */
+  DefaultVersion?: string;
+}
+
+export namespace ModifyLaunchTemplateRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyLaunchTemplateRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyLaunchTemplateResult {
+  /**
+   * <p>Information about the launch template.</p>
+   */
+  LaunchTemplate?: LaunchTemplate;
+}
+
+export namespace ModifyLaunchTemplateResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyLaunchTemplateResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An entry for a prefix list.</p>
+ */
+export interface RemovePrefixListEntry {
+  /**
+   * <p>The CIDR block.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export namespace RemovePrefixListEntry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RemovePrefixListEntry): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyManagedPrefixListRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The current version of the prefix list.</p>
+   */
+  CurrentVersion?: number;
+
+  /**
+   * <p>A name for the prefix list.</p>
+   */
+  PrefixListName?: string;
+
+  /**
+   * <p>One or more entries to add to the prefix list.</p>
+   */
+  AddEntries?: AddPrefixListEntry[];
+
+  /**
+   * <p>One or more entries to remove from the prefix list.</p>
+   */
+  RemoveEntries?: RemovePrefixListEntry[];
+
+  /**
+   * <p>The maximum number of entries for the prefix list. You cannot modify the entries
+   *             of a prefix list and modify the size of a prefix list at the same time.</p>
+   *         <p>If any of the resources that reference the prefix list cannot support the new
+   *             maximum size, the modify operation fails. Check the state message for the IDs of
+   *             the first ten resources that do not support the new maximum size.</p>
+   */
+  MaxEntries?: number;
+}
+
+export namespace ModifyManagedPrefixListRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyManagedPrefixListRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyManagedPrefixListResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   */
+  PrefixList?: ManagedPrefixList;
+}
+
+export namespace ModifyManagedPrefixListResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyManagedPrefixListResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an attachment change.</p>
+ */
+export interface NetworkInterfaceAttachmentChanges {
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+}
+
+export namespace NetworkInterfaceAttachmentChanges {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkInterfaceAttachmentChanges): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
+ */
+export interface ModifyNetworkInterfaceAttributeRequest {
+  /**
+   * <p>Information about the interface attachment. If modifying the 'delete on termination' attribute, you must specify the ID of the interface attachment.</p>
+   */
+  Attachment?: NetworkInterfaceAttachmentChanges;
+
+  /**
+   * <p>A description for the network interface.</p>
+   */
+  Description?: AttributeValue;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Changes the security groups for the network interface. The new set of groups you specify replaces the current set. You must specify at least one group, even if it's just the default security group in the VPC. You must specify the ID of the security group, not the name.</p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>Enable or disable source/destination checks, which ensure that the instance
+   *             is either the source or the destination of any traffic that it receives.
+   *             If the value is <code>true</code>, source/destination checks are enabled;
+   *             otherwise, they are disabled. The default value is <code>true</code>.
+   *             You must disable source/destination checks if the instance runs services
+   *             such as network address translation, routing, or firewalls.</p>
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+}
+
+export namespace ModifyNetworkInterfaceAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ModifyReservedInstances.</p>
+ */
+export interface ModifyReservedInstancesRequest {
+  /**
+   * <p>The IDs of the Reserved Instances to modify.</p>
+   */
+  ReservedInstancesIds: string[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token you provide to ensure idempotency of your modification request. For more information, see
+   *    		<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The configuration settings for the Reserved Instances to modify.</p>
+   */
+  TargetConfigurations: ReservedInstancesConfiguration[] | undefined;
+}
+
+export namespace ModifyReservedInstancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyReservedInstancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of ModifyReservedInstances.</p>
+ */
+export interface ModifyReservedInstancesResult {
+  /**
+   * <p>The ID for the modification.</p>
+   */
+  ReservedInstancesModificationId?: string;
+}
+
+export namespace ModifyReservedInstancesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyReservedInstancesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a security group rule.</p>
+ *         <p>You must specify exactly one of the following parameters, based on the rule type:</p>
+ *         <ul>
+ *             <li>
+ *                <p>CidrIpv4</p>
+ *             </li>
+ *             <li>
+ *                <p>CidrIpv6</p>
+ *             </li>
+ *             <li>
+ *                <p>PrefixListId</p>
+ *             </li>
+ *             <li>
+ *                <p>ReferencedGroupId</p>
+ *             </li>
+ *          </ul>
+ *         <p>When you modify a rule, you cannot change the rule type. For example, if the rule
+ *             uses an IPv4 address range, you must use <code>CidrIpv4</code> to specify a new IPv4
+ *             address range.</p>
+ */
+export interface SecurityGroupRuleRequest {
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
+   *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
+   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
+   */
+  CidrIpv4?: string;
+
+  /**
+   * <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
+   */
+  CidrIpv6?: string;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The ID of the security group that is referenced in the security group rule.</p>
+   */
+  ReferencedGroupId?: string;
+
+  /**
+   * <p>The description of the security group rule.</p>
+   */
+  Description?: string;
+}
+
+export namespace SecurityGroupRuleRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an update to a security group rule.</p>
+ */
+export interface SecurityGroupRuleUpdate {
+  /**
+   * <p>The ID of the security group rule.</p>
+   */
+  SecurityGroupRuleId?: string;
+
+  /**
+   * <p>Information about the security group rule.</p>
+   */
+  SecurityGroupRule?: SecurityGroupRuleRequest;
+}
+
+export namespace SecurityGroupRuleUpdate {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityGroupRuleUpdate): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySecurityGroupRulesRequest {
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId: string | undefined;
+
+  /**
+   * <p>Information about the security group properties to update.</p>
+   */
+  SecurityGroupRules: SecurityGroupRuleUpdate[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifySecurityGroupRulesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySecurityGroupRulesResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifySecurityGroupRulesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySecurityGroupRulesResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes modifications to the list of create volume permissions for a volume.</p>
+ */
+export interface CreateVolumePermissionModifications {
+  /**
+   * <p>Adds the specified Amazon Web Services account ID or group to the list.</p>
+   */
+  Add?: CreateVolumePermission[];
+
+  /**
+   * <p>Removes the specified Amazon Web Services account ID or group from the list.</p>
+   */
+  Remove?: CreateVolumePermission[];
+}
+
+export namespace CreateVolumePermissionModifications {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateVolumePermissionModifications): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySnapshotAttributeRequest {
+  /**
+   * <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
+   */
+  Attribute?: SnapshotAttributeName | string;
+
+  /**
+   * <p>A JSON representation of the snapshot attribute modification.</p>
+   */
+  CreateVolumePermission?: CreateVolumePermissionModifications;
+
+  /**
+   * <p>The group to modify for the snapshot.</p>
+   */
+  GroupNames?: string[];
+
+  /**
+   * <p>The type of operation to perform to the attribute.</p>
+   */
+  OperationType?: OperationType | string;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>The account ID to modify for the snapshot.</p>
+   */
+  UserIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifySnapshotAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySnapshotAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for ModifySpotFleetRequest.</p>
+ */
+export interface ModifySpotFleetRequestRequest {
+  /**
+   * <p>Indicates whether running Spot Instances should be terminated if the target capacity
+   *             of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+   */
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+
+  /**
+   * <p>The launch template and overrides. You can only use this parameter if you specified a
+   *             launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you
+   *             specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this
+   *             parameter.</p>
+   */
+  LaunchTemplateConfigs?: LaunchTemplateConfig[];
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId: string | undefined;
+
+  /**
+   * <p>The size of the fleet.</p>
+   */
+  TargetCapacity?: number;
+
+  /**
+   * <p>The number of On-Demand Instances in the fleet.</p>
+   */
+  OnDemandTargetCapacity?: number;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  Context?: string;
+}
+
+export namespace ModifySpotFleetRequestRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySpotFleetRequestRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of ModifySpotFleetRequest.</p>
+ */
+export interface ModifySpotFleetRequestResponse {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace ModifySpotFleetRequestResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySpotFleetRequestResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifySubnetAttributeRequest {
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces created in the
+   *             specified subnet should be assigned an IPv6 address. This includes a network interface
+   *             that's created when launching an instance into the subnet (the instance therefore
+   *             receives an IPv6 address). </p>
+   *         <p>If you enable the IPv6 addressing feature for your subnet, your network interface
+   *             or instance only receives an IPv6 address if it's created using version
+   *                 <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
+   */
+  AssignIpv6AddressOnCreation?: AttributeBooleanValue;
+
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
+   *             specified subnet should be assigned a public IPv4 address.</p>
+   */
+  MapPublicIpOnLaunch?: AttributeBooleanValue;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces  attached to instances created in the
+   *             specified subnet should be assigned a customer-owned IPv4 address.</p>
+   *         <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
+   */
+  MapCustomerOwnedIpOnLaunch?: AttributeBooleanValue;
+
+  /**
+   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+   *         <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
+   */
+  CustomerOwnedIpv4Pool?: string;
+}
+
+export namespace ModifySubnetAttributeRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifySubnetAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
+   */
+  AddNetworkServices?: (TrafficMirrorNetworkService | string)[];
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
+   */
+  RemoveNetworkServices?: (TrafficMirrorNetworkService | string)[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace ModifyTrafficMirrorFilterNetworkServicesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyTrafficMirrorFilterNetworkServicesResult {
+  /**
+   * <p>The Traffic Mirror filter that the network service is associated with.</p>
+   */
+  TrafficMirrorFilter?: TrafficMirrorFilter;
+}
+
+export namespace ModifyTrafficMirrorFilterNetworkServicesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModifyTrafficMirrorFilterNetworkServicesResult): any => ({
+    ...obj,
+  });
+}
+
+export type TrafficMirrorFilterRuleField = "description" | "destination-port-range" | "protocol" | "source-port-range";
 
 export interface ModifyTrafficMirrorFilterRuleRequest {
   /**

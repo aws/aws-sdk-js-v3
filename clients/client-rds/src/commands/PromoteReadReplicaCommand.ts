@@ -36,7 +36,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *                         promotion.</p>
  *                </li>
  *                <li>
- *                   <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p>
+ *                   <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p>
  *                </li>
  *             </ul>
  *

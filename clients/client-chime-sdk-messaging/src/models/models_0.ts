@@ -1,6 +1,12 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum AllowNotifications {
+  ALL = "ALL",
+  FILTERED = "FILTERED",
+  NONE = "NONE",
+}
+
 export enum ChannelMembershipType {
   DEFAULT = "DEFAULT",
   HIDDEN = "HIDDEN",
@@ -305,7 +311,7 @@ export interface BatchCreateChannelMembershipRequest {
   Type?: ChannelMembershipType | string;
 
   /**
-   * <p>The ARNs of the members you want to add to the channel.</p>
+   * <p>The <code>AppInstanceUserArn</code>s of the members you want to add to the channel.</p>
    */
   MemberArns: string[] | undefined;
 
@@ -329,7 +335,7 @@ export namespace BatchCreateChannelMembershipRequest {
  */
 export interface BatchCreateChannelMembershipError {
   /**
-   * <p>The ARN of the member that the service couldn't add.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member that the service couldn't add.</p>
    */
   MemberArn?: string;
 
@@ -625,8 +631,9 @@ export interface Processor {
   ExecutionOrder: number | undefined;
 
   /**
-   * <p>Determines whether to continue or stop processing if communication with processor fails. If the last processor in a channel flow sequence has a fallback action of CONTINUE, and communication
-   *          with the processor fails, the message is considered processed and sent to the recipients in the channel.</p>
+   * <p>Determines whether to continue with message processing or stop it in cases where communication with a processor fails. If a processor has a fallback action of <code>ABORT</code> and
+   *          communication with it fails, the processor sets the message status to <code>FAILED</code> and does not send the message to any recipients. Note that if the last processor in the channel flow sequence
+   *          has a fallback action of <code>CONTINUE</code> and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.</p>
    */
   FallbackAction: FallbackAction | string | undefined;
 }
@@ -915,6 +922,55 @@ export namespace ChannelMembershipForAppInstanceUserSummary {
 }
 
 /**
+ * <p>The channel membership preferences for push notification.</p>
+ */
+export interface PushNotificationPreferences {
+  /**
+   * <p>Enum value that indicates which push notifications to send to the requested member of a channel.
+   *          <code>ALL</code> sends all push notifications, <code>NONE</code> sends no push notifications, <code>FILTERED</code> sends only filtered push notifications.
+   *       </p>
+   */
+  AllowNotifications: AllowNotifications | string | undefined;
+
+  /**
+   * <p>The simple JSON object used to send a subset of a push notification to the requsted member.</p>
+   */
+  FilterRule?: string;
+}
+
+export namespace PushNotificationPreferences {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PushNotificationPreferences): any => ({
+    ...obj,
+    ...(obj.FilterRule && { FilterRule: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ * <p>The channel membership preferences for an <code>AppInstanceUser</code>.</p>
+ */
+export interface ChannelMembershipPreferences {
+  /**
+   * <p>The push notification configuration of a message.</p>
+   */
+  PushNotifications?: PushNotificationPreferences;
+}
+
+export namespace ChannelMembershipPreferences {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChannelMembershipPreferences): any => ({
+    ...obj,
+    ...(obj.PushNotifications && {
+      PushNotifications: PushNotificationPreferences.filterSensitiveLog(obj.PushNotifications),
+    }),
+  });
+}
+
+/**
  * <p>Summary of the details of a <code>ChannelMembership</code>.</p>
  */
 export interface ChannelMembershipSummary {
@@ -931,6 +987,26 @@ export namespace ChannelMembershipSummary {
   export const filterSensitiveLog = (obj: ChannelMembershipSummary): any => ({
     ...obj,
     ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
+  });
+}
+
+/**
+ * <p>A list of message attribute values.</p>
+ */
+export interface MessageAttributeValue {
+  /**
+   * <p>The strings in a message attribute value.</p>
+   */
+  StringValues?: string[];
+}
+
+export namespace MessageAttributeValue {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MessageAttributeValue): any => ({
+    ...obj,
+    ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
   });
 }
 
@@ -1038,6 +1114,11 @@ export interface ChannelMessage {
    * <p>The status of the channel message.</p>
    */
   Status?: ChannelMessageStatusStructure;
+
+  /**
+   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace ChannelMessage {
@@ -1049,6 +1130,15 @@ export namespace ChannelMessage {
     ...(obj.Content && { Content: SENSITIVE_STRING }),
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
     ...(obj.Sender && { Sender: Identity.filterSensitiveLog(obj.Sender) }),
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -1106,6 +1196,11 @@ export interface ChannelMessageSummary {
    *          processing stage.</p>
    */
   Status?: ChannelMessageStatusStructure;
+
+  /**
+   * <p>The message attribues listed in a the summary of a channel message.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace ChannelMessageSummary {
@@ -1117,6 +1212,15 @@ export namespace ChannelMessageSummary {
     ...(obj.Content && { Content: SENSITIVE_STRING }),
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
     ...(obj.Sender && { Sender: Identity.filterSensitiveLog(obj.Sender) }),
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 
@@ -1323,7 +1427,7 @@ export interface CreateChannelBanRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member being banned.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
    */
   MemberArn: string | undefined;
 
@@ -1428,7 +1532,7 @@ export interface CreateChannelMembershipRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member you want to add to the channel.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member you want to add to the channel.</p>
    */
   MemberArn: string | undefined;
 
@@ -1485,7 +1589,7 @@ export interface CreateChannelModeratorRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the moderator.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the moderator.</p>
    */
   ChannelModeratorArn: string | undefined;
 
@@ -1596,7 +1700,7 @@ export interface DeleteChannelMembershipRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member that you're removing from the channel.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member that you're removing from the channel.</p>
    */
   MemberArn: string | undefined;
 
@@ -1648,7 +1752,7 @@ export interface DeleteChannelModeratorRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the moderator being deleted.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the moderator being deleted.</p>
    */
   ChannelModeratorArn: string | undefined;
 
@@ -1712,7 +1816,7 @@ export interface DescribeChannelBanRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member being banned.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member being banned.</p>
    */
   MemberArn: string | undefined;
 
@@ -1788,7 +1892,7 @@ export interface DescribeChannelMembershipRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the member.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the member.</p>
    */
   MemberArn: string | undefined;
 
@@ -1919,7 +2023,7 @@ export interface DescribeChannelModeratorRequest {
   ChannelArn: string | undefined;
 
   /**
-   * <p>The ARN of the channel moderator.</p>
+   * <p>The <code>AppInstanceUserArn</code> of the channel moderator.</p>
    */
   ChannelModeratorArn: string | undefined;
 
@@ -1978,6 +2082,60 @@ export namespace DisassociateChannelFlowRequest {
    */
   export const filterSensitiveLog = (obj: DisassociateChannelFlowRequest): any => ({
     ...obj,
+  });
+}
+
+export interface GetChannelMembershipPreferencesRequest {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the member retrieving the preferences.</p>
+   */
+  MemberArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserARN</code> of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+}
+
+export namespace GetChannelMembershipPreferencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetChannelMembershipPreferencesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetChannelMembershipPreferencesResponse {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>The details of a user.</p>
+   */
+  Member?: Identity;
+
+  /**
+   * <p>The channel membership preferences for an <code>AppInstanceUser</code> .</p>
+   */
+  Preferences?: ChannelMembershipPreferences;
+}
+
+export namespace GetChannelMembershipPreferencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetChannelMembershipPreferencesResponse): any => ({
+    ...obj,
+    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
+    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
   });
 }
 
@@ -2710,6 +2868,66 @@ export namespace ListTagsForResourceResponse {
   });
 }
 
+export interface PutChannelMembershipPreferencesRequest {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserArn</code> of the member setting the preferences.</p>
+   */
+  MemberArn: string | undefined;
+
+  /**
+   * <p>The <code>AppInstanceUserARN</code>  of the user making the API call.</p>
+   */
+  ChimeBearer: string | undefined;
+
+  /**
+   * <p>The channel membership preferences of an <code>AppInstanceUser</code> .</p>
+   */
+  Preferences: ChannelMembershipPreferences | undefined;
+}
+
+export namespace PutChannelMembershipPreferencesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutChannelMembershipPreferencesRequest): any => ({
+    ...obj,
+    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
+  });
+}
+
+export interface PutChannelMembershipPreferencesResponse {
+  /**
+   * <p>The ARN of the channel.</p>
+   */
+  ChannelArn?: string;
+
+  /**
+   * <p>The details of a user.</p>
+   */
+  Member?: Identity;
+
+  /**
+   * <p>The ARN and metadata of the member being added.</p>
+   */
+  Preferences?: ChannelMembershipPreferences;
+}
+
+export namespace PutChannelMembershipPreferencesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutChannelMembershipPreferencesResponse): any => ({
+    ...obj,
+    ...(obj.Member && { Member: Identity.filterSensitiveLog(obj.Member) }),
+    ...(obj.Preferences && { Preferences: ChannelMembershipPreferences.filterSensitiveLog(obj.Preferences) }),
+  });
+}
+
 export interface RedactChannelMessageRequest {
   /**
    * <p>The ARN of the channel containing the messages that you want to redact.</p>
@@ -2757,6 +2975,44 @@ export namespace RedactChannelMessageResponse {
   });
 }
 
+export enum PushNotificationType {
+  DEFAULT = "DEFAULT",
+  VOIP = "VOIP",
+}
+
+/**
+ * <p>The push notification configuration of the message.</p>
+ */
+export interface PushNotificationConfiguration {
+  /**
+   * <p>The title of the push notification.</p>
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The body of the push notification.</p>
+   */
+  Body: string | undefined;
+
+  /**
+   * <p>Enum value that indicates the type of the push notification for a message.
+   *          <code>DEFAULT</code>: Normal mobile push notification.
+   *          <code>VOIP</code>: VOIP mobile push notification.</p>
+   */
+  Type: PushNotificationType | string | undefined;
+}
+
+export namespace PushNotificationConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PushNotificationConfiguration): any => ({
+    ...obj,
+    ...(obj.Title && { Title: SENSITIVE_STRING }),
+    ...(obj.Body && { Body: SENSITIVE_STRING }),
+  });
+}
+
 export interface SendChannelMessageRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -2792,6 +3048,16 @@ export interface SendChannelMessageRequest {
    * <p>The <code>AppInstanceUserArn</code> of the user that makes the API call.</p>
    */
   ChimeBearer: string | undefined;
+
+  /**
+   * <p>The push notification configuration of the message.</p>
+   */
+  PushNotification?: PushNotificationConfiguration;
+
+  /**
+   * <p>The attributes for the message, used for message filtering along with a <code>FilterRule</code> defined in the <code>PushNotificationPreferences</code>.</p>
+   */
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
 }
 
 export namespace SendChannelMessageRequest {
@@ -2803,6 +3069,18 @@ export namespace SendChannelMessageRequest {
     ...(obj.Content && { Content: SENSITIVE_STRING }),
     ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
     ...(obj.ClientRequestToken && { ClientRequestToken: SENSITIVE_STRING }),
+    ...(obj.PushNotification && {
+      PushNotification: PushNotificationConfiguration.filterSensitiveLog(obj.PushNotification),
+    }),
+    ...(obj.MessageAttributes && {
+      MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value),
+        }),
+        {}
+      ),
+    }),
   });
 }
 

@@ -11,7 +11,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { UpdateActionRequest, UpdateActionResponse } from "../models/models_2";
+import { UpdateActionRequest, UpdateActionResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1UpdateActionCommand,
   serializeAws_json1_1UpdateActionCommand,

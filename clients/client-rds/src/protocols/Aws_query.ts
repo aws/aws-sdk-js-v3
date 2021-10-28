@@ -60,6 +60,10 @@ import {
   CreateCustomAvailabilityZoneCommandInput,
   CreateCustomAvailabilityZoneCommandOutput,
 } from "../commands/CreateCustomAvailabilityZoneCommand";
+import {
+  CreateCustomDBEngineVersionCommandInput,
+  CreateCustomDBEngineVersionCommandOutput,
+} from "../commands/CreateCustomDBEngineVersionCommand";
 import { CreateDBClusterCommandInput, CreateDBClusterCommandOutput } from "../commands/CreateDBClusterCommand";
 import {
   CreateDBClusterEndpointCommandInput,
@@ -109,6 +113,10 @@ import {
   DeleteCustomAvailabilityZoneCommandInput,
   DeleteCustomAvailabilityZoneCommandOutput,
 } from "../commands/DeleteCustomAvailabilityZoneCommand";
+import {
+  DeleteCustomDBEngineVersionCommandInput,
+  DeleteCustomDBEngineVersionCommandOutput,
+} from "../commands/DeleteCustomDBEngineVersionCommand";
 import { DeleteDBClusterCommandInput, DeleteDBClusterCommandOutput } from "../commands/DeleteDBClusterCommand";
 import {
   DeleteDBClusterEndpointCommandInput,
@@ -332,6 +340,10 @@ import {
   ModifyCurrentDBClusterCapacityCommandInput,
   ModifyCurrentDBClusterCapacityCommandOutput,
 } from "../commands/ModifyCurrentDBClusterCapacityCommand";
+import {
+  ModifyCustomDBEngineVersionCommandInput,
+  ModifyCustomDBEngineVersionCommandOutput,
+} from "../commands/ModifyCustomDBEngineVersionCommand";
 import { ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput } from "../commands/ModifyDBClusterCommand";
 import {
   ModifyDBClusterEndpointCommandInput,
@@ -502,6 +514,7 @@ import {
   CopyOptionGroupResult,
   CreateCustomAvailabilityZoneMessage,
   CreateCustomAvailabilityZoneResult,
+  CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
   CreateDBClusterParameterGroupMessage,
@@ -536,6 +549,9 @@ import {
   CustomAvailabilityZoneMessage,
   CustomAvailabilityZoneNotFoundFault,
   CustomAvailabilityZoneQuotaExceededFault,
+  CustomDBEngineVersionAlreadyExistsFault,
+  CustomDBEngineVersionNotFoundFault,
+  CustomDBEngineVersionQuotaExceededFault,
   DBCluster,
   DBClusterAlreadyExistsFault,
   DBClusterBacktrack,
@@ -594,7 +610,6 @@ import {
   DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
-  DBProxyTarget,
   DBProxyTargetGroup,
   DBProxyTargetGroupNotFoundFault,
   DBProxyTargetNotFoundFault,
@@ -616,6 +631,7 @@ import {
   DBSubnetQuotaExceededFault,
   DeleteCustomAvailabilityZoneMessage,
   DeleteCustomAvailabilityZoneResult,
+  DeleteCustomDBEngineVersionMessage,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
   DeleteDBClusterParameterGroupMessage,
@@ -669,7 +685,6 @@ import {
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse,
   DescribeDBProxyTargetsRequest,
-  DescribeDBProxyTargetsResponse,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -691,6 +706,7 @@ import {
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
+  InvalidCustomDBEngineVersionStateFault,
   InvalidDBClusterEndpointStateFault,
   InvalidDBClusterSnapshotStateFault,
   InvalidDBClusterStateFault,
@@ -743,7 +759,6 @@ import {
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
   Tag,
-  TargetHealth,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
@@ -761,6 +776,7 @@ import {
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
+  DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
   DBSecurityGroupMessage,
   DBSnapshotAttribute,
@@ -768,6 +784,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxyTargetsResponse,
   DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
@@ -825,6 +842,7 @@ import {
   ModifyCertificatesMessage,
   ModifyCertificatesResult,
   ModifyCurrentDBClusterCapacityMessage,
+  ModifyCustomDBEngineVersionMessage,
   ModifyDBClusterEndpointMessage,
   ModifyDBClusterMessage,
   ModifyDBClusterParameterGroupMessage,
@@ -927,6 +945,7 @@ import {
   StopDBInstanceResult,
   SubnetAlreadyInUse,
   TagListMessage,
+  TargetHealth,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1150,6 +1169,22 @@ export const serializeAws_queryCreateCustomAvailabilityZoneCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateCustomAvailabilityZoneMessage(input, context),
     Action: "CreateCustomAvailabilityZone",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateCustomDBEngineVersionCommand = async (
+  input: CreateCustomDBEngineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateCustomDBEngineVersionMessage(input, context),
+    Action: "CreateCustomDBEngineVersion",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1406,6 +1441,22 @@ export const serializeAws_queryDeleteCustomAvailabilityZoneCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteCustomAvailabilityZoneMessage(input, context),
     Action: "DeleteCustomAvailabilityZone",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteCustomDBEngineVersionCommand = async (
+  input: DeleteCustomDBEngineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteCustomDBEngineVersionMessage(input, context),
+    Action: "DeleteCustomDBEngineVersion",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2430,6 +2481,22 @@ export const serializeAws_queryModifyCurrentDBClusterCapacityCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryModifyCurrentDBClusterCapacityMessage(input, context),
     Action: "ModifyCurrentDBClusterCapacity",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyCustomDBEngineVersionCommand = async (
+  input: ModifyCustomDBEngineVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyCustomDBEngineVersionMessage(input, context),
+    Action: "ModifyCustomDBEngineVersion",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4164,6 +4231,76 @@ const deserializeAws_queryCreateCustomAvailabilityZoneCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryCreateCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateCustomDBEngineVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDBEngineVersion(data.CreateCustomDBEngineVersionResult, context);
+  const response: CreateCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateCustomDBEngineVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDBEngineVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CustomDBEngineVersionAlreadyExistsFault":
+    case "com.amazonaws.rds#CustomDBEngineVersionAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "CustomDBEngineVersionQuotaExceededFault":
+    case "com.amazonaws.rds#CustomDBEngineVersionQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
+      response = {
+        ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryCreateDBClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5727,6 +5864,68 @@ const deserializeAws_queryDeleteCustomAvailabilityZoneCommandError = async (
     case "com.amazonaws.rds#KMSKeyNotAccessibleFault":
       response = {
         ...(await deserializeAws_queryKMSKeyNotAccessibleFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteCustomDBEngineVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDBEngineVersion(data.DeleteCustomDBEngineVersionResult, context);
+  const response: DeleteCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteCustomDBEngineVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDBEngineVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CustomDBEngineVersionNotFoundFault":
+    case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCustomDBEngineVersionStateFault":
+    case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -9507,6 +9706,68 @@ const deserializeAws_queryModifyCurrentDBClusterCapacityCommandError = async (
     case "com.amazonaws.rds#InvalidDBClusterStateFault":
       response = {
         ...(await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryModifyCustomDBEngineVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyCustomDBEngineVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDBEngineVersion(data.ModifyCustomDBEngineVersionResult, context);
+  const response: ModifyCustomDBEngineVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyCustomDBEngineVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCustomDBEngineVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CustomDBEngineVersionNotFoundFault":
+    case "com.amazonaws.rds#CustomDBEngineVersionNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidCustomDBEngineVersionStateFault":
+    case "com.amazonaws.rds#InvalidCustomDBEngineVersionStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -13814,6 +14075,51 @@ const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFaultResponse = asy
   return contents;
 };
 
+const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CustomDBEngineVersionAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryCustomDBEngineVersionAlreadyExistsFault(body.Error, context);
+  const contents: CustomDBEngineVersionAlreadyExistsFault = {
+    name: "CustomDBEngineVersionAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryCustomDBEngineVersionNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CustomDBEngineVersionNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryCustomDBEngineVersionNotFoundFault(body.Error, context);
+  const contents: CustomDBEngineVersionNotFoundFault = {
+    name: "CustomDBEngineVersionNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryCustomDBEngineVersionQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CustomDBEngineVersionQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryCustomDBEngineVersionQuotaExceededFault(body.Error, context);
+  const contents: CustomDBEngineVersionQuotaExceededFault = {
+    name: "CustomDBEngineVersionQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryDBClusterAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -14737,6 +15043,21 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
   const deserialized: any = deserializeAws_queryInsufficientStorageClusterCapacityFault(body.Error, context);
   const contents: InsufficientStorageClusterCapacityFault = {
     name: "InsufficientStorageClusterCapacityFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidCustomDBEngineVersionStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidCustomDBEngineVersionStateFault(body.Error, context);
+  const contents: InvalidCustomDBEngineVersionStateFault = {
+    name: "InvalidCustomDBEngineVersionStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -15819,6 +16140,45 @@ const serializeAws_queryCreateCustomAvailabilityZoneMessage = (
   return entries;
 };
 
+const serializeAws_queryCreateCustomDBEngineVersionMessage = (
+  input: CreateCustomDBEngineVersionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Engine !== undefined && input.Engine !== null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (
+    input.DatabaseInstallationFilesS3BucketName !== undefined &&
+    input.DatabaseInstallationFilesS3BucketName !== null
+  ) {
+    entries["DatabaseInstallationFilesS3BucketName"] = input.DatabaseInstallationFilesS3BucketName;
+  }
+  if (input.DatabaseInstallationFilesS3Prefix !== undefined && input.DatabaseInstallationFilesS3Prefix !== null) {
+    entries["DatabaseInstallationFilesS3Prefix"] = input.DatabaseInstallationFilesS3Prefix;
+  }
+  if (input.KMSKeyId !== undefined && input.KMSKeyId !== null) {
+    entries["KMSKeyId"] = input.KMSKeyId;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.Manifest !== undefined && input.Manifest !== null) {
+    entries["Manifest"] = input.Manifest;
+  }
+  if (input.Tags !== undefined && input.Tags !== null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryCreateDBClusterEndpointMessage = (
   input: CreateDBClusterEndpointMessage,
   context: __SerdeContext
@@ -16192,6 +16552,9 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
     entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
   }
+  if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
+    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
   return entries;
 };
 
@@ -16311,6 +16674,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   }
   if (input.MaxAllocatedStorage !== undefined && input.MaxAllocatedStorage !== null) {
     entries["MaxAllocatedStorage"] = input.MaxAllocatedStorage;
+  }
+  if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
+    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
   }
   return entries;
 };
@@ -16609,6 +16975,20 @@ const serializeAws_queryDeleteCustomAvailabilityZoneMessage = (
   const entries: any = {};
   if (input.CustomAvailabilityZoneId !== undefined && input.CustomAvailabilityZoneId !== null) {
     entries["CustomAvailabilityZoneId"] = input.CustomAvailabilityZoneId;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteCustomDBEngineVersionMessage = (
+  input: DeleteCustomDBEngineVersionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Engine !== undefined && input.Engine !== null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
   }
   return entries;
 };
@@ -18095,6 +18475,26 @@ const serializeAws_queryModifyCurrentDBClusterCapacityMessage = (
   return entries;
 };
 
+const serializeAws_queryModifyCustomDBEngineVersionMessage = (
+  input: ModifyCustomDBEngineVersionMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Engine !== undefined && input.Engine !== null) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.Description !== undefined && input.Description !== null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.Status !== undefined && input.Status !== null) {
+    entries["Status"] = input.Status;
+  }
+  return entries;
+};
+
 const serializeAws_queryModifyDBClusterEndpointMessage = (
   input: ModifyDBClusterEndpointMessage,
   context: __SerdeContext
@@ -18416,6 +18816,12 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.AwsBackupRecoveryPointArn !== undefined && input.AwsBackupRecoveryPointArn !== null) {
     entries["AwsBackupRecoveryPointArn"] = input.AwsBackupRecoveryPointArn;
+  }
+  if (input.AutomationMode !== undefined && input.AutomationMode !== null) {
+    entries["AutomationMode"] = input.AutomationMode;
+  }
+  if (input.ResumeFullAutomationModeMinutes !== undefined && input.ResumeFullAutomationModeMinutes !== null) {
+    entries["ResumeFullAutomationModeMinutes"] = input.ResumeFullAutomationModeMinutes;
   }
   return entries;
 };
@@ -19474,6 +19880,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
     entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
   }
+  if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
+    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
+  }
   return entries;
 };
 
@@ -19759,6 +20168,9 @@ const serializeAws_queryRestoreDBInstanceToPointInTimeMessage = (
   }
   if (input.EnableCustomerOwnedIp !== undefined && input.EnableCustomerOwnedIp !== null) {
     entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
+  if (input.CustomIamInstanceProfile !== undefined && input.CustomIamInstanceProfile !== null) {
+    entries["CustomIamInstanceProfile"] = input.CustomIamInstanceProfile;
   }
   return entries;
 };
@@ -20791,6 +21203,45 @@ const deserializeAws_queryCustomAvailabilityZoneQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): CustomAvailabilityZoneQuotaExceededFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCustomDBEngineVersionAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): CustomDBEngineVersionAlreadyExistsFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCustomDBEngineVersionNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): CustomDBEngineVersionNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCustomDBEngineVersionQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): CustomDBEngineVersionQuotaExceededFault => {
   const contents: any = {
     message: undefined,
   };
@@ -21907,6 +22358,13 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     Status: undefined,
     SupportsParallelQuery: undefined,
     SupportsGlobalDatabases: undefined,
+    MajorEngineVersion: undefined,
+    DatabaseInstallationFilesS3BucketName: undefined,
+    DatabaseInstallationFilesS3Prefix: undefined,
+    DBEngineVersionArn: undefined,
+    KMSKeyId: undefined,
+    CreateTime: undefined,
+    TagList: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -22009,6 +22467,30 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   }
   if (output["SupportsGlobalDatabases"] !== undefined) {
     contents.SupportsGlobalDatabases = __parseBoolean(output["SupportsGlobalDatabases"]);
+  }
+  if (output["MajorEngineVersion"] !== undefined) {
+    contents.MajorEngineVersion = __expectString(output["MajorEngineVersion"]);
+  }
+  if (output["DatabaseInstallationFilesS3BucketName"] !== undefined) {
+    contents.DatabaseInstallationFilesS3BucketName = __expectString(output["DatabaseInstallationFilesS3BucketName"]);
+  }
+  if (output["DatabaseInstallationFilesS3Prefix"] !== undefined) {
+    contents.DatabaseInstallationFilesS3Prefix = __expectString(output["DatabaseInstallationFilesS3Prefix"]);
+  }
+  if (output["DBEngineVersionArn"] !== undefined) {
+    contents.DBEngineVersionArn = __expectString(output["DBEngineVersionArn"]);
+  }
+  if (output["KMSKeyId"] !== undefined) {
+    contents.KMSKeyId = __expectString(output["KMSKeyId"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  }
+  if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
   }
   return contents;
 };
@@ -22116,6 +22598,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     ActivityStreamKinesisStreamName: undefined,
     ActivityStreamMode: undefined,
     ActivityStreamEngineNativeAuditFieldsIncluded: undefined,
+    AutomationMode: undefined,
+    ResumeFullAutomationModeTime: undefined,
+    CustomIamInstanceProfile: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -22426,6 +22911,17 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     contents.ActivityStreamEngineNativeAuditFieldsIncluded = __parseBoolean(
       output["ActivityStreamEngineNativeAuditFieldsIncluded"]
     );
+  }
+  if (output["AutomationMode"] !== undefined) {
+    contents.AutomationMode = __expectString(output["AutomationMode"]);
+  }
+  if (output["ResumeFullAutomationModeTime"] !== undefined) {
+    contents.ResumeFullAutomationModeTime = __expectNonNull(
+      __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
+    );
+  }
+  if (output["CustomIamInstanceProfile"] !== undefined) {
+    contents.CustomIamInstanceProfile = __expectString(output["CustomIamInstanceProfile"]);
   }
   return contents;
 };
@@ -25191,6 +25687,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
   return contents;
 };
 
+const deserializeAws_queryInvalidCustomDBEngineVersionStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidCustomDBEngineVersionStateFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidDBClusterCapacityFault = (
   output: any,
   context: __SerdeContext
@@ -26650,6 +27159,8 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
     PendingCloudwatchLogsExports: undefined,
     ProcessorFeatures: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
+    AutomationMode: undefined,
+    ResumeFullAutomationModeTime: undefined,
   };
   if (output["DBInstanceClass"] !== undefined) {
     contents.DBInstanceClass = __expectString(output["DBInstanceClass"]);
@@ -26707,6 +27218,14 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
   }
   if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
     contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  }
+  if (output["AutomationMode"] !== undefined) {
+    contents.AutomationMode = __expectString(output["AutomationMode"]);
+  }
+  if (output["ResumeFullAutomationModeTime"] !== undefined) {
+    contents.ResumeFullAutomationModeTime = __expectNonNull(
+      __parseRfc3339DateTime(output["ResumeFullAutomationModeTime"])
+    );
   }
   return contents;
 };

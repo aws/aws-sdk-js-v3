@@ -3250,6 +3250,8 @@ export namespace AnnotationConsolidationConfig {
 export enum AppType {
   JupyterServer = "JupyterServer",
   KernelGateway = "KernelGateway",
+  RSessionGateway = "RSessionGateway",
+  RStudioServerPro = "RStudioServerPro",
   TensorBoard = "TensorBoard",
 }
 
@@ -3484,6 +3486,11 @@ export enum AppInstanceType {
 export enum AppNetworkAccessType {
   PublicInternetOnly = "PublicInternetOnly",
   VpcOnly = "VpcOnly",
+}
+
+export enum AppSecurityGroupManagement {
+  Customer = "Customer",
+  Service = "Service",
 }
 
 export enum AppSortKey {
@@ -4688,6 +4695,307 @@ export namespace AutoRollbackConfig {
 export enum AwsManagedHumanLoopRequestSource {
   REKOGNITION_DETECT_MODERATION_LABELS_IMAGE_V3 = "AWS/Rekognition/DetectModerationLabels/Image/V3",
   TEXTRACT_ANALYZE_DOCUMENT_FORMS_V1 = "AWS/Textract/AnalyzeDocument/Forms/V1",
+}
+
+export interface BatchDescribeModelPackageInput {
+  /**
+   * <p>The list of Amazon Resource Name (ARN) of the model package groups.</p>
+   */
+  ModelPackageArnList: string[] | undefined;
+}
+
+export namespace BatchDescribeModelPackageInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDescribeModelPackageInput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The error code and error description associated with the resource.</p>
+ */
+export interface BatchDescribeModelPackageError {
+  /**
+   * <p></p>
+   */
+  ErrorCode: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  ErrorResponse: string | undefined;
+}
+
+export namespace BatchDescribeModelPackageError {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDescribeModelPackageError): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the Docker container for the model package.</p>
+ */
+export interface ModelPackageContainerDefinition {
+  /**
+   * <p>The DNS host name for the Docker container.</p>
+   */
+  ContainerHostname?: string;
+
+  /**
+   * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
+   *         <p>If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker,
+   *             the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both
+   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
+   *                 SageMaker</a>.</p>
+   */
+  Image: string | undefined;
+
+  /**
+   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
+   *             training.</p>
+   */
+  ImageDigest?: string;
+
+  /**
+   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
+   *             This path must point to a single <code>gzip</code> compressed tar archive
+   *                 (<code>.tar.gz</code> suffix).</p>
+   *         <note>
+   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
+   *                 model package.</p>
+   *         </note>
+   */
+  ModelDataUrl?: string;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product ID of the model package.</p>
+   */
+  ProductId?: string;
+
+  /**
+   * <p>The environment variables to set in the Docker container. Each key and value in the
+   *             <code>Environment</code> string to string map can have length of up to 1024. We
+   *             support up to 16 entries in the map.</p>
+   */
+  Environment?: { [key: string]: string };
+}
+
+export namespace ModelPackageContainerDefinition {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ModelPackageContainerDefinition): any => ({
+    ...obj,
+  });
+}
+
+export enum ProductionVariantInstanceType {
+  ML_C4_2XLARGE = "ml.c4.2xlarge",
+  ML_C4_4XLARGE = "ml.c4.4xlarge",
+  ML_C4_8XLARGE = "ml.c4.8xlarge",
+  ML_C4_LARGE = "ml.c4.large",
+  ML_C4_XLARGE = "ml.c4.xlarge",
+  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
+  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
+  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
+  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
+  ML_C5D_LARGE = "ml.c5d.large",
+  ML_C5D_XLARGE = "ml.c5d.xlarge",
+  ML_C5_18XLARGE = "ml.c5.18xlarge",
+  ML_C5_2XLARGE = "ml.c5.2xlarge",
+  ML_C5_4XLARGE = "ml.c5.4xlarge",
+  ML_C5_9XLARGE = "ml.c5.9xlarge",
+  ML_C5_LARGE = "ml.c5.large",
+  ML_C5_XLARGE = "ml.c5.xlarge",
+  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
+  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
+  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
+  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
+  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
+  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
+  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
+  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
+  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
+  ML_INF1_XLARGE = "ml.inf1.xlarge",
+  ML_M4_10XLARGE = "ml.m4.10xlarge",
+  ML_M4_16XLARGE = "ml.m4.16xlarge",
+  ML_M4_2XLARGE = "ml.m4.2xlarge",
+  ML_M4_4XLARGE = "ml.m4.4xlarge",
+  ML_M4_XLARGE = "ml.m4.xlarge",
+  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
+  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
+  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
+  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
+  ML_M5D_LARGE = "ml.m5d.large",
+  ML_M5D_XLARGE = "ml.m5d.xlarge",
+  ML_M5_12XLARGE = "ml.m5.12xlarge",
+  ML_M5_24XLARGE = "ml.m5.24xlarge",
+  ML_M5_2XLARGE = "ml.m5.2xlarge",
+  ML_M5_4XLARGE = "ml.m5.4xlarge",
+  ML_M5_LARGE = "ml.m5.large",
+  ML_M5_XLARGE = "ml.m5.xlarge",
+  ML_P2_16XLARGE = "ml.p2.16xlarge",
+  ML_P2_8XLARGE = "ml.p2.8xlarge",
+  ML_P2_XLARGE = "ml.p2.xlarge",
+  ML_P3_16XLARGE = "ml.p3.16xlarge",
+  ML_P3_2XLARGE = "ml.p3.2xlarge",
+  ML_P3_8XLARGE = "ml.p3.8xlarge",
+  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
+  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
+  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
+  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
+  ML_R5D_LARGE = "ml.r5d.large",
+  ML_R5D_XLARGE = "ml.r5d.xlarge",
+  ML_R5_12XLARGE = "ml.r5.12xlarge",
+  ML_R5_24XLARGE = "ml.r5.24xlarge",
+  ML_R5_2XLARGE = "ml.r5.2xlarge",
+  ML_R5_4XLARGE = "ml.r5.4xlarge",
+  ML_R5_LARGE = "ml.r5.large",
+  ML_R5_XLARGE = "ml.r5.xlarge",
+  ML_T2_2XLARGE = "ml.t2.2xlarge",
+  ML_T2_LARGE = "ml.t2.large",
+  ML_T2_MEDIUM = "ml.t2.medium",
+  ML_T2_XLARGE = "ml.t2.xlarge",
+}
+
+/**
+ * <p>Defines how to perform inference generation after a training job is run.</p>
+ */
+export interface InferenceSpecification {
+  /**
+   * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
+   */
+  Containers: ModelPackageContainerDefinition[] | undefined;
+
+  /**
+   * <p>A list of the instance types on which a transformation job can be run or on which an
+   *             endpoint can be deployed.</p>
+   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *             models.</p>
+   */
+  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
+
+  /**
+   * <p>A list of the instance types that are used to generate inferences in real-time.</p>
+   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *             models.</p>
+   */
+  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
+
+  /**
+   * <p>The supported MIME types for the input data.</p>
+   */
+  SupportedContentTypes: string[] | undefined;
+
+  /**
+   * <p>The supported MIME types for the output data.</p>
+   */
+  SupportedResponseMIMETypes: string[] | undefined;
+}
+
+export namespace InferenceSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InferenceSpecification): any => ({
+    ...obj,
+  });
+}
+
+export enum ModelApprovalStatus {
+  APPROVED = "Approved",
+  PENDING_MANUAL_APPROVAL = "PendingManualApproval",
+  REJECTED = "Rejected",
+}
+
+export enum ModelPackageStatus {
+  COMPLETED = "Completed",
+  DELETING = "Deleting",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  PENDING = "Pending",
+}
+
+/**
+ * <p>Provides summary information about the model package.</p>
+ */
+export interface BatchDescribeModelPackageSummary {
+  /**
+   * <p>The group name for the model package</p>
+   */
+  ModelPackageGroupName: string | undefined;
+
+  /**
+   * <p>The version number of a versioned model.</p>
+   */
+  ModelPackageVersion?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package.</p>
+   */
+  ModelPackageArn: string | undefined;
+
+  /**
+   * <p>The description of the model package.</p>
+   */
+  ModelPackageDescription?: string;
+
+  /**
+   * <p>The creation time of the mortgage package summary.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Defines how to perform inference generation after a training job is run.</p>
+   */
+  InferenceSpecification: InferenceSpecification | undefined;
+
+  /**
+   * <p>The status of the mortgage package.</p>
+   */
+  ModelPackageStatus: ModelPackageStatus | string | undefined;
+
+  /**
+   * <p>The approval status of the model.</p>
+   */
+  ModelApprovalStatus?: ModelApprovalStatus | string;
+}
+
+export namespace BatchDescribeModelPackageSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDescribeModelPackageSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface BatchDescribeModelPackageOutput {
+  /**
+   * <p>The summaries for the model package versions</p>
+   */
+  ModelPackageSummaries?: { [key: string]: BatchDescribeModelPackageSummary };
+
+  /**
+   * <p>A map of the resource and BatchDescribeModelPackageError objects
+   *             reporting the error associated with describing the model package.</p>
+   */
+  BatchDescribeModelPackageErrorMap?: { [key: string]: BatchDescribeModelPackageError };
+}
+
+export namespace BatchDescribeModelPackageOutput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BatchDescribeModelPackageOutput): any => ({
+    ...obj,
+  });
 }
 
 /**
@@ -5919,177 +6227,6 @@ export namespace CreateActionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateActionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Docker container for the model package.</p>
- */
-export interface ModelPackageContainerDefinition {
-  /**
-   * <p>The DNS host name for the Docker container.</p>
-   */
-  ContainerHostname?: string;
-
-  /**
-   * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
-   *         <p>If you are using your own custom algorithm instead of an algorithm provided by Amazon SageMaker,
-   *             the inference code must meet Amazon SageMaker requirements. Amazon SageMaker supports both
-   *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
-   *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
-   *                 SageMaker</a>.</p>
-   */
-  Image: string | undefined;
-
-  /**
-   * <p>An MD5 hash of the training algorithm that identifies the Docker image used for
-   *             training.</p>
-   */
-  ImageDigest?: string;
-
-  /**
-   * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
-   *             This path must point to a single <code>gzip</code> compressed tar archive
-   *                 (<code>.tar.gz</code> suffix).</p>
-   *         <note>
-   *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
-   *                 model package.</p>
-   *         </note>
-   */
-  ModelDataUrl?: string;
-
-  /**
-   * <p>The Amazon Web Services Marketplace product ID of the model package.</p>
-   */
-  ProductId?: string;
-
-  /**
-   * <p>The environment variables to set in the Docker container. Each key and value in the
-   *             <code>Environment</code> string to string map can have length of up to 1024. We
-   *             support up to 16 entries in the map.</p>
-   */
-  Environment?: { [key: string]: string };
-}
-
-export namespace ModelPackageContainerDefinition {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelPackageContainerDefinition): any => ({
-    ...obj,
-  });
-}
-
-export enum ProductionVariantInstanceType {
-  ML_C4_2XLARGE = "ml.c4.2xlarge",
-  ML_C4_4XLARGE = "ml.c4.4xlarge",
-  ML_C4_8XLARGE = "ml.c4.8xlarge",
-  ML_C4_LARGE = "ml.c4.large",
-  ML_C4_XLARGE = "ml.c4.xlarge",
-  ML_C5D_18XLARGE = "ml.c5d.18xlarge",
-  ML_C5D_2XLARGE = "ml.c5d.2xlarge",
-  ML_C5D_4XLARGE = "ml.c5d.4xlarge",
-  ML_C5D_9XLARGE = "ml.c5d.9xlarge",
-  ML_C5D_LARGE = "ml.c5d.large",
-  ML_C5D_XLARGE = "ml.c5d.xlarge",
-  ML_C5_18XLARGE = "ml.c5.18xlarge",
-  ML_C5_2XLARGE = "ml.c5.2xlarge",
-  ML_C5_4XLARGE = "ml.c5.4xlarge",
-  ML_C5_9XLARGE = "ml.c5.9xlarge",
-  ML_C5_LARGE = "ml.c5.large",
-  ML_C5_XLARGE = "ml.c5.xlarge",
-  ML_G4DN_12XLARGE = "ml.g4dn.12xlarge",
-  ML_G4DN_16XLARGE = "ml.g4dn.16xlarge",
-  ML_G4DN_2XLARGE = "ml.g4dn.2xlarge",
-  ML_G4DN_4XLARGE = "ml.g4dn.4xlarge",
-  ML_G4DN_8XLARGE = "ml.g4dn.8xlarge",
-  ML_G4DN_XLARGE = "ml.g4dn.xlarge",
-  ML_INF1_24XLARGE = "ml.inf1.24xlarge",
-  ML_INF1_2XLARGE = "ml.inf1.2xlarge",
-  ML_INF1_6XLARGE = "ml.inf1.6xlarge",
-  ML_INF1_XLARGE = "ml.inf1.xlarge",
-  ML_M4_10XLARGE = "ml.m4.10xlarge",
-  ML_M4_16XLARGE = "ml.m4.16xlarge",
-  ML_M4_2XLARGE = "ml.m4.2xlarge",
-  ML_M4_4XLARGE = "ml.m4.4xlarge",
-  ML_M4_XLARGE = "ml.m4.xlarge",
-  ML_M5D_12XLARGE = "ml.m5d.12xlarge",
-  ML_M5D_24XLARGE = "ml.m5d.24xlarge",
-  ML_M5D_2XLARGE = "ml.m5d.2xlarge",
-  ML_M5D_4XLARGE = "ml.m5d.4xlarge",
-  ML_M5D_LARGE = "ml.m5d.large",
-  ML_M5D_XLARGE = "ml.m5d.xlarge",
-  ML_M5_12XLARGE = "ml.m5.12xlarge",
-  ML_M5_24XLARGE = "ml.m5.24xlarge",
-  ML_M5_2XLARGE = "ml.m5.2xlarge",
-  ML_M5_4XLARGE = "ml.m5.4xlarge",
-  ML_M5_LARGE = "ml.m5.large",
-  ML_M5_XLARGE = "ml.m5.xlarge",
-  ML_P2_16XLARGE = "ml.p2.16xlarge",
-  ML_P2_8XLARGE = "ml.p2.8xlarge",
-  ML_P2_XLARGE = "ml.p2.xlarge",
-  ML_P3_16XLARGE = "ml.p3.16xlarge",
-  ML_P3_2XLARGE = "ml.p3.2xlarge",
-  ML_P3_8XLARGE = "ml.p3.8xlarge",
-  ML_R5D_12XLARGE = "ml.r5d.12xlarge",
-  ML_R5D_24XLARGE = "ml.r5d.24xlarge",
-  ML_R5D_2XLARGE = "ml.r5d.2xlarge",
-  ML_R5D_4XLARGE = "ml.r5d.4xlarge",
-  ML_R5D_LARGE = "ml.r5d.large",
-  ML_R5D_XLARGE = "ml.r5d.xlarge",
-  ML_R5_12XLARGE = "ml.r5.12xlarge",
-  ML_R5_24XLARGE = "ml.r5.24xlarge",
-  ML_R5_2XLARGE = "ml.r5.2xlarge",
-  ML_R5_4XLARGE = "ml.r5.4xlarge",
-  ML_R5_LARGE = "ml.r5.large",
-  ML_R5_XLARGE = "ml.r5.xlarge",
-  ML_T2_2XLARGE = "ml.t2.2xlarge",
-  ML_T2_LARGE = "ml.t2.large",
-  ML_T2_MEDIUM = "ml.t2.medium",
-  ML_T2_XLARGE = "ml.t2.xlarge",
-}
-
-/**
- * <p>Defines how to perform inference generation after a training job is run.</p>
- */
-export interface InferenceSpecification {
-  /**
-   * <p>The Amazon ECR registry path of the Docker image that contains the inference code.</p>
-   */
-  Containers: ModelPackageContainerDefinition[] | undefined;
-
-  /**
-   * <p>A list of the instance types on which a transformation job can be run or on which an
-   *             endpoint can be deployed.</p>
-   *         <p>This parameter is required for unversioned models, and optional for versioned
-   *             models.</p>
-   */
-  SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
-
-  /**
-   * <p>A list of the instance types that are used to generate inferences in real-time.</p>
-   *         <p>This parameter is required for unversioned models, and optional for versioned
-   *             models.</p>
-   */
-  SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
-
-  /**
-   * <p>The supported MIME types for the input data.</p>
-   */
-  SupportedContentTypes: string[] | undefined;
-
-  /**
-   * <p>The supported MIME types for the output data.</p>
-   */
-  SupportedResponseMIMETypes: string[] | undefined;
-}
-
-export namespace InferenceSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceSpecification): any => ({
     ...obj,
   });
 }
@@ -8496,6 +8633,54 @@ export namespace KernelGatewayAppSettings {
   });
 }
 
+/**
+ * <p>A collection of settings that apply to an <code>RSessionGateway</code> app.</p>
+ */
+export interface RSessionAppSettings {}
+
+export namespace RSessionAppSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RSessionAppSettings): any => ({
+    ...obj,
+  });
+}
+
+export enum RStudioServerProAccessStatus {
+  Disabled = "DISABLED",
+  Enabled = "ENABLED",
+}
+
+export enum RStudioServerProUserGroup {
+  Admin = "R_STUDIO_ADMIN",
+  User = "R_STUDIO_USER",
+}
+
+/**
+ * <p>A collection of settings that configure user interaction with the <code>RStudioServerPro</code> app. <code>RStudioServerProAppSettings</code> cannot be updated. The <code>RStudioServerPro</code> app must be deleted and a new one created to make any changes.</p>
+ */
+export interface RStudioServerProAppSettings {
+  /**
+   * <p>Indicates whether the current user has access to the <code>RStudioServerPro</code> app.</p>
+   */
+  AccessStatus?: RStudioServerProAccessStatus | string;
+
+  /**
+   * <p>The level of permissions that the user has within the <code>RStudioServerPro</code> app. This value defaults to `User`. The `Admin` value allows the user access to the RStudio Administrative Dashboard.</p>
+   */
+  UserGroup?: RStudioServerProUserGroup | string;
+}
+
+export namespace RStudioServerProAppSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RStudioServerProAppSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum NotebookOutputOption {
   Allowed = "Allowed",
   Disabled = "Disabled",
@@ -8601,6 +8786,16 @@ export interface UserSettings {
    * <p>The TensorBoard app settings.</p>
    */
   TensorBoardAppSettings?: TensorBoardAppSettings;
+
+  /**
+   * <p>A collection of settings that configure user interaction with the <code>RStudioServerPro</code> app.</p>
+   */
+  RStudioServerProAppSettings?: RStudioServerProAppSettings;
+
+  /**
+   * <p>A collection of settings that configure the <code>RSessionGateway</code> app.</p>
+   */
+  RSessionAppSettings?: RSessionAppSettings;
 }
 
 export namespace UserSettings {
@@ -8608,6 +8803,65 @@ export namespace UserSettings {
    * @internal
    */
   export const filterSensitiveLog = (obj: UserSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
+ */
+export interface RStudioServerProDomainSettings {
+  /**
+   * <p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level app.</p>
+   */
+  DomainExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>A URL pointing to an RStudio Connect server.</p>
+   */
+  RStudioConnectUrl?: string;
+
+  /**
+   * <p>A URL pointing to an RStudio Package Manager server.</p>
+   */
+  RStudioPackageManagerUrl?: string;
+
+  /**
+   * <p>Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that
+   *      the version runs on.</p>
+   */
+  DefaultResourceSpec?: ResourceSpec;
+}
+
+export namespace RStudioServerProDomainSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RStudioServerProDomainSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A collection of settings that apply to the <code>SageMaker Domain</code>. These settings are specified through the <code>CreateDomain</code> API call.</p>
+ */
+export interface DomainSettings {
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for communication between Domain-level apps and user apps.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A collection of settings that configure the <code>RStudioServerPro</code> Domain-level app.</p>
+   */
+  RStudioServerProDomainSettings?: RStudioServerProDomainSettings;
+}
+
+export namespace DomainSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DomainSettings): any => ({
     ...obj,
   });
 }
@@ -8681,6 +8935,20 @@ export interface CreateDomainRequest {
    *          key by default. For more control, specify a customer managed key.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The entity that creates and manages the required security groups for inter-app
+   *             communication in <code>VPCOnly</code> mode. Required when
+   *             <code>CreateDomain.AppNetworkAccessType</code> is <code>VPCOnly</code> and
+   *             <code>DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn</code> is
+   *             provided.</p>
+   */
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | string;
+
+  /**
+   * <p>A collection of <code>Domain</code> settings.</p>
+   */
+  DomainSettings?: DomainSettings;
 }
 
 export namespace CreateDomainRequest {
@@ -13137,597 +13405,6 @@ export namespace LabelingJobInputConfig {
    * @internal
    */
   export const filterSensitiveLog = (obj: LabelingJobInputConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Configure encryption on the storage volume attached to the ML compute instance used to
- *             run automated data labeling model training and inference. </p>
- */
-export interface LabelingJobResourceConfig {
-  /**
-   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
-   *             attached to the ML compute instance(s) that run the training and inference jobs used for
-   *             automated data labeling. </p>
-   *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
-   *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
-   *             You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for
-   *             automated data labeling model training and inference when you create a labeling job
-   *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
-   *                 Encryption</a>.</p>
-   *         <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  VolumeKmsKeyId?: string;
-}
-
-export namespace LabelingJobResourceConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobResourceConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Provides configuration information for auto-labeling of your data objects. A
- *                 <code>LabelingJobAlgorithmsConfig</code> object must be supplied in order to use
- *             auto-labeling.</p>
- */
-export interface LabelingJobAlgorithmsConfig {
-  /**
-   * <p>Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You
-   *             must select one of the following ARNs:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                     <i>Image classification</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/image-classification</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <i>Text classification</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/text-classification</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <i>Object detection</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/object-detection</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     <i>Semantic Segmentation</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/semantic-segmentation</code>
-   *                 </p>
-   *             </li>
-   *          </ul>
-   */
-  LabelingJobAlgorithmSpecificationArn: string | undefined;
-
-  /**
-   * <p>At the end of an auto-label job Ground Truth sends the Amazon Resource Name (ARN) of the final
-   *             model used for auto-labeling. You can use this model as the starting point for
-   *             subsequent similar jobs by providing the ARN of the model here. </p>
-   */
-  InitialActiveLearningModelArn?: string;
-
-  /**
-   * <p>Provides configuration information for a labeling job.</p>
-   */
-  LabelingJobResourceConfig?: LabelingJobResourceConfig;
-}
-
-export namespace LabelingJobAlgorithmsConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobAlgorithmsConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Output configuration information for a labeling job.</p>
- */
-export interface LabelingJobOutputConfig {
-  /**
-   * <p>The Amazon S3 location to write output data.</p>
-   */
-  S3OutputPath: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Key Management Service ID of the key used to encrypt the output data, if any.</p>
-   *         <p>If you provide your own KMS key ID, you must add the required permissions to your KMS
-   *             key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt Output Data and Storage Volume with Amazon Web Services KMS</a>.</p>
-   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services KMS key for Amazon S3 for your
-   *             role's account to encrypt your output data.</p>
-   *         <p>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
-   *             allows objects with server-side encryption, set the condition key of
-   *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
-   *                 Guide.</i>
-   *          </p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>An Amazon Simple Notification Service (Amazon SNS) output topic ARN. Provide a <code>SnsTopicArn</code> if you want to
-   *             do real time chaining to another streaming job and receive an Amazon SNS notifications each
-   *             time a data object is submitted by a worker.</p>
-   *          <p>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
-   *             complete labeling tasks, Ground Truth will send labeling task output data to the SNS output
-   *             topic you specify here. </p>
-   *         <p>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive Output Data from a Streaming Labeling
-   *                 Job</a>. </p>
-   */
-  SnsTopicArn?: string;
-}
-
-export namespace LabelingJobOutputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobOutputConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the
- *             job is automatically stopped. You can use these conditions to control the cost of data
- *             labeling.</p>
- *         <note>
- *             <p>Labeling jobs fail after 30 days with an appropriate client error message.</p>
- *         </note>
- */
-export interface LabelingJobStoppingConditions {
-  /**
-   * <p>The maximum number of objects that can be labeled by human workers.</p>
-   */
-  MaxHumanLabeledObjectCount?: number;
-
-  /**
-   * <p>The maximum number of input data objects that should be labeled.</p>
-   */
-  MaxPercentageOfInputDatasetLabeled?: number;
-}
-
-export namespace LabelingJobStoppingConditions {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobStoppingConditions): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateLabelingJobRequest {
-  /**
-   * <p>The name of the labeling job. This name is used to identify the job in a list of
-   *             labeling jobs. Labeling job names must be unique within an Amazon Web Services account and region.
-   *                 <code>LabelingJobName</code> is not case sensitive. For example, Example-job and
-   *             example-job are considered the same labeling job name by Ground Truth.</p>
-   */
-  LabelingJobName: string | undefined;
-
-  /**
-   * <p>The attribute name to use for the label in the output manifest file. This is the key
-   *             for the key/value pair formed with the label that a worker assigns to the object. The
-   *                 <code>LabelAttributeName</code> must meet the following requirements.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>The name can't end with "-metadata". </p>
-   *             </li>
-   *             <li>
-   *                 <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>,
-   *                     the attribute name <i>must</i> end with "-ref". If the task type
-   *                     you are using is not listed below, the attribute name <i>must
-   *                         not</i> end with "-ref".</p>
-   *                 <ul>
-   *                   <li>
-   *                         <p>Image semantic segmentation (<code>SemanticSegmentation)</code>, and
-   *                             adjustment (<code>AdjustmentSemanticSegmentation</code>) and
-   *                             verification (<code>VerificationSemanticSegmentation</code>) labeling
-   *                             jobs for this task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>Video frame object detection (<code>VideoObjectDetection</code>), and
-   *                             adjustment and verification
-   *                             (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this
-   *                             task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>Video frame object tracking (<code>VideoObjectTracking</code>), and
-   *                             adjustment and verification (<code>AdjustmentVideoObjectTracking</code>)
-   *                             labeling jobs for this task type.</p>
-   *                     </li>
-   *                   <li>
-   *                         <p>3D point cloud semantic segmentation
-   *                                 (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and
-   *                             verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>)
-   *                             labeling jobs for this task type. </p>
-   *                     </li>
-   *                   <li>
-   *                         <p>3D point cloud object tracking
-   *                                 (<code>3DPointCloudObjectTracking</code>), and adjustment and
-   *                             verification (<code>Adjustment3DPointCloudObjectTracking</code>)
-   *                             labeling jobs for this task type. </p>
-   *                     </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
-   *         <p></p>
-   *         <important>
-   *             <p>If you are creating an adjustment or verification labeling job, you must use a
-   *                     <i>different</i>
-   *                 <code>LabelAttributeName</code> than the one used in the original labeling job. The
-   *                 original labeling job is the Ground Truth labeling job that produced the labels that you
-   *                 want verified or adjusted. To learn more about adjustment and verification labeling
-   *                 jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust
-   *                     Labels</a>.</p>
-   *         </important>
-   */
-  LabelAttributeName: string | undefined;
-
-  /**
-   * <p>Input data for the labeling job, such as the Amazon S3 location of the data objects and the
-   *             location of the manifest file that describes the data objects.</p>
-   *         <p>You must specify at least one of the following: <code>S3DataSource</code> or
-   *                 <code>SnsDataSource</code>. </p>
-   *         <ul>
-   *             <li>
-   *                 <p>Use <code>SnsDataSource</code> to specify an SNS input topic for a streaming
-   *                     labeling job. If you do not specify and SNS input topic ARN, Ground Truth will
-   *                     create a one-time labeling job that stops after all data objects in the input
-   *                     manifest file have been labeled.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Use <code>S3DataSource</code> to specify an input manifest file for both
-   *                     streaming and one-time labeling jobs. Adding an <code>S3DataSource</code> is
-   *                     optional if you use <code>SnsDataSource</code> to create a streaming labeling
-   *                     job.</p>
-   *             </li>
-   *          </ul>
-   *         <p>If you use the Amazon Mechanical Turk workforce, your input data should not include
-   *             confidential information, personal information or protected health information. Use
-   *                 <code>ContentClassifiers</code> to specify that your data is free of personally
-   *             identifiable information and adult content.</p>
-   */
-  InputConfig: LabelingJobInputConfig | undefined;
-
-  /**
-   * <p>The location of the output data and the Amazon Web Services Key Management Service key ID for the key used to encrypt
-   *             the output data, if any.</p>
-   */
-  OutputConfig: LabelingJobOutputConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) that Amazon SageMaker assumes to perform tasks on your behalf
-   *             during data labeling. You must grant this role the necessary permissions so that Amazon SageMaker
-   *             can successfully complete data labeling.</p>
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The S3 URI of the file, referred to as a <i>label category configuration
-   *                 file</i>, that defines the categories used to label the data objects.</p>
-   *         <p>For 3D point cloud and video frame task types, you can add label category attributes
-   *             and frame attributes to your label category configuration file. To learn how, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create a
-   *                 Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </p>
-   *         <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
-   *             provide worker instructions in the label category configuration file using the
-   *                 <code>"instructions"</code> parameter: <code>"instructions":
-   *                 {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>",
-   *                 "fullInstruction":"<p>Add additional instructions.</p>"}</code>. For details
-   *             and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create a
-   *                 Named Entity Recognition Labeling Job (API) </a>.</p>
-   *         <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
-   *                 tasks</a>, your label category configuration file must be a JSON file in the
-   *             following format. Identify the labels you want to use by replacing <code>label_1</code>,
-   *                 <code>label_2</code>,<code>...</code>,<code>label_n</code> with your label
-   *             categories.</p>
-   *         <p>
-   *             <code>{ </code>
-   *          </p>
-   *         <p>
-   *             <code>"document-version": "2018-11-28",</code>
-   *          </p>
-   *         <p>
-   *             <code>"labels": [{"label": "label_1"},{"label": "label_2"},...{"label":
-   *                 "label_n"}]</code>
-   *          </p>
-   *         <p>
-   *             <code>}</code>
-   *          </p>
-   *         <p>Note the following about the label category configuration file:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>For image classification and text classification (single and multi-label) you
-   *                     must specify at least two label categories. For all other task types, the
-   *                     minimum number of label categories required is one. </p>
-   *             </li>
-   *             <li>
-   *                 <p>Each label category must be unique, you cannot specify duplicate label
-   *                     categories.</p>
-   *             </li>
-   *             <li>
-   *                 <p>If you create a 3D point cloud or video frame adjustment or verification
-   *                     labeling job, you must include <code>auditLabelAttributeName</code> in the label
-   *                     category configuration. Use this parameter to enter the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName">
-   *                      <code>LabelAttributeName</code>
-   *                   </a> of the labeling job you want to
-   *                     adjust or verify annotations of.</p>
-   *             </li>
-   *          </ul>
-   */
-  LabelCategoryConfigS3Uri?: string;
-
-  /**
-   * <p>A set of conditions for stopping the labeling job. If any of the conditions are met,
-   *             the job is automatically stopped. You can use these conditions to control the cost of
-   *             data labeling.</p>
-   */
-  StoppingConditions?: LabelingJobStoppingConditions;
-
-  /**
-   * <p>Configures the information required to perform automated data labeling.</p>
-   */
-  LabelingJobAlgorithmsConfig?: LabelingJobAlgorithmsConfig;
-
-  /**
-   * <p>Configures the labeling task and how it is presented to workers; including, but not limited to price, keywords, and batch size (task count).</p>
-   */
-  HumanTaskConfig: HumanTaskConfig | undefined;
-
-  /**
-   * <p>An array of key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
-   *                 User Guide</i>.</p>
-   */
-  Tags?: Tag[];
-}
-
-export namespace CreateLabelingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelingJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateLabelingJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the labeling job. You use this ARN to identify the
-   *             labeling job.</p>
-   */
-  LabelingJobArn: string | undefined;
-}
-
-export namespace CreateLabelingJobResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateLabelingJobResponse): any => ({
-    ...obj,
-  });
-}
-
-export enum InferenceExecutionMode {
-  DIRECT = "Direct",
-  SERIAL = "Serial",
-}
-
-/**
- * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
- */
-export interface InferenceExecutionConfig {
-  /**
-   * <p>How containers in a multi-container are run. The following values are valid.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>SERIAL</code> - Containers run as a serial pipeline.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>DIRECT</code> - Only the individual container that you specify is
-   *                     run.</p>
-   *             </li>
-   *          </ul>
-   */
-  Mode: InferenceExecutionMode | string | undefined;
-}
-
-export namespace InferenceExecutionConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InferenceExecutionConfig): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelInput {
-  /**
-   * <p>The name of the new model.</p>
-   */
-  ModelName: string | undefined;
-
-  /**
-   * <p>The location of the primary docker image containing inference code, associated
-   *             artifacts, and custom environment map that the inference code uses when the model is
-   *             deployed for predictions. </p>
-   */
-  PrimaryContainer?: ContainerDefinition;
-
-  /**
-   * <p>Specifies the containers in the inference pipeline.</p>
-   */
-  Containers?: ContainerDefinition[];
-
-  /**
-   * <p>Specifies details of how containers in a multi-container endpoint are called.</p>
-   */
-  InferenceExecutionConfig?: InferenceExecutionConfig;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to access model
-   *             artifacts and docker image for deployment on ML compute instances or for batch transform
-   *             jobs. Deploying on ML compute instances is part of model hosting. For more information,
-   *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
-   *                 Roles</a>. </p>
-   *         <note>
-   *             <p>To be able to pass this role to Amazon SageMaker, the caller of this API must have the
-   *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
-   */
-  ExecutionRoleArn: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
-   *             different ways, for example, by purpose, owner, or environment. For more information,
-   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
-   *                 Resources</a>.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A <a>VpcConfig</a> object that specifies the VPC that you want your model
-   *             to connect to. Control access to and from your model container by configuring the VPC.
-   *                 <code>VpcConfig</code> is used in hosting services and in batch transform. For more
-   *             information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html">Protect Endpoints by Using an Amazon Virtual Private Cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-vpc.html">Protect Data in Batch
-   *                 Transform Jobs by Using an Amazon Virtual Private Cloud</a>.</p>
-   */
-  VpcConfig?: VpcConfig;
-
-  /**
-   * <p>Isolates the model container. No inbound or outbound network calls can be made to or
-   *             from the model container.</p>
-   */
-  EnableNetworkIsolation?: boolean;
-}
-
-export namespace CreateModelInput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelInput): any => ({
-    ...obj,
-  });
-}
-
-export interface CreateModelOutput {
-  /**
-   * <p>The ARN of the model created in Amazon SageMaker.</p>
-   */
-  ModelArn: string | undefined;
-}
-
-export namespace CreateModelOutput {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: CreateModelOutput): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Docker container image configuration object for the model bias job.</p>
- */
-export interface ModelBiasAppSpecification {
-  /**
-   * <p>The container image to be run by the model bias job.</p>
-   */
-  ImageUri: string | undefined;
-
-  /**
-   * <p>JSON formatted S3 file that defines bias parameters. For more information on this JSON
-   *          configuration file, see <a href="https://docs.aws.amazon.com/sagemaker/latest/json-bias-parameter-config.html">Configure bias
-   *          parameters</a>.</p>
-   */
-  ConfigUri: string | undefined;
-
-  /**
-   * <p>Sets the environment variables in the Docker container.</p>
-   */
-  Environment?: { [key: string]: string };
-}
-
-export namespace ModelBiasAppSpecification {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelBiasAppSpecification): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The configuration for a baseline model bias job.</p>
- */
-export interface ModelBiasBaselineConfig {
-  /**
-   * <p>The name of the baseline model bias job.</p>
-   */
-  BaseliningJobName?: string;
-
-  /**
-   * <p>The constraints resource for a monitoring job.</p>
-   */
-  ConstraintsResource?: MonitoringConstraintsResource;
-}
-
-export namespace ModelBiasBaselineConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ModelBiasBaselineConfig): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The ground truth labels for the dataset used for the monitoring job.</p>
- */
-export interface MonitoringGroundTruthS3Input {
-  /**
-   * <p>The address of the Amazon S3 location of the ground truth labels.</p>
-   */
-  S3Uri?: string;
-}
-
-export namespace MonitoringGroundTruthS3Input {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: MonitoringGroundTruthS3Input): any => ({
     ...obj,
   });
 }

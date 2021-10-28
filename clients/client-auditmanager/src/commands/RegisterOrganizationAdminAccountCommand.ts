@@ -24,9 +24,8 @@ export interface RegisterOrganizationAdminAccountCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *    Enables an Amazon Web Services account within the organization as the delegated administrator for Audit Manager.
- * </p>
+ * <p> Enables an Amazon Web Services account within the organization as the delegated
+ *          administrator for Audit Manager. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

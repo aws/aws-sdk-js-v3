@@ -36,7 +36,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *
  *         <note>
  *             <p>
- *             This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+ *             This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  *             For Aurora clusters, use <code>StopDBCluster</code> instead.
  *           </p>
  *         </note>

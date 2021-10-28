@@ -1194,6 +1194,10 @@ import {
   GetHostReservationPurchasePreviewCommandOutput,
 } from "../commands/GetHostReservationPurchasePreviewCommand";
 import {
+  GetInstanceTypesFromInstanceRequirementsCommandInput,
+  GetInstanceTypesFromInstanceRequirementsCommandOutput,
+} from "../commands/GetInstanceTypesFromInstanceRequirementsCommand";
+import {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
 } from "../commands/GetLaunchTemplateDataCommand";
@@ -1214,6 +1218,10 @@ import {
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "../commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSpotPlacementScoresCommandInput,
+  GetSpotPlacementScoresCommandOutput,
+} from "../commands/GetSpotPlacementScoresCommand";
 import {
   GetSubnetCidrReservationsCommandInput,
   GetSubnetCidrReservationsCommandOutput,
@@ -1607,6 +1615,13 @@ import {
 import { WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput } from "../commands/WithdrawByoipCidrCommand";
 import {
   _InstanceType,
+  AcceleratorCount,
+  AcceleratorCountRequest,
+  AcceleratorManufacturer,
+  AcceleratorName,
+  AcceleratorTotalMemoryMiB,
+  AcceleratorTotalMemoryMiBRequest,
+  AcceleratorType,
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult,
   AcceptTransitGatewayMulticastDomainAssociationsRequest,
@@ -1680,7 +1695,8 @@ import {
   AuthorizeSecurityGroupEgressResult,
   AuthorizeSecurityGroupIngressRequest,
   AuthorizeSecurityGroupIngressResult,
-  BlockDeviceMapping,
+  BaselineEbsBandwidthMbps,
+  BaselineEbsBandwidthMbpsRequest,
   BundleInstanceRequest,
   BundleInstanceResult,
   BundleTask,
@@ -1727,6 +1743,7 @@ import {
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
+  CpuManufacturer,
   CreateCapacityReservationFleetRequest,
   CreateCapacityReservationFleetResult,
   CreateCapacityReservationRequest,
@@ -1747,28 +1764,16 @@ import {
   CreateDhcpOptionsResult,
   CreateEgressOnlyInternetGatewayRequest,
   CreateEgressOnlyInternetGatewayResult,
-  CreateFleetError,
-  CreateFleetInstance,
   CreateFleetRequest,
-  CreateFleetResult,
-  CreateFlowLogsRequest,
-  CreateFlowLogsResult,
-  CreateFpgaImageRequest,
-  CreateFpgaImageResult,
-  CreateImageRequest,
-  CreateImageResult,
   CustomerGateway,
-  DestinationOptionsRequest,
   DhcpConfiguration,
   DhcpOptions,
   DirectoryServiceAuthenticationRequest,
-  EbsBlockDevice,
   EgressOnlyInternetGateway,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
   FleetCapacityReservation,
   FleetLaunchTemplateConfigRequest,
-  FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
   FleetLaunchTemplateSpecification,
   FleetLaunchTemplateSpecificationRequest,
@@ -1782,19 +1787,24 @@ import {
   InstanceEventWindowAssociationRequest,
   InstanceEventWindowAssociationTarget,
   InstanceEventWindowTimeRange,
+  InstanceGeneration,
+  InstanceRequirementsRequest,
   InternetGatewayAttachment,
   IpPermission,
   IpRange,
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
-  LaunchTemplateAndOverridesResponse,
+  LocalStorageType,
+  MemoryGiBPerVCpu,
+  MemoryGiBPerVCpuRequest,
+  MemoryMiBRequest,
+  NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
   PeeringAttachmentStatus,
   PeeringTgwInfo,
   Placement,
-  PlacementResponse,
   PrefixListId,
   PriceSchedule,
   PtrUpdateStatus,
@@ -1806,7 +1816,6 @@ import {
   SecurityGroupRule,
   SpotOptionsRequest,
   Storage,
-  StorageLocation,
   Subnet,
   SubnetAssociation,
   SubnetCidrBlockState,
@@ -1815,6 +1824,7 @@ import {
   TagSpecification,
   TargetCapacitySpecificationRequest,
   TargetConfigurationRequest,
+  TotalLocalStorageGBRequest,
   TransitGatewayAssociation,
   TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
@@ -1824,6 +1834,7 @@ import {
   UnsuccessfulItem,
   UnsuccessfulItemError,
   UserIdGroupPair,
+  VCpuCountRangeRequest,
   VolumeAttachment,
   Vpc,
   VpcAttachment,
@@ -1836,9 +1847,19 @@ import {
   VpcPeeringConnectionVpcInfo,
 } from "../models/models_0";
 import {
+  BlockDeviceMapping,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
   ConnectionNotification,
+  CreateFleetError,
+  CreateFleetInstance,
+  CreateFleetResult,
+  CreateFlowLogsRequest,
+  CreateFlowLogsResult,
+  CreateFpgaImageRequest,
+  CreateFpgaImageResult,
+  CreateImageRequest,
+  CreateImageResult,
   CreateInstanceEventWindowRequest,
   CreateInstanceEventWindowResult,
   CreateInstanceExportTaskRequest,
@@ -1927,29 +1948,26 @@ import {
   CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointRequest,
   CreateVpcEndpointResult,
-  CreateVpcEndpointServiceConfigurationRequest,
-  CreateVpcEndpointServiceConfigurationResult,
-  CreateVpcPeeringConnectionRequest,
-  CreateVpcPeeringConnectionResult,
   CreateVpcRequest,
   CreateVpcResult,
-  CreateVpnConnectionRequest,
   CreditSpecification,
   CreditSpecificationRequest,
+  DestinationOptionsRequest,
   DnsEntry,
+  EbsBlockDevice,
   ElasticGpuSpecification,
   ElasticGpuSpecificationResponse,
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
+  FleetLaunchTemplateOverrides,
   GroupIdentifier,
   IcmpTypeCode,
-  IKEVersionsListValue,
-  IKEVersionsRequestListValue,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InstanceIpv6Address,
   InstanceIpv6AddressRequest,
+  InstanceRequirements,
   InstanceSpecification,
   InternetGateway,
   Ipv4PrefixSpecificationRequest,
@@ -1960,6 +1978,7 @@ import {
   KeyPair,
   LastError,
   LaunchTemplate,
+  LaunchTemplateAndOverridesResponse,
   LaunchTemplateBlockDeviceMapping,
   LaunchTemplateBlockDeviceMappingRequest,
   LaunchTemplateCapacityReservationSpecificationRequest,
@@ -1996,6 +2015,7 @@ import {
   LocalGatewayRoute,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  MemoryMiB,
   NatGateway,
   NatGatewayAddress,
   NetworkAcl,
@@ -2005,26 +2025,15 @@ import {
   NetworkInterface,
   NetworkInterfaceAssociation,
   NetworkInterfaceAttachment,
+  NetworkInterfaceCount,
   NetworkInterfaceIpv6Address,
   NetworkInterfacePermission,
   NetworkInterfacePermissionState,
   NetworkInterfacePrivateIpAddress,
-  Phase1DHGroupNumbersListValue,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
   PlacementGroup,
+  PlacementResponse,
   PortRange,
   PriceScheduleSpecification,
-  PrivateDnsNameConfiguration,
   PrivateIpAddressSpecification,
   PropagatingVgw,
   ProvisionedBandwidth,
@@ -2036,13 +2045,13 @@ import {
   RouteTableAssociation,
   S3ObjectTag,
   SecurityGroupIdentifier,
-  ServiceConfiguration,
-  ServiceTypeDetail,
   Snapshot,
   SnapshotInfo,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
+  StorageLocation,
   SubnetCidrReservation,
+  TotalLocalStorageGB,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -2068,17 +2077,15 @@ import {
   TransitGatewayRouteTable,
   ValidationError,
   ValidationWarning,
+  VCpuCountRange,
   Volume,
   VpcEndpoint,
-  VpnConnectionOptionsSpecification,
-  VpnTunnelOptionsSpecification,
 } from "../models/models_1";
 import {
   AssociatedTargetNetwork,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
-  AvailableCapacity,
   CapacityReservationFleet,
   CapacityReservationOptions,
   CertificateAuthentication,
@@ -2093,6 +2100,11 @@ import {
   CoipPool,
   ConnectionLogResponseOptions,
   ConversionTask,
+  CreateVpcEndpointServiceConfigurationRequest,
+  CreateVpcEndpointServiceConfigurationResult,
+  CreateVpcPeeringConnectionRequest,
+  CreateVpcPeeringConnectionResult,
+  CreateVpnConnectionRequest,
   CreateVpnConnectionResult,
   CreateVpnConnectionRouteRequest,
   CreateVpnGatewayRequest,
@@ -2275,17 +2287,6 @@ import {
   DescribeHostReservationsRequest,
   DescribeHostReservationsResult,
   DescribeHostsRequest,
-  DescribeHostsResult,
-  DescribeIamInstanceProfileAssociationsRequest,
-  DescribeIamInstanceProfileAssociationsResult,
-  DescribeIdentityIdFormatRequest,
-  DescribeIdentityIdFormatResult,
-  DescribeIdFormatRequest,
-  DescribeIdFormatResult,
-  DescribeImageAttributeRequest,
-  DescribeImagesRequest,
-  DescribeImagesResult,
-  DescribeImportImageTasksRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2307,29 +2308,38 @@ import {
   FpgaImageAttribute,
   FpgaImageState,
   HistoryRecordEntry,
-  Host,
-  HostInstance,
   HostOffering,
-  HostProperties,
   HostReservation,
   IdFormat,
-  Image,
-  ImageAttribute,
-  ImportImageLicenseConfigurationResponse,
+  IKEVersionsListValue,
+  IKEVersionsRequestListValue,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
   InstanceCapacity,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
-  LaunchPermission,
   LoadPermission,
   OnDemandOptions,
   PciId,
+  Phase1DHGroupNumbersListValue,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
+  PrivateDnsNameConfiguration,
   ProductCode,
   ResponseError,
+  ServiceConfiguration,
+  ServiceTypeDetail,
   SpotOptions,
-  StateReason,
   SuccessfulQueuedPurchaseDeletion,
   TargetCapacitySpecification,
   TargetNetwork,
@@ -2337,11 +2347,12 @@ import {
   TransitGatewayMulticastDeregisteredGroupSources,
   TunnelOption,
   VgwTelemetry,
-  VirtualizationType,
   VpnConnection,
   VpnConnectionOptions,
+  VpnConnectionOptionsSpecification,
   VpnGateway,
   VpnStaticRoute,
+  VpnTunnelOptionsSpecification,
 } from "../models/models_2";
 import {
   AnalysisAclRule,
@@ -2353,12 +2364,24 @@ import {
   AnalysisSecurityGroupRule,
   ArchitectureType,
   AttributeBooleanValue,
+  AvailableCapacity,
   BootModeType,
   CapacityReservationSpecificationResponse,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CpuOptions,
   CreateVolumePermission,
+  DescribeHostsResult,
+  DescribeIamInstanceProfileAssociationsRequest,
+  DescribeIamInstanceProfileAssociationsResult,
+  DescribeIdentityIdFormatRequest,
+  DescribeIdentityIdFormatResult,
+  DescribeIdFormatRequest,
+  DescribeIdFormatResult,
+  DescribeImageAttributeRequest,
+  DescribeImagesRequest,
+  DescribeImagesResult,
+  DescribeImportImageTasksRequest,
   DescribeImportImageTasksResult,
   DescribeImportSnapshotTasksRequest,
   DescribeImportSnapshotTasksResult,
@@ -2471,31 +2494,6 @@ import {
   DescribeStoreImageTasksResult,
   DescribeSubnetsRequest,
   DescribeSubnetsResult,
-  DescribeTagsRequest,
-  DescribeTagsResult,
-  DescribeTrafficMirrorFiltersRequest,
-  DescribeTrafficMirrorFiltersResult,
-  DescribeTrafficMirrorSessionsRequest,
-  DescribeTrafficMirrorSessionsResult,
-  DescribeTrafficMirrorTargetsRequest,
-  DescribeTrafficMirrorTargetsResult,
-  DescribeTransitGatewayAttachmentsRequest,
-  DescribeTransitGatewayAttachmentsResult,
-  DescribeTransitGatewayConnectPeersRequest,
-  DescribeTransitGatewayConnectPeersResult,
-  DescribeTransitGatewayConnectsRequest,
-  DescribeTransitGatewayConnectsResult,
-  DescribeTransitGatewayMulticastDomainsRequest,
-  DescribeTransitGatewayMulticastDomainsResult,
-  DescribeTransitGatewayPeeringAttachmentsRequest,
-  DescribeTransitGatewayPeeringAttachmentsResult,
-  DescribeTransitGatewayRouteTablesRequest,
-  DescribeTransitGatewayRouteTablesResult,
-  DescribeTransitGatewaysRequest,
-  DescribeTransitGatewaysResult,
-  DescribeTransitGatewayVpcAttachmentsRequest,
-  DescribeTransitGatewayVpcAttachmentsResult,
-  DescribeTrunkInterfaceAssociationsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2513,6 +2511,12 @@ import {
   GpuInfo,
   HibernationOptions,
   HistoryRecord,
+  Host,
+  HostInstance,
+  HostProperties,
+  Image,
+  ImageAttribute,
+  ImportImageLicenseConfigurationResponse,
   ImportImageTask,
   ImportSnapshotTask,
   InferenceAcceleratorInfo,
@@ -2539,6 +2543,7 @@ import {
   InstanceTypeOffering,
   Ipv6Pool,
   KeyPairInfo,
+  LaunchPermission,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
@@ -2599,15 +2604,14 @@ import {
   SpotPrice,
   StaleIpPermission,
   StaleSecurityGroup,
+  StateReason,
   StoreImageTaskResult,
-  TagDescription,
   TargetGroup,
   TargetGroupsConfig,
-  TransitGatewayAttachment,
-  TransitGatewayAttachmentAssociation,
   UsageClassType,
   UserBucketDetails,
   VCpuInfo,
+  VirtualizationType,
 } from "../models/models_3";
 import {
   AssociatedRole,
@@ -2619,7 +2623,31 @@ import {
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
-  CreateVolumePermissionModifications,
+  DescribeTagsRequest,
+  DescribeTagsResult,
+  DescribeTrafficMirrorFiltersRequest,
+  DescribeTrafficMirrorFiltersResult,
+  DescribeTrafficMirrorSessionsRequest,
+  DescribeTrafficMirrorSessionsResult,
+  DescribeTrafficMirrorTargetsRequest,
+  DescribeTrafficMirrorTargetsResult,
+  DescribeTransitGatewayAttachmentsRequest,
+  DescribeTransitGatewayAttachmentsResult,
+  DescribeTransitGatewayConnectPeersRequest,
+  DescribeTransitGatewayConnectPeersResult,
+  DescribeTransitGatewayConnectsRequest,
+  DescribeTransitGatewayConnectsResult,
+  DescribeTransitGatewayMulticastDomainsRequest,
+  DescribeTransitGatewayMulticastDomainsResult,
+  DescribeTransitGatewayPeeringAttachmentsRequest,
+  DescribeTransitGatewayPeeringAttachmentsResult,
+  DescribeTransitGatewayRouteTablesRequest,
+  DescribeTransitGatewayRouteTablesResult,
+  DescribeTransitGatewaysRequest,
+  DescribeTransitGatewaysResult,
+  DescribeTransitGatewayVpcAttachmentsRequest,
+  DescribeTransitGatewayVpcAttachmentsResult,
+  DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
@@ -2757,6 +2785,8 @@ import {
   GetGroupsForCapacityReservationResult,
   GetHostReservationPurchasePreviewRequest,
   GetHostReservationPurchasePreviewResult,
+  GetInstanceTypesFromInstanceRequirementsRequest,
+  GetInstanceTypesFromInstanceRequirementsResult,
   GetLaunchTemplateDataRequest,
   GetLaunchTemplateDataResult,
   GetManagedPrefixListAssociationsRequest,
@@ -2769,6 +2799,8 @@ import {
   GetReservedInstancesExchangeQuoteResult,
   GetSerialConsoleAccessStatusRequest,
   GetSerialConsoleAccessStatusResult,
+  GetSpotPlacementScoresRequest,
+  GetSpotPlacementScoresResult,
   GetSubnetCidrReservationsRequest,
   GetSubnetCidrReservationsResult,
   GetTransitGatewayAttachmentPropagationsRequest,
@@ -2804,6 +2836,8 @@ import {
   InstanceCreditSpecificationRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
+  InstanceRequirementsWithMetadataRequest,
+  InstanceTypeInfoFromInstanceRequirements,
   InstanceUsage,
   IntegrateServices,
   Ipv6CidrAssociation,
@@ -2837,6 +2871,52 @@ import {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
   ModifyInstanceCreditSpecificationRequest,
+  PrefixListAssociation,
+  PrefixListEntry,
+  PrivateDnsDetails,
+  Purchase,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  ServiceDetail,
+  SnapshotDiskContainer,
+  SpotPlacementScore,
+  TagDescription,
+  TargetConfiguration,
+  TargetReservationValue,
+  TransitGatewayAttachment,
+  TransitGatewayAttachmentAssociation,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+  VpnConnectionDeviceType,
+} from "../models/models_4";
+import {
+  CidrAuthorizationContext,
+  CpuOptionsRequest,
+  CreateVolumePermissionModifications,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
+  InstanceStateChange,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
@@ -2861,55 +2941,6 @@ import {
   ModifySubnetAttributeRequest,
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-  NetworkInterfaceAttachmentChanges,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrivateDnsDetails,
-  Purchase,
-  RemovePrefixListEntry,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
-  ServiceDetail,
-  SnapshotDiskContainer,
-  SuccessfulInstanceCreditSpecificationItem,
-  TargetConfiguration,
-  TargetReservationValue,
-  TrafficMirrorFilterRuleField,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPropagation,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
-  VpnConnectionDeviceType,
-} from "../models/models_4";
-import {
-  CidrAuthorizationContext,
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceMonitoring,
-  InstanceStateChange,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ModifyTrafficMirrorFilterRuleRequest,
   ModifyTrafficMirrorFilterRuleResult,
   ModifyTrafficMirrorSessionRequest,
@@ -2951,6 +2982,7 @@ import {
   MonitorInstancesResult,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
+  NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   ProvisionByoipCidrRequest,
@@ -2985,6 +3017,7 @@ import {
   ReleaseAddressRequest,
   ReleaseHostsRequest,
   ReleaseHostsResult,
+  RemovePrefixListEntry,
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
   ReplaceNetworkAclAssociationRequest,
@@ -3042,6 +3075,8 @@ import {
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleDescription,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
   SpotMarketOptions,
   StartInstancesRequest,
@@ -3052,11 +3087,13 @@ import {
   StartVpcEndpointServicePrivateDnsVerificationResult,
   StopInstancesRequest,
   StopInstancesResult,
+  SuccessfulInstanceCreditSpecificationItem,
   TerminateClientVpnConnectionsRequest,
   TerminateClientVpnConnectionsResult,
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
+  TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
@@ -3066,6 +3103,8 @@ import {
   UnassignPrivateIpAddressesRequest,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
@@ -8626,6 +8665,22 @@ export const serializeAws_ec2GetHostReservationPurchasePreviewCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand = async (
+  input: GetInstanceTypesFromInstanceRequirementsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest(input, context),
+    Action: "GetInstanceTypesFromInstanceRequirements",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2GetLaunchTemplateDataCommand = async (
   input: GetLaunchTemplateDataCommandInput,
   context: __SerdeContext
@@ -8717,6 +8772,22 @@ export const serializeAws_ec2GetSerialConsoleAccessStatusCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2GetSerialConsoleAccessStatusRequest(input, context),
     Action: "GetSerialConsoleAccessStatus",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetSpotPlacementScoresCommand = async (
+  input: GetSpotPlacementScoresCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetSpotPlacementScoresRequest(input, context),
+    Action: "GetSpotPlacementScores",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -26467,6 +26538,52 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult(data, context);
+  const response: GetInstanceTypesFromInstanceRequirementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_ec2GetLaunchTemplateDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -26718,6 +26835,52 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSerialConsoleAccessStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Errors.Error.code || parsedBody.Errors.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Errors.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Errors.Error.message || parsedBody.Errors.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_ec2GetSpotPlacementScoresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpotPlacementScoresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetSpotPlacementScoresCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetSpotPlacementScoresResult(data, context);
+  const response: GetSpotPlacementScoresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetSpotPlacementScoresCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSpotPlacementScoresCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -32111,6 +32274,95 @@ const deserializeAws_ec2WithdrawByoipCidrCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+const serializeAws_ec2AcceleratorCount = (input: AcceleratorCount, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorCountRequest = (input: AcceleratorCountRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorManufacturerSet = (
+  input: (AcceleratorManufacturer | string)[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorNameSet = (input: (AcceleratorName | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorTotalMemoryMiB = (input: AcceleratorTotalMemoryMiB, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorTotalMemoryMiBRequest = (
+  input: AcceleratorTotalMemoryMiBRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2AcceleratorTypeSet = (input: (AcceleratorType | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest = (
   input: AcceptReservedInstancesExchangeQuoteRequest,
   context: __SerdeContext
@@ -32386,6 +32638,19 @@ const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ArchitectureTypeSet = (input: (ArchitectureType | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -33013,6 +33278,31 @@ const serializeAws_ec2AvailabilityZoneStringList = (input: string[], context: __
     }
     entries[`AvailabilityZone.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2BaselineEbsBandwidthMbps = (input: BaselineEbsBandwidthMbps, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2BaselineEbsBandwidthMbpsRequest = (
+  input: BaselineEbsBandwidthMbpsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
   }
   return entries;
 };
@@ -33656,6 +33946,19 @@ const serializeAws_ec2CopySnapshotRequest = (input: CopySnapshotRequest, context
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CpuManufacturerSet = (input: (CpuManufacturer | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -41307,6 +41610,19 @@ const serializeAws_ec2EnclaveOptionsRequest = (input: EnclaveOptionsRequest, con
   return entries;
 };
 
+const serializeAws_ec2ExcludedInstanceTypeSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ExecutableByStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -41623,6 +41939,13 @@ const serializeAws_ec2FleetLaunchTemplateOverridesRequest = (
       entries[loc] = value;
     });
   }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirementsRequest(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -41932,6 +42255,44 @@ const serializeAws_ec2GetHostReservationPurchasePreviewRequest = (
   return entries;
 };
 
+const serializeAws_ec2GetInstanceTypesFromInstanceRequirementsRequest = (
+  input: GetInstanceTypesFromInstanceRequirementsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ArchitectureTypes !== undefined && input.ArchitectureTypes !== null) {
+    const memberEntries = serializeAws_ec2ArchitectureTypeSet(input.ArchitectureTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VirtualizationTypes !== undefined && input.VirtualizationTypes !== null) {
+    const memberEntries = serializeAws_ec2VirtualizationTypeSet(input.VirtualizationTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirementsRequest(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  return entries;
+};
+
 const serializeAws_ec2GetLaunchTemplateDataRequest = (
   input: GetLaunchTemplateDataRequest,
   context: __SerdeContext
@@ -42032,6 +42393,56 @@ const serializeAws_ec2GetSerialConsoleAccessStatusRequest = (
   const entries: any = {};
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetSpotPlacementScoresRequest = (
+  input: GetSpotPlacementScoresRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.InstanceTypes !== undefined && input.InstanceTypes !== null) {
+    const memberEntries = serializeAws_ec2InstanceTypes(input.InstanceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TargetCapacity !== undefined && input.TargetCapacity !== null) {
+    entries["TargetCapacity"] = input.TargetCapacity;
+  }
+  if (input.TargetCapacityUnitType !== undefined && input.TargetCapacityUnitType !== null) {
+    entries["TargetCapacityUnitType"] = input.TargetCapacityUnitType;
+  }
+  if (input.SingleAvailabilityZone !== undefined && input.SingleAvailabilityZone !== null) {
+    entries["SingleAvailabilityZone"] = input.SingleAvailabilityZone;
+  }
+  if (input.RegionNames !== undefined && input.RegionNames !== null) {
+    const memberEntries = serializeAws_ec2RegionNames(input.RegionNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RegionName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceRequirementsWithMetadata !== undefined && input.InstanceRequirementsWithMetadata !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirementsWithMetadataRequest(
+      input.InstanceRequirementsWithMetadata,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirementsWithMetadata.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun !== undefined && input.DryRun !== null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.MaxResults !== undefined && input.MaxResults !== null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken !== undefined && input.NextToken !== null) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -42965,6 +43376,22 @@ const serializeAws_ec2InstanceEventWindowTimeRangeRequestSet = (
   return entries;
 };
 
+const serializeAws_ec2InstanceGenerationSet = (
+  input: (InstanceGeneration | string)[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2InstanceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -43187,6 +43614,306 @@ const serializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
   return entries;
 };
 
+const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.VCpuCount !== undefined && input.VCpuCount !== null) {
+    const memberEntries = serializeAws_ec2VCpuCountRange(input.VCpuCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VCpuCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MemoryMiB !== undefined && input.MemoryMiB !== null) {
+    const memberEntries = serializeAws_ec2MemoryMiB(input.MemoryMiB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MemoryMiB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CpuManufacturers !== undefined && input.CpuManufacturers !== null) {
+    const memberEntries = serializeAws_ec2CpuManufacturerSet(input.CpuManufacturers, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CpuManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MemoryGiBPerVCpu !== undefined && input.MemoryGiBPerVCpu !== null) {
+    const memberEntries = serializeAws_ec2MemoryGiBPerVCpu(input.MemoryGiBPerVCpu, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MemoryGiBPerVCpu.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ExcludedInstanceTypes !== undefined && input.ExcludedInstanceTypes !== null) {
+    const memberEntries = serializeAws_ec2ExcludedInstanceTypeSet(input.ExcludedInstanceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExcludedInstanceTypeSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceGenerations !== undefined && input.InstanceGenerations !== null) {
+    const memberEntries = serializeAws_ec2InstanceGenerationSet(input.InstanceGenerations, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceGenerationSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (
+    input.SpotMaxPricePercentageOverLowestPrice !== undefined &&
+    input.SpotMaxPricePercentageOverLowestPrice !== null
+  ) {
+    entries["SpotMaxPricePercentageOverLowestPrice"] = input.SpotMaxPricePercentageOverLowestPrice;
+  }
+  if (
+    input.OnDemandMaxPricePercentageOverLowestPrice !== undefined &&
+    input.OnDemandMaxPricePercentageOverLowestPrice !== null
+  ) {
+    entries["OnDemandMaxPricePercentageOverLowestPrice"] = input.OnDemandMaxPricePercentageOverLowestPrice;
+  }
+  if (input.BareMetal !== undefined && input.BareMetal !== null) {
+    entries["BareMetal"] = input.BareMetal;
+  }
+  if (input.BurstablePerformance !== undefined && input.BurstablePerformance !== null) {
+    entries["BurstablePerformance"] = input.BurstablePerformance;
+  }
+  if (input.RequireHibernateSupport !== undefined && input.RequireHibernateSupport !== null) {
+    entries["RequireHibernateSupport"] = input.RequireHibernateSupport;
+  }
+  if (input.NetworkInterfaceCount !== undefined && input.NetworkInterfaceCount !== null) {
+    const memberEntries = serializeAws_ec2NetworkInterfaceCount(input.NetworkInterfaceCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInterfaceCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.LocalStorage !== undefined && input.LocalStorage !== null) {
+    entries["LocalStorage"] = input.LocalStorage;
+  }
+  if (input.LocalStorageTypes !== undefined && input.LocalStorageTypes !== null) {
+    const memberEntries = serializeAws_ec2LocalStorageTypeSet(input.LocalStorageTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LocalStorageTypeSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TotalLocalStorageGB !== undefined && input.TotalLocalStorageGB !== null) {
+    const memberEntries = serializeAws_ec2TotalLocalStorageGB(input.TotalLocalStorageGB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TotalLocalStorageGB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.BaselineEbsBandwidthMbps !== undefined && input.BaselineEbsBandwidthMbps !== null) {
+    const memberEntries = serializeAws_ec2BaselineEbsBandwidthMbps(input.BaselineEbsBandwidthMbps, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BaselineEbsBandwidthMbps.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorTypes !== undefined && input.AcceleratorTypes !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorTypeSet(input.AcceleratorTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorTypeSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorCount !== undefined && input.AcceleratorCount !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorCount(input.AcceleratorCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorManufacturers !== undefined && input.AcceleratorManufacturers !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorManufacturerSet(input.AcceleratorManufacturers, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorManufacturerSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorNames !== undefined && input.AcceleratorNames !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorNameSet(input.AcceleratorNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorNameSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorTotalMemoryMiB !== undefined && input.AcceleratorTotalMemoryMiB !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorTotalMemoryMiB(input.AcceleratorTotalMemoryMiB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorTotalMemoryMiB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceRequirementsRequest = (
+  input: InstanceRequirementsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VCpuCount !== undefined && input.VCpuCount !== null) {
+    const memberEntries = serializeAws_ec2VCpuCountRangeRequest(input.VCpuCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VCpuCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MemoryMiB !== undefined && input.MemoryMiB !== null) {
+    const memberEntries = serializeAws_ec2MemoryMiBRequest(input.MemoryMiB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MemoryMiB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CpuManufacturers !== undefined && input.CpuManufacturers !== null) {
+    const memberEntries = serializeAws_ec2CpuManufacturerSet(input.CpuManufacturers, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CpuManufacturer.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MemoryGiBPerVCpu !== undefined && input.MemoryGiBPerVCpu !== null) {
+    const memberEntries = serializeAws_ec2MemoryGiBPerVCpuRequest(input.MemoryGiBPerVCpu, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MemoryGiBPerVCpu.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ExcludedInstanceTypes !== undefined && input.ExcludedInstanceTypes !== null) {
+    const memberEntries = serializeAws_ec2ExcludedInstanceTypeSet(input.ExcludedInstanceTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExcludedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceGenerations !== undefined && input.InstanceGenerations !== null) {
+    const memberEntries = serializeAws_ec2InstanceGenerationSet(input.InstanceGenerations, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceGeneration.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (
+    input.SpotMaxPricePercentageOverLowestPrice !== undefined &&
+    input.SpotMaxPricePercentageOverLowestPrice !== null
+  ) {
+    entries["SpotMaxPricePercentageOverLowestPrice"] = input.SpotMaxPricePercentageOverLowestPrice;
+  }
+  if (
+    input.OnDemandMaxPricePercentageOverLowestPrice !== undefined &&
+    input.OnDemandMaxPricePercentageOverLowestPrice !== null
+  ) {
+    entries["OnDemandMaxPricePercentageOverLowestPrice"] = input.OnDemandMaxPricePercentageOverLowestPrice;
+  }
+  if (input.BareMetal !== undefined && input.BareMetal !== null) {
+    entries["BareMetal"] = input.BareMetal;
+  }
+  if (input.BurstablePerformance !== undefined && input.BurstablePerformance !== null) {
+    entries["BurstablePerformance"] = input.BurstablePerformance;
+  }
+  if (input.RequireHibernateSupport !== undefined && input.RequireHibernateSupport !== null) {
+    entries["RequireHibernateSupport"] = input.RequireHibernateSupport;
+  }
+  if (input.NetworkInterfaceCount !== undefined && input.NetworkInterfaceCount !== null) {
+    const memberEntries = serializeAws_ec2NetworkInterfaceCountRequest(input.NetworkInterfaceCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInterfaceCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.LocalStorage !== undefined && input.LocalStorage !== null) {
+    entries["LocalStorage"] = input.LocalStorage;
+  }
+  if (input.LocalStorageTypes !== undefined && input.LocalStorageTypes !== null) {
+    const memberEntries = serializeAws_ec2LocalStorageTypeSet(input.LocalStorageTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LocalStorageType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TotalLocalStorageGB !== undefined && input.TotalLocalStorageGB !== null) {
+    const memberEntries = serializeAws_ec2TotalLocalStorageGBRequest(input.TotalLocalStorageGB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TotalLocalStorageGB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.BaselineEbsBandwidthMbps !== undefined && input.BaselineEbsBandwidthMbps !== null) {
+    const memberEntries = serializeAws_ec2BaselineEbsBandwidthMbpsRequest(input.BaselineEbsBandwidthMbps, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BaselineEbsBandwidthMbps.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorTypes !== undefined && input.AcceleratorTypes !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorTypeSet(input.AcceleratorTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorCount !== undefined && input.AcceleratorCount !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorCountRequest(input.AcceleratorCount, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorCount.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorManufacturers !== undefined && input.AcceleratorManufacturers !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorManufacturerSet(input.AcceleratorManufacturers, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorManufacturer.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorNames !== undefined && input.AcceleratorNames !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorNameSet(input.AcceleratorNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorName.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AcceleratorTotalMemoryMiB !== undefined && input.AcceleratorTotalMemoryMiB !== null) {
+    const memberEntries = serializeAws_ec2AcceleratorTotalMemoryMiBRequest(input.AcceleratorTotalMemoryMiB, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AcceleratorTotalMemoryMiB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceRequirementsWithMetadataRequest = (
+  input: InstanceRequirementsWithMetadataRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.ArchitectureTypes !== undefined && input.ArchitectureTypes !== null) {
+    const memberEntries = serializeAws_ec2ArchitectureTypeSet(input.ArchitectureTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ArchitectureType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VirtualizationTypes !== undefined && input.VirtualizationTypes !== null) {
+    const memberEntries = serializeAws_ec2VirtualizationTypeSet(input.VirtualizationTypes, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VirtualizationType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirementsRequest(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2InstanceSpecification = (input: InstanceSpecification, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceId !== undefined && input.InstanceId !== null) {
@@ -43212,6 +43939,19 @@ const serializeAws_ec2InstanceTagKeySet = (input: string[], context: __SerdeCont
 };
 
 const serializeAws_ec2InstanceTypeList = (input: (_InstanceType | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2InstanceTypes = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -43974,6 +44714,13 @@ const serializeAws_ec2LaunchTemplateOverrides = (input: LaunchTemplateOverrides,
   if (input.Priority !== undefined && input.Priority !== null) {
     entries["Priority"] = __serializeFloat(input.Priority);
   }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirements(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -44295,6 +45042,63 @@ const serializeAws_ec2LocalGatewayVirtualInterfaceIdSet = (input: string[], cont
   return entries;
 };
 
+const serializeAws_ec2LocalStorageTypeSet = (input: (LocalStorageType | string)[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2MemoryGiBPerVCpu = (input: MemoryGiBPerVCpu, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = __serializeFloat(input.Max);
+  }
+  return entries;
+};
+
+const serializeAws_ec2MemoryGiBPerVCpuRequest = (input: MemoryGiBPerVCpuRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = __serializeFloat(input.Max);
+  }
+  return entries;
+};
+
+const serializeAws_ec2MemoryMiB = (input: MemoryMiB, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2MemoryMiBRequest = (input: MemoryMiBRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyAddressAttributeRequest = (
   input: ModifyAddressAttributeRequest,
   context: __SerdeContext
@@ -44374,6 +45178,9 @@ const serializeAws_ec2ModifyCapacityReservationRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.AdditionalInfo !== undefined && input.AdditionalInfo !== null) {
+    entries["AdditionalInfo"] = input.AdditionalInfo;
   }
   return entries;
 };
@@ -46012,6 +46819,31 @@ const serializeAws_ec2NetworkInterfaceAttachmentChanges = (
   return entries;
 };
 
+const serializeAws_ec2NetworkInterfaceCount = (input: NetworkInterfaceCount, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2NetworkInterfaceCountRequest = (
+  input: NetworkInterfaceCountRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
 const serializeAws_ec2NetworkInterfaceIdList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -46761,6 +47593,19 @@ const serializeAws_ec2RebootInstancesRequest = (input: RebootInstancesRequest, c
   return entries;
 };
 
+const serializeAws_ec2RegionNames = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2RegionNameStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -47489,6 +48334,13 @@ const serializeAws_ec2RequestLaunchTemplateData = (input: RequestLaunchTemplateD
     const memberEntries = serializeAws_ec2LaunchTemplateEnclaveOptionsRequest(input.EnclaveOptions, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `EnclaveOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirementsRequest(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
       entries[loc] = value;
     });
   }
@@ -49179,6 +50031,13 @@ const serializeAws_ec2SpotFleetLaunchSpecification = (
       entries[loc] = value;
     });
   }
+  if (input.InstanceRequirements !== undefined && input.InstanceRequirements !== null) {
+    const memberEntries = serializeAws_ec2InstanceRequirements(input.InstanceRequirements, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `InstanceRequirements.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -49282,6 +50141,9 @@ const serializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (input.Context !== undefined && input.Context !== null) {
     entries["Context"] = input.Context;
+  }
+  if (input.TargetCapacityUnitType !== undefined && input.TargetCapacityUnitType !== null) {
+    entries["TargetCapacityUnitType"] = input.TargetCapacityUnitType;
   }
   if (input.TagSpecifications !== undefined && input.TagSpecifications !== null) {
     const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
@@ -49630,6 +50492,9 @@ const serializeAws_ec2TargetCapacitySpecificationRequest = (
   if (input.DefaultTargetCapacityType !== undefined && input.DefaultTargetCapacityType !== null) {
     entries["DefaultTargetCapacityType"] = input.DefaultTargetCapacityType;
   }
+  if (input.TargetCapacityUnitType !== undefined && input.TargetCapacityUnitType !== null) {
+    entries["TargetCapacityUnitType"] = input.TargetCapacityUnitType;
+  }
   return entries;
 };
 
@@ -49733,6 +50598,31 @@ const serializeAws_ec2TerminateInstancesRequest = (input: TerminateInstancesRequ
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2TotalLocalStorageGB = (input: TotalLocalStorageGB, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = __serializeFloat(input.Max);
+  }
+  return entries;
+};
+
+const serializeAws_ec2TotalLocalStorageGBRequest = (
+  input: TotalLocalStorageGBRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = __serializeFloat(input.Max);
   }
   return entries;
 };
@@ -50235,7 +51125,45 @@ const serializeAws_ec2ValueStringList = (input: string[], context: __SerdeContex
   return entries;
 };
 
+const serializeAws_ec2VCpuCountRange = (input: VCpuCountRange, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VCpuCountRangeRequest = (input: VCpuCountRangeRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min !== undefined && input.Min !== null) {
+    entries["Min"] = input.Min;
+  }
+  if (input.Max !== undefined && input.Max !== null) {
+    entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
 const serializeAws_ec2VersionStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VirtualizationTypeSet = (
+  input: (VirtualizationType | string)[],
+  context: __SerdeContext
+): any => {
   const entries: any = {};
   let counter = 1;
   for (const entry of input) {
@@ -50591,6 +51519,73 @@ const serializeAws_ec2ZoneNameStringList = (input: string[], context: __SerdeCon
     counter++;
   }
   return entries;
+};
+
+const deserializeAws_ec2AcceleratorCount = (output: any, context: __SerdeContext): AcceleratorCount => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AcceleratorManufacturerSet = (
+  output: any,
+  context: __SerdeContext
+): (AcceleratorManufacturer | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_ec2AcceleratorNameSet = (output: any, context: __SerdeContext): (AcceleratorName | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_ec2AcceleratorTotalMemoryMiB = (
+  output: any,
+  context: __SerdeContext
+): AcceleratorTotalMemoryMiB => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AcceleratorTypeSet = (output: any, context: __SerdeContext): (AcceleratorType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult = (
@@ -51899,6 +52894,20 @@ const deserializeAws_ec2AvailableInstanceCapacityList = (output: any, context: _
       }
       return deserializeAws_ec2InstanceCapacity(entry, context);
     });
+};
+
+const deserializeAws_ec2BaselineEbsBandwidthMbps = (output: any, context: __SerdeContext): BaselineEbsBandwidthMbps => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
+  }
+  return contents;
 };
 
 const deserializeAws_ec2BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
@@ -53482,6 +54491,17 @@ const deserializeAws_ec2CoreCountList = (output: any, context: __SerdeContext): 
         return null as any;
       }
       return __strictParseInt32(entry) as number;
+    });
+};
+
+const deserializeAws_ec2CpuManufacturerSet = (output: any, context: __SerdeContext): (CpuManufacturer | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
 };
 
@@ -59606,6 +60626,17 @@ const deserializeAws_ec2EventInformation = (output: any, context: __SerdeContext
   return contents;
 };
 
+const deserializeAws_ec2ExcludedInstanceTypeSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Explanation => {
   const contents: any = {
     Acl: undefined,
@@ -60382,6 +61413,7 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
     WeightedCapacity: undefined,
     Priority: undefined,
     Placement: undefined,
+    InstanceRequirements: undefined,
   };
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -60403,6 +61435,9 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
   }
   if (output["placement"] !== undefined) {
     contents.Placement = deserializeAws_ec2PlacementResponse(output["placement"], context);
+  }
+  if (output["instanceRequirements"] !== undefined) {
+    contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
   }
   return contents;
 };
@@ -61010,6 +62045,29 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
   return contents;
 };
 
+const deserializeAws_ec2GetInstanceTypesFromInstanceRequirementsResult = (
+  output: any,
+  context: __SerdeContext
+): GetInstanceTypesFromInstanceRequirementsResult => {
+  const contents: any = {
+    InstanceTypes: undefined,
+    NextToken: undefined,
+  };
+  if (output.instanceTypeSet === "") {
+    contents.InstanceTypes = [];
+  }
+  if (output["instanceTypeSet"] !== undefined && output["instanceTypeSet"]["item"] !== undefined) {
+    contents.InstanceTypes = deserializeAws_ec2InstanceTypeInfoFromInstanceRequirementsSet(
+      __getArrayIfSingleItem(output["instanceTypeSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2GetLaunchTemplateDataResult = (
   output: any,
   context: __SerdeContext
@@ -61164,6 +62222,29 @@ const deserializeAws_ec2GetSerialConsoleAccessStatusResult = (
   };
   if (output["serialConsoleAccessEnabled"] !== undefined) {
     contents.SerialConsoleAccessEnabled = __parseBoolean(output["serialConsoleAccessEnabled"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetSpotPlacementScoresResult = (
+  output: any,
+  context: __SerdeContext
+): GetSpotPlacementScoresResult => {
+  const contents: any = {
+    SpotPlacementScores: undefined,
+    NextToken: undefined,
+  };
+  if (output.spotPlacementScoreSet === "") {
+    contents.SpotPlacementScores = [];
+  }
+  if (output["spotPlacementScoreSet"] !== undefined && output["spotPlacementScoreSet"]["item"] !== undefined) {
+    contents.SpotPlacementScores = deserializeAws_ec2SpotPlacementScores(
+      __getArrayIfSingleItem(output["spotPlacementScoreSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };
@@ -63299,6 +64380,20 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
   return contents;
 };
 
+const deserializeAws_ec2InstanceGenerationSet = (
+  output: any,
+  context: __SerdeContext
+): (InstanceGeneration | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2InstanceIdList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -63805,6 +64900,151 @@ const deserializeAws_ec2InstancePrivateIpAddressList = (
     });
 };
 
+const deserializeAws_ec2InstanceRequirements = (output: any, context: __SerdeContext): InstanceRequirements => {
+  const contents: any = {
+    VCpuCount: undefined,
+    MemoryMiB: undefined,
+    CpuManufacturers: undefined,
+    MemoryGiBPerVCpu: undefined,
+    ExcludedInstanceTypes: undefined,
+    InstanceGenerations: undefined,
+    SpotMaxPricePercentageOverLowestPrice: undefined,
+    OnDemandMaxPricePercentageOverLowestPrice: undefined,
+    BareMetal: undefined,
+    BurstablePerformance: undefined,
+    RequireHibernateSupport: undefined,
+    NetworkInterfaceCount: undefined,
+    LocalStorage: undefined,
+    LocalStorageTypes: undefined,
+    TotalLocalStorageGB: undefined,
+    BaselineEbsBandwidthMbps: undefined,
+    AcceleratorTypes: undefined,
+    AcceleratorCount: undefined,
+    AcceleratorManufacturers: undefined,
+    AcceleratorNames: undefined,
+    AcceleratorTotalMemoryMiB: undefined,
+  };
+  if (output["vCpuCount"] !== undefined) {
+    contents.VCpuCount = deserializeAws_ec2VCpuCountRange(output["vCpuCount"], context);
+  }
+  if (output["memoryMiB"] !== undefined) {
+    contents.MemoryMiB = deserializeAws_ec2MemoryMiB(output["memoryMiB"], context);
+  }
+  if (output.cpuManufacturerSet === "") {
+    contents.CpuManufacturers = [];
+  }
+  if (output["cpuManufacturerSet"] !== undefined && output["cpuManufacturerSet"]["item"] !== undefined) {
+    contents.CpuManufacturers = deserializeAws_ec2CpuManufacturerSet(
+      __getArrayIfSingleItem(output["cpuManufacturerSet"]["item"]),
+      context
+    );
+  }
+  if (output["memoryGiBPerVCpu"] !== undefined) {
+    contents.MemoryGiBPerVCpu = deserializeAws_ec2MemoryGiBPerVCpu(output["memoryGiBPerVCpu"], context);
+  }
+  if (output.excludedInstanceTypeSet === "") {
+    contents.ExcludedInstanceTypes = [];
+  }
+  if (output["excludedInstanceTypeSet"] !== undefined && output["excludedInstanceTypeSet"]["item"] !== undefined) {
+    contents.ExcludedInstanceTypes = deserializeAws_ec2ExcludedInstanceTypeSet(
+      __getArrayIfSingleItem(output["excludedInstanceTypeSet"]["item"]),
+      context
+    );
+  }
+  if (output.instanceGenerationSet === "") {
+    contents.InstanceGenerations = [];
+  }
+  if (output["instanceGenerationSet"] !== undefined && output["instanceGenerationSet"]["item"] !== undefined) {
+    contents.InstanceGenerations = deserializeAws_ec2InstanceGenerationSet(
+      __getArrayIfSingleItem(output["instanceGenerationSet"]["item"]),
+      context
+    );
+  }
+  if (output["spotMaxPricePercentageOverLowestPrice"] !== undefined) {
+    contents.SpotMaxPricePercentageOverLowestPrice = __strictParseInt32(
+      output["spotMaxPricePercentageOverLowestPrice"]
+    ) as number;
+  }
+  if (output["onDemandMaxPricePercentageOverLowestPrice"] !== undefined) {
+    contents.OnDemandMaxPricePercentageOverLowestPrice = __strictParseInt32(
+      output["onDemandMaxPricePercentageOverLowestPrice"]
+    ) as number;
+  }
+  if (output["bareMetal"] !== undefined) {
+    contents.BareMetal = __expectString(output["bareMetal"]);
+  }
+  if (output["burstablePerformance"] !== undefined) {
+    contents.BurstablePerformance = __expectString(output["burstablePerformance"]);
+  }
+  if (output["requireHibernateSupport"] !== undefined) {
+    contents.RequireHibernateSupport = __parseBoolean(output["requireHibernateSupport"]);
+  }
+  if (output["networkInterfaceCount"] !== undefined) {
+    contents.NetworkInterfaceCount = deserializeAws_ec2NetworkInterfaceCount(output["networkInterfaceCount"], context);
+  }
+  if (output["localStorage"] !== undefined) {
+    contents.LocalStorage = __expectString(output["localStorage"]);
+  }
+  if (output.localStorageTypeSet === "") {
+    contents.LocalStorageTypes = [];
+  }
+  if (output["localStorageTypeSet"] !== undefined && output["localStorageTypeSet"]["item"] !== undefined) {
+    contents.LocalStorageTypes = deserializeAws_ec2LocalStorageTypeSet(
+      __getArrayIfSingleItem(output["localStorageTypeSet"]["item"]),
+      context
+    );
+  }
+  if (output["totalLocalStorageGB"] !== undefined) {
+    contents.TotalLocalStorageGB = deserializeAws_ec2TotalLocalStorageGB(output["totalLocalStorageGB"], context);
+  }
+  if (output["baselineEbsBandwidthMbps"] !== undefined) {
+    contents.BaselineEbsBandwidthMbps = deserializeAws_ec2BaselineEbsBandwidthMbps(
+      output["baselineEbsBandwidthMbps"],
+      context
+    );
+  }
+  if (output.acceleratorTypeSet === "") {
+    contents.AcceleratorTypes = [];
+  }
+  if (output["acceleratorTypeSet"] !== undefined && output["acceleratorTypeSet"]["item"] !== undefined) {
+    contents.AcceleratorTypes = deserializeAws_ec2AcceleratorTypeSet(
+      __getArrayIfSingleItem(output["acceleratorTypeSet"]["item"]),
+      context
+    );
+  }
+  if (output["acceleratorCount"] !== undefined) {
+    contents.AcceleratorCount = deserializeAws_ec2AcceleratorCount(output["acceleratorCount"], context);
+  }
+  if (output.acceleratorManufacturerSet === "") {
+    contents.AcceleratorManufacturers = [];
+  }
+  if (
+    output["acceleratorManufacturerSet"] !== undefined &&
+    output["acceleratorManufacturerSet"]["item"] !== undefined
+  ) {
+    contents.AcceleratorManufacturers = deserializeAws_ec2AcceleratorManufacturerSet(
+      __getArrayIfSingleItem(output["acceleratorManufacturerSet"]["item"]),
+      context
+    );
+  }
+  if (output.acceleratorNameSet === "") {
+    contents.AcceleratorNames = [];
+  }
+  if (output["acceleratorNameSet"] !== undefined && output["acceleratorNameSet"]["item"] !== undefined) {
+    contents.AcceleratorNames = deserializeAws_ec2AcceleratorNameSet(
+      __getArrayIfSingleItem(output["acceleratorNameSet"]["item"]),
+      context
+    );
+  }
+  if (output["acceleratorTotalMemoryMiB"] !== undefined) {
+    contents.AcceleratorTotalMemoryMiB = deserializeAws_ec2AcceleratorTotalMemoryMiB(
+      output["acceleratorTotalMemoryMiB"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   const contents: any = {
     Code: undefined,
@@ -64178,6 +65418,33 @@ const deserializeAws_ec2InstanceTypeInfo = (output: any, context: __SerdeContext
     );
   }
   return contents;
+};
+
+const deserializeAws_ec2InstanceTypeInfoFromInstanceRequirements = (
+  output: any,
+  context: __SerdeContext
+): InstanceTypeInfoFromInstanceRequirements => {
+  const contents: any = {
+    InstanceType: undefined,
+  };
+  if (output["instanceType"] !== undefined) {
+    contents.InstanceType = __expectString(output["instanceType"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2InstanceTypeInfoFromInstanceRequirementsSet = (
+  output: any,
+  context: __SerdeContext
+): InstanceTypeInfoFromInstanceRequirements[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2InstanceTypeInfoFromInstanceRequirements(entry, context);
+    });
 };
 
 const deserializeAws_ec2InstanceTypeInfoList = (output: any, context: __SerdeContext): InstanceTypeInfo[] => {
@@ -65405,6 +66672,7 @@ const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __Serde
     AvailabilityZone: undefined,
     WeightedCapacity: undefined,
     Priority: undefined,
+    InstanceRequirements: undefined,
   };
   if (output["instanceType"] !== undefined) {
     contents.InstanceType = __expectString(output["instanceType"]);
@@ -65423,6 +66691,9 @@ const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __Serde
   }
   if (output["priority"] !== undefined) {
     contents.Priority = __strictParseFloat(output["priority"]) as number;
+  }
+  if (output["instanceRequirements"] !== undefined) {
+    contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
   }
   return contents;
 };
@@ -66060,6 +67331,17 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceSet = (
     });
 };
 
+const deserializeAws_ec2LocalStorageTypeSet = (output: any, context: __SerdeContext): (LocalStorageType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPrefixList => {
   const contents: any = {
     PrefixListId: undefined,
@@ -66120,12 +67402,40 @@ const deserializeAws_ec2ManagedPrefixListSet = (output: any, context: __SerdeCon
     });
 };
 
+const deserializeAws_ec2MemoryGiBPerVCpu = (output: any, context: __SerdeContext): MemoryGiBPerVCpu => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseFloat(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseFloat(output["max"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   const contents: any = {
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
     contents.SizeInMiB = __strictParseLong(output["sizeInMiB"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2MemoryMiB = (output: any, context: __SerdeContext): MemoryMiB => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
   }
   return contents;
 };
@@ -67265,6 +68575,7 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
     SubnetId: undefined,
     TagSet: undefined,
     VpcId: undefined,
+    DenyAllIgwTraffic: undefined,
   };
   if (output["association"] !== undefined) {
     contents.Association = deserializeAws_ec2NetworkInterfaceAssociation(output["association"], context);
@@ -67368,6 +68679,9 @@ const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext
   if (output["vpcId"] !== undefined) {
     contents.VpcId = __expectString(output["vpcId"]);
   }
+  if (output["denyAllIgwTraffic"] !== undefined) {
+    contents.DenyAllIgwTraffic = __parseBoolean(output["denyAllIgwTraffic"]);
+  }
   return contents;
 };
 
@@ -67445,6 +68759,20 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
   }
   if (output["status"] !== undefined) {
     contents.Status = __expectString(output["status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2NetworkInterfaceCount = (output: any, context: __SerdeContext): NetworkInterfaceCount => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
   }
   return contents;
 };
@@ -69723,6 +71051,7 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
     HibernationOptions: undefined,
     MetadataOptions: undefined,
     EnclaveOptions: undefined,
+    InstanceRequirements: undefined,
   };
   if (output["kernelId"] !== undefined) {
     contents.KernelId = __expectString(output["kernelId"]);
@@ -69874,6 +71203,9 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   }
   if (output["enclaveOptions"] !== undefined) {
     contents.EnclaveOptions = deserializeAws_ec2LaunchTemplateEnclaveOptions(output["enclaveOptions"], context);
+  }
+  if (output["instanceRequirements"] !== undefined) {
+    contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
   }
   return contents;
 };
@@ -71212,6 +72544,7 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
     UserData: undefined,
     WeightedCapacity: undefined,
     TagSpecifications: undefined,
+    InstanceRequirements: undefined,
   };
   if (output.groupSet === "") {
     contents.SecurityGroups = [];
@@ -71294,6 +72627,9 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
       context
     );
   }
+  if (output["instanceRequirements"] !== undefined) {
+    contents.InstanceRequirements = deserializeAws_ec2InstanceRequirements(output["instanceRequirements"], context);
+  }
   return contents;
 };
 
@@ -71372,6 +72708,7 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
     LoadBalancersConfig: undefined,
     InstancePoolsToUseCount: undefined,
     Context: undefined,
+    TargetCapacityUnitType: undefined,
     TagSpecifications: undefined,
   };
   if (output["allocationStrategy"] !== undefined) {
@@ -71460,6 +72797,9 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   }
   if (output["context"] !== undefined) {
     contents.Context = __expectString(output["context"]);
+  }
+  if (output["targetCapacityUnitType"] !== undefined) {
+    contents.TargetCapacityUnitType = __expectString(output["targetCapacityUnitType"]);
   }
   if (output.TagSpecification === "") {
     contents.TagSpecifications = [];
@@ -71719,6 +73059,35 @@ const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): 
     contents.Tenancy = __expectString(output["tenancy"]);
   }
   return contents;
+};
+
+const deserializeAws_ec2SpotPlacementScore = (output: any, context: __SerdeContext): SpotPlacementScore => {
+  const contents: any = {
+    Region: undefined,
+    AvailabilityZoneId: undefined,
+    Score: undefined,
+  };
+  if (output["region"] !== undefined) {
+    contents.Region = __expectString(output["region"]);
+  }
+  if (output["availabilityZoneId"] !== undefined) {
+    contents.AvailabilityZoneId = __expectString(output["availabilityZoneId"]);
+  }
+  if (output["score"] !== undefined) {
+    contents.Score = __strictParseInt32(output["score"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2SpotPlacementScores = (output: any, context: __SerdeContext): SpotPlacementScore[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_ec2SpotPlacementScore(entry, context);
+    });
 };
 
 const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): SpotPrice => {
@@ -72376,6 +73745,7 @@ const deserializeAws_ec2TargetCapacitySpecification = (
     OnDemandTargetCapacity: undefined,
     SpotTargetCapacity: undefined,
     DefaultTargetCapacityType: undefined,
+    TargetCapacityUnitType: undefined,
   };
   if (output["totalTargetCapacity"] !== undefined) {
     contents.TotalTargetCapacity = __strictParseInt32(output["totalTargetCapacity"]) as number;
@@ -72388,6 +73758,9 @@ const deserializeAws_ec2TargetCapacitySpecification = (
   }
   if (output["defaultTargetCapacityType"] !== undefined) {
     contents.DefaultTargetCapacityType = __expectString(output["defaultTargetCapacityType"]);
+  }
+  if (output["targetCapacityUnitType"] !== undefined) {
+    contents.TargetCapacityUnitType = __expectString(output["targetCapacityUnitType"]);
   }
   return contents;
 };
@@ -72605,6 +73978,20 @@ const deserializeAws_ec2ThreadsPerCoreList = (output: any, context: __SerdeConte
       }
       return __strictParseInt32(entry) as number;
     });
+};
+
+const deserializeAws_ec2TotalLocalStorageGB = (output: any, context: __SerdeContext): TotalLocalStorageGB => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseFloat(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseFloat(output["max"]) as number;
+  }
+  return contents;
 };
 
 const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMirrorFilter => {
@@ -74602,6 +75989,20 @@ const deserializeAws_ec2ValueStringList = (output: any, context: __SerdeContext)
     });
 };
 
+const deserializeAws_ec2VCpuCountRange = (output: any, context: __SerdeContext): VCpuCountRange => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseInt32(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseInt32(output["max"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuInfo => {
   const contents: any = {
     DefaultVCpus: undefined,
@@ -75665,6 +77066,9 @@ const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): 
     VpnConnectionId: undefined,
     VpnGatewayId: undefined,
     TransitGatewayId: undefined,
+    CoreNetworkArn: undefined,
+    CoreNetworkAttachmentArn: undefined,
+    GatewayAssociationState: undefined,
     Options: undefined,
     Routes: undefined,
     Tags: undefined,
@@ -75693,6 +77097,15 @@ const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): 
   }
   if (output["transitGatewayId"] !== undefined) {
     contents.TransitGatewayId = __expectString(output["transitGatewayId"]);
+  }
+  if (output["coreNetworkArn"] !== undefined) {
+    contents.CoreNetworkArn = __expectString(output["coreNetworkArn"]);
+  }
+  if (output["coreNetworkAttachmentArn"] !== undefined) {
+    contents.CoreNetworkAttachmentArn = __expectString(output["coreNetworkAttachmentArn"]);
+  }
+  if (output["gatewayAssociationState"] !== undefined) {
+    contents.GatewayAssociationState = __expectString(output["gatewayAssociationState"]);
   }
   if (output["options"] !== undefined) {
     contents.Options = deserializeAws_ec2VpnConnectionOptions(output["options"], context);

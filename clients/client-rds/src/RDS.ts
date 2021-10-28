@@ -71,6 +71,11 @@ import {
   CreateCustomAvailabilityZoneCommandOutput,
 } from "./commands/CreateCustomAvailabilityZoneCommand";
 import {
+  CreateCustomDBEngineVersionCommand,
+  CreateCustomDBEngineVersionCommandInput,
+  CreateCustomDBEngineVersionCommandOutput,
+} from "./commands/CreateCustomDBEngineVersionCommand";
+import {
   CreateDBClusterCommand,
   CreateDBClusterCommandInput,
   CreateDBClusterCommandOutput,
@@ -150,6 +155,11 @@ import {
   DeleteCustomAvailabilityZoneCommandInput,
   DeleteCustomAvailabilityZoneCommandOutput,
 } from "./commands/DeleteCustomAvailabilityZoneCommand";
+import {
+  DeleteCustomDBEngineVersionCommand,
+  DeleteCustomDBEngineVersionCommandInput,
+  DeleteCustomDBEngineVersionCommandOutput,
+} from "./commands/DeleteCustomDBEngineVersionCommand";
 import {
   DeleteDBClusterCommand,
   DeleteDBClusterCommandInput,
@@ -471,6 +481,11 @@ import {
   ModifyCurrentDBClusterCapacityCommandOutput,
 } from "./commands/ModifyCurrentDBClusterCapacityCommand";
 import {
+  ModifyCustomDBEngineVersionCommand,
+  ModifyCustomDBEngineVersionCommandInput,
+  ModifyCustomDBEngineVersionCommandOutput,
+} from "./commands/ModifyCustomDBEngineVersionCommand";
+import {
   ModifyDBClusterCommand,
   ModifyDBClusterCommandInput,
   ModifyDBClusterCommandOutput,
@@ -789,6 +804,7 @@ export class RDS extends RDSClient {
    *         <note>
    *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
    *         </note>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    */
   public addRoleToDBInstance(
     args: AddRoleToDBInstanceCommandInput,
@@ -1094,7 +1110,7 @@ export class RDS extends RDSClient {
    *               <ul>
    *                   <li>
    *                      <p>
-   *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the customer master key (CMK) to use to encrypt the copy of the DB
+   *                         <code>KmsKeyId</code> - The Amazon Web Services KMS key identifier for the KMS key to use to encrypt the copy of the DB
    *                       cluster snapshot in the destination Amazon Web Services Region. This is the same identifier for both the <code>CopyDBClusterSnapshot</code>
    *                       action that is called in the destination Amazon Web Services Region, and the action contained in the pre-signed URL.</p>
    *                   </li>
@@ -1111,7 +1127,6 @@ export class RDS extends RDSClient {
    *                   </li>
    *                </ul>
    *               <p>To learn how to generate a Signature Version 4 signed request, see
-   *
    *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
    *                       Authenticating Requests: Using Query Parameters (Amazon Web Services Signature Version 4)</a> and
    *                   <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
@@ -1214,6 +1229,8 @@ export class RDS extends RDSClient {
    *             where you call the <code>CopyDBSnapshot</code> action is the destination Amazon Web Services Region for the
    *             DB snapshot copy. </p>
    *
+   *         <p>This command doesn't apply to RDS Custom.</p>
+   *
    *         <p>For more information about copying snapshots, see
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i>
    *         </p>
@@ -1306,6 +1323,65 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: CreateCustomAvailabilityZoneCommandOutput) => void
   ): Promise<CreateCustomAvailabilityZoneCommandOutput> | void {
     const command = new CreateCustomAvailabilityZoneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a custom DB engine version (CEV). A CEV is a binary volume snapshot of a database engine and
+   *             specific AMI. The only supported engine is Oracle Database 19c Enterprise Edition with the January 2021
+   *             or later RU/RUR. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">
+   *                 Amazon RDS Custom requirements and limitations</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>Amazon RDS, which is a fully managed service, supplies the Amazon Machine Image (AMI) and database software.
+   *             The Amazon RDS database software is preinstalled, so you need only select a DB engine and version, and create
+   *             your database. With Amazon RDS Custom, you upload your database installation files in Amazon S3. For
+   *             more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.html#custom-cev.preparing">
+   *                 Preparing to create a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>When you create a custom engine version, you specify the files in a JSON document called a CEV manifest.
+   *             This document describes installation .zip files stored in Amazon S3. RDS Custom creates your CEV from
+   *             the installation files that you provided. This service model is called Bring Your Own Media (BYOM).</p>
+   *         <p>Creation takes approximately two hours. If creation fails, RDS Custom issues <code>RDS-EVENT-0196</code> with
+   *             the message <code>Creation failed for custom engine version</code>, and includes details about the failure.
+   *             For example, the event prints missing files. </p>
+   *         <p>After you create the CEV, it is available for use. You can create multiple CEVs, and create multiple
+   *             RDS Custom instances from any CEV. You can also change the status of a CEV to make it available or
+   *             inactive.</p>
+   *         <note>
+   *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
+   *             Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
+   *             <code>CreateCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
+   *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
+   *             the <code>CreateCustomDbEngineVersion</code> event.</p>
+   *          </note>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.create">
+   *                 Creating a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  public createCustomDBEngineVersion(
+    args: CreateCustomDBEngineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomDBEngineVersionCommandOutput>;
+  public createCustomDBEngineVersion(
+    args: CreateCustomDBEngineVersionCommandInput,
+    cb: (err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public createCustomDBEngineVersion(
+    args: CreateCustomDBEngineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public createCustomDBEngineVersion(
+    args: CreateCustomDBEngineVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void),
+    cb?: (err: any, data?: CreateCustomDBEngineVersionCommandOutput) => void
+  ): Promise<CreateCustomDBEngineVersionCommandOutput> | void {
+    const command = new CreateCustomDBEngineVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1582,11 +1658,12 @@ export class RDS extends RDSClient {
    *             A DB parameter group is initially created with the default parameters for the
    *             database engine used by the DB instance. To provide custom values for any of the
    *             parameters, you must modify the group after creating it using
-   *             <i>ModifyDBParameterGroup</i>. Once you've created a DB parameter group, you need to
-   *             associate it with your DB instance using <i>ModifyDBInstance</i>. When you associate
+   *             <code>ModifyDBParameterGroup</code>. Once you've created a DB parameter group, you need to
+   *             associate it with your DB instance using <code>ModifyDBInstance</code>. When you associate
    *             a new DB parameter group with a running DB instance, you need to reboot the DB
    *             instance without failover for the new DB parameter group and associated settings to take effect.
-   *         </p>
+   *       </p>
+   *          <p>This command doesn't apply to RDS Custom.</p>
    *          <important>
    *             <p>After you create a DB parameter group, you should wait at least 5 minutes
    *                 before creating your first DB instance that uses that DB parameter group as the default parameter
@@ -1900,6 +1977,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Creates a new option group. You can create up to 20 option groups.</p>
+   *          <p>This command doesn't apply to RDS Custom.</p>
    */
   public createOptionGroup(
     args: CreateOptionGroupCommandInput,
@@ -1957,6 +2035,58 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DeleteCustomAvailabilityZoneCommandOutput) => void
   ): Promise<DeleteCustomAvailabilityZoneCommandOutput> | void {
     const command = new DeleteCustomAvailabilityZoneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
+   *         <ul>
+   *             <li>
+   *                <p>The CEV must not be the default for RDS Custom. If it is, change the default
+   *                 before running this command.</p>
+   *             </li>
+   *             <li>
+   *                <p>The CEV must not be associated with an RDS Custom DB instance, RDS Custom instance snapshot,
+   *                 or automated backup of your RDS Custom instance.</p>
+   *             </li>
+   *          </ul>
+   *         <p>Typically, deletion takes a few minutes.</p>
+   *         <note>
+   *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
+   *             Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
+   *             <code>DeleteCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
+   *             API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
+   *             the <code>DeleteCustomDbEngineVersion</code> event.</p>
+   *          </note>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.delete">
+   *             Deleting a CEV</a> in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  public deleteCustomDBEngineVersion(
+    args: DeleteCustomDBEngineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomDBEngineVersionCommandOutput>;
+  public deleteCustomDBEngineVersion(
+    args: DeleteCustomDBEngineVersionCommandInput,
+    cb: (err: any, data?: DeleteCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public deleteCustomDBEngineVersion(
+    args: DeleteCustomDBEngineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public deleteCustomDBEngineVersion(
+    args: DeleteCustomDBEngineVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomDBEngineVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteCustomDBEngineVersionCommandOutput) => void
+  ): Promise<DeleteCustomDBEngineVersionCommandOutput> | void {
+    const command = new DeleteCustomDBEngineVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3071,6 +3201,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Returns a list of DB log files for the DB instance.</p>
+   *          <p>This command doesn't apply to RDS Custom.</p>
    */
   public describeDBLogFiles(
     args: DescribeDBLogFilesCommandInput,
@@ -3947,11 +4078,10 @@ export class RDS extends RDSClient {
   }
 
   /**
-   * <p>You can call <code>DescribeValidDBInstanceModifications</code>
-   *             to learn what modifications you can make to your DB instance.
-   *             You can use this information when you call
-   *             <code>ModifyDBInstance</code>.
+   * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
+   *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.
    *         </p>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    */
   public describeValidDBInstanceModifications(
     args: DescribeValidDBInstanceModificationsCommandInput,
@@ -3984,6 +4114,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
+   *          <p>This command doesn't apply to RDS Custom.</p>
    */
   public downloadDBLogFilePortion(
     args: DownloadDBLogFilePortionCommandInput,
@@ -4268,6 +4399,48 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: ModifyCurrentDBClusterCapacityCommandOutput) => void
   ): Promise<ModifyCurrentDBClusterCapacityCommandOutput> | void {
     const command = new ModifyCurrentDBClusterCapacityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the status of a custom engine version (CEV). You can find CEVs to modify by calling
+   *             <code>DescribeDBEngineVersions</code>.</p>
+   *         <note>
+   *             <p>The MediaImport service that imports files from Amazon S3 to create CEVs isn't integrated with
+   *                 Amazon Web Services CloudTrail. If you turn on data logging for Amazon RDS in CloudTrail, calls to the
+   *                 <code>ModifyCustomDbEngineVersion</code> event aren't logged. However, you might see calls from the
+   *                 API gateway that accesses your Amazon S3 bucket. These calls originate from the MediaImport service for
+   *                 the <code>ModifyCustomDbEngineVersion</code> event.</p>
+   *          </note>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest">Modifying CEV status</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   */
+  public modifyCustomDBEngineVersion(
+    args: ModifyCustomDBEngineVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCustomDBEngineVersionCommandOutput>;
+  public modifyCustomDBEngineVersion(
+    args: ModifyCustomDBEngineVersionCommandInput,
+    cb: (err: any, data?: ModifyCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public modifyCustomDBEngineVersion(
+    args: ModifyCustomDBEngineVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCustomDBEngineVersionCommandOutput) => void
+  ): void;
+  public modifyCustomDBEngineVersion(
+    args: ModifyCustomDBEngineVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCustomDBEngineVersionCommandOutput) => void),
+    cb?: (err: any, data?: ModifyCustomDBEngineVersionCommandOutput) => void
+  ): Promise<ModifyCustomDBEngineVersionCommandOutput> | void {
+    const command = new ModifyCustomDBEngineVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4652,7 +4825,8 @@ export class RDS extends RDSClient {
    *
    *         </p>
    *
-   *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, Oracle, and PostgreSQL.
+   *          <p>Amazon RDS supports upgrading DB snapshots for MySQL, PostgreSQL, and Oracle. This command
+   *           doesn't apply to RDS Custom.
    *       </p>
    */
   public modifyDBSnapshot(
@@ -4887,7 +5061,7 @@ export class RDS extends RDSClient {
    *                         promotion.</p>
    *                </li>
    *                <li>
-   *                   <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.</p>
+   *                   <p>This command doesn't apply to Aurora MySQL, Aurora PostgreSQL, or RDS Custom.</p>
    *                </li>
    *             </ul>
    *
@@ -5002,6 +5176,8 @@ export class RDS extends RDSClient {
    *
    *          <p>For more information about rebooting, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_RebootInstance.html">Rebooting a DB Instance</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
+   *
+   *          <p>This command doesn't apply to RDS Custom.</p>
    */
   public rebootDBInstance(
     args: RebootDBInstanceCommandInput,
@@ -5539,6 +5715,7 @@ export class RDS extends RDSClient {
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html">Importing Data into an Amazon RDS MySQL DB Instance</a>
    *             in the <i>Amazon RDS User Guide.</i>
    *         </p>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    */
   public restoreDBInstanceFromS3(
     args: RestoreDBInstanceFromS3CommandInput,
@@ -5730,7 +5907,7 @@ export class RDS extends RDSClient {
    *
    *         <note>
    *             <p>
-   *             This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+   *             This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
    *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.
    *           </p>
    *         </note>
@@ -5766,6 +5943,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Enables replication of automated backups to a different Amazon Web Services Region.</p>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
    *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>
@@ -5805,6 +5983,7 @@ export class RDS extends RDSClient {
    * <p>Starts an export of a snapshot to Amazon S3.
    *             The provided IAM role must have access to the S3 bucket.
    *         </p>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    */
   public startExportTask(
     args: StartExportTaskCommandInput,
@@ -5930,7 +6109,7 @@ export class RDS extends RDSClient {
    *
    *         <note>
    *             <p>
-   *             This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+   *             This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
    *             For Aurora clusters, use <code>StopDBCluster</code> instead.
    *           </p>
    *         </note>
@@ -5966,6 +6145,7 @@ export class RDS extends RDSClient {
 
   /**
    * <p>Stops automated backup replication for a DB instance.</p>
+   *         <p>This command doesn't apply to RDS Custom.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReplicateBackups.html">
    *             Replicating Automated Backups to Another Amazon Web Services Region</a> in the <i>Amazon RDS User Guide.</i>
    *          </p>

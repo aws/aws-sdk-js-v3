@@ -92,6 +92,8 @@ export const serializeAws_restJson1CreateParticipantConnectionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
   let body: any;
   body = JSON.stringify({
+    ...(input.ConnectParticipant !== undefined &&
+      input.ConnectParticipant !== null && { ConnectParticipant: input.ConnectParticipant }),
     ...(input.Type !== undefined &&
       input.Type !== null && { Type: serializeAws_restJson1ConnectionTypeList(input.Type, context) }),
   });
