@@ -14,7 +14,7 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
-const PROTOCOL_TESTS_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
+const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
 
 const {
   models,
@@ -49,7 +49,7 @@ const {
       await generateProtocolTests();
       await eslintFixCode();
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
-      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+      await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
 
       emptyDirSync(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
@@ -73,8 +73,8 @@ const {
 
     await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
     if (!noPrivateClients) {
-      await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
-      await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PROTOCOL_TESTS_CLIENTS_DIR);
+      await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
+      await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
     emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
