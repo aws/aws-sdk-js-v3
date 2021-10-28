@@ -20,7 +20,7 @@ exports.ensureTestStack = async (client, stackName, templateBody) => {
     await client.send(new DescribeStacksCommand({ StackName: stackName }));
     hasExistingStack = true;
   } catch (e) {
-    if (e.message?.endsWith("does not exist")) {
+    if ((e.message || "").endsWith("does not exist")) {
       hasExistingStack = false;
     } else {
       throw e;
