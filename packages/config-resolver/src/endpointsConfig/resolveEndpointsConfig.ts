@@ -1,6 +1,7 @@
 import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "@aws-sdk/types";
 
 import { getEndpointFromRegion } from "./utils/getEndpointFromRegion";
+import { normalizeBoolean } from "./utils/normalizeBoolean";
 import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 export interface EndpointsInputConfig {
@@ -13,6 +14,16 @@ export interface EndpointsInputConfig {
    * Whether TLS is enabled for requests.
    */
   tls?: boolean;
+
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   */
+  useDualstackEndpoint?: boolean | Provider<boolean>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | Provider<boolean>;
 }
 
 interface PreviouslyResolved {
@@ -23,7 +34,7 @@ interface PreviouslyResolved {
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
   /**
-   * Resolved value for input {@link EndpointsResolvedConfig.endpoint}
+   * Resolved value for input {@link EndpointsInputConfig.endpoint}
    */
   endpoint: Provider<Endpoint>;
 
@@ -32,6 +43,16 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * @internal
    */
   isCustomEndpoint: boolean;
+
+  /**
+   * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}
+   */
+  useDualstackEndpoint: Provider<boolean>;
+
+  /**
+   * Resolved value for input {@link EndpointsInputConfig.useFipsEndpoint}
+   */
+  useFipsEndpoint: Provider<boolean>;
 }
 
 export const resolveEndpointsConfig = <T>(
@@ -43,4 +64,6 @@ export const resolveEndpointsConfig = <T>(
     ? normalizeEndpoint({ ...input, endpoint: input.endpoint })
     : () => getEndpointFromRegion(input),
   isCustomEndpoint: input.endpoint ? true : false,
+  useDualstackEndpoint: normalizeBoolean(input.useDualstackEndpoint!),
+  useFipsEndpoint: normalizeBoolean(input.useFipsEndpoint!),
 });

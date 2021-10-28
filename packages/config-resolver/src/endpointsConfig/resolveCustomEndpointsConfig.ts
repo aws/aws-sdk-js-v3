@@ -1,6 +1,7 @@
 import { Endpoint, Provider, UrlParser } from "@aws-sdk/types";
 
 import { EndpointsInputConfig, EndpointsResolvedConfig } from "./resolveEndpointsConfig";
+import { normalizeBoolean } from "./utils/normalizeBoolean";
 import { normalizeEndpoint } from "./utils/normalizeEndpoint";
 
 export interface CustomEndpointsInputConfig extends EndpointsInputConfig {
@@ -29,4 +30,6 @@ export const resolveCustomEndpointsConfig = <T>(
   tls: input.tls ?? true,
   endpoint: normalizeEndpoint(input),
   isCustomEndpoint: true,
+  useDualstackEndpoint: normalizeBoolean(input.useDualstackEndpoint!),
+  useFipsEndpoint: normalizeBoolean(input.useFipsEndpoint!),
 });
