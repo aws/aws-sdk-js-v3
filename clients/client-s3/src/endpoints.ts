@@ -154,6 +154,27 @@ const regionHash: RegionHash = {
       },
     ],
   },
+  "fips-accesspoint-ca-central-1": {
+    hostname: "s3-accesspoint-fips.ca-central-1.amazonaws.com",
+  },
+  "fips-accesspoint-us-east-1": {
+    hostname: "s3-accesspoint-fips.us-east-1.amazonaws.com",
+  },
+  "fips-accesspoint-us-east-2": {
+    hostname: "s3-accesspoint-fips.us-east-2.amazonaws.com",
+  },
+  "fips-accesspoint-us-gov-east-1": {
+    hostname: "s3-accesspoint-fips.us-gov-east-1.amazonaws.com",
+  },
+  "fips-accesspoint-us-gov-west-1": {
+    hostname: "s3-accesspoint-fips.us-gov-west-1.amazonaws.com",
+  },
+  "fips-accesspoint-us-west-1": {
+    hostname: "s3-accesspoint-fips.us-west-1.amazonaws.com",
+  },
+  "fips-accesspoint-us-west-2": {
+    hostname: "s3-accesspoint-fips.us-west-2.amazonaws.com",
+  },
   "fips-ca-central-1": {
     hostname: "s3-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -317,6 +338,11 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-accesspoint-ca-central-1",
+      "fips-accesspoint-us-east-1",
+      "fips-accesspoint-us-east-2",
+      "fips-accesspoint-us-west-1",
+      "fips-accesspoint-us-west-2",
       "fips-ca-central-1",
       "fips-us-east-1",
       "fips-us-east-2",
@@ -349,7 +375,14 @@ const partitionHash: PartitionHash = {
     hostname: "s3.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
+    regions: [
+      "fips-accesspoint-us-gov-east-1",
+      "fips-accesspoint-us-gov-west-1",
+      "fips-us-gov-east-1",
+      "fips-us-gov-west-1",
+      "us-gov-east-1",
+      "us-gov-west-1",
+    ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "s3.{region}.amazonaws.com",
   },
