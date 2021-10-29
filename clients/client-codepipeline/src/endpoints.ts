@@ -110,18 +110,18 @@ const partitionHash: PartitionHash = {
     hostname: "codepipeline.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "amazonaws.com",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["fips"],
       },
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "api.aws",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "{service}.{region}.{dnsSuffix}",
         dnsSuffix: "api.aws",
+        hostname: "{service}.{region}.{dnsSuffix}",
         tags: ["dualstack"],
       },
     ],
@@ -132,18 +132,18 @@ const partitionHash: PartitionHash = {
     hostname: "codepipeline.{region}.amazonaws.com.cn",
     variants: [
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "amazonaws.com.cn",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["fips"],
       },
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "api.amazonwebservices.com.cn",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "{service}.{region}.{dnsSuffix}",
         dnsSuffix: "api.amazonwebservices.com.cn",
+        hostname: "{service}.{region}.{dnsSuffix}",
         tags: ["dualstack"],
       },
     ],
@@ -164,18 +164,18 @@ const partitionHash: PartitionHash = {
     hostname: "codepipeline.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "amazonaws.com",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["fips"],
       },
       {
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
         dnsSuffix: "api.aws",
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "{service}.{region}.{dnsSuffix}",
         dnsSuffix: "api.aws",
+        hostname: "{service}.{region}.{dnsSuffix}",
         tags: ["dualstack"],
       },
     ],
