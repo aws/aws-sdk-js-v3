@@ -139,9 +139,7 @@ final class EndpointGenerator implements Runnable {
                     ObjectNode defaults = partition.getDefaults();
                     if (defaults.containsMember("variants")) {
                         ArrayNode variants = defaults.expectArrayMember("variants");
-                        writer.openBlock("variants: [", "],", () -> {
-                            writeVariants(variants);
-                        });
+                        writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
                     }
                 });
             });
@@ -176,9 +174,7 @@ final class EndpointGenerator implements Runnable {
                 }
                 if (resolved.containsMember("variants")) {
                     ArrayNode variants = resolved.expectArrayMember("variants");
-                    writer.openBlock("variants: [", "],", () -> {
-                        writeVariants(variants);
-                    });
+                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
                 }
                 resolved.getObjectMember("credentialScope").ifPresent(scope -> {
                     scope.getStringMember("region").ifPresent(signingRegion -> {
@@ -190,30 +186,6 @@ final class EndpointGenerator implements Runnable {
                 });
             });
         }
-    }
-
-    private void writeVariants(ArrayNode variants) {
-        variants.forEach(variant -> {
-            writer.openBlock("{", "},", () -> {
-                ObjectNode variantNode = variant.expectObjectNode();
-                if (variantNode.containsMember("hostname")) {
-                    String hostname = variantNode.expectStringMember("hostname").getValue();
-                    writer.write("hostname: $S,", hostname);
-                }
-                if (variantNode.containsMember("dnsSuffix")) {
-                    String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
-                    writer.write("dnsSuffix: $S,", dnsSuffix);
-                }
-                if (variantNode.containsMember("tags")) {
-                    ArrayNode tags = variantNode.expectArrayMember("tags");
-                    writer.openBlock("tags: [", "],", () -> {
-                        tags.forEach(tag -> {
-                            writer.write("'$L',", tag.expectStringNode());
-                        });
-                    });
-                }
-            });
-        });
     }
 
     private final class Partition {
