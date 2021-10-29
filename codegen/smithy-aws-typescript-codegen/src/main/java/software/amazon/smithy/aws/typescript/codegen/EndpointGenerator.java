@@ -170,27 +170,7 @@ final class EndpointGenerator implements Runnable {
                 if (resolved.containsMember("variants")) {
                     ArrayNode variants = resolved.expectArrayMember("variants");
                     writer.openBlock("variants: [", "],", () -> {
-                        variants.forEach(variant -> {
-                            writer.openBlock("{", "},", () -> {
-                                ObjectNode variantNode = variant.expectObjectNode();
-                                if (variantNode.containsMember("hostname")) {
-                                    String hostname = variantNode.expectStringMember("hostname").getValue();
-                                    writer.write("hostname: $S,", hostname);
-                                }
-                                if (variantNode.containsMember("dnsSuffix")) {
-                                    String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
-                                    writer.write("dnsSuffix: $S,", dnsSuffix);
-                                }
-                                if (variantNode.containsMember("tags")) {
-                                    ArrayNode tags = variantNode.expectArrayMember("tags");
-                                    writer.openBlock("tags: [", "],", () -> {
-                                        tags.forEach(tag -> {
-                                            writer.write("'$L',", tag.expectStringNode());
-                                        });
-                                    });
-                                }
-                            });
-                        });
+                        writeVariants(variants);
                     });
                 }
                 resolved.getObjectMember("credentialScope").ifPresent(scope -> {
@@ -203,6 +183,30 @@ final class EndpointGenerator implements Runnable {
                 });
             });
         }
+    }
+
+    private void writeVariants(ArrayNode variants) {
+        variants.forEach(variant -> {
+            writer.openBlock("{", "},", () -> {
+                ObjectNode variantNode = variant.expectObjectNode();
+                if (variantNode.containsMember("hostname")) {
+                    String hostname = variantNode.expectStringMember("hostname").getValue();
+                    writer.write("hostname: $S,", hostname);
+                }
+                if (variantNode.containsMember("dnsSuffix")) {
+                    String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
+                    writer.write("dnsSuffix: $S,", dnsSuffix);
+                }
+                if (variantNode.containsMember("tags")) {
+                    ArrayNode tags = variantNode.expectArrayMember("tags");
+                    writer.openBlock("tags: [", "],", () -> {
+                        tags.forEach(tag -> {
+                            writer.write("'$L',", tag.expectStringNode());
+                        });
+                    });
+                }
+            });
+        });
     }
 
     private final class Partition {
