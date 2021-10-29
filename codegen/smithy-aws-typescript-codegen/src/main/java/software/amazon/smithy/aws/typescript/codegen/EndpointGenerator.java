@@ -136,6 +136,13 @@ final class EndpointGenerator implements Runnable {
                     OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
                         endpoint -> writer.write("endpoint: $S,", endpoint),
                         () -> writer.write("hostname: $S,", partition.hostnameTemplate));
+                    ObjectNode defaults = partition.getDefaults();
+                    if (defaults.containsMember("variants")) {
+                        ArrayNode variants = defaults.expectArrayMember("variants");
+                        writer.openBlock("variants: [", "],", () -> {
+                            writeVariants(variants);
+                        });
+                    }
                 });
             });
         });
