@@ -38,10 +38,11 @@ export const parseOutpostArnablesMiddleaware =
     const clientRegion = await options.region();
     const { regionInfoProvider } = options;
     const useArnRegion = await options.useArnRegion();
+    const useDualstackEndpoint = await options.useDualstackEndpoint();
     const baseRegion = getPseudoRegion(clientRegion);
     const { partition: clientPartition, signingRegion = baseRegion } = (await regionInfoProvider(baseRegion))!;
     const validatorOptions: ValidateOutpostsArnOptions = {
-      useDualstackEndpoint: options.useDualstackEndpoint,
+      useDualstackEndpoint,
       clientRegion,
       clientPartition,
       signingRegion,

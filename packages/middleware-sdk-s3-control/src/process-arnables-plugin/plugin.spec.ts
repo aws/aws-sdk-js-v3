@@ -10,12 +10,12 @@ describe("getProcessArnablesMiddleware", () => {
     region: string;
     regionInfoProvider?: Provider<RegionInfo>;
     useAccelerateEndpoint?: boolean;
-    useDualstackEndpoint?: boolean;
+    useDualstackEndpoint?: Provider<boolean>;
     useArnRegion?: boolean;
   };
   const setupPluginOptions = (options: FakeOptions): S3ControlResolvedConfig => {
     return {
-      useDualstackEndpoint: false,
+      useDualstackEndpoint: () => Promise.resolve(false),
       ...options,
       regionInfoProvider: options.regionInfoProvider ?? jest.fn().mockResolvedValue({ partition: "aws" }),
       region: jest.fn().mockResolvedValue(options.region),
@@ -239,7 +239,7 @@ describe("getProcessArnablesMiddleware", () => {
       const clientRegion = "us-west-2";
       const options = setupPluginOptions({
         region: clientRegion,
-        useDualstackEndpoint: true,
+        useDualstackEndpoint: () => Promise.resolve(true),
       });
       const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
       const handler = stack.resolve((() => {}) as any, {});
@@ -483,7 +483,7 @@ describe("getProcessArnablesMiddleware", () => {
       const clientRegion = "us-west-2";
       const options = setupPluginOptions({
         region: clientRegion,
-        useDualstackEndpoint: true,
+        useDualstackEndpoint: () => Promise.resolve(true),
       });
       const stack = getStack(`s3-control.${clientRegion}.amazonaws.com`, options);
       const handler = stack.resolve((() => {}) as any, {});
