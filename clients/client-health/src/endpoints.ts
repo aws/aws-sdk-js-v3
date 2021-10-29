@@ -10,6 +10,24 @@ const regionHash: RegionHash = {
     hostname: "health-fips.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-2",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
 };
 
 const partitionHash: PartitionHash = {

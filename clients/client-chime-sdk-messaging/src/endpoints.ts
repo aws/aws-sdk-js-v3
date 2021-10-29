@@ -2,6 +2,14 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-east-1-fips": {
     hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",

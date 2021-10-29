@@ -4,6 +4,12 @@ import { RegionInfoProvider } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-global": {
     hostname: "shield.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "shield-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-aws-global": {

@@ -8,10 +8,22 @@ const regionHash: RegionHash = {
   },
   "aws-global": {
     hostname: "organizations.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-us-gov-global": {
     hostname: "organizations.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {

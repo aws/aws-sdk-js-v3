@@ -2,9 +2,25 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1-fips": {
     hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-gov-west-1-fips": {
     hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",

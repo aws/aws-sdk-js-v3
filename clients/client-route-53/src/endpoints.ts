@@ -8,6 +8,12 @@ const regionHash: RegionHash = {
   },
   "aws-global": {
     hostname: "route53.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
@@ -20,6 +26,12 @@ const regionHash: RegionHash = {
   },
   "aws-us-gov-global": {
     hostname: "route53.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {

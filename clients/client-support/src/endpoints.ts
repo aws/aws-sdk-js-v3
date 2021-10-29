@@ -26,6 +26,15 @@ const regionHash: RegionHash = {
     hostname: "support.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "support.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
 };
 
 const partitionHash: PartitionHash = {

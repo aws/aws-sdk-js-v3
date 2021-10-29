@@ -16,14 +16,32 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     hostname: "pinpoint.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-gov-west-1": {
     hostname: "pinpoint.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
     hostname: "pinpoint.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };

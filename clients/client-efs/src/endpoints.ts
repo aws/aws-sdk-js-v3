@@ -2,6 +2,142 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "af-south-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.af-south-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-northeast-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-northeast-2": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-northeast-3": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-3.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-south-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-south-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-southeast-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-southeast-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ap-southeast-2": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ap-southeast-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "cn-north-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.cn-north-1.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "cn-northwest-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.cn-northwest-1.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-central-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-north-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-north-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-south-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-south-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-west-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-west-2": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-west-3": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.eu-west-3.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "fips-af-south-1": {
     hostname: "elasticfilesystem-fips.af-south-1.amazonaws.com",
     signingRegion: "af-south-1",
@@ -105,6 +241,78 @@ const regionHash: RegionHash = {
   "fips-us-west-2": {
     hostname: "elasticfilesystem-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
+  },
+  "me-south-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.me-south-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "sa-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.sa-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-iso-east-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-iso-east-1.c2s.ic.gov",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "elasticfilesystem-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

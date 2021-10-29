@@ -26,6 +26,54 @@ const regionHash: RegionHash = {
     hostname: "athena-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "athena-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "athena-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "athena-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "athena-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "athena-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "athena-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
 };
 
 const partitionHash: PartitionHash = {

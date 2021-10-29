@@ -16,6 +16,12 @@ const regionHash: RegionHash = {
   },
   "us-gov-east-1": {
     hostname: "greengrass.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {

@@ -6,6 +6,14 @@ const regionHash: RegionHash = {
     hostname: "identitystore.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "identitystore.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
 };
 
 const partitionHash: PartitionHash = {

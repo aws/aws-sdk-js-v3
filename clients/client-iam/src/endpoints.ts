@@ -8,6 +8,12 @@ const regionHash: RegionHash = {
   },
   "aws-global": {
     hostname: "iam.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-global-fips": {
@@ -24,15 +30,39 @@ const regionHash: RegionHash = {
   },
   "aws-us-gov-global": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "aws-us-gov-global-fips": {
     hostname: "iam.us-gov.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  iam: {
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
   "iam-fips": {
     hostname: "iam-fips.amazonaws.com",
     signingRegion: "us-east-1",
+  },
+  "iam-govcloud": {
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
   },
   "iam-govcloud-fips": {
     hostname: "iam.us-gov.amazonaws.com",

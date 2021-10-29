@@ -2,6 +2,30 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ap-south-1": {
+    variants: [
+      {
+        hostname: "api.ec2.ap-south-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "ec2-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-west-1": {
+    variants: [
+      {
+        hostname: "api.ec2.eu-west-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "fips-ca-central-1": {
     hostname: "ec2-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -22,6 +46,38 @@ const regionHash: RegionHash = {
     hostname: "ec2-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "sa-east-1": {
+    variants: [
+      {
+        hostname: "api.ec2.sa-east-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "api.ec2.us-east-1.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "api.ec2.us-east-2.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1": {
     hostname: "ec2.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
@@ -29,6 +85,26 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     hostname: "ec2.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "ec2-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "api.ec2.us-west-2.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

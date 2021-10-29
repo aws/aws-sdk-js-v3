@@ -2,6 +2,14 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "outposts-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "fips-ca-central-1": {
     hostname: "outposts-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -22,6 +30,22 @@ const regionHash: RegionHash = {
     hostname: "outposts-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "outposts-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "outposts-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1": {
     hostname: "outposts.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
@@ -29,6 +53,22 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     hostname: "outposts.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "outposts-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "outposts-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

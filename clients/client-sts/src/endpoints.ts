@@ -6,25 +6,73 @@ const regionHash: RegionHash = {
     hostname: "sts.amazonaws.com",
     signingRegion: "us-east-1",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "sts-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-east-1-fips": {
     hostname: "sts-fips.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "sts-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-east-2-fips": {
     hostname: "sts-fips.us-east-2.amazonaws.com",
     signingRegion: "us-east-2",
   },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "sts.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1-fips": {
     hostname: "sts.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "sts.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-gov-west-1-fips": {
     hostname: "sts.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "sts-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1-fips": {
     hostname: "sts-fips.us-west-1.amazonaws.com",
     signingRegion: "us-west-1",
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "sts-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-west-2-fips": {
     hostname: "sts-fips.us-west-2.amazonaws.com",

@@ -2,6 +2,14 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "ca-central-1-fips": {
     hostname: "storagegateway-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -10,25 +18,73 @@ const regionHash: RegionHash = {
     hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-east-1-fips": {
     hostname: "storagegateway-fips.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-east-2-fips": {
     hostname: "storagegateway-fips.us-east-2.amazonaws.com",
     signingRegion: "us-east-2",
   },
+  "us-gov-east-1": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1-fips": {
     hostname: "storagegateway-fips.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-gov-west-1-fips": {
     hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1-fips": {
     hostname: "storagegateway-fips.us-west-1.amazonaws.com",
     signingRegion: "us-west-1",
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "storagegateway-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-west-2-fips": {
     hostname: "storagegateway-fips.us-west-2.amazonaws.com",

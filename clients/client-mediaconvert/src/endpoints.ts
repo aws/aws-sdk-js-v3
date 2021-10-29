@@ -2,6 +2,14 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "cn-northwest-1": {
     hostname: "subscribe.mediaconvert.cn-northwest-1.amazonaws.com.cn",
     signingRegion: "cn-northwest-1",
@@ -26,9 +34,41 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-west-1": {
     hostname: "mediaconvert.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

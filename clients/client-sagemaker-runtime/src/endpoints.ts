@@ -2,21 +2,61 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "runtime-fips.sagemaker.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-east-1-fips": {
     hostname: "runtime-fips.sagemaker.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "runtime-fips.sagemaker.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-east-2-fips": {
     hostname: "runtime-fips.sagemaker.us-east-2.amazonaws.com",
     signingRegion: "us-east-2",
   },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "runtime.sagemaker.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-west-1-fips": {
     hostname: "runtime.sagemaker.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "runtime-fips.sagemaker.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-west-1-fips": {
     hostname: "runtime-fips.sagemaker.us-west-1.amazonaws.com",
     signingRegion: "us-west-1",
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "runtime-fips.sagemaker.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "us-west-2-fips": {
     hostname: "runtime-fips.sagemaker.us-west-2.amazonaws.com",

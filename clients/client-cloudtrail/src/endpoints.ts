@@ -18,6 +18,22 @@ const regionHash: RegionHash = {
     hostname: "cloudtrail-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "cloudtrail-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "cloudtrail-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1": {
     hostname: "cloudtrail.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
@@ -25,6 +41,22 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     hostname: "cloudtrail.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "cloudtrail-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "cloudtrail-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 
