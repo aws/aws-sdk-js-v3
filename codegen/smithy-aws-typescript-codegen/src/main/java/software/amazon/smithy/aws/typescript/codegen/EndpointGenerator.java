@@ -24,6 +24,7 @@ import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.CodegenException;
+import software.amazon.smithy.model.node.ArrayNode;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.model.node.ObjectNode;
 import software.amazon.smithy.model.node.StringNode;
@@ -90,6 +91,7 @@ final class EndpointGenerator implements Runnable {
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
                 ObjectNode config = entry.getValue().expectObjectNode();
+                // TODO: Do not populate config if "deprecated" is present.
                 if (config.containsMember("hostname")) {
                     // Resolve the hostname.
                     String hostName = config.expectStringMember("hostname").getValue();
@@ -97,8 +99,8 @@ final class EndpointGenerator implements Runnable {
                     hostName = hostName.replace("{service}", endpointPrefix);
                     hostName = hostName.replace("{region}", entry.getKey());
                     config = config.withMember("hostname", hostName);
-                    endpoints.put(entry.getKey(), config);
                 }
+                endpoints.put(entry.getKey(), config);
             }
         }
     }
@@ -157,10 +159,40 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
-        if (resolved.containsMember("hostname") || resolved.containsMember("credentialScope")) {
+        if (resolved.containsMember("variants")
+                || resolved.containsMember("hostname")
+                || resolved.containsMember("credentialScope")) {
             writer.openBlock("$S: {", "},", region, () -> {
-                String hostname = resolved.expectStringMember("hostname").getValue();
-                writer.write("hostname: $S,", hostname);
+                if (resolved.containsMember("hostname")) {
+                    String hostname = resolved.expectStringMember("hostname").getValue();
+                    writer.write("hostname: $S,", hostname);
+                }
+                if (resolved.containsMember("variants")) {
+                    ArrayNode variants = resolved.expectArrayMember("variants");
+                    writer.openBlock("variants: [", "],", () -> {
+                        variants.forEach(variant -> {
+                            writer.openBlock("{", "},", () -> {
+                                ObjectNode variantNode = variant.expectObjectNode();
+                                if (variantNode.containsMember("hostname")) {
+                                    String hostname = variantNode.expectStringMember("hostname").getValue();
+                                    writer.write("hostname: $S,", hostname);
+                                }
+                                if (variantNode.containsMember("dnsSuffix")) {
+                                    String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
+                                    writer.write("dnsSuffix: $S,", dnsSuffix);
+                                }
+                                if (variantNode.containsMember("tags")) {
+                                    ArrayNode tags = variantNode.expectArrayMember("tags");
+                                    writer.openBlock("tags: [", "],", () -> {
+                                        tags.forEach(tag -> {
+                                            writer.write("'$L',", tag.expectStringNode());
+                                        });
+                                    });
+                                }
+                            });
+                        });
+                    });
+                }
                 resolved.getObjectMember("credentialScope").ifPresent(scope -> {
                     scope.getStringMember("region").ifPresent(signingRegion -> {
                         writer.write("signingRegion: $S,", signingRegion);
