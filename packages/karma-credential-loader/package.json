@@ -1,7 +1,6 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "3.38.0",
-  "private": true,
+  "version": "3.39.0",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -19,8 +18,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "3.38.0",
-    "@aws-sdk/client-sts": "3.39.0",
+    "@aws-sdk/credential-provider-node": "3.39.0",
+    "@aws-sdk/client-sts": "file:../../clients/client-sts",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
