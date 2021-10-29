@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -136,10 +137,13 @@ final class EndpointGenerator implements Runnable {
                     OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
                         endpoint -> writer.write("endpoint: $S,", endpoint),
                         () -> writer.write("hostname: $S,", partition.hostnameTemplate));
-                    ObjectNode defaults = partition.getDefaults();
-                    if (defaults.containsMember("variants")) {
-                        ArrayNode variants = defaults.expectArrayMember("variants");
-                        writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
+                    List<Node> variants = partition.getVariants();
+                    if (!variants.isEmpty()) {
+                        writer.openBlock("variants: [", "],", () -> {
+                            variants.forEach(variant -> {
+                                writer.write("$L, ", Node.prettyPrintJson(variant));
+                            });
+                        });
                     }
                 });
             });
@@ -190,10 +194,10 @@ final class EndpointGenerator implements Runnable {
 
     private final class Partition {
         final ObjectNode defaults;
-        final String hostnameTemplate;
         final String dnsSuffix;
         final String identifier;
         final String regionRegex;
+        final String hostnameTemplate;
         private final ObjectNode config;
 
         private Partition(ObjectNode config, String partition) {
@@ -202,15 +206,15 @@ final class EndpointGenerator implements Runnable {
             ObjectNode partitionDefaults = config.expectObjectMember("defaults");
             defaults = partitionDefaults.merge(getService().getObjectMember("defaults").orElse(Node.objectNode()));
 
-            // Resolve the template to use for this service in this partition.
-            String template = defaults.expectStringMember("hostname").getValue();
-            template = template.replace("{service}", endpointPrefix);
-            template = template.replace("{dnsSuffix}", config.expectStringMember("dnsSuffix").getValue());
-            hostnameTemplate = template;
-
             dnsSuffix = config.expectStringMember("dnsSuffix").getValue();
             identifier = partition;
             regionRegex = config.expectStringMember("regionRegex").getValue();
+
+            // Resolve the template to use for this service in this partition.
+            String template = defaults.expectStringMember("hostname").getValue();
+            template = template.replace("{service}", endpointPrefix);
+            template = template.replace("{dnsSuffix}", dnsSuffix);
+            hostnameTemplate = template;
         }
 
         ObjectNode getDefaults() {
@@ -233,6 +237,27 @@ final class EndpointGenerator implements Runnable {
                     .orElse(Node.objectNode()).getStringMap().keySet()
             );
             return regions;
+        }
+
+        List<Node> getVariants() {
+            List<Node> allVariants = new ArrayList<Node>();
+
+            if (defaults.containsMember("variants")) {
+                ArrayNode variants = defaults.expectArrayMember("variants");
+                variants.forEach(variant -> {
+                    ObjectNode variantNode = variant.expectObjectNode();
+                    String hostname = variantNode.expectStringMember("hostname").getValue();
+                    if (variantNode.containsMember("dnsSuffix")) {
+                        String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
+                        hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
+                    }
+                    hostname = hostname.replace("{service}", endpointPrefix);
+                    hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
+                    allVariants.add(variantNode.withMember("hostname", hostname).withoutMember("dnsSuffix"));
+                });
+            }
+
+            return allVariants;
         }
 
         Optional<String> getPartitionEndpoint() {
