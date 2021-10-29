@@ -101,11 +101,45 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     endpoint: "aws-global",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     endpoint: "aws-cn-global",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
@@ -128,6 +162,23 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     endpoint: "aws-us-gov-global",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

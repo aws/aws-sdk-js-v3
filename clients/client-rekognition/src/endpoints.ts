@@ -196,11 +196,45 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "rekognition.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "rekognition.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -222,6 +256,23 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "rekognition.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

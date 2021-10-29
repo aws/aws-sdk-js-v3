@@ -95,11 +95,34 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "runtime-fips.sagemaker.{region}.{dnsSuffix}",
+        tags: ["fips"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "runtime.sagemaker.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -115,6 +138,23 @@ const partitionHash: PartitionHash = {
     regions: ["us-gov-east-1", "us-gov-west-1", "us-gov-west-1-fips"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "{service}.{region}.{dnsSuffix}",
+        dnsSuffix: "api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 
