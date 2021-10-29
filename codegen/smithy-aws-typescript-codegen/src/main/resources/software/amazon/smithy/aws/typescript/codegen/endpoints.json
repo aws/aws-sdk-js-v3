@@ -10500,6 +10500,26 @@
                 }
               ]
             },
+            "fips-accesspoint-ca-central-1": {
+              "hostname": "s3-accesspoint-fips.ca-central-1.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
+            "fips-accesspoint-us-east-1": {
+              "hostname": "s3-accesspoint-fips.us-east-1.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
+            "fips-accesspoint-us-east-2": {
+              "hostname": "s3-accesspoint-fips.us-east-2.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
+            "fips-accesspoint-us-west-1": {
+              "hostname": "s3-accesspoint-fips.us-west-1.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
+            "fips-accesspoint-us-west-2": {
+              "hostname": "s3-accesspoint-fips.us-west-2.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
             "fips-ca-central-1": {
               "credentialScope": {
                 "region": "ca-central-1"
@@ -12497,18 +12517,55 @@
             "ap-southeast-1": {},
             "ap-southeast-2": {},
             "ca-central-1": {},
+            "ca-central-1-fips": {
+              "credentialScope": {
+                "region": "ca-central-1"
+              },
+              "hostname": "dynamodb-fips.ca-central-1.amazonaws.com"
+            },
             "eu-central-1": {},
             "eu-north-1": {},
             "eu-south-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "local": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "localhost:8000",
+              "protocols": ["http"]
+            },
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
+            "us-east-1-fips": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "dynamodb-fips.us-east-1.amazonaws.com"
+            },
             "us-east-2": {},
+            "us-east-2-fips": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "hostname": "dynamodb-fips.us-east-2.amazonaws.com"
+            },
             "us-west-1": {},
-            "us-west-2": {}
+            "us-west-1-fips": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "hostname": "dynamodb-fips.us-west-1.amazonaws.com"
+            },
+            "us-west-2": {},
+            "us-west-2-fips": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "hostname": "dynamodb-fips.us-west-2.amazonaws.com"
+            }
           }
         },
         "sts": {
@@ -17711,6 +17768,14 @@
             ]
           },
           "endpoints": {
+            "fips-accesspoint-us-gov-east-1": {
+              "hostname": "s3-accesspoint-fips.us-gov-east-1.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
+            "fips-accesspoint-us-gov-west-1": {
+              "hostname": "s3-accesspoint-fips.us-gov-west-1.amazonaws.com",
+              "signatureVersions": ["s3v4"]
+            },
             "fips-us-gov-east-1": {
               "credentialScope": {
                 "region": "us-gov-east-1"
@@ -18324,7 +18389,7 @@
             "us-gov-east-1": {
               "variants": [
                 {
-                  "hostname": "streams.dynamodb.us-gov-east-1.amazonaws.com",
+                  "hostname": "dynamodb.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
                 }
               ]
@@ -18334,12 +18399,12 @@
                 "region": "us-gov-east-1"
               },
               "deprecated": true,
-              "hostname": "streams.dynamodb.us-gov-east-1.amazonaws.com"
+              "hostname": "dynamodb.us-gov-east-1.amazonaws.com"
             },
             "us-gov-west-1": {
               "variants": [
                 {
-                  "hostname": "streams.dynamodb.us-gov-west-1.amazonaws.com",
+                  "hostname": "dynamodb.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
                 }
               ]
@@ -18349,7 +18414,7 @@
                 "region": "us-gov-west-1"
               },
               "deprecated": true,
-              "hostname": "streams.dynamodb.us-gov-west-1.amazonaws.com"
+              "hostname": "dynamodb.us-gov-west-1.amazonaws.com"
             }
           }
         },
