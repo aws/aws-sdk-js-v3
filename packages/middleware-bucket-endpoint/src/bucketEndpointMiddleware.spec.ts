@@ -34,6 +34,7 @@ describe("bucketEndpointMiddleware", () => {
       .fn()
       .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: mockRegion }),
     useArnRegion: jest.fn().mockResolvedValue(false),
+    useDualstackEndpoint: () => Promise.resolve(false),
   };
 
   afterEach(() => {
@@ -79,7 +80,7 @@ describe("bucketEndpointMiddleware", () => {
         resolveBucketEndpointConfig({
           ...previouslyResolvedConfig,
           useAccelerateEndpoint: true,
-          useDualstackEndpoint: true,
+          useDualstackEndpoint: () => Promise.resolve(true),
           forcePathStyle: true,
           isCustomEndpoint: true,
         })
