@@ -1,7 +1,16 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "aws-global": {
+    hostname: "networkmanager.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
+  "aws-us-gov-global": {
+    hostname: "networkmanager.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {
@@ -14,6 +23,7 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "aws-global",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -29,7 +39,7 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "networkmanager.{region}.amazonaws.com",
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
@@ -47,9 +57,9 @@ const partitionHash: PartitionHash = {
     hostname: "networkmanager.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1"],
+    regions: ["aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "networkmanager.{region}.amazonaws.com",
+    endpoint: "aws-us-gov-global",
   },
 };
 

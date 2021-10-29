@@ -76,7 +76,13 @@ const partitionHash: PartitionHash = {
     hostname: "api.sagemaker.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["us-gov-east-1", "us-gov-west-1", "us-gov-west-1-fips", "us-gov-west-1-fips-secondary"],
+    regions: [
+      "us-gov-east-1",
+      "us-gov-west-1",
+      "us-gov-west-1-fips",
+      "us-gov-west-1-fips-secondary",
+      "us-gov-west-1-secondary",
+    ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "api.sagemaker.{region}.amazonaws.com",
   },

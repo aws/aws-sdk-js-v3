@@ -1,7 +1,12 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {};
+const regionHash: RegionHash = {
+  "us-east-1": {
+    hostname: "api.ecr-public.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+};
 
 const partitionHash: PartitionHash = {
   aws: {

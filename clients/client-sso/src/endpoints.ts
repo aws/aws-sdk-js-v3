@@ -2,6 +2,18 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ap-northeast-1": {
+    hostname: "portal.sso.ap-northeast-1.amazonaws.com",
+    signingRegion: "ap-northeast-1",
+  },
+  "ap-northeast-2": {
+    hostname: "portal.sso.ap-northeast-2.amazonaws.com",
+    signingRegion: "ap-northeast-2",
+  },
+  "ap-south-1": {
+    hostname: "portal.sso.ap-south-1.amazonaws.com",
+    signingRegion: "ap-south-1",
+  },
   "ap-southeast-1": {
     hostname: "portal.sso.ap-southeast-1.amazonaws.com",
     signingRegion: "ap-southeast-1",
@@ -18,6 +30,10 @@ const regionHash: RegionHash = {
     hostname: "portal.sso.eu-central-1.amazonaws.com",
     signingRegion: "eu-central-1",
   },
+  "eu-north-1": {
+    hostname: "portal.sso.eu-north-1.amazonaws.com",
+    signingRegion: "eu-north-1",
+  },
   "eu-west-1": {
     hostname: "portal.sso.eu-west-1.amazonaws.com",
     signingRegion: "eu-west-1",
@@ -26,6 +42,14 @@ const regionHash: RegionHash = {
     hostname: "portal.sso.eu-west-2.amazonaws.com",
     signingRegion: "eu-west-2",
   },
+  "eu-west-3": {
+    hostname: "portal.sso.eu-west-3.amazonaws.com",
+    signingRegion: "eu-west-3",
+  },
+  "sa-east-1": {
+    hostname: "portal.sso.sa-east-1.amazonaws.com",
+    signingRegion: "sa-east-1",
+  },
   "us-east-1": {
     hostname: "portal.sso.us-east-1.amazonaws.com",
     signingRegion: "us-east-1",
@@ -33,6 +57,10 @@ const regionHash: RegionHash = {
   "us-east-2": {
     hostname: "portal.sso.us-east-2.amazonaws.com",
     signingRegion: "us-east-2",
+  },
+  "us-gov-west-1": {
+    hostname: "portal.sso.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
     hostname: "portal.sso.us-west-2.amazonaws.com",

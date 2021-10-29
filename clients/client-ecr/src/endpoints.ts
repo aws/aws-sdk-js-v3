@@ -176,6 +176,10 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "ca-central-1",
+      "dkr-us-east-1",
+      "dkr-us-east-2",
+      "dkr-us-west-1",
+      "dkr-us-west-2",
       "eu-central-1",
       "eu-north-1",
       "eu-south-1",
@@ -217,6 +221,8 @@ const partitionHash: PartitionHash = {
   },
   "aws-us-gov": {
     regions: [
+      "dkr-us-gov-east-1",
+      "dkr-us-gov-west-1",
       "fips-dkr-us-gov-east-1",
       "fips-dkr-us-gov-west-1",
       "fips-us-gov-east-1",

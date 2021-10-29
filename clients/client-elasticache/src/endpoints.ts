@@ -6,6 +6,26 @@ const regionHash: RegionHash = {
     hostname: "elasticache.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-east-1-fips": {
+    hostname: "elasticache-fips.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+  "us-east-2-fips": {
+    hostname: "elasticache-fips.us-east-2.amazonaws.com",
+    signingRegion: "us-east-2",
+  },
+  "us-gov-west-1-fips": {
+    hostname: "elasticache.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+  "us-west-1-fips": {
+    hostname: "elasticache-fips.us-west-1.amazonaws.com",
+    signingRegion: "us-west-1",
+  },
+  "us-west-2-fips": {
+    hostname: "elasticache-fips.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -30,9 +50,13 @@ const partitionHash: PartitionHash = {
       "me-south-1",
       "sa-east-1",
       "us-east-1",
+      "us-east-1-fips",
       "us-east-2",
+      "us-east-2-fips",
       "us-west-1",
+      "us-west-1-fips",
       "us-west-2",
+      "us-west-2-fips",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "elasticache.{region}.amazonaws.com",
@@ -53,7 +77,7 @@ const partitionHash: PartitionHash = {
     hostname: "elasticache.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["fips", "us-gov-east-1", "us-gov-west-1"],
+    regions: ["fips", "us-gov-east-1", "us-gov-west-1", "us-gov-west-1-fips"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "elasticache.{region}.amazonaws.com",
   },
