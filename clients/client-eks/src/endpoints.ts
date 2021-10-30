@@ -109,7 +109,7 @@ const partitionHash: PartitionHash = {
     hostname: "eks.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.eks.{region}.{dnsSuffix}",
+        hostname: "fips.eks.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -120,18 +120,15 @@ const partitionHash: PartitionHash = {
     hostname: "eks.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "eks-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "eks-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "eks.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -152,7 +149,7 @@ const partitionHash: PartitionHash = {
     hostname: "eks.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "eks.{region}.{dnsSuffix}",
+        hostname: "eks.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

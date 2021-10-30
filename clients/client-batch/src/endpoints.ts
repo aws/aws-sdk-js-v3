@@ -109,7 +109,7 @@ const partitionHash: PartitionHash = {
     hostname: "batch.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.{region}.{dnsSuffix}",
+        hostname: "fips.batch.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -120,18 +120,15 @@ const partitionHash: PartitionHash = {
     hostname: "batch.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "batch-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "batch-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "batch.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -152,7 +149,7 @@ const partitionHash: PartitionHash = {
     hostname: "batch.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "batch.{region}.{dnsSuffix}",
+        hostname: "batch.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

@@ -71,7 +71,7 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.lex.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.lex.{region}.{dnsSuffix}",
+        hostname: "runtime-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -82,18 +82,15 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.lex.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.lex-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.lex-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "runtime.lex.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -114,7 +111,7 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.lex.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.lex.{region}.{dnsSuffix}",
+        hostname: "runtime-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

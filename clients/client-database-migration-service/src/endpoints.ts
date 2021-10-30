@@ -148,18 +148,15 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "dms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "dms-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "dms.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -170,18 +167,15 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "dms-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "dms-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "dms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -192,7 +186,7 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.c2s.ic.gov",
     variants: [
       {
-        hostname: "dms.{region}.{dnsSuffix}",
+        hostname: "dms.{region}.c2s.ic.gov",
         tags: ["fips"],
       },
     ],
@@ -203,7 +197,7 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.sc2s.sgov.gov",
     variants: [
       {
-        hostname: "dms.{region}.{dnsSuffix}",
+        hostname: "dms.{region}.sc2s.sgov.gov",
         tags: ["fips"],
       },
     ],
@@ -214,7 +208,7 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "dms.{region}.{dnsSuffix}",
+        hostname: "dms.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

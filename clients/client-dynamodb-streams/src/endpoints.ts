@@ -87,7 +87,7 @@ const partitionHash: PartitionHash = {
     hostname: "streams.dynamodb.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb-fips.{region}.{dnsSuffix}",
+        hostname: "dynamodb-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -98,18 +98,15 @@ const partitionHash: PartitionHash = {
     hostname: "streams.dynamodb.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "streams.dynamodb-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "streams.dynamodb-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "streams.dynamodb.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -130,7 +127,7 @@ const partitionHash: PartitionHash = {
     hostname: "streams.dynamodb.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb.{region}.{dnsSuffix}",
+        hostname: "dynamodb.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

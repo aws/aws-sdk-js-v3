@@ -42,18 +42,15 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-global",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -64,18 +61,15 @@ const partitionHash: PartitionHash = {
     hostname: "networkmanager.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "networkmanager.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -96,18 +90,15 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-us-gov-global",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "networkmanager-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],

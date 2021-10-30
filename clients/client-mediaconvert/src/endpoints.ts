@@ -106,18 +106,15 @@ const partitionHash: PartitionHash = {
     hostname: "mediaconvert.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -128,18 +125,15 @@ const partitionHash: PartitionHash = {
     hostname: "mediaconvert.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "mediaconvert.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -160,18 +154,15 @@ const partitionHash: PartitionHash = {
     hostname: "mediaconvert.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "mediaconvert-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],

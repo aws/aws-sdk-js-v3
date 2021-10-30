@@ -32,18 +32,15 @@ const partitionHash: PartitionHash = {
     hostname: "models-v2-lex.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -54,18 +51,15 @@ const partitionHash: PartitionHash = {
     hostname: "models-v2-lex.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -86,18 +80,15 @@ const partitionHash: PartitionHash = {
     hostname: "models-v2-lex.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "models-v2-lex.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],

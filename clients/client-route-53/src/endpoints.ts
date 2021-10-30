@@ -75,18 +75,15 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-global",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "route53.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],
@@ -97,18 +94,15 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-cn-global",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "route53.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -129,18 +123,15 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-us-gov-global",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "route53-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "route53.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],

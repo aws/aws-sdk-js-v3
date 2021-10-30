@@ -295,7 +295,7 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.{region}.{dnsSuffix}",
+        hostname: "ecr-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -306,18 +306,15 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "api.ecr-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "api.ecr-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "api.ecr.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -347,7 +344,7 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.{region}.{dnsSuffix}",
+        hostname: "ecr-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

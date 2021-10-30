@@ -97,7 +97,7 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.{region}.{dnsSuffix}",
+        hostname: "runtime-fips.sagemaker.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -108,18 +108,15 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.sagemaker.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -140,18 +137,15 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker-fips.{region}.api.aws",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.aws",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "runtime.sagemaker.{region}.api.aws",
         tags: ["dualstack"],
       },
     ],

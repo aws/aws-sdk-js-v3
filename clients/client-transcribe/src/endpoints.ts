@@ -117,7 +117,7 @@ const partitionHash: PartitionHash = {
     hostname: "transcribe.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.{region}.{dnsSuffix}",
+        hostname: "fips.transcribe.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],
@@ -128,18 +128,15 @@ const partitionHash: PartitionHash = {
     hostname: "transcribe.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "transcribe-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}-fips.{region}.{dnsSuffix}",
+        hostname: "transcribe-fips.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "api.amazonwebservices.com.cn",
-        hostname: "{service}.{region}.{dnsSuffix}",
+        hostname: "transcribe.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -160,7 +157,7 @@ const partitionHash: PartitionHash = {
     hostname: "transcribe.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.{region}.{dnsSuffix}",
+        hostname: "fips.transcribe.{region}.amazonaws.com",
         tags: ["fips"],
       },
     ],

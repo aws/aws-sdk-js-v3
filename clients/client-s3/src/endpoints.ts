@@ -360,13 +360,11 @@ const partitionHash: PartitionHash = {
     hostname: "s3.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.dualstack.{region}.{dnsSuffix}",
+        hostname: "s3-fips.dualstack.{region}.amazonaws.com",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}.dualstack.{region}.{dnsSuffix}",
+        hostname: "s3.dualstack.{region}.amazonaws.com",
         tags: ["dualstack"],
       },
     ],
@@ -377,8 +375,7 @@ const partitionHash: PartitionHash = {
     hostname: "s3.{region}.amazonaws.com.cn",
     variants: [
       {
-        dnsSuffix: "amazonaws.com.cn",
-        hostname: "{service}.dualstack.{region}.{dnsSuffix}",
+        hostname: "s3.dualstack.{region}.amazonaws.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -406,13 +403,11 @@ const partitionHash: PartitionHash = {
     hostname: "s3.{region}.amazonaws.com",
     variants: [
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}-fips.dualstack.{region}.{dnsSuffix}",
+        hostname: "s3-fips.dualstack.{region}.amazonaws.com",
         tags: ["dualstack", "fips"],
       },
       {
-        dnsSuffix: "amazonaws.com",
-        hostname: "{service}.dualstack.{region}.{dnsSuffix}",
+        hostname: "s3.dualstack.{region}.amazonaws.com",
         tags: ["dualstack"],
       },
     ],
