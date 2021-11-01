@@ -52,7 +52,7 @@ describe(getRegionInfo.name, () => {
   });
 
   const getMockResolvedRegion = (regionCase: RegionCase): string =>
-    regionCase === RegionCase.REGION ? mockRegion : mockEndpointRegion;
+    regionCase !== RegionCase.ENDPOINT ? mockRegion : mockEndpointRegion;
 
   const getMockResolvedPartitionOptions = (partitionHash) => ({ partitionHash });
 

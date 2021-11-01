@@ -1554,6 +1554,13 @@
     "hostname": "health-fips.us-east-2.amazonaws.com"
   },
   {
+    "endpointPrefix": "iam",
+    "sdkId": "IAM",
+    "region": "iam-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "iam-fips.amazonaws.com"
+  },
+  {
     "endpointPrefix": "identity-chime",
     "sdkId": "Chime SDK Identity",
     "region": "us-east-1-fips",
@@ -1960,6 +1967,13 @@
     "hostname": "network-firewall-fips.us-west-2.amazonaws.com"
   },
   {
+    "endpointPrefix": "organizations",
+    "sdkId": "Organizations",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "organizations-fips.us-east-1.amazonaws.com"
+  },
+  {
     "endpointPrefix": "outposts",
     "sdkId": "Outposts",
     "region": "fips-ca-central-1",
@@ -2154,6 +2168,13 @@
     "region": "fips-us-west-2",
     "signingRegion": "us-west-2",
     "hostname": "resource-groups-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "route53",
+    "sdkId": "Route 53",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "route53-fips.amazonaws.com"
   },
   {
     "endpointPrefix": "runtime.lex",
@@ -2371,6 +2392,13 @@
     "region": "fips-us-west-2",
     "signingRegion": "us-west-2",
     "hostname": "session.qldb-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "shield",
+    "sdkId": "Shield",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "shield-fips.us-east-1.amazonaws.com"
   },
   {
     "endpointPrefix": "sms",
@@ -2840,6 +2868,13 @@
     "region": "us-west-2-fips",
     "signingRegion": "us-west-2",
     "hostname": "translate-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "waf",
+    "sdkId": "WAF",
+    "region": "aws-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "waf-fips.amazonaws.com"
   },
   {
     "endpointPrefix": "waf-regional",
@@ -3729,6 +3764,13 @@
     "region": "fips-us-gov-west-1",
     "signingRegion": "us-gov-west-1",
     "hostname": "servicecatalog-appregistry.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "servicediscovery-fips",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "servicediscovery-fips.us-gov-west-1.amazonaws.com"
   },
   {
     "endpointPrefix": "servicequotas",
