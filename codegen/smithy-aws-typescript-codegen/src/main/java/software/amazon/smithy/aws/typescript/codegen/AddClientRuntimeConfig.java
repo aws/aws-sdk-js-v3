@@ -39,6 +39,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     made at most in case of retry.</li>
  *     <li>retryMode: Specifies which retry algorithm to use.</li>
  *     <li>logger: Optional logger for logging debug/info/warn/error.</li>
+ *     <li>useDualstackEndpoint: Enables IPv6/IPv4 dualstack endpoint.</li>
+ *     <li>useFipsEndpoint: Enables FIPS compatible endpoints.</li>
  * </ul>
  *
  * <p>This plugin adds the following Node runtime specific values:
@@ -47,7 +49,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *     <li>maxAttempts: Uses the default maxAttempts provider that checks things
  *     like environment variables and the AWS config file.</li>
  *     <li>retryMode: Specifies which retry algorithm to use.</li>
- *     <li>logger: Sets to empty as logger is passed in client configuration</li>
+ *     <li>logger: Sets to empty as logger is passed in client configuration.</li>
+ *     <li>useDualstackEndpoint: Uses default useDualstackEndpoint provider.</li>
+ *     <li>useFipsEndpoint: Uses default useFipsEndpoint provider.</li>
  * </ul>
  *
  * <p>This plugin adds the following Browser runtime specific values:
@@ -55,7 +59,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * <ul>
  *     <li>maxAttempts: Returns default value of 3.</li>
  *     <li>retryMode: Provider which returns DEFAULT_RETRY_MODE.</li>
- *     <li>logger: Sets to empty as logger is passed in client configuration</li>
+ *     <li>logger: Sets to empty as logger is passed in client configuration.</li>
+ *     <li>useDualstackEndpoint: Sets to false.</li>
+ *     <li>useFipsEndpoint: Sets to false.</li>
  * </ul>
  */
 @SmithyInternalApi
@@ -77,6 +83,10 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                 .write("retryMode?: string | __Provider<string>;\n");
         writer.writeDocs("Optional logger for logging debug/info/warn/error.")
                 .write("logger?: __Logger;\n");
+        writer.writeDocs("Enables IPv6/IPv4 dualstack endpoint.")
+                .write("useDualstackEndpoint?: boolean | __Provider<boolean>;\n");
+        writer.writeDocs("Enables FIPS compatible endpoints.")
+                .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
     }
 
     @Override
@@ -107,6 +117,18 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("DEFAULT_RETRY_MODE", "DEFAULT_RETRY_MODE",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("(() => Promise.resolve(DEFAULT_RETRY_MODE))");
+                        },
+                        "useDualstackEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("DEFAULT_USE_DUALSTACK_ENDPOINT", "DEFAULT_USE_DUALSTACK_ENDPOINT",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("(() => Promise.resolve(DEFAULT_USE_DUALSTACK_ENDPOINT))");
+                        },
+                        "useFipsEndpoint", writer -> {
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("DEFAULT_USE_FIPS_ENDPOINT", "DEFAULT_USE_FIPS_ENDPOINT",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("(() => Promise.resolve(DEFAULT_USE_FIPS_ENDPOINT))");
                         }
                 );
             case NODE:
@@ -127,6 +149,26 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("NODE_RETRY_MODE_CONFIG_OPTIONS", "NODE_RETRY_MODE_CONFIG_OPTIONS",
                                     TypeScriptDependency.MIDDLEWARE_RETRY.packageName);
                             writer.write("loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS)");
+                        },
+                        "useDualstackEndpoint", writer -> {
+                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
+                                    "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)");
+                        },
+                        "useFipsEndpoint", writer -> {
+                            writer.addDependency(AwsDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                    AwsDependency.NODE_CONFIG_PROVIDER.packageName);
+                            writer.addDependency(TypeScriptDependency.CONFIG_RESOLVER);
+                            writer.addImport("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
+                                    "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
+                                    TypeScriptDependency.CONFIG_RESOLVER.packageName);
+                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS)");
                         }
                 );
             default:

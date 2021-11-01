@@ -93,13 +93,29 @@ export interface RegionInfo {
 }
 
 /**
+ * Options to pass when calling {@link RegionInfoProvider}
+ */
+export interface RegionInfoProviderOptions {
+  /**
+   * Enables IPv6/IPv4 dualstack endpoint.
+   * @default false
+   */
+  useDualstackEndpoint: boolean;
+  /**
+   * Enables FIPS compatible endpoints.
+   * @default false
+   */
+  useFipsEndpoint: boolean;
+}
+
+/**
  * Function returns designated service's regionalization
  * information from given region. Each service client
  * comes with its regionalization provider. it serves
  * to provide the default values of related configurations
  */
 export interface RegionInfoProvider {
-  (region: string, options?: any): Promise<RegionInfo | undefined>;
+  (region: string, options?: RegionInfoProviderOptions): Promise<RegionInfo | undefined>;
 }
 
 /**

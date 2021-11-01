@@ -1,6 +1,10 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import {
+  NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
+  NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
+} from "@aws-sdk/config-resolver";
 import { Hash } from "@aws-sdk/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
@@ -33,6 +37,8 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => {
     retryMode: config?.retryMode ?? loadNodeConfig(NODE_RETRY_MODE_CONFIG_OPTIONS),
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
+    useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
+    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };

@@ -1,6 +1,10 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import {
+  NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
+  NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
+} from "@aws-sdk/config-resolver";
 import { Hash } from "@aws-sdk/hash-node";
 import { fileStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
@@ -38,6 +42,8 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     sha256: config?.sha256 ?? Hash.bind(null, "sha256"),
     streamCollector: config?.streamCollector ?? streamCollector,
     streamHasher: config?.streamHasher ?? streamHasher,
+    useDualstackEndpoint: config?.useDualstackEndpoint ?? loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS),
+    useFipsEndpoint: config?.useFipsEndpoint ?? loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS),
     utf8Decoder: config?.utf8Decoder ?? fromUtf8,
     utf8Encoder: config?.utf8Encoder ?? toUtf8,
   };
