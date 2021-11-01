@@ -31,12 +31,12 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com",
+    hostname: "organizations.us-east-1.amazonaws.com",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com.cn",
+    hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -51,7 +51,7 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com",
+    hostname: "organizations.us-gov-west-1.amazonaws.com",
   },
 };
 

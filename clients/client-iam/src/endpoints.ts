@@ -31,27 +31,27 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "iam.{region}.amazonaws.com",
+    hostname: "iam.amazonaws.com",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "iam.{region}.amazonaws.com.cn",
+    hostname: "iam.cn-north-1.amazonaws.com.cn",
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "iam.{region}.c2s.ic.gov",
+    hostname: "iam.us-iso-east-1.c2s.ic.gov",
   },
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "iam.{region}.sc2s.sgov.gov",
+    hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
   },
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "iam-govcloud-fips", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "iam.{region}.amazonaws.com",
+    hostname: "iam.us-gov.amazonaws.com",
   },
 };
 

@@ -30,7 +30,7 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "savingsplans.{region}.amazonaws.com",
+    hostname: "savingsplans.amazonaws.com",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
