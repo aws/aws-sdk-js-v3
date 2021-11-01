@@ -16,14 +16,32 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     hostname: "pinpoint.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-gov-west-1": {
     hostname: "pinpoint.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
     hostname: "pinpoint.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -57,11 +75,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "pinpoint.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "pinpoint-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "pinpoint.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "pinpoint.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "pinpoint-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "pinpoint-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "pinpoint.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -77,6 +123,20 @@ const partitionHash: PartitionHash = {
     regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "pinpoint.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "pinpoint-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "pinpoint.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

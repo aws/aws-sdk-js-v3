@@ -10,6 +10,24 @@ const regionHash: RegionHash = {
     hostname: "health-fips.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-2",
+  },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -40,11 +58,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "health-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -60,6 +106,20 @@ const partitionHash: PartitionHash = {
     regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

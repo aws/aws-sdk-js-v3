@@ -46,6 +46,60 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.cn-northwest-1.amazonaws.com.cn",
     signingRegion: "cn-northwest-1",
   },
+  "dkr-us-east-1": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
+  "dkr-us-east-2": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-2",
+  },
+  "dkr-us-gov-east-1": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-east-1",
+  },
+  "dkr-us-gov-west-1": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
+  "dkr-us-west-1": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-west-1",
+  },
+  "dkr-us-west-2": {
+    variants: [
+      {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-west-2",
+  },
   "eu-central-1": {
     hostname: "api.ecr.eu-central-1.amazonaws.com",
     signingRegion: "eu-central-1",
@@ -128,18 +182,42 @@ const regionHash: RegionHash = {
   },
   "us-east-1": {
     hostname: "api.ecr.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "api.ecr.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
     hostname: "api.ecr.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "api.ecr.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-iso-east-1": {
@@ -156,10 +234,22 @@ const regionHash: RegionHash = {
   },
   "us-west-1": {
     hostname: "api.ecr.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
     hostname: "api.ecr.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -203,11 +293,31 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "api.ecr.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "api.ecr.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "api.ecr-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "api.ecr-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "api.ecr.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -232,6 +342,12 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "api.ecr.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "ecr-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

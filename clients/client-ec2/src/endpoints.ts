@@ -2,6 +2,30 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ap-south-1": {
+    variants: [
+      {
+        hostname: "api.ec2.ap-south-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "ec2-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "eu-west-1": {
+    variants: [
+      {
+        hostname: "api.ec2.eu-west-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
   "fips-ca-central-1": {
     hostname: "ec2-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -22,6 +46,38 @@ const regionHash: RegionHash = {
     hostname: "ec2-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "sa-east-1": {
+    variants: [
+      {
+        hostname: "api.ec2.sa-east-1.aws",
+        tags: ["dualstack"],
+      },
+    ],
+  },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "api.ec2.us-east-1.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "api.ec2.us-east-2.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "us-gov-east-1": {
     hostname: "ec2.us-gov-east-1.amazonaws.com",
     signingRegion: "us-gov-east-1",
@@ -29,6 +85,26 @@ const regionHash: RegionHash = {
   "us-gov-west-1": {
     hostname: "ec2.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
+  },
+  "us-west-1": {
+    variants: [
+      {
+        hostname: "ec2-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "api.ec2.us-west-2.aws",
+        tags: ["dualstack"],
+      },
+      {
+        hostname: "ec2-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 
@@ -64,11 +140,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "ec2.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "ec2-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "ec2-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "ec2.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "ec2.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "ec2-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "ec2-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "ec2.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -84,6 +188,20 @@ const partitionHash: PartitionHash = {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "ec2.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "ec2-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "ec2-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "ec2.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

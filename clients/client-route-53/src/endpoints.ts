@@ -8,6 +8,12 @@ const regionHash: RegionHash = {
   },
   "aws-global": {
     hostname: "route53.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
@@ -20,6 +26,12 @@ const regionHash: RegionHash = {
   },
   "aws-us-gov-global": {
     hostname: "route53.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {
@@ -61,11 +73,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     endpoint: "aws-global",
+    variants: [
+      {
+        hostname: "route53-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     endpoint: "aws-cn-global",
+    variants: [
+      {
+        hostname: "route53-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
@@ -81,6 +121,20 @@ const partitionHash: PartitionHash = {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     endpoint: "aws-us-gov-global",
+    variants: [
+      {
+        hostname: "route53-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 
