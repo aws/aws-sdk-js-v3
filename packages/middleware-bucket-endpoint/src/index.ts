@@ -1,3 +1,5 @@
+export * from "./NodeDisableMultiregionAccessPointConfigOptions";
+export * from "./NodeUseArnRegionConfigOptions";
 export * from "./bucketEndpointMiddleware";
 export * from "./bucketHostname";
 export * from "./configurations";
