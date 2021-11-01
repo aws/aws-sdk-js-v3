@@ -1,5 +1,5 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
-import { RegionInfoProvider } from "@aws-sdk/types";
+import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "dataplane-us-gov-east-1": {
@@ -80,7 +80,10 @@ const partitionHash: PartitionHash = {
   },
 };
 
-export const defaultRegionInfoProvider: RegionInfoProvider = async (region: string, options?: any) =>
+export const defaultRegionInfoProvider: RegionInfoProvider = async (
+  region: string,
+  options?: RegionInfoProviderOptions
+) =>
   getRegionInfo(region, {
     ...options,
     signingService: "greengrass",
