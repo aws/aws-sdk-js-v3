@@ -16,6 +16,12 @@ const regionHash: RegionHash = {
   },
   "us-gov-east-1": {
     hostname: "greengrass.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
@@ -51,11 +57,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "greengrass.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "greengrass-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "greengrass.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "greengrass.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "greengrass-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "greengrass-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "greengrass.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -77,6 +111,20 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "greengrass.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "greengrass-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "greengrass.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

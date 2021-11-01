@@ -8,10 +8,22 @@ const regionHash: RegionHash = {
   },
   "aws-global": {
     hostname: "organizations.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-us-gov-global": {
     hostname: "organizations.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {
@@ -53,11 +65,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     endpoint: "aws-global",
+    variants: [
+      {
+        hostname: "organizations-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "organizations-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "organizations.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     endpoint: "aws-cn-global",
+    variants: [
+      {
+        hostname: "organizations-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "organizations-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "organizations.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -73,6 +113,20 @@ const partitionHash: PartitionHash = {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     endpoint: "aws-us-gov-global",
+    variants: [
+      {
+        hostname: "organizations-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "organizations-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "organizations.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

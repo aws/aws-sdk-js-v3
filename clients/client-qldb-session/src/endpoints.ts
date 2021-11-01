@@ -14,6 +14,30 @@ const regionHash: RegionHash = {
     hostname: "session.qldb-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "us-east-1": {
+    variants: [
+      {
+        hostname: "session.qldb-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    variants: [
+      {
+        hostname: "session.qldb-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    variants: [
+      {
+        hostname: "session.qldb-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -46,11 +70,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "session.qldb.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "session.qldb-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "session.qldb-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "session.qldb.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "session.qldb.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "session.qldb-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "session.qldb-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "session.qldb.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -66,6 +118,20 @@ const partitionHash: PartitionHash = {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "session.qldb.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "session.qldb-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "session.qldb-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "session.qldb.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

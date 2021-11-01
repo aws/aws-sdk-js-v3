@@ -2,12 +2,27 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  aws: {
+    variants: [
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-1",
+  },
   "aws-fips": {
     hostname: "waf-fips.amazonaws.com",
     signingRegion: "us-east-1",
   },
   "aws-global": {
     hostname: "waf.amazonaws.com",
+    variants: [
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-global-fips": {
@@ -47,11 +62,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     endpoint: "aws-global",
+    variants: [
+      {
+        hostname: "waf-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "waf-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "waf.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "waf.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "waf-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "waf-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "waf.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -67,6 +110,20 @@ const partitionHash: PartitionHash = {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "waf.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "waf-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "waf-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "waf.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

@@ -6,6 +6,14 @@ const regionHash: RegionHash = {
     hostname: "email-fips.us-gov-west-1.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
+  "us-gov-west-1": {
+    variants: [
+      {
+        hostname: "email-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -35,11 +43,39 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "email.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "email-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "email-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "email.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "email.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "email-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "email-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "email.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
@@ -55,6 +91,20 @@ const partitionHash: PartitionHash = {
     regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "email.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "email-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "email-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "email.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 
