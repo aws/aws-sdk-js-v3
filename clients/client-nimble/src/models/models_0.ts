@@ -1371,35 +1371,108 @@ export namespace SharedFileSystemConfiguration {
 /**
  * <p>The configuration of the studio component, based on component type.</p>
  */
-export interface StudioComponentConfiguration {
+export type StudioComponentConfiguration =
+  | StudioComponentConfiguration.ActiveDirectoryConfigurationMember
+  | StudioComponentConfiguration.ComputeFarmConfigurationMember
+  | StudioComponentConfiguration.LicenseServiceConfigurationMember
+  | StudioComponentConfiguration.SharedFileSystemConfigurationMember
+  | StudioComponentConfiguration.$UnknownMember;
+
+export namespace StudioComponentConfiguration {
   /**
    * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
    */
-  activeDirectoryConfiguration?: ActiveDirectoryConfiguration;
+  export interface ActiveDirectoryConfigurationMember {
+    activeDirectoryConfiguration: ActiveDirectoryConfiguration;
+    computeFarmConfiguration?: never;
+    licenseServiceConfiguration?: never;
+    sharedFileSystemConfiguration?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The configuration for a render farm that is associated with a studio resource.</p>
    */
-  computeFarmConfiguration?: ComputeFarmConfiguration;
+  export interface ComputeFarmConfigurationMember {
+    activeDirectoryConfiguration?: never;
+    computeFarmConfiguration: ComputeFarmConfiguration;
+    licenseServiceConfiguration?: never;
+    sharedFileSystemConfiguration?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The configuration for a license service that is associated with a studio resource.</p>
    */
-  licenseServiceConfiguration?: LicenseServiceConfiguration;
+  export interface LicenseServiceConfigurationMember {
+    activeDirectoryConfiguration?: never;
+    computeFarmConfiguration?: never;
+    licenseServiceConfiguration: LicenseServiceConfiguration;
+    sharedFileSystemConfiguration?: never;
+    $unknown?: never;
+  }
 
   /**
    * <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
    */
-  sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
-}
+  export interface SharedFileSystemConfigurationMember {
+    activeDirectoryConfiguration?: never;
+    computeFarmConfiguration?: never;
+    licenseServiceConfiguration?: never;
+    sharedFileSystemConfiguration: SharedFileSystemConfiguration;
+    $unknown?: never;
+  }
 
-export namespace StudioComponentConfiguration {
+  export interface $UnknownMember {
+    activeDirectoryConfiguration?: never;
+    computeFarmConfiguration?: never;
+    licenseServiceConfiguration?: never;
+    sharedFileSystemConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    activeDirectoryConfiguration: (value: ActiveDirectoryConfiguration) => T;
+    computeFarmConfiguration: (value: ComputeFarmConfiguration) => T;
+    licenseServiceConfiguration: (value: LicenseServiceConfiguration) => T;
+    sharedFileSystemConfiguration: (value: SharedFileSystemConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: StudioComponentConfiguration, visitor: Visitor<T>): T => {
+    if (value.activeDirectoryConfiguration !== undefined)
+      return visitor.activeDirectoryConfiguration(value.activeDirectoryConfiguration);
+    if (value.computeFarmConfiguration !== undefined)
+      return visitor.computeFarmConfiguration(value.computeFarmConfiguration);
+    if (value.licenseServiceConfiguration !== undefined)
+      return visitor.licenseServiceConfiguration(value.licenseServiceConfiguration);
+    if (value.sharedFileSystemConfiguration !== undefined)
+      return visitor.sharedFileSystemConfiguration(value.sharedFileSystemConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
-    ...obj,
-  });
+  export const filterSensitiveLog = (obj: StudioComponentConfiguration): any => {
+    if (obj.activeDirectoryConfiguration !== undefined)
+      return {
+        activeDirectoryConfiguration: ActiveDirectoryConfiguration.filterSensitiveLog(obj.activeDirectoryConfiguration),
+      };
+    if (obj.computeFarmConfiguration !== undefined)
+      return { computeFarmConfiguration: ComputeFarmConfiguration.filterSensitiveLog(obj.computeFarmConfiguration) };
+    if (obj.licenseServiceConfiguration !== undefined)
+      return {
+        licenseServiceConfiguration: LicenseServiceConfiguration.filterSensitiveLog(obj.licenseServiceConfiguration),
+      };
+    if (obj.sharedFileSystemConfiguration !== undefined)
+      return {
+        sharedFileSystemConfiguration: SharedFileSystemConfiguration.filterSensitiveLog(
+          obj.sharedFileSystemConfiguration
+        ),
+      };
+    if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+  };
 }
 
 export enum LaunchProfilePlatform {
@@ -1551,6 +1624,7 @@ export namespace CreateStudioComponentRequest {
    */
   export const filterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
   });
 }
 
@@ -1679,6 +1753,7 @@ export namespace StudioComponent {
    */
   export const filterSensitiveLog = (obj: StudioComponent): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
   });
 }
 
@@ -1695,6 +1770,7 @@ export namespace CreateStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
@@ -1942,6 +2018,7 @@ export namespace DeleteStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
@@ -2630,6 +2707,7 @@ export namespace GetStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
@@ -3056,6 +3134,9 @@ export namespace ListStudioComponentsResponse {
    */
   export const filterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
     ...obj,
+    ...(obj.studioComponents && {
+      studioComponents: obj.studioComponents.map((item) => StudioComponent.filterSensitiveLog(item)),
+    }),
   });
 }
 
@@ -3717,6 +3798,7 @@ export namespace UpdateStudioComponentRequest {
    */
   export const filterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
   });
 }
 
@@ -3733,5 +3815,6 @@ export namespace UpdateStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
