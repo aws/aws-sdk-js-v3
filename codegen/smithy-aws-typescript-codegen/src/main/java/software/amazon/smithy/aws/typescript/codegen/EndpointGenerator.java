@@ -88,16 +88,19 @@ final class EndpointGenerator implements Runnable {
             ObjectNode serviceData = partition.getService();
             ObjectNode endpointMap = serviceData.getObjectMember("endpoints").orElse(Node.objectNode());
 
-            for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
-                ObjectNode config = entry.getValue().expectObjectNode();
-                if (config.containsMember("hostname")) {
-                    // Resolve the hostname.
-                    String hostName = config.expectStringMember("hostname").getValue();
-                    hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
-                    hostName = hostName.replace("{service}", endpointPrefix);
-                    hostName = hostName.replace("{region}", entry.getKey());
-                    config = config.withMember("hostname", hostName);
-                    endpoints.put(entry.getKey(), config);
+            // If partition endpoint is available, data will be populated in PartitionHash.
+            if (!partition.getPartitionEndpoint().isPresent()) {
+                for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
+                    ObjectNode config = entry.getValue().expectObjectNode();
+                    if (config.containsMember("hostname")) {
+                        // Resolve the hostname.
+                        String hostName = config.expectStringMember("hostname").getValue();
+                        hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
+                        hostName = hostName.replace("{service}", endpointPrefix);
+                        hostName = hostName.replace("{region}", entry.getKey());
+                        config = config.withMember("hostname", hostName);
+                        endpoints.put(entry.getKey(), config);
+                    }
                 }
             }
         }
