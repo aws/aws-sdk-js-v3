@@ -135,7 +135,16 @@ final class EndpointGenerator implements Runnable {
                         }
                     });
                     writer.write("regionRegex: $S,", partition.regionRegex);
-                    writer.write("hostname: $S,", partition.hostnameTemplate);
+                    String hostname = partition.hostnameTemplate;
+                    if (partition.getPartitionEndpoint().isPresent()) {
+                        String partitionEndpoint = partition.getPartitionEndpoint().get();
+                        Endpoint endpoint = endpoints.get(partitionEndpoint);
+                        ObjectNode config = endpoint.config;
+                        if (config.containsMember("hostname")) {
+                            hostname = config.expectStringMember("hostname").getValue();
+                        }
+                    }
+                    writer.write("hostname: $S,", hostname);
                 });
             });
         });
