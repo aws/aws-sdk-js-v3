@@ -1,7 +1,7 @@
+import { isFipsRegion } from "../regionConfig/isFipsRegion";
 import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
-import { isFipsRegion } from "./isFipsRegion";
 
-jest.mock("./isFipsRegion");
+jest.mock("../regionConfig/isFipsRegion");
 
 describe(getResolvedSigningRegion.name, () => {
   const mockRegion = "mockRegion";

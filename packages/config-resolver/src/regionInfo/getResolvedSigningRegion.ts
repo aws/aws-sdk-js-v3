@@ -1,4 +1,4 @@
-import { isFipsRegion } from "./isFipsRegion";
+import { isFipsRegion } from "../regionConfig/isFipsRegion";
 
 export interface GetResolvedSigningRegionOptions {
   hostname: string;
