@@ -19,6 +19,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/credential-provider-node": "3.39.0",
+    "@aws-sdk/client-sts": "file:../../clients/client-sts",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
