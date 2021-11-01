@@ -4,5 +4,12 @@
  * and the hostname to be used for the partition.
  */
 export type PartitionHash = {
-  [key: string]: { regions: string[]; regionRegex: string; hostname?: string; endpoint?: string };
+  [key: string]: {
+    regions: string[];
+    regionRegex: string;
+    hostname?: string;
+    endpoint?: string;
+    signingRegion?: string;
+    signingService?: string;
+  };
 };
