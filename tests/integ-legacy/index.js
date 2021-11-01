@@ -17,13 +17,23 @@ const allTags = execSync(`grep -h ^@ ${join(FEATURES_FOLDER, "**", "*.feature")}
 
 console.info(`Looking for changed clients that has the legacy integration test tag: ${allTags}`);
 
-const changedPackages = execSync(`${join(ROOT_BIN, "lerna")} changed`, execOptions).split("\n");
+let changedPackages = [];
+try {
+  changedPackages = execSync(`${join(ROOT_BIN, "lerna")} changed`, execOptions).split("\n");
+} catch (e) {
+  // Swallow error because Lerna throws if no package changes.
+}
 const changedPackageTags = changedPackages
   .map((name) => name.replace("@aws-sdk/client-", ""))
   .map((name) => name.replace("-"))
   .map((name) => `@${name}`);
 
 const tagsToTest = changedPackageTags.filter((tag) => allTags.includes(tag));
+
+if (tagsToTest.length === 0) {
+  console.info("No clients with integration test cases has changed since last release.");
+  return;
+}
 
 // Cucumber requires cwd to contain the test cases.
 const command = `${join("node_modules", ".bin", "cucumber-js")}`;
