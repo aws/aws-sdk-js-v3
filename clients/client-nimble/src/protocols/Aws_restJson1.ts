@@ -4,7 +4,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
@@ -7073,21 +7072,36 @@ const serializeAws_restJson1StudioComponentConfiguration = (
   input: StudioComponentConfiguration,
   context: __SerdeContext
 ): any => {
-  return StudioComponentConfiguration.visit(input, {
-    activeDirectoryConfiguration: (value) => ({
-      activeDirectoryConfiguration: serializeAws_restJson1ActiveDirectoryConfiguration(value, context),
-    }),
-    computeFarmConfiguration: (value) => ({
-      computeFarmConfiguration: serializeAws_restJson1ComputeFarmConfiguration(value, context),
-    }),
-    licenseServiceConfiguration: (value) => ({
-      licenseServiceConfiguration: serializeAws_restJson1LicenseServiceConfiguration(value, context),
-    }),
-    sharedFileSystemConfiguration: (value) => ({
-      sharedFileSystemConfiguration: serializeAws_restJson1SharedFileSystemConfiguration(value, context),
-    }),
-    _: (name, value) => ({ name: value } as any),
-  });
+  return {
+    ...(input.activeDirectoryConfiguration !== undefined &&
+      input.activeDirectoryConfiguration !== null && {
+        activeDirectoryConfiguration: serializeAws_restJson1ActiveDirectoryConfiguration(
+          input.activeDirectoryConfiguration,
+          context
+        ),
+      }),
+    ...(input.computeFarmConfiguration !== undefined &&
+      input.computeFarmConfiguration !== null && {
+        computeFarmConfiguration: serializeAws_restJson1ComputeFarmConfiguration(
+          input.computeFarmConfiguration,
+          context
+        ),
+      }),
+    ...(input.licenseServiceConfiguration !== undefined &&
+      input.licenseServiceConfiguration !== null && {
+        licenseServiceConfiguration: serializeAws_restJson1LicenseServiceConfiguration(
+          input.licenseServiceConfiguration,
+          context
+        ),
+      }),
+    ...(input.sharedFileSystemConfiguration !== undefined &&
+      input.sharedFileSystemConfiguration !== null && {
+        sharedFileSystemConfiguration: serializeAws_restJson1SharedFileSystemConfiguration(
+          input.sharedFileSystemConfiguration,
+          context
+        ),
+      }),
+  };
 };
 
 const serializeAws_restJson1StudioComponentInitializationScript = (
@@ -7719,7 +7733,7 @@ const deserializeAws_restJson1StudioComponent = (output: any, context: __SerdeCo
     arn: __expectString(output.arn),
     configuration:
       output.configuration !== undefined && output.configuration !== null
-        ? deserializeAws_restJson1StudioComponentConfiguration(__expectUnion(output.configuration), context)
+        ? deserializeAws_restJson1StudioComponentConfiguration(output.configuration, context)
         : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -7762,39 +7776,24 @@ const deserializeAws_restJson1StudioComponentConfiguration = (
   output: any,
   context: __SerdeContext
 ): StudioComponentConfiguration => {
-  if (output.activeDirectoryConfiguration !== undefined && output.activeDirectoryConfiguration !== null) {
-    return {
-      activeDirectoryConfiguration: deserializeAws_restJson1ActiveDirectoryConfiguration(
-        output.activeDirectoryConfiguration,
-        context
-      ),
-    };
-  }
-  if (output.computeFarmConfiguration !== undefined && output.computeFarmConfiguration !== null) {
-    return {
-      computeFarmConfiguration: deserializeAws_restJson1ComputeFarmConfiguration(
-        output.computeFarmConfiguration,
-        context
-      ),
-    };
-  }
-  if (output.licenseServiceConfiguration !== undefined && output.licenseServiceConfiguration !== null) {
-    return {
-      licenseServiceConfiguration: deserializeAws_restJson1LicenseServiceConfiguration(
-        output.licenseServiceConfiguration,
-        context
-      ),
-    };
-  }
-  if (output.sharedFileSystemConfiguration !== undefined && output.sharedFileSystemConfiguration !== null) {
-    return {
-      sharedFileSystemConfiguration: deserializeAws_restJson1SharedFileSystemConfiguration(
-        output.sharedFileSystemConfiguration,
-        context
-      ),
-    };
-  }
-  return { $unknown: Object.entries(output)[0] };
+  return {
+    activeDirectoryConfiguration:
+      output.activeDirectoryConfiguration !== undefined && output.activeDirectoryConfiguration !== null
+        ? deserializeAws_restJson1ActiveDirectoryConfiguration(output.activeDirectoryConfiguration, context)
+        : undefined,
+    computeFarmConfiguration:
+      output.computeFarmConfiguration !== undefined && output.computeFarmConfiguration !== null
+        ? deserializeAws_restJson1ComputeFarmConfiguration(output.computeFarmConfiguration, context)
+        : undefined,
+    licenseServiceConfiguration:
+      output.licenseServiceConfiguration !== undefined && output.licenseServiceConfiguration !== null
+        ? deserializeAws_restJson1LicenseServiceConfiguration(output.licenseServiceConfiguration, context)
+        : undefined,
+    sharedFileSystemConfiguration:
+      output.sharedFileSystemConfiguration !== undefined && output.sharedFileSystemConfiguration !== null
+        ? deserializeAws_restJson1SharedFileSystemConfiguration(output.sharedFileSystemConfiguration, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1StudioComponentInitializationScript = (
