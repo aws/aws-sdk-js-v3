@@ -1554,6 +1554,13 @@
     "hostname": "health-fips.us-east-2.amazonaws.com"
   },
   {
+    "endpointPrefix": "iam",
+    "sdkId": "IAM",
+    "region": "iam-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "iam-fips.amazonaws.com"
+  },
+  {
     "endpointPrefix": "identity-chime",
     "sdkId": "Chime SDK Identity",
     "region": "us-east-1-fips",
@@ -2863,6 +2870,13 @@
     "hostname": "translate-fips.us-west-2.amazonaws.com"
   },
   {
+    "endpointPrefix": "waf",
+    "sdkId": "WAF",
+    "region": "aws-fips",
+    "signingRegion": "us-east-1",
+    "hostname": "waf-fips.amazonaws.com"
+  },
+  {
     "endpointPrefix": "waf-regional",
     "sdkId": "WAF Regional",
     "region": "fips-af-south-1",
@@ -3750,6 +3764,13 @@
     "region": "fips-us-gov-west-1",
     "signingRegion": "us-gov-west-1",
     "hostname": "servicecatalog-appregistry.us-gov-west-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "servicediscovery-fips",
+    "signingRegion": "us-gov-west-1",
+    "hostname": "servicediscovery-fips.us-gov-west-1.amazonaws.com"
   },
   {
     "endpointPrefix": "servicequotas",

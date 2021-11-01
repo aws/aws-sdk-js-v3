@@ -28,27 +28,6 @@
     "hostname": "dms.us-isob-east-1.sc2s.sgov.gov"
   },
   {
-    "endpointPrefix": "waf",
-    "sdkId": "WAF",
-    "region": "aws-fips",
-    "signingRegion": "us-east-1",
-    "hostname": "waf-fips.amazonaws.com"
-  },
-  {
-    "endpointPrefix": "iam",
-    "sdkId": "IAM",
-    "region": "iam-fips",
-    "signingRegion": "us-east-1",
-    "hostname": "iam-fips.amazonaws.com"
-  },
-  {
-    "endpointPrefix": "servicediscovery",
-    "sdkId": "ServiceDiscovery",
-    "region": "servicediscovery-fips",
-    "signingRegion": "us-gov-west-1",
-    "hostname": "servicediscovery-fips.us-gov-west-1.amazonaws.com"
-  },
-  {
     "endpointPrefix": "servicediscovery",
     "sdkId": "ServiceDiscovery",
     "region": "servicediscovery-fips",
