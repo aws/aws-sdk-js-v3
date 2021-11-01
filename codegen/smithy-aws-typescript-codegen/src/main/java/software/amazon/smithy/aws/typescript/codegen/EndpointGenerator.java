@@ -49,7 +49,7 @@ final class EndpointGenerator implements Runnable {
     private final String endpointPrefix;
     private final String baseSigningService;
     private final Map<String, Partition> partitions = new TreeMap<>();
-    private final Map<String, ObjectNode> endpoints = new TreeMap<>();
+    private final Map<String, Endpoint> endpoints = new TreeMap<>();
 
     EndpointGenerator(ServiceShape service, TypeScriptWriter writer) {
         this.writer = writer;
@@ -88,19 +88,17 @@ final class EndpointGenerator implements Runnable {
             ObjectNode serviceData = partition.getService();
             ObjectNode endpointMap = serviceData.getObjectMember("endpoints").orElse(Node.objectNode());
 
-            // If partition endpoint is available, data will be populated in PartitionHash.
-            if (!partition.getPartitionEndpoint().isPresent()) {
-                for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
-                    ObjectNode config = entry.getValue().expectObjectNode();
-                    if (config.containsMember("hostname")) {
-                        // Resolve the hostname.
-                        String hostName = config.expectStringMember("hostname").getValue();
-                        hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
-                        hostName = hostName.replace("{service}", endpointPrefix);
-                        hostName = hostName.replace("{region}", entry.getKey());
-                        config = config.withMember("hostname", hostName);
-                        endpoints.put(entry.getKey(), config);
-                    }
+            for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
+                ObjectNode config = entry.getValue().expectObjectNode();
+                if (config.containsMember("hostname")) {
+                    // Resolve the hostname.
+                    String hostName = config.expectStringMember("hostname").getValue();
+                    hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
+                    hostName = hostName.replace("{service}", endpointPrefix);
+                    hostName = hostName.replace("{region}", entry.getKey());
+                    config = config.withMember("hostname", hostName);
+                    Endpoint endpoint = new Endpoint(config, partition.getPartitionEndpoint().isPresent());
+                    endpoints.put(entry.getKey(), endpoint);
                 }
             }
         }
@@ -116,8 +114,11 @@ final class EndpointGenerator implements Runnable {
     private void writeRegionHash() {
         writer.addImport("RegionHash", "RegionHash", TypeScriptDependency.CONFIG_RESOLVER.packageName);
         writer.openBlock("const regionHash: RegionHash = {", "};", () -> {
-            for (Map.Entry<String, ObjectNode> entry : endpoints.entrySet()) {
-                writeEndpointSpecificResolver(entry.getKey(), entry.getValue());
+            for (Map.Entry<String, Endpoint> entry : endpoints.entrySet()) {
+                Endpoint endpoint = entry.getValue();
+                if (!endpoint.isPartitionEndpoint) {
+                    writeEndpointSpecificResolver(entry.getKey(), endpoint.config);
+                }
             }
         });
         writer.write("");
@@ -171,6 +172,16 @@ final class EndpointGenerator implements Runnable {
                     });
                 });
             });
+        }
+    }
+
+    private final class Endpoint {
+        final ObjectNode config;
+        final boolean isPartitionEndpoint;
+
+        private Endpoint(ObjectNode config, boolean isPartitionEndpoint) {
+            this.config = config;
+            this.isPartitionEndpoint = isPartitionEndpoint;
         }
     }
 
