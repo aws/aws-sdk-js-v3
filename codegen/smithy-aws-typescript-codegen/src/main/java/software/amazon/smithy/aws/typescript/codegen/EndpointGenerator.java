@@ -131,9 +131,7 @@ final class EndpointGenerator implements Runnable {
                         }
                     });
                     writer.write("regionRegex: $S,", partition.regionRegex);
-                    OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
-                        endpoint -> writer.write("endpoint: $S,", endpoint),
-                        () -> writer.write("hostname: $S,", partition.hostnameTemplate));
+                    writer.write("hostname: $S,", partition.hostnameTemplate);
                 });
             });
         });
