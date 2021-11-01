@@ -17,7 +17,7 @@ export const getRegionInfo = (
   { signingService, regionHash, partitionHash }: GetRegionInfoOptions
 ): RegionInfo => {
   const partition = getResolvedPartition(region, { partitionHash });
-  const resolvedRegion = partitionHash[partition]?.endpoint ?? region;
+  const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
 
   const hostname = getResolvedHostname(resolvedRegion, {
     signingService,
