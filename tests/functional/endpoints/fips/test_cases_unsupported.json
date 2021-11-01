@@ -42,27 +42,6 @@
     "hostname": "iam-fips.amazonaws.com"
   },
   {
-    "endpointPrefix": "organizations",
-    "sdkId": "Organizations",
-    "region": "fips-aws-global",
-    "signingRegion": "us-east-1",
-    "hostname": "organizations-fips.us-east-1.amazonaws.com"
-  },
-  {
-    "endpointPrefix": "route53",
-    "sdkId": "Route 53",
-    "region": "fips-aws-global",
-    "signingRegion": "us-east-1",
-    "hostname": "route53-fips.amazonaws.com"
-  },
-  {
-    "endpointPrefix": "shield",
-    "sdkId": "Shield",
-    "region": "fips-aws-global",
-    "signingRegion": "us-east-1",
-    "hostname": "shield-fips.us-east-1.amazonaws.com"
-  },
-  {
     "endpointPrefix": "servicediscovery",
     "sdkId": "ServiceDiscovery",
     "region": "servicediscovery-fips",

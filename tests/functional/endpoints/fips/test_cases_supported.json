@@ -1960,6 +1960,13 @@
     "hostname": "network-firewall-fips.us-west-2.amazonaws.com"
   },
   {
+    "endpointPrefix": "organizations",
+    "sdkId": "Organizations",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "organizations-fips.us-east-1.amazonaws.com"
+  },
+  {
     "endpointPrefix": "outposts",
     "sdkId": "Outposts",
     "region": "fips-ca-central-1",
@@ -2154,6 +2161,13 @@
     "region": "fips-us-west-2",
     "signingRegion": "us-west-2",
     "hostname": "resource-groups-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "route53",
+    "sdkId": "Route 53",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "route53-fips.amazonaws.com"
   },
   {
     "endpointPrefix": "runtime.lex",
@@ -2371,6 +2385,13 @@
     "region": "fips-us-west-2",
     "signingRegion": "us-west-2",
     "hostname": "session.qldb-fips.us-west-2.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "shield",
+    "sdkId": "Shield",
+    "region": "fips-aws-global",
+    "signingRegion": "us-east-1",
+    "hostname": "shield-fips.us-east-1.amazonaws.com"
   },
   {
     "endpointPrefix": "sms",
