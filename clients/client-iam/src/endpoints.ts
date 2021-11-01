@@ -1,36 +1,7 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {
-  "aws-cn-global": {
-    hostname: "iam.cn-north-1.amazonaws.com.cn",
-    signingRegion: "cn-north-1",
-  },
-  "aws-global": {
-    hostname: "iam.amazonaws.com",
-    signingRegion: "us-east-1",
-  },
-  "aws-iso-b-global": {
-    hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
-    signingRegion: "us-isob-east-1",
-  },
-  "aws-iso-global": {
-    hostname: "iam.us-iso-east-1.c2s.ic.gov",
-    signingRegion: "us-iso-east-1",
-  },
-  "aws-us-gov-global": {
-    hostname: "iam.us-gov.amazonaws.com",
-    signingRegion: "us-gov-west-1",
-  },
-  "iam-fips": {
-    hostname: "iam-fips.amazonaws.com",
-    signingRegion: "us-east-1",
-  },
-  "iam-govcloud-fips": {
-    hostname: "iam.us-gov.amazonaws.com",
-    signingRegion: "us-gov-west-1",
-  },
-};
+const regionHash: RegionHash = {};
 
 const partitionHash: PartitionHash = {
   aws: {

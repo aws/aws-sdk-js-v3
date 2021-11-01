@@ -1,16 +1,7 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {
-  "aws-fips": {
-    hostname: "waf-fips.amazonaws.com",
-    signingRegion: "us-east-1",
-  },
-  "aws-global": {
-    hostname: "waf.amazonaws.com",
-    signingRegion: "us-east-1",
-  },
-};
+const regionHash: RegionHash = {};
 
 const partitionHash: PartitionHash = {
   aws: {
