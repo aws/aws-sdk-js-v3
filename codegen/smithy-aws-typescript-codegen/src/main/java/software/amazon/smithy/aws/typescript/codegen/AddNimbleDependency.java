@@ -42,10 +42,10 @@ public class AddNimbleDependency implements TypeScriptIntegration {
         if (!serviceId.equals("nimble")) {
             return context.getModel();
         }
-        Map<ShapeId, ShapeType> overWriteTypeMap = model.getStructureShapes().stream()
-                .map(structure -> structure.getId())
+        Map<ShapeId, ShapeType> overWriteTypeMap = model.getUnionShapes().stream()
+                .map(union -> union.getId())
                 .filter(shapeId -> shapeId.getName().equals("StudioComponentConfiguration"))
-                .collect(Collectors.toMap(shapeId -> shapeId, shapeId -> ShapeType.UNION));
+                .collect(Collectors.toMap(shapeId -> shapeId, shapeId -> ShapeType.STRUCTURE));
         return ModelTransformer.create().changeShapeType(model, overWriteTypeMap);
     }
 }
