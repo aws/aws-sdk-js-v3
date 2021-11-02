@@ -6,8 +6,9 @@ export interface GetHostnameFromVariantsOptions {
 }
 
 export const getHostnameFromVariants = (
-  variants: EndpointVariant[],
+  variants: EndpointVariant[] = [],
   { isFipsEndpoint, isDualstackEndpoint }: GetHostnameFromVariantsOptions
-) => {
-  return variants.find(({ tags }) => isFipsEndpoint).hostname;
-};
+) =>
+  variants.find(
+    ({ tags }) => isFipsEndpoint === tags.includes("fips") && isDualstackEndpoint === tags.includes("dualstack")
+  )?.hostname;

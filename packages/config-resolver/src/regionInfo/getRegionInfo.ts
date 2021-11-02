@@ -1,5 +1,6 @@
 import { RegionInfo } from "@aws-sdk/types";
 
+import { getHostnameFromVariants } from "./getHostnameFromVariants";
 import { getResolvedHostname } from "./getResolvedHostname";
 import { getResolvedPartition } from "./getResolvedPartition";
 import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
@@ -27,13 +28,11 @@ export const getRegionInfo = (
   const partition = getResolvedPartition(region, { partitionHash });
   const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
 
-  const hostname = getResolvedHostname(resolvedRegion, {
-    isFipsEndpoint,
-    isDualstackEndpoint,
-    signingService,
-    regionVariants: regionHash[resolvedRegion]?.variants,
-    partitionVariants: partitionHash[partition]?.variants,
-  });
+  const hostnameOptions = { isFipsEndpoint, isDualstackEndpoint };
+  const regionHostname = getHostnameFromVariants(regionHash[resolvedRegion]?.variants, hostnameOptions);
+  const partitionHostname = getHostnameFromVariants(partitionHash[partition]?.variants, hostnameOptions);
+  const hostname = getResolvedHostname(resolvedRegion, { signingService, regionHostname, partitionHostname });
+
   const signingRegion = getResolvedSigningRegion(region, {
     hostname,
     signingRegion: regionHash[resolvedRegion]?.signingRegion,
