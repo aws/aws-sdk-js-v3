@@ -4,30 +4,80 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "route53.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "route53.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
     hostname: "route53.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "route53-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
     hostname: "route53.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "route53.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
     hostname: "route53.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "route53.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
     hostname: "route53.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {
     hostname: "route53-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-aws-us-gov-global": {
     hostname: "route53.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -60,26 +110,97 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    hostname: "route53.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "route53-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
+    hostname: "route53.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "route53.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "route53-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
+    hostname: "route53.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "route53.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-global",
   },
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
+    hostname: "route53.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "route53.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
+    hostname: "route53.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "route53-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "route53-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "route53.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-us-gov-global",
   },
 };

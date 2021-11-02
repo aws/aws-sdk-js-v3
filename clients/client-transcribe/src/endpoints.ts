@@ -4,35 +4,161 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "cn-north-1": {
     hostname: "cn.transcribe.cn-north-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "cn.transcribe.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-north-1",
   },
   "cn-northwest-1": {
     hostname: "cn.transcribe.cn-northwest-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "cn.transcribe.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "fips-us-east-1": {
     hostname: "fips.transcribe.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "fips.transcribe.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "fips.transcribe.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "fips.transcribe.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fips.transcribe.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
+  },
+  "us-east-1": {
+    hostname: "transcribe.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-east-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    hostname: "transcribe.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-east-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-east-1": {
+    hostname: "transcribe.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    hostname: "transcribe.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-1": {
+    hostname: "transcribe.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    hostname: "transcribe.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.us-west-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 
@@ -67,26 +193,76 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "transcribe.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "transcribe-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "transcribe-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "transcribe.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "transcribe.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "transcribe.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribe.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 

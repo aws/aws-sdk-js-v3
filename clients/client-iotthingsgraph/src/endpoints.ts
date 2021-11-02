@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "iotthingsgraph.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "iotthingsgraph.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iotthingsgraph.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "iotthingsgraph.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "iotthingsgraph.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iotthingsgraph.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "iotthingsgraph.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "iotthingsgraph.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "iotthingsgraph.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "iotthingsgraph.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "iotthingsgraph.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "iotthingsgraph.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iotthingsgraph-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iotthingsgraph.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

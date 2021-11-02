@@ -4,10 +4,50 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-2": {
     hostname: "health-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-west-1": {
     hostname: "health-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
+  "us-east-2": {
+    hostname: "health.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "health.us-east-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-2",
+  },
+  "us-gov-west-1": {
+    hostname: "health.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "health.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -40,26 +80,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "health-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "health.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "health-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "health.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "health.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "health.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "health.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "health-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "health-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "health.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

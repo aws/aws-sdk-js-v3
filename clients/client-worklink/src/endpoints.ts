@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "worklink.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "worklink-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "worklink-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "worklink.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "worklink.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "worklink-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "worklink-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "worklink.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "worklink.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "worklink.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "worklink.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "worklink-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "worklink-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "worklink.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

@@ -4,38 +4,128 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "iam.cn-north-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "iam.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-north-1",
   },
   "aws-global": {
     hostname: "iam.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-global-fips": {
     hostname: "iam-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
     hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
     hostname: "iam.us-iso-east-1.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "iam.us-iso-east-1.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "aws-us-gov-global-fips": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
+  },
+  iam: {
+    hostname: "iam.iam.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.iam.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-east-1",
   },
   "iam-fips": {
     hostname: "iam-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
+  },
+  "iam-govcloud": {
+    hostname: "iam.iam-govcloud.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.iam-govcloud.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
   },
   "iam-govcloud-fips": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -70,21 +160,73 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iam-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iam.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "iam.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "iam-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iam-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iam.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "iam.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-global",
   },
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "iam.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
@@ -97,6 +239,25 @@ const partitionHash: PartitionHash = {
       "us-gov-west-1",
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "iam-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "iam-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "iam.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-us-gov-global",
   },
 };

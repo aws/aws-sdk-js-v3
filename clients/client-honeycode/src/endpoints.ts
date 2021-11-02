@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "honeycode.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "honeycode.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "honeycode-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "honeycode-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "honeycode.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "honeycode.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "honeycode.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "honeycode-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "honeycode-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "honeycode.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "honeycode.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "honeycode.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "honeycode.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "honeycode.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "honeycode.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "honeycode.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "honeycode-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "honeycode-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "honeycode.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

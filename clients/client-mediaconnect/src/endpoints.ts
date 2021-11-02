@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "mediaconnect.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconnect.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mediaconnect.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "mediaconnect.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "mediaconnect.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mediaconnect.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "mediaconnect.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "mediaconnect.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "mediaconnect.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "mediaconnect.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "mediaconnect.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconnect.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mediaconnect-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mediaconnect.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

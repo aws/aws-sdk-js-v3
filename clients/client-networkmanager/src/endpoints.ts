@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-global": {
     hostname: "networkmanager.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "aws-us-gov-global": {
     hostname: "networkmanager.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -39,26 +51,94 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    hostname: "networkmanager.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "networkmanager.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "networkmanager.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "networkmanager.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "networkmanager.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "networkmanager.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "networkmanager.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "networkmanager.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "networkmanager.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
+    hostname: "networkmanager.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "networkmanager-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "networkmanager.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-us-gov-global",
   },
 };

@@ -13,6 +13,7 @@ describe(getResolvedPartition.name, () => {
         regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
         regionRegex: mockRegionRegex,
         hostname: mockHostname,
+        variants: [{ hostname: mockHostname, tags: [] }],
       },
     };
     expect(getResolvedPartition(mockRegion, { partitionHash: mockPartitionHash })).toBe(mockPartition);
@@ -24,6 +25,7 @@ describe(getResolvedPartition.name, () => {
         regions: [`${mockRegion}2`, `${mockRegion}3`],
         regionRegex: mockRegionRegex,
         hostname: mockHostname,
+        variants: [{ hostname: mockHostname, tags: [] }],
       },
     };
     expect(getResolvedPartition(mockRegion, { partitionHash: mockPartitionHash })).toBe("aws");
