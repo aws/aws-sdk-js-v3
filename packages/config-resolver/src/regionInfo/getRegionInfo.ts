@@ -28,9 +28,11 @@ export const getRegionInfo = (
   const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
 
   const hostname = getResolvedHostname(resolvedRegion, {
+    isFipsEndpoint,
+    isDualstackEndpoint,
     signingService,
-    regionHostname: regionHash[resolvedRegion]?.hostname,
-    partitionHostname: partitionHash[partition]?.hostname,
+    regionVariants: regionHash[resolvedRegion]?.variants,
+    partitionVariants: partitionHash[partition]?.variants,
   });
   const signingRegion = getResolvedSigningRegion(region, {
     hostname,

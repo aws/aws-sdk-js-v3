@@ -1,12 +1,15 @@
+import { EndpointVariant } from "./EndpointVariant";
 import { getHostnameTemplate } from "./getHostnameTemplate";
 
 export interface GetResolvedHostnameOptions {
+  isFipsEndpoint: boolean;
+  isDualstackEndpoint: boolean;
   signingService: string;
-  regionHostname?: string;
-  partitionHostname?: string;
+  regionVariants: EndpointVariant[];
+  partitionVariants: EndpointVariant[];
 }
 
 export const getResolvedHostname = (
   resolvedRegion: string,
-  { signingService, regionHostname, partitionHostname }: GetResolvedHostnameOptions
-) => regionHostname ?? getHostnameTemplate(signingService, { partitionHostname }).replace("{region}", resolvedRegion);
+  { signingService, regionVariants, partitionVariants }: GetResolvedHostnameOptions
+) => regionHostname ?? getHostnameTemplate(signingService, { partitionVariants }).replace("{region}", resolvedRegion);
