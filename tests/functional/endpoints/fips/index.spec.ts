@@ -1,6 +1,7 @@
 import { join } from "path";
 
 import testCases from "./test_cases_supported.json";
+import variantsTestCases from "./test_cases_supported_variants.json";
 
 const getClientPackageName = (sdkId: string) =>
   `client-${sdkId
@@ -24,7 +25,7 @@ describe("endpoints.fips", () => {
   });
 
   describe("real regions", () => {
-    for (const { sdkId, signingRegion, hostname } of testCases) {
+    for (const { sdkId, signingRegion, hostname } of testCases.concat(variantsTestCases)) {
       const clientPackageName = getClientPackageName(sdkId);
       it(`testing "${clientPackageName}" with region: ${signingRegion}`, async () => {
         const { defaultRegionInfoProvider } = await import(
