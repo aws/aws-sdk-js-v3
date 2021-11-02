@@ -95,16 +95,14 @@ final class EndpointGenerator implements Runnable {
                 // TODO: Do not populate config if "deprecated" is present.
                 if (config.containsMember("hostname") || config.containsMember("variants")) {
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
+                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, entry.getKey());
 
-                    hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
-                    hostname = hostname.replace("{service}", endpointPrefix);
-                    hostname = hostname.replace("{region}", entry.getKey());
                     // TODO: Remove hostname after fully switching to variants.
-                    config = config.withMember("hostname", hostname);
+                    config = config.withMember("hostname", resolvedHostname);
 
                     ArrayNode variants = config.getArrayMember("variants").orElse(
                         ArrayNode.fromNodes());
-                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(hostname));
+                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
                     // Populate hostname as the default variant.
                     config = config.withMember("variants", variants.merge(defaultVariant));
@@ -200,6 +198,24 @@ final class EndpointGenerator implements Runnable {
         return ObjectNode.fromStringMap(defaultVariant).withMember("tags", defaultVariantTags);
     }
 
+    private String getResolvedHostname(
+        String hostnameTemplate,
+        String dnsSuffix,
+        String service) {
+        return getResolvedHostname(hostnameTemplate, dnsSuffix, service, "{region}");
+    }
+
+    private String getResolvedHostname(
+        String hostnameTemplate,
+        String dnsSuffix,
+        String service,
+        String region) {
+        return hostnameTemplate
+            .replace("{service}", service)
+            .replace("{region}", region)
+            .replace("{dnsSuffix}", dnsSuffix);
+    }
+
     private final class Partition {
         final ObjectNode defaults;
         final String dnsSuffix;
@@ -219,10 +235,8 @@ final class EndpointGenerator implements Runnable {
             regionRegex = config.expectStringMember("regionRegex").getValue();
 
             // Resolve the template to use for this service in this partition.
-            String template = defaults.expectStringMember("hostname").getValue();
-            template = template.replace("{service}", endpointPrefix);
-            template = template.replace("{dnsSuffix}", dnsSuffix);
-            hostnameTemplate = template;
+            String hostname = defaults.expectStringMember("hostname").getValue();
+            hostnameTemplate = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
         }
 
         ObjectNode getDefaults() {
@@ -255,13 +269,9 @@ final class EndpointGenerator implements Runnable {
                 variants.forEach(variant -> {
                     ObjectNode variantNode = variant.expectObjectNode();
                     String hostname = variantNode.expectStringMember("hostname").getValue();
-                    if (variantNode.containsMember("dnsSuffix")) {
-                        String dnsSuffix = variantNode.expectStringMember("dnsSuffix").getValue();
-                        hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
-                    }
-                    hostname = hostname.replace("{service}", endpointPrefix);
-                    hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
-                    allVariants.add(variantNode.withMember("hostname", hostname).withoutMember("dnsSuffix"));
+                    String dnsSuffix = variantNode.getStringMemberOrDefault("dnsSuffix", this.dnsSuffix);
+                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix);
+                    allVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
                 });
             }
             allVariants.add(getDefaultVariant(hostnameTemplate));
