@@ -7,8 +7,8 @@ import { EndpointVariant } from "./EndpointVariant";
 export type RegionHash = {
   [key: string]: {
     // TODO: Remove hostname after fully switching to variants.
-    hostname?: string;
-    variants?: EndpointVariant[];
+    hostname: string;
+    variants: EndpointVariant[];
     signingService?: string;
     signingRegion?: string;
   };
