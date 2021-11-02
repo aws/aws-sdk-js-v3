@@ -706,11 +706,23 @@ const partitionHash: PartitionHash = {
     regions: ["ProdFips", "us-iso-east-1", "us-iso-east-1-fips", "us-iso-west-1", "us-iso-west-1-fips"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "kms.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "kms.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["ProdFips", "us-isob-east-1", "us-isob-east-1-fips"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "kms.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "kms.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["ProdFips", "us-gov-east-1", "us-gov-east-1-fips", "us-gov-west-1", "us-gov-west-1-fips"],

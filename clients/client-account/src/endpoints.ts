@@ -51,7 +51,7 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    endpoint: "aws-global",
+    hostname: "account.{region}.amazonaws.com",
     variants: [
       {
         hostname: "account-fips.{region}.amazonaws.com",
@@ -70,11 +70,12 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    endpoint: "aws-cn-global",
+    hostname: "account.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "account-fips.{region}.amazonaws.com.cn",
@@ -93,16 +94,29 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
     ],
+    endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "account.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "account.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "account.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "account.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],

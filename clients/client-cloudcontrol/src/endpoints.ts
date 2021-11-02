@@ -243,11 +243,23 @@ const partitionHash: PartitionHash = {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "cloudcontrolapi.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "cloudcontrolapi.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "cloudcontrolapi.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "cloudcontrolapi.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],

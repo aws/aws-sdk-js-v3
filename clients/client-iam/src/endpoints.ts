@@ -160,7 +160,7 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    endpoint: "aws-global",
+    hostname: "iam.{region}.amazonaws.com",
     variants: [
       {
         hostname: "iam-fips.{region}.amazonaws.com",
@@ -179,11 +179,12 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
     ],
+    endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    endpoint: "aws-cn-global",
+    hostname: "iam.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "iam-fips.{region}.amazonaws.com.cn",
@@ -202,15 +203,30 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
     ],
+    endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "iam.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-global",
   },
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
+    hostname: "iam.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "iam.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
@@ -223,7 +239,7 @@ const partitionHash: PartitionHash = {
       "us-gov-west-1",
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    endpoint: "aws-us-gov-global",
+    hostname: "iam.{region}.amazonaws.com",
     variants: [
       {
         hostname: "iam-fips.{region}.amazonaws.com",
@@ -242,6 +258,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
     ],
+    endpoint: "aws-us-gov-global",
   },
 };
 

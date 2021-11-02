@@ -125,11 +125,23 @@ const partitionHash: PartitionHash = {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "macie.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "macie.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "macie.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "macie.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
