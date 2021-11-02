@@ -191,9 +191,9 @@ final class EndpointGenerator implements Runnable {
     }
 
     private ObjectNode getDefaultVariant(String hostname) {
-        Map<String, String> defaultVariant = Collections.singletonMap("hostname", hostname);
-        ArrayNode defaultVariantTags = ArrayNode.fromStrings(Collections.emptyList());
-        return ObjectNode.fromStringMap(defaultVariant).withMember("tags", defaultVariantTags);
+        return ObjectNode
+            .fromStringMap(Collections.singletonMap("hostname", hostname))
+            .withMember("tags", ArrayNode.fromStrings(Collections.emptyList()));
     }
 
     private String getResolvedHostname(String hostnameTemplate, String dnsSuffix, String service) {
