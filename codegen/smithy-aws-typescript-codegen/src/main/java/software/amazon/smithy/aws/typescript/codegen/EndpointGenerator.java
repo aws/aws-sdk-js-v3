@@ -100,8 +100,7 @@ final class EndpointGenerator implements Runnable {
                     // TODO: Remove hostname after fully switching to variants.
                     config = config.withMember("hostname", resolvedHostname);
 
-                    ArrayNode variants = config.getArrayMember("variants").orElse(
-                        ArrayNode.fromNodes());
+                    ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
                     // Add resolved hostname as the default variant.
@@ -194,22 +193,14 @@ final class EndpointGenerator implements Runnable {
     private ObjectNode getDefaultVariant(String hostname) {
         Map<String, String> defaultVariant = Collections.singletonMap("hostname", hostname);
         ArrayNode defaultVariantTags = ArrayNode.fromStrings(Collections.emptyList());
-
         return ObjectNode.fromStringMap(defaultVariant).withMember("tags", defaultVariantTags);
     }
 
-    private String getResolvedHostname(
-        String hostnameTemplate,
-        String dnsSuffix,
-        String service) {
+    private String getResolvedHostname(String hostnameTemplate, String dnsSuffix, String service) {
         return getResolvedHostname(hostnameTemplate, dnsSuffix, service, "{region}");
     }
 
-    private String getResolvedHostname(
-        String hostnameTemplate,
-        String dnsSuffix,
-        String service,
-        String region) {
+    private String getResolvedHostname(String hostnameTemplate, String dnsSuffix, String service, String region) {
         return hostnameTemplate
             .replace("{service}", service)
             .replace("{region}", region)
