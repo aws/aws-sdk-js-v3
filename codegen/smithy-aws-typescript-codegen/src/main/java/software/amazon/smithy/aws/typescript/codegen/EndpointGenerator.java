@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -93,15 +94,23 @@ final class EndpointGenerator implements Runnable {
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
                 ObjectNode config = entry.getValue().expectObjectNode();
                 // TODO: Do not populate config if "deprecated" is present.
-                if (config.containsMember("hostname")) {
-                    // Resolve the hostname.
-                    String hostName = config.expectStringMember("hostname").getValue();
-                    hostName = hostName.replace("{dnsSuffix}", dnsSuffix);
-                    hostName = hostName.replace("{service}", endpointPrefix);
-                    hostName = hostName.replace("{region}", entry.getKey());
-                    config = config.withMember("hostname", hostName);
+                if (config.containsMember("hostname") || config.containsMember("variants")) {
+                    String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
+
+                    hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
+                    hostname = hostname.replace("{service}", endpointPrefix);
+                    hostname = hostname.replace("{region}", entry.getKey());
+                    // TODO: Remove hostname after fully switching to variants.
+                    config = config.withMember("hostname", hostname);
+
+                    ArrayNode variants = config.getArrayMember("variants").orElse(
+                        ArrayNode.fromNodes());
+                    ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(hostname));
+
+                    // Populate hostname as the default variant.
+                    config = config.withMember("variants", variants.merge(defaultVariant));
+                    endpoints.put(entry.getKey(), config);
                 }
-                endpoints.put(entry.getKey(), config);
             }
         }
     }
@@ -136,7 +145,7 @@ final class EndpointGenerator implements Runnable {
                     writer.write("regionRegex: $S,", partition.regionRegex);
                     OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
                         endpoint -> writer.write("endpoint: $S,", endpoint),
-                        // TODO: Remove population of hostname after switching to variants.
+                        // TODO: Remove hostname after fully switching to variants.
                         () -> writer.write("hostname: $S,", partition.hostnameTemplate));
                     List<Node> variants = partition.getVariants();
                     if (!variants.isEmpty()) {
@@ -194,6 +203,13 @@ final class EndpointGenerator implements Runnable {
                 });
             });
         }
+    }
+
+    private ObjectNode getDefaultVariant(String hostname) {
+        Map<String, String> defaultVariant = Collections.singletonMap("hostname", hostname);
+        ArrayNode defaultVariantTags = ArrayNode.fromStrings(Collections.emptyList());
+
+        return ObjectNode.fromStringMap(defaultVariant).withMember("tags", defaultVariantTags);
     }
 
     private final class Partition {
@@ -259,6 +275,7 @@ final class EndpointGenerator implements Runnable {
                     hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
                     allVariants.add(variantNode.withMember("hostname", hostname).withoutMember("dnsSuffix"));
                 });
+                allVariants.add(getDefaultVariant(hostnameTemplate));
             }
 
             return allVariants;
