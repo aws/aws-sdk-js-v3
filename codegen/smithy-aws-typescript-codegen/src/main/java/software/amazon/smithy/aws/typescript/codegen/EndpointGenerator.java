@@ -178,29 +178,23 @@ final class EndpointGenerator implements Runnable {
     }
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
-        if (resolved.containsMember("variants")
-                || resolved.containsMember("hostname")
-                || resolved.containsMember("credentialScope")) {
-            writer.openBlock("$S: {", "},", region, () -> {
-                // TODO: Remove population of hostname after switching to variants.
-                if (resolved.containsMember("hostname")) {
-                    String hostname = resolved.expectStringMember("hostname").getValue();
-                    writer.write("hostname: $S,", hostname);
-                }
-                if (resolved.containsMember("variants")) {
-                    ArrayNode variants = resolved.expectArrayMember("variants");
-                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
-                }
-                resolved.getObjectMember("credentialScope").ifPresent(scope -> {
-                    scope.getStringMember("region").ifPresent(signingRegion -> {
-                        writer.write("signingRegion: $S,", signingRegion);
-                    });
-                    scope.getStringMember("service").ifPresent(signingService -> {
-                        writer.write("signingService: $S,", signingService);
-                    });
+        writer.openBlock("$S: {", "},", region, () -> {
+            // TODO: Remove population of hostname after switching to variants.
+            String hostname = resolved.expectStringMember("hostname").getValue();
+            writer.write("hostname: $S,", hostname);
+
+            ArrayNode variants = resolved.expectArrayMember("variants");
+            writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
+
+            resolved.getObjectMember("credentialScope").ifPresent(scope -> {
+                scope.getStringMember("region").ifPresent(signingRegion -> {
+                    writer.write("signingRegion: $S,", signingRegion);
+                });
+                scope.getStringMember("service").ifPresent(signingService -> {
+                    writer.write("signingService: $S,", signingService);
                 });
             });
-        }
+        });
     }
 
     private ObjectNode getDefaultVariant(String hostname) {
