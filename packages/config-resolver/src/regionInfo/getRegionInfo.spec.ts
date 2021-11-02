@@ -44,9 +44,8 @@ describe(getRegionInfo.name, () => {
     [mockPartition]: {
       regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
       regionRegex: mockRegionRegex,
-      ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
-        hostname: mockHostname,
-      }),
+      hostname: mockHostname,
+      variants: [{ hostname: mockHostname, tags: [] }],
       ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
         endpoint: mockEndpointRegion,
       }),

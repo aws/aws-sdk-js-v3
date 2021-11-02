@@ -10,8 +10,8 @@ export type PartitionHash = {
     regions: string[];
     regionRegex: string;
     // TODO: Remove hostname after fully switching to variants.
-    hostname?: string;
+    hostname: string;
+    variants: EndpointVariant[];
     endpoint?: string;
-    variants?: EndpointVariant[];
   };
 };
