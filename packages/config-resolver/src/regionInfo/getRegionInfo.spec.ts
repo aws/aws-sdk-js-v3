@@ -29,11 +29,13 @@ describe(getRegionInfo.name, () => {
     ...((regionCase === RegionCase.REGION || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
       [mockRegion]: {
         hostname: mockHostname,
+        variants: [{ hostname: mockHostname, tags: [] }],
       },
     }),
     ...((regionCase === RegionCase.ENDPOINT || regionCase === RegionCase.REGION_AND_ENDPOINT) && {
       [mockEndpointRegion]: {
         hostname: mockEndpointHostname,
+        variants: [{ hostname: mockEndpointHostname, tags: [] }],
       },
     }),
   });
