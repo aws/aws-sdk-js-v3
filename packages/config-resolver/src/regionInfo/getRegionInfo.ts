@@ -7,6 +7,8 @@ import { PartitionHash } from "./PartitionHash";
 import { RegionHash } from "./RegionHash";
 
 export interface GetRegionInfoOptions {
+  isFipsEndpoint?: boolean;
+  isDualstackEndpoint?: boolean;
   signingService: string;
   regionHash: RegionHash;
   partitionHash: PartitionHash;
@@ -14,7 +16,13 @@ export interface GetRegionInfoOptions {
 
 export const getRegionInfo = (
   region: string,
-  { signingService, regionHash, partitionHash }: GetRegionInfoOptions
+  {
+    isFipsEndpoint = false,
+    isDualstackEndpoint = false,
+    signingService,
+    regionHash,
+    partitionHash,
+  }: GetRegionInfoOptions
 ): RegionInfo => {
   const partition = getResolvedPartition(region, { partitionHash });
   const resolvedRegion = region in regionHash ? region : partitionHash[partition]?.endpoint ?? region;
