@@ -30,7 +30,7 @@ describe("endpoints.fips", () => {
         const { defaultRegionInfoProvider } = await import(
           join("..", "..", "..", "..", "clients", clientPackageName, "src", "endpoints")
         );
-        const regionInfo = await defaultRegionInfoProvider(signingRegion, { isFipsRegion: true });
+        const regionInfo = await defaultRegionInfoProvider(signingRegion, { isFipsEndpoint: true });
         expect(regionInfo.signingRegion).toEqual(signingRegion);
         expect(regionInfo.hostname).toEqual(hostname);
       });
