@@ -136,6 +136,7 @@ final class EndpointGenerator implements Runnable {
                     writer.write("regionRegex: $S,", partition.regionRegex);
                     OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
                         endpoint -> writer.write("endpoint: $S,", endpoint),
+                        // TODO: Remove population of hostname after switching to variants.
                         () -> writer.write("hostname: $S,", partition.hostnameTemplate));
                     List<Node> variants = partition.getVariants();
                     if (!variants.isEmpty()) {
@@ -174,6 +175,7 @@ final class EndpointGenerator implements Runnable {
                 || resolved.containsMember("hostname")
                 || resolved.containsMember("credentialScope")) {
             writer.openBlock("$S: {", "},", region, () -> {
+                // TODO: Remove population of hostname after switching to variants.
                 if (resolved.containsMember("hostname")) {
                     String hostname = resolved.expectStringMember("hostname").getValue();
                     writer.write("hostname: $S,", hostname);
