@@ -44,6 +44,10 @@ const partitionHash: PartitionHash = {
         hostname: "quicksight.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "quicksight.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -62,6 +66,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "quicksight.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "quicksight.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -91,6 +99,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "quicksight.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "quicksight.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

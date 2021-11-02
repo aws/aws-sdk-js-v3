@@ -9,11 +9,21 @@ const regionHash: RegionHash = {
         hostname: "shield-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "shield.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "fips-aws-global": {
     hostname: "shield-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "shield-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -60,6 +70,10 @@ const partitionHash: PartitionHash = {
         hostname: "shield.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "shield.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -78,6 +92,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "shield.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "shield.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -107,6 +125,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "shield.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "shield.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

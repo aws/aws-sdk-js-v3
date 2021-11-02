@@ -4,73 +4,139 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "athena-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "athena-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "athena-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "athena-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "athena-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "athena-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "athena-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "athena.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "athena.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "athena.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "athena.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "athena.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "athena.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "athena.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "athena.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "athena.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "athena.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "athena.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "athena-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "athena.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -120,6 +186,10 @@ const partitionHash: PartitionHash = {
         hostname: "athena.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "athena.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -138,6 +208,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "athena.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "athena.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -167,6 +241,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "athena.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "athena.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

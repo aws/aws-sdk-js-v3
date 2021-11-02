@@ -3,86 +3,163 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "ssm.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "ssm-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-ca-central-1": {
     hostname: "ssm-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-us-east-1": {
     hostname: "ssm-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "ssm-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "ssm.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "ssm.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "ssm-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "ssm-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ssm-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "ssm.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "ssm-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "ssm.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "ssm-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "ssm.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "ssm.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "ssm.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "ssm.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "ssm.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "ssm-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ssm.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "ssm.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "ssm-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ssm.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -133,6 +210,10 @@ const partitionHash: PartitionHash = {
         hostname: "ssm.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "ssm.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -151,6 +232,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ssm.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "ssm.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -172,6 +257,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ssm.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ssm.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

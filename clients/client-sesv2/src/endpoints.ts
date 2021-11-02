@@ -4,13 +4,24 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-gov-west-1": {
     hostname: "email-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "email-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-gov-west-1": {
+    hostname: "email.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "email-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "email.us-gov-west-1.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -56,6 +67,10 @@ const partitionHash: PartitionHash = {
         hostname: "email.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "email.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -74,6 +89,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "email.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "email.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -103,6 +122,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "email.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "email.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

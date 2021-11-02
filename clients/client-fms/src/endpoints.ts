@@ -3,254 +3,485 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "af-south-1": {
+    hostname: "fms.af-south-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.af-south-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.af-south-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-east-1": {
+    hostname: "fms.ap-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-northeast-1": {
+    hostname: "fms.ap-northeast-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-northeast-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-northeast-2": {
+    hostname: "fms.ap-northeast-2.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-northeast-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-south-1": {
+    hostname: "fms.ap-south-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-south-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-south-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-southeast-1": {
+    hostname: "fms.ap-southeast-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-southeast-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-southeast-2": {
+    hostname: "fms.ap-southeast-2.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ap-southeast-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ca-central-1": {
+    hostname: "fms.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-central-1": {
+    hostname: "fms.eu-central-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.eu-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.eu-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-south-1": {
+    hostname: "fms.eu-south-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.eu-south-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.eu-south-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-1": {
+    hostname: "fms.eu-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.eu-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.eu-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-2": {
+    hostname: "fms.eu-west-2.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.eu-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.eu-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-3": {
+    hostname: "fms.eu-west-3.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.eu-west-3.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.eu-west-3.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-af-south-1": {
     hostname: "fms-fips.af-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.af-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "af-south-1",
   },
   "fips-ap-east-1": {
     hostname: "fms-fips.ap-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-east-1",
   },
   "fips-ap-northeast-1": {
     hostname: "fms-fips.ap-northeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-1",
   },
   "fips-ap-northeast-2": {
     hostname: "fms-fips.ap-northeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-2",
   },
   "fips-ap-south-1": {
     hostname: "fms-fips.ap-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-south-1",
   },
   "fips-ap-southeast-1": {
     hostname: "fms-fips.ap-southeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-1",
   },
   "fips-ap-southeast-2": {
     hostname: "fms-fips.ap-southeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-2",
   },
   "fips-ca-central-1": {
     hostname: "fms-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-eu-central-1": {
     hostname: "fms-fips.eu-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.eu-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-central-1",
   },
   "fips-eu-south-1": {
     hostname: "fms-fips.eu-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.eu-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-south-1",
   },
   "fips-eu-west-1": {
     hostname: "fms-fips.eu-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-1",
   },
   "fips-eu-west-2": {
     hostname: "fms-fips.eu-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.eu-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-2",
   },
   "fips-eu-west-3": {
     hostname: "fms-fips.eu-west-3.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.eu-west-3.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-3",
   },
   "fips-me-south-1": {
     hostname: "fms-fips.me-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.me-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "me-south-1",
   },
   "fips-sa-east-1": {
     hostname: "fms-fips.sa-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.sa-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "sa-east-1",
   },
   "fips-us-east-1": {
     hostname: "fms-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "fms-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "fms-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "fms-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "fms-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "fms-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fms-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "me-south-1": {
+    hostname: "fms.me-south-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.me-south-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.me-south-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "sa-east-1": {
+    hostname: "fms.sa-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.sa-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.sa-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1": {
+    hostname: "fms.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "fms.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "fms.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "fms.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "fms.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fms.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "fms.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "fms-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fms.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -315,6 +546,10 @@ const partitionHash: PartitionHash = {
         hostname: "fms.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "fms.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -333,6 +568,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "fms.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -362,6 +601,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fms.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "fms.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

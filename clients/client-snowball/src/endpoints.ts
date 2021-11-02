@@ -3,242 +3,462 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ap-northeast-1": {
+    hostname: "snowball.ap-northeast-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-northeast-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-northeast-2": {
+    hostname: "snowball.ap-northeast-2.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-northeast-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-northeast-3": {
+    hostname: "snowball.ap-northeast-3.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-northeast-3.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-northeast-3.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-south-1": {
+    hostname: "snowball.ap-south-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-south-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-south-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-southeast-1": {
+    hostname: "snowball.ap-southeast-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-southeast-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ap-southeast-2": {
+    hostname: "snowball.ap-southeast-2.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ap-southeast-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ca-central-1": {
+    hostname: "snowball.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "cn-north-1": {
+    hostname: "snowball.cn-north-1.amazonaws.com.cn",
     variants: [
       {
         hostname: "snowball-fips.cn-north-1.amazonaws.com.cn",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
     ],
   },
   "cn-northwest-1": {
+    hostname: "snowball.cn-northwest-1.amazonaws.com.cn",
     variants: [
       {
         hostname: "snowball-fips.cn-northwest-1.amazonaws.com.cn",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
     ],
   },
   "eu-central-1": {
+    hostname: "snowball.eu-central-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.eu-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.eu-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-1": {
+    hostname: "snowball.eu-west-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.eu-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.eu-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-2": {
+    hostname: "snowball.eu-west-2.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.eu-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.eu-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "eu-west-3": {
+    hostname: "snowball.eu-west-3.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.eu-west-3.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.eu-west-3.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-ap-northeast-1": {
     hostname: "snowball-fips.ap-northeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-1",
   },
   "fips-ap-northeast-2": {
     hostname: "snowball-fips.ap-northeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-2",
   },
   "fips-ap-northeast-3": {
     hostname: "snowball-fips.ap-northeast-3.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-northeast-3.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-3",
   },
   "fips-ap-south-1": {
     hostname: "snowball-fips.ap-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-south-1",
   },
   "fips-ap-southeast-1": {
     hostname: "snowball-fips.ap-southeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-1",
   },
   "fips-ap-southeast-2": {
     hostname: "snowball-fips.ap-southeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-2",
   },
   "fips-ca-central-1": {
     hostname: "snowball-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-cn-north-1": {
     hostname: "snowball-fips.cn-north-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "snowball-fips.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-north-1",
   },
   "fips-cn-northwest-1": {
     hostname: "snowball-fips.cn-northwest-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "snowball-fips.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "fips-eu-central-1": {
     hostname: "snowball-fips.eu-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.eu-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-central-1",
   },
   "fips-eu-west-1": {
     hostname: "snowball-fips.eu-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-1",
   },
   "fips-eu-west-2": {
     hostname: "snowball-fips.eu-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.eu-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-2",
   },
   "fips-eu-west-3": {
     hostname: "snowball-fips.eu-west-3.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.eu-west-3.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-3",
   },
   "fips-sa-east-1": {
     hostname: "snowball-fips.sa-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.sa-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "sa-east-1",
   },
   "fips-us-east-1": {
     hostname: "snowball-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "snowball-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "snowball-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "snowball-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "snowball-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "snowball-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "snowball-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "sa-east-1": {
+    hostname: "snowball.sa-east-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.sa-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.sa-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1": {
+    hostname: "snowball.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "snowball.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "snowball.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "snowball.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "snowball.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "snowball.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "snowball.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "snowball-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "snowball.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -300,6 +520,10 @@ const partitionHash: PartitionHash = {
         hostname: "snowball.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "snowball.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -318,6 +542,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "snowball.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "snowball.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -347,6 +575,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "snowball.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "snowball.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

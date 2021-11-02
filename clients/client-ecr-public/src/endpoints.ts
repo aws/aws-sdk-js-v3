@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "us-east-1": {
     hostname: "api.ecr-public.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.ecr-public.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -48,6 +54,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.ecr-public.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "api.ecr-public.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -66,6 +76,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr-public.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.ecr-public.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -95,6 +109,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr-public.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.ecr-public.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

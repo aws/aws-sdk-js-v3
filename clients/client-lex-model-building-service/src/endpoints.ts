@@ -3,39 +3,72 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "us-east-1": {
+    hostname: "models.lex.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "models-fips.lex.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "models.lex.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "models-fips.lex.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "models-fips.lex.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-gov-west-1": {
+    hostname: "models.lex.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "models-fips.lex.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "models.lex.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "models-fips.lex.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "models-fips.lex.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
+    hostname: "models.lex.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "models-fips.lex.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "models.lex.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "models-fips.lex.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "models-fips.lex.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -74,6 +107,10 @@ const partitionHash: PartitionHash = {
         hostname: "models-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "models.lex.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -92,6 +129,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "models.lex.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "models.lex.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -113,6 +154,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "models-fips.lex.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "models.lex.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

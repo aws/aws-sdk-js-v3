@@ -4,66 +4,162 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "ap-northeast-1": {
     hostname: "portal.sso.ap-northeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-1",
   },
   "ap-northeast-2": {
     hostname: "portal.sso.ap-northeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-2",
   },
   "ap-south-1": {
     hostname: "portal.sso.ap-south-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ap-south-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-south-1",
   },
   "ap-southeast-1": {
     hostname: "portal.sso.ap-southeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-1",
   },
   "ap-southeast-2": {
     hostname: "portal.sso.ap-southeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-2",
   },
   "ca-central-1": {
     hostname: "portal.sso.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "eu-central-1": {
     hostname: "portal.sso.eu-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.eu-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-central-1",
   },
   "eu-north-1": {
     hostname: "portal.sso.eu-north-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.eu-north-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-north-1",
   },
   "eu-west-1": {
     hostname: "portal.sso.eu-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-1",
   },
   "eu-west-2": {
     hostname: "portal.sso.eu-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.eu-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-2",
   },
   "eu-west-3": {
     hostname: "portal.sso.eu-west-3.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.eu-west-3.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-3",
   },
   "sa-east-1": {
     hostname: "portal.sso.sa-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.sa-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "sa-east-1",
   },
   "us-east-1": {
     hostname: "portal.sso.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "portal.sso.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-west-1": {
     hostname: "portal.sso.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
     hostname: "portal.sso.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "portal.sso.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -108,6 +204,10 @@ const partitionHash: PartitionHash = {
         hostname: "portal.sso.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "portal.sso.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -126,6 +226,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "portal.sso.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "portal.sso.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -155,6 +259,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "portal.sso.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "portal.sso.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

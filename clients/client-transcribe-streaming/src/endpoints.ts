@@ -3,53 +3,97 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "transcribestreaming-ca-central-1": {
+    hostname: "transcribestreaming.transcribestreaming-ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "transcribestreaming.transcribestreaming-ca-central-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "ca-central-1",
   },
   "transcribestreaming-fips-ca-central-1": {
     hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "transcribestreaming-fips-us-east-1": {
     hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "transcribestreaming-fips-us-east-2": {
     hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "transcribestreaming-fips-us-west-2": {
     hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "transcribestreaming-us-east-1": {
+    hostname: "transcribestreaming.transcribestreaming-us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "transcribestreaming.transcribestreaming-us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "transcribestreaming-us-east-2": {
+    hostname: "transcribestreaming.transcribestreaming-us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "transcribestreaming.transcribestreaming-us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-2",
   },
   "transcribestreaming-us-west-2": {
+    hostname: "transcribestreaming.transcribestreaming-us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "transcribestreaming.transcribestreaming-us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-2",
@@ -104,6 +148,10 @@ const partitionHash: PartitionHash = {
         hostname: "transcribestreaming.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "transcribestreaming.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -122,6 +170,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribestreaming.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "transcribestreaming.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -151,6 +203,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribestreaming.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "transcribestreaming.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

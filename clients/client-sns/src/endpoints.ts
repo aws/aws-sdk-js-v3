@@ -4,57 +4,113 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "sns-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "sns-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-west-1": {
     hostname: "sns-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "sns-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "sns.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "sns-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "sns.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "sns.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "sns-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "sns.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
     hostname: "sns.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "sns.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sns.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "sns.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "sns-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "sns.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "sns.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "sns-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "sns.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -104,6 +160,10 @@ const partitionHash: PartitionHash = {
         hostname: "sns.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "sns.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -122,6 +182,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "sns.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "sns.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -151,6 +215,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "sns.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "sns.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

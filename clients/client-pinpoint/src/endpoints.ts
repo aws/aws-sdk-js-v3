@@ -4,14 +4,32 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "pinpoint-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-2": {
     hostname: "pinpoint-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "pinpoint-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
@@ -20,6 +38,10 @@ const regionHash: RegionHash = {
       {
         hostname: "pinpoint-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "pinpoint.us-east-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-1",
@@ -31,6 +53,10 @@ const regionHash: RegionHash = {
         hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "pinpoint.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-west-1",
   },
@@ -40,6 +66,10 @@ const regionHash: RegionHash = {
       {
         hostname: "pinpoint-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "pinpoint.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-2",
@@ -88,6 +118,10 @@ const partitionHash: PartitionHash = {
         hostname: "pinpoint.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "pinpoint.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -106,6 +140,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "pinpoint.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "pinpoint.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -135,6 +173,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "pinpoint.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "pinpoint.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

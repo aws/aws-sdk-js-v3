@@ -3,91 +3,174 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "codecommit.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ca-central-1-fips": {
     hostname: "codecommit-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   fips: {
     hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-1": {
+    hostname: "codecommit.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "codecommit-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "codecommit.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "codecommit-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "codecommit.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "codecommit-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "codecommit.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "codecommit.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "codecommit-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "codecommit.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "codecommit-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codecommit.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "codecommit-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codecommit-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -138,6 +221,10 @@ const partitionHash: PartitionHash = {
         hostname: "codecommit.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "codecommit.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -156,6 +243,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codecommit.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codecommit.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -185,6 +276,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codecommit.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codecommit.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

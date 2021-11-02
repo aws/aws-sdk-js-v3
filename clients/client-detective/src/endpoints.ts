@@ -3,75 +3,141 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "us-east-1": {
+    hostname: "api.detective.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "api.detective-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "api.detective.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "api.detective-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "api.detective.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "api.detective-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "api.detective.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "api.detective-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "api.detective.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "api.detective-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "api.detective.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "api.detective-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.detective.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "api.detective-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.detective-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -120,6 +186,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.detective.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "api.detective.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -138,6 +208,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.detective.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.detective.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -167,6 +241,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.detective.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.detective.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

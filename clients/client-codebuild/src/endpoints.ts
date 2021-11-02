@@ -3,75 +3,141 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "us-east-1": {
+    hostname: "codebuild.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "codebuild-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "codebuild.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "codebuild-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "codebuild.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "codebuild-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "codebuild.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "codebuild-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "codebuild.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "codebuild-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "codebuild.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "codebuild-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codebuild.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "codebuild-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codebuild-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -120,6 +186,10 @@ const partitionHash: PartitionHash = {
         hostname: "codebuild.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "codebuild.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -138,6 +208,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codebuild.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codebuild.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -167,6 +241,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codebuild.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codebuild.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

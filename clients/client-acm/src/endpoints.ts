@@ -3,71 +3,138 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "acm.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "acm-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ca-central-1-fips": {
     hostname: "acm-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "us-east-1": {
+    hostname: "acm.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "acm-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "acm-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "acm.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "acm-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "acm-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
     hostname: "acm.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "acm.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "acm.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "acm-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "acm-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "acm.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "acm-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "acm.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "acm-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "acm-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -117,6 +184,10 @@ const partitionHash: PartitionHash = {
         hostname: "acm.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "acm.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -135,6 +206,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "acm.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "acm.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -164,6 +239,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "acm.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "acm.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

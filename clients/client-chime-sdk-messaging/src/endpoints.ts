@@ -3,15 +3,26 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "us-east-1": {
+    hostname: "messaging-chime.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "messaging-chime.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -57,6 +68,10 @@ const partitionHash: PartitionHash = {
         hostname: "messaging-chime.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "messaging-chime.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -75,6 +90,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "messaging-chime.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "messaging-chime.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -104,6 +123,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "messaging-chime.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "messaging-chime.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

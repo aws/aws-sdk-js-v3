@@ -4,25 +4,47 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-gov-east-1": {
     hostname: "servicequotas.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicequotas.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "servicequotas.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicequotas.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-gov-east-1": {
+    hostname: "servicequotas.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "servicequotas.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicequotas.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "servicequotas.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "servicequotas.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "servicequotas.us-gov-west-1.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -68,6 +90,10 @@ const partitionHash: PartitionHash = {
         hostname: "servicequotas.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "servicequotas.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -86,6 +112,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicequotas.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "servicequotas.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -107,6 +137,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicequotas.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "servicequotas.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

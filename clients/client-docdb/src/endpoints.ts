@@ -3,160 +3,304 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "rds.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "rds.ca-central-1.amazonaws.com",
+        tags: [],
       },
     ],
   },
   "ca-central-1-fips": {
     hostname: "rds-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "rds-fips.ca-central-1": {
     hostname: "rds-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "rds-fips.us-east-1": {
     hostname: "rds-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "rds-fips.us-east-2": {
     hostname: "rds-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "rds-fips.us-west-1": {
     hostname: "rds-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "rds-fips.us-west-2": {
     hostname: "rds-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "rds.ca-central-1": {
+    hostname: "rds.rds.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.rds.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "ca-central-1",
   },
   "rds.us-east-1": {
+    hostname: "rds.rds.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.rds.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "rds.us-east-2": {
+    hostname: "rds.rds.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "rds.rds.us-east-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-2",
   },
   "rds.us-gov-east-1": {
     hostname: "rds.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "rds.us-gov-west-1": {
     hostname: "rds.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "rds.us-west-1": {
+    hostname: "rds.rds.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "rds.rds.us-west-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-1",
   },
   "rds.us-west-2": {
+    hostname: "rds.rds.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "rds.rds.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "rds.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "rds-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "rds.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "rds-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "rds.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "rds.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "rds.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "rds.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "rds.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "rds.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "rds.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "rds-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "rds.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "rds-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "rds.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "rds-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "rds-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -216,6 +360,10 @@ const partitionHash: PartitionHash = {
         hostname: "rds.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "rds.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -234,6 +382,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rds.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "rds.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -270,6 +422,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rds.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "rds.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

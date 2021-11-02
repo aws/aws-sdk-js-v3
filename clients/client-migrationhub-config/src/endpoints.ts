@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "migrationhub-config.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "migrationhub-config.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "migrationhub-config.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "migrationhub-config.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "migrationhub-config.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "migrationhub-config.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

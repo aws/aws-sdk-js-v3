@@ -4,73 +4,139 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "xray-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "xray-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "xray-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "xray-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "xray-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "xray-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "xray-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "xray.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "xray.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "xray.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "xray.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "xray.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "xray.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "xray.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "xray.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "xray.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "xray.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "xray.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "xray-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "xray.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -120,6 +186,10 @@ const partitionHash: PartitionHash = {
         hostname: "xray.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "xray.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -138,6 +208,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "xray.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "xray.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -167,6 +241,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "xray.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "xray.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.mediatailor.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "api.mediatailor.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.mediatailor.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.mediatailor.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.mediatailor.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.mediatailor.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

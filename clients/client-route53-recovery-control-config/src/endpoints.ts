@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-global": {
     hostname: "route53-recovery-control-config.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53-recovery-control-config.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -49,6 +55,10 @@ const partitionHash: PartitionHash = {
         hostname: "route53-recovery-control-config.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "route53-recovery-control-config.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -67,6 +77,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53-recovery-control-config.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "route53-recovery-control-config.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -96,6 +110,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53-recovery-control-config.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "route53-recovery-control-config.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

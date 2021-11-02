@@ -3,74 +3,140 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "codepipeline.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codepipeline.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-ca-central-1": {
     hostname: "codepipeline-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-us-east-1": {
     hostname: "codepipeline-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "codepipeline-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-west-1": {
     hostname: "codepipeline-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "codepipeline-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "codepipeline-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "codepipeline-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "codepipeline.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codepipeline.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "codepipeline.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codepipeline.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "codepipeline.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codepipeline.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "codepipeline.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "codepipeline.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "codepipeline.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "codepipeline-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "codepipeline.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -121,6 +187,10 @@ const partitionHash: PartitionHash = {
         hostname: "codepipeline.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "codepipeline.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -139,6 +209,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codepipeline.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codepipeline.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -168,6 +242,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codepipeline.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "codepipeline.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

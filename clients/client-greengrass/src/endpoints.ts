@@ -4,14 +4,32 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "dataplane-us-gov-east-1": {
     hostname: "greengrass-ats.iot.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-ats.iot.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "dataplane-us-gov-west-1": {
     hostname: "greengrass-ats.iot.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-ats.iot.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-gov-east-1": {
     hostname: "greengrass-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-east-1": {
@@ -21,11 +39,21 @@ const regionHash: RegionHash = {
         hostname: "greengrass-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "greengrass.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "greengrass.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "greengrass.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -70,6 +98,10 @@ const partitionHash: PartitionHash = {
         hostname: "greengrass.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "greengrass.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -88,6 +120,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "greengrass.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "greengrass.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -123,6 +159,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "greengrass.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "greengrass.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

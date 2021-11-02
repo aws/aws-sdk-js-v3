@@ -4,26 +4,48 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-2": {
     hostname: "health-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-west-1": {
     hostname: "health-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-2": {
+    hostname: "health.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "health-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "health.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-2",
   },
   "us-gov-west-1": {
+    hostname: "health.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "health-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "health.us-gov-west-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -71,6 +93,10 @@ const partitionHash: PartitionHash = {
         hostname: "health.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -89,6 +115,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "health.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "health.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -118,6 +148,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "health.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

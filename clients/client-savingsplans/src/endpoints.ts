@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-global": {
     hostname: "savingsplans.amazonaws.com",
+    variants: [
+      {
+        hostname: "savingsplans.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -49,6 +55,10 @@ const partitionHash: PartitionHash = {
         hostname: "savingsplans.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "savingsplans.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -67,6 +77,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "savingsplans.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "savingsplans.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -96,6 +110,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "savingsplans.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "savingsplans.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

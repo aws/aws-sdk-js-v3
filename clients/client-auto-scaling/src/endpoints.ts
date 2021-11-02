@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "autoscaling.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "autoscaling.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "autoscaling.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "autoscaling.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "autoscaling.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "autoscaling.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

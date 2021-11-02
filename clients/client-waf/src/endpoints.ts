@@ -3,16 +3,27 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   aws: {
+    hostname: "waf.aws.amazonaws.com",
     variants: [
       {
         hostname: "waf-fips.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "waf.aws.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-1",
   },
   "aws-fips": {
     hostname: "waf-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-global": {
@@ -22,11 +33,21 @@ const regionHash: RegionHash = {
         hostname: "waf-fips.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "waf.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "aws-global-fips": {
     hostname: "waf-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -75,6 +96,10 @@ const partitionHash: PartitionHash = {
         hostname: "waf.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "waf.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -93,6 +118,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "waf.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "waf.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -122,6 +151,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "waf.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "waf.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

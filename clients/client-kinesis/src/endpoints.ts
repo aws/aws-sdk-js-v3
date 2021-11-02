@@ -4,57 +4,113 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "kinesis-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "kinesis-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-west-1": {
     hostname: "kinesis-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "kinesis-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "kinesis.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "kinesis-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "kinesis.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "kinesis.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "kinesis-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "kinesis.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
     hostname: "kinesis.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "kinesis.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "kinesis.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "kinesis.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "kinesis-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "kinesis.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "kinesis.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "kinesis-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "kinesis.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -104,6 +160,10 @@ const partitionHash: PartitionHash = {
         hostname: "kinesis.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "kinesis.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -122,6 +182,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kinesis.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "kinesis.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -151,6 +215,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kinesis.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "kinesis.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

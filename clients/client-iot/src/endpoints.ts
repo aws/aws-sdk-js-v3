@@ -3,86 +3,163 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "iot.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-ca-central-1": {
     hostname: "iot-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-east-1": {
     hostname: "iot-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-east-2": {
     hostname: "iot-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-gov-east-1": {
     hostname: "iot-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-gov-west-1": {
     hostname: "iot-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-west-1": {
     hostname: "iot-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "fips-us-west-2": {
     hostname: "iot-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "iot-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingService: "execute-api",
   },
   "us-east-1": {
+    hostname: "iot.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "iot.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "iot.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "iot.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "iot.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iot.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "iot.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "iot-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "iot.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -133,6 +210,10 @@ const partitionHash: PartitionHash = {
         hostname: "iot.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "iot.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -151,6 +232,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "iot.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "iot.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -180,6 +265,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "iot.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "iot.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

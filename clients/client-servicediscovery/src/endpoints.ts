@@ -3,100 +3,188 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "servicediscovery.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "ca-central-1-fips": {
     hostname: "servicediscovery-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   servicediscovery: {
+    hostname: "servicediscovery.servicediscovery.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "servicediscovery.servicediscovery.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
   },
   "servicediscovery-fips": {
     hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-1": {
+    hostname: "servicediscovery.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "servicediscovery-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "servicediscovery.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "servicediscovery-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "servicediscovery.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "servicediscovery-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "servicediscovery.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "servicediscovery.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "servicediscovery-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "servicediscovery.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "servicediscovery-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "servicediscovery.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "servicediscovery-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "servicediscovery-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -148,6 +236,10 @@ const partitionHash: PartitionHash = {
         hostname: "servicediscovery.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "servicediscovery.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -166,6 +258,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicediscovery.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "servicediscovery.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -202,6 +298,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicediscovery.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "servicediscovery.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

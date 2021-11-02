@@ -4,21 +4,57 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "ap-northeast-1": {
     hostname: "api.elastic-inference.ap-northeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
   "ap-northeast-2": {
     hostname: "api.elastic-inference.ap-northeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
   "eu-west-1": {
     hostname: "api.elastic-inference.eu-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
   "us-east-1": {
     hostname: "api.elastic-inference.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
   "us-east-2": {
     hostname: "api.elastic-inference.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
   "us-west-2": {
     hostname: "api.elastic-inference.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.elastic-inference.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
 };
 
@@ -62,6 +98,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.elastic-inference.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "api.elastic-inference.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -80,6 +120,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.elastic-inference.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.elastic-inference.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -109,6 +153,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.elastic-inference.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.elastic-inference.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

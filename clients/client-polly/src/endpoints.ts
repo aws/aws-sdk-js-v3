@@ -4,61 +4,116 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "polly-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "polly-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "polly-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "polly-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-west-1": {
     hostname: "polly-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "polly-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "polly-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "polly-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "polly-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "polly-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "polly.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "polly-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "polly.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "polly.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "polly-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "polly.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "polly.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "polly-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "polly.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "polly.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "polly-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "polly.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "polly.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "polly-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "polly.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -108,6 +163,10 @@ const partitionHash: PartitionHash = {
         hostname: "polly.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "polly.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -126,6 +185,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "polly.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "polly.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -155,6 +218,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "polly.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "polly.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

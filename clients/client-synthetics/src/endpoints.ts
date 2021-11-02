@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "synthetics.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "synthetics.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "synthetics.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "synthetics.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "synthetics.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "synthetics.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   sandbox: {
     hostname: "mturk-requester-sandbox.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mturk-requester-sandbox.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
 };
 
@@ -48,6 +54,10 @@ const partitionHash: PartitionHash = {
         hostname: "mturk-requester.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -66,6 +76,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mturk-requester.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -95,6 +109,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mturk-requester.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

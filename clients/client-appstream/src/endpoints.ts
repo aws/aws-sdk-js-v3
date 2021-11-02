@@ -4,42 +4,81 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   fips: {
     hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-1": {
+    hostname: "appstream2.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "appstream2-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "appstream2.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "appstream2-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "appstream2-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-gov-west-1": {
+    hostname: "appstream2.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "appstream2.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-2": {
+    hostname: "appstream2.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "appstream2-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "appstream2.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "appstream2-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "appstream2-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -87,6 +126,10 @@ const partitionHash: PartitionHash = {
         hostname: "appstream2.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "appstream2.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -105,6 +148,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "appstream2.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "appstream2.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -134,6 +181,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "appstream2.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "appstream2.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

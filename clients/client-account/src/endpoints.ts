@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "account.cn-northwest-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "account.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
     hostname: "account.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "account.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -53,6 +65,10 @@ const partitionHash: PartitionHash = {
         hostname: "account.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "account.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -71,6 +87,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "account.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "account.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -100,6 +120,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "account.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "account.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

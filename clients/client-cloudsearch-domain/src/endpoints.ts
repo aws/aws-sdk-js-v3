@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "cloudsearchdomain.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "cloudsearchdomain.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudsearchdomain.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "cloudsearchdomain.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudsearchdomain.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "cloudsearchdomain.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

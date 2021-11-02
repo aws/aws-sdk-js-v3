@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "us-gov-east-1": {
     hostname: "serverlessrepo.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "serverlessrepo.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "serverlessrepo.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "serverlessrepo.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -52,6 +64,10 @@ const partitionHash: PartitionHash = {
         hostname: "serverlessrepo.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "serverlessrepo.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -70,6 +86,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "serverlessrepo.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "serverlessrepo.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -99,6 +119,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "serverlessrepo.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "serverlessrepo.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

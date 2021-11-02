@@ -4,73 +4,139 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "resource-groups-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "resource-groups-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "resource-groups.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "resource-groups.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "resource-groups-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "resource-groups-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "resource-groups-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "resource-groups.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "resource-groups.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "resource-groups.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "resource-groups.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "resource-groups.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "resource-groups.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "resource-groups.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "resource-groups.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "resource-groups.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "resource-groups.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "resource-groups.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "resource-groups-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "resource-groups.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -120,6 +186,10 @@ const partitionHash: PartitionHash = {
         hostname: "resource-groups.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "resource-groups.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -138,6 +208,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "resource-groups.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "resource-groups.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -159,6 +233,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "resource-groups.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "resource-groups.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

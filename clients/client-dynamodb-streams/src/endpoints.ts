@@ -4,50 +4,108 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "ca-central-1-fips": {
     hostname: "dynamodb-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   local: {
     hostname: "localhost:8000",
+    variants: [
+      {
+        hostname: "localhost:8000",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-1-fips": {
     hostname: "dynamodb-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2-fips": {
     hostname: "dynamodb-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "dynamodb.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "dynamodb.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "dynamodb.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "dynamodb.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1-fips": {
     hostname: "dynamodb-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2-fips": {
     hostname: "dynamodb-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "dynamodb-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -90,6 +148,10 @@ const partitionHash: PartitionHash = {
         hostname: "dynamodb-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "streams.dynamodb.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -108,6 +170,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "streams.dynamodb.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "streams.dynamodb.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -129,6 +195,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "dynamodb.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "streams.dynamodb.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

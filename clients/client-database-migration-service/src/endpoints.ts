@@ -3,112 +3,211 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   dms: {
+    hostname: "dms.dms.amazonaws.com",
     variants: [
       {
         hostname: "dms.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "dms.dms.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
   },
   "dms-fips": {
     hostname: "dms.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-1": {
+    hostname: "dms.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "dms-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "dms-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "dms.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "dms-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "dms-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
+    hostname: "dms.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "dms.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1-fips": {
     hostname: "dms.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
+    hostname: "dms.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "dms.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "dms.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-iso-east-1": {
+    hostname: "dms.us-iso-east-1.c2s.ic.gov",
     variants: [
       {
         hostname: "dms.us-iso-east-1.c2s.ic.gov",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-iso-east-1.c2s.ic.gov",
+        tags: [],
+      },
     ],
   },
   "us-iso-east-1-fips": {
     hostname: "dms.us-iso-east-1.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "dms.us-iso-east-1.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "us-isob-east-1": {
+    hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
     variants: [
       {
         hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
+        tags: [],
+      },
     ],
   },
   "us-isob-east-1-fips": {
     hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "us-west-1": {
+    hostname: "dms.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "dms-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "dms-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "dms.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "dms-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "dms-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "dms-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -159,6 +258,10 @@ const partitionHash: PartitionHash = {
         hostname: "dms.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "dms.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -178,6 +281,10 @@ const partitionHash: PartitionHash = {
         hostname: "dms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
+      {
+        hostname: "dms.{region}.amazonaws.com.cn",
+        tags: [],
+      },
     ],
   },
   "aws-iso": {
@@ -188,6 +295,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "dms.{region}.c2s.ic.gov",
         tags: ["fips"],
+      },
+      {
+        hostname: "dms.{region}.c2s.ic.gov",
+        tags: [],
       },
     ],
   },
@@ -200,6 +311,10 @@ const partitionHash: PartitionHash = {
         hostname: "dms.{region}.sc2s.sgov.gov",
         tags: ["fips"],
       },
+      {
+        hostname: "dms.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
     ],
   },
   "aws-us-gov": {
@@ -210,6 +325,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "dms.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "dms.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

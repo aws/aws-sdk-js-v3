@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-global": {
     hostname: "networkmanager.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "aws-us-gov-global": {
     hostname: "networkmanager.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "networkmanager.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -53,6 +65,10 @@ const partitionHash: PartitionHash = {
         hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -71,6 +87,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "networkmanager.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "networkmanager.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -100,6 +120,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

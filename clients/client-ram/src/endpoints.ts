@@ -3,70 +3,137 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "ram.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "ram-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ram.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "fips-ca-central-1": {
     hostname: "ram-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-us-east-1": {
     hostname: "ram-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "ram-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-west-1": {
     hostname: "ram-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "ram-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "ram.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "ram-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ram.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "ram.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "ram-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ram.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
     hostname: "ram.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "ram.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "ram.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "ram.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "ram-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "ram.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "ram.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "ram-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "ram.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -117,6 +184,10 @@ const partitionHash: PartitionHash = {
         hostname: "ram.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "ram.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -135,6 +206,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ram.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "ram.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -164,6 +239,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ram.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "ram.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

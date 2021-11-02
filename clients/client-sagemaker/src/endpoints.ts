@@ -3,76 +3,142 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "us-east-1": {
+    hostname: "api.sagemaker.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "api-fips.sagemaker.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "api-fips.sagemaker.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api-fips.sagemaker.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "api.sagemaker.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "api-fips.sagemaker.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "api-fips.sagemaker.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api-fips.sagemaker.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-west-1": {
+    hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "api-fips.sagemaker.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "api-fips.sagemaker.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api-fips.sagemaker.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-gov-west-1-fips-secondary": {
     hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-gov-west-1-secondary": {
+    hostname: "api.sagemaker.us-gov-west-1-secondary.amazonaws.com",
     variants: [
       {
         hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-gov-west-1-secondary.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "api.sagemaker.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "api-fips.sagemaker.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "api-fips.sagemaker.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "api-fips.sagemaker.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "api.sagemaker.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "api-fips.sagemaker.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "api-fips.sagemaker.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "api-fips.sagemaker.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -113,6 +179,10 @@ const partitionHash: PartitionHash = {
         hostname: "api-fips.sagemaker.{region}.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "api.sagemaker.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -131,6 +201,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.sagemaker.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "api.sagemaker.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -158,6 +232,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api-fips.sagemaker.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "api.sagemaker.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

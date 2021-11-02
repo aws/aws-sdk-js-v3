@@ -3,70 +3,137 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "mediaconvert.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "mediaconvert.ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "cn-northwest-1": {
     hostname: "subscribe.mediaconvert.cn-northwest-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "subscribe.mediaconvert.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "fips-ca-central-1": {
     hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-us-east-1": {
     hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-west-1": {
     hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "mediaconvert.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "mediaconvert.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "mediaconvert.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "mediaconvert.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
     hostname: "mediaconvert.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mediaconvert.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "mediaconvert.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "mediaconvert.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "mediaconvert.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "mediaconvert.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -117,6 +184,10 @@ const partitionHash: PartitionHash = {
         hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "mediaconvert.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -135,6 +206,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediaconvert.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "mediaconvert.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -164,6 +239,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "mediaconvert.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

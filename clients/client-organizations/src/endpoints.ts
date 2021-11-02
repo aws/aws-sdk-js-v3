@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
@@ -12,6 +18,10 @@ const regionHash: RegionHash = {
       {
         hostname: "organizations-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "organizations.us-east-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-1",
@@ -23,15 +33,31 @@ const regionHash: RegionHash = {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "organizations.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {
     hostname: "organizations-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-aws-us-gov-global": {
     hostname: "organizations.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "organizations.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -78,6 +104,10 @@ const partitionHash: PartitionHash = {
         hostname: "organizations.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "organizations.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -96,6 +126,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "organizations.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "organizations.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -125,6 +159,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "organizations.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "organizations.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "iam.cn-north-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "iam.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-north-1",
   },
   "aws-global": {
@@ -13,19 +19,41 @@ const regionHash: RegionHash = {
         hostname: "iam-fips.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iam.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "aws-global-fips": {
     hostname: "iam-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
     hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
     hostname: "iam.us-iso-east-1.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "iam.us-iso-east-1.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
@@ -35,37 +63,69 @@ const regionHash: RegionHash = {
         hostname: "iam.us-gov.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-west-1",
   },
   "aws-us-gov-global-fips": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   iam: {
+    hostname: "iam.iam.amazonaws.com",
     variants: [
       {
         hostname: "iam-fips.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "iam.iam.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-1",
   },
   "iam-fips": {
     hostname: "iam-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "iam-govcloud": {
+    hostname: "iam.iam-govcloud.amazonaws.com",
     variants: [
       {
         hostname: "iam.us-gov.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "iam.iam-govcloud.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
   },
   "iam-govcloud-fips": {
     hostname: "iam.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "iam.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -114,6 +174,10 @@ const partitionHash: PartitionHash = {
         hostname: "iam.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "iam.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -132,6 +196,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "iam.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "iam.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -168,6 +236,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "iam.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "iam.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "us-gov-east-1": {
     hostname: "applicationinsights.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "applicationinsights.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "applicationinsights.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "applicationinsights.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -52,6 +64,10 @@ const partitionHash: PartitionHash = {
         hostname: "applicationinsights.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "applicationinsights.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -70,6 +86,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "applicationinsights.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "applicationinsights.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -99,6 +119,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "applicationinsights.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "applicationinsights.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

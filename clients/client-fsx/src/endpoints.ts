@@ -3,177 +3,331 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
+    hostname: "fsx.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.ca-central-1.amazonaws.com",
+        tags: [],
       },
     ],
   },
   "fips-ca-central-1": {
     hostname: "fsx-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-prod-ca-central-1": {
     hostname: "fsx-fips.ca-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ca-central-1",
   },
   "fips-prod-us-east-1": {
     hostname: "fsx-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-prod-us-east-2": {
     hostname: "fsx-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-prod-us-gov-east-1": {
     hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-prod-us-gov-west-1": {
     hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-prod-us-west-1": {
     hostname: "fsx-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-prod-us-west-2": {
     hostname: "fsx-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "fips-us-east-1": {
     hostname: "fsx-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "fsx-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "fsx-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "fsx-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "fsx-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
   "prod-ca-central-1": {
+    hostname: "fsx.prod-ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.ca-central-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.prod-ca-central-1.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "ca-central-1",
   },
   "prod-us-east-1": {
+    hostname: "fsx.prod-us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-east-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-1",
   },
   "prod-us-east-2": {
+    hostname: "fsx.prod-us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-east-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-east-2",
   },
   "prod-us-gov-east-1": {
+    hostname: "fsx.prod-us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-gov-east-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-east-1",
   },
   "prod-us-gov-west-1": {
+    hostname: "fsx.prod-us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-gov-west-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
   },
   "prod-us-west-1": {
+    hostname: "fsx.prod-us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-west-1.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-1",
   },
   "prod-us-west-2": {
+    hostname: "fsx.prod-us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.prod-us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
     signingRegion: "us-west-2",
   },
   "us-east-1": {
+    hostname: "fsx.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2": {
+    hostname: "fsx.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-east-1": {
+    hostname: "fsx.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1": {
+    hostname: "fsx.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1": {
+    hostname: "fsx.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "fsx.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2": {
+    hostname: "fsx.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "fsx.us-west-2.amazonaws.com",
+        tags: [],
       },
     ],
   },
@@ -234,6 +388,10 @@ const partitionHash: PartitionHash = {
         hostname: "fsx.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "fsx.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -252,6 +410,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fsx.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "fsx.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -290,6 +452,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fsx.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "fsx.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

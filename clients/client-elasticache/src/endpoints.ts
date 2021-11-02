@@ -4,66 +4,127 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   fips: {
     hostname: "elasticache.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-east-1": {
+    hostname: "elasticache.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "elasticache-fips.us-east-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache.us-east-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-1-fips": {
     hostname: "elasticache-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
+    hostname: "elasticache.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "elasticache-fips.us-east-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache.us-east-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-east-2-fips": {
     hostname: "elasticache-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-gov-west-1": {
+    hostname: "elasticache.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "elasticache.us-gov-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-gov-west-1-fips": {
     hostname: "elasticache.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
+    hostname: "elasticache.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "elasticache-fips.us-west-1.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache.us-west-1.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-1-fips": {
     hostname: "elasticache-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "us-west-2": {
+    hostname: "elasticache.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "elasticache-fips.us-west-2.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "elasticache.us-west-2.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "us-west-2-fips": {
     hostname: "elasticache-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "elasticache-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -113,6 +174,10 @@ const partitionHash: PartitionHash = {
         hostname: "elasticache.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "elasticache.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -131,6 +196,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticache.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "elasticache.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -152,6 +221,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticache.{region}.amazonaws.com",
         tags: ["fips"],
+      },
+      {
+        hostname: "elasticache.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "cognito-sync.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "cognito-sync.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cognito-sync.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "cognito-sync.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cognito-sync.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "cognito-sync.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

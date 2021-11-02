@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
         hostname: "personalize-events.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "personalize-events.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -61,6 +65,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "personalize-events.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "personalize-events.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -90,6 +98,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "personalize-events.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "personalize-events.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },

@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "route53.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "route53.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
@@ -13,15 +19,31 @@ const regionHash: RegionHash = {
         hostname: "route53-fips.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "route53.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
     hostname: "route53.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "route53.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
     hostname: "route53.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "route53.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
@@ -31,15 +53,31 @@ const regionHash: RegionHash = {
         hostname: "route53.us-gov.amazonaws.com",
         tags: ["fips"],
       },
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: [],
+      },
     ],
     signingRegion: "us-gov-west-1",
   },
   "fips-aws-global": {
     hostname: "route53-fips.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53-fips.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-aws-us-gov-global": {
     hostname: "route53.us-gov.amazonaws.com",
+    variants: [
+      {
+        hostname: "route53.us-gov.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -86,6 +124,10 @@ const partitionHash: PartitionHash = {
         hostname: "route53.{region}.api.aws",
         tags: ["dualstack"],
       },
+      {
+        hostname: "route53.{region}.amazonaws.com",
+        tags: [],
+      },
     ],
   },
   "aws-cn": {
@@ -104,6 +146,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "route53.{region}.amazonaws.com.cn",
+        tags: [],
       },
     ],
   },
@@ -133,6 +179,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53.{region}.api.aws",
         tags: ["dualstack"],
+      },
+      {
+        hostname: "route53.{region}.amazonaws.com",
+        tags: [],
       },
     ],
   },
