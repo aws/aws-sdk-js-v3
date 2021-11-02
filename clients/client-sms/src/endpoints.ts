@@ -4,27 +4,141 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "sms-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-east-2": {
     hostname: "sms-fips.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "fips-us-gov-east-1": {
     hostname: "sms-fips.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-east-1",
   },
   "fips-us-gov-west-1": {
     hostname: "sms-fips.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-west-1": {
     hostname: "sms-fips.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-1",
   },
   "fips-us-west-2": {
     hostname: "sms-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
+  },
+  "us-east-1": {
+    hostname: "sms.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-east-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-east-2": {
+    hostname: "sms.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-east-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-east-1": {
+    hostname: "sms.us-gov-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-gov-east-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-gov-west-1": {
+    hostname: "sms.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-1": {
+    hostname: "sms.us-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    hostname: "sms.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.us-west-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 
@@ -59,26 +173,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "sms.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "sms.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "sms.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "sms.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "sms.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "sms.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "sms.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "sms.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

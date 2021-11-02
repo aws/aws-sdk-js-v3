@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "sms-voice.pinpoint.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-voice.pinpoint.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "sms-voice.pinpoint.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "sms-voice.pinpoint.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "sms-voice.pinpoint.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "sms-voice.pinpoint.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "sms-voice.pinpoint.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "sms-voice.pinpoint.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "sms-voice.pinpoint.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "sms-voice.pinpoint.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "sms-voice.pinpoint.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

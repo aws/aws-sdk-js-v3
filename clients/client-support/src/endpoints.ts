@@ -4,26 +4,76 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "support.cn-north-1.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "support.cn-north-1.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-north-1",
   },
   "aws-global": {
     hostname: "support.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
     hostname: "support.us-isob-east-1.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "support.us-isob-east-1.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
     hostname: "support.us-iso-east-1.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "support.us-iso-east-1.c2s.ic.gov",
+        tags: [],
+      },
+    ],
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
     hostname: "support.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
   "fips-us-gov-west-1": {
     hostname: "support.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
+    signingRegion: "us-gov-west-1",
+  },
+  "us-gov-west-1": {
+    hostname: "support.us-gov-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.us-gov-west-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "support.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
     signingRegion: "us-gov-west-1",
   },
 };
@@ -56,26 +106,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "support.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "support-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "support-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "support.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "support.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "support.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "support-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "support-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "support.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "support.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "support.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "support.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "support.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "support.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "support.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "support-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "support-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "support.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

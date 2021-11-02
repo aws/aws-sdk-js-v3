@@ -4,42 +4,102 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "ap-northeast-1": {
     hostname: "grafana.ap-northeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.ap-northeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-1",
   },
   "ap-northeast-2": {
     hostname: "grafana.ap-northeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.ap-northeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-northeast-2",
   },
   "ap-southeast-1": {
     hostname: "grafana.ap-southeast-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.ap-southeast-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-1",
   },
   "ap-southeast-2": {
     hostname: "grafana.ap-southeast-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.ap-southeast-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "ap-southeast-2",
   },
   "eu-central-1": {
     hostname: "grafana.eu-central-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.eu-central-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-central-1",
   },
   "eu-west-1": {
     hostname: "grafana.eu-west-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.eu-west-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-1",
   },
   "eu-west-2": {
     hostname: "grafana.eu-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.eu-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "eu-west-2",
   },
   "us-east-1": {
     hostname: "grafana.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "grafana.us-east-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.us-east-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-2",
   },
   "us-west-2": {
     hostname: "grafana.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
   },
 };
@@ -71,26 +131,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "grafana-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "grafana-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "grafana.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "grafana.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "grafana-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "grafana-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "grafana.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "grafana.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "grafana.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "grafana.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "grafana-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "grafana-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "grafana.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

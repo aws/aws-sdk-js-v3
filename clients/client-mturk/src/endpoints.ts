@@ -4,6 +4,12 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   sandbox: {
     hostname: "mturk-requester-sandbox.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "mturk-requester-sandbox.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
   },
 };
 
@@ -35,26 +41,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mturk-requester.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mturk-requester.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "mturk-requester.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "mturk-requester.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "mturk-requester.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

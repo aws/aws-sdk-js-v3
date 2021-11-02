@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "managedblockchain.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "managedblockchain.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "managedblockchain.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "managedblockchain.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "managedblockchain.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "managedblockchain.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "managedblockchain.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "managedblockchain.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "managedblockchain.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "managedblockchain.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "managedblockchain.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "managedblockchain.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "managedblockchain-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "managedblockchain.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

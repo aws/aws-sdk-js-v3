@@ -4,10 +4,22 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "aws-cn-global": {
     hostname: "budgets.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "budgets.amazonaws.com.cn",
+        tags: [],
+      },
+    ],
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
     hostname: "budgets.amazonaws.com",
+    variants: [
+      {
+        hostname: "budgets.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
 };
@@ -39,27 +51,95 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
+    hostname: "budgets.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "budgets.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "budgets-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "budgets-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "budgets.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-global",
   },
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
+    hostname: "budgets.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "budgets.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "budgets-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "budgets-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "budgets.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
     endpoint: "aws-cn-global",
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "budgets.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "budgets.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "budgets.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "budgets.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "budgets.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "budgets.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "budgets-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "budgets-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "budgets.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

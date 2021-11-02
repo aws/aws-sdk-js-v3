@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "tagging.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "tagging-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "tagging-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "tagging.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "tagging.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "tagging-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "tagging-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "tagging.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "tagging.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "tagging.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "tagging.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "tagging-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "tagging-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "tagging.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

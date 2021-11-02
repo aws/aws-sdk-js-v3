@@ -4,11 +4,49 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 const regionHash: RegionHash = {
   "fips-us-east-1": {
     hostname: "workdocs-fips.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs-fips.us-east-1.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-east-1",
   },
   "fips-us-west-2": {
     hostname: "workdocs-fips.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs-fips.us-west-2.amazonaws.com",
+        tags: [],
+      },
+    ],
     signingRegion: "us-west-2",
+  },
+  "us-east-1": {
+    hostname: "workdocs.us-east-1.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs.us-east-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "workdocs-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
+  "us-west-2": {
+    hostname: "workdocs.us-west-2.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs.us-west-2.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "workdocs-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
   },
 };
 
@@ -41,26 +79,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "workdocs.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "workdocs-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "workdocs-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "workdocs.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "workdocs.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "workdocs.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "workdocs-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "workdocs-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "workdocs.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "workdocs.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "workdocs.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "workdocs.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "workdocs.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "workdocs.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "workdocs.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "workdocs-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "workdocs-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "workdocs.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 

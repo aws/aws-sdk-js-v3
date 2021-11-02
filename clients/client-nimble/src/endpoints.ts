@@ -30,26 +30,92 @@ const partitionHash: PartitionHash = {
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
     hostname: "nimble.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "nimble.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "nimble-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "nimble-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "nimble.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "nimble.{region}.amazonaws.com.cn",
+    variants: [
+      {
+        hostname: "nimble.{region}.amazonaws.com.cn",
+        tags: [],
+      },
+      {
+        hostname: "nimble-fips.{region}.amazonaws.com.cn",
+        tags: ["fips"],
+      },
+      {
+        hostname: "nimble-fips.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "nimble.{region}.api.amazonwebservices.com.cn",
+        tags: ["dualstack"],
+      },
+    ],
   },
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
     hostname: "nimble.{region}.c2s.ic.gov",
+    variants: [
+      {
+        hostname: "nimble.{region}.c2s.ic.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
     hostname: "nimble.{region}.sc2s.sgov.gov",
+    variants: [
+      {
+        hostname: "nimble.{region}.sc2s.sgov.gov",
+        tags: [],
+      },
+    ],
   },
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "nimble.{region}.amazonaws.com",
+    variants: [
+      {
+        hostname: "nimble.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "nimble-fips.{region}.amazonaws.com",
+        tags: ["fips"],
+      },
+      {
+        hostname: "nimble-fips.{region}.api.aws",
+        tags: ["dualstack", "fips"],
+      },
+      {
+        hostname: "nimble.{region}.api.aws",
+        tags: ["dualstack"],
+      },
+    ],
   },
 };
 
