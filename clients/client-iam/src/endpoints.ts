@@ -10,6 +10,10 @@ const regionHash: RegionHash = {
     hostname: "iam.amazonaws.com",
     signingRegion: "us-east-1",
   },
+  "aws-global-fips": {
+    hostname: "iam-fips.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
   "aws-iso-b-global": {
     hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
     signingRegion: "us-isob-east-1",
@@ -19,6 +23,10 @@ const regionHash: RegionHash = {
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
+    hostname: "iam.us-gov.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+  "aws-us-gov-global-fips": {
     hostname: "iam.us-gov.amazonaws.com",
     signingRegion: "us-gov-west-1",
   },
@@ -44,6 +52,7 @@ const partitionHash: PartitionHash = {
       "ap-southeast-1",
       "ap-southeast-2",
       "aws-global",
+      "aws-global-fips",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
@@ -51,6 +60,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "iam",
       "iam-fips",
       "me-south-1",
       "sa-east-1",
@@ -78,7 +88,14 @@ const partitionHash: PartitionHash = {
     endpoint: "aws-iso-b-global",
   },
   "aws-us-gov": {
-    regions: ["aws-us-gov-global", "iam-govcloud-fips", "us-gov-east-1", "us-gov-west-1"],
+    regions: [
+      "aws-us-gov-global",
+      "aws-us-gov-global-fips",
+      "iam-govcloud",
+      "iam-govcloud-fips",
+      "us-gov-east-1",
+      "us-gov-west-1",
+    ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     endpoint: "aws-us-gov-global",
   },
