@@ -97,15 +97,13 @@ final class EndpointGenerator implements Runnable {
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
                     String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, entry.getKey());
 
-                    // TODO: Remove hostname after fully switching to variants.
-                    config = config.withMember("hostname", resolvedHostname);
-
                     ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
-                    // Add resolved hostname as the default variant.
-                    config = config.withMember("variants", defaultVariant.merge(variants));
-                    endpoints.put(entry.getKey(), config);
+                    endpoints.put(entry.getKey(),
+                        config
+                            .withMember("hostname", resolvedHostname)
+                            .withMember("variants", defaultVariant.merge(variants)));
                 }
             }
         }
