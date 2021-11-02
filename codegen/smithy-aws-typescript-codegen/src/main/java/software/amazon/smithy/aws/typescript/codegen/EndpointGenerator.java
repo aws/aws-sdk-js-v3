@@ -145,11 +145,7 @@ final class EndpointGenerator implements Runnable {
 
                     // TODO: Remove hostname after fully switching to variants.
                     writer.write("hostname: $S,", partition.hostnameTemplate);
-                    writer.openBlock("variants: [", "],", () -> {
-                        partition.getVariants().forEach(variant -> {
-                            writer.write("$L, ", Node.prettyPrintJson(variant));
-                        });
-                    });
+                    writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.getVariants()));
 
                     partition.getPartitionEndpoint().ifPresent(
                         endpoint -> writer.write("endpoint: $S,", endpoint));
@@ -251,7 +247,7 @@ final class EndpointGenerator implements Runnable {
             return regions;
         }
 
-        List<Node> getVariants() {
+        ArrayNode getVariants() {
             List<Node> allVariants = new ArrayList<Node>();
 
             if (defaults.containsMember("variants")) {
@@ -270,7 +266,7 @@ final class EndpointGenerator implements Runnable {
             }
             allVariants.add(getDefaultVariant(hostnameTemplate));
 
-            return allVariants;
+            return ArrayNode.fromNodes(allVariants);
         }
 
         Optional<String> getPartitionEndpoint() {
