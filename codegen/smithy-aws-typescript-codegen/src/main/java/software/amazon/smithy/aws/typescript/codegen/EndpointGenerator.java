@@ -92,7 +92,7 @@ final class EndpointGenerator implements Runnable {
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
                 ObjectNode config = entry.getValue().expectObjectNode();
-                // TODO: Do not populate config if "deprecated" is present.
+                // TODO: Do not populate config if "deprecated" is present, after fully switching to variants.
                 if (config.containsMember("hostname") || config.containsMember("variants")) {
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
                     String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, entry.getKey());
@@ -104,7 +104,7 @@ final class EndpointGenerator implements Runnable {
                         ArrayNode.fromNodes());
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
-                    // Populate hostname as the default variant.
+                    // Add resolved hostname as the default variant.
                     config = config.withMember("variants", variants.merge(defaultVariant));
                     endpoints.put(entry.getKey(), config);
                 }
@@ -173,7 +173,7 @@ final class EndpointGenerator implements Runnable {
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
         writer.openBlock("$S: {", "},", region, () -> {
-            // TODO: Remove population of hostname after switching to variants.
+            // TODO: Remove hostname after fully switching to variants.
             String hostname = resolved.expectStringMember("hostname").getValue();
             writer.write("hostname: $S,", hostname);
 
