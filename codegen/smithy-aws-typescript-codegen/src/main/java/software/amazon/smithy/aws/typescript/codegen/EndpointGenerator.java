@@ -34,7 +34,6 @@ import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.IoUtils;
-import software.amazon.smithy.utils.OptionalUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -143,18 +142,17 @@ final class EndpointGenerator implements Runnable {
                         }
                     });
                     writer.write("regionRegex: $S,", partition.regionRegex);
-                    OptionalUtils.ifPresentOrElse(partition.getPartitionEndpoint(),
-                        endpoint -> writer.write("endpoint: $S,", endpoint),
-                        // TODO: Remove hostname after fully switching to variants.
-                        () -> writer.write("hostname: $S,", partition.hostnameTemplate));
-                    List<Node> variants = partition.getVariants();
-                    if (!variants.isEmpty()) {
-                        writer.openBlock("variants: [", "],", () -> {
-                            variants.forEach(variant -> {
-                                writer.write("$L, ", Node.prettyPrintJson(variant));
-                            });
+
+                    // TODO: Remove hostname after fully switching to variants.
+                    writer.write("hostname: $S,", partition.hostnameTemplate);
+                    writer.openBlock("variants: [", "],", () -> {
+                        partition.getVariants().forEach(variant -> {
+                            writer.write("$L, ", Node.prettyPrintJson(variant));
                         });
-                    }
+                    });
+
+                    partition.getPartitionEndpoint().ifPresent(
+                        endpoint -> writer.write("endpoint: $S,", endpoint));
                 });
             });
         });
@@ -275,8 +273,8 @@ final class EndpointGenerator implements Runnable {
                     hostname = hostname.replace("{dnsSuffix}", dnsSuffix);
                     allVariants.add(variantNode.withMember("hostname", hostname).withoutMember("dnsSuffix"));
                 });
-                allVariants.add(getDefaultVariant(hostnameTemplate));
             }
+            allVariants.add(getDefaultVariant(hostnameTemplate));
 
             return allVariants;
         }
