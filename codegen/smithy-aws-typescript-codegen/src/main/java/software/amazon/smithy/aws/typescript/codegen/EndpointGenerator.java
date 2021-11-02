@@ -105,7 +105,7 @@ final class EndpointGenerator implements Runnable {
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
                     // Add resolved hostname as the default variant.
-                    config = config.withMember("variants", variants.merge(defaultVariant));
+                    config = config.withMember("variants", defaultVariant.merge(variants));
                     endpoints.put(entry.getKey(), config);
                 }
             }
@@ -264,6 +264,7 @@ final class EndpointGenerator implements Runnable {
         ArrayNode getVariants() {
             List<Node> allVariants = new ArrayList<Node>();
 
+            allVariants.add(getDefaultVariant(hostnameTemplate));
             if (defaults.containsMember("variants")) {
                 ArrayNode variants = defaults.expectArrayMember("variants");
                 variants.forEach(variant -> {
@@ -274,7 +275,6 @@ final class EndpointGenerator implements Runnable {
                     allVariants.add(variantNode.withMember("hostname", resolvedHostname).withoutMember("dnsSuffix"));
                 });
             }
-            allVariants.add(getDefaultVariant(hostnameTemplate));
 
             return ArrayNode.fromNodes(allVariants);
         }
