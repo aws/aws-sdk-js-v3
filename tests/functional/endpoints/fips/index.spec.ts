@@ -9,15 +9,31 @@ const getClientPackageName = (sdkId: string) =>
     .join("-")}`;
 
 describe("endpoints.fips", () => {
-  for (const { sdkId, region, signingRegion, hostname } of testCases) {
-    const clientPackageName = getClientPackageName(sdkId);
-    it(`testing "${clientPackageName}" with region: ${region}`, async () => {
-      const { defaultRegionInfoProvider } = await import(
-        join("..", "..", "..", "..", "clients", clientPackageName, "src", "endpoints")
-      );
-      const regionInfo = await defaultRegionInfoProvider(region);
-      expect(regionInfo.signingRegion).toEqual(signingRegion);
-      expect(regionInfo.hostname).toEqual(hostname);
-    });
-  }
+  describe("pseudo regions", () => {
+    for (const { sdkId, region, signingRegion, hostname } of testCases) {
+      const clientPackageName = getClientPackageName(sdkId);
+      it(`testing "${clientPackageName}" with region: ${region}`, async () => {
+        const { defaultRegionInfoProvider } = await import(
+          join("..", "..", "..", "..", "clients", clientPackageName, "src", "endpoints")
+        );
+        const regionInfo = await defaultRegionInfoProvider(region);
+        expect(regionInfo.signingRegion).toEqual(signingRegion);
+        expect(regionInfo.hostname).toEqual(hostname);
+      });
+    }
+  });
+
+  describe("real regions", () => {
+    for (const { sdkId, signingRegion, hostname } of testCases) {
+      const clientPackageName = getClientPackageName(sdkId);
+      it(`testing "${clientPackageName}" with region: ${signingRegion}`, async () => {
+        const { defaultRegionInfoProvider } = await import(
+          join("..", "..", "..", "..", "clients", clientPackageName, "src", "endpoints")
+        );
+        const regionInfo = await defaultRegionInfoProvider(signingRegion, { isFipsRegion: true });
+        expect(regionInfo.signingRegion).toEqual(signingRegion);
+        expect(regionInfo.hostname).toEqual(hostname);
+      });
+    }
+  });
 });
