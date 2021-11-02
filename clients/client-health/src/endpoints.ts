@@ -26,12 +26,12 @@ const regionHash: RegionHash = {
     hostname: "health.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "health-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "health.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "health-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-2",
@@ -40,12 +40,12 @@ const regionHash: RegionHash = {
     hostname: "health.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "health-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "health.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "health-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -82,6 +82,10 @@ const partitionHash: PartitionHash = {
     hostname: "health.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "health-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -93,10 +97,6 @@ const partitionHash: PartitionHash = {
         hostname: "health.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "health.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -104,6 +104,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "health.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "health.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "health-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -115,10 +119,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "health.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "health.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -150,6 +150,10 @@ const partitionHash: PartitionHash = {
     hostname: "health.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "health.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "health-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -160,10 +164,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "health.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "health.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

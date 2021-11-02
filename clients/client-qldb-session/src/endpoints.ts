@@ -36,12 +36,12 @@ const regionHash: RegionHash = {
     hostname: "session.qldb.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "session.qldb-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "session.qldb.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "session.qldb-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -49,12 +49,12 @@ const regionHash: RegionHash = {
     hostname: "session.qldb.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "session.qldb-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "session.qldb.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "session.qldb-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -62,12 +62,12 @@ const regionHash: RegionHash = {
     hostname: "session.qldb.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "session.qldb-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "session.qldb.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "session.qldb-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,6 +105,10 @@ const partitionHash: PartitionHash = {
     hostname: "session.qldb.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "session.qldb.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "session.qldb-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -116,10 +120,6 @@ const partitionHash: PartitionHash = {
         hostname: "session.qldb.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "session.qldb.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -127,6 +127,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "session.qldb.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "session.qldb.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "session.qldb-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -138,10 +142,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "session.qldb.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "session.qldb.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "session.qldb.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "session.qldb.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "session.qldb-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -183,10 +187,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "session.qldb.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "session.qldb.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "restjson.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "restjson.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "restjson-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "restjson.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "restjson.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "restjson.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "restjson.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "restjson-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "restjson.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "restjson.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "restjson.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "restjson.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "restjson-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "restjson.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "restjson.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -17,11 +17,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "identitystore.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "identitystore.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -56,6 +56,10 @@ const partitionHash: PartitionHash = {
     hostname: "identitystore.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "identitystore.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "identitystore-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -67,10 +71,6 @@ const partitionHash: PartitionHash = {
         hostname: "identitystore.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "identitystore.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "identitystore.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "identitystore.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "identitystore-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -89,10 +93,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identitystore.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "identitystore.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -124,6 +124,10 @@ const partitionHash: PartitionHash = {
     hostname: "identitystore.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "identitystore.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "identitystore-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -134,10 +138,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identitystore.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "identitystore.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

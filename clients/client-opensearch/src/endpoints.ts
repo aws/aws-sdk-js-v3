@@ -16,12 +16,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -39,12 +39,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -62,12 +62,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -85,12 +85,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -108,12 +108,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "es.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "es-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "es.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "es-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -186,6 +186,10 @@ const partitionHash: PartitionHash = {
     hostname: "es.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "es.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "es-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -197,10 +201,6 @@ const partitionHash: PartitionHash = {
         hostname: "es.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "es.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -208,6 +208,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "es.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "es.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "es-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -219,10 +223,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "es.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "es.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -254,6 +254,10 @@ const partitionHash: PartitionHash = {
     hostname: "es.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "es.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "es-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -264,10 +268,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "es.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "es.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

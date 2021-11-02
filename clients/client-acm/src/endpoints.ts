@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "acm.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "acm-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "acm.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "acm-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -29,12 +29,12 @@ const regionHash: RegionHash = {
     hostname: "acm.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "acm-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "acm.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "acm-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -52,12 +52,12 @@ const regionHash: RegionHash = {
     hostname: "acm.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "acm-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "acm.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "acm-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -95,12 +95,12 @@ const regionHash: RegionHash = {
     hostname: "acm.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "acm-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "acm.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "acm-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "acm.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "acm-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "acm.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "acm-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "acm.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "acm.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "acm-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -184,10 +188,6 @@ const partitionHash: PartitionHash = {
         hostname: "acm.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "acm.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -195,6 +195,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "acm.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "acm.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "acm-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "acm.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "acm.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -241,6 +241,10 @@ const partitionHash: PartitionHash = {
     hostname: "acm.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "acm.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "acm-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -251,10 +255,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "acm.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "acm.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

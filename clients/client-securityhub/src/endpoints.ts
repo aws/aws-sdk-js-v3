@@ -66,12 +66,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -92,12 +92,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,12 +105,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "securityhub.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "securityhub-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "securityhub.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "securityhub-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "securityhub.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "securityhub.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "securityhub-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "securityhub.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "securityhub.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "securityhub.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "securityhub.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "securityhub-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "securityhub.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "securityhub.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -243,6 +243,10 @@ const partitionHash: PartitionHash = {
     hostname: "securityhub.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "securityhub.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "securityhub-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -253,10 +257,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "securityhub.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "securityhub.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

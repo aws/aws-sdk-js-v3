@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "elastictranscoder.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "elastictranscoder.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "elastictranscoder-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "elastictranscoder.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "elastictranscoder.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "elastictranscoder.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "elastictranscoder.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "elastictranscoder-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elastictranscoder.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "elastictranscoder.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "elastictranscoder.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "elastictranscoder.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "elastictranscoder-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elastictranscoder.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "elastictranscoder.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

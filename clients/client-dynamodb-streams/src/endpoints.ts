@@ -46,12 +46,12 @@ const regionHash: RegionHash = {
     hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "streams.dynamodb.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dynamodb.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -69,12 +69,12 @@ const regionHash: RegionHash = {
     hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "streams.dynamodb.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dynamodb.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -145,12 +145,12 @@ const partitionHash: PartitionHash = {
     hostname: "streams.dynamodb.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb-fips.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "streams.dynamodb.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dynamodb-fips.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -159,6 +159,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "streams.dynamodb.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "streams.dynamodb.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "streams.dynamodb-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -170,10 +174,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "streams.dynamodb.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "streams.dynamodb.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -205,12 +205,12 @@ const partitionHash: PartitionHash = {
     hostname: "streams.dynamodb.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "dynamodb.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "streams.dynamodb.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dynamodb.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },

@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "edge.sagemaker.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "edge.sagemaker.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "edge.sagemaker-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "edge.sagemaker.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "edge.sagemaker.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "edge.sagemaker.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "edge.sagemaker.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "edge.sagemaker-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "edge.sagemaker.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "edge.sagemaker.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "edge.sagemaker.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "edge.sagemaker.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "edge.sagemaker-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "edge.sagemaker.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "edge.sagemaker.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

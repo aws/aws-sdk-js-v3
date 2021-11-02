@@ -36,12 +36,12 @@ const regionHash: RegionHash = {
     hostname: "groundstation.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "groundstation-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "groundstation.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "groundstation-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -49,12 +49,12 @@ const regionHash: RegionHash = {
     hostname: "groundstation.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "groundstation-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "groundstation.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "groundstation-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -62,12 +62,12 @@ const regionHash: RegionHash = {
     hostname: "groundstation.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "groundstation-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "groundstation.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "groundstation-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,6 +105,10 @@ const partitionHash: PartitionHash = {
     hostname: "groundstation.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "groundstation.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "groundstation-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -116,10 +120,6 @@ const partitionHash: PartitionHash = {
         hostname: "groundstation.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "groundstation.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -127,6 +127,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "groundstation.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "groundstation.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "groundstation-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -138,10 +142,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "groundstation.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "groundstation.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "groundstation.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "groundstation.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "groundstation-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -183,10 +187,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "groundstation.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "groundstation.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

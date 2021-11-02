@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     hostname: "networkmanager.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "networkmanager-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
         hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "networkmanager.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
     endpoint: "aws-global",
   },
@@ -77,6 +77,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "networkmanager.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "networkmanager.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "networkmanager-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -88,10 +92,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "networkmanager.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "networkmanager.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -123,6 +123,10 @@ const partitionHash: PartitionHash = {
     hostname: "networkmanager.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "networkmanager.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "networkmanager-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -133,10 +137,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "networkmanager.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "networkmanager.{region}.amazonaws.com",
-        tags: [],
       },
     ],
     endpoint: "aws-us-gov-global",

@@ -213,6 +213,10 @@ const partitionHash: PartitionHash = {
     hostname: "compute-optimizer.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "compute-optimizer.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "compute-optimizer-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -224,10 +228,6 @@ const partitionHash: PartitionHash = {
         hostname: "compute-optimizer.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "compute-optimizer.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -235,6 +235,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "compute-optimizer.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "compute-optimizer.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "compute-optimizer-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -246,10 +250,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "compute-optimizer.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "compute-optimizer.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -281,6 +281,10 @@ const partitionHash: PartitionHash = {
     hostname: "compute-optimizer.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "compute-optimizer.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "compute-optimizer-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -291,10 +295,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "compute-optimizer.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "compute-optimizer.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

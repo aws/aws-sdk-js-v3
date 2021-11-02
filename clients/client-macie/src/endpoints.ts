@@ -26,12 +26,12 @@ const regionHash: RegionHash = {
     hostname: "macie.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "macie-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -39,12 +39,12 @@ const regionHash: RegionHash = {
     hostname: "macie.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "macie-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -81,6 +81,10 @@ const partitionHash: PartitionHash = {
     hostname: "macie.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "macie.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "macie-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -92,10 +96,6 @@ const partitionHash: PartitionHash = {
         hostname: "macie.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "macie.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -103,6 +103,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "macie.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "macie.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "macie-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -114,10 +118,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "macie.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "macie.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
     hostname: "macie.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "macie.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "macie-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -159,10 +163,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "macie.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "macie.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

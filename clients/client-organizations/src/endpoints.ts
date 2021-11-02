@@ -16,12 +16,12 @@ const regionHash: RegionHash = {
     hostname: "organizations.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "organizations-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "organizations.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "organizations-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -31,11 +31,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -93,6 +93,10 @@ const partitionHash: PartitionHash = {
     hostname: "organizations.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "organizations.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "organizations-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -104,10 +108,6 @@ const partitionHash: PartitionHash = {
         hostname: "organizations.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "organizations.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
     endpoint: "aws-global",
   },
@@ -116,6 +116,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "organizations.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "organizations.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "organizations-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -127,10 +131,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "organizations.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "organizations.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
     endpoint: "aws-cn-global",
@@ -163,6 +163,10 @@ const partitionHash: PartitionHash = {
     hostname: "organizations.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "organizations.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "organizations-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -173,10 +177,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "organizations.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "organizations.{region}.amazonaws.com",
-        tags: [],
       },
     ],
     endpoint: "aws-us-gov-global",

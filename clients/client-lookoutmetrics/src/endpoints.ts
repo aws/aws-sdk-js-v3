@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "lookoutmetrics.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "lookoutmetrics.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "lookoutmetrics-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "lookoutmetrics.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "lookoutmetrics.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "lookoutmetrics.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "lookoutmetrics.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "lookoutmetrics-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "lookoutmetrics.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "lookoutmetrics.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "lookoutmetrics.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "lookoutmetrics.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "lookoutmetrics-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "lookoutmetrics.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "lookoutmetrics.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "messaging-chime.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "messaging-chime.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -57,6 +57,10 @@ const partitionHash: PartitionHash = {
     hostname: "messaging-chime.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "messaging-chime.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "messaging-chime-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -68,10 +72,6 @@ const partitionHash: PartitionHash = {
         hostname: "messaging-chime.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "messaging-chime.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -79,6 +79,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "messaging-chime.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "messaging-chime.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "messaging-chime-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -90,10 +94,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "messaging-chime.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "messaging-chime.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -125,6 +125,10 @@ const partitionHash: PartitionHash = {
     hostname: "messaging-chime.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "messaging-chime.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "messaging-chime-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -135,10 +139,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "messaging-chime.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "messaging-chime.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -193,6 +193,10 @@ const partitionHash: PartitionHash = {
     hostname: "oidc.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "oidc.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "oidc-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -204,10 +208,6 @@ const partitionHash: PartitionHash = {
         hostname: "oidc.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "oidc.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -215,6 +215,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "oidc.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "oidc.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "oidc-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -226,10 +230,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "oidc.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "oidc.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -261,6 +261,10 @@ const partitionHash: PartitionHash = {
     hostname: "oidc.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "oidc.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "oidc-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -271,10 +275,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "oidc.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "oidc.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

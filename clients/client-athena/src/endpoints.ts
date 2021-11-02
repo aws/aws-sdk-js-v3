@@ -66,12 +66,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -92,12 +92,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,12 +105,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "athena.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "athena-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "athena.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "athena-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "athena.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "athena.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "athena-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "athena.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "athena.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "athena.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "athena.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "athena-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "athena.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "athena.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -243,6 +243,10 @@ const partitionHash: PartitionHash = {
     hostname: "athena.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "athena.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "athena-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -253,10 +257,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "athena.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "athena.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

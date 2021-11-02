@@ -44,6 +44,10 @@ const partitionHash: PartitionHash = {
     hostname: "savingsplans.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "savingsplans.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "savingsplans-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -55,10 +59,6 @@ const partitionHash: PartitionHash = {
         hostname: "savingsplans.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "savingsplans.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
     endpoint: "aws-global",
   },
@@ -67,6 +67,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "savingsplans.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "savingsplans.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "savingsplans-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -78,10 +82,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "savingsplans.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "savingsplans.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -113,6 +113,10 @@ const partitionHash: PartitionHash = {
     hostname: "savingsplans.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "savingsplans.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "savingsplans-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -123,10 +127,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "savingsplans.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "savingsplans.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

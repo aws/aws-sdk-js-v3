@@ -56,12 +56,12 @@ const regionHash: RegionHash = {
     hostname: "cognito-idp.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "cognito-idp-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cognito-idp.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cognito-idp-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -69,12 +69,12 @@ const regionHash: RegionHash = {
     hostname: "cognito-idp.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "cognito-idp-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cognito-idp.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cognito-idp-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -82,12 +82,12 @@ const regionHash: RegionHash = {
     hostname: "cognito-idp.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "cognito-idp-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cognito-idp.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cognito-idp-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -95,12 +95,12 @@ const regionHash: RegionHash = {
     hostname: "cognito-idp.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "cognito-idp-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cognito-idp.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cognito-idp-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -108,12 +108,12 @@ const regionHash: RegionHash = {
     hostname: "cognito-idp.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "cognito-idp-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cognito-idp.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cognito-idp-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -152,6 +152,10 @@ const partitionHash: PartitionHash = {
     hostname: "cognito-idp.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cognito-idp.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cognito-idp-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -163,10 +167,6 @@ const partitionHash: PartitionHash = {
         hostname: "cognito-idp.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "cognito-idp.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -174,6 +174,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "cognito-idp.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "cognito-idp.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "cognito-idp-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -185,10 +189,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cognito-idp.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cognito-idp.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -220,6 +220,10 @@ const partitionHash: PartitionHash = {
     hostname: "cognito-idp.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cognito-idp.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cognito-idp-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -230,10 +234,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cognito-idp.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cognito-idp.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

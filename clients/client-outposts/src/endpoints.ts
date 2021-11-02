@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "outposts.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "outposts-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "outposts.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "outposts-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -69,12 +69,12 @@ const regionHash: RegionHash = {
     hostname: "outposts.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "outposts-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "outposts.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "outposts-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -82,12 +82,12 @@ const regionHash: RegionHash = {
     hostname: "outposts.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "outposts-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "outposts.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "outposts-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "outposts.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "outposts-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "outposts.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "outposts-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "outposts.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "outposts-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "outposts.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "outposts-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "outposts.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "outposts.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "outposts-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -184,10 +188,6 @@ const partitionHash: PartitionHash = {
         hostname: "outposts.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "outposts.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -195,6 +195,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "outposts.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "outposts.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "outposts-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "outposts.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "outposts.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -241,6 +241,10 @@ const partitionHash: PartitionHash = {
     hostname: "outposts.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "outposts.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "outposts-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -251,10 +255,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "outposts.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "outposts.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

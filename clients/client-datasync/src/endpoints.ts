@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "datasync.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "datasync-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "datasync.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "datasync-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "datasync.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "datasync.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "datasync-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "datasync.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "datasync.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "datasync.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "datasync.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "datasync-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "datasync.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "datasync.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -267,6 +267,10 @@ const partitionHash: PartitionHash = {
     hostname: "datasync.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "datasync.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "datasync-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -277,10 +281,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "datasync.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "datasync.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

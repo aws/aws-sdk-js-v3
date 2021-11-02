@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -92,12 +92,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,12 +105,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "codepipeline.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "codepipeline-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "codepipeline.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "codepipeline-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -176,6 +176,10 @@ const partitionHash: PartitionHash = {
     hostname: "codepipeline.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "codepipeline.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "codepipeline-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -187,10 +191,6 @@ const partitionHash: PartitionHash = {
         hostname: "codepipeline.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "codepipeline.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -198,6 +198,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "codepipeline.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "codepipeline.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "codepipeline-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -209,10 +213,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codepipeline.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "codepipeline.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -244,6 +244,10 @@ const partitionHash: PartitionHash = {
     hostname: "codepipeline.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "codepipeline.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "codepipeline-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -254,10 +258,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codepipeline.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "codepipeline.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

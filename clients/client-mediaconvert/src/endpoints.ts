@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "mediaconvert.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "mediaconvert.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -92,12 +92,12 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "mediaconvert.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "mediaconvert.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "mediaconvert.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "mediaconvert.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "mediaconvert.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "mediaconvert.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "mediaconvert-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -184,10 +188,6 @@ const partitionHash: PartitionHash = {
         hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "mediaconvert.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -195,6 +195,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "mediaconvert.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "mediaconvert.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "mediaconvert-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediaconvert.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "mediaconvert.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -241,6 +241,10 @@ const partitionHash: PartitionHash = {
     hostname: "mediaconvert.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "mediaconvert.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "mediaconvert-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -251,10 +255,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediaconvert.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "mediaconvert.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

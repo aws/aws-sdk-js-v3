@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -29,12 +29,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -52,12 +52,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -75,12 +75,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -98,12 +98,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -121,12 +121,12 @@ const regionHash: RegionHash = {
     hostname: "servicecatalog.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "servicecatalog-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "servicecatalog.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "servicecatalog-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "servicecatalog.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "servicecatalog.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "servicecatalog-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "servicecatalog.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "servicecatalog.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "servicecatalog.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "servicecatalog.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "servicecatalog-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicecatalog.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "servicecatalog.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -243,6 +243,10 @@ const partitionHash: PartitionHash = {
     hostname: "servicecatalog.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "servicecatalog.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "servicecatalog-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -253,10 +257,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicecatalog.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "servicecatalog.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -46,12 +46,12 @@ const regionHash: RegionHash = {
     hostname: "comprehendmedical.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "comprehendmedical-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "comprehendmedical.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "comprehendmedical-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -59,12 +59,12 @@ const regionHash: RegionHash = {
     hostname: "comprehendmedical.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "comprehendmedical-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "comprehendmedical.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "comprehendmedical-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -72,12 +72,12 @@ const regionHash: RegionHash = {
     hostname: "comprehendmedical.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "comprehendmedical-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "comprehendmedical.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "comprehendmedical-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -85,12 +85,12 @@ const regionHash: RegionHash = {
     hostname: "comprehendmedical.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "comprehendmedical-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "comprehendmedical.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "comprehendmedical-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,6 +128,10 @@ const partitionHash: PartitionHash = {
     hostname: "comprehendmedical.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "comprehendmedical.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "comprehendmedical-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -139,10 +143,6 @@ const partitionHash: PartitionHash = {
         hostname: "comprehendmedical.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "comprehendmedical.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -150,6 +150,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "comprehendmedical.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "comprehendmedical.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "comprehendmedical-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -161,10 +165,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "comprehendmedical.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "comprehendmedical.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -196,6 +196,10 @@ const partitionHash: PartitionHash = {
     hostname: "comprehendmedical.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "comprehendmedical.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "comprehendmedical-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "comprehendmedical.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "comprehendmedical.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

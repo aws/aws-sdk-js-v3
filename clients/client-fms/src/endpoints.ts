@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "fms.af-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.af-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.af-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.af-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -19,12 +19,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -32,12 +32,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-northeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-northeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-northeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-northeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -45,12 +45,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-northeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-northeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-northeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-northeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -58,12 +58,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -71,12 +71,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-southeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-southeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-southeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-southeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -84,12 +84,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ap-southeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ap-southeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ap-southeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ap-southeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -97,12 +97,12 @@ const regionHash: RegionHash = {
     hostname: "fms.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -110,12 +110,12 @@ const regionHash: RegionHash = {
     hostname: "fms.eu-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.eu-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.eu-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.eu-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -123,12 +123,12 @@ const regionHash: RegionHash = {
     hostname: "fms.eu-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.eu-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.eu-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.eu-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -136,12 +136,12 @@ const regionHash: RegionHash = {
     hostname: "fms.eu-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.eu-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.eu-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.eu-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -149,12 +149,12 @@ const regionHash: RegionHash = {
     hostname: "fms.eu-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.eu-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.eu-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.eu-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -162,12 +162,12 @@ const regionHash: RegionHash = {
     hostname: "fms.eu-west-3.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.eu-west-3.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.eu-west-3.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.eu-west-3.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -385,12 +385,12 @@ const regionHash: RegionHash = {
     hostname: "fms.me-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.me-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.me-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.me-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -398,12 +398,12 @@ const regionHash: RegionHash = {
     hostname: "fms.sa-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.sa-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.sa-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.sa-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -411,12 +411,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -424,12 +424,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -437,12 +437,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -450,12 +450,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -463,12 +463,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -476,12 +476,12 @@ const regionHash: RegionHash = {
     hostname: "fms.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "fms-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "fms.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fms-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -535,6 +535,10 @@ const partitionHash: PartitionHash = {
     hostname: "fms.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "fms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "fms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -546,10 +550,6 @@ const partitionHash: PartitionHash = {
         hostname: "fms.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "fms.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -557,6 +557,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "fms.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "fms.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "fms-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -568,10 +572,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "fms.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -603,6 +603,10 @@ const partitionHash: PartitionHash = {
     hostname: "fms.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "fms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "fms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -613,10 +617,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "fms.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "fms.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

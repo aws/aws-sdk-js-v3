@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "route53-recovery-readiness.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "route53-recovery-readiness.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "route53-recovery-readiness-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "route53-recovery-readiness.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "route53-recovery-readiness.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "route53-recovery-readiness.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "route53-recovery-readiness.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "route53-recovery-readiness-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53-recovery-readiness.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "route53-recovery-readiness.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "route53-recovery-readiness.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "route53-recovery-readiness.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "route53-recovery-readiness-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53-recovery-readiness.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "route53-recovery-readiness.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "cloudformation.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudformation-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudformation.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudformation-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -29,12 +29,12 @@ const regionHash: RegionHash = {
     hostname: "cloudformation.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "cloudformation-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudformation.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudformation-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -72,12 +72,12 @@ const regionHash: RegionHash = {
     hostname: "cloudformation.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudformation-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudformation.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudformation-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -95,12 +95,12 @@ const regionHash: RegionHash = {
     hostname: "cloudformation.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "cloudformation-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudformation.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudformation-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
     hostname: "cloudformation.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cloudformation.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cloudformation-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -160,10 +164,6 @@ const partitionHash: PartitionHash = {
         hostname: "cloudformation.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "cloudformation.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -171,6 +171,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "cloudformation.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "cloudformation.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "cloudformation-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -182,10 +186,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudformation.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cloudformation.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -217,6 +217,10 @@ const partitionHash: PartitionHash = {
     hostname: "cloudformation.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cloudformation.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cloudformation-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -227,10 +231,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudformation.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cloudformation.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

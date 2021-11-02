@@ -193,6 +193,10 @@ const partitionHash: PartitionHash = {
     hostname: "portal.sso.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "portal.sso.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "portal.sso-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -204,10 +208,6 @@ const partitionHash: PartitionHash = {
         hostname: "portal.sso.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "portal.sso.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -215,6 +215,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "portal.sso.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "portal.sso.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "portal.sso-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -226,10 +230,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "portal.sso.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "portal.sso.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -261,6 +261,10 @@ const partitionHash: PartitionHash = {
     hostname: "portal.sso.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "portal.sso.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "portal.sso-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -271,10 +275,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "portal.sso.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "portal.sso.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "dms.dms.amazonaws.com",
     variants: [
       {
-        hostname: "dms.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "dms.dms.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dms.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -30,12 +30,12 @@ const regionHash: RegionHash = {
     hostname: "dms.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "dms-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "dms.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dms-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -53,12 +53,12 @@ const regionHash: RegionHash = {
     hostname: "dms.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "dms-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "dms.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dms-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -77,11 +77,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -100,11 +100,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -123,11 +123,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-iso-east-1.c2s.ic.gov",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.us-iso-east-1.c2s.ic.gov",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -146,11 +146,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.us-isob-east-1.sc2s.sgov.gov",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -168,12 +168,12 @@ const regionHash: RegionHash = {
     hostname: "dms.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "dms-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "dms.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dms-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -191,12 +191,12 @@ const regionHash: RegionHash = {
     hostname: "dms.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "dms-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "dms.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "dms-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -247,6 +247,10 @@ const partitionHash: PartitionHash = {
     hostname: "dms.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "dms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "dms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -258,10 +262,6 @@ const partitionHash: PartitionHash = {
         hostname: "dms.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "dms.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -269,6 +269,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "dms.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "dms.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "dms-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -281,10 +285,6 @@ const partitionHash: PartitionHash = {
         hostname: "dms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
       },
-      {
-        hostname: "dms.{region}.amazonaws.com.cn",
-        tags: [],
-      },
     ],
   },
   "aws-iso": {
@@ -294,11 +294,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "dms.{region}.c2s.ic.gov",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.{region}.c2s.ic.gov",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -309,11 +309,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "dms.{region}.sc2s.sgov.gov",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.{region}.sc2s.sgov.gov",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -324,11 +324,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "dms.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "dms.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

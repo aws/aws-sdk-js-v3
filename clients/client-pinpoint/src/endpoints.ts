@@ -36,12 +36,12 @@ const regionHash: RegionHash = {
     hostname: "pinpoint.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "pinpoint-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "pinpoint.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "pinpoint-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -50,12 +50,12 @@ const regionHash: RegionHash = {
     hostname: "pinpoint.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "pinpoint.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "pinpoint-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -64,12 +64,12 @@ const regionHash: RegionHash = {
     hostname: "pinpoint.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "pinpoint-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "pinpoint.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "pinpoint-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-2",
@@ -107,6 +107,10 @@ const partitionHash: PartitionHash = {
     hostname: "pinpoint.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "pinpoint.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "pinpoint-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -118,10 +122,6 @@ const partitionHash: PartitionHash = {
         hostname: "pinpoint.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "pinpoint.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -129,6 +129,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "pinpoint.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "pinpoint.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "pinpoint-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -140,10 +144,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "pinpoint.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "pinpoint.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "pinpoint.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "pinpoint.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "pinpoint-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -185,10 +189,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "pinpoint.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "pinpoint.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

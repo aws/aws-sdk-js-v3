@@ -66,12 +66,12 @@ const regionHash: RegionHash = {
     hostname: "batch.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "batch.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.batch.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "batch.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "batch.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.batch.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -93,11 +93,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "batch.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "batch.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -106,11 +106,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "batch.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "batch.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "batch.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "batch.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.batch.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "batch.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "batch.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.batch.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,12 +175,12 @@ const partitionHash: PartitionHash = {
     hostname: "batch.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.batch.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "batch.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.batch.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -189,6 +189,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "batch.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "batch.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "batch-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -200,10 +204,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "batch.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "batch.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -236,11 +236,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "batch.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "batch.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

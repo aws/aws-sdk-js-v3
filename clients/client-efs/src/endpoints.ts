@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.af-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.af-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.af-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.af-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -19,12 +19,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -32,12 +32,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-northeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-northeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-northeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -45,12 +45,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-northeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-northeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-northeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -58,12 +58,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-northeast-3.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-northeast-3.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-northeast-3.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-northeast-3.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -71,12 +71,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -84,12 +84,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-southeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-southeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-southeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-southeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -97,12 +97,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ap-southeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ap-southeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ap-southeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ap-southeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -110,12 +110,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -123,12 +123,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.cn-north-1.amazonaws.com.cn",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.cn-north-1.amazonaws.com.cn",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.cn-north-1.amazonaws.com.cn",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.cn-north-1.amazonaws.com.cn",
+        tags: ["fips"],
       },
     ],
   },
@@ -136,12 +136,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.cn-northwest-1.amazonaws.com.cn",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.cn-northwest-1.amazonaws.com.cn",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.cn-northwest-1.amazonaws.com.cn",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.cn-northwest-1.amazonaws.com.cn",
+        tags: ["fips"],
       },
     ],
   },
@@ -149,12 +149,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -162,12 +162,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-north-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-north-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-north-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-north-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,12 +175,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -188,12 +188,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -201,12 +201,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -214,12 +214,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.eu-west-3.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.eu-west-3.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.eu-west-3.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.eu-west-3.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -487,12 +487,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.me-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.me-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.me-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.me-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -500,12 +500,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.sa-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.sa-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.sa-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.sa-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -513,12 +513,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -526,12 +526,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -539,12 +539,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -552,12 +552,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -565,12 +565,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-iso-east-1.c2s.ic.gov",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-iso-east-1.c2s.ic.gov",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-iso-east-1.c2s.ic.gov",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-iso-east-1.c2s.ic.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -578,12 +578,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -591,12 +591,12 @@ const regionHash: RegionHash = {
     hostname: "elasticfilesystem.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticfilesystem-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticfilesystem.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -652,6 +652,10 @@ const partitionHash: PartitionHash = {
     hostname: "elasticfilesystem.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "elasticfilesystem.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "elasticfilesystem-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -663,10 +667,6 @@ const partitionHash: PartitionHash = {
         hostname: "elasticfilesystem.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "elasticfilesystem.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -674,6 +674,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "elasticfilesystem.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "elasticfilesystem.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "elasticfilesystem-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -685,10 +689,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticfilesystem.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "elasticfilesystem.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -720,6 +720,10 @@ const partitionHash: PartitionHash = {
     hostname: "elasticfilesystem.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "elasticfilesystem.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "elasticfilesystem-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -730,10 +734,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticfilesystem.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "elasticfilesystem.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

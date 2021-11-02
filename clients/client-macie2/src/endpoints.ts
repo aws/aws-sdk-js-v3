@@ -46,12 +46,12 @@ const regionHash: RegionHash = {
     hostname: "macie2.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "macie2-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie2.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie2-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -59,12 +59,12 @@ const regionHash: RegionHash = {
     hostname: "macie2.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "macie2-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie2.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie2-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -72,12 +72,12 @@ const regionHash: RegionHash = {
     hostname: "macie2.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "macie2-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie2.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie2-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -85,12 +85,12 @@ const regionHash: RegionHash = {
     hostname: "macie2.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "macie2-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "macie2.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "macie2-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -129,6 +129,10 @@ const partitionHash: PartitionHash = {
     hostname: "macie2.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "macie2.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "macie2-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -140,10 +144,6 @@ const partitionHash: PartitionHash = {
         hostname: "macie2.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "macie2.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -151,6 +151,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "macie2.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "macie2.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "macie2-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -162,10 +166,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "macie2.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "macie2.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     hostname: "macie2.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "macie2.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "macie2-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -207,10 +211,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "macie2.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "macie2.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

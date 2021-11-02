@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "tagging.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "tagging.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "tagging-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "tagging.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "tagging.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "tagging.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "tagging.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "tagging-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "tagging.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "tagging.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "tagging.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "tagging.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "tagging-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "tagging.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "tagging.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

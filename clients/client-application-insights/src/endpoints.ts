@@ -53,6 +53,10 @@ const partitionHash: PartitionHash = {
     hostname: "applicationinsights.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "applicationinsights.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "applicationinsights-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -64,10 +68,6 @@ const partitionHash: PartitionHash = {
         hostname: "applicationinsights.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "applicationinsights.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -75,6 +75,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "applicationinsights.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "applicationinsights.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "applicationinsights-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -86,10 +90,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "applicationinsights.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "applicationinsights.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -121,6 +121,10 @@ const partitionHash: PartitionHash = {
     hostname: "applicationinsights.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "applicationinsights.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "applicationinsights-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -131,10 +135,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "applicationinsights.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "applicationinsights.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

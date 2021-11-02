@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "transcribestreaming.transcribestreaming-ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribestreaming.transcribestreaming-ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "transcribestreaming-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "ca-central-1",
@@ -60,12 +60,12 @@ const regionHash: RegionHash = {
     hostname: "transcribestreaming.transcribestreaming-us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribestreaming.transcribestreaming-us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "transcribestreaming-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -74,12 +74,12 @@ const regionHash: RegionHash = {
     hostname: "transcribestreaming.transcribestreaming-us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribestreaming.transcribestreaming-us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "transcribestreaming-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-2",
@@ -88,12 +88,12 @@ const regionHash: RegionHash = {
     hostname: "transcribestreaming.transcribestreaming-us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribestreaming.transcribestreaming-us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "transcribestreaming-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-2",
@@ -137,6 +137,10 @@ const partitionHash: PartitionHash = {
     hostname: "transcribestreaming.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "transcribestreaming.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "transcribestreaming-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -148,10 +152,6 @@ const partitionHash: PartitionHash = {
         hostname: "transcribestreaming.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "transcribestreaming.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -159,6 +159,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "transcribestreaming.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "transcribestreaming.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "transcribestreaming-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -170,10 +174,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribestreaming.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "transcribestreaming.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -205,6 +205,10 @@ const partitionHash: PartitionHash = {
     hostname: "transcribestreaming.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "transcribestreaming.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "transcribestreaming-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -215,10 +219,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribestreaming.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "transcribestreaming.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

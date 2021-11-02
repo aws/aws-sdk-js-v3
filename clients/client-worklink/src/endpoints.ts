@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "worklink.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "worklink.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "worklink-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "worklink.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "worklink.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "worklink.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "worklink.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "worklink-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "worklink.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "worklink.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "worklink.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "worklink.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "worklink-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "worklink.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "worklink.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

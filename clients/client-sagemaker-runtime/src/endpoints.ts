@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "runtime.sagemaker.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "runtime.sagemaker.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "runtime-fips.sagemaker.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -29,12 +29,12 @@ const regionHash: RegionHash = {
     hostname: "runtime.sagemaker.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "runtime.sagemaker.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "runtime-fips.sagemaker.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -53,11 +53,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "runtime.sagemaker.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "runtime.sagemaker.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -75,12 +75,12 @@ const regionHash: RegionHash = {
     hostname: "runtime.sagemaker.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "runtime.sagemaker.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "runtime-fips.sagemaker.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -98,12 +98,12 @@ const regionHash: RegionHash = {
     hostname: "runtime.sagemaker.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "runtime.sagemaker.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "runtime-fips.sagemaker.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -152,12 +152,12 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "runtime-fips.sagemaker.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "runtime.sagemaker.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "runtime-fips.sagemaker.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -166,6 +166,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "runtime.sagemaker.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "runtime.sagemaker.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "runtime.sagemaker-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -177,10 +181,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "runtime.sagemaker.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "runtime.sagemaker.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -212,6 +212,10 @@ const partitionHash: PartitionHash = {
     hostname: "runtime.sagemaker.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "runtime.sagemaker.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "runtime.sagemaker-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -222,10 +226,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "runtime.sagemaker.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "runtime.sagemaker.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

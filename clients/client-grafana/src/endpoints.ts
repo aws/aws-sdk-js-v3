@@ -133,6 +133,10 @@ const partitionHash: PartitionHash = {
     hostname: "grafana.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "grafana.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "grafana-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -144,10 +148,6 @@ const partitionHash: PartitionHash = {
         hostname: "grafana.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "grafana.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -155,6 +155,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "grafana.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "grafana.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "grafana-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -166,10 +170,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "grafana.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "grafana.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -201,6 +201,10 @@ const partitionHash: PartitionHash = {
     hostname: "grafana.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "grafana.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "grafana-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -211,10 +215,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "grafana.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "grafana.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

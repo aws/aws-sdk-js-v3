@@ -66,12 +66,12 @@ const regionHash: RegionHash = {
     hostname: "monitoring.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "monitoring-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "monitoring.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "monitoring-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "monitoring.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "monitoring-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "monitoring.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "monitoring-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -93,11 +93,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "monitoring.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "monitoring.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -106,11 +106,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "monitoring.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "monitoring.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "monitoring.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "monitoring-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "monitoring.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "monitoring-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "monitoring.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "monitoring-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "monitoring.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "monitoring-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "monitoring.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "monitoring.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "monitoring-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "monitoring.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "monitoring.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "monitoring.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "monitoring.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "monitoring-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "monitoring.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "monitoring.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -244,11 +244,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "monitoring.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "monitoring.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

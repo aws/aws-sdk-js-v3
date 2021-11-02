@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "identity-chime.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "identity-chime-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "identity-chime.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "identity-chime-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -57,6 +57,10 @@ const partitionHash: PartitionHash = {
     hostname: "identity-chime.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "identity-chime.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "identity-chime-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -68,10 +72,6 @@ const partitionHash: PartitionHash = {
         hostname: "identity-chime.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "identity-chime.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -79,6 +79,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "identity-chime.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "identity-chime.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "identity-chime-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -90,10 +94,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identity-chime.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "identity-chime.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -125,6 +125,10 @@ const partitionHash: PartitionHash = {
     hostname: "identity-chime.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "identity-chime.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "identity-chime-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -135,10 +139,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identity-chime.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "identity-chime.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

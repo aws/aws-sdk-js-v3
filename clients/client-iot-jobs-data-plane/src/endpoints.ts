@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "data.jobs.iot.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "data.jobs.iot-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "data.jobs.iot.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "data.jobs.iot-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "data.jobs.iot.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "data.jobs.iot.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "data.jobs.iot-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "data.jobs.iot.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "data.jobs.iot.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "data.jobs.iot.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "data.jobs.iot.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "data.jobs.iot-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "data.jobs.iot.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "data.jobs.iot.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -267,6 +267,10 @@ const partitionHash: PartitionHash = {
     hostname: "data.jobs.iot.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "data.jobs.iot.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "data.jobs.iot-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -277,10 +281,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "data.jobs.iot.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "data.jobs.iot.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

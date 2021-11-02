@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "migrationhub-config.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "migrationhub-config.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "migrationhub-config-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "migrationhub-config.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "migrationhub-config.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "migrationhub-config.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "migrationhub-config.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "migrationhub-config-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "migrationhub-config.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "migrationhub-config.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "migrationhub-config.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "migrationhub-config.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "migrationhub-config-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "migrationhub-config.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "migrationhub-config.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -116,12 +116,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -130,12 +130,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-2",
@@ -144,12 +144,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-east-1",
@@ -158,12 +158,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -172,12 +172,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-1",
@@ -186,12 +186,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.dkr-us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.dkr-us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-2",
@@ -400,12 +400,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -414,12 +414,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-2",
@@ -428,12 +428,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-east-1",
@@ -442,12 +442,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -486,12 +486,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-1",
@@ -500,12 +500,12 @@ const regionHash: RegionHash = {
     hostname: "api.ecr.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-2",
@@ -553,12 +553,12 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -567,6 +567,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "api.ecr.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "api.ecr.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "api.ecr-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -578,10 +582,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "api.ecr.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -622,12 +622,12 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "ecr-fips.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "api.ecr.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ecr-fips.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "cloudcontrolapi.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "cloudcontrolapi-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "cloudcontrolapi.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "cloudcontrolapi.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cloudcontrolapi.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cloudcontrolapi-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "cloudcontrolapi.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "cloudcontrolapi.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "cloudcontrolapi.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "cloudcontrolapi.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "cloudcontrolapi-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudcontrolapi.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cloudcontrolapi.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -267,6 +267,10 @@ const partitionHash: PartitionHash = {
     hostname: "cloudcontrolapi.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "cloudcontrolapi.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "cloudcontrolapi-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -277,10 +281,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudcontrolapi.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "cloudcontrolapi.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

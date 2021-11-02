@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "ssm.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "ssm-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "ssm.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ssm-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "ssm.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "ssm-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "ssm.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ssm-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "ssm.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "ssm-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "ssm.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ssm-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -116,11 +116,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "ssm.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "ssm.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -129,11 +129,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "ssm.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "ssm.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "ssm.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "ssm-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "ssm.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ssm-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "ssm.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "ssm-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "ssm.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "ssm-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "ssm.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "ssm.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "ssm-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "ssm.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "ssm.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "ssm.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "ssm.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "ssm-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ssm.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "ssm.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -268,11 +268,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "ssm.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "ssm.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

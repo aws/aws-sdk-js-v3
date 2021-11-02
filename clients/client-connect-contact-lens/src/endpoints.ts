@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "contact-lens.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "contact-lens.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "contact-lens-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "contact-lens.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "contact-lens.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "contact-lens.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "contact-lens.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "contact-lens-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "contact-lens.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "contact-lens.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "contact-lens.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "contact-lens.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "contact-lens-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "contact-lens.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "contact-lens.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

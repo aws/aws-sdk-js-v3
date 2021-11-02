@@ -46,12 +46,12 @@ const regionHash: RegionHash = {
     hostname: "sqs.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "sqs-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "sqs.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "sqs-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -59,12 +59,12 @@ const regionHash: RegionHash = {
     hostname: "sqs.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "sqs-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "sqs.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "sqs-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -92,12 +92,12 @@ const regionHash: RegionHash = {
     hostname: "sqs.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "sqs-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "sqs.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "sqs-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -105,12 +105,12 @@ const regionHash: RegionHash = {
     hostname: "sqs.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "sqs-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "sqs.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "sqs-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
     hostname: "sqs.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "sqs.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "sqs-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -160,10 +164,6 @@ const partitionHash: PartitionHash = {
         hostname: "sqs.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "sqs.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -171,6 +171,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "sqs.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "sqs.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "sqs-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -182,10 +186,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "sqs.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "sqs.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -217,6 +217,10 @@ const partitionHash: PartitionHash = {
     hostname: "sqs.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "sqs.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "sqs-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -227,10 +231,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "sqs.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "sqs.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

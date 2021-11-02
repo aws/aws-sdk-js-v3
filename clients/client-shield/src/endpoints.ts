@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "shield.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "shield-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "shield.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "shield-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -59,6 +59,10 @@ const partitionHash: PartitionHash = {
     hostname: "shield.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "shield.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "shield-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -70,10 +74,6 @@ const partitionHash: PartitionHash = {
         hostname: "shield.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "shield.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
     endpoint: "aws-global",
   },
@@ -82,6 +82,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "shield.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "shield.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "shield-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -93,10 +97,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "shield.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "shield.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -128,6 +128,10 @@ const partitionHash: PartitionHash = {
     hostname: "shield.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "shield.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "shield-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -138,10 +142,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "shield.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "shield.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

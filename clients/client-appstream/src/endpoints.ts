@@ -16,12 +16,12 @@ const regionHash: RegionHash = {
     hostname: "appstream2.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "appstream2-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "appstream2.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "appstream2-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -39,12 +39,12 @@ const regionHash: RegionHash = {
     hostname: "appstream2.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "appstream2.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "appstream2-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -62,12 +62,12 @@ const regionHash: RegionHash = {
     hostname: "appstream2.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "appstream2-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "appstream2.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "appstream2-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,6 +115,10 @@ const partitionHash: PartitionHash = {
     hostname: "appstream2.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "appstream2.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "appstream2-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -126,10 +130,6 @@ const partitionHash: PartitionHash = {
         hostname: "appstream2.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "appstream2.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -137,6 +137,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "appstream2.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "appstream2.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "appstream2-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -148,10 +152,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "appstream2.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "appstream2.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -183,6 +183,10 @@ const partitionHash: PartitionHash = {
     hostname: "appstream2.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "appstream2.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "appstream2-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -193,10 +197,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "appstream2.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "appstream2.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "ca-central-1",
@@ -103,12 +103,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -117,12 +117,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-2",
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -145,12 +145,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-1",
@@ -159,12 +159,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.rekognition.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.rekognition.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-west-2",
@@ -173,12 +173,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -196,12 +196,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -219,12 +219,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -242,12 +242,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -265,12 +265,12 @@ const regionHash: RegionHash = {
     hostname: "rekognition.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "rekognition-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "rekognition.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -330,6 +330,10 @@ const partitionHash: PartitionHash = {
     hostname: "rekognition.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "rekognition.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "rekognition-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -341,10 +345,6 @@ const partitionHash: PartitionHash = {
         hostname: "rekognition.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "rekognition.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -352,6 +352,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "rekognition.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "rekognition.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "rekognition-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -363,10 +367,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rekognition.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "rekognition.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -404,6 +404,10 @@ const partitionHash: PartitionHash = {
     hostname: "rekognition.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "rekognition.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "rekognition-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -414,10 +418,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rekognition.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "rekognition.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

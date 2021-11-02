@@ -27,11 +27,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "servicequotas.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "servicequotas.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -40,11 +40,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "servicequotas.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "servicequotas.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -79,6 +79,10 @@ const partitionHash: PartitionHash = {
     hostname: "servicequotas.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "servicequotas.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "servicequotas-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -90,10 +94,6 @@ const partitionHash: PartitionHash = {
         hostname: "servicequotas.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "servicequotas.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -101,6 +101,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "servicequotas.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "servicequotas.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "servicequotas-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -112,10 +116,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "servicequotas.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "servicequotas.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -148,11 +148,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "servicequotas.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "servicequotas.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

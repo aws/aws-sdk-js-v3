@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr-public.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "api.ecr-public.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "api.ecr-public-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -54,10 +58,6 @@ const partitionHash: PartitionHash = {
         hostname: "api.ecr-public.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "api.ecr-public.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -65,6 +65,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "api.ecr-public.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "api.ecr-public.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "api.ecr-public-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -76,10 +80,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr-public.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "api.ecr-public.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -111,6 +111,10 @@ const partitionHash: PartitionHash = {
     hostname: "api.ecr-public.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "api.ecr-public.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "api.ecr-public-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -121,10 +125,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr-public.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "api.ecr-public.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "waf.aws.amazonaws.com",
     variants: [
       {
-        hostname: "waf-fips.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "waf.aws.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -30,12 +30,12 @@ const regionHash: RegionHash = {
     hostname: "waf.amazonaws.com",
     variants: [
       {
-        hostname: "waf-fips.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "waf.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "waf-fips.amazonaws.com",
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-east-1",
@@ -85,6 +85,10 @@ const partitionHash: PartitionHash = {
     hostname: "waf.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "waf.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "waf-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -96,10 +100,6 @@ const partitionHash: PartitionHash = {
         hostname: "waf.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "waf.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
     endpoint: "aws-global",
   },
@@ -108,6 +108,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "waf.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "waf.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "waf-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -119,10 +123,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "waf.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "waf.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -154,6 +154,10 @@ const partitionHash: PartitionHash = {
     hostname: "waf.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "waf.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "waf-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -164,10 +168,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "waf.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "waf.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

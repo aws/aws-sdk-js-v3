@@ -33,6 +33,10 @@ const partitionHash: PartitionHash = {
     hostname: "quicksight.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "quicksight.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "quicksight-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -44,10 +48,6 @@ const partitionHash: PartitionHash = {
         hostname: "quicksight.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "quicksight.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -55,6 +55,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "quicksight.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "quicksight.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "quicksight-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -66,10 +70,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "quicksight.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "quicksight.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -101,6 +101,10 @@ const partitionHash: PartitionHash = {
     hostname: "quicksight.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "quicksight.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "quicksight-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -111,10 +115,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "quicksight.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "quicksight.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "emr-containers.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "emr-containers-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "emr-containers.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "emr-containers-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -69,12 +69,12 @@ const regionHash: RegionHash = {
     hostname: "emr-containers.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "emr-containers-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "emr-containers.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "emr-containers-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -82,12 +82,12 @@ const regionHash: RegionHash = {
     hostname: "emr-containers.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "emr-containers-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "emr-containers.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "emr-containers-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -95,12 +95,12 @@ const regionHash: RegionHash = {
     hostname: "emr-containers.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "emr-containers-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "emr-containers.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "emr-containers-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -108,12 +108,12 @@ const regionHash: RegionHash = {
     hostname: "emr-containers.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "emr-containers-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "emr-containers.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "emr-containers-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -153,6 +153,10 @@ const partitionHash: PartitionHash = {
     hostname: "emr-containers.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "emr-containers.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "emr-containers-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -164,10 +168,6 @@ const partitionHash: PartitionHash = {
         hostname: "emr-containers.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "emr-containers.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "emr-containers.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "emr-containers.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "emr-containers-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "emr-containers.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "emr-containers.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     hostname: "emr-containers.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "emr-containers.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "emr-containers-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -231,10 +235,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "emr-containers.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "emr-containers.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

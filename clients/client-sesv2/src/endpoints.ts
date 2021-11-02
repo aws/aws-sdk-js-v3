@@ -16,12 +16,12 @@ const regionHash: RegionHash = {
     hostname: "email.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "email-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "email.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "email-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -56,6 +56,10 @@ const partitionHash: PartitionHash = {
     hostname: "email.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "email.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "email-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -67,10 +71,6 @@ const partitionHash: PartitionHash = {
         hostname: "email.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "email.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "email.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "email.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "email-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -89,10 +93,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "email.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "email.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -124,6 +124,10 @@ const partitionHash: PartitionHash = {
     hostname: "email.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "email.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "email-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -134,10 +138,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "email.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "email.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

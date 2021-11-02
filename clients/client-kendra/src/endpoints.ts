@@ -46,12 +46,12 @@ const regionHash: RegionHash = {
     hostname: "kendra.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "kendra-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kendra.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kendra-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -59,12 +59,12 @@ const regionHash: RegionHash = {
     hostname: "kendra.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "kendra-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kendra.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kendra-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -72,12 +72,12 @@ const regionHash: RegionHash = {
     hostname: "kendra.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "kendra-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kendra.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kendra-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -85,12 +85,12 @@ const regionHash: RegionHash = {
     hostname: "kendra.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "kendra-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kendra.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kendra-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,6 +128,10 @@ const partitionHash: PartitionHash = {
     hostname: "kendra.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "kendra.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "kendra-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -139,10 +143,6 @@ const partitionHash: PartitionHash = {
         hostname: "kendra.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "kendra.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -150,6 +150,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "kendra.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "kendra.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "kendra-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -161,10 +165,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kendra.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "kendra.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -196,6 +196,10 @@ const partitionHash: PartitionHash = {
     hostname: "kendra.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "kendra.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "kendra-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kendra.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "kendra.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -16,12 +16,12 @@ const regionHash: RegionHash = {
     hostname: "kms.af-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.af-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.af-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.af-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -39,12 +39,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -62,12 +62,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-northeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-northeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-northeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-northeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -85,12 +85,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-northeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-northeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-northeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-northeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -108,12 +108,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-northeast-3.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-northeast-3.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-northeast-3.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-northeast-3.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-southeast-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-southeast-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-southeast-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-southeast-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -177,12 +177,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ap-southeast-2.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ap-southeast-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ap-southeast-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ap-southeast-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -200,12 +200,12 @@ const regionHash: RegionHash = {
     hostname: "kms.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -223,12 +223,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -246,12 +246,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-north-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-north-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-north-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-north-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -269,12 +269,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -292,12 +292,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -315,12 +315,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -338,12 +338,12 @@ const regionHash: RegionHash = {
     hostname: "kms.eu-west-3.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.eu-west-3.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.eu-west-3.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.eu-west-3.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -361,12 +361,12 @@ const regionHash: RegionHash = {
     hostname: "kms.me-south-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.me-south-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.me-south-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.me-south-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -384,12 +384,12 @@ const regionHash: RegionHash = {
     hostname: "kms.sa-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.sa-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.sa-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.sa-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -407,12 +407,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -430,12 +430,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -453,12 +453,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -476,12 +476,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -499,12 +499,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-iso-east-1.c2s.ic.gov",
     variants: [
       {
-        hostname: "kms-fips.us-iso-east-1.c2s.ic.gov",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-iso-east-1.c2s.ic.gov",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-iso-east-1.c2s.ic.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -522,12 +522,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-iso-west-1.c2s.ic.gov",
     variants: [
       {
-        hostname: "kms-fips.us-iso-west-1.c2s.ic.gov",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-iso-west-1.c2s.ic.gov",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-iso-west-1.c2s.ic.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -545,12 +545,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-isob-east-1.sc2s.sgov.gov",
     variants: [
       {
-        hostname: "kms-fips.us-isob-east-1.sc2s.sgov.gov",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-isob-east-1.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-isob-east-1.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -568,12 +568,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -591,12 +591,12 @@ const regionHash: RegionHash = {
     hostname: "kms.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "kms-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "kms.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "kms-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -662,6 +662,10 @@ const partitionHash: PartitionHash = {
     hostname: "kms.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "kms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "kms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -673,10 +677,6 @@ const partitionHash: PartitionHash = {
         hostname: "kms.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "kms.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -684,6 +684,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "kms.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "kms.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "kms-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -695,10 +699,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kms.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "kms.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -730,6 +730,10 @@ const partitionHash: PartitionHash = {
     hostname: "kms.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "kms.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "kms-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -740,10 +744,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kms.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "kms.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -87,6 +87,10 @@ const partitionHash: PartitionHash = {
     hostname: "api.elastic-inference.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "api.elastic-inference.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "api.elastic-inference-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -98,10 +102,6 @@ const partitionHash: PartitionHash = {
         hostname: "api.elastic-inference.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "api.elastic-inference.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -109,6 +109,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "api.elastic-inference.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "api.elastic-inference.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "api.elastic-inference-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -120,10 +124,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.elastic-inference.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "api.elastic-inference.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -155,6 +155,10 @@ const partitionHash: PartitionHash = {
     hostname: "api.elastic-inference.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "api.elastic-inference.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "api.elastic-inference-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -165,10 +169,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.elastic-inference.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "api.elastic-inference.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

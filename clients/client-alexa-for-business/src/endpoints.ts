@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "a4b.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "a4b.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "a4b-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "a4b.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "a4b.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "a4b.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "a4b.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "a4b-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "a4b.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "a4b.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "a4b.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "a4b.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "a4b-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "a4b.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "a4b.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "textract.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "textract.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "textract-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "textract.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "textract-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "textract.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "textract.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "textract-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "textract.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "textract.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "textract.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "textract.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "textract-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "textract.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "textract.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -267,6 +267,10 @@ const partitionHash: PartitionHash = {
     hostname: "textract.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "textract.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "textract-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -277,10 +281,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "textract.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "textract.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

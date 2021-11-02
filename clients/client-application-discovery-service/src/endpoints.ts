@@ -32,6 +32,10 @@ const partitionHash: PartitionHash = {
     hostname: "discovery.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "discovery.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "discovery-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -43,10 +47,6 @@ const partitionHash: PartitionHash = {
         hostname: "discovery.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "discovery.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -54,6 +54,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "discovery.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "discovery.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "discovery-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -65,10 +69,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "discovery.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "discovery.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
     hostname: "discovery.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "discovery.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "discovery-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -110,10 +114,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "discovery.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "discovery.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

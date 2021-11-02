@@ -67,11 +67,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "support.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "support.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -108,6 +108,10 @@ const partitionHash: PartitionHash = {
     hostname: "support.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "support.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "support-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -119,10 +123,6 @@ const partitionHash: PartitionHash = {
         hostname: "support.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "support.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -130,6 +130,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "support.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "support.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "support-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -141,10 +145,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "support.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "support.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -176,6 +176,10 @@ const partitionHash: PartitionHash = {
     hostname: "support.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "support.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "support-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "support.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "support.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

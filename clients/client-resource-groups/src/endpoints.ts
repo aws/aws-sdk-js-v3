@@ -66,12 +66,12 @@ const regionHash: RegionHash = {
     hostname: "resource-groups.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "resource-groups-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "resource-groups.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "resource-groups-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -79,12 +79,12 @@ const regionHash: RegionHash = {
     hostname: "resource-groups.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "resource-groups-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "resource-groups.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "resource-groups-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -93,11 +93,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "resource-groups.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "resource-groups.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -106,11 +106,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "resource-groups.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "resource-groups.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -118,12 +118,12 @@ const regionHash: RegionHash = {
     hostname: "resource-groups.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "resource-groups-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "resource-groups.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "resource-groups-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -131,12 +131,12 @@ const regionHash: RegionHash = {
     hostname: "resource-groups.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "resource-groups-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "resource-groups.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "resource-groups-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "resource-groups.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "resource-groups.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "resource-groups-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "resource-groups.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "resource-groups.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "resource-groups.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "resource-groups.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "resource-groups-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "resource-groups.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "resource-groups.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -244,11 +244,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "resource-groups.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "resource-groups.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

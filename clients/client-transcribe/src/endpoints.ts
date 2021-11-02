@@ -86,12 +86,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -99,12 +99,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -112,12 +112,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-gov-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-gov-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-gov-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -125,12 +125,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-gov-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-gov-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-gov-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -138,12 +138,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -151,12 +151,12 @@ const regionHash: RegionHash = {
     hostname: "transcribe.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -195,12 +195,12 @@ const partitionHash: PartitionHash = {
     hostname: "transcribe.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -209,6 +209,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "transcribe.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "transcribe.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "transcribe-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -220,10 +224,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribe.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "transcribe.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -255,12 +255,12 @@ const partitionHash: PartitionHash = {
     hostname: "transcribe.{region}.amazonaws.com",
     variants: [
       {
-        hostname: "fips.transcribe.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "transcribe.{region}.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "fips.transcribe.{region}.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },

@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "access-analyzer.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "access-analyzer-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "access-analyzer.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "access-analyzer-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -69,12 +69,12 @@ const regionHash: RegionHash = {
     hostname: "access-analyzer.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "access-analyzer-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "access-analyzer.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "access-analyzer-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -82,12 +82,12 @@ const regionHash: RegionHash = {
     hostname: "access-analyzer.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "access-analyzer-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "access-analyzer.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "access-analyzer-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -115,12 +115,12 @@ const regionHash: RegionHash = {
     hostname: "access-analyzer.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "access-analyzer-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "access-analyzer.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "access-analyzer-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -128,12 +128,12 @@ const regionHash: RegionHash = {
     hostname: "access-analyzer.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "access-analyzer-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "access-analyzer.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "access-analyzer-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -173,6 +173,10 @@ const partitionHash: PartitionHash = {
     hostname: "access-analyzer.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "access-analyzer.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "access-analyzer-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -184,10 +188,6 @@ const partitionHash: PartitionHash = {
         hostname: "access-analyzer.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "access-analyzer.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -195,6 +195,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "access-analyzer.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "access-analyzer.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "access-analyzer-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -206,10 +210,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "access-analyzer.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "access-analyzer.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -241,6 +241,10 @@ const partitionHash: PartitionHash = {
     hostname: "access-analyzer.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "access-analyzer.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "access-analyzer-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -251,10 +255,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "access-analyzer.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "access-analyzer.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

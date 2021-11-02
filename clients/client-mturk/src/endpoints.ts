@@ -43,6 +43,10 @@ const partitionHash: PartitionHash = {
     hostname: "mturk-requester.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "mturk-requester-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -54,10 +58,6 @@ const partitionHash: PartitionHash = {
         hostname: "mturk-requester.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "mturk-requester.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -65,6 +65,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "mturk-requester.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "mturk-requester.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "mturk-requester-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -76,10 +80,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mturk-requester.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "mturk-requester.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -111,6 +111,10 @@ const partitionHash: PartitionHash = {
     hostname: "mturk-requester.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "mturk-requester.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "mturk-requester-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -121,10 +125,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mturk-requester.{region}.api.aws",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "mturk-requester.{region}.amazonaws.com",
-        tags: [],
       },
     ],
   },

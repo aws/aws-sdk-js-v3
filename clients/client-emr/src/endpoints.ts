@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "elasticmapreduce.ca-central-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticmapreduce-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticmapreduce.ca-central-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticmapreduce-fips.ca-central-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -89,12 +89,12 @@ const regionHash: RegionHash = {
     hostname: "elasticmapreduce.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticmapreduce-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticmapreduce.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticmapreduce-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -102,12 +102,12 @@ const regionHash: RegionHash = {
     hostname: "elasticmapreduce.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticmapreduce-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticmapreduce.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticmapreduce-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -116,11 +116,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "elasticmapreduce.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "elasticmapreduce.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -129,11 +129,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "elasticmapreduce.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "elasticmapreduce.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -141,12 +141,12 @@ const regionHash: RegionHash = {
     hostname: "elasticmapreduce.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "elasticmapreduce-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticmapreduce.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticmapreduce-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -154,12 +154,12 @@ const regionHash: RegionHash = {
     hostname: "elasticmapreduce.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "elasticmapreduce-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "elasticmapreduce.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "elasticmapreduce-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -199,6 +199,10 @@ const partitionHash: PartitionHash = {
     hostname: "elasticmapreduce.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "elasticmapreduce.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "elasticmapreduce-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -210,10 +214,6 @@ const partitionHash: PartitionHash = {
         hostname: "elasticmapreduce.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "elasticmapreduce.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -221,6 +221,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "elasticmapreduce.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "elasticmapreduce.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "elasticmapreduce-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -232,10 +236,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticmapreduce.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "elasticmapreduce.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -268,11 +268,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "elasticmapreduce.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "elasticmapreduce.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },

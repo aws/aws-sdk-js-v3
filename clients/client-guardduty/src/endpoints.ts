@@ -6,12 +6,12 @@ const regionHash: RegionHash = {
     hostname: "guardduty.us-east-1.amazonaws.com",
     variants: [
       {
-        hostname: "guardduty-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "guardduty.us-east-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "guardduty-fips.us-east-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -29,12 +29,12 @@ const regionHash: RegionHash = {
     hostname: "guardduty.us-east-2.amazonaws.com",
     variants: [
       {
-        hostname: "guardduty-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "guardduty.us-east-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "guardduty-fips.us-east-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -53,11 +53,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "guardduty.us-gov-east-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "guardduty.us-gov-east-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -76,11 +76,11 @@ const regionHash: RegionHash = {
     variants: [
       {
         hostname: "guardduty.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "guardduty.us-gov-west-1.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
@@ -98,12 +98,12 @@ const regionHash: RegionHash = {
     hostname: "guardduty.us-west-1.amazonaws.com",
     variants: [
       {
-        hostname: "guardduty-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "guardduty.us-west-1.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "guardduty-fips.us-west-1.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -121,12 +121,12 @@ const regionHash: RegionHash = {
     hostname: "guardduty.us-west-2.amazonaws.com",
     variants: [
       {
-        hostname: "guardduty-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
         hostname: "guardduty.us-west-2.amazonaws.com",
         tags: [],
+      },
+      {
+        hostname: "guardduty-fips.us-west-2.amazonaws.com",
+        tags: ["fips"],
       },
     ],
   },
@@ -175,6 +175,10 @@ const partitionHash: PartitionHash = {
     hostname: "guardduty.{region}.amazonaws.com",
     variants: [
       {
+        hostname: "guardduty.{region}.amazonaws.com",
+        tags: [],
+      },
+      {
         hostname: "guardduty-fips.{region}.amazonaws.com",
         tags: ["fips"],
       },
@@ -186,10 +190,6 @@ const partitionHash: PartitionHash = {
         hostname: "guardduty.{region}.api.aws",
         tags: ["dualstack"],
       },
-      {
-        hostname: "guardduty.{region}.amazonaws.com",
-        tags: [],
-      },
     ],
   },
   "aws-cn": {
@@ -197,6 +197,10 @@ const partitionHash: PartitionHash = {
     regionRegex: "^cn\\-\\w+\\-\\d+$",
     hostname: "guardduty.{region}.amazonaws.com.cn",
     variants: [
+      {
+        hostname: "guardduty.{region}.amazonaws.com.cn",
+        tags: [],
+      },
       {
         hostname: "guardduty-fips.{region}.amazonaws.com.cn",
         tags: ["fips"],
@@ -208,10 +212,6 @@ const partitionHash: PartitionHash = {
       {
         hostname: "guardduty.{region}.api.amazonwebservices.com.cn",
         tags: ["dualstack"],
-      },
-      {
-        hostname: "guardduty.{region}.amazonaws.com.cn",
-        tags: [],
       },
     ],
   },
@@ -244,11 +244,11 @@ const partitionHash: PartitionHash = {
     variants: [
       {
         hostname: "guardduty.{region}.amazonaws.com",
-        tags: ["fips"],
+        tags: [],
       },
       {
         hostname: "guardduty.{region}.amazonaws.com",
-        tags: [],
+        tags: ["fips"],
       },
     ],
   },
