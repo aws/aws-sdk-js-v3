@@ -2,6 +2,10 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "fips-ca-central-1": {
+    hostname: "fsx-fips.ca-central-1.amazonaws.com",
+    signingRegion: "ca-central-1",
+  },
   "fips-prod-ca-central-1": {
     hostname: "fsx-fips.ca-central-1.amazonaws.com",
     signingRegion: "ca-central-1",
@@ -30,6 +34,30 @@ const regionHash: RegionHash = {
     hostname: "fsx-fips.us-west-2.amazonaws.com",
     signingRegion: "us-west-2",
   },
+  "fips-us-east-1": {
+    hostname: "fsx-fips.us-east-1.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
+  "fips-us-east-2": {
+    hostname: "fsx-fips.us-east-2.amazonaws.com",
+    signingRegion: "us-east-2",
+  },
+  "fips-us-gov-east-1": {
+    hostname: "fsx-fips.us-gov-east-1.amazonaws.com",
+    signingRegion: "us-gov-east-1",
+  },
+  "fips-us-gov-west-1": {
+    hostname: "fsx-fips.us-gov-west-1.amazonaws.com",
+    signingRegion: "us-gov-west-1",
+  },
+  "fips-us-west-1": {
+    hostname: "fsx-fips.us-west-1.amazonaws.com",
+    signingRegion: "us-west-1",
+  },
+  "fips-us-west-2": {
+    hostname: "fsx-fips.us-west-2.amazonaws.com",
+    signingRegion: "us-west-2",
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -50,12 +78,22 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-ca-central-1",
       "fips-prod-ca-central-1",
       "fips-prod-us-east-1",
       "fips-prod-us-east-2",
       "fips-prod-us-west-1",
       "fips-prod-us-west-2",
+      "fips-us-east-1",
+      "fips-us-east-2",
+      "fips-us-west-1",
+      "fips-us-west-2",
       "me-south-1",
+      "prod-ca-central-1",
+      "prod-us-east-1",
+      "prod-us-east-2",
+      "prod-us-west-1",
+      "prod-us-west-2",
       "sa-east-1",
       "us-east-1",
       "us-east-2",
@@ -81,7 +119,16 @@ const partitionHash: PartitionHash = {
     hostname: "fsx.{region}.sc2s.sgov.gov",
   },
   "aws-us-gov": {
-    regions: ["fips-prod-us-gov-east-1", "fips-prod-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
+    regions: [
+      "fips-prod-us-gov-east-1",
+      "fips-prod-us-gov-west-1",
+      "fips-us-gov-east-1",
+      "fips-us-gov-west-1",
+      "prod-us-gov-east-1",
+      "prod-us-gov-west-1",
+      "us-gov-east-1",
+      "us-gov-west-1",
+    ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
     hostname: "fsx.{region}.amazonaws.com",
   },

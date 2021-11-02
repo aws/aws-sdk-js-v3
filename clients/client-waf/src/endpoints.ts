@@ -10,6 +10,10 @@ const regionHash: RegionHash = {
     hostname: "waf.amazonaws.com",
     signingRegion: "us-east-1",
   },
+  "aws-global-fips": {
+    hostname: "waf-fips.amazonaws.com",
+    signingRegion: "us-east-1",
+  },
 };
 
 const partitionHash: PartitionHash = {
@@ -23,8 +27,10 @@ const partitionHash: PartitionHash = {
       "ap-south-1",
       "ap-southeast-1",
       "ap-southeast-2",
+      "aws",
       "aws-fips",
       "aws-global",
+      "aws-global-fips",
       "ca-central-1",
       "eu-central-1",
       "eu-north-1",
