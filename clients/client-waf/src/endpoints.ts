@@ -50,10 +50,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-1",
   },
-  "aws-global-fips": {
-    hostname: "waf-fips.amazonaws.com",
-    signingRegion: "us-east-1",
-  },
 };
 
 const partitionHash: PartitionHash = {
