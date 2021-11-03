@@ -22,7 +22,9 @@ export interface UpdateStudioCommandInput extends UpdateStudioRequest {}
 export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __MetadataBearer {}
 
 /**
- * <p>Update a Studio resource.</p> <p>Currently, this operation only supports updating the displayName of your studio.</p>
+ * <p>Update a Studio resource.</p>
+ *         <p>Currently, this operation only supports updating the displayName of your
+ *             studio.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

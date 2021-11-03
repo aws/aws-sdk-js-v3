@@ -24,7 +24,9 @@ export interface CreateStreamingSessionStreamCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a streaming session stream for a streaming session.</p> <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId to poll the resource until it is in state READY.</p>
+ * <p>Creates a streaming session stream for a streaming session.</p>
+ *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
+ *             to poll the resource until it is in state READY.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

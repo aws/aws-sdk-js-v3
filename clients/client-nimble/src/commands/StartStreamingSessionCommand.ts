@@ -11,43 +11,44 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { ListStudiosRequest, ListStudiosResponse } from "../models/models_0";
+import { StartStreamingSessionRequest, StartStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1ListStudiosCommand,
-  serializeAws_restJson1ListStudiosCommand,
+  deserializeAws_restJson1StartStreamingSessionCommand,
+  serializeAws_restJson1StartStreamingSessionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListStudiosCommandInput extends ListStudiosRequest {}
-export interface ListStudiosCommandOutput extends ListStudiosResponse, __MetadataBearer {}
+export interface StartStreamingSessionCommandInput extends StartStreamingSessionRequest {}
+export interface StartStreamingSessionCommandOutput extends StartStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>List studios in your Amazon Web Services account in the requested Amazon Web Services
- *             Region.</p>
+ * <p> Transitions sessions from the STOPPED state into the READY state. The
+ *             START_IN_PROGRESS state is the intermediate state between the STOPPED and READY
+ *             states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, ListStudiosCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, ListStudiosCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, StartStreamingSessionCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, StartStreamingSessionCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const command = new ListStudiosCommand(input);
+ * const command = new StartStreamingSessionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListStudiosCommandInput} for command's `input` shape.
- * @see {@link ListStudiosCommandOutput} for command's `response` shape.
+ * @see {@link StartStreamingSessionCommandInput} for command's `input` shape.
+ * @see {@link StartStreamingSessionCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
  *
  */
-export class ListStudiosCommand extends $Command<
-  ListStudiosCommandInput,
-  ListStudiosCommandOutput,
+export class StartStreamingSessionCommand extends $Command<
+  StartStreamingSessionCommandInput,
+  StartStreamingSessionCommandOutput,
   NimbleClientResolvedConfig
 > {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListStudiosCommandInput) {
+  constructor(readonly input: StartStreamingSessionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -60,20 +61,20 @@ export class ListStudiosCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NimbleClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListStudiosCommandInput, ListStudiosCommandOutput> {
+  ): Handler<StartStreamingSessionCommandInput, StartStreamingSessionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "NimbleClient";
-    const commandName = "ListStudiosCommand";
+    const commandName = "StartStreamingSessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStudiosRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: ListStudiosResponse.filterSensitiveLog,
+      inputFilterSensitiveLog: StartStreamingSessionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: StartStreamingSessionResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -83,12 +84,12 @@ export class ListStudiosCommand extends $Command<
     );
   }
 
-  private serialize(input: ListStudiosCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListStudiosCommand(input, context);
+  private serialize(input: StartStreamingSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1StartStreamingSessionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListStudiosCommandOutput> {
-    return deserializeAws_restJson1ListStudiosCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartStreamingSessionCommandOutput> {
+    return deserializeAws_restJson1StartStreamingSessionCommand(output, context);
   }
 
   // Start section: command_body_extra

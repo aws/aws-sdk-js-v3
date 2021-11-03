@@ -1,11 +1,14 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
- * <p>A collection of EULA acceptances.</p>
+ *
  */
 export interface AcceptEulasRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -15,7 +18,7 @@ export interface AcceptEulasRequest {
   eulaIds?: string[];
 
   /**
-   * <p>The studio ID.</p>
+   * <p>A collection of EULA IDs.</p>
    */
   studioId: string | undefined;
 }
@@ -29,6 +32,9 @@ export namespace AcceptEulasRequest {
   });
 }
 
+/**
+ * <p>The acceptance of a EULA, required to use Amazon-provided streaming images.</p>
+ */
 export interface EulaAcceptance {
   /**
    * <p>The Unix epoch timestamp in seconds for when the EULA was accepted.</p>
@@ -65,6 +71,9 @@ export namespace EulaAcceptance {
   });
 }
 
+/**
+ *
+ */
 export interface AcceptEulasResponse {
   /**
    * <p>A collection of EULA acceptances.</p>
@@ -81,6 +90,10 @@ export namespace AcceptEulasResponse {
   });
 }
 
+/**
+ * <p>You are not authorized to perform this operation. Check your IAM policies, and ensure
+ *             that you are using the correct access keys.</p>
+ */
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
@@ -109,6 +122,9 @@ export namespace AccessDeniedException {
   });
 }
 
+/**
+ * <p>Another operation is in progress. </p>
+ */
 export interface ConflictException extends __SmithyException, $MetadataBearer {
   name: "ConflictException";
   $fault: "client";
@@ -137,9 +153,13 @@ export namespace ConflictException {
   });
 }
 
+/**
+ * <p>An internal error has occurred. Please retry your request.</p>
+ */
 export interface InternalServerErrorException extends __SmithyException, $MetadataBearer {
   name: "InternalServerErrorException";
   $fault: "server";
+  $retryable: {};
   /**
    * <p>A more specific error code.</p>
    */
@@ -165,6 +185,9 @@ export namespace InternalServerErrorException {
   });
 }
 
+/**
+ * <p>The specified resource could not be found.</p>
+ */
 export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotFoundException";
   $fault: "client";
@@ -193,6 +216,11 @@ export namespace ResourceNotFoundException {
   });
 }
 
+/**
+ * <p>Your current quota does not allow you to perform the request action. You can request
+ *             increases for some quotas, and other quotas cannot be increased.</p>
+ *         <p>Please use AWS Service Quotas to request an increase. </p>
+ */
 export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
   name: "ServiceQuotaExceededException";
   $fault: "client";
@@ -221,9 +249,13 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+/**
+ * <p>The request throughput limit was exceeded.</p>
+ */
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "client";
+  $retryable: {};
   /**
    * <p>A more specific error code.</p>
    */
@@ -249,6 +281,9 @@ export namespace ThrottlingException {
   });
 }
 
+/**
+ * <p>One of the parameters in the request is invalid.</p>
+ */
 export interface ValidationException extends __SmithyException, $MetadataBearer {
   name: "ValidationException";
   $fault: "client";
@@ -278,7 +313,8 @@ export namespace ValidationException {
 }
 
 /**
- * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value pair.</p>
+ * <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
+ *             pair.</p>
  */
 export interface ActiveDirectoryComputerAttribute {
   /**
@@ -302,7 +338,8 @@ export namespace ActiveDirectoryComputerAttribute {
 }
 
 /**
- * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+ * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+ *             resource.</p>
  */
 export interface ActiveDirectoryConfiguration {
   /**
@@ -311,12 +348,14 @@ export interface ActiveDirectoryConfiguration {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio component.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+   *             using this studio component.</p>
    */
   directoryId?: string;
 
   /**
-   * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.</p>
+   * <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
+   *             computer.</p>
    */
   organizationalUnitDistinguishedName?: string;
 }
@@ -327,6 +366,7 @@ export namespace ActiveDirectoryConfiguration {
    */
   export const filterSensitiveLog = (obj: ActiveDirectoryConfiguration): any => ({
     ...obj,
+    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
   });
 }
 
@@ -335,12 +375,14 @@ export namespace ActiveDirectoryConfiguration {
  */
 export interface ComputeFarmConfiguration {
   /**
-   * <p>The name of an Active Directory user that is used on ComputeFarm worker instances.</p>
+   * <p>The name of an Active Directory user that is used on ComputeFarm worker
+   *             instances.</p>
    */
   activeDirectoryUser?: string;
 
   /**
-   * <p>The endpoint of the ComputeFarm that is accessed by the studio component resource.</p>
+   * <p>The endpoint of the ComputeFarm that is accessed by the studio component
+   *             resource.</p>
    */
   endpoint?: string;
 }
@@ -351,6 +393,7 @@ export namespace ComputeFarmConfiguration {
    */
   export const filterSensitiveLog = (obj: ComputeFarmConfiguration): any => ({
     ...obj,
+    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
   });
 }
 
@@ -368,26 +411,43 @@ export enum StreamingInstanceType {
   g4dn_xlarge = "g4dn.xlarge",
 }
 
+/**
+ * <p>Configuration for streaming workstations created using this launch profile.</p>
+ */
 export interface StreamConfigurationCreate {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.</p>
+   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
-   * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+   * <p>The EC2 instance types that users can select from when launching a streaming session
+   *             with this launch profile.</p>
    */
   ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
-   * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+   * <p>The length of time, in minutes, that a streaming session can be active before it is
+   *             stopped or terminated. After this point, Nimble Studio automatically terminates
+   *             or stops the session. The default length of time is 690 minutes, and the maximum length
+   *             of time is 30 days.</p>
    */
   maxSessionLengthInMinutes?: number;
 
   /**
-   * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+   * <p>The streaming images that users can select from when launching a streaming session
+   *             with this launch profile.</p>
    */
   streamingImageIds: string[] | undefined;
+
+  /**
+   * <p>The length of time, in minutes, that a streaming session can be active before it is
+   *             stopped or terminated. After this point, Nimble Studio automatically terminates or
+   *             stops the session. The default length of time is 690 minutes, and the maximum length of
+   *             time is 30 days.</p>
+   */
+  maxStoppedSessionLengthInMinutes?: number;
 }
 
 export namespace StreamConfigurationCreate {
@@ -400,11 +460,13 @@ export namespace StreamConfigurationCreate {
 }
 
 /**
- * <p>A collection of launch profiles.</p>
+ *
  */
 export interface CreateLaunchProfileRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -413,9 +475,15 @@ export interface CreateLaunchProfileRequest {
    */
   description?: string;
 
-  ec2SubnetIds: string[] | undefined;
   /**
-   * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+   * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
+   *             These subnets must support the specified instance types. </p>
+   */
+  ec2SubnetIds: string[] | undefined;
+
+  /**
+   * <p>The version number of the protocol that is used by the launch profile. The only valid
+   *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
@@ -430,17 +498,19 @@ export interface CreateLaunchProfileRequest {
   streamConfiguration: StreamConfigurationCreate | undefined;
 
   /**
-   * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+   * <p>Unique identifiers for a collection of studio components that can be used with this
+   *             launch profile.</p>
    */
   studioComponentIds: string[] | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -451,6 +521,8 @@ export namespace CreateLaunchProfileRequest {
    */
   export const filterSensitiveLog = (obj: CreateLaunchProfileRequest): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
@@ -486,24 +558,44 @@ export enum LaunchProfileStatusCode {
  */
 export interface StreamConfiguration {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the streaming session and streaming client.</p>
+   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   *             streaming session and streaming client.</p>
    */
-  clipboardMode?: StreamingClipboardMode | string;
+  clipboardMode: StreamingClipboardMode | string | undefined;
 
   /**
-   * <p>The EC2 instance types that users can select from when launching a streaming session with this launch profile.</p>
+   * <p>The EC2 instance types that users can select from when launching a streaming session
+   *             with this launch profile.</p>
    */
-  ec2InstanceTypes?: (StreamingInstanceType | string)[];
+  ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
 
   /**
-   * <p>The length of time, in minutes, that a streaming session can run. After this point, Nimble Studio automatically terminates the session.</p>
+   * <p>The length of time, in minutes, that a streaming session can be active before it is
+   *             stopped or terminated. After this point, Nimble Studio automatically terminates
+   *             or stops the session. The default length of time is 690 minutes, and the maximum length
+   *             of time is 30 days.</p>
    */
   maxSessionLengthInMinutes?: number;
 
   /**
-   * <p>The streaming images that users can select from when launching a streaming session with this launch profile.</p>
+   * <p>The streaming images that users can select from when launching a streaming session
+   *             with this launch profile.</p>
    */
-  streamingImageIds?: string[];
+  streamingImageIds: string[] | undefined;
+
+  /**
+   * <p>Integer that determines if you can start and stop your sessions and how long a session
+   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
+   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
+   *             StopStreamingSession, the session fails. If the time that a session stays in the READY
+   *             state exceeds the maxSessionLengthInMinutes value, the session will automatically be
+   *             terminated by AWS (instead of stopped).</p>
+   *         <p>If the value is set to a positive number, the session can be stopped. You can call
+   *             StopStreamingSession to stop sessions in the READY state. If the time that a session
+   *             stays in the READY state exceeds the maxSessionLengthInMinutes value, the session will
+   *             automatically be stopped by AWS (instead of terminated).</p>
+   */
+  maxStoppedSessionLengthInMinutes?: number;
 }
 
 export namespace StreamConfiguration {
@@ -515,6 +607,16 @@ export namespace StreamConfiguration {
   });
 }
 
+/**
+ * <p>A launch profile controls your artist workforce’s access to studio components, like
+ *             compute farms, shared file systems, managed file systems, and license server
+ *             configurations, as well as instance types and Amazon Machine Images (AMIs). </p>
+ *
+ *         <p>Studio administrators create launch profiles in the Nimble Studio console.
+ *             Artists can use their launch profiles to launch an instance from the Nimble Studio
+ *             portal. Each user’s launch profile defines how they can launch a streaming session. By
+ *             default, studio admins can use all launch profiles.</p>
+ */
 export interface LaunchProfile {
   /**
    * <p>The ARN of the resource.</p>
@@ -547,7 +649,8 @@ export interface LaunchProfile {
   launchProfileId?: string;
 
   /**
-   * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+   * <p>The version number of the protocol that is used by the launch profile. The only valid
+   *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
@@ -577,12 +680,14 @@ export interface LaunchProfile {
   streamConfiguration?: StreamConfiguration;
 
   /**
-   * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+   * <p>Unique identifiers for a collection of studio components that can be used with this
+   *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
@@ -603,9 +708,14 @@ export namespace LaunchProfile {
    */
   export const filterSensitiveLog = (obj: LaunchProfile): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface CreateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -619,15 +729,18 @@ export namespace CreateLaunchProfileResponse {
    */
   export const filterSensitiveLog = (obj: CreateLaunchProfileResponse): any => ({
     ...obj,
+    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
   });
 }
 
 /**
- * <p>A collection of streaming images.</p>
+ *
  */
 export interface CreateStreamingImageRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -647,12 +760,13 @@ export interface CreateStreamingImageRequest {
   name: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -663,6 +777,8 @@ export namespace CreateStreamingImageRequest {
    */
   export const filterSensitiveLog = (obj: CreateStreamingImageRequest): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
@@ -670,6 +786,9 @@ export enum StreamingImageEncryptionConfigurationKeyType {
   CUSTOMER_MANAGED_KEY = "CUSTOMER_MANAGED_KEY",
 }
 
+/**
+ * <p>Specifies how a streaming image is encrypted.</p>
+ */
 export interface StreamingImageEncryptionConfiguration {
   /**
    * <p>The ARN for a KMS key that is used to encrypt studio data.</p>
@@ -711,6 +830,16 @@ export enum StreamingImageStatusCode {
   STREAMING_IMAGE_UPDATE_IN_PROGRESS = "STREAMING_IMAGE_UPDATE_IN_PROGRESS",
 }
 
+/**
+ * <p>Represents a streaming image resource.</p>
+ *         <p>Streaming images are used by studio users to select which operating system and
+ *             software they want to use in a Nimble Studio streaming session.</p>
+ *         <p>Amazon provides a number of streaming images that include popular 3rd-party
+ *             software.</p>
+ *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
+ *             EC2) machine image that you create for this purpose. You can also include software that
+ *             your users require.</p>
+ */
 export interface StreamingImage {
   /**
    * <p>The ARN of the resource.</p>
@@ -733,7 +862,8 @@ export interface StreamingImage {
   encryptionConfiguration?: StreamingImageEncryptionConfiguration;
 
   /**
-   * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+   * <p>The list of EULAs that must be accepted before a Streaming Session can be started
+   *             using this streaming image.</p>
    */
   eulaIds?: string[];
 
@@ -743,7 +873,8 @@ export interface StreamingImage {
   name?: string;
 
   /**
-   * <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+   * <p>The owner of the streaming image, either the studioId that contains the streaming
+   *             image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
    */
   owner?: string;
 
@@ -773,7 +904,8 @@ export interface StreamingImage {
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -784,10 +916,18 @@ export namespace StreamingImage {
    */
   export const filterSensitiveLog = (obj: StreamingImage): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface CreateStreamingImageResponse {
+  /**
+   * <p>The streaming image.</p>
+   */
   streamingImage?: StreamingImage;
 }
 
@@ -797,15 +937,18 @@ export namespace CreateStreamingImageResponse {
    */
   export const filterSensitiveLog = (obj: CreateStreamingImageResponse): any => ({
     ...obj,
+    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
   });
 }
 
 /**
- * <p>A collection of streaming sessions.</p>
+ *
  */
 export interface CreateStreamingSessionRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -830,12 +973,13 @@ export interface CreateStreamingSessionRequest {
   streamingImageId?: string;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 }
@@ -856,6 +1000,11 @@ export enum StreamingSessionState {
   DELETE_FAILED = "DELETE_FAILED",
   DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
   READY = "READY",
+  START_FAILED = "START_FAILED",
+  START_IN_PROGRESS = "START_IN_PROGRESS",
+  STOPPED = "STOPPED",
+  STOP_FAILED = "STOP_FAILED",
+  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
 }
 
 export enum StreamingSessionStatusCode {
@@ -870,8 +1019,16 @@ export enum StreamingSessionStatusCode {
   STREAMING_SESSION_DELETED = "STREAMING_SESSION_DELETED",
   STREAMING_SESSION_DELETE_IN_PROGRESS = "STREAMING_SESSION_DELETE_IN_PROGRESS",
   STREAMING_SESSION_READY = "STREAMING_SESSION_READY",
+  STREAMING_SESSION_STARTED = "STREAMING_SESSION_STARTED",
+  STREAMING_SESSION_START_IN_PROGRESS = "STREAMING_SESSION_START_IN_PROGRESS",
+  STREAMING_SESSION_STOPPED = "STREAMING_SESSION_STOPPED",
+  STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
 }
 
+/**
+ * <p>A streaming session is a virtual workstation created using a particular launch
+ *             profile.</p>
+ */
 export interface StreamingSession {
   /**
    * <p>The ARN of the resource.</p>
@@ -929,12 +1086,14 @@ export interface StreamingSession {
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   * <p>The time the streaming session will automatically terminate if not terminated by the user.</p>
+   * <p>The time the streaming session will automatically terminate if not terminated by the
+   *             user.</p>
    */
   terminateAt?: Date;
 
@@ -947,6 +1106,32 @@ export interface StreamingSession {
    * <p>The user ID of the user that most recently updated the resource.</p>
    */
   updatedBy?: string;
+
+  /**
+   * <p>The time the session entered STOP_IN_PROGRESS state.</p>
+   */
+  stoppedAt?: Date;
+
+  /**
+   * <p>The user ID of the user that stopped the streaming session.</p>
+   */
+  stoppedBy?: string;
+
+  /**
+   * <p>The time the session entered START_IN_PROGRESS state.</p>
+   */
+  startedAt?: Date;
+
+  /**
+   * <p>The user ID of the user that started the streaming session.</p>
+   */
+  startedBy?: string;
+
+  /**
+   * <p>The time the streaming session will automatically be stopped if the user doesn’t stop
+   *             the session themselves. </p>
+   */
+  stopAt?: Date;
 }
 
 export namespace StreamingSession {
@@ -958,6 +1143,9 @@ export namespace StreamingSession {
   });
 }
 
+/**
+ *
+ */
 export interface CreateStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -975,11 +1163,13 @@ export namespace CreateStreamingSessionResponse {
 }
 
 /**
- * <p>A list collection streams.</p>
+ *
  */
 export interface CreateStreamingSessionStreamRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -989,12 +1179,12 @@ export interface CreateStreamingSessionStreamRequest {
   expirationInSeconds?: number;
 
   /**
-   * <p>The session ID.</p>
+   * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1026,6 +1216,12 @@ export enum StreamingSessionStreamStatusCode {
   STREAM_READY = "STREAM_READY",
 }
 
+/**
+ * <p>A stream is an active connection to a streaming session, enabling a studio user to
+ *             control the streaming session using a compatible client. Streaming session streams are
+ *             compatible with the NICE DCV web client, included in the Nimble Studio portal, or
+ *             the NICE DCV desktop client.</p>
+ */
 export interface StreamingSessionStream {
   /**
    * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
@@ -1074,9 +1270,13 @@ export namespace StreamingSessionStream {
    */
   export const filterSensitiveLog = (obj: StreamingSessionStream): any => ({
     ...obj,
+    ...(obj.url && { url: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface CreateStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -1090,6 +1290,7 @@ export namespace CreateStreamingSessionStreamResponse {
    */
   export const filterSensitiveLog = (obj: CreateStreamingSessionStreamResponse): any => ({
     ...obj,
+    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
   });
 }
 
@@ -1123,16 +1324,19 @@ export namespace StudioEncryptionConfiguration {
 }
 
 /**
- * <p>A collection of studio resources.</p>
+ *
  */
 export interface CreateStudioRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
+   *             portal.</p>
    */
   adminRoleArn: string | undefined;
 
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1147,17 +1351,20 @@ export interface CreateStudioRequest {
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
-   * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+   * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed
+   *             by Nimble Studio users.</p>
    */
   studioName: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
   /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
+   *             portal.</p>
    */
   userRoleArn: string | undefined;
 }
@@ -1168,6 +1375,7 @@ export namespace CreateStudioRequest {
    */
   export const filterSensitiveLog = (obj: CreateStudioRequest): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
 }
 
@@ -1203,14 +1411,30 @@ export enum StudioStatusCode {
   STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED = "STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED",
 }
 
+/**
+ * <p>Represents a studio resource.</p>
+ *         <p>A studio is the core resource used with Nimble Studio. You must create a studio
+ *             first, before any other resource type can be created. All other resources you create and
+ *             manage in Nimble Studio are contained within a studio.</p>
+ *         <p>When creating a studio, you must provides two IAM roles for use with the Nimble Studio portal. These roles are assumed by your users when they log in to the
+ *                 Nimble Studio portal via Amazon Web Services SSO and your identity source.</p>
+ *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
+ *             the portal to function properly.</p>
+ *         <p>The admin role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
+ *             for the portal to function properly.</p>
+ *         <p>Your studio roles must trust the identity.nimble.amazonaws.com service principal to
+ *             function properly.</p>
+ */
 export interface Studio {
   /**
-   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio portal.</p>
+   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio
+   *             portal.</p>
    */
   adminRoleArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely identifies it. ARNs are unique across all Regions.</p>
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
@@ -1230,7 +1454,8 @@ export interface Studio {
   homeRegion?: string;
 
   /**
-   * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble portal.</p>
+   * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO
+   *             to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
    */
   ssoClientId?: string;
 
@@ -1255,7 +1480,8 @@ export interface Studio {
   studioEncryptionConfiguration?: StudioEncryptionConfiguration;
 
   /**
-   * <p>The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.</p>
+   * <p>The unique identifier for a studio resource. In Nimble Studio, all other
+   *             resources are contained in a studio resource.</p>
    */
   studioId?: string;
 
@@ -1270,7 +1496,8 @@ export interface Studio {
   studioUrl?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1280,7 +1507,8 @@ export interface Studio {
   updatedAt?: Date;
 
   /**
-   * <p>The IAM role that studio users assume when logging in to the Nimble Studio portal.</p>
+   * <p>The IAM role that studio users assume when logging in to the Nimble Studio
+   *             portal.</p>
    */
   userRoleArn?: string;
 }
@@ -1291,9 +1519,13 @@ export namespace Studio {
    */
   export const filterSensitiveLog = (obj: Studio): any => ({
     ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface CreateStudioResponse {
   /**
    * <p>Information about a studio.</p>
@@ -1307,15 +1539,18 @@ export namespace CreateStudioResponse {
    */
   export const filterSensitiveLog = (obj: CreateStudioResponse): any => ({
     ...obj,
+    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
   });
 }
 
 /**
- * <p>The configuration for a license service that is associated with a studio resource.</p>
+ * <p>The configuration for a license service that is associated with a studio
+ *             resource.</p>
  */
 export interface LicenseServiceConfiguration {
   /**
-   * <p>The endpoint of the license service that is accessed by the studio component resource.</p>
+   * <p>The endpoint of the license service that is accessed by the studio component
+   *             resource.</p>
    */
   endpoint?: string;
 }
@@ -1326,15 +1561,18 @@ export namespace LicenseServiceConfiguration {
    */
   export const filterSensitiveLog = (obj: LicenseServiceConfiguration): any => ({
     ...obj,
+    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
   });
 }
 
 /**
- * <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+ * <p>The configuration for a shared file storage system that is associated with a studio
+ *             resource.</p>
  */
 export interface SharedFileSystemConfiguration {
   /**
-   * <p>The endpoint of the shared file system that is accessed by the studio component resource.</p>
+   * <p>The endpoint of the shared file system that is accessed by the studio component
+   *             resource.</p>
    */
   endpoint?: string;
 
@@ -1365,6 +1603,9 @@ export namespace SharedFileSystemConfiguration {
    */
   export const filterSensitiveLog = (obj: SharedFileSystemConfiguration): any => ({
     ...obj,
+    ...(obj.endpoint && { endpoint: SENSITIVE_STRING }),
+    ...(obj.linuxMountPoint && { linuxMountPoint: SENSITIVE_STRING }),
+    ...(obj.shareName && { shareName: SENSITIVE_STRING }),
   });
 }
 
@@ -1373,7 +1614,8 @@ export namespace SharedFileSystemConfiguration {
  */
 export interface StudioComponentConfiguration {
   /**
-   * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio resource.</p>
+   * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
+   *             resource.</p>
    */
   activeDirectoryConfiguration?: ActiveDirectoryConfiguration;
 
@@ -1383,12 +1625,14 @@ export interface StudioComponentConfiguration {
   computeFarmConfiguration?: ComputeFarmConfiguration;
 
   /**
-   * <p>The configuration for a license service that is associated with a studio resource.</p>
+   * <p>The configuration for a license service that is associated with a studio
+   *             resource.</p>
    */
   licenseServiceConfiguration?: LicenseServiceConfiguration;
 
   /**
-   * <p>The configuration for a shared file storage system that is associated with a studio resource.</p>
+   * <p>The configuration for a shared file storage system that is associated with a studio
+   *             resource.</p>
    */
   sharedFileSystemConfiguration?: SharedFileSystemConfiguration;
 }
@@ -1399,6 +1643,20 @@ export namespace StudioComponentConfiguration {
    */
   export const filterSensitiveLog = (obj: StudioComponentConfiguration): any => ({
     ...obj,
+    ...(obj.activeDirectoryConfiguration && {
+      activeDirectoryConfiguration: ActiveDirectoryConfiguration.filterSensitiveLog(obj.activeDirectoryConfiguration),
+    }),
+    ...(obj.computeFarmConfiguration && {
+      computeFarmConfiguration: ComputeFarmConfiguration.filterSensitiveLog(obj.computeFarmConfiguration),
+    }),
+    ...(obj.licenseServiceConfiguration && {
+      licenseServiceConfiguration: LicenseServiceConfiguration.filterSensitiveLog(obj.licenseServiceConfiguration),
+    }),
+    ...(obj.sharedFileSystemConfiguration && {
+      sharedFileSystemConfiguration: SharedFileSystemConfiguration.filterSensitiveLog(
+        obj.sharedFileSystemConfiguration
+      ),
+    }),
   });
 }
 
@@ -1417,7 +1675,8 @@ export enum StudioComponentInitializationScriptRunContext {
  */
 export interface StudioComponentInitializationScript {
   /**
-   * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+   * <p>The version number of the protocol that is used by the launch profile. The only valid
+   *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
@@ -1443,6 +1702,7 @@ export namespace StudioComponentInitializationScript {
    */
   export const filterSensitiveLog = (obj: StudioComponentInitializationScript): any => ({
     ...obj,
+    ...(obj.script && { script: SENSITIVE_STRING }),
   });
 }
 
@@ -1486,11 +1746,13 @@ export enum StudioComponentType {
 }
 
 /**
- * <p>The studio components.</p>
+ *
  */
 export interface CreateStudioComponentRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1525,7 +1787,7 @@ export interface CreateStudioComponentRequest {
   scriptParameters?: ScriptParameterKeyValue[];
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
@@ -1535,7 +1797,8 @@ export interface CreateStudioComponentRequest {
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1551,6 +1814,15 @@ export namespace CreateStudioComponentRequest {
    */
   export const filterSensitiveLog = (obj: CreateStudioComponentRequest): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.initializationScripts && {
+      initializationScripts: obj.initializationScripts.map((item) =>
+        StudioComponentInitializationScript.filterSensitiveLog(item)
+      ),
+    }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
   });
 }
 
@@ -1579,7 +1851,15 @@ export enum StudioComponentStatusCode {
 }
 
 /**
- * <p>A network that is used by a studio’s users and workflows, including render farm, Active Directory, licensing, and file system.</p>
+ * <p>A studio component represents a network resource to be used by a studio's users and
+ *             workflows. A typical studio contains studio components for each of the following: render
+ *             farm, Active Directory, licensing, and file system.</p>
+ *         <p>Access to a studio component is managed by specifying security groups for the
+ *             resource, as well as its endpoint.</p>
+ *         <p>A studio component also has a set of initialization scripts that are returned by
+ *                 <code>GetLaunchProfileInitialization</code>. These initialization scripts run on
+ *             streaming sessions when they start. They provide users with flexibility in controlling
+ *             how the studio resources are configured on a streaming session.</p>
  */
 export interface StudioComponent {
   /**
@@ -1653,7 +1933,8 @@ export interface StudioComponent {
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
    */
   tags?: { [key: string]: string };
 
@@ -1679,9 +1960,21 @@ export namespace StudioComponent {
    */
   export const filterSensitiveLog = (obj: StudioComponent): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.initializationScripts && {
+      initializationScripts: obj.initializationScripts.map((item) =>
+        StudioComponentInitializationScript.filterSensitiveLog(item)
+      ),
+    }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
   });
 }
 
+/**
+ * <p/>
+ */
 export interface CreateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -1695,22 +1988,25 @@ export namespace CreateStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: CreateStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
 export interface DeleteLaunchProfileRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1724,6 +2020,9 @@ export namespace DeleteLaunchProfileRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -1737,27 +2036,30 @@ export namespace DeleteLaunchProfileResponse {
    */
   export const filterSensitiveLog = (obj: DeleteLaunchProfileResponse): any => ({
     ...obj,
+    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
   });
 }
 
 export interface DeleteLaunchProfileMemberRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1771,6 +2073,9 @@ export namespace DeleteLaunchProfileMemberRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteLaunchProfileMemberResponse {}
 
 export namespace DeleteLaunchProfileMemberResponse {
@@ -1784,7 +2089,9 @@ export namespace DeleteLaunchProfileMemberResponse {
 
 export interface DeleteStreamingImageRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1794,7 +2101,7 @@ export interface DeleteStreamingImageRequest {
   streamingImageId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1808,6 +2115,9 @@ export namespace DeleteStreamingImageRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -1821,22 +2131,25 @@ export namespace DeleteStreamingImageResponse {
    */
   export const filterSensitiveLog = (obj: DeleteStreamingImageResponse): any => ({
     ...obj,
+    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
   });
 }
 
 export interface DeleteStreamingSessionRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The session ID.</p>
+   * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1850,6 +2163,9 @@ export namespace DeleteStreamingSessionRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -1868,12 +2184,14 @@ export namespace DeleteStreamingSessionResponse {
 
 export interface DeleteStudioRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1887,11 +2205,14 @@ export namespace DeleteStudioRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
-  studio?: Studio;
+  studio: Studio | undefined;
 }
 
 export namespace DeleteStudioResponse {
@@ -1900,12 +2221,15 @@ export namespace DeleteStudioResponse {
    */
   export const filterSensitiveLog = (obj: DeleteStudioResponse): any => ({
     ...obj,
+    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
   });
 }
 
 export interface DeleteStudioComponentRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1915,7 +2239,7 @@ export interface DeleteStudioComponentRequest {
   studioComponentId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1929,6 +2253,9 @@ export namespace DeleteStudioComponentRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -1942,22 +2269,25 @@ export namespace DeleteStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: DeleteStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
 export interface DeleteStudioMemberRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -1971,6 +2301,9 @@ export namespace DeleteStudioMemberRequest {
   });
 }
 
+/**
+ *
+ */
 export interface DeleteStudioMemberResponse {}
 
 export namespace DeleteStudioMemberResponse {
@@ -2021,6 +2354,56 @@ export namespace Eula {
   });
 }
 
+export interface ListEulaAcceptancesRequest {
+  /**
+   * <p>The list of EULA IDs that have been previously accepted.</p>
+   */
+  eulaIds?: string[];
+
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace ListEulaAcceptancesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p/>
+ */
+export interface ListEulaAcceptancesResponse {
+  /**
+   * <p>A collection of EULA acceptances.</p>
+   */
+  eulaAcceptances?: EulaAcceptance[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListEulaAcceptancesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetEulaRequest {
   /**
    * <p>The EULA ID.</p>
@@ -2037,6 +2420,9 @@ export namespace GetEulaRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetEulaResponse {
   /**
    * <p>The EULA.</p>
@@ -2053,14 +2439,59 @@ export namespace GetEulaResponse {
   });
 }
 
+export interface ListEulasRequest {
+  /**
+   * <p>The list of EULA IDs that should be returned</p>
+   */
+  eulaIds?: string[];
+
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListEulasRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEulasRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListEulasResponse {
+  /**
+   * <p>A collection of EULA resources.</p>
+   */
+  eulas?: Eula[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListEulasResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListEulasResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetLaunchProfileRequest {
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2074,6 +2505,9 @@ export namespace GetLaunchProfileRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -2087,17 +2521,18 @@ export namespace GetLaunchProfileResponse {
    */
   export const filterSensitiveLog = (obj: GetLaunchProfileResponse): any => ({
     ...obj,
+    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
   });
 }
 
 export interface GetLaunchProfileDetailsRequest {
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2112,7 +2547,7 @@ export namespace GetLaunchProfileDetailsRequest {
 }
 
 /**
- * <p></p>
+ * <p/>
  */
 export interface StudioComponentSummary {
   /**
@@ -2167,9 +2602,14 @@ export namespace StudioComponentSummary {
    */
   export const filterSensitiveLog = (obj: StudioComponentSummary): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface GetLaunchProfileDetailsResponse {
   /**
    * <p>The launch profile.</p>
@@ -2193,17 +2633,26 @@ export namespace GetLaunchProfileDetailsResponse {
    */
   export const filterSensitiveLog = (obj: GetLaunchProfileDetailsResponse): any => ({
     ...obj,
+    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
+    ...(obj.streamingImages && {
+      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
+    }),
+    ...(obj.studioComponentSummaries && {
+      studioComponentSummaries: obj.studioComponentSummaries.map((item) =>
+        StudioComponentSummary.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
 export interface GetLaunchProfileInitializationRequest {
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>A collection of launch profile protocol versions.</p>
+   * <p>The launch profile protocol versions supported by the client.</p>
    */
   launchProfileProtocolVersions: string[] | undefined;
 
@@ -2213,12 +2662,12 @@ export interface GetLaunchProfileInitializationRequest {
   launchPurpose: string | undefined;
 
   /**
-   * <p>The platform.</p>
+   * <p>The platform where this Launch Profile will be used, either WINDOWS or LINUX.</p>
    */
   platform: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2232,6 +2681,9 @@ export namespace GetLaunchProfileInitializationRequest {
   });
 }
 
+/**
+ * <p/>
+ */
 export interface LaunchProfileInitializationActiveDirectory {
   /**
    * <p>A collection of custom attributes for an Active Directory computer.</p>
@@ -2239,7 +2691,8 @@ export interface LaunchProfileInitializationActiveDirectory {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this launch profile.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
+   *             using this launch profile.</p>
    */
   directoryId?: string;
 
@@ -2275,9 +2728,14 @@ export namespace LaunchProfileInitializationActiveDirectory {
    */
   export const filterSensitiveLog = (obj: LaunchProfileInitializationActiveDirectory): any => ({
     ...obj,
+    ...(obj.computerAttributes && { computerAttributes: SENSITIVE_STRING }),
+    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
   });
 }
 
+/**
+ * <p/>
+ */
 export interface LaunchProfileInitializationScript {
   /**
    * <p>The initialization script.</p>
@@ -2301,9 +2759,17 @@ export namespace LaunchProfileInitializationScript {
    */
   export const filterSensitiveLog = (obj: LaunchProfileInitializationScript): any => ({
     ...obj,
+    ...(obj.script && { script: SENSITIVE_STRING }),
+    ...(obj.studioComponentName && { studioComponentName: SENSITIVE_STRING }),
   });
 }
 
+/**
+ * <p>A Launch Profile Initialization contains information required for a workstation or
+ *             server to connect to a launch profile</p>
+ *         <p>This includes scripts, endpoints, security groups, subnets, and other
+ *             configuration.</p>
+ */
 export interface LaunchProfileInitialization {
   /**
    * <p>A LaunchProfileInitializationActiveDirectory resource.</p>
@@ -2321,7 +2787,8 @@ export interface LaunchProfileInitialization {
   launchProfileId?: string;
 
   /**
-   * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+   * <p>The version number of the protocol that is used by the launch profile. The only valid
+   *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersion?: string;
 
@@ -2357,9 +2824,26 @@ export namespace LaunchProfileInitialization {
    */
   export const filterSensitiveLog = (obj: LaunchProfileInitialization): any => ({
     ...obj,
+    ...(obj.activeDirectory && {
+      activeDirectory: LaunchProfileInitializationActiveDirectory.filterSensitiveLog(obj.activeDirectory),
+    }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.systemInitializationScripts && {
+      systemInitializationScripts: obj.systemInitializationScripts.map((item) =>
+        LaunchProfileInitializationScript.filterSensitiveLog(item)
+      ),
+    }),
+    ...(obj.userInitializationScripts && {
+      userInitializationScripts: obj.userInitializationScripts.map((item) =>
+        LaunchProfileInitializationScript.filterSensitiveLog(item)
+      ),
+    }),
   });
 }
 
+/**
+ *
+ */
 export interface GetLaunchProfileInitializationResponse {
   /**
    * <p>The launch profile initialization.</p>
@@ -2373,22 +2857,25 @@ export namespace GetLaunchProfileInitializationResponse {
    */
   export const filterSensitiveLog = (obj: GetLaunchProfileInitializationResponse): any => ({
     ...obj,
+    ...(obj.launchProfileInitialization && {
+      launchProfileInitialization: LaunchProfileInitialization.filterSensitiveLog(obj.launchProfileInitialization),
+    }),
   });
 }
 
 export interface GetLaunchProfileMemberRequest {
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2406,6 +2893,9 @@ export enum LaunchProfilePersona {
   USER = "USER",
 }
 
+/**
+ * <p/>
+ */
 export interface LaunchProfileMembership {
   /**
    * <p>The ID of the identity store.</p>
@@ -2421,6 +2911,11 @@ export interface LaunchProfileMembership {
    * <p>The principal ID.</p>
    */
   principalId?: string;
+
+  /**
+   * <p>The Active Directory Security Identifier for this user, if available.</p>
+   */
+  sid?: string;
 }
 
 export namespace LaunchProfileMembership {
@@ -2432,6 +2927,9 @@ export namespace LaunchProfileMembership {
   });
 }
 
+/**
+ *
+ */
 export interface GetLaunchProfileMemberResponse {
   /**
    * <p>The member.</p>
@@ -2455,7 +2953,7 @@ export interface GetStreamingImageRequest {
   streamingImageId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2469,6 +2967,9 @@ export namespace GetStreamingImageRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetStreamingImageResponse {
   /**
    * <p>The streaming image.</p>
@@ -2482,17 +2983,18 @@ export namespace GetStreamingImageResponse {
    */
   export const filterSensitiveLog = (obj: GetStreamingImageResponse): any => ({
     ...obj,
+    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
   });
 }
 
 export interface GetStreamingSessionRequest {
   /**
-   * <p>The session ID.</p>
+   * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2506,6 +3008,9 @@ export namespace GetStreamingSessionRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetStreamingSessionResponse {
   /**
    * <p>The session.</p>
@@ -2524,17 +3029,17 @@ export namespace GetStreamingSessionResponse {
 
 export interface GetStreamingSessionStreamRequest {
   /**
-   * <p>The session ID.</p>
+   * <p>The streaming session ID.</p>
    */
   sessionId: string | undefined;
 
   /**
-   * <p>The stream ID.</p>
+   * <p>The streaming session stream ID.</p>
    */
   streamId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2548,6 +3053,9 @@ export namespace GetStreamingSessionStreamRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetStreamingSessionStreamResponse {
   /**
    * <p>The stream.</p>
@@ -2561,12 +3069,13 @@ export namespace GetStreamingSessionStreamResponse {
    */
   export const filterSensitiveLog = (obj: GetStreamingSessionStreamResponse): any => ({
     ...obj,
+    ...(obj.stream && { stream: StreamingSessionStream.filterSensitiveLog(obj.stream) }),
   });
 }
 
 export interface GetStudioRequest {
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2580,11 +3089,14 @@ export namespace GetStudioRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetStudioResponse {
   /**
    * <p>Information about a studio.</p>
    */
-  studio?: Studio;
+  studio: Studio | undefined;
 }
 
 export namespace GetStudioResponse {
@@ -2593,6 +3105,7 @@ export namespace GetStudioResponse {
    */
   export const filterSensitiveLog = (obj: GetStudioResponse): any => ({
     ...obj,
+    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
   });
 }
 
@@ -2603,7 +3116,7 @@ export interface GetStudioComponentRequest {
   studioComponentId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2617,6 +3130,9 @@ export namespace GetStudioComponentRequest {
   });
 }
 
+/**
+ *
+ */
 export interface GetStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -2630,17 +3146,18 @@ export namespace GetStudioComponentResponse {
    */
   export const filterSensitiveLog = (obj: GetStudioComponentResponse): any => ({
     ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
   });
 }
 
 export interface GetStudioMemberRequest {
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2658,6 +3175,18 @@ export enum StudioPersona {
   ADMINISTRATOR = "ADMINISTRATOR",
 }
 
+/**
+ * <p>A studio member is an association of a user from your studio identity source to
+ *             elevated permissions that they are granted in the studio.</p>
+ *         <p>When you add a user to your studio using the Nimble Studio console, they are
+ *             given access to the studio's AWS SSO application and are given access to log in to the
+ *                 Nimble Studio portal. These users have the permissions provided by the studio's
+ *             user IAM role and do not appear in the studio membership collection. Only studio admins
+ *             appear in studio membership.</p>
+ *         <p>When you add a user to studio membership with the persona ADMIN, upon logging in to
+ *             the Nimble Studio portal, they are granted permissions specified by the Studio's
+ *             Admin IAM role.</p>
+ */
 export interface StudioMembership {
   /**
    * <p>The ID of the identity store.</p>
@@ -2673,6 +3202,11 @@ export interface StudioMembership {
    * <p>The principal ID.</p>
    */
   principalId?: string;
+
+  /**
+   * <p>The Active Directory Security Identifier for this user, if available.</p>
+   */
+  sid?: string;
 }
 
 export namespace StudioMembership {
@@ -2684,6 +3218,9 @@ export namespace StudioMembership {
   });
 }
 
+/**
+ *
+ */
 export interface GetStudioMemberResponse {
   /**
    * <p>The member.</p>
@@ -2700,113 +3237,24 @@ export namespace GetStudioMemberResponse {
   });
 }
 
-export interface ListEulaAcceptancesRequest {
-  /**
-   * <p>A collection of EULA IDs.</p>
-   */
-  eulaIds?: string[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace ListEulaAcceptancesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListEulaAcceptancesResponse {
-  /**
-   * <p>A collection of EULA acceptances.</p>
-   */
-  eulaAcceptances?: EulaAcceptance[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListEulaAcceptancesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulaAcceptancesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListEulasRequest {
-  /**
-   * <p>A collection of EULA IDs.</p>
-   */
-  eulaIds?: string[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListEulasRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulasRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListEulasResponse {
-  /**
-   * <p>A collection of EULA resources.</p>
-   */
-  eulas?: Eula[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListEulasResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListEulasResponse): any => ({
-    ...obj,
-  });
-}
-
 export interface ListLaunchProfileMembersRequest {
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The maximum number of results to be returned per request.</p>
+   * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * <p>The token to request the next page of results. </p>
    */
   nextToken?: string;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2820,6 +3268,9 @@ export namespace ListLaunchProfileMembersRequest {
   });
 }
 
+/**
+ *
+ */
 export interface ListLaunchProfileMembersResponse {
   /**
    * <p>A list of members.</p>
@@ -2843,27 +3294,27 @@ export namespace ListLaunchProfileMembersResponse {
 
 export interface ListLaunchProfilesRequest {
   /**
-   * <p>The maximum number of results to be returned per request.</p>
+   * <p>The max number of results to return in the response.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * <p>The token to request the next page of results. </p>
    */
   nextToken?: string;
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId?: string;
 
   /**
-   * <p>A list of states.</p>
+   * <p>Filter this request to launch profiles in any of the given states.</p>
    */
   states?: string[];
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -2877,6 +3328,9 @@ export namespace ListLaunchProfilesRequest {
   });
 }
 
+/**
+ *
+ */
 export interface ListLaunchProfilesResponse {
   /**
    * <p>A collection of launch profiles.</p>
@@ -2895,286 +3349,15 @@ export namespace ListLaunchProfilesResponse {
    */
   export const filterSensitiveLog = (obj: ListLaunchProfilesResponse): any => ({
     ...obj,
+    ...(obj.launchProfiles && {
+      launchProfiles: obj.launchProfiles.map((item) => LaunchProfile.filterSensitiveLog(item)),
+    }),
   });
 }
 
-export interface ListStreamingImagesRequest {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The owner.</p>
-   */
-  owner?: string;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace ListStreamingImagesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStreamingImagesResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A collection of streaming images.</p>
-   */
-  streamingImages?: StreamingImage[];
-}
-
-export namespace ListStreamingImagesResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStreamingSessionsRequest {
-  /**
-   * <p>The user ID of the user that created the streaming session.</p>
-   */
-  createdBy?: string;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The user ID of the user that owns the streaming session.</p>
-   */
-  ownedBy?: string;
-
-  /**
-   * <p>A collection of session IDs.</p>
-   */
-  sessionIds?: string;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace ListStreamingSessionsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStreamingSessionsResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A collection of streaming sessions.</p>
-   */
-  sessions?: StreamingSession[];
-}
-
-export namespace ListStreamingSessionsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudioComponentsRequest {
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A list of states.</p>
-   */
-  states?: string[];
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-
-  /**
-   * <p>The types.</p>
-   */
-  types?: string[];
-}
-
-export namespace ListStudioComponentsRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudioComponentsResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A collection of studio components.</p>
-   */
-  studioComponents?: StudioComponent[];
-}
-
-export namespace ListStudioComponentsResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudioMembersRequest {
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace ListStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudioMembersResponse {
-  /**
-   * <p>A list of members.</p>
-   */
-  members?: StudioMembership[];
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudiosRequest {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-}
-
-export namespace ListStudiosRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListStudiosResponse {
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>A collection of studios.</p>
-   */
-  studios?: Studio[];
-}
-
-export namespace ListStudiosResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListStudiosResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the target resource for tagging operations.</p>
-   */
-  resourceArn: string | undefined;
-}
-
-export namespace ListTagsForResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace ListTagsForResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-    ...obj,
-  });
-}
-
+/**
+ * <p/>
+ */
 export interface NewLaunchProfileMember {
   /**
    * <p>The persona.</p>
@@ -3196,33 +3379,14 @@ export namespace NewLaunchProfileMember {
   });
 }
 
-export interface NewStudioMember {
-  /**
-   * <p>The persona.</p>
-   */
-  persona: StudioPersona | string | undefined;
-
-  /**
-   * <p>The principal ID.</p>
-   */
-  principalId: string | undefined;
-}
-
-export namespace NewStudioMember {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NewStudioMember): any => ({
-    ...obj,
-  });
-}
-
 /**
- * <p>Information about a launch profile membership.</p>
+ *
  */
 export interface PutLaunchProfileMembersRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3232,7 +3396,7 @@ export interface PutLaunchProfileMembersRequest {
   identityStoreId: string | undefined;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
@@ -3242,7 +3406,7 @@ export interface PutLaunchProfileMembersRequest {
   members: NewLaunchProfileMember[] | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -3268,160 +3432,13 @@ export namespace PutLaunchProfileMembersResponse {
 }
 
 /**
- * <p>A launch profile membership collection.</p>
- */
-export interface PutStudioMembersRequest {
-  /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The ID of the identity store.</p>
-   */
-  identityStoreId: string | undefined;
-
-  /**
-   * <p>A list of members.</p>
-   */
-  members: NewStudioMember[] | undefined;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace PutStudioMembersRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface PutStudioMembersResponse {}
-
-export namespace PutStudioMembersResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StartStudioSSOConfigurationRepairRequest {
-  /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The studio ID.</p>
-   */
-  studioId: string | undefined;
-}
-
-export namespace StartStudioSSOConfigurationRepairRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartStudioSSOConfigurationRepairResponse {
-  /**
-   * <p>Information about a studio.</p>
-   */
-  studio?: Studio;
-}
-
-export namespace StartStudioSSOConfigurationRepairResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The ARN for the role that manages access.</p>
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the target resource for tagging operations.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this resource.</p>
-   */
-  tags?: { [key: string]: string };
-}
-
-export namespace TagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface TagResourceResponse {}
-
-export namespace TagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the target resource for tagging operations.</p>
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag keys to delete.</p>
-   */
-  tagKeys: string[] | undefined;
-}
-
-export namespace UntagResourceRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UntagResourceResponse {}
-
-export namespace UntagResourceResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The launch profile ID.</p>
+ *
  */
 export interface UpdateLaunchProfileRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3431,12 +3448,13 @@ export interface UpdateLaunchProfileRequest {
   description?: string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
   /**
-   * <p>The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".</p>
+   * <p>The version number of the protocol that is used by the launch profile. The only valid
+   *             version is "2021-03-31".</p>
    */
   launchProfileProtocolVersions?: string[];
 
@@ -3451,12 +3469,13 @@ export interface UpdateLaunchProfileRequest {
   streamConfiguration?: StreamConfigurationCreate;
 
   /**
-   * <p>Unique identifiers for a collection of studio components that can be used with this launch profile.</p>
+   * <p>Unique identifiers for a collection of studio components that can be used with this
+   *             launch profile.</p>
    */
   studioComponentIds?: string[];
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -3467,9 +3486,14 @@ export namespace UpdateLaunchProfileRequest {
    */
   export const filterSensitiveLog = (obj: UpdateLaunchProfileRequest): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface UpdateLaunchProfileResponse {
   /**
    * <p>The launch profile.</p>
@@ -3483,20 +3507,23 @@ export namespace UpdateLaunchProfileResponse {
    */
   export const filterSensitiveLog = (obj: UpdateLaunchProfileResponse): any => ({
     ...obj,
+    ...(obj.launchProfile && { launchProfile: LaunchProfile.filterSensitiveLog(obj.launchProfile) }),
   });
 }
 
 /**
- * <p>The principal ID.</p>
+ * <p/>
  */
 export interface UpdateLaunchProfileMemberRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The Launch Profile ID.</p>
    */
   launchProfileId: string | undefined;
 
@@ -3506,12 +3533,12 @@ export interface UpdateLaunchProfileMemberRequest {
   persona: LaunchProfilePersona | string | undefined;
 
   /**
-   * <p>The principal ID.</p>
+   * <p>The principal ID. This currently supports a Amazon Web Services SSO UserId. </p>
    */
   principalId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -3527,7 +3554,7 @@ export namespace UpdateLaunchProfileMemberRequest {
 
 export interface UpdateLaunchProfileMemberResponse {
   /**
-   * <p>The member.</p>
+   * <p>The updated member. </p>
    */
   member?: LaunchProfileMembership;
 }
@@ -3541,12 +3568,341 @@ export namespace UpdateLaunchProfileMemberResponse {
   });
 }
 
+export interface ListStreamingImagesRequest {
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Filter this request to streaming images with the given owner</p>
+   */
+  owner?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace ListStreamingImagesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamingImagesRequest): any => ({
+    ...obj,
+  });
+}
+
 /**
- * <p>The streaming image ID.</p>
+ *
+ */
+export interface ListStreamingImagesResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A collection of streaming images.</p>
+   */
+  streamingImages?: StreamingImage[];
+}
+
+export namespace ListStreamingImagesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamingImagesResponse): any => ({
+    ...obj,
+    ...(obj.streamingImages && {
+      streamingImages: obj.streamingImages.map((item) => StreamingImage.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListStreamingSessionsRequest {
+  /**
+   * <p>Filters the request to streaming sessions created by the given user.</p>
+   */
+  createdBy?: string;
+
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Filters the request to streaming session owned by the given user</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * <p>Filters the request to only the provided session IDs.</p>
+   */
+  sessionIds?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace ListStreamingSessionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamingSessionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListStreamingSessionsResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A collection of streaming sessions.</p>
+   */
+  sessions?: StreamingSession[];
+}
+
+export namespace ListStreamingSessionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStreamingSessionsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudioComponentsRequest {
+  /**
+   * <p>The max number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Filters the request to studio components that are in one of the given states. </p>
+   */
+  states?: string[];
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+
+  /**
+   * <p>Filters the request to studio components that are of one of the given types.</p>
+   */
+  types?: string[];
+}
+
+export namespace ListStudioComponentsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioComponentsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListStudioComponentsResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A collection of studio components.</p>
+   */
+  studioComponents?: StudioComponent[];
+}
+
+export namespace ListStudioComponentsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioComponentsResponse): any => ({
+    ...obj,
+    ...(obj.studioComponents && {
+      studioComponents: obj.studioComponents.map((item) => StudioComponent.filterSensitiveLog(item)),
+    }),
+  });
+}
+
+export interface ListStudioMembersRequest {
+  /**
+   * <p>The max number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace ListStudioMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListStudioMembersResponse {
+  /**
+   * <p>A list of members.</p>
+   */
+  members?: StudioMembership[];
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListStudioMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudioMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListStudiosRequest {
+  /**
+   * <p>The token to request the next page of results. </p>
+   */
+  nextToken?: string;
+}
+
+export namespace ListStudiosRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudiosRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListStudiosResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A collection of studios.</p>
+   */
+  studios: Studio[] | undefined;
+}
+
+export namespace ListStudiosResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListStudiosResponse): any => ({
+    ...obj,
+    ...(obj.studios && { studios: obj.studios.map((item) => Studio.filterSensitiveLog(item)) }),
+  });
+}
+
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export namespace ListTagsForResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace ListTagsForResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p/>
+ */
+export interface NewStudioMember {
+  /**
+   * <p>The persona.</p>
+   */
+  persona: StudioPersona | string | undefined;
+
+  /**
+   * <p>The principal ID.</p>
+   */
+  principalId: string | undefined;
+}
+
+export namespace NewStudioMember {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NewStudioMember): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
  */
 export interface UpdateStreamingImageRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3566,7 +3922,7 @@ export interface UpdateStreamingImageRequest {
   streamingImageId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 }
@@ -3577,12 +3933,17 @@ export namespace UpdateStreamingImageRequest {
    */
   export const filterSensitiveLog = (obj: UpdateStreamingImageRequest): any => ({
     ...obj,
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
   });
 }
 
+/**
+ * <p/>
+ */
 export interface UpdateStreamingImageResponse {
   /**
-   * <p></p>
+   * <p/>
    */
   streamingImage?: StreamingImage;
 }
@@ -3593,70 +3954,108 @@ export namespace UpdateStreamingImageResponse {
    */
   export const filterSensitiveLog = (obj: UpdateStreamingImageResponse): any => ({
     ...obj,
+    ...(obj.streamingImage && { streamingImage: StreamingImage.filterSensitiveLog(obj.streamingImage) }),
   });
 }
 
-/**
- * <p>The studio ID.</p>
- */
-export interface UpdateStudioRequest {
+export interface StartStreamingSessionRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
-   */
-  adminRoleArn?: string;
-
-  /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>A friendly name for the studio.</p>
+   * <p>The streaming session ID for the StartStreamingSessionRequest.</p>
    */
-  displayName?: string;
+  sessionId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID for the StartStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
-
-  /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
-   */
-  userRoleArn?: string;
 }
 
-export namespace UpdateStudioRequest {
+export namespace StartStreamingSessionRequest {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UpdateStudioRequest): any => ({
+  export const filterSensitiveLog = (obj: StartStreamingSessionRequest): any => ({
     ...obj,
   });
 }
 
-export interface UpdateStudioResponse {
+export interface StartStreamingSessionResponse {
   /**
-   * <p>Information about a studio.</p>
+   * <p>A streaming session is a virtual workstation created using a particular launch
+   *             profile.</p>
    */
-  studio?: Studio;
+  session?: StreamingSession;
 }
 
-export namespace UpdateStudioResponse {
+export namespace StartStreamingSessionResponse {
   /**
    * @internal
    */
-  export const filterSensitiveLog = (obj: UpdateStudioResponse): any => ({
+  export const filterSensitiveLog = (obj: StartStreamingSessionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopStreamingSessionRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The streaming session ID for the StopStreamingSessionRequest.</p>
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The studioId for the StopStreamingSessionRequest.</p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace StopStreamingSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopStreamingSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopStreamingSessionResponse {
+  /**
+   * <p>A streaming session is a virtual workstation created using a particular launch
+   *             profile.</p>
+   */
+  session?: StreamingSession;
+}
+
+export namespace StopStreamingSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopStreamingSessionResponse): any => ({
     ...obj,
   });
 }
 
 /**
- * <p>The studio component ID.</p>
+ *
  */
 export interface UpdateStudioComponentRequest {
   /**
-   * <p>To make an idempotent API request using one of these actions, specify a client token in the request. You should not reuse the same client token for other API requests. If you retry a request that completed successfully using the same client token and the same parameters, the retry succeeds without performing any further actions. If you retry a successful request using the same client token, but one or more of the parameters are different, the retry fails with a ValidationException error.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3696,7 +4095,7 @@ export interface UpdateStudioComponentRequest {
   studioComponentId: string | undefined;
 
   /**
-   * <p>The studio ID.</p>
+   * <p>The studio ID. </p>
    */
   studioId: string | undefined;
 
@@ -3717,9 +4116,21 @@ export namespace UpdateStudioComponentRequest {
    */
   export const filterSensitiveLog = (obj: UpdateStudioComponentRequest): any => ({
     ...obj,
+    ...(obj.configuration && { configuration: StudioComponentConfiguration.filterSensitiveLog(obj.configuration) }),
+    ...(obj.description && { description: SENSITIVE_STRING }),
+    ...(obj.initializationScripts && {
+      initializationScripts: obj.initializationScripts.map((item) =>
+        StudioComponentInitializationScript.filterSensitiveLog(item)
+      ),
+    }),
+    ...(obj.name && { name: SENSITIVE_STRING }),
+    ...(obj.scriptParameters && { scriptParameters: SENSITIVE_STRING }),
   });
 }
 
+/**
+ *
+ */
 export interface UpdateStudioComponentResponse {
   /**
    * <p>Information about the studio component.</p>
@@ -3732,6 +4143,232 @@ export namespace UpdateStudioComponentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateStudioComponentResponse): any => ({
+    ...obj,
+    ...(obj.studioComponent && { studioComponent: StudioComponent.filterSensitiveLog(obj.studioComponent) }),
+  });
+}
+
+/**
+ *
+ */
+export interface PutStudioMembersRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The ID of the identity store.</p>
+   */
+  identityStoreId: string | undefined;
+
+  /**
+   * <p>A list of members.</p>
+   */
+  members: NewStudioMember[] | undefined;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace PutStudioMembersRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutStudioMembersRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface PutStudioMembersResponse {}
+
+export namespace PutStudioMembersResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PutStudioMembersResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartStudioSSOConfigurationRepairRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export namespace StartStudioSSOConfigurationRepairRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ *
+ */
+export interface StartStudioSSOConfigurationRepairResponse {
+  /**
+   * <p>Information about a studio.</p>
+   */
+  studio: Studio | undefined;
+}
+
+export namespace StartStudioSSOConfigurationRepairResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartStudioSSOConfigurationRepairResponse): any => ({
+    ...obj,
+    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
+  });
+}
+
+/**
+ *
+ */
+export interface UpdateStudioRequest {
+  /**
+   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
+   *             portal.</p>
+   */
+  adminRoleArn?: string;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
+   *             client token and uses it for the request to ensure idempotency.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>A friendly name for the studio.</p>
+   */
+  displayName?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+
+  /**
+   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
+   *             portal.</p>
+   */
+  userRoleArn?: string;
+}
+
+export namespace UpdateStudioRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStudioRequest): any => ({
+    ...obj,
+    ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  });
+}
+
+/**
+ *
+ */
+export interface UpdateStudioResponse {
+  /**
+   * <p>Information about a studio.</p>
+   */
+  studio: Studio | undefined;
+}
+
+export namespace UpdateStudioResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateStudioResponse): any => ({
+    ...obj,
+    ...(obj.studio && { studio: Studio.filterSensitiveLog(obj.studio) }),
+  });
+}
+
+/**
+ * <p/>
+ */
+export interface TagResourceRequest {
+  /**
+   * <p> The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   *             resource.</p>
+   */
+  tags?: { [key: string]: string };
+}
+
+export namespace TagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TagResourceResponse {}
+
+export namespace TagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>Identifies the Amazon Resource Name(ARN) key from which you are removing tags. </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
     ...obj,
   });
 }
