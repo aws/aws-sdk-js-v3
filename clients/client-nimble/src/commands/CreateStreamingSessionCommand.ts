@@ -22,7 +22,9 @@ export interface CreateStreamingSessionCommandInput extends CreateStreamingSessi
 export interface CreateStreamingSessionCommandOutput extends CreateStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a streaming session in a studio.</p> <p>After invoking this operation, you must poll GetStreamingSession until the streaming session is in state READY.</p>
+ * <p>Creates a streaming session in a studio.</p>
+ *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
+ *             session is in state READY.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

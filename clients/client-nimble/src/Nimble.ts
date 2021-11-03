@@ -166,10 +166,20 @@ import {
   PutStudioMembersCommandOutput,
 } from "./commands/PutStudioMembersCommand";
 import {
+  StartStreamingSessionCommand,
+  StartStreamingSessionCommandInput,
+  StartStreamingSessionCommandOutput,
+} from "./commands/StartStreamingSessionCommand";
+import {
   StartStudioSSOConfigurationRepairCommand,
   StartStudioSSOConfigurationRepairCommandInput,
   StartStudioSSOConfigurationRepairCommandOutput,
 } from "./commands/StartStudioSSOConfigurationRepairCommand";
+import {
+  StopStreamingSessionCommand,
+  StopStreamingSessionCommandInput,
+  StopStreamingSessionCommandOutput,
+} from "./commands/StopStreamingSessionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -203,6 +213,14 @@ import {
 } from "./commands/UpdateStudioComponentCommand";
 import { NimbleClient } from "./NimbleClient";
 
+/**
+ * <p>Welcome to the Amazon Nimble Studio API reference. This API reference provides
+ *             methods, schema, resources, parameters, and more to help you get the most out of Nimble
+ *             Studio.</p>
+ *         <p>Nimble Studio is a virtual studio that empowers visual effects, animation, and
+ *             interactive content teams to create content securely within a scalable, private cloud
+ *             service.</p>
+ */
 export class Nimble extends NimbleClient {
   /**
    * <p>Accept EULAs.</p>
@@ -295,7 +313,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Creates a streaming session in a studio.</p> <p>After invoking this operation, you must poll GetStreamingSession until the streaming session is in state READY.</p>
+   * <p>Creates a streaming session in a studio.</p>
+   *         <p>After invoking this operation, you must poll GetStreamingSession until the streaming
+   *             session is in state READY.</p>
    */
   public createStreamingSession(
     args: CreateStreamingSessionCommandInput,
@@ -327,7 +347,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Creates a streaming session stream for a streaming session.</p> <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId to poll the resource until it is in state READY.</p>
+   * <p>Creates a streaming session stream for a streaming session.</p>
+   *         <p>After invoking this API, invoke GetStreamingSessionStream with the returned streamId
+   *             to poll the resource until it is in state READY.</p>
    */
   public createStreamingSessionStream(
     args: CreateStreamingSessionStreamCommandInput,
@@ -359,7 +381,26 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Create a new Studio.</p> <p>When creating a Studio, two IAM roles must be provided: the admin role and the user Role. These roles are assumed by your users when they log in to the Nimble Studio portal.</p> <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for the portal to function properly.</p> <p>The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached for the portal to function properly.</p> <p>You may optionally specify a KMS key in the StudioEncryptionConfiguration.</p> <p>In Nimble Studio, resource names, descriptions, initialization scripts, and other data you provide are always encrypted at rest using an KMS key. By default, this key is owned by Amazon Web Services and managed on your behalf. You may provide your own KMS key when calling CreateStudio to encrypt this data using a key you own and manage.</p> <p>When providing an KMS key during studio creation, Nimble Studio creates KMS grants in your account to provide your studio user and admin roles access to these KMS keys.</p> <p>If you delete this grant, the studio will no longer be accessible to your portal users.</p> <p>If you delete the studio KMS key, your studio will no longer be accessible.</p>
+   * <p>Create a new Studio.</p>
+   *         <p>When creating a Studio, two IAM roles must be provided: the admin role and the user
+   *             Role. These roles are assumed by your users when they log in to the Nimble Studio
+   *             portal.</p>
+   *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
+   *             the portal to function properly.</p>
+   *         <p>The Admin Role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
+   *             for the portal to function properly.</p>
+   *         <p>You may optionally specify a KMS key in the StudioEncryptionConfiguration.</p>
+   *         <p>In Nimble Studio, resource names, descriptions, initialization scripts, and other
+   *             data you provide are always encrypted at rest using an KMS key. By default, this key is
+   *             owned by Amazon Web Services and managed on your behalf. You may provide your own KMS
+   *             key when calling CreateStudio to encrypt this data using a key you own and
+   *             manage.</p>
+   *         <p>When providing an KMS key during studio creation, Nimble Studio creates KMS
+   *             grants in your account to provide your studio user and admin roles access to these KMS
+   *             keys.</p>
+   *         <p>If you delete this grant, the studio will no longer be accessible to your portal
+   *             users.</p>
+   *         <p>If you delete the studio KMS key, your studio will no longer be accessible.</p>
    */
   public createStudio(
     args: CreateStudioCommandInput,
@@ -516,7 +557,11 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Deletes streaming session resource.</p> <p>After invoking this operation, use GetStreamingSession to poll the resource until it transitions to a DELETED state.</p> <p>A streaming session will count against your streaming session quota until it is marked DELETED.</p>
+   * <p>Deletes streaming session resource.</p>
+   *         <p>After invoking this operation, use GetStreamingSession to poll the resource until it
+   *             transitions to a DELETED state.</p>
+   *         <p>A streaming session will count against your streaming session quota until it is marked
+   *             DELETED.</p>
    */
   public deleteStreamingSession(
     args: DeleteStreamingSessionCommandInput,
@@ -699,7 +744,10 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Launch profile details include the launch profile resource and summary information of resources that are used by, or available to, the launch profile. This includes the name and description of all studio components used by the launch profiles, and the name and description of streaming images that can be used with this launch profile.</p>
+   * <p>Launch profile details include the launch profile resource and summary information of
+   *             resources that are used by, or available to, the launch profile. This includes the name
+   *             and description of all studio components used by the launch profiles, and the name and
+   *             description of streaming images that can be used with this launch profile.</p>
    */
   public getLaunchProfileDetails(
     args: GetLaunchProfileDetailsCommandInput,
@@ -827,7 +875,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Gets StreamingSession resource.</p> <p>Invoke this operation to poll for a streaming session state while creating or deleting a session.</p>
+   * <p>Gets StreamingSession resource.</p>
+   *         <p>anvoke this operation to poll for a streaming session state while creating or deleting
+   *             a session.</p>
    */
   public getStreamingSession(
     args: GetStreamingSessionCommandInput,
@@ -859,7 +909,11 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Gets a StreamingSessionStream for a streaming session.</p> <p>Invoke this operation to poll the resource after invoking CreateStreamingSessionStream.</p> <p>After the StreamingSessionStream changes to the state READY, the url property will contain a stream to be used with the DCV streaming client.</p>
+   * <p>Gets a StreamingSessionStream for a streaming session.</p>
+   *         <p>Invoke this operation to poll the resource after invoking
+   *             CreateStreamingSessionStream.</p>
+   *         <p>After the StreamingSessionStream changes to the state READY, the url property will
+   *             contain a stream to be used with the DCV streaming client.</p>
    */
   public getStreamingSessionStream(
     args: GetStreamingSessionStreamCommandInput,
@@ -1103,7 +1157,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>List the streaming image resources available to this studio.</p> <p>This list will contain both images provided by Amazon Web Services, as well as streaming images that you have created in your studio.</p>
+   * <p>List the streaming image resources available to this studio.</p>
+   *         <p>This list will contain both images provided by Amazon Web Services, as well as
+   *             streaming images that you have created in your studio.</p>
    */
   public listStreamingImages(
     args: ListStreamingImagesCommandInput,
@@ -1231,7 +1287,8 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>List studios in your Amazon Web Services account in the requested Amazon Web Services Region.</p>
+   * <p>List studios in your Amazon Web Services account in the requested Amazon Web Services
+   *             Region.</p>
    */
   public listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
   public listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
@@ -1257,7 +1314,11 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Gets the tags for a resource, given its Amazon Resource Names (ARN).</p> <p>This operation supports ARNs for all resource types in Nimble Studio that support tags, including studio, studio component, launch profile, streaming image, and streaming session. All resources that can be tagged will contain an ARN property, so you do not have to create this ARN yourself.</p>
+   * <p>Gets the tags for a resource, given its Amazon Resource Names (ARN).</p>
+   *         <p>This operation supports ARNs for all resource types in Nimble Studio that support
+   *             tags, including studio, studio component, launch profile, streaming image, and streaming
+   *             session. All resources that can be tagged will contain an ARN property, so you do not
+   *             have to create this ARN yourself.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1353,7 +1414,47 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Repairs the SSO configuration for a given studio.</p> <p>If the studio has a valid Amazon Web Services SSO configuration currently associated with it, this operation will fail with a validation error.</p> <p>If the studio does not have a valid Amazon Web Services SSO configuration currently associated with it, then a new Amazon Web Services SSO application is created for the studio and the studio is changed to the READY state.</p> <p>After the Amazon Web Services SSO application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
+   * <p> Transitions sessions from the STOPPED state into the READY state. The
+   *             START_IN_PROGRESS state is the intermediate state between the STOPPED and READY
+   *             states.</p>
+   */
+  public startStreamingSession(
+    args: StartStreamingSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartStreamingSessionCommandOutput>;
+  public startStreamingSession(
+    args: StartStreamingSessionCommandInput,
+    cb: (err: any, data?: StartStreamingSessionCommandOutput) => void
+  ): void;
+  public startStreamingSession(
+    args: StartStreamingSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartStreamingSessionCommandOutput) => void
+  ): void;
+  public startStreamingSession(
+    args: StartStreamingSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStreamingSessionCommandOutput) => void),
+    cb?: (err: any, data?: StartStreamingSessionCommandOutput) => void
+  ): Promise<StartStreamingSessionCommandOutput> | void {
+    const command = new StartStreamingSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Repairs the Amazon Web Services SSO configuration for a given studio.</p>
+   *         <p>If the studio has a valid Amazon Web Services SSO configuration currently associated with
+   *             it, this operation will fail with a validation error.</p>
+   *         <p>If the studio does not have a valid Amazon Web Services SSO configuration currently
+   *             associated with it, then a new Amazon Web Services SSO application is created for the studio
+   *             and the studio is changed to the READY state.</p>
+   *         <p>After the Amazon Web Services SSO application is repaired, you must use the Amazon Nimble Studio console to add administrators and users to your studio.</p>
    */
   public startStudioSSOConfigurationRepair(
     args: StartStudioSSOConfigurationRepairCommandInput,
@@ -1374,6 +1475,39 @@ export class Nimble extends NimbleClient {
     cb?: (err: any, data?: StartStudioSSOConfigurationRepairCommandOutput) => void
   ): Promise<StartStudioSSOConfigurationRepairCommandOutput> | void {
     const command = new StartStudioSSOConfigurationRepairCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Transitions sessions from the READY state into the STOPPED state. The STOP_IN_PROGRESS
+   *             state is the intermediate state between the READY and STOPPED states.</p>
+   */
+  public stopStreamingSession(
+    args: StopStreamingSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopStreamingSessionCommandOutput>;
+  public stopStreamingSession(
+    args: StopStreamingSessionCommandInput,
+    cb: (err: any, data?: StopStreamingSessionCommandOutput) => void
+  ): void;
+  public stopStreamingSession(
+    args: StopStreamingSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopStreamingSessionCommandOutput) => void
+  ): void;
+  public stopStreamingSession(
+    args: StopStreamingSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStreamingSessionCommandOutput) => void),
+    cb?: (err: any, data?: StopStreamingSessionCommandOutput) => void
+  ): Promise<StopStreamingSessionCommandOutput> | void {
+    const command = new StopStreamingSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1539,7 +1673,9 @@ export class Nimble extends NimbleClient {
   }
 
   /**
-   * <p>Update a Studio resource.</p> <p>Currently, this operation only supports updating the displayName of your studio.</p>
+   * <p>Update a Studio resource.</p>
+   *         <p>Currently, this operation only supports updating the displayName of your
+   *             studio.</p>
    */
   public updateStudio(
     args: UpdateStudioCommandInput,

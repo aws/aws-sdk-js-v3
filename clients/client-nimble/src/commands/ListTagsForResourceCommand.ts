@@ -22,7 +22,11 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the tags for a resource, given its Amazon Resource Names (ARN).</p> <p>This operation supports ARNs for all resource types in Nimble Studio that support tags, including studio, studio component, launch profile, streaming image, and streaming session. All resources that can be tagged will contain an ARN property, so you do not have to create this ARN yourself.</p>
+ * <p>Gets the tags for a resource, given its Amazon Resource Names (ARN).</p>
+ *         <p>This operation supports ARNs for all resource types in Nimble Studio that support
+ *             tags, including studio, studio component, launch profile, streaming image, and streaming
+ *             session. All resources that can be tagged will contain an ARN property, so you do not
+ *             have to create this ARN yourself.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -153,9 +153,17 @@ import {
 } from "./commands/PutLaunchProfileMembersCommand";
 import { PutStudioMembersCommandInput, PutStudioMembersCommandOutput } from "./commands/PutStudioMembersCommand";
 import {
+  StartStreamingSessionCommandInput,
+  StartStreamingSessionCommandOutput,
+} from "./commands/StartStreamingSessionCommand";
+import {
   StartStudioSSOConfigurationRepairCommandInput,
   StartStudioSSOConfigurationRepairCommandOutput,
 } from "./commands/StartStudioSSOConfigurationRepairCommand";
+import {
+  StopStreamingSessionCommandInput,
+  StopStreamingSessionCommandOutput,
+} from "./commands/StopStreamingSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -215,7 +223,9 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | PutLaunchProfileMembersCommandInput
   | PutStudioMembersCommandInput
+  | StartStreamingSessionCommandInput
   | StartStudioSSOConfigurationRepairCommandInput
+  | StopStreamingSessionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLaunchProfileCommandInput
@@ -262,7 +272,9 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | PutLaunchProfileMembersCommandOutput
   | PutStudioMembersCommandOutput
+  | StartStreamingSessionCommandOutput
   | StartStudioSSOConfigurationRepairCommandOutput
+  | StopStreamingSessionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLaunchProfileCommandOutput
@@ -419,6 +431,14 @@ type NimbleClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandle
  */
 export interface NimbleClientResolvedConfig extends NimbleClientResolvedConfigType {}
 
+/**
+ * <p>Welcome to the Amazon Nimble Studio API reference. This API reference provides
+ *             methods, schema, resources, parameters, and more to help you get the most out of Nimble
+ *             Studio.</p>
+ *         <p>Nimble Studio is a virtual studio that empowers visual effects, animation, and
+ *             interactive content teams to create content securely within a scalable, private cloud
+ *             service.</p>
+ */
 export class NimbleClient extends __Client<
   __HttpHandlerOptions,
   ServiceInputTypes,

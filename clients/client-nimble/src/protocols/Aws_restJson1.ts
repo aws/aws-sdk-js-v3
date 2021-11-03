@@ -120,9 +120,17 @@ import {
 } from "../commands/PutLaunchProfileMembersCommand";
 import { PutStudioMembersCommandInput, PutStudioMembersCommandOutput } from "../commands/PutStudioMembersCommand";
 import {
+  StartStreamingSessionCommandInput,
+  StartStreamingSessionCommandOutput,
+} from "../commands/StartStreamingSessionCommand";
+import {
   StartStudioSSOConfigurationRepairCommandInput,
   StartStudioSSOConfigurationRepairCommandOutput,
 } from "../commands/StartStudioSSOConfigurationRepairCommand";
+import {
+  StopStreamingSessionCommandInput,
+  StopStreamingSessionCommandOutput,
+} from "../commands/StopStreamingSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -1646,6 +1654,47 @@ export const serializeAws_restJson1PutStudioMembersCommand = async (
   });
 };
 
+export const serializeAws_restJson1StartStreamingSessionCommand = async (
+  input: StartStreamingSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/start";
+  if (input.sessionId !== undefined) {
+    const labelValue: string = input.sessionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: sessionId.");
+    }
+    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: sessionId.");
+  }
+  if (input.studioId !== undefined) {
+    const labelValue: string = input.studioId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: studioId.");
+    }
+    resolvedPath = resolvedPath.replace("{studioId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: studioId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = async (
   input: StartStudioSSOConfigurationRepairCommandInput,
   context: __SerdeContext
@@ -1672,6 +1721,47 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
     hostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StopStreamingSessionCommand = async (
+  input: StopStreamingSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.clientToken) && { "x-amz-client-token": input.clientToken! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/stop";
+  if (input.sessionId !== undefined) {
+    const labelValue: string = input.sessionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: sessionId.");
+    }
+    resolvedPath = resolvedPath.replace("{sessionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: sessionId.");
+  }
+  if (input.studioId !== undefined) {
+    const labelValue: string = input.studioId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: studioId.");
+    }
+    resolvedPath = resolvedPath.replace("{studioId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: studioId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -5861,6 +5951,109 @@ const deserializeAws_restJson1PutStudioMembersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1StartStreamingSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartStreamingSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartStreamingSessionCommandError(output, context);
+  }
+  const contents: StartStreamingSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    session: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.session !== undefined && data.session !== null) {
+    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartStreamingSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartStreamingSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.nimble#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5883,6 +6076,109 @@ const deserializeAws_restJson1StartStudioSSOConfigurationRepairCommandError = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStudioSSOConfigurationRepairCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.nimble#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StopStreamingSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopStreamingSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StopStreamingSessionCommandError(output, context);
+  }
+  const contents: StopStreamingSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    session: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.session !== undefined && data.session !== null) {
+    contents.session = deserializeAws_restJson1StreamingSession(data.session, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StopStreamingSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopStreamingSessionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6734,6 +7030,7 @@ const deserializeAws_restJson1InternalServerErrorExceptionResponse = async (
   const contents: InternalServerErrorException = {
     name: "InternalServerErrorException",
     $fault: "server",
+    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     code: undefined,
     context: undefined,
@@ -6809,6 +7106,7 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   const contents: ThrottlingException = {
     name: "ThrottlingException",
     $fault: "client",
+    $retryable: {},
     $metadata: deserializeMetadata(parsedOutput),
     code: undefined,
     context: undefined,
@@ -7036,6 +7334,10 @@ const serializeAws_restJson1StreamConfigurationCreate = (
       }),
     ...(input.maxSessionLengthInMinutes !== undefined &&
       input.maxSessionLengthInMinutes !== null && { maxSessionLengthInMinutes: input.maxSessionLengthInMinutes }),
+    ...(input.maxStoppedSessionLengthInMinutes !== undefined &&
+      input.maxStoppedSessionLengthInMinutes !== null && {
+        maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
+      }),
     ...(input.streamingImageIds !== undefined &&
       input.streamingImageIds !== null && {
         streamingImageIds: serializeAws_restJson1StreamingImageIdList(input.streamingImageIds, context),
@@ -7460,6 +7762,7 @@ const deserializeAws_restJson1LaunchProfileMembership = (
     identityStoreId: __expectString(output.identityStoreId),
     persona: __expectString(output.persona),
     principalId: __expectString(output.principalId),
+    sid: __expectString(output.sid),
   } as any;
 };
 
@@ -7550,6 +7853,7 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
         ? deserializeAws_restJson1StreamingInstanceTypeList(output.ec2InstanceTypes, context)
         : undefined,
     maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
+    maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
     streamingImageIds:
       output.streamingImageIds !== undefined && output.streamingImageIds !== null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
@@ -7642,9 +7946,23 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     launchProfileId: __expectString(output.launchProfileId),
     ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
+    startedAt:
+      output.startedAt !== undefined && output.startedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.startedAt))
+        : undefined,
+    startedBy: __expectString(output.startedBy),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
+    stopAt:
+      output.stopAt !== undefined && output.stopAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.stopAt))
+        : undefined,
+    stoppedAt:
+      output.stoppedAt !== undefined && output.stoppedAt !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.stoppedAt))
+        : undefined,
+    stoppedBy: __expectString(output.stoppedBy),
     streamingImageId: __expectString(output.streamingImageId),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -7921,6 +8239,7 @@ const deserializeAws_restJson1StudioMembership = (output: any, context: __SerdeC
     identityStoreId: __expectString(output.identityStoreId),
     persona: __expectString(output.persona),
     principalId: __expectString(output.principalId),
+    sid: __expectString(output.sid),
   } as any;
 };
 
