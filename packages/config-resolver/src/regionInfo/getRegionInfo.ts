@@ -31,7 +31,11 @@ export const getRegionInfo = (
   const hostnameOptions = { isFipsEndpoint, isDualstackEndpoint };
   const regionHostname = getHostnameFromVariants(regionHash[resolvedRegion]?.variants, hostnameOptions);
   const partitionHostname = getHostnameFromVariants(partitionHash[partition]?.variants, hostnameOptions);
-  const hostname = getResolvedHostname(resolvedRegion, { signingService, regionHostname, partitionHostname });
+  const hostname = getResolvedHostname(resolvedRegion, { regionHostname, partitionHostname });
+
+  if (hostname === undefined) {
+    throw new Error(`Endpoint resolution failed for: ${{ resolvedRegion, isFipsEndpoint, isDualstackEndpoint }}`);
+  }
 
   const signingRegion = getResolvedSigningRegion(region, {
     hostname,
