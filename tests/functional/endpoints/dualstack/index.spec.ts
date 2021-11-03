@@ -1,6 +1,6 @@
 import { join } from "path";
 
-import testCases from "./test_cases.json";
+import testCases from "./test_cases_supported.json";
 
 const getClientPackageName = (sdkId: string) =>
   `client-${sdkId
@@ -15,7 +15,7 @@ describe("endpoints.dualstack", () => {
       const { defaultRegionInfoProvider } = await import(
         join("..", "..", "..", "..", "clients", clientPackageName, "src", "endpoints")
       );
-      const regionInfo = await defaultRegionInfoProvider(region, { isFipsEndpoint: true });
+      const regionInfo = await defaultRegionInfoProvider(region, { isDualstackEndpoint: true });
       expect(regionInfo.hostname).toEqual(hostname);
     });
   }

@@ -1,8 +1,2288 @@
 [
   {
+    "endpointPrefix": "a4b",
+    "sdkId": "Alexa For Business",
+    "region": "us-east-1",
+    "hostname": "a4b.us-east-1.api.aws"
+  },
+  {
     "endpointPrefix": "access-analyzer",
     "sdkId": "AccessAnalyzer",
+    "region": "af-south-1",
+    "hostname": "access-analyzer.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "account",
+    "sdkId": "Account",
+    "region": "aws-global",
+    "hostname": "account.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "acm",
+    "sdkId": "ACM",
+    "region": "af-south-1",
+    "hostname": "acm.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "acm-pca",
+    "sdkId": "ACM PCA",
+    "region": "af-south-1",
+    "hostname": "acm-pca.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "airflow",
+    "sdkId": "MWAA",
+    "region": "ap-northeast-1",
+    "hostname": "airflow.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "amplify",
+    "sdkId": "Amplify",
+    "region": "ap-east-1",
+    "hostname": "amplify.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "amplifybackend",
+    "sdkId": "AmplifyBackend",
+    "region": "ap-northeast-1",
+    "hostname": "amplifybackend.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.detective",
+    "sdkId": "Detective",
+    "region": "af-south-1",
+    "hostname": "api.detective.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.ecr",
+    "sdkId": "ECR",
+    "region": "af-south-1",
+    "hostname": "api.ecr.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.elastic-inference",
+    "sdkId": "Elastic Inference",
+    "region": "ap-northeast-1",
+    "hostname": "api.elastic-inference.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.fleethub.iot",
+    "sdkId": "IoTFleetHub",
+    "region": "ap-northeast-1",
+    "hostname": "api.fleethub.iot.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.mediatailor",
+    "sdkId": "MediaTailor",
+    "region": "ap-northeast-1",
+    "hostname": "api.mediatailor.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.pricing",
+    "sdkId": "Pricing",
+    "region": "ap-south-1",
+    "hostname": "api.pricing.ap-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "api.sagemaker",
+    "sdkId": "SageMaker",
+    "region": "af-south-1",
+    "hostname": "api.sagemaker.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "apigateway",
+    "sdkId": "ApiGatewayV2",
+    "region": "af-south-1",
+    "hostname": "apigateway.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "app-integrations",
+    "sdkId": "AppIntegrations",
+    "region": "ap-northeast-1",
+    "hostname": "app-integrations.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "appflow",
+    "sdkId": "Appflow",
+    "region": "af-south-1",
+    "hostname": "appflow.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "application-autoscaling",
+    "sdkId": "Application Auto Scaling",
+    "region": "af-south-1",
+    "hostname": "application-autoscaling.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "applicationinsights",
+    "sdkId": "Application Insights",
+    "region": "af-south-1",
+    "hostname": "applicationinsights.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "appmesh",
+    "sdkId": "App Mesh",
+    "region": "af-south-1",
+    "hostname": "appmesh.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "apprunner",
+    "sdkId": "AppRunner",
+    "region": "ap-northeast-1",
+    "hostname": "apprunner.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "appstream2",
+    "sdkId": "AppStream",
+    "region": "ap-northeast-1",
+    "hostname": "appstream2.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "appsync",
+    "sdkId": "AppSync",
+    "region": "ap-east-1",
+    "hostname": "appsync.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "aps",
+    "sdkId": "amp",
+    "region": "ap-northeast-1",
+    "hostname": "aps.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "athena",
+    "sdkId": "Athena",
+    "region": "af-south-1",
+    "hostname": "athena.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "auditmanager",
+    "sdkId": "AuditManager",
+    "region": "ap-northeast-1",
+    "hostname": "auditmanager.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "autoscaling",
+    "sdkId": "Auto Scaling",
+    "region": "af-south-1",
+    "hostname": "autoscaling.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "autoscaling-plans",
+    "sdkId": "Auto Scaling Plans",
+    "region": "af-south-1",
+    "hostname": "autoscaling-plans.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "backup",
+    "sdkId": "Backup",
+    "region": "af-south-1",
+    "hostname": "backup.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "batch",
+    "sdkId": "Batch",
+    "region": "af-south-1",
+    "hostname": "batch.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "braket",
+    "sdkId": "Braket",
+    "region": "us-east-1",
+    "hostname": "braket.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "budgets",
+    "sdkId": "Budgets",
+    "region": "aws-global",
+    "hostname": "budgets.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "ce",
+    "sdkId": "Cost Explorer",
+    "region": "aws-global",
+    "hostname": "ce.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "chime",
+    "sdkId": "Chime",
+    "region": "aws-global",
+    "hostname": "chime.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "cloud9",
+    "sdkId": "Cloud9",
+    "region": "af-south-1",
+    "hostname": "cloud9.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudcontrolapi",
+    "sdkId": "CloudControl",
+    "region": "af-south-1",
+    "hostname": "cloudcontrolapi.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "clouddirectory",
+    "sdkId": "CloudDirectory",
+    "region": "ap-southeast-1",
+    "hostname": "clouddirectory.ap-southeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudformation",
+    "sdkId": "CloudFormation",
+    "region": "af-south-1",
+    "hostname": "cloudformation.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudfront",
+    "sdkId": "CloudFront",
+    "region": "aws-global",
+    "hostname": "cloudfront.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudhsm",
+    "sdkId": "CloudHSM",
+    "region": "ap-northeast-1",
+    "hostname": "cloudhsm.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudhsmv2",
+    "sdkId": "CloudHSM V2",
+    "region": "af-south-1",
+    "hostname": "cloudhsmv2.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudsearch",
+    "sdkId": "CloudSearch",
+    "region": "ap-northeast-1",
+    "hostname": "cloudsearch.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudtrail",
+    "sdkId": "CloudTrail",
+    "region": "af-south-1",
+    "hostname": "cloudtrail.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codeartifact",
+    "sdkId": "codeartifact",
+    "region": "ap-northeast-1",
+    "hostname": "codeartifact.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codebuild",
+    "sdkId": "CodeBuild",
+    "region": "af-south-1",
+    "hostname": "codebuild.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codecommit",
+    "sdkId": "CodeCommit",
+    "region": "af-south-1",
+    "hostname": "codecommit.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codedeploy",
+    "sdkId": "CodeDeploy",
+    "region": "af-south-1",
+    "hostname": "codedeploy.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codeguru-reviewer",
+    "sdkId": "CodeGuru Reviewer",
+    "region": "ap-northeast-1",
+    "hostname": "codeguru-reviewer.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codepipeline",
+    "sdkId": "CodePipeline",
+    "region": "ap-east-1",
+    "hostname": "codepipeline.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codestar",
+    "sdkId": "CodeStar",
+    "region": "ap-northeast-1",
+    "hostname": "codestar.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "codestar-connections",
+    "sdkId": "CodeStar connections",
+    "region": "ap-northeast-1",
+    "hostname": "codestar-connections.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cognito-identity",
+    "sdkId": "Cognito Identity",
+    "region": "ap-northeast-1",
+    "hostname": "cognito-identity.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cognito-idp",
+    "sdkId": "Cognito Identity Provider",
+    "region": "ap-northeast-1",
+    "hostname": "cognito-idp.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cognito-sync",
+    "sdkId": "Cognito Sync",
+    "region": "ap-northeast-1",
+    "hostname": "cognito-sync.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "comprehend",
+    "sdkId": "Comprehend",
+    "region": "ap-northeast-1",
+    "hostname": "comprehend.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "comprehendmedical",
+    "sdkId": "ComprehendMedical",
+    "region": "ap-southeast-2",
+    "hostname": "comprehendmedical.ap-southeast-2.api.aws"
+  },
+  {
+    "endpointPrefix": "config",
+    "sdkId": "Config Service",
+    "region": "af-south-1",
+    "hostname": "config.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "connect",
+    "sdkId": "Connect",
+    "region": "ap-northeast-1",
+    "hostname": "connect.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "contact-lens",
+    "sdkId": "Connect Contact Lens",
+    "region": "ap-northeast-1",
+    "hostname": "contact-lens.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cur",
+    "sdkId": "Cost and Usage Report Service",
+    "region": "us-east-1",
+    "hostname": "cur.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "ap-east-1",
+    "hostname": "data.iot.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "data.jobs.iot",
+    "sdkId": "IoT Jobs Data Plane",
+    "region": "ap-east-1",
+    "hostname": "data.jobs.iot.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "data.mediastore",
+    "sdkId": "MediaStore Data",
+    "region": "ap-northeast-1",
+    "hostname": "data.mediastore.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "databrew",
+    "sdkId": "DataBrew",
+    "region": "af-south-1",
+    "hostname": "databrew.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "dataexchange",
+    "sdkId": "DataExchange",
+    "region": "ap-northeast-1",
+    "hostname": "dataexchange.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "datapipeline",
+    "sdkId": "Data Pipeline",
+    "region": "ap-northeast-1",
+    "hostname": "datapipeline.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "datasync",
+    "sdkId": "DataSync",
+    "region": "af-south-1",
+    "hostname": "datasync.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "dax",
+    "sdkId": "DAX",
+    "region": "ap-northeast-1",
+    "hostname": "dax.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "devicefarm",
+    "sdkId": "Device Farm",
+    "region": "us-west-2",
+    "hostname": "devicefarm.us-west-2.api.aws"
+  },
+  {
+    "endpointPrefix": "directconnect",
+    "sdkId": "Direct Connect",
+    "region": "af-south-1",
+    "hostname": "directconnect.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "discovery",
+    "sdkId": "Application Discovery Service",
+    "region": "ap-northeast-1",
+    "hostname": "discovery.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "af-south-1",
+    "hostname": "dms.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "docdb",
+    "sdkId": "DocDB",
+    "region": "ap-northeast-1",
+    "hostname": "docdb.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ds",
+    "sdkId": "Directory Service",
+    "region": "af-south-1",
+    "hostname": "ds.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "dynamodb",
+    "sdkId": "DynamoDB",
+    "region": "af-south-1",
+    "hostname": "dynamodb.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ebs",
+    "sdkId": "EBS",
+    "region": "af-south-1",
+    "hostname": "ebs.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ec2",
+    "sdkId": "EC2",
+    "region": "af-south-1",
+    "hostname": "ec2.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ec2",
+    "sdkId": "EC2",
+    "region": "ap-south-1",
+    "hostname": "api.ec2.ap-south-1.aws"
+  },
+  {
+    "endpointPrefix": "ecs",
+    "sdkId": "ECS",
+    "region": "af-south-1",
+    "hostname": "ecs.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "eks",
+    "sdkId": "EKS",
+    "region": "af-south-1",
+    "hostname": "eks.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticache",
+    "sdkId": "ElastiCache",
+    "region": "af-south-1",
+    "hostname": "elasticache.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticbeanstalk",
+    "sdkId": "Elastic Beanstalk",
+    "region": "af-south-1",
+    "hostname": "elasticbeanstalk.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticloadbalancing",
+    "sdkId": "Elastic Load Balancing",
+    "region": "af-south-1",
+    "hostname": "elasticloadbalancing.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticmapreduce",
+    "sdkId": "EMR",
+    "region": "af-south-1",
+    "hostname": "elasticmapreduce.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elastictranscoder",
+    "sdkId": "Elastic Transcoder",
+    "region": "ap-northeast-1",
+    "hostname": "elastictranscoder.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "email",
+    "sdkId": "SESv2",
+    "region": "ap-south-1",
+    "hostname": "email.ap-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "emr-containers",
+    "sdkId": "EMR containers",
+    "region": "ap-northeast-1",
+    "hostname": "emr-containers.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "entitlement.marketplace",
+    "sdkId": "Marketplace Entitlement Service",
+    "region": "us-east-1",
+    "hostname": "entitlement.marketplace.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "es",
+    "sdkId": "OpenSearch",
+    "region": "af-south-1",
+    "hostname": "es.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "events",
+    "sdkId": "EventBridge",
+    "region": "af-south-1",
+    "hostname": "events.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "finspace",
+    "sdkId": "finspace",
     "region": "ca-central-1",
-    "hostname": "access-analyzer-fips.ca-central-1.amazonaws.com"
+    "hostname": "finspace.ca-central-1.api.aws"
+  },
+  {
+    "endpointPrefix": "finspace-api",
+    "sdkId": "finspace data",
+    "region": "ca-central-1",
+    "hostname": "finspace-api.ca-central-1.api.aws"
+  },
+  {
+    "endpointPrefix": "firehose",
+    "sdkId": "Firehose",
+    "region": "af-south-1",
+    "hostname": "firehose.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "fms",
+    "sdkId": "FMS",
+    "region": "ap-northeast-3",
+    "hostname": "fms.ap-northeast-3.api.aws"
+  },
+  {
+    "endpointPrefix": "forecast",
+    "sdkId": "forecast",
+    "region": "ap-northeast-1",
+    "hostname": "forecast.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "forecastquery",
+    "sdkId": "forecastquery",
+    "region": "ap-northeast-1",
+    "hostname": "forecastquery.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "frauddetector",
+    "sdkId": "FraudDetector",
+    "region": "ap-southeast-1",
+    "hostname": "frauddetector.ap-southeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "fsx",
+    "sdkId": "FSx",
+    "region": "af-south-1",
+    "hostname": "fsx.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "gamelift",
+    "sdkId": "GameLift",
+    "region": "af-south-1",
+    "hostname": "gamelift.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "glacier",
+    "sdkId": "Glacier",
+    "region": "af-south-1",
+    "hostname": "glacier.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "glue",
+    "sdkId": "Glue",
+    "region": "af-south-1",
+    "hostname": "glue.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "grafana",
+    "sdkId": "grafana",
+    "region": "ap-northeast-1",
+    "hostname": "grafana.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "greengrass",
+    "sdkId": "GreengrassV2",
+    "region": "ap-northeast-1",
+    "hostname": "greengrass.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "groundstation",
+    "sdkId": "GroundStation",
+    "region": "af-south-1",
+    "hostname": "groundstation.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "guardduty",
+    "sdkId": "GuardDuty",
+    "region": "af-south-1",
+    "hostname": "guardduty.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "healthlake",
+    "sdkId": "HealthLake",
+    "region": "us-east-1",
+    "hostname": "healthlake.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "honeycode",
+    "sdkId": "Honeycode",
+    "region": "us-west-2",
+    "hostname": "honeycode.us-west-2.api.aws"
+  },
+  {
+    "endpointPrefix": "identitystore",
+    "sdkId": "identitystore",
+    "region": "ap-northeast-1",
+    "hostname": "identitystore.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "importexport",
+    "sdkId": "S3",
+    "region": "aws-global",
+    "hostname": "importexport.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "inspector",
+    "sdkId": "Inspector",
+    "region": "ap-northeast-1",
+    "hostname": "inspector.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "ap-east-1",
+    "hostname": "iot.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotanalytics",
+    "sdkId": "IoTAnalytics",
+    "region": "ap-northeast-1",
+    "hostname": "iotanalytics.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotevents",
+    "sdkId": "IoT Events",
+    "region": "ap-northeast-1",
+    "hostname": "iotevents.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ioteventsdata",
+    "sdkId": "IoT Events Data",
+    "region": "ap-northeast-1",
+    "hostname": "ioteventsdata.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "api.tunneling.iot",
+    "region": "ap-east-1",
+    "hostname": "iotsecuredtunneling.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotsitewise",
+    "sdkId": "IoTSiteWise",
+    "region": "ap-northeast-1",
+    "hostname": "iotsitewise.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotthingsgraph",
+    "sdkId": "IoTThingsGraph",
+    "region": "ap-northeast-1",
+    "hostname": "iotthingsgraph.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotwireless",
+    "sdkId": "IoT Wireless",
+    "region": "ap-northeast-1",
+    "hostname": "iotwireless.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ivs",
+    "sdkId": "ivs",
+    "region": "eu-west-1",
+    "hostname": "ivs.eu-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kafka",
+    "sdkId": "Kafka",
+    "region": "ap-east-1",
+    "hostname": "kafka.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kafkaconnect",
+    "sdkId": "KafkaConnect",
+    "region": "ap-northeast-1",
+    "hostname": "kafkaconnect.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kendra",
+    "sdkId": "kendra",
+    "region": "ap-southeast-1",
+    "hostname": "kendra.ap-southeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kinesis",
+    "sdkId": "Kinesis",
+    "region": "af-south-1",
+    "hostname": "kinesis.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kinesisanalytics",
+    "sdkId": "Kinesis Analytics",
+    "region": "ap-east-1",
+    "hostname": "kinesisanalytics.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kinesisvideo",
+    "sdkId": "Kinesis Video",
+    "region": "ap-east-1",
+    "hostname": "kinesisvideo.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "lakeformation",
+    "sdkId": "LakeFormation",
+    "region": "af-south-1",
+    "hostname": "lakeformation.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "lambda",
+    "sdkId": "Lambda",
+    "region": "af-south-1",
+    "hostname": "lambda.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "license-manager",
+    "sdkId": "License Manager",
+    "region": "af-south-1",
+    "hostname": "license-manager.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "lightsail",
+    "sdkId": "Lightsail",
+    "region": "ap-northeast-1",
+    "hostname": "lightsail.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "logs",
+    "sdkId": "CloudWatch Logs",
+    "region": "af-south-1",
+    "hostname": "logs.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "lookoutequipment",
+    "sdkId": "LookoutEquipment",
+    "region": "ap-northeast-2",
+    "hostname": "lookoutequipment.ap-northeast-2.api.aws"
+  },
+  {
+    "endpointPrefix": "lookoutvision",
+    "sdkId": "LookoutVision",
+    "region": "ap-northeast-1",
+    "hostname": "lookoutvision.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "machinelearning",
+    "sdkId": "Machine Learning",
+    "region": "eu-west-1",
+    "hostname": "machinelearning.eu-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "macie2",
+    "sdkId": "Macie2",
+    "region": "af-south-1",
+    "hostname": "macie2.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "managedblockchain",
+    "sdkId": "ManagedBlockchain",
+    "region": "ap-northeast-1",
+    "hostname": "managedblockchain.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "marketplacecommerceanalytics",
+    "sdkId": "Marketplace Commerce Analytics",
+    "region": "us-east-1",
+    "hostname": "marketplacecommerceanalytics.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediaconnect",
+    "sdkId": "MediaConnect",
+    "region": "ap-east-1",
+    "hostname": "mediaconnect.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediaconvert",
+    "sdkId": "MediaConvert",
+    "region": "ap-northeast-1",
+    "hostname": "mediaconvert.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "medialive",
+    "sdkId": "MediaLive",
+    "region": "ap-northeast-1",
+    "hostname": "medialive.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediapackage",
+    "sdkId": "MediaPackage",
+    "region": "ap-northeast-1",
+    "hostname": "mediapackage.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediapackage-vod",
+    "sdkId": "MediaPackage Vod",
+    "region": "ap-northeast-1",
+    "hostname": "mediapackage-vod.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediastore",
+    "sdkId": "MediaStore",
+    "region": "ap-northeast-1",
+    "hostname": "mediastore.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "metering.marketplace",
+    "sdkId": "Marketplace Metering",
+    "region": "af-south-1",
+    "hostname": "metering.marketplace.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mgh",
+    "sdkId": "Migration Hub",
+    "region": "ap-northeast-1",
+    "hostname": "mgh.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mgn",
+    "sdkId": "mgn",
+    "region": "ap-east-1",
+    "hostname": "mgn.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mobileanalytics",
+    "sdkId": "Pinpoint",
+    "region": "us-east-1",
+    "hostname": "mobileanalytics.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "models-v2-lex",
+    "sdkId": "Lex Models V2",
+    "region": "af-south-1",
+    "hostname": "models-v2-lex.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "models.lex",
+    "sdkId": "Lex Model Building Service",
+    "region": "ap-northeast-1",
+    "hostname": "models.lex.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "monitoring",
+    "sdkId": "CloudWatch",
+    "region": "af-south-1",
+    "hostname": "monitoring.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mq",
+    "sdkId": "mq",
+    "region": "ap-east-1",
+    "hostname": "mq.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mturk-requester",
+    "sdkId": "MTurk",
+    "region": "sandbox",
+    "hostname": "mturk-requester.sandbox.api.aws"
+  },
+  {
+    "endpointPrefix": "neptune",
+    "sdkId": "Neptune",
+    "region": "ap-east-1",
+    "hostname": "neptune.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "network-firewall",
+    "sdkId": "Network Firewall",
+    "region": "af-south-1",
+    "hostname": "network-firewall.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "networkmanager",
+    "sdkId": "NetworkManager",
+    "region": "aws-global",
+    "hostname": "networkmanager.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "nimble",
+    "sdkId": "nimble",
+    "region": "ap-southeast-2",
+    "hostname": "nimble.ap-southeast-2.api.aws"
+  },
+  {
+    "endpointPrefix": "oidc",
+    "sdkId": "SSO OIDC",
+    "region": "ap-northeast-1",
+    "hostname": "oidc.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "opsworks",
+    "sdkId": "OpsWorks",
+    "region": "ap-northeast-1",
+    "hostname": "opsworks.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "opsworks-cm",
+    "sdkId": "OpsWorksCM",
+    "region": "ap-northeast-1",
+    "hostname": "opsworks-cm.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "outposts",
+    "sdkId": "Outposts",
+    "region": "af-south-1",
+    "hostname": "outposts.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "personalize",
+    "sdkId": "Personalize",
+    "region": "ap-northeast-1",
+    "hostname": "personalize.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "pinpoint",
+    "sdkId": "Pinpoint",
+    "region": "ap-northeast-1",
+    "hostname": "pinpoint.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "polly",
+    "sdkId": "Polly",
+    "region": "af-south-1",
+    "hostname": "polly.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "portal.sso",
+    "sdkId": "SSO",
+    "region": "ap-northeast-1",
+    "hostname": "portal.sso.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "profile",
+    "sdkId": "Customer Profiles",
+    "region": "ap-northeast-1",
+    "hostname": "profile.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "projects.iot1click",
+    "sdkId": "IoT 1Click Projects",
+    "region": "ap-northeast-1",
+    "hostname": "projects.iot1click.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "qldb",
+    "sdkId": "QLDB",
+    "region": "ap-northeast-1",
+    "hostname": "qldb.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "quicksight",
+    "sdkId": "QuickSight",
+    "region": "ap-northeast-1",
+    "hostname": "quicksight.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ram",
+    "sdkId": "RAM",
+    "region": "af-south-1",
+    "hostname": "ram.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "rds",
+    "sdkId": "RDS",
+    "region": "af-south-1",
+    "hostname": "rds.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "redshift",
+    "sdkId": "Redshift",
+    "region": "af-south-1",
+    "hostname": "redshift.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "rekognition",
+    "sdkId": "Rekognition",
+    "region": "ap-northeast-1",
+    "hostname": "rekognition.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "resource-groups",
+    "sdkId": "Resource Groups",
+    "region": "af-south-1",
+    "hostname": "resource-groups.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "robomaker",
+    "sdkId": "RoboMaker",
+    "region": "ap-northeast-1",
+    "hostname": "robomaker.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "route53-recovery-control-config",
+    "sdkId": "Route53 Recovery Control Config",
+    "region": "aws-global",
+    "hostname": "route53-recovery-control-config.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "route53domains",
+    "sdkId": "Route 53 Domains",
+    "region": "us-east-1",
+    "hostname": "route53domains.us-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "route53resolver",
+    "sdkId": "Route53Resolver",
+    "region": "af-south-1",
+    "hostname": "route53resolver.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "runtime-v2-lex",
+    "sdkId": "Lex Runtime V2",
+    "region": "af-south-1",
+    "hostname": "runtime-v2-lex.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "runtime.lex",
+    "sdkId": "Lex Runtime Service",
+    "region": "ap-northeast-1",
+    "hostname": "runtime.lex.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "runtime.sagemaker",
+    "sdkId": "SageMaker Runtime",
+    "region": "af-south-1",
+    "hostname": "runtime.sagemaker.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "af-south-1",
+    "hostname": "s3.dualstack.af-south-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "ap-east-1",
+    "hostname": "s3.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "ap-northeast-1",
+    "hostname": "s3-control.dualstack.ap-northeast-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "ap-northeast-2",
+    "hostname": "s3-control.ap-northeast-2.api.aws"
+  },
+  {
+    "endpointPrefix": "savingsplans",
+    "sdkId": "savingsplans",
+    "region": "aws-global",
+    "hostname": "savingsplans.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "schemas",
+    "sdkId": "schemas",
+    "region": "ap-east-1",
+    "hostname": "schemas.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sdb",
+    "sdkId": "value",
+    "region": "ap-northeast-1",
+    "hostname": "sdb.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "secretsmanager",
+    "sdkId": "Secrets Manager",
+    "region": "af-south-1",
+    "hostname": "secretsmanager.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "securityhub",
+    "sdkId": "SecurityHub",
+    "region": "af-south-1",
+    "hostname": "securityhub.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "serverlessrepo",
+    "sdkId": "ServerlessApplicationRepository",
+    "region": "ap-east-1",
+    "hostname": "serverlessrepo.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "servicecatalog",
+    "sdkId": "Service Catalog",
+    "region": "af-south-1",
+    "hostname": "servicecatalog.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "servicecatalog-appregistry",
+    "sdkId": "Service Catalog AppRegistry",
+    "region": "af-south-1",
+    "hostname": "servicecatalog-appregistry.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "af-south-1",
+    "hostname": "servicediscovery.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "servicequotas",
+    "sdkId": "Service Quotas",
+    "region": "af-south-1",
+    "hostname": "servicequotas.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "session.qldb",
+    "sdkId": "QLDB Session",
+    "region": "ap-northeast-1",
+    "hostname": "session.qldb.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sms",
+    "sdkId": "SMS",
+    "region": "af-south-1",
+    "hostname": "sms.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "snowball",
+    "sdkId": "Snowball",
+    "region": "af-south-1",
+    "hostname": "snowball.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sns",
+    "sdkId": "SNS",
+    "region": "af-south-1",
+    "hostname": "sns.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sqs",
+    "sdkId": "SQS",
+    "region": "af-south-1",
+    "hostname": "sqs.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ssm",
+    "sdkId": "SSM",
+    "region": "af-south-1",
+    "hostname": "ssm.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ssm-incidents",
+    "sdkId": "SSM Incidents",
+    "region": "ap-northeast-1",
+    "hostname": "ssm-incidents.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "states",
+    "sdkId": "SFN",
+    "region": "af-south-1",
+    "hostname": "states.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "storagegateway",
+    "sdkId": "Storage Gateway",
+    "region": "af-south-1",
+    "hostname": "storagegateway.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "streams.dynamodb",
+    "sdkId": "DynamoDB Streams",
+    "region": "ap-northeast-1",
+    "hostname": "streams.dynamodb.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sts",
+    "sdkId": "STS",
+    "region": "af-south-1",
+    "hostname": "sts.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "support",
+    "sdkId": "Support",
+    "region": "aws-global",
+    "hostname": "support.aws-global.api.aws"
+  },
+  {
+    "endpointPrefix": "swf",
+    "sdkId": "SWF",
+    "region": "af-south-1",
+    "hostname": "swf.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "tagging",
+    "sdkId": "Resource Groups Tagging API",
+    "region": "af-south-1",
+    "hostname": "tagging.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "textract",
+    "sdkId": "Textract",
+    "region": "ap-northeast-2",
+    "hostname": "textract.ap-northeast-2.api.aws"
+  },
+  {
+    "endpointPrefix": "transcribe",
+    "sdkId": "Transcribe",
+    "region": "af-south-1",
+    "hostname": "transcribe.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "transcribestreaming",
+    "sdkId": "Transcribe Streaming",
+    "region": "ap-northeast-1",
+    "hostname": "transcribestreaming.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "transfer",
+    "sdkId": "Transfer",
+    "region": "af-south-1",
+    "hostname": "transfer.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "translate",
+    "sdkId": "Translate",
+    "region": "ap-east-1",
+    "hostname": "translate.ap-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "voiceid",
+    "sdkId": "Voice ID",
+    "region": "ap-northeast-1",
+    "hostname": "voiceid.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "wisdom",
+    "sdkId": "Wisdom",
+    "region": "ap-northeast-1",
+    "hostname": "wisdom.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "workdocs",
+    "sdkId": "WorkDocs",
+    "region": "ap-northeast-1",
+    "hostname": "workdocs.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "workmail",
+    "sdkId": "WorkMail",
+    "region": "eu-west-1",
+    "hostname": "workmail.eu-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "workspaces",
+    "sdkId": "WorkSpaces",
+    "region": "ap-northeast-1",
+    "hostname": "workspaces.ap-northeast-1.api.aws"
+  },
+  {
+    "endpointPrefix": "xray",
+    "sdkId": "XRay",
+    "region": "af-south-1",
+    "hostname": "xray.af-south-1.api.aws"
+  },
+  {
+    "endpointPrefix": "access-analyzer",
+    "sdkId": "AccessAnalyzer",
+    "region": "cn-north-1",
+    "hostname": "access-analyzer.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "account",
+    "sdkId": "Account",
+    "region": "aws-cn-global",
+    "hostname": "account.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "acm",
+    "sdkId": "ACM",
+    "region": "cn-north-1",
+    "hostname": "acm.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "api.ecr",
+    "sdkId": "ECR",
+    "region": "cn-north-1",
+    "hostname": "api.ecr.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "api.sagemaker",
+    "sdkId": "SageMaker",
+    "region": "cn-north-1",
+    "hostname": "api.sagemaker.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "apigateway",
+    "sdkId": "ApiGatewayV2",
+    "region": "cn-north-1",
+    "hostname": "apigateway.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "application-autoscaling",
+    "sdkId": "Application Auto Scaling",
+    "region": "cn-north-1",
+    "hostname": "application-autoscaling.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "applicationinsights",
+    "sdkId": "Application Insights",
+    "region": "cn-north-1",
+    "hostname": "applicationinsights.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "appmesh",
+    "sdkId": "App Mesh",
+    "region": "cn-north-1",
+    "hostname": "appmesh.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "appsync",
+    "sdkId": "AppSync",
+    "region": "cn-north-1",
+    "hostname": "appsync.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "athena",
+    "sdkId": "Athena",
+    "region": "cn-north-1",
+    "hostname": "athena.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "autoscaling",
+    "sdkId": "Auto Scaling",
+    "region": "cn-north-1",
+    "hostname": "autoscaling.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "autoscaling-plans",
+    "sdkId": "Auto Scaling Plans",
+    "region": "cn-north-1",
+    "hostname": "autoscaling-plans.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "backup",
+    "sdkId": "Backup",
+    "region": "cn-north-1",
+    "hostname": "backup.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "batch",
+    "sdkId": "Batch",
+    "region": "cn-north-1",
+    "hostname": "batch.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "budgets",
+    "sdkId": "Budgets",
+    "region": "aws-cn-global",
+    "hostname": "budgets.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ce",
+    "sdkId": "Cost Explorer",
+    "region": "aws-cn-global",
+    "hostname": "ce.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "cloudformation",
+    "sdkId": "CloudFormation",
+    "region": "cn-north-1",
+    "hostname": "cloudformation.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "cloudfront",
+    "sdkId": "CloudFront",
+    "region": "aws-cn-global",
+    "hostname": "cloudfront.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "cloudtrail",
+    "sdkId": "CloudTrail",
+    "region": "cn-north-1",
+    "hostname": "cloudtrail.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "codebuild",
+    "sdkId": "CodeBuild",
+    "region": "cn-north-1",
+    "hostname": "codebuild.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "codecommit",
+    "sdkId": "CodeCommit",
+    "region": "cn-north-1",
+    "hostname": "codecommit.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "codedeploy",
+    "sdkId": "CodeDeploy",
+    "region": "cn-north-1",
+    "hostname": "codedeploy.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "cognito-identity",
+    "sdkId": "Cognito Identity",
+    "region": "cn-north-1",
+    "hostname": "cognito-identity.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "config",
+    "sdkId": "Config Service",
+    "region": "cn-north-1",
+    "hostname": "config.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "cur",
+    "sdkId": "Cost and Usage Report Service",
+    "region": "cn-northwest-1",
+    "hostname": "cur.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "data.iot",
+    "sdkId": "IoT Data Plane",
+    "region": "cn-north-1",
+    "hostname": "data.iot.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "data.jobs.iot",
+    "sdkId": "IoT Jobs Data Plane",
+    "region": "cn-north-1",
+    "hostname": "data.jobs.iot.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "databrew",
+    "sdkId": "DataBrew",
+    "region": "cn-north-1",
+    "hostname": "databrew.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "dax",
+    "sdkId": "DAX",
+    "region": "cn-north-1",
+    "hostname": "dax.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "directconnect",
+    "sdkId": "Direct Connect",
+    "region": "cn-north-1",
+    "hostname": "directconnect.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "dms",
+    "sdkId": "Database Migration Service",
+    "region": "cn-north-1",
+    "hostname": "dms.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "docdb",
+    "sdkId": "DocDB",
+    "region": "cn-northwest-1",
+    "hostname": "docdb.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ds",
+    "sdkId": "Directory Service",
+    "region": "cn-north-1",
+    "hostname": "ds.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "dynamodb",
+    "sdkId": "DynamoDB",
+    "region": "cn-north-1",
+    "hostname": "dynamodb.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ebs",
+    "sdkId": "EBS",
+    "region": "cn-north-1",
+    "hostname": "ebs.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ec2",
+    "sdkId": "EC2",
+    "region": "cn-north-1",
+    "hostname": "ec2.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ecs",
+    "sdkId": "ECS",
+    "region": "cn-north-1",
+    "hostname": "ecs.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "eks",
+    "sdkId": "EKS",
+    "region": "cn-north-1",
+    "hostname": "eks.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "elasticache",
+    "sdkId": "ElastiCache",
+    "region": "cn-north-1",
+    "hostname": "elasticache.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "elasticbeanstalk",
+    "sdkId": "Elastic Beanstalk",
+    "region": "cn-north-1",
+    "hostname": "elasticbeanstalk.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "elasticloadbalancing",
+    "sdkId": "Elastic Load Balancing",
+    "region": "cn-north-1",
+    "hostname": "elasticloadbalancing.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "elasticmapreduce",
+    "sdkId": "EMR",
+    "region": "cn-north-1",
+    "hostname": "elasticmapreduce.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "emr-containers",
+    "sdkId": "EMR containers",
+    "region": "cn-north-1",
+    "hostname": "emr-containers.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "es",
+    "sdkId": "OpenSearch",
+    "region": "cn-north-1",
+    "hostname": "es.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "events",
+    "sdkId": "EventBridge",
+    "region": "cn-north-1",
+    "hostname": "events.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "firehose",
+    "sdkId": "Firehose",
+    "region": "cn-north-1",
+    "hostname": "firehose.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "fms",
+    "sdkId": "FMS",
+    "region": "cn-north-1",
+    "hostname": "fms.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "fsx",
+    "sdkId": "FSx",
+    "region": "cn-north-1",
+    "hostname": "fsx.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "gamelift",
+    "sdkId": "GameLift",
+    "region": "cn-north-1",
+    "hostname": "gamelift.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "glacier",
+    "sdkId": "Glacier",
+    "region": "cn-north-1",
+    "hostname": "glacier.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "glue",
+    "sdkId": "Glue",
+    "region": "cn-north-1",
+    "hostname": "glue.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "greengrass",
+    "sdkId": "GreengrassV2",
+    "region": "cn-north-1",
+    "hostname": "greengrass.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "guardduty",
+    "sdkId": "GuardDuty",
+    "region": "cn-north-1",
+    "hostname": "guardduty.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "health",
+    "sdkId": "Health",
+    "region": "cn-north-1",
+    "hostname": "health.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iam",
+    "sdkId": "IAM",
+    "region": "aws-cn-global",
+    "hostname": "iam.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iot",
+    "sdkId": "IoT",
+    "region": "cn-north-1",
+    "hostname": "iot.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iotanalytics",
+    "sdkId": "IoTAnalytics",
+    "region": "cn-north-1",
+    "hostname": "iotanalytics.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iotevents",
+    "sdkId": "IoT Events",
+    "region": "cn-north-1",
+    "hostname": "iotevents.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ioteventsdata",
+    "sdkId": "IoT Events Data",
+    "region": "cn-north-1",
+    "hostname": "ioteventsdata.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "api.tunneling.iot",
+    "region": "cn-north-1",
+    "hostname": "iotsecuredtunneling.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iotsitewise",
+    "sdkId": "IoTSiteWise",
+    "region": "cn-north-1",
+    "hostname": "iotsitewise.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "kafka",
+    "sdkId": "Kafka",
+    "region": "cn-north-1",
+    "hostname": "kafka.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "kinesis",
+    "sdkId": "Kinesis",
+    "region": "cn-north-1",
+    "hostname": "kinesis.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "kinesisanalytics",
+    "sdkId": "Kinesis Analytics",
+    "region": "cn-north-1",
+    "hostname": "kinesisanalytics.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "kms",
+    "sdkId": "KMS",
+    "region": "cn-north-1",
+    "hostname": "kms.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "lakeformation",
+    "sdkId": "LakeFormation",
+    "region": "cn-north-1",
+    "hostname": "lakeformation.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "lambda",
+    "sdkId": "Lambda",
+    "region": "cn-north-1",
+    "hostname": "lambda.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "license-manager",
+    "sdkId": "License Manager",
+    "region": "cn-north-1",
+    "hostname": "license-manager.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "logs",
+    "sdkId": "CloudWatch Logs",
+    "region": "cn-north-1",
+    "hostname": "logs.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "mediaconvert",
+    "sdkId": "MediaConvert",
+    "region": "cn-northwest-1",
+    "hostname": "mediaconvert.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "monitoring",
+    "sdkId": "CloudWatch",
+    "region": "cn-north-1",
+    "hostname": "monitoring.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "mq",
+    "sdkId": "mq",
+    "region": "cn-north-1",
+    "hostname": "mq.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "neptune",
+    "sdkId": "Neptune",
+    "region": "cn-north-1",
+    "hostname": "neptune.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "organizations",
+    "sdkId": "Organizations",
+    "region": "aws-cn-global",
+    "hostname": "organizations.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "personalize",
+    "sdkId": "Personalize",
+    "region": "cn-north-1",
+    "hostname": "personalize.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "polly",
+    "sdkId": "Polly",
+    "region": "cn-northwest-1",
+    "hostname": "polly.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ram",
+    "sdkId": "RAM",
+    "region": "cn-north-1",
+    "hostname": "ram.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "rds",
+    "sdkId": "RDS",
+    "region": "cn-north-1",
+    "hostname": "rds.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "redshift",
+    "sdkId": "Redshift",
+    "region": "cn-north-1",
+    "hostname": "redshift.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "resource-groups",
+    "sdkId": "Resource Groups",
+    "region": "cn-north-1",
+    "hostname": "resource-groups.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "route53",
+    "sdkId": "Route 53",
+    "region": "aws-cn-global",
+    "hostname": "route53.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "route53resolver",
+    "sdkId": "Route53Resolver",
+    "region": "cn-north-1",
+    "hostname": "route53resolver.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "runtime.sagemaker",
+    "sdkId": "SageMaker Runtime",
+    "region": "cn-north-1",
+    "hostname": "runtime.sagemaker.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "cn-north-1",
+    "hostname": "s3.dualstack.cn-north-1.amazonaws.com.cn"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "cn-northwest-1",
+    "hostname": "s3.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "cn-north-1",
+    "hostname": "s3-control.dualstack.cn-north-1.amazonaws.com.cn"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "cn-northwest-1",
+    "hostname": "s3-control.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "secretsmanager",
+    "sdkId": "Secrets Manager",
+    "region": "cn-north-1",
+    "hostname": "secretsmanager.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "securityhub",
+    "sdkId": "SecurityHub",
+    "region": "cn-north-1",
+    "hostname": "securityhub.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "serverlessrepo",
+    "sdkId": "ServerlessApplicationRepository",
+    "region": "cn-north-1",
+    "hostname": "serverlessrepo.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "servicecatalog",
+    "sdkId": "Service Catalog",
+    "region": "cn-north-1",
+    "hostname": "servicecatalog.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "servicediscovery",
+    "sdkId": "ServiceDiscovery",
+    "region": "cn-north-1",
+    "hostname": "servicediscovery.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "sms",
+    "sdkId": "SMS",
+    "region": "cn-north-1",
+    "hostname": "sms.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "sns",
+    "sdkId": "SNS",
+    "region": "cn-north-1",
+    "hostname": "sns.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "sqs",
+    "sdkId": "SQS",
+    "region": "cn-north-1",
+    "hostname": "sqs.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "ssm",
+    "sdkId": "SSM",
+    "region": "cn-north-1",
+    "hostname": "ssm.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "states",
+    "sdkId": "SFN",
+    "region": "cn-north-1",
+    "hostname": "states.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "storagegateway",
+    "sdkId": "Storage Gateway",
+    "region": "cn-north-1",
+    "hostname": "storagegateway.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "streams.dynamodb",
+    "sdkId": "DynamoDB Streams",
+    "region": "cn-north-1",
+    "hostname": "streams.dynamodb.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "sts",
+    "sdkId": "STS",
+    "region": "cn-north-1",
+    "hostname": "sts.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "support",
+    "sdkId": "Support",
+    "region": "aws-cn-global",
+    "hostname": "support.aws-cn-global.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "swf",
+    "sdkId": "SWF",
+    "region": "cn-north-1",
+    "hostname": "swf.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "tagging",
+    "sdkId": "Resource Groups Tagging API",
+    "region": "cn-north-1",
+    "hostname": "tagging.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "transcribe",
+    "sdkId": "Transcribe",
+    "region": "cn-north-1",
+    "hostname": "transcribe.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "transcribestreaming",
+    "sdkId": "Transcribe Streaming",
+    "region": "cn-north-1",
+    "hostname": "transcribestreaming.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "transfer",
+    "sdkId": "Transfer",
+    "region": "cn-north-1",
+    "hostname": "transfer.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "workspaces",
+    "sdkId": "WorkSpaces",
+    "region": "cn-northwest-1",
+    "hostname": "workspaces.cn-northwest-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "xray",
+    "sdkId": "XRay",
+    "region": "cn-north-1",
+    "hostname": "xray.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "access-analyzer",
+    "sdkId": "AccessAnalyzer",
+    "region": "us-gov-east-1",
+    "hostname": "access-analyzer.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "acm",
+    "sdkId": "ACM",
+    "region": "us-gov-east-1",
+    "hostname": "acm.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "apigateway",
+    "sdkId": "ApiGatewayV2",
+    "region": "us-gov-east-1",
+    "hostname": "apigateway.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "application-autoscaling",
+    "sdkId": "Application Auto Scaling",
+    "region": "us-gov-east-1",
+    "hostname": "application-autoscaling.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "applicationinsights",
+    "sdkId": "Application Insights",
+    "region": "us-gov-east-1",
+    "hostname": "applicationinsights.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "autoscaling",
+    "sdkId": "Auto Scaling",
+    "region": "us-gov-east-1",
+    "hostname": "autoscaling.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "autoscaling-plans",
+    "sdkId": "Auto Scaling Plans",
+    "region": "us-gov-east-1",
+    "hostname": "autoscaling-plans.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "backup",
+    "sdkId": "Backup",
+    "region": "us-gov-east-1",
+    "hostname": "backup.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "clouddirectory",
+    "sdkId": "CloudDirectory",
+    "region": "us-gov-west-1",
+    "hostname": "clouddirectory.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudformation",
+    "sdkId": "CloudFormation",
+    "region": "us-gov-east-1",
+    "hostname": "cloudformation.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudhsm",
+    "sdkId": "CloudHSM",
+    "region": "us-gov-west-1",
+    "hostname": "cloudhsm.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudhsmv2",
+    "sdkId": "CloudHSM V2",
+    "region": "us-gov-east-1",
+    "hostname": "cloudhsmv2.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "cloudtrail",
+    "sdkId": "CloudTrail",
+    "region": "us-gov-east-1",
+    "hostname": "cloudtrail.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "connect",
+    "sdkId": "Connect",
+    "region": "us-gov-west-1",
+    "hostname": "connect.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "databrew",
+    "sdkId": "DataBrew",
+    "region": "us-gov-west-1",
+    "hostname": "databrew.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "directconnect",
+    "sdkId": "Direct Connect",
+    "region": "us-gov-east-1",
+    "hostname": "directconnect.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "docdb",
+    "sdkId": "DocDB",
+    "region": "us-gov-west-1",
+    "hostname": "docdb.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ebs",
+    "sdkId": "EBS",
+    "region": "us-gov-east-1",
+    "hostname": "ebs.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ec2",
+    "sdkId": "EC2",
+    "region": "us-gov-east-1",
+    "hostname": "ec2.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticache",
+    "sdkId": "ElastiCache",
+    "region": "us-gov-east-1",
+    "hostname": "elasticache.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "elasticbeanstalk",
+    "sdkId": "Elastic Beanstalk",
+    "region": "us-gov-east-1",
+    "hostname": "elasticbeanstalk.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "events",
+    "sdkId": "EventBridge",
+    "region": "us-gov-east-1",
+    "hostname": "events.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "glacier",
+    "sdkId": "Glacier",
+    "region": "us-gov-east-1",
+    "hostname": "glacier.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "greengrass",
+    "sdkId": "GreengrassV2",
+    "region": "dataplane-us-gov-east-1",
+    "hostname": "greengrass.dataplane-us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotevents",
+    "sdkId": "IoT Events",
+    "region": "us-gov-west-1",
+    "hostname": "iotevents.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "ioteventsdata",
+    "sdkId": "IoT Events Data",
+    "region": "us-gov-west-1",
+    "hostname": "ioteventsdata.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "iotsitewise",
+    "sdkId": "IoTSiteWise",
+    "region": "us-gov-west-1",
+    "hostname": "iotsitewise.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kafka",
+    "sdkId": "Kafka",
+    "region": "us-gov-east-1",
+    "hostname": "kafka.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kinesis",
+    "sdkId": "Kinesis",
+    "region": "us-gov-east-1",
+    "hostname": "kinesis.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "kinesisanalytics",
+    "sdkId": "Kinesis Analytics",
+    "region": "us-gov-east-1",
+    "hostname": "kinesisanalytics.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "logs",
+    "sdkId": "CloudWatch Logs",
+    "region": "us-gov-east-1",
+    "hostname": "logs.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "mediaconvert",
+    "sdkId": "MediaConvert",
+    "region": "us-gov-west-1",
+    "hostname": "mediaconvert.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "metering.marketplace",
+    "sdkId": "Marketplace Metering",
+    "region": "us-gov-east-1",
+    "hostname": "metering.marketplace.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "neptune",
+    "sdkId": "Neptune",
+    "region": "us-gov-east-1",
+    "hostname": "neptune.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "networkmanager",
+    "sdkId": "NetworkManager",
+    "region": "aws-us-gov-global",
+    "hostname": "networkmanager.aws-us-gov-global.api.aws"
+  },
+  {
+    "endpointPrefix": "oidc",
+    "sdkId": "SSO OIDC",
+    "region": "us-gov-west-1",
+    "hostname": "oidc.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "outposts",
+    "sdkId": "Outposts",
+    "region": "us-gov-east-1",
+    "hostname": "outposts.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "portal.sso",
+    "sdkId": "SSO",
+    "region": "us-gov-west-1",
+    "hostname": "portal.sso.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "quicksight",
+    "sdkId": "QuickSight",
+    "region": "api",
+    "hostname": "quicksight.api.api.aws"
+  },
+  {
+    "endpointPrefix": "ram",
+    "sdkId": "RAM",
+    "region": "us-gov-east-1",
+    "hostname": "ram.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "redshift",
+    "sdkId": "Redshift",
+    "region": "us-gov-east-1",
+    "hostname": "redshift.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "route53resolver",
+    "sdkId": "Route53Resolver",
+    "region": "us-gov-east-1",
+    "hostname": "route53resolver.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "us-gov-east-1",
+    "hostname": "s3.dualstack.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3",
+    "sdkId": "S3",
+    "region": "us-gov-west-1",
+    "hostname": "s3.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "us-gov-east-1",
+    "hostname": "s3-control.dualstack.us-gov-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "s3-control",
+    "sdkId": "S3 Control",
+    "region": "us-gov-west-1",
+    "hostname": "s3-control.us-gov-west-1.api.aws"
+  },
+  {
+    "endpointPrefix": "serverlessrepo",
+    "sdkId": "ServerlessApplicationRepository",
+    "region": "us-gov-east-1",
+    "hostname": "serverlessrepo.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sns",
+    "sdkId": "SNS",
+    "region": "us-gov-east-1",
+    "hostname": "sns.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "sqs",
+    "sdkId": "SQS",
+    "region": "us-gov-east-1",
+    "hostname": "sqs.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "streams.dynamodb",
+    "sdkId": "DynamoDB Streams",
+    "region": "us-gov-east-1",
+    "hostname": "streams.dynamodb.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "support",
+    "sdkId": "Support",
+    "region": "aws-us-gov-global",
+    "hostname": "support.aws-us-gov-global.api.aws"
+  },
+  {
+    "endpointPrefix": "swf",
+    "sdkId": "SWF",
+    "region": "us-gov-east-1",
+    "hostname": "swf.us-gov-east-1.api.aws"
+  },
+  {
+    "endpointPrefix": "tagging",
+    "sdkId": "Resource Groups Tagging API",
+    "region": "us-gov-east-1",
+    "hostname": "tagging.us-gov-east-1.api.aws"
   }
 ]
