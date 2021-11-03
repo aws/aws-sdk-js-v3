@@ -66,12 +66,6 @@
     "hostname": "api.pricing.ap-south-1.api.aws"
   },
   {
-    "endpointPrefix": "api.sagemaker",
-    "sdkId": "SageMaker",
-    "region": "af-south-1",
-    "hostname": "api.sagemaker.af-south-1.api.aws"
-  },
-  {
     "endpointPrefix": "apigateway",
     "sdkId": "ApiGatewayV2",
     "region": "af-south-1",
@@ -160,12 +154,6 @@
     "sdkId": "Backup",
     "region": "af-south-1",
     "hostname": "backup.af-south-1.api.aws"
-  },
-  {
-    "endpointPrefix": "batch",
-    "sdkId": "Batch",
-    "region": "af-south-1",
-    "hostname": "batch.af-south-1.api.aws"
   },
   {
     "endpointPrefix": "braket",
@@ -432,12 +420,6 @@
     "hostname": "ecs.af-south-1.api.aws"
   },
   {
-    "endpointPrefix": "eks",
-    "sdkId": "EKS",
-    "region": "af-south-1",
-    "hostname": "eks.af-south-1.api.aws"
-  },
-  {
     "endpointPrefix": "elasticache",
     "sdkId": "ElastiCache",
     "region": "af-south-1",
@@ -622,12 +604,6 @@
     "sdkId": "IoT Events",
     "region": "ap-northeast-1",
     "hostname": "iotevents.ap-northeast-1.api.aws"
-  },
-  {
-    "endpointPrefix": "iotsecuredtunneling",
-    "sdkId": "api.tunneling.iot",
-    "region": "ap-east-1",
-    "hostname": "iotsecuredtunneling.ap-east-1.api.aws"
   },
   {
     "endpointPrefix": "iotsitewise",
@@ -816,12 +792,6 @@
     "hostname": "models-v2-lex.af-south-1.api.aws"
   },
   {
-    "endpointPrefix": "models.lex",
-    "sdkId": "Lex Model Building Service",
-    "region": "ap-northeast-1",
-    "hostname": "models.lex.ap-northeast-1.api.aws"
-  },
-  {
     "endpointPrefix": "monitoring",
     "sdkId": "CloudWatch",
     "region": "af-south-1",
@@ -964,18 +934,6 @@
     "sdkId": "Lex Runtime V2",
     "region": "af-south-1",
     "hostname": "runtime-v2-lex.af-south-1.api.aws"
-  },
-  {
-    "endpointPrefix": "runtime.lex",
-    "sdkId": "Lex Runtime Service",
-    "region": "ap-northeast-1",
-    "hostname": "runtime.lex.ap-northeast-1.api.aws"
-  },
-  {
-    "endpointPrefix": "runtime.sagemaker",
-    "sdkId": "SageMaker Runtime",
-    "region": "af-south-1",
-    "hostname": "runtime.sagemaker.af-south-1.api.aws"
   },
   {
     "endpointPrefix": "s3",
@@ -1126,12 +1084,6 @@
     "sdkId": "Textract",
     "region": "ap-northeast-2",
     "hostname": "textract.ap-northeast-2.api.aws"
-  },
-  {
-    "endpointPrefix": "transcribe",
-    "sdkId": "Transcribe",
-    "region": "af-south-1",
-    "hostname": "transcribe.af-south-1.api.aws"
   },
   {
     "endpointPrefix": "transcribestreaming",
@@ -1810,12 +1762,6 @@
     "sdkId": "EBS",
     "region": "us-gov-east-1",
     "hostname": "ebs.us-gov-east-1.api.aws"
-  },
-  {
-    "endpointPrefix": "elasticache",
-    "sdkId": "ElastiCache",
-    "region": "us-gov-east-1",
-    "hostname": "elasticache.us-gov-east-1.api.aws"
   },
   {
     "endpointPrefix": "iotevents",
