@@ -1,8 +1,8 @@
 [
   {
-    "endpointPrefix": "access-analyzer",
-    "sdkId": "AccessAnalyzer",
-    "region": "ca-central-1",
-    "hostname": "access-analyzer-fips.ca-central-1.amazonaws.com"
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "cn-north-1",
+    "hostname": "iotsecuredtunneling.cn-north-1.api.amazonwebservices.com.cn"
   }
 ]

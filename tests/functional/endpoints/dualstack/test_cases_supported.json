@@ -1452,12 +1452,6 @@
     "hostname": "iotevents.cn-north-1.api.amazonwebservices.com.cn"
   },
   {
-    "endpointPrefix": "iotsecuredtunneling",
-    "sdkId": "api.tunneling.iot",
-    "region": "cn-north-1",
-    "hostname": "iotsecuredtunneling.cn-north-1.api.amazonwebservices.com.cn"
-  },
-  {
     "endpointPrefix": "iotsitewise",
     "sdkId": "IoTSiteWise",
     "region": "cn-north-1",
