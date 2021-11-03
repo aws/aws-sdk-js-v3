@@ -780,12 +780,6 @@
     "hostname": "mgn.ap-east-1.api.aws"
   },
   {
-    "endpointPrefix": "mobileanalytics",
-    "sdkId": "Pinpoint",
-    "region": "us-east-1",
-    "hostname": "mobileanalytics.us-east-1.api.aws"
-  },
-  {
     "endpointPrefix": "models-v2-lex",
     "sdkId": "Lex Models V2",
     "region": "af-south-1",
