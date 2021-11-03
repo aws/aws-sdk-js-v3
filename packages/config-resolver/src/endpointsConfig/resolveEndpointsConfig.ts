@@ -57,13 +57,17 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
 
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
-): T & EndpointsResolvedConfig => ({
-  ...input,
-  tls: input.tls ?? true,
-  endpoint: input.endpoint
-    ? normalizeEndpoint({ ...input, endpoint: input.endpoint })
-    : () => getEndpointFromRegion(input),
-  isCustomEndpoint: input.endpoint ? true : false,
-  useDualstackEndpoint: normalizeBoolean(input.useDualstackEndpoint!),
-  useFipsEndpoint: normalizeBoolean(input.useFipsEndpoint!),
-});
+): T & EndpointsResolvedConfig => {
+  const useDualstackEndpoint = normalizeBoolean(input.useDualstackEndpoint!);
+  const useFipsEndpoint = normalizeBoolean(input.useFipsEndpoint!);
+  return {
+    ...input,
+    tls: input.tls ?? true,
+    endpoint: input.endpoint
+      ? normalizeEndpoint({ ...input, endpoint: input.endpoint })
+      : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
+    isCustomEndpoint: input.endpoint ? true : false,
+    useDualstackEndpoint,
+    useFipsEndpoint,
+  };
+};

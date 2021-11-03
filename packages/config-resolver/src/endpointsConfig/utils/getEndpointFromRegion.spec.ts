@@ -4,8 +4,16 @@ describe(getEndpointFromRegion.name, () => {
   const mockRegion = jest.fn();
   const mockUrlParser = jest.fn();
   const mockRegionInfoProvider = jest.fn();
+  const mockUseFipsEndpoint = jest.fn();
+  const mockUseDualstackEndpoint = jest.fn();
 
-  const mockInput = { region: mockRegion, urlParser: mockUrlParser, regionInfoProvider: mockRegionInfoProvider };
+  const mockInput = {
+    region: mockRegion,
+    urlParser: mockUrlParser,
+    regionInfoProvider: mockRegionInfoProvider,
+    useDualstackEndpoint: mockUseDualstackEndpoint,
+    useFipsEndpoint: mockUseFipsEndpoint,
+  };
 
   const mockRegionValue = "mockRegion";
   const mockEndpoint = {
@@ -19,6 +27,8 @@ describe(getEndpointFromRegion.name, () => {
     mockRegion.mockResolvedValue(mockRegionValue);
     mockUrlParser.mockResolvedValue(mockEndpoint);
     mockRegionInfoProvider.mockResolvedValue(mockRegionInfo);
+    mockUseFipsEndpoint.mockResolvedValue(false);
+    mockUseDualstackEndpoint.mockResolvedValue(false);
   });
 
   afterEach(() => {
@@ -28,7 +38,10 @@ describe(getEndpointFromRegion.name, () => {
 
   describe("tls", () => {
     afterEach(() => {
-      expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue);
+      expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue, {
+        useDualstackEndpoint: false,
+        useFipsEndpoint: false,
+      });
     });
 
     it("uses protocol https when not defined", async () => {
@@ -81,14 +94,20 @@ describe(getEndpointFromRegion.name, () => {
     } catch (error) {
       expect(error.message).toEqual(errorMsg);
     }
-    expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue);
+    expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue, {
+      useDualstackEndpoint: false,
+      useFipsEndpoint: false,
+    });
     expect(mockUrlParser).not.toHaveBeenCalled();
   });
 
   it("returns parsed endpoint", async () => {
     const endpoint = await getEndpointFromRegion(mockInput);
     expect(endpoint).toEqual(mockEndpoint);
-    expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue);
+    expect(mockRegionInfoProvider).toHaveBeenCalledWith(mockRegionValue, {
+      useDualstackEndpoint: false,
+      useFipsEndpoint: false,
+    });
     expect(mockUrlParser).toHaveBeenCalledWith(`https://${mockRegionInfo.hostname}`);
   });
 });
