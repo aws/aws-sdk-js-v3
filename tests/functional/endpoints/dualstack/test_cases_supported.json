@@ -954,12 +954,6 @@
     "hostname": "schemas.ap-east-1.api.aws"
   },
   {
-    "endpointPrefix": "sdb",
-    "sdkId": "value",
-    "region": "ap-northeast-1",
-    "hostname": "sdb.ap-northeast-1.api.aws"
-  },
-  {
     "endpointPrefix": "secretsmanager",
     "sdkId": "Secrets Manager",
     "region": "af-south-1",
