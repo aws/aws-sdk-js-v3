@@ -8,7 +8,8 @@ const getClientPackageName = (sdkId: string) =>
     .map((word) => word.toLowerCase())
     .join("-")}`;
 
-describe("endpoints.fips", () => {
+// These tests should be removed when pseudo regions are deprecated.
+describe("endpoints.fips-pseudo-region", () => {
   for (const { sdkId, region, signingRegion, hostname } of testCases) {
     const clientPackageName = getClientPackageName(sdkId);
     it(`testing "${clientPackageName}" with region: ${region}`, async () => {
