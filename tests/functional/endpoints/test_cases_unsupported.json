@@ -1,0 +1,50 @@
+[
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "ap-east-1",
+    "isFipsEndpoint": true,
+    "isDualstackEndpoint": false,
+    "hostname": "api.tunneling.iot-fips.ap-east-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "ca-central-1",
+    "isFipsEndpoint": true,
+    "isDualstackEndpoint": false,
+    "hostname": "api.tunneling.iot-fips.ca-central-1.amazonaws.com"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "cn-north-1",
+    "isFipsEndpoint": false,
+    "isDualstackEndpoint": false,
+    "hostname": "iotsecuredtunneling.cn-north-1.amazonaws.com.cn"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "cn-north-1",
+    "isFipsEndpoint": false,
+    "isDualstackEndpoint": true,
+    "hostname": "iotsecuredtunneling.cn-north-1.api.amazonwebservices.com.cn"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "cn-north-1",
+    "isFipsEndpoint": true,
+    "isDualstackEndpoint": false,
+    "hostname": "iotsecuredtunneling-fips.cn-north-1.amazonaws.com.cn"
+  },
+  {
+    "endpointPrefix": "iotsecuredtunneling",
+    "sdkId": "IoTSecureTunneling",
+    "region": "cn-north-1",
+    "isFipsEndpoint": true,
+    "isDualstackEndpoint": true,
+    "hostname": "iotsecuredtunneling-fips.cn-north-1.api.amazonwebservices.com.cn"
+  }
+]

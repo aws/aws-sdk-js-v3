@@ -1,8 +1,0 @@
-[
-  {
-    "endpointPrefix": "iotsecuredtunneling",
-    "sdkId": "IoTSecureTunneling",
-    "region": "cn-north-1",
-    "hostname": "iotsecuredtunneling-fips.cn-north-1.api.amazonwebservices.com.cn"
-  }
-]
