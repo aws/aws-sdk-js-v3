@@ -16,7 +16,6 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
@@ -26,13 +25,14 @@ import software.amazon.smithy.model.shapes.ShapeType;
 import software.amazon.smithy.model.transform.ModelTransformer;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
+import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add Nimble customization.
  */
 @SmithyInternalApi
-public class AddNimbleDependency implements TypeScriptIntegration {
+public class AddNimbleCustomizations implements TypeScriptIntegration {
 
     @Override
     public Model preprocessModel(PluginContext context, TypeScriptSettings settings) {
@@ -42,10 +42,8 @@ public class AddNimbleDependency implements TypeScriptIntegration {
         if (!serviceId.equals("nimble")) {
             return context.getModel();
         }
-        Map<ShapeId, ShapeType> overWriteTypeMap = model.getUnionShapes().stream()
-                .map(union -> union.getId())
-                .filter(shapeId -> shapeId.getName().equals("StudioComponentConfiguration"))
-                .collect(Collectors.toMap(shapeId -> shapeId, shapeId -> ShapeType.STRUCTURE));
+        Map<ShapeId, ShapeType> overWriteTypeMap = MapUtils.of(
+                ShapeId.from("com.amazonaws.nimble#StudioComponentConfiguration"), ShapeType.STRUCTURE);
         return ModelTransformer.create().changeShapeType(model, overWriteTypeMap);
     }
 }
