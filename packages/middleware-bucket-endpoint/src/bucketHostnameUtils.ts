@@ -37,12 +37,6 @@ export const isBucketNameOptions = (
 ): options is BucketHostnameParams => typeof options.bucketName === "string";
 
 /**
- * Get pseudo region from supplied region. For example, if supplied with `fips-us-west-2`, it returns `us-west-2`.
- * @internal
- */
-export const getPseudoRegion = (region: string) => (isFipsRegion(region) ? region.replace(/fips-|-fips/, "") : region);
-
-/**
  * Determines whether a given string is DNS compliant per the rules outlined by
  * S3. Length, capitaization, and leading dot restrictions are enforced by the
  * DOMAIN_PATTERN regular expression.
@@ -160,11 +154,6 @@ export const validateRegionalClient = (region: string) => {
     throw new Error(`Client region ${region} is not regional`);
   }
 };
-
-/**
- * @internal
- */
-export const isFipsRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
 
 const isEqualRegions = (regionA: string, regionB: string) => regionA === regionB;
 
