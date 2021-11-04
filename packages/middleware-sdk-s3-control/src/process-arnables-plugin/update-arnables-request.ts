@@ -1,19 +1,23 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware } from "@aws-sdk/types";
+import { BuildHandlerOptions, BuildMiddleware, Provider } from "@aws-sdk/types";
 
-import { S3ControlResolvedConfig } from "../configurations";
 import { CONTEXT_ACCOUNT_ID, CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID } from "../constants";
 import { getOutpostEndpoint } from "./getOutpostEndpoint";
 
 const ACCOUNT_ID_HEADER = "x-amz-account-id";
 const OUTPOST_ID_HEADER = "x-amz-outpost-id";
 
+export interface UpdateArnablesRequestMiddlewareConfig {
+  isCustomEndpoint: boolean;
+  useFipsEndpoint: Provider<boolean>;
+}
+
 /**
  * After outpost request is constructed, redirect request to outpost endpoint and set `x-amz-account-id` and
  * `x-amz-outpost-id` headers.
  */
 export const updateArnablesRequestMiddleware =
-  (config: S3ControlResolvedConfig): BuildMiddleware<any, any> =>
+  (config: UpdateArnablesRequestMiddlewareConfig): BuildMiddleware<any, any> =>
   (next, context) =>
   async (args) => {
     const { request } = args;
