@@ -171,12 +171,13 @@ describe("getProcessArnablesMiddleware", () => {
 
     it("should validate when arn region is fips region", async () => {
       expect.assertions(1);
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const hostname = `s3-control.${clientRegion}.amazonaws.com`;
       const options = setupPluginOptions({
         region: clientRegion,
         regionInfoProvider: () => Promise.resolve({ hostname, partition: "aws-us-gov" }),
         useArnRegion: true,
+        useFipsEndpoint: () => Promise.resolve(true),
       });
       const stack = getStack(hostname, options);
       const handler = stack.resolve((() => {}) as any, {});
@@ -392,12 +393,13 @@ describe("getProcessArnablesMiddleware", () => {
 
     it("should validate when arn region is fips region", async () => {
       expect.assertions(1);
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const hostname = `s3-control.${clientRegion}.amazonaws.com`;
       const options = setupPluginOptions({
         region: clientRegion,
         regionInfoProvider: () => Promise.resolve({ hostname, partition: "aws-us-gov" }),
         useArnRegion: true,
+        useFipsEndpoint: () => Promise.resolve(true),
       });
       const stack = getStack(hostname, options);
       const handler = stack.resolve((() => {}) as any, {});

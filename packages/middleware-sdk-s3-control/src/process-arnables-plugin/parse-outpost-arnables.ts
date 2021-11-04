@@ -43,6 +43,7 @@ export const parseOutpostArnablesMiddleaware =
       useDualstackEndpoint,
     }))!;
     const validatorOptions: ValidateOutpostsArnOptions = {
+      useFipsEndpoint,
       useDualstackEndpoint,
       clientRegion,
       clientPartition,
@@ -89,6 +90,7 @@ type ValidateOutpostsArnOptions = {
   clientPartition: string;
   useArnRegion: boolean;
   useDualstackEndpoint: boolean;
+  useFipsEndpoint: boolean;
 };
 
 /**
@@ -100,7 +102,14 @@ type ValidateOutpostsArnOptions = {
  */
 const validateOutpostsArn = (
   arn: ARN,
-  { clientRegion, signingRegion, clientPartition, useArnRegion, useDualstackEndpoint }: ValidateOutpostsArnOptions
+  {
+    clientRegion,
+    signingRegion,
+    clientPartition,
+    useArnRegion,
+    useFipsEndpoint,
+    useDualstackEndpoint,
+  }: ValidateOutpostsArnOptions
 ) => {
   const { service, partition, accountId, region } = arn;
   validateOutpostService(service);
@@ -110,6 +119,7 @@ const validateOutpostsArn = (
     useArnRegion,
     clientRegion,
     clientSigningRegion: signingRegion,
+    useFipsEndpoint,
   });
   validateNoDualstack(useDualstackEndpoint);
 };
