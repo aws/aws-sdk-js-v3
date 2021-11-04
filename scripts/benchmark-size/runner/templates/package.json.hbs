@@ -1,0 +1,17 @@
+{
+  "name": "@aws-sdk/benchmark-size-pkg",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "{{package}}": "ci",
+    {{#each dependencies}}
+    "{{this.name}}": "{{this.version}}",
+    {{/each}}
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}
