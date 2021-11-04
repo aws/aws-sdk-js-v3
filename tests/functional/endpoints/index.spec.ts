@@ -1,19 +1,22 @@
 import { join } from "path";
 
-import { KNOWN_REGIONS } from "./fixtures";
+import testCases from "./test_cases_supported.json";
 
-describe("hostname for know regions", () => {
-  for (const region of Object.keys(KNOWN_REGIONS)) {
-    describe(region, () => {
-      for (const [service, expectedHostname] of Object.entries(KNOWN_REGIONS[region])) {
-        it(`${service} should resolve to hostname ${expectedHostname}`, async () => {
-          const { defaultRegionInfoProvider } = await import(
-            join("..", "..", "..", "clients", `client-${service}`, "src", "endpoints")
-          );
-          const { hostname } = await defaultRegionInfoProvider(region);
-          expect(hostname).toBe(expectedHostname);
-        });
-      }
+const getClientPackageName = (sdkId: string) =>
+  `client-${sdkId
+    .split(" ")
+    .map((word) => word.toLowerCase())
+    .join("-")}`;
+
+describe("endpoints", () => {
+  for (const { sdkId, region, useFipsEndpoint, useDualstackEndpoint, hostname } of testCases) {
+    const clientPackageName = getClientPackageName(sdkId);
+    it(`testing "${clientPackageName}" with region: ${region}`, async () => {
+      const { defaultRegionInfoProvider } = await import(
+        join("..", "..", "..", "clients", clientPackageName, "src", "endpoints")
+      );
+      const regionInfo = await defaultRegionInfoProvider(region, { useFipsEndpoint, useDualstackEndpoint });
+      expect(regionInfo.hostname).toEqual(hostname);
     });
   }
 });
