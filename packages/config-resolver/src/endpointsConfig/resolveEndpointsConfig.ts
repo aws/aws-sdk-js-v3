@@ -19,17 +19,13 @@ export interface EndpointsInputConfig {
    * Enables IPv6/IPv4 dualstack endpoint.
    */
   useDualstackEndpoint?: boolean | Provider<boolean>;
-
-  /**
-   * Enables FIPS compatible endpoints.
-   */
-  useFipsEndpoint?: boolean | Provider<boolean>;
 }
 
 interface PreviouslyResolved {
   regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
   region: Provider<string>;
+  useFipsEndpoint: Provider<boolean>;
 }
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
@@ -48,26 +44,20 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
    * Resolved value for input {@link EndpointsInputConfig.useDualstackEndpoint}
    */
   useDualstackEndpoint: Provider<boolean>;
-
-  /**
-   * Resolved value for input {@link EndpointsInputConfig.useFipsEndpoint}
-   */
-  useFipsEndpoint: Provider<boolean>;
 }
 
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig => {
   const useDualstackEndpoint = normalizeBoolean(input.useDualstackEndpoint!);
-  const useFipsEndpoint = normalizeBoolean(input.useFipsEndpoint!);
+  const { endpoint, useFipsEndpoint } = input;
   return {
     ...input,
     tls: input.tls ?? true,
-    endpoint: input.endpoint
-      ? normalizeEndpoint({ ...input, endpoint: input.endpoint })
+    endpoint: endpoint
+      ? normalizeEndpoint({ ...input, endpoint })
       : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
-    isCustomEndpoint: input.endpoint ? true : false,
+    isCustomEndpoint: endpoint ? true : false,
     useDualstackEndpoint,
-    useFipsEndpoint,
   };
 };

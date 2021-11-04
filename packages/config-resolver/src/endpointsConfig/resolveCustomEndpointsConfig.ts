@@ -31,5 +31,4 @@ export const resolveCustomEndpointsConfig = <T>(
   endpoint: normalizeEndpoint(input),
   isCustomEndpoint: true,
   useDualstackEndpoint: normalizeBoolean(input.useDualstackEndpoint!),
-  useFipsEndpoint: normalizeBoolean(input.useFipsEndpoint!),
 });

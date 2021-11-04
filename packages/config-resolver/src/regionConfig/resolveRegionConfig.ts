@@ -8,20 +8,23 @@ export interface RegionInputConfig {
    * The AWS region to which this client will send requests
    */
   region?: string | Provider<string>;
+
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint?: boolean | Provider<boolean>;
 }
 
-interface PreviouslyResolved {
-  useFipsEndpoint: Provider<boolean>;
-}
+interface PreviouslyResolved {}
 
 export interface RegionResolvedConfig {
   /**
    * Resolved value for input config {@link RegionInputConfig.region}
    */
   region: Provider<string>;
+
   /**
-   * Updated value for config {@link PreviouslyResolved.useFipsEndpoint}
-   * if region is provided as a string
+   * Resolved value for input {@link RegionInputConfig.useFipsEndpoint}
    */
   useFipsEndpoint: Provider<boolean>;
 }
@@ -46,7 +49,7 @@ export const resolveRegionConfig = <T>(input: T & RegionInputConfig & Previously
       if (isFipsRegion(providedRegion)) {
         return true;
       }
-      return useFipsEndpoint();
+      return typeof useFipsEndpoint === "boolean" ? Promise.resolve(useFipsEndpoint) : useFipsEndpoint!();
     },
   };
 };
