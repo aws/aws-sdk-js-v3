@@ -5,7 +5,6 @@ export * from "./bucketHostname";
 export * from "./configurations";
 export {
   getArnResources,
-  getPseudoRegion,
   getSuffixForArnEndpoint,
   validateOutpostService,
   validatePartition,

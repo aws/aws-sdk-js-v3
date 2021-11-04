@@ -19,6 +19,7 @@ export interface BucketHostnameParams {
   clientRegion: string;
   accelerateEndpoint?: boolean;
   dualstackEndpoint?: boolean;
+  fipsEndpoint?: boolean;
   pathStyleEndpoint?: boolean;
   tlsCompatible?: boolean;
 }
@@ -34,12 +35,6 @@ export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketNam
 export const isBucketNameOptions = (
   options: BucketHostnameParams | ArnHostnameParams
 ): options is BucketHostnameParams => typeof options.bucketName === "string";
-
-/**
- * Get pseudo region from supplied region. For example, if supplied with `fips-us-west-2`, it returns `us-west-2`.
- * @internal
- */
-export const getPseudoRegion = (region: string) => (isFipsRegion(region) ? region.replace(/fips-|-fips/, "") : region);
 
 /**
  * Determines whether a given string is DNS compliant per the rules outlined by
@@ -128,12 +123,13 @@ export const validateRegion = (
     allowFipsRegion?: boolean;
     clientRegion: string;
     clientSigningRegion: string;
+    useFipsEndpoint: boolean;
   }
 ) => {
   if (region === "") {
     throw new Error("ARN region is empty");
   }
-  if (isFipsRegion(options.clientRegion)) {
+  if (options.useFipsEndpoint) {
     if (!options.allowFipsRegion) {
       throw new Error("FIPS region is not supported");
     } else if (!isEqualRegions(region, options.clientRegion)) {
@@ -154,18 +150,12 @@ export const validateRegion = (
  * @param region
  */
 export const validateRegionalClient = (region: string) => {
-  if (["s3-external-1", "aws-global"].includes(getPseudoRegion(region))) {
+  if (["s3-external-1", "aws-global"].includes(region)) {
     throw new Error(`Client region ${region} is not regional`);
   }
 };
 
-/**
- * @internal
- */
-export const isFipsRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
-
-const isEqualRegions = (regionA: string, regionB: string) =>
-  regionA === regionB || getPseudoRegion(regionA) === regionB || regionA === getPseudoRegion(regionB);
+const isEqualRegions = (regionA: string, regionB: string) => regionA === regionB;
 
 /**
  * Validate an account ID
@@ -250,11 +240,11 @@ export const validateNoDualstack = (dualstackEndpoint?: boolean) => {
 };
 
 /**
- * Validate region is not appended or prepended with a `fips-`
+ * Validate fips endpoint is not set up.
  * @internal
  */
-export const validateNoFIPS = (region?: string) => {
-  if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
+export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
+  if (useFipsEndpoint) throw new Error(`FIPS region is not supported with Outpost.`);
 };
 
 /**
