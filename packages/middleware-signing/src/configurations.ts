@@ -1,6 +1,7 @@
 import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import { Credentials, HashConstructor, Provider, RegionInfo, RegionInfoProvider, RequestSigner } from "@aws-sdk/types";
+import { options } from "yargs";
 
 // 5 minutes buffer time the refresh the credential before it really expires
 const CREDENTIAL_EXPIRE_WINDOW = 300000;
@@ -73,6 +74,8 @@ interface PreviouslyResolved {
   signingName?: string;
   serviceId: string;
   sha256: HashConstructor;
+  useFipsEndpoint: Provider<boolean>;
+  useDualstackEndpoint: Provider<boolean>;
 }
 
 interface SigV4PreviouslyResolved {
@@ -118,7 +121,16 @@ export const resolveAwsAuthConfig = <T>(
     //construct a provider inferring signing from region.
     signer = () =>
       normalizeProvider(input.region)()
-        .then(async (region) => [(await input.regionInfoProvider(region)) || {}, region] as [RegionInfo, string])
+        .then(
+          async (region) =>
+            [
+              (await input.regionInfoProvider(region, {
+                useFipsEndpoint: await input.useFipsEndpoint(),
+                useDualstackEndpoint: await input.useDualstackEndpoint(),
+              })) || {},
+              region,
+            ] as [RegionInfo, string]
+        )
         .then(([regionInfo, region]) => {
           const { signingRegion, signingService } = regionInfo;
           //update client's singing region and signing service config if they are resolved.

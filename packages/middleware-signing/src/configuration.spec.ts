@@ -3,7 +3,6 @@ import { HttpRequest } from "@aws-sdk/protocol-http";
 import { resolveAwsAuthConfig, resolveSigV4AuthConfig } from "./configurations";
 
 describe("AuthConfig", () => {
-
   describe("resolveAwsAuthConfig", () => {
     const inputParams = {
       credentialDefaultProvider: () => () => Promise.resolve({ accessKeyId: "key", secretAccessKey: "secret" }),
@@ -15,6 +14,8 @@ describe("AuthConfig", () => {
         digest: jest.fn().mockReturnValue("SHA256 hash"),
       }),
       credentials: jest.fn().mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
+      useFipsEndpoint: () => Promise.resolve(false),
+      useDualstackEndpoint: () => Promise.resolve(false),
     };
 
     beforeEach(() => {
