@@ -1,5 +1,5 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { BuildHandlerOptions, BuildMiddleware, Pluggable } from "@aws-sdk/types";
+import { BuildHandlerOptions, BuildMiddleware, Pluggable, Provider } from "@aws-sdk/types";
 
 import { S3ControlResolvedConfig } from "./configurations";
 import { CONTEXT_SIGNING_SERVICE } from "./constants";
@@ -9,12 +9,17 @@ type InputType = {
   OutpostId?: string;
 };
 
+export interface RedirectFromPostIdMiddlewareConfig {
+  isCustomEndpoint: boolean;
+  useFipsEndpoint: Provider<boolean>;
+}
+
 /**
  * If OutpostId is set, redirect hostname to Outpost one, and change signing service to `s3-outposts`.
  * Applied to S3Control.CreateBucket and S3Control.ListRegionalBuckets
  */
 export const redirectFromPostIdMiddleware =
-  (config: S3ControlResolvedConfig): BuildMiddleware<InputType, any> =>
+  (config: RedirectFromPostIdMiddlewareConfig): BuildMiddleware<InputType, any> =>
   (next, context) =>
   async (args) => {
     const { input, request } = args;
