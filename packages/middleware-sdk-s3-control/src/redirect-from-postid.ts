@@ -14,13 +14,15 @@ type InputType = {
  * Applied to S3Control.CreateBucket and S3Control.ListRegionalBuckets
  */
 export const redirectFromPostIdMiddleware =
-  ({ isCustomEndpoint }: { isCustomEndpoint: boolean }): BuildMiddleware<InputType, any> =>
+  (config: S3ControlResolvedConfig): BuildMiddleware<InputType, any> =>
   (next, context) =>
-  (args) => {
+  async (args) => {
     const { input, request } = args;
     if (!HttpRequest.isInstance(request)) return next(args);
     if (input.OutpostId) {
-      request.hostname = getOutpostEndpoint(request.hostname, { isCustomEndpoint });
+      const { isCustomEndpoint } = config;
+      const useFipsEndpoint = await config.useFipsEndpoint();
+      request.hostname = getOutpostEndpoint(request.hostname, { isCustomEndpoint, useFipsEndpoint });
       context[CONTEXT_SIGNING_SERVICE] = "s3-outposts";
     }
     return next(args);
