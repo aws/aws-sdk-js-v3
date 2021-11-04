@@ -13,7 +13,7 @@ const REGEX_S3CONTROL_HOSTNAME = /^(.+\.)?s3-control[.-]([a-z0-9-]+)\./;
  * `x-amz-outpost-id` headers.
  */
 export const updateArnablesRequestMiddleware =
-  ({ isCustomEndpoint }: { isCustomEndpoint: boolean }): BuildMiddleware<any, any> =>
+  ({ isCustomEndpoint }: S3ControlResolvedConfig): BuildMiddleware<any, any> =>
   (next, context) =>
   (args) => {
     const { request } = args;
