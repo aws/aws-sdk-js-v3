@@ -46,6 +46,7 @@ export const bucketEndpointMiddleware =
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: useDualstackEndpoint,
+          fipsEndpoint: useFipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion,
@@ -70,12 +71,14 @@ export const bucketEndpointMiddleware =
       } else {
         const clientRegion = getPseudoRegion(await options.region());
         const dualstackEndpoint = await options.useDualstackEndpoint();
+        const fipsEndpoint = await options.useFipsEndpoint();
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName,
           clientRegion,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint,
+          fipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           isCustomEndpoint: options.isCustomEndpoint,

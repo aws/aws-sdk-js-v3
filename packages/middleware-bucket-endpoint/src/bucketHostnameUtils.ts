@@ -19,6 +19,7 @@ export interface BucketHostnameParams {
   clientRegion: string;
   accelerateEndpoint?: boolean;
   dualstackEndpoint?: boolean;
+  fipsEndpoint?: boolean;
   pathStyleEndpoint?: boolean;
   tlsCompatible?: boolean;
 }
@@ -128,12 +129,13 @@ export const validateRegion = (
     allowFipsRegion?: boolean;
     clientRegion: string;
     clientSigningRegion: string;
+    useFipsEndpoint: boolean;
   }
 ) => {
   if (region === "") {
     throw new Error("ARN region is empty");
   }
-  if (isFipsRegion(options.clientRegion)) {
+  if (options.useFipsEndpoint) {
     if (!options.allowFipsRegion) {
       throw new Error("FIPS region is not supported");
     } else if (!isEqualRegions(region, options.clientRegion)) {
@@ -250,11 +252,11 @@ export const validateNoDualstack = (dualstackEndpoint?: boolean) => {
 };
 
 /**
- * Validate region is not appended or prepended with a `fips-`
+ * Validate fips endpoint is not set up.
  * @internal
  */
-export const validateNoFIPS = (region?: string) => {
-  if (isFipsRegion(region ?? "")) throw new Error(`FIPS region is not supported with Outpost, got ${region}`);
+export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
+  if (useFipsEndpoint) throw new Error(`FIPS region is not supported with Outpost.`);
 };
 
 /**
