@@ -37,10 +37,10 @@ export const getRegionInfo = (
     throw new Error(`Endpoint resolution failed for: ${{ resolvedRegion, useFipsEndpoint, useDualstackEndpoint }}`);
   }
 
-  const signingRegion = getResolvedSigningRegion(region, {
-    hostname,
+  const signingRegion = getResolvedSigningRegion(hostname, {
     signingRegion: regionHash[resolvedRegion]?.signingRegion,
     regionRegex: partitionHash[partition].regionRegex,
+    useFipsEndpoint,
   });
 
   return {

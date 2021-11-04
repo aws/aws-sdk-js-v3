@@ -105,9 +105,9 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockPartitionHostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
-      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
-        hostname: mockHostname,
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockHostname, {
         regionRegex: mockRegionRegex,
+        useFipsEndpoint: false,
       });
     });
   });
@@ -169,10 +169,10 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockPartitionHostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
-      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
-        hostname: mockHostname,
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockHostname, {
         signingRegion: mockSigningRegion,
         regionRegex: mockRegionRegex,
+        useFipsEndpoint: false,
       });
     });
   });
@@ -232,9 +232,9 @@ describe(getRegionInfo.name, () => {
         partitionHostname: mockPartitionHostname,
       });
       expect(getResolvedPartition).toHaveBeenCalledWith(mockRegion, mockGetResolvedPartitionOptions);
-      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockRegion, {
-        hostname: mockHostname,
+      expect(getResolvedSigningRegion).toHaveBeenCalledWith(mockHostname, {
         regionRegex: mockRegionRegex,
+        useFipsEndpoint: false,
       });
     });
   });
