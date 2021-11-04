@@ -5,7 +5,6 @@ import {
   BucketHostnameParams,
   DOT_PATTERN,
   getArnResources,
-  getPseudoRegion,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
@@ -138,9 +137,7 @@ const getEndpointFromObjectLambdaArn = ({
 
   return {
     bucketEndpoint: true,
-    hostname: `${DNSHostLabel}.${service}${fipsEndpoint ? "-fips" : ""}.${getPseudoRegion(
-      endpointRegion
-    )}.${hostnameSuffix}`,
+    hostname: `${DNSHostLabel}.${service}${fipsEndpoint ? "-fips" : ""}.${endpointRegion}.${hostnameSuffix}`,
     signingRegion,
     signingService: service,
   };
@@ -230,9 +227,7 @@ const getEndpointFromAccessPointArn = ({
     hostname: `${hostnamePrefix}${
       isCustomEndpoint
         ? ""
-        : `.s3-accesspoint${fipsEndpoint ? "-fips" : ""}${dualstackEndpoint ? ".dualstack" : ""}.${getPseudoRegion(
-            endpointRegion
-          )}`
+        : `.s3-accesspoint${fipsEndpoint ? "-fips" : ""}${dualstackEndpoint ? ".dualstack" : ""}.${endpointRegion}`
     }.${hostnameSuffix}`,
     signingRegion,
   };

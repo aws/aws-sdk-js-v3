@@ -156,7 +156,7 @@ export const validateRegion = (
  * @param region
  */
 export const validateRegionalClient = (region: string) => {
-  if (["s3-external-1", "aws-global"].includes(getPseudoRegion(region))) {
+  if (["s3-external-1", "aws-global"].includes(region)) {
     throw new Error(`Client region ${region} is not regional`);
   }
 };
@@ -166,8 +166,7 @@ export const validateRegionalClient = (region: string) => {
  */
 export const isFipsRegion = (region: string) => region.startsWith("fips-") || region.endsWith("-fips");
 
-const isEqualRegions = (regionA: string, regionB: string) =>
-  regionA === regionB || getPseudoRegion(regionA) === regionB || regionA === getPseudoRegion(regionB);
+const isEqualRegions = (regionA: string, regionB: string) => regionA === regionB;
 
 /**
  * Validate an account ID
