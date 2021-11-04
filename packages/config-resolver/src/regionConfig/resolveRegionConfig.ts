@@ -15,9 +15,7 @@ export interface RegionInputConfig {
   useFipsEndpoint?: boolean | Provider<boolean>;
 }
 
-interface PreviouslyResolved {
-  useFipsEndpoint: Provider<boolean>;
-}
+interface PreviouslyResolved {}
 
 export interface RegionResolvedConfig {
   /**
