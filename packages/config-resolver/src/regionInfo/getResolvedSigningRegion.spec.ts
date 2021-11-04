@@ -1,4 +1,3 @@
-import { isFipsRegion } from "../regionConfig/isFipsRegion";
 import { getResolvedSigningRegion } from "./getResolvedSigningRegion";
 
 describe(getResolvedSigningRegion.name, () => {
