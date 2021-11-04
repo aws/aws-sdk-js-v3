@@ -111,7 +111,6 @@ const validateOutpostsArn = (
     useArnRegion,
     clientRegion,
     clientSigningRegion: signingRegion,
-    allowFipsRegion: true,
   });
   validateNoDualstack(useDualstackEndpoint);
 };

@@ -169,6 +169,28 @@ describe("getProcessArnablesMiddleware", () => {
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-gov-east-1" });
     });
 
+    it("should validate when arn region is fips region", async () => {
+      expect.assertions(1);
+      const clientRegion = "fips-us-gov-east-1";
+      const hostname = `s3-control.${clientRegion}.amazonaws.com`;
+      const options = setupPluginOptions({
+        region: clientRegion,
+        regionInfoProvider: () => Promise.resolve({ hostname, partition: "aws-us-gov" }),
+        useArnRegion: true,
+      });
+      const stack = getStack(hostname, options);
+      const handler = stack.resolve((() => {}) as any, {});
+      try {
+        await handler({
+          input: {
+            Name: "arn:aws-us-gov:s3-outposts:fips-us-gov-east-1:123456789012:outpost:op-01234567890123456:accesspoint:myaccesspoint",
+          },
+        });
+      } catch (e) {
+        expect(e.message).toContain("FIPS region is not supported");
+      }
+    });
+
     it("should update endpoint, headers and context correctly if client is fips region", async () => {
       expect.assertions(4);
       const clientRegion = "fip-us-gov-east-1";
@@ -366,6 +388,29 @@ describe("getProcessArnablesMiddleware", () => {
       expect(request.headers).toMatchObject({ "x-amz-outpost-id": "op-01234567890123456" });
       expect(input.AccountId).toBe("123456789012");
       expect(context).toMatchObject({ signing_service: "s3-outposts", signing_region: "us-gov-east-1" });
+    });
+
+    it("should validate when arn region is fips region", async () => {
+      expect.assertions(1);
+      const clientRegion = "fips-us-gov-east-1";
+      const hostname = `s3-control.${clientRegion}.amazonaws.com`;
+      const options = setupPluginOptions({
+        region: clientRegion,
+        regionInfoProvider: () => Promise.resolve({ hostname, partition: "aws-us-gov" }),
+        useArnRegion: true,
+      });
+      const stack = getStack(hostname, options);
+      const handler = stack.resolve((() => {}) as any, {});
+      try {
+        await handler({
+          input: {
+            Bucket:
+              "arn:aws-us-gov:s3-outposts:fips-us-gov-east-1:123456789012:outpost:op-01234567890123456:bucket:mybucket",
+          },
+        });
+      } catch (e) {
+        expect(e.message).toContain("FIPS region is not supported");
+      }
     });
 
     it("should update endpoint, headers and context correctly if client is fips region", async () => {
