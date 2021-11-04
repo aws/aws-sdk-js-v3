@@ -12,6 +12,7 @@ interface PreviouslyResolved {
   isCustomEndpoint: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
+  useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
 
@@ -21,6 +22,10 @@ export interface S3ControlResolvedConfig {
    * @internal
    */
   isCustomEndpoint: boolean;
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint: Provider<boolean>;
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
    */

@@ -10,11 +10,13 @@ describe("getProcessArnablesMiddleware", () => {
     region: string;
     regionInfoProvider?: Provider<RegionInfo>;
     useAccelerateEndpoint?: boolean;
+    useFipsEndpoint?: Provider<boolean>;
     useDualstackEndpoint?: Provider<boolean>;
     useArnRegion?: boolean;
   };
   const setupPluginOptions = (options: FakeOptions): S3ControlResolvedConfig => {
     return {
+      useFipsEndpoint: () => Promise.resolve(false),
       useDualstackEndpoint: () => Promise.resolve(false),
       ...options,
       regionInfoProvider: options.regionInfoProvider ?? jest.fn().mockResolvedValue({ partition: "aws" }),
