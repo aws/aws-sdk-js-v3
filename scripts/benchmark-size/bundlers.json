@@ -1,0 +1,18 @@
+{
+  "webpack-4": {
+    "version": 0,
+    "config": "./bundlers/webpack-4.config.js"
+  },
+  "webpack-5": {
+    "version": 0,
+    "config": "./bundlers/webpack-5.config.js"
+  },
+  "esbuild": {
+    "version": 0,
+    "config": "./bundlers/esbuild.config.js"
+  },
+  "rollup": {
+    "version": 0,
+    "config": "./bundlers/rollup.config.js"
+  }
+}

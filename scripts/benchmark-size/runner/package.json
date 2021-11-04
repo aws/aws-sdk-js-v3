@@ -1,0 +1,16 @@
+{
+  "name": "@aws-sdk/benchmark-size-runner",
+  "version": "0.1.0",
+  "description": "A runner generating the SDK size metrics with or without bundlers",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "semver": "^7.3.5",
+    "webpack": "5.61.0"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}

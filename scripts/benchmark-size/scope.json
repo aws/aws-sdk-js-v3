@@ -1,0 +1,18 @@
+{
+  "@aws-sdk/client-accessanalyzer": {
+    "artifacts": ["AccessAnalyzer", "AccessAnalyzerClient", "ApplyArchiveRuleCommand"]
+  },
+  "@aws-sdk/client-s3": {
+    "artifacts": ["S3", "S3Client", "PubObjectCommand"],
+    "dependencies": {
+      "aws-crt": "1.10.0"
+    }
+  },
+  "@aws-sdk/lib-dynamodb": {
+    "artifacts": ["DynamoDBDocument", "DynamoDBDocumentClient", "GetCommand"]
+  },
+  "@aws-sdk/credential-provider": {
+    "artifacts": ["fromIni"]
+  },
+  "@aws-sdk/util-base64-node": null
+}
