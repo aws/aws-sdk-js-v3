@@ -34,6 +34,7 @@ describe("bucketEndpointMiddleware", () => {
       .fn()
       .mockResolvedValue({ hostname: "foo.us-foo-2.amazonaws.com", partition: "aws-foo", signingRegion: mockRegion }),
     useArnRegion: jest.fn().mockResolvedValue(false),
+    useFipsEndpoint: () => Promise.resolve(false),
     useDualstackEndpoint: () => Promise.resolve(false),
   };
 

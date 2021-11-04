@@ -28,6 +28,7 @@ interface PreviouslyResolved {
   isCustomEndpoint: boolean;
   region: Provider<string>;
   regionInfoProvider: RegionInfoProvider;
+  useFipsEndpoint: Provider<boolean>;
   useDualstackEndpoint: Provider<boolean>;
 }
 
@@ -49,6 +50,10 @@ export interface BucketEndpointResolvedConfig {
    * Resolved value for input config {@link BucketEndpointInputConfig.useAccelerateEndpoint}
    */
   useAccelerateEndpoint: boolean;
+  /**
+   * Enables FIPS compatible endpoints.
+   */
+  useFipsEndpoint: Provider<boolean>;
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
    */

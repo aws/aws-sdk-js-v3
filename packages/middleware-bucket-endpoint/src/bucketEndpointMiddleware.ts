@@ -31,9 +31,11 @@ export const bucketEndpointMiddleware =
       } else if (validateArn(bucketName)) {
         const bucketArn = parseArn(bucketName);
         const clientRegion = getPseudoRegion(await options.region());
-        const { partition, signingRegion = clientRegion } = (await options.regionInfoProvider(clientRegion)) || {};
+        const useDualstackEndpoint = await options.useDualstackEndpoint();
+        const useFipsEndpoint = await options.useFipsEndpoint();
+        const { partition, signingRegion = clientRegion } =
+          (await options.regionInfoProvider(clientRegion, { useDualstackEndpoint, useFipsEndpoint })) || {};
         const useArnRegion = await options.useArnRegion();
-        const dualstackEndpoint = await options.useDualstackEndpoint();
         const {
           hostname,
           bucketEndpoint,
@@ -43,7 +45,7 @@ export const bucketEndpointMiddleware =
           bucketName: bucketArn,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
-          dualstackEndpoint,
+          dualstackEndpoint: useDualstackEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion,

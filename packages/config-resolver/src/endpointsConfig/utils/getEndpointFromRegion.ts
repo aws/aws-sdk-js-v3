@@ -5,6 +5,8 @@ interface GetEndpointFromRegionOptions {
   tls?: boolean;
   regionInfoProvider: RegionInfoProvider;
   urlParser: UrlParser;
+  useDualstackEndpoint: Provider<boolean>;
+  useFipsEndpoint: Provider<boolean>;
 }
 
 export const getEndpointFromRegion = async (input: GetEndpointFromRegionOptions) => {
@@ -16,7 +18,9 @@ export const getEndpointFromRegion = async (input: GetEndpointFromRegionOptions)
     throw new Error("Invalid region in client config");
   }
 
-  const { hostname } = (await input.regionInfoProvider(region)) ?? {};
+  const useDualstackEndpoint = await input.useDualstackEndpoint();
+  const useFipsEndpoint = await input.useFipsEndpoint();
+  const { hostname } = (await input.regionInfoProvider(region, { useDualstackEndpoint, useFipsEndpoint })) ?? {};
   if (!hostname) {
     throw new Error("Cannot resolve hostname from client config");
   }
