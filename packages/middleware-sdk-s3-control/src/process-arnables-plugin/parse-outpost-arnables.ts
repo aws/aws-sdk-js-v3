@@ -3,7 +3,6 @@ import {
   getPseudoRegion,
   validateAccountId,
   validateNoDualstack,
-  validateNoFIPS,
   validateOutpostService,
   validatePartition,
   validateRegion,
@@ -114,7 +113,6 @@ const validateOutpostsArn = (
     clientSigningRegion: signingRegion,
   });
   validateNoDualstack(useDualstackEndpoint);
-  if (!useArnRegion) validateNoFIPS(clientRegion);
 };
 
 const parseOutpostsAccessPointArnResource = (
