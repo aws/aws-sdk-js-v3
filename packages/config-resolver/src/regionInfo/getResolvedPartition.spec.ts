@@ -12,7 +12,6 @@ describe(getResolvedPartition.name, () => {
       [mockPartition]: {
         regions: [mockRegion, `${mockRegion}2`, `${mockRegion}3`],
         regionRegex: mockRegionRegex,
-        hostname: mockHostname,
         variants: [{ hostname: mockHostname, tags: [] }],
       },
     };
@@ -24,7 +23,6 @@ describe(getResolvedPartition.name, () => {
       [`${mockPartition}2`]: {
         regions: [`${mockRegion}2`, `${mockRegion}3`],
         regionRegex: mockRegionRegex,
-        hostname: mockHostname,
         variants: [{ hostname: mockHostname, tags: [] }],
       },
     };
