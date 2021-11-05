@@ -138,11 +138,7 @@ final class EndpointGenerator implements Runnable {
                         }
                     });
                     writer.write("regionRegex: $S,", partition.regionRegex);
-
-                    // TODO: Remove hostname after fully switching to variants.
-                    writer.write("hostname: $S,", partition.hostnameTemplate);
                     writer.write("variants: $L,", ArrayNode.prettyPrintJson(partition.getVariants()));
-
                     partition.getPartitionEndpoint().ifPresent(
                         endpoint -> writer.write("endpoint: $S,", endpoint));
                 });
@@ -171,10 +167,6 @@ final class EndpointGenerator implements Runnable {
 
     private void writeEndpointSpecificResolver(String region, ObjectNode resolved) {
         writer.openBlock("$S: {", "},", region, () -> {
-            // TODO: Remove hostname after fully switching to variants.
-            String hostname = resolved.expectStringMember("hostname").getValue();
-            writer.write("hostname: $S,", hostname);
-
             ArrayNode variants = resolved.expectArrayMember("variants");
             writer.write("variants: $L,", ArrayNode.prettyPrintJson(variants));
 
