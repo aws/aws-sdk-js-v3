@@ -12,6 +12,14 @@
     "downlevel-dts": "downlevel-dts dist-types dist-types/ts3.4",
     "test": "jest"
   },
+  "browser": {
+    "./dist-es/fromTokenFile": false,
+    "./dist-cjs/fromTokenFile": false
+  },
+  "react-native": {
+    "./dist-es/fromTokenFile": false,
+    "./dist-cjs/fromTokenFile": false
+  },
   "keywords": [
     "aws",
     "credentials"
