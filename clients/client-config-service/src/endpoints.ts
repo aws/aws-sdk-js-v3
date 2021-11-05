@@ -2,66 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  "fips-us-east-1": {
-    hostname: "config-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "config-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "fips-us-east-2": {
-    hostname: "config-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "config-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "fips-us-gov-east-1": {
-    hostname: "config.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "config.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
-  },
-  "fips-us-gov-west-1": {
-    hostname: "config.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "config.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "fips-us-west-1": {
-    hostname: "config-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "config-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
-  "fips-us-west-2": {
-    hostname: "config-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "config-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
   "us-east-1": {
     hostname: "config.us-east-1.amazonaws.com",
     variants: [

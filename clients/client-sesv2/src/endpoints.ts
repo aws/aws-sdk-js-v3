@@ -2,16 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  "fips-us-gov-west-1": {
-    hostname: "email-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "email-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-gov-west-1": {
     hostname: "email.us-gov-west-1.amazonaws.com",
     variants: [

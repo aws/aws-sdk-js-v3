@@ -16,16 +16,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-1",
   },
-  "fips-aws-global": {
-    hostname: "shield-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "shield-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
 };
 
 const partitionHash: PartitionHash = {

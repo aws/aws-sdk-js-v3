@@ -15,16 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-1-fips": {
-    hostname: "codebuild-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "us-east-2": {
     hostname: "codebuild.us-east-2.amazonaws.com",
     variants: [
@@ -37,16 +27,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-2-fips": {
-    hostname: "codebuild-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
     hostname: "codebuild.us-gov-east-1.amazonaws.com",
@@ -61,16 +41,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-east-1-fips": {
-    hostname: "codebuild-fips.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
-  },
   "us-gov-west-1": {
     hostname: "codebuild.us-gov-west-1.amazonaws.com",
     variants: [
@@ -83,16 +53,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-gov-west-1-fips": {
-    hostname: "codebuild-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
     hostname: "codebuild.us-west-1.amazonaws.com",
@@ -107,16 +67,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "codebuild-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "codebuild.us-west-2.amazonaws.com",
     variants: [
@@ -129,16 +79,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "codebuild-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "codebuild-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

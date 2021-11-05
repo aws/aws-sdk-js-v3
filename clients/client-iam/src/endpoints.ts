@@ -26,16 +26,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-1",
   },
-  "aws-global-fips": {
-    hostname: "iam-fips.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam-fips.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "aws-iso-b-global": {
     hostname: "iam.us-isob-east-1.sc2s.sgov.gov",
     variants: [
@@ -66,64 +56,6 @@ const regionHash: RegionHash = {
       {
         hostname: "iam.us-gov.amazonaws.com",
         tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "aws-us-gov-global-fips": {
-    hostname: "iam.us-gov.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam.us-gov.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  iam: {
-    hostname: "iam.iam.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam.iam.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "iam-fips.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "iam-fips": {
-    hostname: "iam-fips.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam-fips.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "iam-govcloud": {
-    hostname: "iam.iam-govcloud.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam.iam-govcloud.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "iam.us-gov.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "iam-govcloud-fips": {
-    hostname: "iam.us-gov.amazonaws.com",
-    variants: [
-      {
-        hostname: "iam.us-gov.amazonaws.com",
-        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",

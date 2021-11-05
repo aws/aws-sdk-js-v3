@@ -108,16 +108,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "ca-central-1",
   },
-  "ca-central-1-fips": {
-    hostname: "s3-control-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
   "cn-north-1": {
     hostname: "s3-control.cn-north-1.amazonaws.com.cn",
     variants: [
@@ -252,16 +242,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-east-1",
   },
-  "us-east-1-fips": {
-    hostname: "s3-control-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "us-east-2": {
     hostname: "s3-control.us-east-2.amazonaws.com",
     variants: [
@@ -280,16 +260,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-control.dualstack.us-east-2.amazonaws.com",
         tags: ["dualstack"],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "us-east-2-fips": {
-    hostname: "s3-control-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-east-2.amazonaws.com",
-        tags: [],
       },
     ],
     signingRegion: "us-east-2",
@@ -316,16 +286,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-gov-east-1",
   },
-  "us-gov-east-1-fips": {
-    hostname: "s3-control-fips.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
-  },
   "us-gov-west-1": {
     hostname: "s3-control.us-gov-west-1.amazonaws.com",
     variants: [
@@ -344,16 +304,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-control.dualstack.us-gov-west-1.amazonaws.com",
         tags: ["dualstack"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "us-gov-west-1-fips": {
-    hostname: "s3-control-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
       },
     ],
     signingRegion: "us-gov-west-1",
@@ -380,16 +330,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-west-1",
   },
-  "us-west-1-fips": {
-    hostname: "s3-control-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "s3-control.us-west-2.amazonaws.com",
     variants: [
@@ -408,16 +348,6 @@ const regionHash: RegionHash = {
       {
         hostname: "s3-control.dualstack.us-west-2.amazonaws.com",
         tags: ["dualstack"],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
-  "us-west-2-fips": {
-    hostname: "s3-control-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "s3-control-fips.us-west-2.amazonaws.com",
-        tags: [],
       },
     ],
     signingRegion: "us-west-2",

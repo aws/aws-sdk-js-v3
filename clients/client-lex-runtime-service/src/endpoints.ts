@@ -15,16 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-1-fips": {
-    hostname: "runtime-fips.lex.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "runtime-fips.lex.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "us-gov-west-1": {
     hostname: "runtime.lex.us-gov-west-1.amazonaws.com",
     variants: [
@@ -38,16 +28,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-west-1-fips": {
-    hostname: "runtime-fips.lex.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "runtime-fips.lex.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-west-2": {
     hostname: "runtime.lex.us-west-2.amazonaws.com",
     variants: [
@@ -60,16 +40,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "runtime-fips.lex.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "runtime-fips.lex.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

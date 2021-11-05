@@ -2,36 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  "fips-us-east-1": {
-    hostname: "forecastquery-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "forecastquery-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "fips-us-east-2": {
-    hostname: "forecastquery-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "forecastquery-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "fips-us-west-2": {
-    hostname: "forecastquery-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "forecastquery-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
   "us-east-1": {
     hostname: "forecastquery.us-east-1.amazonaws.com",
     variants: [

@@ -92,15 +92,16 @@ final class EndpointGenerator implements Runnable {
 
             for (Map.Entry<String, Node> entry : endpointMap.getStringMap().entrySet()) {
                 ObjectNode config = entry.getValue().expectObjectNode();
-                // TODO: Do not populate config if "deprecated" is present, after fully switching to variants.
-                if (config.containsMember("hostname") || config.containsMember("variants")) {
+                if (!config.containsMember("deprecated")
+                        && (config.containsMember("hostname") || config.containsMember("variants"))) {
+                    String region = entry.getKey();
                     String hostname = config.getStringMemberOrDefault("hostname", partition.hostnameTemplate);
-                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, entry.getKey());
+                    String resolvedHostname = getResolvedHostname(hostname, dnsSuffix, endpointPrefix, region);
 
                     ArrayNode variants = config.getArrayMember("variants").orElse(ArrayNode.fromNodes());
                     ArrayNode defaultVariant = ArrayNode.fromNodes(getDefaultVariant(resolvedHostname));
 
-                    endpoints.put(entry.getKey(),
+                    endpoints.put(region,
                         config
                             .withMember("hostname", resolvedHostname)
                             .withMember("variants", defaultVariant.merge(variants)));

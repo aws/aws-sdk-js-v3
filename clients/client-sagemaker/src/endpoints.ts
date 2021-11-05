@@ -15,16 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-1-fips": {
-    hostname: "api-fips.sagemaker.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "api-fips.sagemaker.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "us-east-2": {
     hostname: "api.sagemaker.us-east-2.amazonaws.com",
     variants: [
@@ -37,16 +27,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-2-fips": {
-    hostname: "api-fips.sagemaker.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "api-fips.sagemaker.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
   },
   "us-gov-west-1": {
     hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
@@ -61,40 +41,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-west-1-fips": {
-    hostname: "api-fips.sagemaker.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "api-fips.sagemaker.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "us-gov-west-1-fips-secondary": {
-    hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "us-gov-west-1-secondary": {
-    hostname: "api.sagemaker.us-gov-west-1-secondary.amazonaws.com",
-    variants: [
-      {
-        hostname: "api.sagemaker.us-gov-west-1-secondary.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "api.sagemaker.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-west-1": {
     hostname: "api.sagemaker.us-west-1.amazonaws.com",
     variants: [
@@ -108,16 +54,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "api-fips.sagemaker.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "api-fips.sagemaker.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "api.sagemaker.us-west-2.amazonaws.com",
     variants: [
@@ -130,16 +66,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "api-fips.sagemaker.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "api-fips.sagemaker.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

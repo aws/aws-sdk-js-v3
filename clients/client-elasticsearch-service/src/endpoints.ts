@@ -2,16 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  fips: {
-    hostname: "es-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-east-1": {
     hostname: "es.us-east-1.amazonaws.com",
     variants: [
@@ -24,16 +14,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-1-fips": {
-    hostname: "es-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "es.us-east-2.amazonaws.com",
@@ -48,16 +28,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-2-fips": {
-    hostname: "es-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
   "us-gov-east-1": {
     hostname: "es.us-gov-east-1.amazonaws.com",
     variants: [
@@ -70,16 +40,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-gov-east-1-fips": {
-    hostname: "es-fips.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "es.us-gov-west-1.amazonaws.com",
@@ -94,16 +54,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-west-1-fips": {
-    hostname: "es-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-west-1": {
     hostname: "es.us-west-1.amazonaws.com",
     variants: [
@@ -117,16 +67,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "es-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "es.us-west-2.amazonaws.com",
     variants: [
@@ -139,16 +79,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "es-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "es-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

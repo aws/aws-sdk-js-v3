@@ -15,16 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "ca-central-1-fips": {
-    hostname: "dynamodb-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
   local: {
     hostname: "localhost:8000",
     variants: [
@@ -48,16 +38,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-1-fips": {
-    hostname: "dynamodb-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
   "us-east-2": {
     hostname: "dynamodb.us-east-2.amazonaws.com",
     variants: [
@@ -70,16 +50,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-2-fips": {
-    hostname: "dynamodb-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
   },
   "us-gov-east-1": {
     hostname: "dynamodb.us-gov-east-1.amazonaws.com",
@@ -94,16 +64,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-east-1-fips": {
-    hostname: "dynamodb.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
-  },
   "us-gov-west-1": {
     hostname: "dynamodb.us-gov-west-1.amazonaws.com",
     variants: [
@@ -116,16 +76,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-gov-west-1-fips": {
-    hostname: "dynamodb.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
     hostname: "dynamodb.us-west-1.amazonaws.com",
@@ -140,16 +90,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "dynamodb-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "dynamodb.us-west-2.amazonaws.com",
     variants: [
@@ -162,16 +102,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "dynamodb-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "dynamodb-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

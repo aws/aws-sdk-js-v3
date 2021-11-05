@@ -15,56 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "fips-ca-central-1": {
-    hostname: "ebs-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "ebs-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
-  "fips-us-east-1": {
-    hostname: "ebs-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "ebs-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "fips-us-east-2": {
-    hostname: "ebs-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "ebs-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "fips-us-west-1": {
-    hostname: "ebs-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "ebs-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
-  "fips-us-west-2": {
-    hostname: "ebs-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "ebs-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
   "us-east-1": {
     hostname: "ebs.us-east-1.amazonaws.com",
     variants: [

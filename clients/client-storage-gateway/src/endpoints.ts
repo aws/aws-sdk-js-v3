@@ -15,26 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "ca-central-1-fips": {
-    hostname: "storagegateway-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
-  fips: {
-    hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-east-1": {
     hostname: "storagegateway.us-east-1.amazonaws.com",
     variants: [
@@ -47,16 +27,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-1-fips": {
-    hostname: "storagegateway-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "storagegateway.us-east-2.amazonaws.com",
@@ -71,16 +41,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-2-fips": {
-    hostname: "storagegateway-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
   "us-gov-east-1": {
     hostname: "storagegateway.us-gov-east-1.amazonaws.com",
     variants: [
@@ -93,16 +53,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-gov-east-1-fips": {
-    hostname: "storagegateway-fips.us-gov-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-gov-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
     hostname: "storagegateway.us-gov-west-1.amazonaws.com",
@@ -117,16 +67,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-gov-west-1-fips": {
-    hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
   "us-west-1": {
     hostname: "storagegateway.us-west-1.amazonaws.com",
     variants: [
@@ -140,16 +80,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "storagegateway-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "storagegateway.us-west-2.amazonaws.com",
     variants: [
@@ -162,16 +92,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "storagegateway-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "storagegateway-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 
