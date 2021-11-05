@@ -1,1 +1,3 @@
-export { {{#each artifacts}}{{this}}, {{/each}} } from "{{package}}";
+import { {{#each artifacts}}{{this}}, {{/each}} } from "{{package}}";
+
+export default [ {{#each artifacts}}{{this}}, {{/each}} ].length;

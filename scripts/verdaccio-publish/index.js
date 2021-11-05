@@ -42,6 +42,8 @@ spawn("npx", args, pipeStdIo).on("close", (code) => {
   execSync("git checkout -- clients/*/package.json");
   execSync("git checkout -- packages/*/package.json");
   execSync("git checkout -- private/*/package.json");
+  execSync("git checkout -- lib/*/package.json");
+  execSync("git checkout -- lerna.json");
 
   // Kill the background verdaccio server
   verdaccio.kill();

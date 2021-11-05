@@ -1,18 +1,14 @@
-{
-  "@aws-sdk/client-accessanalyzer": {
+[
+  {
+    "package": "@aws-sdk/client-accessanalyzer",
     "artifacts": ["AccessAnalyzer", "AccessAnalyzerClient", "ApplyArchiveRuleCommand"]
   },
-  "@aws-sdk/client-s3": {
+  {
+    "package": "@aws-sdk/client-s3",
     "artifacts": ["S3", "S3Client", "PubObjectCommand"],
-    "dependencies": {
-      "aws-crt": "1.10.0"
-    }
+    "dependencies": [{ "name": "aws-crt", "version": "1.10.2" }]
   },
-  "@aws-sdk/lib-dynamodb": {
-    "artifacts": ["DynamoDBDocument", "DynamoDBDocumentClient", "GetCommand"]
-  },
-  "@aws-sdk/credential-provider": {
-    "artifacts": ["fromIni"]
-  },
-  "@aws-sdk/util-base64-node": null
-}
+  { "package": "@aws-sdk/lib-dynamodb", "artifacts": ["DynamoDBDocument", "DynamoDBDocumentClient", "GetCommand"] },
+  { "package": "@aws-sdk/credential-providers", "artifacts": ["fromCognitoIdentityPool"] },
+  { "package": "@aws-sdk/util-base64-node", "artifacts": null }
+]
