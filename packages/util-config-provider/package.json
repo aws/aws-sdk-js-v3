@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/util-config-provider",
   "version": "3.39.0",
-  "description": "Load config default values from ini config files and environmental variable",
+  "description": "Utilities package for configuration providers",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.cjs.json",
