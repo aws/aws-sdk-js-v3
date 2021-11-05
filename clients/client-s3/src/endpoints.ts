@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "af-south-1": {
-    hostname: "s3.af-south-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.af-south-1.amazonaws.com",
@@ -16,7 +15,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-east-1": {
-    hostname: "s3.ap-east-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-east-1.amazonaws.com",
@@ -29,7 +27,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-1": {
-    hostname: "s3.ap-northeast-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-northeast-1.amazonaws.com",
@@ -42,7 +39,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-2": {
-    hostname: "s3.ap-northeast-2.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-northeast-2.amazonaws.com",
@@ -55,7 +51,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-3": {
-    hostname: "s3.ap-northeast-3.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-northeast-3.amazonaws.com",
@@ -68,7 +63,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-south-1": {
-    hostname: "s3.ap-south-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-south-1.amazonaws.com",
@@ -81,7 +75,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-southeast-1": {
-    hostname: "s3.ap-southeast-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-southeast-1.amazonaws.com",
@@ -94,7 +87,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-southeast-2": {
-    hostname: "s3.ap-southeast-2.amazonaws.com",
     variants: [
       {
         hostname: "s3.ap-southeast-2.amazonaws.com",
@@ -107,7 +99,6 @@ const regionHash: RegionHash = {
     ],
   },
   "aws-global": {
-    hostname: "s3.amazonaws.com",
     variants: [
       {
         hostname: "s3.amazonaws.com",
@@ -117,7 +108,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-east-1",
   },
   "ca-central-1": {
-    hostname: "s3.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.ca-central-1.amazonaws.com",
@@ -138,7 +128,6 @@ const regionHash: RegionHash = {
     ],
   },
   "cn-north-1": {
-    hostname: "s3.cn-north-1.amazonaws.com.cn",
     variants: [
       {
         hostname: "s3.cn-north-1.amazonaws.com.cn",
@@ -151,7 +140,6 @@ const regionHash: RegionHash = {
     ],
   },
   "cn-northwest-1": {
-    hostname: "s3.cn-northwest-1.amazonaws.com.cn",
     variants: [
       {
         hostname: "s3.cn-northwest-1.amazonaws.com.cn",
@@ -164,7 +152,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-central-1": {
-    hostname: "s3.eu-central-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-central-1.amazonaws.com",
@@ -177,7 +164,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-north-1": {
-    hostname: "s3.eu-north-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-north-1.amazonaws.com",
@@ -190,7 +176,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-south-1": {
-    hostname: "s3.eu-south-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-south-1.amazonaws.com",
@@ -203,7 +188,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-1": {
-    hostname: "s3.eu-west-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-west-1.amazonaws.com",
@@ -216,7 +200,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-2": {
-    hostname: "s3.eu-west-2.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-west-2.amazonaws.com",
@@ -229,7 +212,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-3": {
-    hostname: "s3.eu-west-3.amazonaws.com",
     variants: [
       {
         hostname: "s3.eu-west-3.amazonaws.com",
@@ -242,7 +224,6 @@ const regionHash: RegionHash = {
     ],
   },
   "me-south-1": {
-    hostname: "s3.me-south-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.me-south-1.amazonaws.com",
@@ -255,7 +236,6 @@ const regionHash: RegionHash = {
     ],
   },
   "s3-external-1": {
-    hostname: "s3-external-1.amazonaws.com",
     variants: [
       {
         hostname: "s3-external-1.amazonaws.com",
@@ -265,7 +245,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-east-1",
   },
   "sa-east-1": {
-    hostname: "s3.sa-east-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.sa-east-1.amazonaws.com",
@@ -278,7 +257,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-1": {
-    hostname: "s3.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-east-1.amazonaws.com",
@@ -299,7 +277,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-2": {
-    hostname: "s3.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-east-2.amazonaws.com",
@@ -320,7 +297,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-east-1": {
-    hostname: "s3.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-gov-east-1.amazonaws.com",
@@ -337,7 +313,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-west-1": {
-    hostname: "s3.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-gov-west-1.amazonaws.com",
@@ -354,7 +329,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-1": {
-    hostname: "s3.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-west-1.amazonaws.com",
@@ -375,7 +349,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-2": {
-    hostname: "s3.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "s3.us-west-2.amazonaws.com",
@@ -430,7 +403,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "s3.{region}.amazonaws.com",
     variants: [
       {
         hostname: "s3.{region}.amazonaws.com",
@@ -449,7 +421,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "s3.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "s3.{region}.amazonaws.com.cn",
@@ -464,7 +435,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "s3.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "s3.{region}.c2s.ic.gov",
@@ -475,7 +445,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "s3.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "s3.{region}.sc2s.sgov.gov",
@@ -486,7 +455,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["fips-us-gov-east-1", "fips-us-gov-west-1", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "s3.{region}.amazonaws.com",
     variants: [
       {
         hostname: "s3.{region}.amazonaws.com",

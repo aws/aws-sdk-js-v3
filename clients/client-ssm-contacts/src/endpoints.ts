@@ -29,7 +29,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "ssm-contacts.{region}.amazonaws.com",
     variants: [
       {
         hostname: "ssm-contacts.{region}.amazonaws.com",
@@ -52,7 +51,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "ssm-contacts.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "ssm-contacts.{region}.amazonaws.com.cn",
@@ -75,7 +73,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "ssm-contacts.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "ssm-contacts.{region}.c2s.ic.gov",
@@ -86,7 +83,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "ssm-contacts.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "ssm-contacts.{region}.sc2s.sgov.gov",
@@ -97,7 +93,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "ssm-contacts.{region}.amazonaws.com",
     variants: [
       {
         hostname: "ssm-contacts.{region}.amazonaws.com",

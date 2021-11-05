@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "ca-central-1": {
-    hostname: "fsx.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx.ca-central-1.amazonaws.com",
@@ -16,7 +15,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-1": {
-    hostname: "fsx.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-east-1.amazonaws.com",
@@ -29,7 +27,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-2": {
-    hostname: "fsx.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-east-2.amazonaws.com",
@@ -42,7 +39,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-east-1": {
-    hostname: "fsx.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-gov-east-1.amazonaws.com",
@@ -55,7 +51,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-west-1": {
-    hostname: "fsx.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-gov-west-1.amazonaws.com",
@@ -68,7 +63,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-1": {
-    hostname: "fsx.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-west-1.amazonaws.com",
@@ -81,7 +75,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-2": {
-    hostname: "fsx.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "fsx.us-west-2.amazonaws.com",
@@ -136,7 +129,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "fsx.{region}.amazonaws.com",
     variants: [
       {
         hostname: "fsx.{region}.amazonaws.com",
@@ -159,7 +151,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "fsx.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "fsx.{region}.amazonaws.com.cn",
@@ -182,7 +173,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "fsx.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "fsx.{region}.c2s.ic.gov",
@@ -193,7 +183,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "fsx.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "fsx.{region}.sc2s.sgov.gov",
@@ -213,7 +202,6 @@ const partitionHash: PartitionHash = {
       "us-gov-west-1",
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "fsx.{region}.amazonaws.com",
     variants: [
       {
         hostname: "fsx.{region}.amazonaws.com",

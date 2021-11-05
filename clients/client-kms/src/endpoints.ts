@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "af-south-1": {
-    hostname: "kms.af-south-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.af-south-1.amazonaws.com",
@@ -16,7 +15,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-east-1": {
-    hostname: "kms.ap-east-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-east-1.amazonaws.com",
@@ -29,7 +27,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-1": {
-    hostname: "kms.ap-northeast-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-northeast-1.amazonaws.com",
@@ -42,7 +39,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-2": {
-    hostname: "kms.ap-northeast-2.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-northeast-2.amazonaws.com",
@@ -55,7 +51,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-northeast-3": {
-    hostname: "kms.ap-northeast-3.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-northeast-3.amazonaws.com",
@@ -68,7 +63,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-south-1": {
-    hostname: "kms.ap-south-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-south-1.amazonaws.com",
@@ -81,7 +75,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-southeast-1": {
-    hostname: "kms.ap-southeast-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-southeast-1.amazonaws.com",
@@ -94,7 +87,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ap-southeast-2": {
-    hostname: "kms.ap-southeast-2.amazonaws.com",
     variants: [
       {
         hostname: "kms.ap-southeast-2.amazonaws.com",
@@ -107,7 +99,6 @@ const regionHash: RegionHash = {
     ],
   },
   "ca-central-1": {
-    hostname: "kms.ca-central-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.ca-central-1.amazonaws.com",
@@ -120,7 +111,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-central-1": {
-    hostname: "kms.eu-central-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-central-1.amazonaws.com",
@@ -133,7 +123,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-north-1": {
-    hostname: "kms.eu-north-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-north-1.amazonaws.com",
@@ -146,7 +135,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-south-1": {
-    hostname: "kms.eu-south-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-south-1.amazonaws.com",
@@ -159,7 +147,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-1": {
-    hostname: "kms.eu-west-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-west-1.amazonaws.com",
@@ -172,7 +159,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-2": {
-    hostname: "kms.eu-west-2.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-west-2.amazonaws.com",
@@ -185,7 +171,6 @@ const regionHash: RegionHash = {
     ],
   },
   "eu-west-3": {
-    hostname: "kms.eu-west-3.amazonaws.com",
     variants: [
       {
         hostname: "kms.eu-west-3.amazonaws.com",
@@ -198,7 +183,6 @@ const regionHash: RegionHash = {
     ],
   },
   "me-south-1": {
-    hostname: "kms.me-south-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.me-south-1.amazonaws.com",
@@ -211,7 +195,6 @@ const regionHash: RegionHash = {
     ],
   },
   "sa-east-1": {
-    hostname: "kms.sa-east-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.sa-east-1.amazonaws.com",
@@ -224,7 +207,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-1": {
-    hostname: "kms.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-east-1.amazonaws.com",
@@ -237,7 +219,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-east-2": {
-    hostname: "kms.us-east-2.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-east-2.amazonaws.com",
@@ -250,7 +231,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-east-1": {
-    hostname: "kms.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-gov-east-1.amazonaws.com",
@@ -263,7 +243,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-gov-west-1": {
-    hostname: "kms.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-gov-west-1.amazonaws.com",
@@ -276,7 +255,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-iso-east-1": {
-    hostname: "kms.us-iso-east-1.c2s.ic.gov",
     variants: [
       {
         hostname: "kms.us-iso-east-1.c2s.ic.gov",
@@ -289,7 +267,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-iso-west-1": {
-    hostname: "kms.us-iso-west-1.c2s.ic.gov",
     variants: [
       {
         hostname: "kms.us-iso-west-1.c2s.ic.gov",
@@ -302,7 +279,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-isob-east-1": {
-    hostname: "kms.us-isob-east-1.sc2s.sgov.gov",
     variants: [
       {
         hostname: "kms.us-isob-east-1.sc2s.sgov.gov",
@@ -315,7 +291,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-1": {
-    hostname: "kms.us-west-1.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-west-1.amazonaws.com",
@@ -328,7 +303,6 @@ const regionHash: RegionHash = {
     ],
   },
   "us-west-2": {
-    hostname: "kms.us-west-2.amazonaws.com",
     variants: [
       {
         hostname: "kms.us-west-2.amazonaws.com",
@@ -389,7 +363,6 @@ const partitionHash: PartitionHash = {
       "us-west-2-fips",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "kms.{region}.amazonaws.com",
     variants: [
       {
         hostname: "kms.{region}.amazonaws.com",
@@ -412,7 +385,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "kms.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "kms.{region}.amazonaws.com.cn",
@@ -435,7 +407,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["ProdFips", "us-iso-east-1", "us-iso-east-1-fips", "us-iso-west-1", "us-iso-west-1-fips"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "kms.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "kms.{region}.c2s.ic.gov",
@@ -446,7 +417,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["ProdFips", "us-isob-east-1", "us-isob-east-1-fips"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "kms.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "kms.{region}.sc2s.sgov.gov",
@@ -457,7 +427,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["ProdFips", "us-gov-east-1", "us-gov-east-1-fips", "us-gov-west-1", "us-gov-west-1-fips"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "kms.{region}.amazonaws.com",
     variants: [
       {
         hostname: "kms.{region}.amazonaws.com",

@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "aws-cn-global": {
-    hostname: "route53.amazonaws.com.cn",
     variants: [
       {
         hostname: "route53.amazonaws.com.cn",
@@ -13,7 +12,6 @@ const regionHash: RegionHash = {
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
-    hostname: "route53.amazonaws.com",
     variants: [
       {
         hostname: "route53.amazonaws.com",
@@ -27,7 +25,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-east-1",
   },
   "aws-iso-b-global": {
-    hostname: "route53.sc2s.sgov.gov",
     variants: [
       {
         hostname: "route53.sc2s.sgov.gov",
@@ -37,7 +34,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-isob-east-1",
   },
   "aws-iso-global": {
-    hostname: "route53.c2s.ic.gov",
     variants: [
       {
         hostname: "route53.c2s.ic.gov",
@@ -47,7 +43,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-iso-east-1",
   },
   "aws-us-gov-global": {
-    hostname: "route53.us-gov.amazonaws.com",
     variants: [
       {
         hostname: "route53.us-gov.amazonaws.com",
@@ -90,7 +85,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "route53.{region}.amazonaws.com",
     variants: [
       {
         hostname: "route53.{region}.amazonaws.com",
@@ -114,7 +108,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "route53.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "route53.{region}.amazonaws.com.cn",
@@ -138,7 +131,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["aws-iso-global", "us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "route53.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "route53.{region}.c2s.ic.gov",
@@ -150,7 +142,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["aws-iso-b-global", "us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "route53.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "route53.{region}.sc2s.sgov.gov",
@@ -162,7 +153,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "route53.{region}.amazonaws.com",
     variants: [
       {
         hostname: "route53.{region}.amazonaws.com",
