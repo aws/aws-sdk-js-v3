@@ -102,6 +102,24 @@ import {
   GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
 import { GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import {
+  GetNetworkResourceCountsCommandInput,
+  GetNetworkResourceCountsCommandOutput,
+} from "./commands/GetNetworkResourceCountsCommand";
+import {
+  GetNetworkResourceRelationshipsCommandInput,
+  GetNetworkResourceRelationshipsCommandOutput,
+} from "./commands/GetNetworkResourceRelationshipsCommand";
+import {
+  GetNetworkResourcesCommandInput,
+  GetNetworkResourcesCommandOutput,
+} from "./commands/GetNetworkResourcesCommand";
+import { GetNetworkRoutesCommandInput, GetNetworkRoutesCommandOutput } from "./commands/GetNetworkRoutesCommand";
+import {
+  GetNetworkTelemetryCommandInput,
+  GetNetworkTelemetryCommandOutput,
+} from "./commands/GetNetworkTelemetryCommand";
+import { GetRouteAnalysisCommandInput, GetRouteAnalysisCommandOutput } from "./commands/GetRouteAnalysisCommand";
 import { GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
 import {
   GetTransitGatewayConnectPeerAssociationsCommandInput,
@@ -119,6 +137,7 @@ import {
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
+import { StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput } from "./commands/StartRouteAnalysisCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./commands/UpdateConnectionCommand";
@@ -128,6 +147,10 @@ import {
   UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
 import { UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import {
+  UpdateNetworkResourceMetadataCommandInput,
+  UpdateNetworkResourceMetadataCommandOutput,
+} from "./commands/UpdateNetworkResourceMetadataCommand";
 import { UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
@@ -155,17 +178,25 @@ export type ServiceInputTypes =
   | GetDevicesCommandInput
   | GetLinkAssociationsCommandInput
   | GetLinksCommandInput
+  | GetNetworkResourceCountsCommandInput
+  | GetNetworkResourceRelationshipsCommandInput
+  | GetNetworkResourcesCommandInput
+  | GetNetworkRoutesCommandInput
+  | GetNetworkTelemetryCommandInput
+  | GetRouteAnalysisCommandInput
   | GetSitesCommandInput
   | GetTransitGatewayConnectPeerAssociationsCommandInput
   | GetTransitGatewayRegistrationsCommandInput
   | ListTagsForResourceCommandInput
   | RegisterTransitGatewayCommandInput
+  | StartRouteAnalysisCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateConnectionCommandInput
   | UpdateDeviceCommandInput
   | UpdateGlobalNetworkCommandInput
   | UpdateLinkCommandInput
+  | UpdateNetworkResourceMetadataCommandInput
   | UpdateSiteCommandInput;
 
 export type ServiceOutputTypes =
@@ -192,17 +223,25 @@ export type ServiceOutputTypes =
   | GetDevicesCommandOutput
   | GetLinkAssociationsCommandOutput
   | GetLinksCommandOutput
+  | GetNetworkResourceCountsCommandOutput
+  | GetNetworkResourceRelationshipsCommandOutput
+  | GetNetworkResourcesCommandOutput
+  | GetNetworkRoutesCommandOutput
+  | GetNetworkTelemetryCommandOutput
+  | GetRouteAnalysisCommandOutput
   | GetSitesCommandOutput
   | GetTransitGatewayConnectPeerAssociationsCommandOutput
   | GetTransitGatewayRegistrationsCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterTransitGatewayCommandOutput
+  | StartRouteAnalysisCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateConnectionCommandOutput
   | UpdateDeviceCommandOutput
   | UpdateGlobalNetworkCommandOutput
   | UpdateLinkCommandOutput
+  | UpdateNetworkResourceMetadataCommandOutput
   | UpdateSiteCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -355,8 +394,7 @@ export interface NetworkManagerClientResolvedConfig extends NetworkManagerClient
 
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
- *             AWS and on-premises networks that are built around transit gateways.</p>
- *         <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
+ *             Amazon Web Services and on-premises networks that are built around transit gateways.</p>
  */
 export class NetworkManagerClient extends __Client<
   __HttpHandlerOptions,

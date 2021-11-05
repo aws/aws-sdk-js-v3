@@ -1990,7 +1990,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>
+   * <p>Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.</p>
    */
   public updateMemberSession(
     args: UpdateMemberSessionCommandInput,

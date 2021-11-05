@@ -20,6 +20,7 @@ export * from "./ListQuickConnectsPaginator";
 export * from "./ListRoutingProfileQueuesPaginator";
 export * from "./ListRoutingProfilesPaginator";
 export * from "./ListSecurityKeysPaginator";
+export * from "./ListSecurityProfilePermissionsPaginator";
 export * from "./ListSecurityProfilesPaginator";
 export * from "./ListUseCasesPaginator";
 export * from "./ListUserHierarchyGroupsPaginator";

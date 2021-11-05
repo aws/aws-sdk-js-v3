@@ -15,7 +15,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   GetCloudFrontOriginAccessIdentityConfigRequest,
   GetCloudFrontOriginAccessIdentityConfigResult,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,
   serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand,

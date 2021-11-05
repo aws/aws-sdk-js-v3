@@ -33,6 +33,7 @@ import {
   LimitExceededException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SuperuserParameters,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -48,6 +49,8 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
   let body: any;
   body = JSON.stringify({
+    ...(input.dataBundles !== undefined &&
+      input.dataBundles !== null && { dataBundles: serializeAws_restJson1DataBundleArns(input.dataBundles, context) }),
     ...(input.description !== undefined && input.description !== null && { description: input.description }),
     ...(input.federationMode !== undefined &&
       input.federationMode !== null && { federationMode: input.federationMode }),
@@ -57,6 +60,10 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
       }),
     ...(input.kmsKeyId !== undefined && input.kmsKeyId !== null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.superuserParameters !== undefined &&
+      input.superuserParameters !== null && {
+        superuserParameters: serializeAws_restJson1SuperuserParameters(input.superuserParameters, context),
+      }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -1050,6 +1057,17 @@ const serializeAws_restJson1AttributeMap = (input: { [key: string]: string }, co
   }, {});
 };
 
+const serializeAws_restJson1DataBundleArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
 const serializeAws_restJson1FederationParameters = (input: FederationParameters, context: __SerdeContext): any => {
   return {
     ...(input.applicationCallBackURL !== undefined &&
@@ -1063,6 +1081,14 @@ const serializeAws_restJson1FederationParameters = (input: FederationParameters,
       input.samlMetadataDocument !== null && { samlMetadataDocument: input.samlMetadataDocument }),
     ...(input.samlMetadataURL !== undefined &&
       input.samlMetadataURL !== null && { samlMetadataURL: input.samlMetadataURL }),
+  };
+};
+
+const serializeAws_restJson1SuperuserParameters = (input: SuperuserParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.emailAddress !== undefined && input.emailAddress !== null && { emailAddress: input.emailAddress }),
+    ...(input.firstName !== undefined && input.firstName !== null && { firstName: input.firstName }),
+    ...(input.lastName !== undefined && input.lastName !== null && { lastName: input.lastName }),
   };
 };
 

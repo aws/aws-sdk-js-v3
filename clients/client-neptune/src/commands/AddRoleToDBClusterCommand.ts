@@ -22,7 +22,7 @@ export interface AddRoleToDBClusterCommandInput extends AddRoleToDBClusterMessag
 export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Associates an Identity and Access Management (IAM) role from an
+ * <p>Associates an Identity and Access Management (IAM) role with an
  *       Neptune DB cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

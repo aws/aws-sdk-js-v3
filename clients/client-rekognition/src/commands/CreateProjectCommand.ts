@@ -22,8 +22,8 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a logical grouping of resources (images, Labels, models)
- *          and operations (training, evaluation and detection).  </p>
+ * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a group of resources (datasets, model versions)
+ *          that you use to create and manage Amazon Rekognition Custom Labels models.  </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:CreateProject</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -57,14 +57,14 @@ export namespace ConcurrentModificationException {
  *         <ul>
  *             <li>
  *                 <p>You must meet the prerequisites for using tag policies. For information, see
- *                         <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html">Prerequisites and Permissions for Using Tag Policies</a> in the
- *                         <i>AWS Organizations User Guide.</i>
+ *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html">Prerequisites and Permissions for Using Tag Policies</a> in the
+ *                         <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>You must enable the tag policies service principal
- *                         (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with AWS Organizations For
- *                     information, see <a href="http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html">EnableAWSServiceAccess</a>.</p>
+ *                         (<code>tagpolicies.tag.amazonaws.com</code>) to integrate with Organizations For
+ *                     information, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html">EnableAWSServiceAccess</a>.</p>
  *             </li>
  *             <li>
  *                 <p>You must have a tag policy attached to the organization root, an OU, or an
@@ -187,8 +187,8 @@ export namespace InternalServiceException {
  *             </li>
  *             <li>
  *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
- *                         <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
- *                         Reports</a> in the <i>AWS Organizations User Guide.</i>
+ *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
+ *                         Reports</a> in the <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>
@@ -235,34 +235,33 @@ export enum ErrorCode {
  * <p>Information about the errors that are returned for each failed resource. This
  *             information can include <code>InternalServiceException</code> and
  *                 <code>InvalidParameterException</code> errors. It can also include any valid error
- *             code returned by the AWS service that hosts the resource that the ARN key
+ *             code returned by the Amazon Web Services service that hosts the resource that the ARN key
  *             represents.</p>
- *         <p>The following are common error codes that you might receive from other AWS
+ *         <p>The following are common error codes that you might receive from other Amazon Web Services
  *             services:</p>
  *         <ul>
  *             <li>
  *                 <p>
  *                   <b>InternalServiceException</b> – This can
- *                     mean that the Resource Groups Tagging API didn't receive a response from another
- *                     AWS service. It can also mean the the resource type in the request is not
- *                     supported by the Resource Groups Tagging API. In these cases, it's safe to retry
- *                     the request and then call <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a> to verify the changes.</p>
+ *                     mean that the Resource Groups Tagging API didn't receive a response from another Amazon Web Services service. It
+ *                     can also mean that the resource type in the request is not supported by the
+ *                     Resource Groups Tagging API. In these cases, it's safe to retry the request and then call <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a> to verify the changes.</p>
  *             </li>
  *             <li>
  *                 <p>
  *                   <b>AccessDeniedException</b> – This can mean
- *                     that you need permission to calling tagging operations in the AWS service that
- *                     contains the resource. For example, to use the Resource Groups Tagging API to
- *                     tag a CloudWatch alarm resource, you need permission to call <a href="http://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">
+ *                     that you need permission to call the tagging operations in the Amazon Web Services service
+ *                     that contains the resource. For example, to use the Resource Groups Tagging API to tag a Amazon CloudWatch
+ *                     alarm resource, you need permission to call both <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">
  *                      <code>TagResources</code>
  *                   </a>
  *                     <i>and</i>
- *                     <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">
+ *                     <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">
  *                      <code>TagResource</code>
  *                   </a> in the CloudWatch API. </p>
  *             </li>
  *          </ul>
- *         <p>For more information on errors that are generated from other AWS services, see the
+ *         <p>For more information on errors that are generated from other Amazon Web Services services, see the
  *             documentation for that service. </p>
  */
 export interface FailureInfo {
@@ -274,7 +273,7 @@ export interface FailureInfo {
   /**
    * <p>The code of the common error. Valid values include
    *                 <code>InternalServiceException</code>, <code>InvalidParameterException</code>, and
-   *             any valid error code returned by the AWS service that hosts the resource that you want
+   *             any valid error code returned by the Amazon Web Services service that hosts the resource that you want
    *             to tag.</p>
    */
   ErrorCode?: ErrorCode | string;
@@ -309,7 +308,7 @@ export interface GetComplianceSummaryInput {
   TargetIdFilters?: string[];
 
   /**
-   * <p>Specifies a list of AWS Regions to limit the output by. If you use this parameter,
+   * <p>Specifies a list of Amazon Web Services Regions to limit the output to. If you use this parameter,
    *             the count of returned noncompliant resources includes only resources in the specified
    *             Regions.</p>
    */
@@ -320,13 +319,16 @@ export interface GetComplianceSummaryInput {
    *             specified types. The format of each resource type is
    *             <code>service[:resourceType]</code>. For example, specifying a resource type of
    *                 <code>ec2</code> returns all Amazon EC2 resources (which includes EC2 instances).
-   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2 instances. </p>
+   *             Specifying a resource type of <code>ec2:instance</code> returns only EC2
+   *             instances.</p>
    *         <p>The string for each service name and resource type is the same as that embedded in a
-   *             resource's Amazon Resource Name (ARN). Consult the <i>AWS General
-   *                 Reference</i> for the following:</p>
+   *             resource's Amazon Resource Name (ARN). Consult the <i>
+   *                <a href="https://docs.aws.amazon.com/general/latest/gr/">Amazon Web Services General Reference</a>
+   *             </i>
+   *             for the following:</p>
    *         <ul>
    *             <li>
-   *                 <p>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">AWS Service Namespaces</a>.</p>
+   *                 <p>For a list of service name strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services Service Namespaces</a>.</p>
    *             </li>
    *             <li>
    *                 <p>For resource type strings, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-syntax">Example
@@ -334,7 +336,7 @@ export interface GetComplianceSummaryInput {
    *             </li>
    *             <li>
    *                 <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names
-   *                         (ARNs) and AWS Service Namespaces</a>.</p>
+   *                         (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    *             </li>
    *          </ul>
    *         <p>You can specify multiple resource types by using a comma separated array. The array
@@ -398,7 +400,7 @@ export interface Summary {
 
   /**
    * <p>The account identifier or the root identifier of the organization. If you don't know
-   *             the root ID, you can call the AWS Organizations <a href="http://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
+   *             the root ID, you can call the Organizations <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
    */
   TargetId?: string;
 
@@ -408,12 +410,12 @@ export interface Summary {
   TargetIdType?: TargetIdType | string;
 
   /**
-   * <p>The AWS Region that the summary applies to.</p>
+   * <p>The Amazon Web Services Region that the summary applies to.</p>
    */
   Region?: string;
 
   /**
-   * <p>The AWS resource type.</p>
+   * <p>The Amazon Web Services resource type.</p>
    */
   ResourceType?: string;
 
@@ -461,12 +463,14 @@ export namespace GetComplianceSummaryOutput {
  */
 export interface TagFilter {
   /**
-   * <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * <p>One part of a key-value pair that makes up a tag. A key is a general label
+   *     that acts like a category for more specific tag values.</p>
    */
   Key?: string;
 
   /**
-   * <p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
+   * <p>One part of a key-value pair that make up a tag. A value acts as a
+   *     descriptor within a tag category (key). The value can be empty or null.</p>
    */
   Values?: string[];
 }
@@ -490,8 +494,8 @@ export interface GetResourcesInput {
 
   /**
    * <p>Specifies a list of TagFilters (keys and values) to restrict the output to only those
-   *             resources that have the specified tag and, if included, the specified value. Each
-   *                 <code>TagFilter</code> must contain a key with values optional. A request can
+   *             resources that have tags with the specified keys and, if included, the specified values.
+   *             Each <code>TagFilter</code> must contain a key with values optional. A request can
    *             include up to 50 keys, and each key can include up to 20 values. </p>
    *         <p>Note the following when deciding how to use TagFilters:</p>
    *         <ul>
@@ -507,12 +511,12 @@ export interface GetResourcesInput {
    *             </li>
    *             <li>
    *                 <p>If you specify a filter that contains more than one value for a key, the
-   *                     response returns resources that match any of the specified values for that
-   *                     key.</p>
+   *                     response returns resources that match <i>any</i> of the specified
+   *                     values for that key.</p>
    *             </li>
    *             <li>
-   *                 <p>If you don't specify any values for a key, the response returns resources that
-   *                     are tagged with that key and any or no value.</p>
+   *                 <p>If you don't specify a value for a key, the response returns all resources
+   *                     that are tagged with that key, with any or no value.</p>
    *                 <p>For example, for the following filters: <code>filter1= {keyA,{value1}}</code>,
    *                         <code>filter2={keyB,{value2,value3,value4}}</code>, <code>filter3=
    *                         {keyC}</code>:</p>
@@ -557,7 +561,7 @@ export interface GetResourcesInput {
   ResourcesPerPage?: number;
 
   /**
-   * <p>AWS recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
+   * <p>Amazon Web Services recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
    *         <p>A limit that restricts the number of tags (key and value pairs) returned by
    *                 <code>GetResources</code> in paginated output. A resource with no tags is counted as
    *             having one tag (one key and value pair).</p>
@@ -583,13 +587,15 @@ export interface GetResourcesInput {
    *             instances). Specifying a resource type of <code>ec2:instance</code> returns only EC2
    *             instances. </p>
    *         <p>The string for each service name and resource type is the same as that embedded in a
-   *             resource's Amazon Resource Name (ARN). Consult the <i>AWS General
-   *                 Reference</i> for the following:</p>
-   *         <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *                 AWS Service Namespaces</a>.</p>
+   *             resource's Amazon Resource Name (ARN). For the list of services whose resources you can
+   *             use in this parameter, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the Resource Groups Tagging API</a>.</p>
    *         <p>You can specify multiple resource types by using an array. The array can include up to
    *             100 items. Note that the length constraint requirement applies to each resource type
-   *             filter. </p>
+   *             filter. For example, the following string would limit the response to only Amazon EC2
+   *             instances, Amazon S3 buckets, or any Audit Manager resource:</p>
+   *         <p>
+   *             <code>ec2:instance,s3:bucket,auditmanager</code>
+   *          </p>
    */
   ResourceTypeFilters?: string[];
 
@@ -618,9 +624,9 @@ export interface GetResourcesInput {
    *         <p>If a resource specified by this parameter doesn't exist, it doesn't generate an error;
    *             it simply isn't included in the response.</p>
    *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
-   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
-   *                 General Reference</i>.</p>
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the
+   *                 <i>Amazon Web Services General Reference</i>.</p>
    */
   ResourceARNList?: string[];
 }
@@ -635,19 +641,20 @@ export namespace GetResourcesInput {
 }
 
 /**
- * <p>The metadata that you apply to AWS resources to help you categorize and organize
+ * <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize
  *             them. Each tag consists of a key and a value, both of which you define. For more
- *             information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
- *                 Resources</a> in the <i>AWS General Reference</i>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
  */
 export interface Tag {
   /**
-   * <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   * <p>One part of a key-value pair that makes up a tag. A key is a general label
+   *     that acts like a category for more specific tag values.</p>
    */
   Key: string | undefined;
 
   /**
-   * <p>One part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key). The value can be empty or null.</p>
+   * <p>One part of a key-value pair that make up a tag. A value acts as a
+   *     descriptor within a tag category (key). The value can be empty or null.</p>
    */
   Value: string | undefined;
 }
@@ -672,7 +679,7 @@ export interface ResourceTagMapping {
   ResourceARN?: string;
 
   /**
-   * <p>The tags that have been applied to one or more AWS resources.</p>
+   * <p>The tags that have been applied to one or more Amazon Web Services resources.</p>
    */
   Tags?: Tag[];
 
@@ -702,7 +709,7 @@ export interface GetResourcesOutput {
 
   /**
    * <p>A list of resource ARNs and the tags (keys and values) associated with
-   *     those ARNs.</p>
+   *     each.</p>
    */
   ResourceTagMappingList?: ResourceTagMapping[];
 }
@@ -762,7 +769,7 @@ export interface GetTagKeysOutput {
   PaginationToken?: string;
 
   /**
-   * <p>A list of all tag keys in the AWS account.</p>
+   * <p>A list of all tag keys in the Amazon Web Services account.</p>
    */
   TagKeys?: string[];
 }
@@ -786,7 +793,7 @@ export interface GetTagValuesInput {
 
   /**
    * <p>Specifies the tag key for which you want to list all existing values that are
-   *             currently used in the specified AWS Region for the calling AWS account.</p>
+   *             currently used in the specified Amazon Web Services Region for the calling account.</p>
    */
   Key: string | undefined;
 }
@@ -809,8 +816,8 @@ export interface GetTagValuesOutput {
   PaginationToken?: string;
 
   /**
-   * <p>A list of all tag values for the specified key currently used in the specified AWS
-   *             Region for the calling AWS account.</p>
+   * <p>A list of all tag values for the specified key currently used in the specified Amazon Web Services
+   *             Region for the calling account.</p>
    */
   TagValues?: string[];
 }
@@ -860,8 +867,8 @@ export interface TagResourcesInput {
   /**
    * <p>Specifies the list of ARNs of the resources that you want to apply tags to.</p>
    *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
-   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services
    *                 General Reference</i>.</p>
    */
   ResourceARNList: string[] | undefined;
@@ -905,8 +912,8 @@ export interface UntagResourcesInput {
   /**
    * <p>Specifies a list of ARNs of the resources that you want to remove tags from.</p>
    *         <p>An ARN (Amazon Resource Name) uniquely identifies a resource. For more information,
-   *             see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *                 Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS
+   *             see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *                 Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the <i>Amazon Web Services
    *                 General Reference</i>.</p>
    */
   ResourceARNList: string[] | undefined;

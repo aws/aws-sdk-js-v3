@@ -22,7 +22,7 @@ export interface DescribeTextTranslationJobCommandInput extends DescribeTextTran
 export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTranslationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the properties associated with an asycnhronous batch translation job including name,
+ * <p>Gets the properties associated with an asynchronous batch translation job including name,
  *       ID, status, source and target languages, input/output S3 buckets, and so on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

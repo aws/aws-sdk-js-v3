@@ -31,8 +31,13 @@ export type Tier =
   | "MYSQL"
   | "ORACLE"
   | "POSTGRESQL"
+  | "SAP_HANA"
+  | "SAP_HANA_HIGH_AVAILABILITY"
+  | "SAP_HANA_MULTI_NODE"
+  | "SAP_HANA_SINGLE_NODE"
   | "SQL_SERVER"
-  | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP";
+  | "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
+  | "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE";
 
 export type OsType = "LINUX" | "WINDOWS";
 
@@ -92,6 +97,11 @@ export namespace ApplicationComponent {
   });
 }
 
+export enum DiscoveryType {
+  ACCOUNT_BASED = "ACCOUNT_BASED",
+  RESOURCE_GROUP_BASED = "RESOURCE_GROUP_BASED",
+}
+
 /**
  * <p>Describes the status of the application.</p>
  */
@@ -142,6 +152,9 @@ export interface ApplicationInfo {
    *          </ul>
    */
   Remarks?: string;
+
+  AutoConfigEnabled?: boolean;
+  DiscoveryType?: DiscoveryType | string;
 }
 
 export namespace ApplicationInfo {
@@ -294,7 +307,7 @@ export interface CreateApplicationRequest {
   /**
    * <p>The name of the resource group.</p>
    */
-  ResourceGroupName: string | undefined;
+  ResourceGroupName?: string;
 
   /**
    * <p>
@@ -325,6 +338,9 @@ export interface CreateApplicationRequest {
    *          characters.</p>
    */
   Tags?: Tag[];
+
+  AutoConfigEnabled?: boolean;
+  AutoCreate?: boolean;
 }
 
 export namespace CreateApplicationRequest {
@@ -1231,7 +1247,7 @@ export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 
 export type SeverityLevel = "High" | "Low" | "Medium";
 
-export type Status = "IGNORE" | "PENDING" | "RESOLVED";
+export type Status = "IGNORE" | "PENDING" | "RECURRING" | "RESOLVED";
 
 /**
  * <p>Describes a problem that is detected by correlating observations.</p>
@@ -1286,6 +1302,9 @@ export interface Problem {
    * <p>Feedback provided by the user about the problem.</p>
    */
   Feedback?: { [key: string]: FeedbackValue | string };
+
+  RecurringCount?: number;
+  LastRecurrenceTime?: Date;
 }
 
 export namespace Problem {
@@ -1672,6 +1691,8 @@ export interface ListProblemsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
+
+  ComponentName?: string;
 }
 
 export namespace ListProblemsRequest {
@@ -1694,6 +1715,8 @@ export interface ListProblemsResponse {
    *          when there are no more results to return. </p>
    */
   NextToken?: string;
+
+  ResourceGroupName?: string;
 }
 
 export namespace ListProblemsResponse {
@@ -1866,6 +1889,8 @@ export interface UpdateApplicationRequest {
    *          Disassociates the SNS topic from the opsItem created for detected problems.</p>
    */
   RemoveSNSTopic?: boolean;
+
+  AutoConfigEnabled?: boolean;
 }
 
 export namespace UpdateApplicationRequest {
@@ -1964,6 +1989,8 @@ export interface UpdateComponentConfigurationRequest {
    *          format of the component configuration file, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/component-config.html">Component Configuration</a>.</p>
    */
   ComponentConfiguration?: string;
+
+  AutoConfigEnabled?: boolean;
 }
 
 export namespace UpdateComponentConfigurationRequest {

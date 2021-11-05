@@ -22,7 +22,7 @@ export interface UpdateMemberSessionCommandInput extends UpdateMemberSessionRequ
 export interface UpdateMemberSessionCommandOutput extends UpdateMemberSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Enables an Amazon Macie administrator to suspend or re-enable a member account.</p>
+ * <p>Enables an Amazon Macie administrator to suspend or re-enable Macie for a member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

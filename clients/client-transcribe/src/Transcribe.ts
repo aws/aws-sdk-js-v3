@@ -1285,7 +1285,7 @@ export class Transcribe extends TranscribeClient {
   }
 
   /**
-   * <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+   * <p>Tags an Amazon Transcribe resource with the given list of tags.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

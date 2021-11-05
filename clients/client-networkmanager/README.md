@@ -8,8 +8,7 @@
 AWS SDK for JavaScript NetworkManager Client for Node.js, Browser and React Native.
 
 <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
-AWS and on-premises networks that are built around transit gateways.</p>
-<p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
+Amazon Web Services and on-premises networks that are built around transit gateways.</p>
 
 ## Installing
 

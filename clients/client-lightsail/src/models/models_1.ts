@@ -6,6 +6,7 @@ import {
   AlarmState,
   AvailabilityZone,
   Bucket,
+  BucketAccessLogConfig,
   CacheBehavior,
   CacheBehaviorPerPath,
   CacheSettings,
@@ -19,13 +20,14 @@ import {
   DomainEntry,
   InputOrigin,
   InstanceHardware,
-  InstanceNetworking,
+  InstancePortInfo,
   IpAddressType,
   KeyPair,
   MetricDatapoint,
   MetricName,
   MetricStatistic,
   MetricUnit,
+  MonthlyTransfer,
   NetworkProtocol,
   Operation,
   PortInfo,
@@ -35,6 +37,30 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+/**
+ * <p>Describes monthly data transfer rates and port information for an instance.</p>
+ */
+export interface InstanceNetworking {
+  /**
+   * <p>The amount of data in GB allocated for monthly data transfers.</p>
+   */
+  monthlyTransfer?: MonthlyTransfer;
+
+  /**
+   * <p>An array of key-value pairs containing information about the ports on the instance.</p>
+   */
+  ports?: InstancePortInfo[];
+}
+
+export namespace InstanceNetworking {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceNetworking): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>Describes the virtual private server (or <i>instance</i>) status.</p>
@@ -5202,6 +5228,11 @@ export interface UpdateBucketRequest {
    *          <p>You can give a maximum of 10 AWS accounts access to a bucket.</p>
    */
   readonlyAccessAccounts?: string[];
+
+  /**
+   * <p>An object that describes the access log configuration for the bucket.</p>
+   */
+  accessLogConfig?: BucketAccessLogConfig;
 }
 
 export namespace UpdateBucketRequest {

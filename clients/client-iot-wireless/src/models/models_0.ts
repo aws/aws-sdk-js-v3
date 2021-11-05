@@ -331,6 +331,102 @@ export namespace ValidationException {
   });
 }
 
+export interface AssociateMulticastGroupWithFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  MulticastGroupId: string | undefined;
+}
+
+export namespace AssociateMulticastGroupWithFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateMulticastGroupWithFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateMulticastGroupWithFuotaTaskResponse {}
+
+export namespace AssociateMulticastGroupWithFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateMulticastGroupWithFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateWirelessDeviceWithFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the wireless device.</p>
+   */
+  WirelessDeviceId: string | undefined;
+}
+
+export namespace AssociateWirelessDeviceWithFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateWirelessDeviceWithFuotaTaskResponse {}
+
+export namespace AssociateWirelessDeviceWithFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the wireless device.</p>
+   */
+  WirelessDeviceId: string | undefined;
+}
+
+export namespace AssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface AssociateWirelessDeviceWithMulticastGroupResponse {}
+
+export namespace AssociateWirelessDeviceWithMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AssociateWirelessDeviceWithMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface AssociateWirelessDeviceWithThingRequest {
   /**
    * <p>The ID of the resource to update.</p>
@@ -436,6 +532,33 @@ export enum BatteryLevel {
   CRITICAL = "critical",
   LOW = "low",
   NORMAL = "normal",
+}
+
+export interface CancelMulticastGroupSessionRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace CancelMulticastGroupSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelMulticastGroupSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CancelMulticastGroupSessionResponse {}
+
+export namespace CancelMulticastGroupSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CancelMulticastGroupSessionResponse): any => ({
+    ...obj,
+  });
 }
 
 export enum SigningAlg {
@@ -705,6 +828,187 @@ export namespace CreateDeviceProfileResponse {
   });
 }
 
+export enum SupportedRfRegion {
+  AS923_1 = "AS923-1",
+  AU915 = "AU915",
+  EU868 = "EU868",
+  US915 = "US915",
+}
+
+/**
+ * <p>The LoRaWAN information used with a FUOTA task.</p>
+ */
+export interface LoRaWANFuotaTask {
+  /**
+   * <p>Supported RfRegions</p>
+   */
+  RfRegion?: SupportedRfRegion | string;
+}
+
+export namespace LoRaWANFuotaTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANFuotaTask): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFuotaTaskRequest {
+  /**
+   * <p>The name of a FUOTA task.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Each resource must have a unique client request token. If you try to create a new resource with the same token as a resource that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The LoRaWAN information used with a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANFuotaTask;
+
+  /**
+   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateImage: string | undefined;
+
+  /**
+   * <p>The firmware update role that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateRole: string | undefined;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateFuotaTaskResponse {
+  /**
+   * <p>The arn of a FUOTA task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id?: string;
+}
+
+export namespace CreateFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export enum DlClass {
+  ClassB = "ClassB",
+  ClassC = "ClassC",
+}
+
+/**
+ * <p>The LoRaWAN information that is to be used with the multicast group.</p>
+ */
+export interface LoRaWANMulticast {
+  /**
+   * <p>Supported RfRegions</p>
+   */
+  RfRegion?: SupportedRfRegion | string;
+
+  /**
+   * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
+   */
+  DlClass?: DlClass | string;
+}
+
+export namespace LoRaWANMulticast {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANMulticast): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMulticastGroupRequest {
+  /**
+   * <p>The name of the multicast group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the multicast group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Each resource must have a unique client request token. If you try to create a new resource with the
+   *             same token as a resource that already exists, an exception occurs. If you omit this value,
+   *             AWS SDKs will automatically generate a unique client request. </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The LoRaWAN information that is to be used with the multicast group.</p>
+   */
+  LoRaWAN: LoRaWANMulticast | undefined;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace CreateMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateMulticastGroupResponse {
+  /**
+   * <p>The arn of the multicast group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id?: string;
+}
+
+export namespace CreateMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>LoRaWANServiceProfile object.</p>
  */
@@ -777,6 +1081,35 @@ export namespace CreateServiceProfileResponse {
 }
 
 /**
+ * <p>List of FPort assigned for different LoRaWAN application packages to use</p>
+ */
+export interface FPorts {
+  /**
+   * <p>The Fport value.</p>
+   */
+  Fuota?: number;
+
+  /**
+   * <p>The Fport value.</p>
+   */
+  Multicast?: number;
+
+  /**
+   * <p>The Fport value.</p>
+   */
+  ClockSync?: number;
+}
+
+export namespace FPorts {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FPorts): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>OTAA device object for v1.0.x</p>
  */
 export interface OtaaV1_0_x {
@@ -789,6 +1122,11 @@ export interface OtaaV1_0_x {
    * <p>The AppEUI value.</p>
    */
   AppEui?: string;
+
+  /**
+   * <p>The GenAppKey value.</p>
+   */
+  GenAppKey?: string;
 }
 
 export namespace OtaaV1_0_x {
@@ -867,6 +1205,11 @@ export interface LoRaWANDevice {
    * <p>LoRaWAN object for create APIs</p>
    */
   AbpV1_0_x?: AbpV1_0_x;
+
+  /**
+   * <p>List of FPort assigned for different LoRaWAN application packages to use</p>
+   */
+  FPorts?: FPorts;
 }
 
 export namespace LoRaWANDevice {
@@ -1300,6 +1643,60 @@ export namespace DeleteDeviceProfileResponse {
   });
 }
 
+export interface DeleteFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteFuotaTaskResponse {}
+
+export namespace DeleteFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace DeleteMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteMulticastGroupResponse {}
+
+export namespace DeleteMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteServiceProfileRequest {
   /**
    * <p>The ID of the resource to delete.</p>
@@ -1508,6 +1905,51 @@ export namespace DeviceProfile {
   });
 }
 
+export enum EventNotificationTopicStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p> SidewalkEventNotificationConfigurations object
+ *             Event configuration object for Sidewalk related event topics.</p>
+ */
+export interface SidewalkEventNotificationConfigurations {
+  /**
+   * <p>Enum to denote whether amazon id event topic is enabled or disabled.</p>
+   */
+  AmazonIdEventTopic?: EventNotificationTopicStatus | string;
+}
+
+export namespace SidewalkEventNotificationConfigurations {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SidewalkEventNotificationConfigurations): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Device registration state event configuration object for enabling and disabling relevant topics.</p>
+ */
+export interface DeviceRegistrationStateEventConfiguration {
+  /**
+   * <p>Device registration state event configuration object for enabling or disabling Sidewalk related event
+   *             topics.</p>
+   */
+  Sidewalk?: SidewalkEventNotificationConfigurations;
+}
+
+export namespace DeviceRegistrationStateEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeviceRegistrationStateEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
 export enum DeviceState {
   PROVISIONED = "Provisioned",
   REGISTEREDNOTSEEN = "RegisteredNotSeen",
@@ -1547,6 +1989,102 @@ export namespace DisassociateAwsAccountFromPartnerAccountResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DisassociateAwsAccountFromPartnerAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMulticastGroupFromFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  MulticastGroupId: string | undefined;
+}
+
+export namespace DisassociateMulticastGroupFromFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateMulticastGroupFromFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateMulticastGroupFromFuotaTaskResponse {}
+
+export namespace DisassociateMulticastGroupFromFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateMulticastGroupFromFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateWirelessDeviceFromFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the wireless device.</p>
+   */
+  WirelessDeviceId: string | undefined;
+}
+
+export namespace DisassociateWirelessDeviceFromFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateWirelessDeviceFromFuotaTaskResponse {}
+
+export namespace DisassociateWirelessDeviceFromFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateWirelessDeviceFromMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ID of the wireless device.</p>
+   */
+  WirelessDeviceId: string | undefined;
+}
+
+export namespace DisassociateWirelessDeviceFromMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateWirelessDeviceFromMulticastGroupResponse {}
+
+export namespace DisassociateWirelessDeviceFromMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DisassociateWirelessDeviceFromMulticastGroupResponse): any => ({
     ...obj,
   });
 }
@@ -1638,6 +2176,61 @@ export enum Event {
   LOST = "lost",
   NACK = "nack",
   PASSTHROUGH = "passthrough",
+}
+
+export enum EventNotificationPartnerType {
+  Sidewalk = "Sidewalk",
+}
+
+export enum FuotaDeviceStatus {
+  FragAlgo_unsupported = "FragAlgo_unsupported",
+  FragIndex_unsupported = "FragIndex_unsupported",
+  Initial = "Initial",
+  MICError = "MICError",
+  MemoryError = "MemoryError",
+  MissingFrag = "MissingFrag",
+  Not_enough_memory = "Not_enough_memory",
+  Package_Not_Supported = "Package_Not_Supported",
+  SessionCnt_replay = "SessionCnt_replay",
+  Successful = "Successful",
+  Wrong_descriptor = "Wrong_descriptor",
+}
+
+/**
+ * <p>A FUOTA task.</p>
+ */
+export interface FuotaTask {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The arn of a FUOTA task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of a FUOTA task.</p>
+   */
+  Name?: string;
+}
+
+export namespace FuotaTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: FuotaTask): any => ({
+    ...obj,
+  });
+}
+
+export enum FuotaTaskStatus {
+  Delete_Waiting = "Delete_Waiting",
+  FuotaDone = "FuotaDone",
+  FuotaSession_Waiting = "FuotaSession_Waiting",
+  In_FuotaSession = "In_FuotaSession",
+  Pending = "Pending",
 }
 
 export interface GetDestinationRequest {
@@ -1740,6 +2333,102 @@ export namespace GetDeviceProfileResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: GetDeviceProfileResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The LoRaWAN information returned from getting a FUOTA task.</p>
+ */
+export interface LoRaWANFuotaTaskGetInfo {
+  /**
+   * <p>The frequency band (RFRegion) value.</p>
+   */
+  RfRegion?: string;
+
+  /**
+   * <p>Start time of a FUOTA task.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace LoRaWANFuotaTaskGetInfo {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANFuotaTaskGetInfo): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFuotaTaskResponse {
+  /**
+   * <p>The arn of a FUOTA task.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The status of a FUOTA task.</p>
+   */
+  Status?: FuotaTaskStatus | string;
+
+  /**
+   * <p>The name of a FUOTA task.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The LoRaWAN information returned from getting a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANFuotaTaskGetInfo;
+
+  /**
+   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateImage?: string;
+
+  /**
+   * <p>The firmware update role that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateRole?: string;
+
+  /**
+   * <p>Created at timestamp for the resource.</p>
+   */
+  CreatedAt?: Date;
+}
+
+export namespace GetFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFuotaTaskResponse): any => ({
     ...obj,
   });
 }
@@ -1914,6 +2603,168 @@ export namespace GetLogLevelsByResourceTypesResponse {
   });
 }
 
+export interface GetMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The LoRaWAN information that is to be returned from getting multicast group information.</p>
+ */
+export interface LoRaWANMulticastGet {
+  /**
+   * <p>Supported RfRegions</p>
+   */
+  RfRegion?: SupportedRfRegion | string;
+
+  /**
+   * <p>DlClass for LoRaWAM, valid values are ClassB and ClassC.</p>
+   */
+  DlClass?: DlClass | string;
+
+  /**
+   * <p>Number of devices that are requested to be associated with the multicast group.</p>
+   */
+  NumberOfDevicesRequested?: number;
+
+  /**
+   * <p>Number of devices that are associated to the multicast group.</p>
+   */
+  NumberOfDevicesInGroup?: number;
+}
+
+export namespace LoRaWANMulticastGet {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANMulticastGet): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMulticastGroupResponse {
+  /**
+   * <p>The arn of the multicast group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the multicast group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The status of the multicast group.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The LoRaWAN information that is to be returned from getting multicast group information.</p>
+   */
+  LoRaWAN?: LoRaWANMulticastGet;
+
+  /**
+   * <p>Created at timestamp for the resource.</p>
+   */
+  CreatedAt?: Date;
+}
+
+export namespace GetMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMulticastGroupSessionRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetMulticastGroupSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMulticastGroupSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The LoRaWAN information used with the multicast session.</p>
+ */
+export interface LoRaWANMulticastSession {
+  /**
+   * <p>Downlink data rate.</p>
+   */
+  DlDr?: number;
+
+  /**
+   * <p>Downlink frequency.</p>
+   */
+  DlFreq?: number;
+
+  /**
+   * <p>Timestamp of when the multicast group session is to start.</p>
+   */
+  SessionStartTime?: Date;
+
+  /**
+   * <p>How long before a multicast group session is to timeout.</p>
+   */
+  SessionTimeout?: number;
+}
+
+export namespace LoRaWANMulticastSession {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANMulticastSession): any => ({
+    ...obj,
+  });
+}
+
+export interface GetMulticastGroupSessionResponse {
+  /**
+   * <p>The LoRaWAN information used with the multicast session.</p>
+   */
+  LoRaWAN?: LoRaWANMulticastSession;
+}
+
+export namespace GetMulticastGroupSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetMulticastGroupSessionResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetPartnerAccountRequest {
   /**
    * <p>The partner account ID to disassociate from the AWS account.</p>
@@ -1984,6 +2835,76 @@ export namespace GetPartnerAccountResponse {
   export const filterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
     ...obj,
     ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprint.filterSensitiveLog(obj.Sidewalk) }),
+  });
+}
+
+export enum IdentifierType {
+  PartnerAccountId = "PartnerAccountId",
+}
+
+export interface GetResourceEventConfigurationRequest {
+  /**
+   * <p>Resource identifier to opt in for event messaging.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>Identifier type of the particular resource identifier for event configuration.</p>
+   */
+  IdentifierType: IdentifierType | string | undefined;
+
+  /**
+   * <p>Partner type of the resource if the identifier type is PartnerAccountId.</p>
+   */
+  PartnerType?: EventNotificationPartnerType | string;
+}
+
+export namespace GetResourceEventConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceEventConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Proximity event configuration object for enabling and disabling relevant topics.</p>
+ */
+export interface ProximityEventConfiguration {
+  /**
+   * <p>Proximity event configuration object for enabling or disabling Sidewalk related event topics.</p>
+   */
+  Sidewalk?: SidewalkEventNotificationConfigurations;
+}
+
+export namespace ProximityEventConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ProximityEventConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResourceEventConfigurationResponse {
+  /**
+   * <p>Event configuration for the device registration state event</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration;
+
+  /**
+   * <p>Event configuration for the Proximity event</p>
+   */
+  Proximity?: ProximityEventConfiguration;
+}
+
+export namespace GetResourceEventConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResourceEventConfigurationResponse): any => ({
+    ...obj,
   });
 }
 
@@ -2891,6 +3812,185 @@ export namespace ListDeviceProfilesResponse {
   });
 }
 
+export interface ListFuotaTasksRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListFuotaTasksRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFuotaTasksRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListFuotaTasksResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Lists the FUOTA tasks registered to your AWS account.</p>
+   */
+  FuotaTaskList?: FuotaTask[];
+}
+
+export namespace ListFuotaTasksResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListFuotaTasksResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMulticastGroupsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListMulticastGroupsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMulticastGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A multicast group.</p>
+ */
+export interface MulticastGroup {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The arn of the multicast group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the multicast group.</p>
+   */
+  Name?: string;
+}
+
+export namespace MulticastGroup {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MulticastGroup): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMulticastGroupsResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>List of multicast groups.</p>
+   */
+  MulticastGroupList?: MulticastGroup[];
+}
+
+export namespace ListMulticastGroupsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMulticastGroupsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMulticastGroupsByFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListMulticastGroupsByFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMulticastGroupsByFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A multicast group that is associated with a FUOTA task.</p>
+ */
+export interface MulticastGroupByFuotaTask {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id?: string;
+}
+
+export namespace MulticastGroupByFuotaTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MulticastGroupByFuotaTask): any => ({
+    ...obj,
+  });
+}
+
+export interface ListMulticastGroupsByFuotaTaskResponse {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>List of multicast groups associated with a FUOTA task.</p>
+   */
+  MulticastGroupList?: MulticastGroupByFuotaTask[];
+}
+
+export namespace ListMulticastGroupsByFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListMulticastGroupsByFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListPartnerAccountsRequest {
   /**
    * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>
@@ -3069,6 +4169,16 @@ export interface ListWirelessDevicesRequest {
    * <p>A filter to list only the wireless devices that use this wireless device type.</p>
    */
   WirelessDeviceType?: WirelessDeviceType | string;
+
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  FuotaTaskId?: string;
+
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  MulticastGroupId?: string;
 }
 
 export namespace ListWirelessDevicesRequest {
@@ -3176,6 +4286,21 @@ export interface WirelessDeviceStatistics {
    * <p>The Sidewalk account credentials.</p>
    */
   Sidewalk?: SidewalkListDevice;
+
+  /**
+   * <p>The status of a wireless device in a FUOTA task.</p>
+   */
+  FuotaDeviceStatus?: FuotaDeviceStatus | string;
+
+  /**
+   * <p>The status of the wireless device in the multicast group.</p>
+   */
+  MulticastDeviceStatus?: string;
+
+  /**
+   * <p>Id of the multicast group.</p>
+   */
+  McGroupId?: number;
 }
 
 export namespace WirelessDeviceStatistics {
@@ -3492,6 +4617,86 @@ export namespace ResetResourceLogLevelResponse {
 }
 
 /**
+ * <p>The metadata information of the LoRaWAN multicast group.</p>
+ */
+export interface LoRaWANMulticastMetadata {
+  /**
+   * <p>The Fport value.</p>
+   */
+  FPort?: number;
+}
+
+export namespace LoRaWANMulticastMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANMulticastMetadata): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Wireless metadata that is to be sent to multicast group.</p>
+ */
+export interface MulticastWirelessMetadata {
+  /**
+   * <p>The metadata information of the LoRaWAN multicast group.</p>
+   */
+  LoRaWAN?: LoRaWANMulticastMetadata;
+}
+
+export namespace MulticastWirelessMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: MulticastWirelessMetadata): any => ({
+    ...obj,
+  });
+}
+
+export interface SendDataToMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The binary to be sent to the end device, encoded in base64.</p>
+   */
+  PayloadData: string | undefined;
+
+  /**
+   * <p>Wireless metadata that is to be sent to multicast group.</p>
+   */
+  WirelessMetadata: MulticastWirelessMetadata | undefined;
+}
+
+export namespace SendDataToMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendDataToMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface SendDataToMulticastGroupResponse {
+  /**
+   * <p>ID of a multicast group message.</p>
+   */
+  MessageId?: string;
+}
+
+export namespace SendDataToMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>LoRaWAN router info.</p>
  */
 export interface LoRaWANSendDataToDevice {
@@ -3608,6 +4813,163 @@ export namespace SendDataToWirelessDeviceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: SendDataToWirelessDeviceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   */
+  QueryString?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
+
+export namespace StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   */
+  QueryString?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
+
+export namespace StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The LoRaWAN information used to start a FUOTA task.</p>
+ */
+export interface LoRaWANStartFuotaTask {
+  /**
+   * <p>Start time of a FUOTA task.</p>
+   */
+  StartTime?: Date;
+}
+
+export namespace LoRaWANStartFuotaTask {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LoRaWANStartFuotaTask): any => ({
+    ...obj,
+  });
+}
+
+export interface StartFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The LoRaWAN information used to start a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANStartFuotaTask;
+}
+
+export namespace StartFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartFuotaTaskResponse {}
+
+export namespace StartFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMulticastGroupSessionRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The LoRaWAN information used with the multicast session.</p>
+   */
+  LoRaWAN: LoRaWANMulticastSession | undefined;
+}
+
+export namespace StartMulticastGroupSessionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMulticastGroupSessionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartMulticastGroupSessionResponse {}
+
+export namespace StartMulticastGroupSessionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartMulticastGroupSessionResponse): any => ({
     ...obj,
   });
 }
@@ -3777,6 +5139,58 @@ export namespace UpdateDestinationResponse {
   });
 }
 
+export interface UpdateFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of a FUOTA task.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The LoRaWAN information used with a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANFuotaTask;
+
+  /**
+   * <p>The S3 URI points to a firmware update image that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateImage?: string;
+
+  /**
+   * <p>The firmware update role that is to be used with a FUOTA task.</p>
+   */
+  FirmwareUpdateRole?: string;
+}
+
+export namespace UpdateFuotaTaskRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFuotaTaskRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateFuotaTaskResponse {}
+
+export namespace UpdateFuotaTaskResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateFuotaTaskResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateLogLevelsByResourceTypesRequest {
   /**
    * <p>The log level for a log message.</p>
@@ -3810,6 +5224,48 @@ export namespace UpdateLogLevelsByResourceTypesResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateLogLevelsByResourceTypesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the multicast group.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the new resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The LoRaWAN information that is to be used with the multicast group.</p>
+   */
+  LoRaWAN?: LoRaWANMulticast;
+}
+
+export namespace UpdateMulticastGroupRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMulticastGroupRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateMulticastGroupResponse {}
+
+export namespace UpdateMulticastGroupResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateMulticastGroupResponse): any => ({
     ...obj,
   });
 }
@@ -3868,6 +5324,53 @@ export namespace UpdatePartnerAccountResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdatePartnerAccountResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateResourceEventConfigurationRequest {
+  /**
+   * <p>Resource identifier to opt in for event messaging.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>Identifier type of the particular resource identifier for event configuration.</p>
+   */
+  IdentifierType: IdentifierType | string | undefined;
+
+  /**
+   * <p>Partner type of the resource if the identifier type is PartnerAccountId</p>
+   */
+  PartnerType?: EventNotificationPartnerType | string;
+
+  /**
+   * <p>Event configuration for the device registration state event</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateEventConfiguration;
+
+  /**
+   * <p>Event configuration for the Proximity event</p>
+   */
+  Proximity?: ProximityEventConfiguration;
+}
+
+export namespace UpdateResourceEventConfigurationRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateResourceEventConfigurationResponse {}
+
+export namespace UpdateResourceEventConfigurationResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResourceEventConfigurationResponse): any => ({
     ...obj,
   });
 }

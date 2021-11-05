@@ -1,6 +1,24 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+/**
+ * <p>You do not have sufficient access to perform this action.</p>
+ */
+export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
+  name: "AccessDeniedException";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace AccessDeniedException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: AccessDeniedException): any => ({
+    ...obj,
+  });
+}
+
 export enum AgentStatusState {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -52,7 +70,7 @@ export interface AgentStatus {
   State?: AgentStatusState | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -805,7 +823,7 @@ export interface CreateAgentStatusRequest {
   DisplayOrder?: number;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1063,7 +1081,7 @@ export interface CreateHoursOfOperationRequest {
   Config: HoursOfOperationConfig[] | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1212,7 +1230,7 @@ export interface CreateIntegrationAssociationRequest {
   SourceType?: SourceType | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1313,7 +1331,7 @@ export interface CreateQueueRequest {
   QuickConnectIds?: string[];
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1480,7 +1498,7 @@ export interface CreateQuickConnectRequest {
   QuickConnectConfig: QuickConnectConfig | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1613,6 +1631,63 @@ export namespace CreateRoutingProfileResponse {
   });
 }
 
+export interface CreateSecurityProfileRequest {
+  /**
+   * <p>The name of the security profile.</p>
+   */
+  SecurityProfileName: string | undefined;
+
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Permissions assigned to the security profile.</p>
+   */
+  Permissions?: string[];
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace CreateSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateSecurityProfileResponse {
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the security profile.</p>
+   */
+  SecurityProfileArn?: string;
+}
+
+export namespace CreateSecurityProfileResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateSecurityProfileResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum UseCaseType {
   CONNECT_CAMPAIGNS = "CONNECT_CAMPAIGNS",
   RULES_EVALUATION = "RULES_EVALUATION",
@@ -1636,7 +1711,7 @@ export interface CreateUseCaseRequest {
   UseCaseType: UseCaseType | string | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -1960,6 +2035,64 @@ export namespace DeleteQuickConnectRequest {
   });
 }
 
+export interface DeleteSecurityProfileRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
+}
+
+export namespace DeleteSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+export enum ResourceType {
+  CONTACT = "CONTACT",
+  CONTACT_FLOW = "CONTACT_FLOW",
+  HIERARCHY_GROUP = "HIERARCHY_GROUP",
+  HIERARCHY_LEVEL = "HIERARCHY_LEVEL",
+  INSTANCE = "INSTANCE",
+  PARTICIPANT = "PARTICIPANT",
+  USER = "USER",
+}
+
+/**
+ * <p>That resource is already in use. Please try another.</p>
+ */
+export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
+  name: "ResourceInUseException";
+  $fault: "client";
+  Message?: string;
+  /**
+   * <p>The type of resource.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The identifier for the resource.</p>
+   */
+  ResourceId?: string;
+}
+
+export namespace ResourceInUseException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteUseCaseRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2024,43 +2157,6 @@ export namespace DeleteUserHierarchyGroupRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteUserHierarchyGroupRequest): any => ({
-    ...obj,
-  });
-}
-
-export enum ResourceType {
-  CONTACT = "CONTACT",
-  CONTACT_FLOW = "CONTACT_FLOW",
-  HIERARCHY_GROUP = "HIERARCHY_GROUP",
-  HIERARCHY_LEVEL = "HIERARCHY_LEVEL",
-  INSTANCE = "INSTANCE",
-  PARTICIPANT = "PARTICIPANT",
-  USER = "USER",
-}
-
-/**
- * <p>That resource is already in use. Please try another.</p>
- */
-export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
-  name: "ResourceInUseException";
-  $fault: "client";
-  Message?: string;
-  /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: ResourceType | string;
-
-  /**
-   * <p>The identifier for the resource.</p>
-   */
-  ResourceId?: string;
-}
-
-export namespace ResourceInUseException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceInUseException): any => ({
     ...obj,
   });
 }
@@ -2263,7 +2359,7 @@ export interface HoursOfOperation {
   Config?: HoursOfOperationConfig[];
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -2604,7 +2700,7 @@ export interface Queue {
   Status?: QueueStatus | string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -2685,7 +2781,7 @@ export interface QuickConnect {
   QuickConnectConfig?: QuickConnectConfig;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource.</p>
    */
   Tags?: { [key: string]: string };
 }
@@ -2803,6 +2899,87 @@ export namespace DescribeRoutingProfileResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeRoutingProfileResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSecurityProfileRequest {
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace DescribeSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains information about a security profile.</p>
+ */
+export interface SecurityProfile {
+  /**
+   * <p>The identifier for the security profile.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The organization resource identifier for the security profile.</p>
+   */
+  OrganizationResourceId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the secruity profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name for the security profile.</p>
+   */
+  SecurityProfileName?: string;
+
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   */
+  Tags?: { [key: string]: string };
+}
+
+export namespace SecurityProfile {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SecurityProfile): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeSecurityProfileResponse {
+  /**
+   * <p>The security profile.</p>
+   */
+  SecurityProfile?: SecurityProfile;
+}
+
+export namespace DescribeSecurityProfileResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeSecurityProfileResponse): any => ({
     ...obj,
   });
 }
@@ -4757,7 +4934,7 @@ export interface ListIntegrationAssociationsRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The type of integration.</p>
    */
   IntegrationType?: IntegrationType | string;
 
@@ -4886,7 +5063,7 @@ export namespace ListLambdaFunctionsRequest {
 
 export interface ListLambdaFunctionsResponse {
   /**
-   * <p>The Lambdafunction ARNs associated with the specified instance.</p>
+   * <p>The Lambda function ARNs associated with the specified instance.</p>
    */
   LambdaFunctions?: string[];
 
@@ -5861,6 +6038,59 @@ export namespace ListSecurityKeysResponse {
   });
 }
 
+export interface ListSecurityProfilePermissionsRequest {
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListSecurityProfilePermissionsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListSecurityProfilePermissionsResponse {
+  /**
+   * <p>The permissions granted to the security profile.</p>
+   */
+  Permissions?: string[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListSecurityProfilePermissionsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListSecurityProfilePermissionsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListSecurityProfilesRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -6413,6 +6643,75 @@ export namespace StartContactRecordingResponse {
 }
 
 /**
+ * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+ */
+export interface ChatStreamingConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the standard Amazon SNS topic. The Amazon Resource Name (ARN) of the streaming endpoint that is used
+   *    to publish real-time message streaming for chat conversations.</p>
+   */
+  StreamingEndpointArn: string | undefined;
+}
+
+export namespace ChatStreamingConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ChatStreamingConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactStreamingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact associated with the
+   *    first interaction with the contact center.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
+   */
+  ChatStreamingConfiguration: ChatStreamingConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
+   */
+  ClientToken?: string;
+}
+
+export namespace StartContactStreamingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactStreamingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartContactStreamingResponse {
+  /**
+   * <p>The identifier of the streaming configuration enabled. </p>
+   */
+  StreamingId: string | undefined;
+}
+
+export namespace StartContactStreamingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartContactStreamingResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Outbound calls to the destination number are not allowed.</p>
  */
 export interface DestinationNotAllowedException extends __SmithyException, $MetadataBearer {
@@ -6781,6 +7080,44 @@ export namespace StopContactRecordingResponse {
   });
 }
 
+export interface StopContactStreamingRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. This is the identifier of the contact that is associated with
+   *    the first interaction with the contact center.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the streaming configuration enabled. </p>
+   */
+  StreamingId: string | undefined;
+}
+
+export namespace StopContactStreamingRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactStreamingRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopContactStreamingResponse {}
+
+export namespace StopContactStreamingResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopContactStreamingResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface SuspendContactRecordingRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -7057,7 +7394,7 @@ export interface UpdateInstanceAttributeRequest {
   /**
    * <p>The type of attribute.</p>
    *          <note>
-   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact AWS Support for allowlisting.</p>
+   *             <p>Only allowlisted customers can consume USE_CUSTOM_TTS_VOICES. To access this feature, contact Amazon Web Services Support for allowlisting.</p>
    *          </note>
    */
   AttributeType: InstanceAttributeType | string | undefined;
@@ -7411,6 +7748,37 @@ export namespace UpdateRoutingProfileQueuesRequest {
   });
 }
 
+export interface UpdateSecurityProfileRequest {
+  /**
+   * <p>The description of the security profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The permissions granted to a security profile.</p>
+   */
+  Permissions?: string[];
+
+  /**
+   * <p>The identifier for the security profle.</p>
+   */
+  SecurityProfileId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+}
+
+export namespace UpdateSecurityProfileRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateSecurityProfileRequest): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateUserHierarchyRequest {
   /**
    * <p>The identifier of the hierarchy group.</p>
@@ -7566,84 +7934,6 @@ export namespace UpdateUserIdentityInfoRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateUserIdentityInfoRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserPhoneConfigRequest {
-  /**
-   * <p>Information about phone configuration settings for the user.</p>
-   */
-  PhoneConfig: UserPhoneConfig | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace UpdateUserPhoneConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserPhoneConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserRoutingProfileRequest {
-  /**
-   * <p>The identifier of the routing profile for the user.</p>
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace UpdateUserRoutingProfileRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserRoutingProfileRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface UpdateUserSecurityProfilesRequest {
-  /**
-   * <p>The identifiers of the security profiles for the user.</p>
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * <p>The identifier of the user account.</p>
-   */
-  UserId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-}
-
-export namespace UpdateUserSecurityProfilesRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: UpdateUserSecurityProfilesRequest): any => ({
     ...obj,
   });
 }

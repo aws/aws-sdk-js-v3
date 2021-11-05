@@ -27,7 +27,7 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
 
 /**
  * <p>Returns all the tagged or previously tagged resources that are located in the
- *             specified Region for the AWS account.</p>
+ *             specified Amazon Web Services Region for the account.</p>
  *         <p>Depending on what information you want returned, you can also specify the
  *             following:</p>
  *         <ul>
@@ -40,11 +40,11 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  *             <li>
  *                 <p>Information about compliance with the account's effective tag policy. For more
  *                     information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag
- *                         Policies</a> in the <i>AWS Organizations User Guide.</i>
+ *                         Policies</a> in the <i>Organizations User Guide.</i>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>This operation supports pagination, where the response can be sent in
+ *         <p>This operation supports pagination, where the response can be sent in
  *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
  *     if there are additional results available to return. Repeat the query, passing the
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you

@@ -1,6 +1,17 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
+export enum ResponseHeadersPolicyAccessControlAllowMethodsValues {
+  ALL = "ALL",
+  DELETE = "DELETE",
+  GET = "GET",
+  HEAD = "HEAD",
+  OPTIONS = "OPTIONS",
+  PATCH = "PATCH",
+  POST = "POST",
+  PUT = "PUT",
+}
+
 /**
  * <p>Access denied.</p>
  */
@@ -102,13 +113,13 @@ export namespace ActiveTrustedKeyGroups {
 }
 
 /**
- * <p>A list of accounts and the active CloudFront key pairs in each account that CloudFront can use to
+ * <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use to
  * 			verify the signatures of signed URLs and signed cookies.</p>
  */
 export interface Signer {
   /**
-   * <p>An account number that contains active CloudFront key pairs that CloudFront can use to verify the
-   * 			signatures of signed URLs and signed cookies. If the account that owns the key pairs
+   * <p>An Amazon Web Services account number that contains active CloudFront key pairs that CloudFront can use to verify the
+   * 			signatures of signed URLs and signed cookies. If the Amazon Web Services account that owns the key pairs
    * 			is the same account that owns the CloudFront distribution, the value of this field is
    * 			<code>self</code>.</p>
    */
@@ -130,24 +141,24 @@ export namespace Signer {
 }
 
 /**
- * <p>A list of accounts and the active CloudFront key pairs in each account that CloudFront can use
+ * <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use
  * 			to verify the signatures of signed URLs and signed cookies.</p>
  */
 export interface ActiveTrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the accounts in the list have active CloudFront
+   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts in the list have active CloudFront
    * 			key pairs that CloudFront can use to verify the signatures of signed URLs and signed cookies.
    * 			If not, this field is <code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The number of accounts in the list.</p>
+   * <p>The number of Amazon Web Services accounts in the list.</p>
    */
   Quantity: number | undefined;
 
   /**
-   * <p>A list of accounts and the identifiers of active CloudFront key pairs in each account that
+   * <p>A list of Amazon Web Services accounts and the identifiers of active CloudFront key pairs in each account that
    * 			CloudFront can use to verify the signatures of signed URLs and signed cookies.</p>
    */
   Items?: Signer[];
@@ -883,24 +894,24 @@ export namespace TrustedKeyGroups {
 }
 
 /**
- * <p>A list of accounts whose public keys CloudFront can use to verify the signatures of signed
+ * <p>A list of Amazon Web Services accounts whose public keys CloudFront can use to verify the signatures of signed
  * 			URLs and signed cookies.</p>
  */
 export interface TrustedSigners {
   /**
-   * <p>This field is <code>true</code> if any of the accounts have public keys that CloudFront can
+   * <p>This field is <code>true</code> if any of the Amazon Web Services accounts have public keys that CloudFront can
    * 			use to verify the signatures of signed URLs and signed cookies. If not, this field is
    * 			<code>false</code>.</p>
    */
   Enabled: boolean | undefined;
 
   /**
-   * <p>The number of accounts in the list.</p>
+   * <p>The number of Amazon Web Services accounts in the list.</p>
    */
   Quantity: number | undefined;
 
   /**
-   * <p>A list of account identifiers.</p>
+   * <p>A list of Amazon Web Services account identifiers.</p>
    */
   Items?: string[];
 }
@@ -965,11 +976,11 @@ export interface CacheBehavior {
    * 			         <p>We recommend using <code>TrustedKeyGroups</code> instead of
    * 				<code>TrustedSigners</code>.</p>
    * 		       </important>
-   * 		       <p>A list of account IDs whose public keys CloudFront can use to validate signed URLs or signed
+   * 		       <p>A list of Amazon Web Services account IDs whose public keys CloudFront can use to validate signed URLs or signed
    * 			cookies.</p>
    * 		       <p>When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies
    * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
-   * 			the private key of a CloudFront key pair in the trusted signer’s account. The signed URL
+   * 			the private key of a CloudFront key pair in the trusted signer’s Amazon Web Services account. The signed URL
    * 			or cookie contains information about which public key CloudFront should use to verify the
    * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -1100,6 +1111,11 @@ export interface CacheBehavior {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginRequestPolicyId?: string;
+
+  /**
+   * <p>The identifier for a response headers policy.</p>
+   */
+  ResponseHeadersPolicyId?: string;
 
   /**
    * @deprecated
@@ -1692,7 +1708,7 @@ export type CachePolicyType = "custom" | "managed";
 export interface CachePolicySummary {
   /**
    * <p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or
-   * 			<code>custom</code> (created in this account).</p>
+   * 			<code>custom</code> (created in this Amazon Web Services account).</p>
    */
   Type: CachePolicyType | string | undefined;
 
@@ -1828,7 +1844,7 @@ export namespace InconsistentQuantities {
 }
 
 /**
- * <p>You have reached the maximum number of cache policies for this account. For more
+ * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -2252,11 +2268,11 @@ export interface DefaultCacheBehavior {
    * 			         <p>We recommend using <code>TrustedKeyGroups</code> instead of
    * 				<code>TrustedSigners</code>.</p>
    * 		       </important>
-   * 		       <p>A list of account IDs whose public keys CloudFront can use to validate signed URLs or signed
+   * 		       <p>A list of Amazon Web Services account IDs whose public keys CloudFront can use to validate signed URLs or signed
    * 			cookies.</p>
    * 		       <p>When a cache behavior contains trusted signers, CloudFront requires signed URLs or signed cookies
    * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
-   * 			the private key of a CloudFront key pair in a trusted signer’s account. The signed URL or
+   * 			the private key of a CloudFront key pair in a trusted signer’s Amazon Web Services account. The signed URL or
    * 			cookie contains information about which public key CloudFront should use to verify the
    * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -2389,6 +2405,11 @@ export interface DefaultCacheBehavior {
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginRequestPolicyId?: string;
+
+  /**
+   * <p>The identifier for a response headers policy.</p>
+   */
+  ResponseHeadersPolicyId?: string;
 
   /**
    * @deprecated
@@ -2686,6 +2707,7 @@ export namespace OriginCustomHeader {
    */
   export const filterSensitiveLog = (obj: OriginCustomHeader): any => ({
     ...obj,
+    ...(obj.HeaderValue && { HeaderValue: SENSITIVE_STRING }),
   });
 }
 
@@ -2713,6 +2735,7 @@ export namespace CustomHeaders {
    */
   export const filterSensitiveLog = (obj: CustomHeaders): any => ({
     ...obj,
+    ...(obj.Items && { Items: obj.Items.map((item) => OriginCustomHeader.filterSensitiveLog(item)) }),
   });
 }
 
@@ -2841,13 +2864,13 @@ export interface OriginShield {
   Enabled: boolean | undefined;
 
   /**
-   * <p>The Region for Origin Shield.</p>
-   * 		       <p>Specify the Region that has the lowest latency to your origin.
+   * <p>The Amazon Web Services Region for Origin Shield.</p>
+   * 		       <p>Specify the Amazon Web Services Region that has the lowest latency to your origin.
    *             To specify a region, use the region code, not the region name.
    *             For example, specify the US East (Ohio) region as <code>us-east-2</code>.</p>
-   *         <p>When you enable CloudFront Origin Shield, you must specify the Region for Origin
-   *             Shield. For the list of Regions that you can specify, and for help choosing the best
-   *             Region for your origin, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region">Choosing the Region for Origin Shield</a> in the
+   *         <p>When you enable CloudFront Origin Shield, you must specify the Amazon Web Services Region for Origin
+   *             Shield. For the list of Amazon Web Services Regions that you can specify, and for help choosing the best
+   *             Region for your origin, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html#choose-origin-shield-region">Choosing the Amazon Web Services Region for Origin Shield</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginShieldRegion?: string;
@@ -3017,6 +3040,7 @@ export namespace Origin {
    */
   export const filterSensitiveLog = (obj: Origin): any => ({
     ...obj,
+    ...(obj.CustomHeaders && { CustomHeaders: CustomHeaders.filterSensitiveLog(obj.CustomHeaders) }),
   });
 }
 
@@ -3538,7 +3562,7 @@ export interface DistributionConfig {
    * 			content (or restrict access but not by IP address), you can create two distributions. For more
    * 			information, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>If you're using an Route 53 Amazon Web Services Integration alias resource record set to route traffic to your CloudFront
+   * 		       <p>If you're using an Route 53 Amazon Web Services Integration alias resource record set to route traffic to your CloudFront
    * 			distribution, you need to create a second alias resource record set when both of the following
    * 			are true:</p>
    * 		       <ul>
@@ -3550,9 +3574,9 @@ export interface DistributionConfig {
    * 			         </li>
    *          </ul>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing Traffic
-   * 				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Route 53 Amazon Web Services Integration
+   * 				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Route 53 Amazon Web Services Integration
    * 				Developer Guide</i>.</p>
-   * 		       <p>If you created a CNAME resource record set, either with Route 53 Amazon Web Services Integration or with another DNS
+   * 		       <p>If you created a CNAME resource record set, either with Route 53 Amazon Web Services Integration or with another DNS
    * 			service, you don't need to make any changes. A CNAME record will route traffic to your
    * 			distribution regardless of the IP address format of the viewer request.</p>
    */
@@ -3605,7 +3629,7 @@ export interface Distribution {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your account ID.</p>
+   * 				<code>123456789012</code> is your Amazon Web Services account ID.</p>
    */
   ARN: string | undefined;
 
@@ -3638,7 +3662,7 @@ export interface Distribution {
    * 		       </important>
    * 		       <p>CloudFront automatically adds this field to the response if you’ve configured a cache behavior in
    * 			this distribution to serve private content using trusted signers. This field contains a
-   * 			list of account IDs and the active CloudFront key pairs in each account that CloudFront can use
+   * 			list of Amazon Web Services account IDs and the active CloudFront key pairs in each account that CloudFront can use
    * 			to verify the signatures of signed URLs or signed cookies.</p>
    */
   ActiveTrustedSigners?: ActiveTrustedSigners;
@@ -4224,7 +4248,25 @@ export namespace NoSuchRealtimeLogConfig {
 }
 
 /**
- * <p>The specified real-time log configuration belongs to a different account.</p>
+ * <p>The response headers policy does not exist.</p>
+ */
+export interface NoSuchResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
+  name: "NoSuchResponseHeadersPolicy";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchResponseHeadersPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchResponseHeadersPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
  */
 export interface RealtimeLogConfigOwnerMismatch extends __SmithyException, $MetadataBearer {
   name: "RealtimeLogConfigOwnerMismatch";
@@ -4387,6 +4429,27 @@ export namespace TooManyDistributionsAssociatedToOriginRequestPolicy {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToOriginRequestPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The maximum number of distributions have been associated with the specified response headers
+ * 			policy.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyDistributionsAssociatedToResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
+  name: "TooManyDistributionsAssociatedToResponseHeadersPolicy";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyDistributionsAssociatedToResponseHeadersPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyDistributionsAssociatedToResponseHeadersPolicy): any => ({
     ...obj,
   });
 }
@@ -5632,7 +5695,7 @@ export namespace CreateFunctionResult {
 }
 
 /**
- * <p>A function with the same name already exists in this account. To create a
+ * <p>A function with the same name already exists in this Amazon Web Services account. To create a
  * 			function, you must provide a unique name. To update an existing function, use
  * 			<code>UpdateFunction</code>.</p>
  */
@@ -5671,7 +5734,7 @@ export namespace FunctionSizeLimitExceeded {
 }
 
 /**
- * <p>You have reached the maximum number of CloudFront functions for this account. For more
+ * <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -5998,7 +6061,7 @@ export namespace KeyGroupAlreadyExists {
 }
 
 /**
- * <p>You have reached the maximum number of key groups for this account. For more
+ * <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6490,7 +6553,7 @@ export namespace TooManyHeadersInOriginRequestPolicy {
 }
 
 /**
- * <p>You have reached the maximum number of origin request policies for this account.
+ * <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6847,7 +6910,7 @@ export namespace RealtimeLogConfigAlreadyExists {
 }
 
 /**
- * <p>You have reached the maximum number of real-time log configurations for this account.
+ * <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account.
  * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
@@ -6862,6 +6925,811 @@ export namespace TooManyRealtimeLogConfigs {
    * @internal
    */
   export const filterSensitiveLog = (obj: TooManyRealtimeLogConfigs): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of HTTP header names that CloudFront includes as values for the
+ * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
+ * 		       <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyAccessControlAllowHeaders {
+  /**
+   * <p>The number of HTTP header names in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP header names. You can specify <code>*</code> to allow all headers.</p>
+   */
+  Items: string[] | undefined;
+}
+
+export namespace ResponseHeadersPolicyAccessControlAllowHeaders {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowHeaders): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of HTTP methods that CloudFront includes as values for the
+ * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+ * 		       <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyAccessControlAllowMethods {
+  /**
+   * <p>The number of HTTP methods in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP methods. Valid values are:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>GET</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>DELETE</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>HEAD</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>OPTIONS</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>PATCH</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>POST</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>PUT</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>ALL</code>
+   *                </p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>
+   *             <code>ALL</code> is a special value that includes all of the listed HTTP
+   * 			methods.</p>
+   */
+  Items: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] | undefined;
+}
+
+export namespace ResponseHeadersPolicyAccessControlAllowMethods {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowMethods): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of origins (domain names) that CloudFront can use as the value for the
+ * 			<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+ * 		       <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyAccessControlAllowOrigins {
+  /**
+   * <p>The number of origins in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of origins (domain names). You can specify <code>*</code> to allow all
+   * 			origins.</p>
+   */
+  Items: string[] | undefined;
+}
+
+export namespace ResponseHeadersPolicyAccessControlAllowOrigins {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlAllowOrigins): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of HTTP headers that CloudFront includes as values for the
+ * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+ * 		       <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+ * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyAccessControlExposeHeaders {
+  /**
+   * <p>The number of HTTP headers in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
+   */
+  Items?: string[];
+}
+
+export namespace ResponseHeadersPolicyAccessControlExposeHeaders {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAccessControlExposeHeaders): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A configuration for a set of HTTP response headers that are used for cross-origin resource
+ * 			sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS
+ * 			requests that match a cache behavior associated with this response headers
+ * 			policy.</p>
+ * 		       <p>For more information about CORS, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource
+ * 				Sharing (CORS)</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyCorsConfig {
+  /**
+   * <p>A list of origins (domain names) that CloudFront can use as the value for the
+   * 			<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+   */
+  AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOrigins | undefined;
+
+  /**
+   * <p>A list of HTTP header names that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
+   */
+  AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeaders | undefined;
+
+  /**
+   * <p>A list of HTTP methods that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+   */
+  AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethods | undefined;
+
+  /**
+   * <p>A Boolean that CloudFront uses as the value for the <code>Access-Control-Allow-Credentials</code>
+   * 			HTTP response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Allow-Credentials</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a> in the MDN Web Docs.</p>
+   */
+  AccessControlAllowCredentials: boolean | undefined;
+
+  /**
+   * <p>A list of HTTP headers that CloudFront includes as values for the
+   * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+   */
+  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders;
+
+  /**
+   * <p>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code> HTTP
+   * 			response header.</p>
+   * 		       <p>For more information about the <code>Access-Control-Max-Age</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a> in the MDN Web Docs.</p>
+   */
+  AccessControlMaxAgeSec?: number;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides HTTP response headers received from the
+   * 			origin with the ones specified in this response headers policy.</p>
+   */
+  OriginOverride: boolean | undefined;
+}
+
+export namespace ResponseHeadersPolicyCorsConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCorsConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP responses that
+ * 			it sends for requests that match a cache behavior that’s associated with this response
+ * 			headers policy.</p>
+ */
+export interface ResponseHeadersPolicyCustomHeader {
+  /**
+   * <p>The HTTP response header name.</p>
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>The value for the HTTP response header.</p>
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides a response header with the same name
+   * 			received from the origin with the header specified here.</p>
+   */
+  Override: boolean | undefined;
+}
+
+export namespace ResponseHeadersPolicyCustomHeader {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCustomHeader): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of HTTP response header names and their values. CloudFront includes these headers in HTTP
+ * 			responses that it sends for requests that match a cache behavior that’s associated with
+ * 			this response headers policy.</p>
+ */
+export interface ResponseHeadersPolicyCustomHeadersConfig {
+  /**
+   * <p>The number of HTTP response headers in the list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP response headers and their values.</p>
+   */
+  Items?: ResponseHeadersPolicyCustomHeader[];
+}
+
+export namespace ResponseHeadersPolicyCustomHeadersConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyCustomHeadersConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The policy directives and their values that CloudFront includes as values for the
+ * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+ * 		       <p>For more information about the <code>Content-Security-Policy</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyContentSecurityPolicy {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>Content-Security-Policy</code>
+   * 			HTTP response header received from the origin with the one specified in this response
+   * 			headers policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>The policy directives and their values that CloudFront includes as values for the
+   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+   */
+  ContentSecurityPolicy: string | undefined;
+}
+
+export namespace ResponseHeadersPolicyContentSecurityPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyContentSecurityPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
+ * 			header with its value set to <code>nosniff</code>.</p>
+ * 		       <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyContentTypeOptions {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>X-Content-Type-Options</code>
+   * 			HTTP response header received from the origin with the one specified in this response
+   * 			headers policy.</p>
+   */
+  Override: boolean | undefined;
+}
+
+export namespace ResponseHeadersPolicyContentTypeOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyContentTypeOptions): any => ({
+    ...obj,
+  });
+}
+
+export enum FrameOptionsList {
+  DENY = "DENY",
+  SAMEORIGIN = "SAMEORIGIN",
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header and
+ * 			the header’s value.</p>
+ * 		       <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyFrameOptions {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>X-Frame-Options</code> HTTP
+   * 			response header received from the origin with the one specified in this response headers
+   * 			policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
+   * 				<code>DENY</code> and <code>SAMEORIGIN</code>. </p>
+   * 		       <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+   */
+  FrameOption: FrameOptionsList | string | undefined;
+}
+
+export namespace ResponseHeadersPolicyFrameOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyFrameOptions): any => ({
+    ...obj,
+  });
+}
+
+export enum ReferrerPolicyList {
+  no_referrer = "no-referrer",
+  no_referrer_when_downgrade = "no-referrer-when-downgrade",
+  origin = "origin",
+  origin_when_cross_origin = "origin-when-cross-origin",
+  same_origin = "same-origin",
+  strict_origin = "strict-origin",
+  strict_origin_when_cross_origin = "strict-origin-when-cross-origin",
+  unsafe_url = "unsafe-url",
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header and
+ * 			the header’s value.</p>
+ * 		       <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyReferrerPolicy {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>Referrer-Policy</code> HTTP
+   * 			response header received from the origin with the one specified in this response headers
+   * 			policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>The value of the <code>Referrer-Policy</code> HTTP response header. Valid values
+   * 			are:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>no-referrer</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>no-referrer-when-downgrade</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>origin</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>origin-when-cross-origin</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>same-origin</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>strict-origin</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>strict-origin-when-cross-origin</code>
+   *                </p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>unsafe-url</code>
+   *                </p>
+   * 			         </li>
+   *          </ul>
+   * 		       <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+   */
+  ReferrerPolicy: ReferrerPolicyList | string | undefined;
+}
+
+export namespace ResponseHeadersPolicyReferrerPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyReferrerPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP response
+ * 			header and the header’s value.</p>
+ * 		       <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyStrictTransportSecurity {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>Strict-Transport-Security</code>
+   * 			HTTP response header received from the origin with the one specified in this response
+   * 			headers policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront includes the <code>includeSubDomains</code> directive
+   * 			in the <code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  IncludeSubdomains?: boolean;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront includes the <code>preload</code> directive in the
+   * 			<code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  Preload?: boolean;
+
+  /**
+   * <p>A number that CloudFront uses as the value for the <code>max-age</code> directive in the
+   * 				<code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  AccessControlMaxAgeSec: number | undefined;
+}
+
+export namespace ResponseHeadersPolicyStrictTransportSecurity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyStrictTransportSecurity): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response header and
+ * 			the header’s value.</p>
+ * 		       <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyXSSProtection {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the <code>X-XSS-Protection</code> HTTP
+   * 			response header received from the origin with the one specified in this response headers
+   * 			policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>A Boolean that determines the value of the <code>X-XSS-Protection</code> HTTP response
+   * 			header. When this setting is <code>true</code>, the value of the
+   * 			<code>X-XSS-Protection</code> header is <code>1</code>. When this setting is
+   * 			<code>false</code>, the value of the <code>X-XSS-Protection</code> header is
+   * 			<code>0</code>.</p>
+   * 		       <p>For more information about these settings, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  Protection: boolean | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront includes the <code>mode=block</code> directive in the
+   * 			<code>X-XSS-Protection</code> header.</p>
+   * 		       <p>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  ModeBlock?: boolean;
+
+  /**
+   * <p>A reporting URI, which CloudFront uses as the value of the <code>report</code> directive in the
+   * 			<code>X-XSS-Protection</code> header.</p>
+   * 		       <p>You cannot specify a <code>ReportUri</code> when <code>ModeBlock</code> is
+   * 			<code>true</code>.</p>
+   * 		       <p>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  ReportUri?: string;
+}
+
+export namespace ResponseHeadersPolicyXSSProtection {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyXSSProtection): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A configuration for a set of security-related HTTP response headers. CloudFront adds these headers
+ * 			to HTTP responses that it sends for requests that match a cache behavior associated with
+ * 			this response headers policy.</p>
+ */
+export interface ResponseHeadersPolicySecurityHeadersConfig {
+  /**
+   * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response header and
+   * 			the header’s value.</p>
+   * 		       <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
+   * 			<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  XSSProtection?: ResponseHeadersPolicyXSSProtection;
+
+  /**
+   * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header and
+   * 			the header’s value.</p>
+   * 		       <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
+   * 			<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+   */
+  FrameOptions?: ResponseHeadersPolicyFrameOptions;
+
+  /**
+   * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header and
+   * 			the header’s value.</p>
+   * 		       <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
+   * 			<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+   */
+  ReferrerPolicy?: ResponseHeadersPolicyReferrerPolicy;
+
+  /**
+   * <p>The policy directives and their values that CloudFront includes as values for the
+   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+   * 		       <p>For more information about the <code>Content-Security-Policy</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
+   */
+  ContentSecurityPolicy?: ResponseHeadersPolicyContentSecurityPolicy;
+
+  /**
+   * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
+   * 			header with its value set to <code>nosniff</code>.</p>
+   * 		       <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
+   */
+  ContentTypeOptions?: ResponseHeadersPolicyContentTypeOptions;
+
+  /**
+   * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP response
+   * 			header and the header’s value.</p>
+   * 		       <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
+   */
+  StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
+}
+
+export namespace ResponseHeadersPolicySecurityHeadersConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicySecurityHeadersConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A response headers policy configuration.</p>
+ * 		       <p>A response headers policy configuration contains metadata about the response headers policy,
+ * 			and configurations for sets of HTTP response headers and their values. CloudFront adds the
+ * 			headers in the policy to HTTP responses that it sends for requests that match a cache
+ * 			behavior associated with the policy.</p>
+ */
+export interface ResponseHeadersPolicyConfig {
+  /**
+   * <p>A comment to describe the response headers policy.</p>
+   * 		       <p>The comment cannot be longer than 128 characters.</p>
+   */
+  Comment?: string;
+
+  /**
+   * <p>A name to identify the response headers policy.</p>
+   * 		       <p>The name must be unique for response headers policies in this Amazon Web Services account.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A configuration for a set of HTTP response headers that are used for cross-origin
+   * 			resource sharing (CORS).</p>
+   */
+  CorsConfig?: ResponseHeadersPolicyCorsConfig;
+
+  /**
+   * <p>A configuration for a set of security-related HTTP response headers.</p>
+   */
+  SecurityHeadersConfig?: ResponseHeadersPolicySecurityHeadersConfig;
+
+  /**
+   * <p>A configuration for a set of custom HTTP response headers.</p>
+   */
+  CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
+}
+
+export namespace ResponseHeadersPolicyConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyConfig): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResponseHeadersPolicyRequest {
+  /**
+   * <p>Contains metadata about the response headers policy, and a set of configurations that
+   * 			specify the response headers.</p>
+   */
+  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
+}
+
+export namespace CreateResponseHeadersPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResponseHeadersPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A response headers policy.</p>
+ * 		       <p>A response headers policy contains information about a set of HTTP response headers
+ * 			and their values.</p>
+ * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or more
+ * 			cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront
+ * 			adds the headers in the policy to HTTP responses that it sends for requests that match
+ * 			the cache behavior.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-response-headers.html">Adding HTTP headers to CloudFront responses</a> in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface ResponseHeadersPolicy {
+  /**
+   * <p>The identifier for the response headers policy.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The date and time when the response headers policy was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>A response headers policy configuration.</p>
+   * 		       <p>A response headers policy contains information about a set of HTTP response headers and
+   * 			their values. CloudFront adds the headers in the policy to HTTP responses that it sends for
+   * 			requests that match a cache behavior that’s associated with the policy.</p>
+   */
+  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
+}
+
+export namespace ResponseHeadersPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicy): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateResponseHeadersPolicyResult {
+  /**
+   * <p>Contains a response headers policy.</p>
+   */
+  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+
+  /**
+   * <p>The URL of the response headers policy.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The version identifier for the current version of the response headers policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace CreateResponseHeadersPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateResponseHeadersPolicyResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A response headers policy with this name already exists. You must provide a unique name. To
+ * 			modify an existing response headers policy, use
+ * 			<code>UpdateResponseHeadersPolicy</code>.</p>
+ */
+export interface ResponseHeadersPolicyAlreadyExists extends __SmithyException, $MetadataBearer {
+  name: "ResponseHeadersPolicyAlreadyExists";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResponseHeadersPolicyAlreadyExists {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyAlreadyExists): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The number of custom headers in the response headers policy exceeds the maximum.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyCustomHeadersInResponseHeadersPolicy extends __SmithyException, $MetadataBearer {
+  name: "TooManyCustomHeadersInResponseHeadersPolicy";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyCustomHeadersInResponseHeadersPolicy {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyCustomHeadersInResponseHeadersPolicy): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You have reached the maximum number of response headers policies for this
+ * 			Amazon Web Services account.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface TooManyResponseHeadersPolicies extends __SmithyException, $MetadataBearer {
+  name: "TooManyResponseHeadersPolicies";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace TooManyResponseHeadersPolicies {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: TooManyResponseHeadersPolicies): any => ({
     ...obj,
   });
 }
@@ -6978,7 +7846,7 @@ export interface StreamingDistributionConfig {
   Logging?: StreamingLoggingConfig;
 
   /**
-   * <p>A complex type that specifies any accounts that you want to permit to create signed
+   * <p>A complex type that specifies any Amazon Web Services accounts that you want to permit to create signed
    * 			URLs for private content. If you want the distribution to use signed URLs, include this
    * 			element; if you want the distribution to use public URLs, remove this element. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through
@@ -7041,7 +7909,7 @@ export interface StreamingDistribution {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 			<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 			<code>123456789012</code> is your account ID.</p>
+   * 			<code>123456789012</code> is your Amazon Web Services account ID.</p>
    */
   ARN: string | undefined;
 
@@ -7062,13 +7930,13 @@ export interface StreamingDistribution {
   DomainName: string | undefined;
 
   /**
-   * <p>A complex type that lists the accounts, if any, that you included in the
+   * <p>A complex type that lists the Amazon Web Services accounts, if any, that you included in the
    * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
    * 			you want to allow to create signed URLs for private content.</p>
-   * 		       <p>The <code>Signer</code> complex type lists the account number of the trusted
-   * 			signer or <code>self</code> if the signer is the account that created the distribution.
+   * 		       <p>The <code>Signer</code> complex type lists the Amazon Web Services account number of the trusted
+   * 			signer or <code>self</code> if the signer is the Amazon Web Services account that created the distribution.
    * 			The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are
-   * 			associated with the trusted signer's account. If no <code>KeyPairId</code> element
+   * 			associated with the trusted signer's Amazon Web Services account. If no <code>KeyPairId</code> element
    * 			appears for a <code>Signer</code>, that signer can't create signed URLs.</p>
    * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
    * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
@@ -7689,545 +8557,6 @@ export namespace DeleteMonitoringSubscriptionRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteMonitoringSubscriptionResult {}
-
-export namespace DeleteMonitoringSubscriptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteOriginRequestPolicyRequest {
-  /**
-   * <p>The unique identifier for the origin request policy that you are deleting. To get the
-   * 			identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The version of the origin request policy that you are deleting. The version is the origin
-   * 			request policy’s <code>ETag</code> value, which you can get using
-   * 			<code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or
-   * 			<code>GetOriginRequestPolicyConfig</code>.</p>
-   */
-  IfMatch?: string;
-}
-
-export namespace DeleteOriginRequestPolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteOriginRequestPolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Cannot delete the origin request policy because it is attached to one or more cache
- * 			behaviors.</p>
- */
-export interface OriginRequestPolicyInUse extends __SmithyException, $MetadataBearer {
-  name: "OriginRequestPolicyInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace OriginRequestPolicyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: OriginRequestPolicyInUse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeletePublicKeyRequest {
-  /**
-   * <p>The ID of the public key you want to remove from CloudFront.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The value of the <code>ETag</code> header that you received when retrieving the
-   * 			public key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  IfMatch?: string;
-}
-
-export namespace DeletePublicKeyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeletePublicKeyRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified public key is in use. </p>
- */
-export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
-  name: "PublicKeyInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace PublicKeyInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
-    ...obj,
-  });
-}
-
-export interface DeleteRealtimeLogConfigRequest {
-  /**
-   * <p>The name of the real-time log configuration to delete.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to delete.</p>
-   */
-  ARN?: string;
-}
-
-export namespace DeleteRealtimeLogConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteRealtimeLogConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Cannot delete the real-time log configuration because it is attached to one or more cache
- * 			behaviors.</p>
- */
-export interface RealtimeLogConfigInUse extends __SmithyException, $MetadataBearer {
-  name: "RealtimeLogConfigInUse";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace RealtimeLogConfigInUse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: RealtimeLogConfigInUse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request to delete a streaming distribution.</p>
- */
-export interface DeleteStreamingDistributionRequest {
-  /**
-   * <p>The distribution ID. </p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The value of the <code>ETag</code> header that you received when you disabled the
-   * 			streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  IfMatch?: string;
-}
-
-export namespace DeleteStreamingDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DeleteStreamingDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified streaming distribution does not exist.</p>
- */
-export interface NoSuchStreamingDistribution extends __SmithyException, $MetadataBearer {
-  name: "NoSuchStreamingDistribution";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace NoSuchStreamingDistribution {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: NoSuchStreamingDistribution): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The specified CloudFront distribution is not disabled. You must disable
- * 			the distribution before you can delete it.</p>
- */
-export interface StreamingDistributionNotDisabled extends __SmithyException, $MetadataBearer {
-  name: "StreamingDistributionNotDisabled";
-  $fault: "client";
-  Message?: string;
-}
-
-export namespace StreamingDistributionNotDisabled {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StreamingDistributionNotDisabled): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFunctionRequest {
-  /**
-   * <p>The name of the function that you are getting information about.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
-   */
-  Stage?: FunctionStage | string;
-}
-
-export namespace DescribeFunctionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFunctionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeFunctionResult {
-  /**
-   * <p>Contains configuration information and metadata about a CloudFront function.</p>
-   */
-  FunctionSummary?: FunctionSummary;
-
-  /**
-   * <p>The version identifier for the current version of the CloudFront function.</p>
-   */
-  ETag?: string;
-}
-
-export namespace DescribeFunctionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeFunctionResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCachePolicyRequest {
-  /**
-   * <p>The unique identifier for the cache policy. If the cache policy is attached to a
-   * 			distribution’s cache behavior, you can get the policy’s identifier using
-   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
-   * 			not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListCachePolicies</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetCachePolicyRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCachePolicyRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCachePolicyResult {
-  /**
-   * <p>The cache policy.</p>
-   */
-  CachePolicy?: CachePolicy;
-
-  /**
-   * <p>The current version of the cache policy.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetCachePolicyResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCachePolicyResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCachePolicyConfigRequest {
-  /**
-   * <p>The unique identifier for the cache policy. If the cache policy is attached to a
-   * 			distribution’s cache behavior, you can get the policy’s identifier using
-   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
-   * 			not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListCachePolicies</code>.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetCachePolicyConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCachePolicyConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetCachePolicyConfigResult {
-  /**
-   * <p>The cache policy configuration.</p>
-   */
-  CachePolicyConfig?: CachePolicyConfig;
-
-  /**
-   * <p>The current version of the cache policy.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetCachePolicyConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCachePolicyConfigResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request to get an origin access identity's information.</p>
- */
-export interface GetCloudFrontOriginAccessIdentityRequest {
-  /**
-   * <p>The identity's ID.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetCloudFrontOriginAccessIdentityRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface GetCloudFrontOriginAccessIdentityResult {
-  /**
-   * <p>The origin access identity's information.</p>
-   */
-  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
-
-  /**
-   * <p>The current version of the origin access identity's information. For example:
-   * 				<code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetCloudFrontOriginAccessIdentityResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The origin access identity's configuration information. For more information, see
- * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CloudFrontOriginAccessIdentityConfig.html">CloudFrontOriginAccessIdentityConfig</a>.</p>
- */
-export interface GetCloudFrontOriginAccessIdentityConfigRequest {
-  /**
-   * <p>The identity's ID. </p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface GetCloudFrontOriginAccessIdentityConfigResult {
-  /**
-   * <p>The origin access identity's configuration information. </p>
-   */
-  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
-
-  /**
-   * <p>The current version of the configuration. For example:
-   * 			<code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetCloudFrontOriginAccessIdentityConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request to get a distribution's information.</p>
- */
-export interface GetDistributionRequest {
-  /**
-   * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetDistributionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface GetDistributionResult {
-  /**
-   * <p>The distribution's information.</p>
-   */
-  Distribution?: Distribution;
-
-  /**
-   * <p>The current version of the distribution's information. For example:
-   * 				<code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetDistributionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionResult): any => ({
-    ...obj,
-    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
-  });
-}
-
-/**
- * <p>The request to get a distribution configuration.</p>
- */
-export interface GetDistributionConfigRequest {
-  /**
-   * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetDistributionConfigRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionConfigRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface GetDistributionConfigResult {
-  /**
-   * <p>The distribution's configuration information.</p>
-   */
-  DistributionConfig?: DistributionConfig;
-
-  /**
-   * <p>The current version of the configuration. For example:
-   * 			<code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetDistributionConfigResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetDistributionConfigResult): any => ({
-    ...obj,
-    ...(obj.DistributionConfig && {
-      DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
-    }),
-  });
-}
-
-export interface GetFieldLevelEncryptionRequest {
-  /**
-   * <p>Request the ID for the field-level encryption configuration information.</p>
-   */
-  Id: string | undefined;
-}
-
-export namespace GetFieldLevelEncryptionRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetFieldLevelEncryptionResult {
-  /**
-   * <p>Return the field-level encryption configuration information.</p>
-   */
-  FieldLevelEncryption?: FieldLevelEncryption;
-
-  /**
-   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
-   */
-  ETag?: string;
-}
-
-export namespace GetFieldLevelEncryptionResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionResult): any => ({
     ...obj,
   });
 }

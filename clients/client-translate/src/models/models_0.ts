@@ -444,6 +444,11 @@ export interface InputDataConfig {
    *                   <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>: The
    *           input data consists of one or more Excel Workbook files (.xlsx).</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>application/x-xliff+xml</code>: The input data consists of one or more XML
+   *           Localization Interchange File Format (XLIFF) files (.xlf). Amazon Translate supports only XLIFF version 1.2.</p>
+   *             </li>
    *          </ul>
    *          <important>
    *             <p>If you structure your input data as HTML, ensure that you set this parameter to
@@ -513,6 +518,11 @@ export interface OutputDataConfig {
    *       be in the same Region as the API endpoint that you are calling.</p>
    */
   S3Uri: string | undefined;
+
+  /**
+   * <p>The encryption key used to encrypt this object.</p>
+   */
+  EncryptionKey?: EncryptionKey;
 }
 
 export namespace OutputDataConfig {
@@ -575,7 +585,7 @@ export interface TextTranslationJobProperties {
   ParallelDataNames?: string[];
 
   /**
-   * <p>An explanation of any errors that may have occured during the translation job.</p>
+   * <p>An explanation of any errors that may have occurred during the translation job.</p>
    */
   Message?: string;
 
@@ -661,6 +671,16 @@ export interface ParallelDataDataLocation {
   /**
    * <p>The Amazon S3 location of the parallel data input file. The location is returned as a
    *       presigned URL to that has a 30 minute expiration.</p>
+   *
+   *          <important>
+   *             <p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection
+   *         attacks. </p>
+   *             <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains
+   *         malicious code. The record begins with a special character, such as =, +, -, or @. When the
+   *         file is opened in a spreadsheet program, the program might interpret the record as a formula
+   *         and run the code within it.</p>
+   *             <p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p>
+   *          </important>
    */
   Location: string | undefined;
 }
@@ -787,9 +807,19 @@ export interface GetParallelDataResponse {
   ParallelDataProperties?: ParallelDataProperties;
 
   /**
-   * <p>The location of the most recent parallel data input file that was successfully imported
-   *       into Amazon Translate. The location is returned as a presigned URL that has a 30 minute
-   *       expiration.</p>
+   * <p>The Amazon S3 location of the most recent parallel data input file that was successfully
+   *       imported into Amazon Translate. The location is returned as a presigned URL that has a 30
+   *       minute expiration.</p>
+   *
+   *          <important>
+   *             <p>Amazon Translate doesn't scan parallel data input files for the risk of CSV injection
+   *         attacks. </p>
+   *             <p>CSV injection occurs when a .csv or .tsv file is altered so that a record contains
+   *         malicious code. The record begins with a special character, such as =, +, -, or @. When the
+   *         file is opened in a spreadsheet program, the program might interpret the record as a formula
+   *         and run the code within it.</p>
+   *             <p>Before you download a parallel data input file from Amazon S3, ensure that you recognize the file and trust its creator.</p>
+   *          </important>
    */
   DataLocation?: ParallelDataDataLocation;
 
@@ -1221,7 +1251,7 @@ export interface ListTextTranslationJobsResponse {
   TextTranslationJobPropertiesList?: TextTranslationJobProperties[];
 
   /**
-   * <p>The token to use to retreive the next page of results. This value is <code>null</code>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *       when there are no more results to return.</p>
    */
   NextToken?: string;
@@ -1256,7 +1286,7 @@ export interface StartTextTranslationJobRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity Access and Management (IAM) role
-   *       that grants Amazon Translate read access to your input data. For more nformation, see <a>identity-and-access-management</a>.</p>
+   *       that grants Amazon Translate read access to your input data. For more information, see <a>identity-and-access-management</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -1273,15 +1303,25 @@ export interface StartTextTranslationJobRequest {
   TargetLanguageCodes: string[] | undefined;
 
   /**
-   * <p>The name of the terminology to use in the batch translation job. For a list of available
-   *       terminologies, use the <a>ListTerminologies</a> operation.</p>
+   * <p>The name of a custom terminology resource to add to the translation job. This resource
+   *       lists examples source terms and the desired translation for each term.</p>
+   *          <p>This parameter accepts only one custom terminology resource.</p>
+   *          <p>For a list of available custom terminology resources, use the <a>ListTerminologies</a> operation.</p>
+   *          <p>For more information, see <a>how-custom-terminology</a>.</p>
    */
   TerminologyNames?: string[];
 
   /**
-   * <p>The names of the parallel data resources to use in the batch translation job. For a list
-   *       of available parallel data resources, use the <a>ListParallelData</a>
-   *       operation.</p>
+   * <p>The name of a parallel data resource to add to the translation job. This resource consists
+   *       of examples that show how you want segments of text to be translated. When you add parallel
+   *       data to a translation job, you create an <i>Active Custom Translation</i> job. </p>
+   *          <p>This parameter accepts only one parallel data resource.</p>
+   *          <note>
+   *             <p>Active Custom Translation jobs are priced at a higher rate than other jobs that don't
+   *         use parallel data. For more information, see <a href="http://aws.amazon.com/translate/pricing/">Amazon Translate pricing</a>.</p>
+   *          </note>
+   *          <p>For a list of available parallel data resources, use the <a>ListParallelData</a> operation.</p>
+   *          <p>For more information, see <a>customizing-translations-parallel-data</a>.</p>
    */
   ParallelDataNames?: string[];
 

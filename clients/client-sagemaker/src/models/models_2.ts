@@ -2131,6 +2131,11 @@ export interface DeviceSummary {
    * <p>Models on the device.</p>
    */
   Models?: EdgeModelSummary[];
+
+  /**
+   * <p>Edge Manager agent version.</p>
+   */
+  AgentVersion?: string;
 }
 
 export namespace DeviceSummary {

@@ -29,11 +29,11 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  * <p>Returns a table that shows counts of resources that are noncompliant with their tag
  *             policies.</p>
  *         <p>For more information on tag policies, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html">Tag Policies</a> in
- *             the <i>AWS Organizations User Guide.</i>
+ *             the <i>Organizations User Guide.</i>
  *          </p>
  *         <p>You can call this operation only from the organization's
  *     management account and from the us-east-1 Region.</p>
- *          <p>This operation supports pagination, where the response can be sent in
+ *         <p>This operation supports pagination, where the response can be sent in
  *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
  *     if there are additional results available to return. Repeat the query, passing the
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you

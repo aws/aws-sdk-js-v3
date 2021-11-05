@@ -515,6 +515,16 @@ export interface LaunchPermission {
    *          <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
    */
   UserId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization.</p>
+   */
+  OrganizationArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU).</p>
+   */
+  OrganizationalUnitArn?: string;
 }
 
 export namespace LaunchPermission {
@@ -590,6 +600,22 @@ export interface DescribeImagesRequest {
    * <p>Scopes the images by users with explicit launch permissions.
    *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
    * 				or <code>all</code> (public AMIs).</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
+   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
+   *           are shared with the account’s organization or organizational unit (OU) are not
+   *           returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
+   *           shared with your account are returned. In addition, AMIs that are shared with the
+   *           organization or OU of which you are member are also returned. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
+   *             </li>
+   *          </ul>
    */
   ExecutableUsers?: string[];
 
@@ -2799,6 +2825,11 @@ export interface InstanceNetworkInterfaceAssociation {
    * <p>The carrier IP address associated with the network interface.</p>
    */
   CarrierIp?: string;
+
+  /**
+   * <p>The customer-owned IP address associated with the network interface.</p>
+   */
+  CustomerOwnedIp?: string;
 
   /**
    * <p>The ID of the owner of the Elastic IP address.</p>
@@ -11457,6 +11488,7 @@ export enum OnDemandAllocationStrategy {
 
 export enum ReplacementStrategy {
   LAUNCH = "launch",
+  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
 }
 
 /**
@@ -11467,17 +11499,26 @@ export enum ReplacementStrategy {
 export interface SpotCapacityRebalance {
   /**
    * <p>The replacement strategy to use. Only available for fleets of type
-   *                 <code>maintain</code>. You must specify a value, otherwise you get an error.</p>
-   *         <p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance
-   *             notification is emitted for a Spot Instance in the fleet, specify
-   *             <code>launch</code>.</p>
-   *         <note>
-   *             <p>When a replacement instance is launched, the instance marked for rebalance is not
-   *                 automatically terminated. You can terminate it, or you can leave it running. You are
-   *                 charged for all instances while they are running.</p>
-   *         </note>
+   *             <code>maintain</code>.</p>
+   *         <p>
+   *             <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
+   *             rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet
+   *             does not terminate the instances that receive a rebalance notification. You can
+   *             terminate the old instances, or you can leave them running. You are charged for all
+   *             instances while they are running. </p>
+   *         <p>
+   *             <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
+   *             Instance when a rebalance notification is emitted for an existing Spot Instance in the
+   *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+   *             terminates the instances that received a rebalance notification.</p>
    */
   ReplacementStrategy?: ReplacementStrategy | string;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *             Instance after launching a new replacement Spot Instance.</p>
+   */
+  TerminationDelay?: number;
 }
 
 export namespace SpotCapacityRebalance {

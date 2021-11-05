@@ -22,7 +22,7 @@ export interface StartDBClusterCommandInput extends StartDBClusterMessage {}
 export interface StartDBClusterCommandOutput extends StartDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS
+ * <p>Starts an Amazon Neptune  DB cluster that was stopped using the Amazon
  *       console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

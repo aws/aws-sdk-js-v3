@@ -26,9 +26,9 @@ export interface GetTagValuesCommandInput extends GetTagValuesInput {}
 export interface GetTagValuesCommandOutput extends GetTagValuesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns all tag values for the specified key that are used in the specified AWS
- *             Region for the calling AWS account.</p>
- *          <p>This operation supports pagination, where the response can be sent in
+ * <p>Returns all tag values for the specified key that are used in the specified Amazon Web Services
+ *             Region for the calling account.</p>
+ *         <p>This operation supports pagination, where the response can be sent in
  *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
  *     if there are additional results available to return. Repeat the query, passing the
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you

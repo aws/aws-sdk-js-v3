@@ -339,7 +339,7 @@ import { NeptuneClient } from "./NeptuneClient";
  */
 export class Neptune extends NeptuneClient {
   /**
-   * <p>Associates an Identity and Access Management (IAM) role from an
+   * <p>Associates an Identity and Access Management (IAM) role with an
    *       Neptune DB cluster.</p>
    */
   public addRoleToDBCluster(
@@ -2540,7 +2540,7 @@ export class Neptune extends NeptuneClient {
   }
 
   /**
-   * <p>Starts an Amazon Neptune  DB cluster that was stopped using the AWS
+   * <p>Starts an Amazon Neptune  DB cluster that was stopped using the Amazon
    *       console, the Amazon CLI stop-db-cluster command, or the StopDBCluster API.</p>
    */
   public startDBCluster(

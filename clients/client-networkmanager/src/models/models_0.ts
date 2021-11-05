@@ -21,8 +21,7 @@ export namespace AccessDeniedException {
 
 export interface AssociateCustomerGatewayRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
    */
   CustomerGatewayArn: string | undefined;
 
@@ -179,6 +178,8 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
    * <p>The resource type.</p>
    */
   ResourceType: string | undefined;
+
+  Context?: { [key: string]: string };
 }
 
 export namespace ResourceNotFoundException {
@@ -488,16 +489,17 @@ export namespace AssociateTransitGatewayConnectPeerResponse {
 }
 
 /**
- * <p>Specifies a location in AWS.</p>
+ * <p>Specifies a location in Amazon Web Services.</p>
  */
 export interface AWSLocation {
   /**
-   * <p>The Zone the device is located in. This can be the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.</p>
+   * <p>The Zone that the device is located in. Specify the ID of an Availability Zone, Local
+   *             Zone, Wavelength Zone, or an Outpost.</p>
    */
   Zone?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the subnet the device is located in.</p>
+   * <p>The Amazon Resource Name (ARN) of the subnet that the device is located in.</p>
    */
   SubnetArn?: string;
 }
@@ -548,13 +550,13 @@ export enum ConnectionState {
 export interface Tag {
   /**
    * <p>The tag key.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Key?: string;
 
   /**
    * <p>The tag value.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Value?: string;
 }
@@ -633,6 +635,45 @@ export namespace Connection {
    * @internal
    */
   export const filterSensitiveLog = (obj: Connection): any => ({
+    ...obj,
+  });
+}
+
+export enum ConnectionStatus {
+  DOWN = "DOWN",
+  UP = "UP",
+}
+
+export enum ConnectionType {
+  BGP = "BGP",
+  IPSEC = "IPSEC",
+}
+
+/**
+ * <p>Describes connection health.</p>
+ */
+export interface ConnectionHealth {
+  /**
+   * <p>The connection type.</p>
+   */
+  Type?: ConnectionType | string;
+
+  /**
+   * <p>The connection status.</p>
+   */
+  Status?: ConnectionStatus | string;
+
+  /**
+   * <p>The time the status was last updated.</p>
+   */
+  Timestamp?: Date;
+}
+
+export namespace ConnectionHealth {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConnectionHealth): any => ({
     ...obj,
   });
 }
@@ -736,13 +777,13 @@ export interface CreateDeviceRequest {
   GlobalNetworkId: string | undefined;
 
   /**
-   * <p>The AWS location of the device.</p>
+   * <p>The Amazon Web Services location of the device, if applicable. For an on-premises device, you can omit this parameter.</p>
    */
   AWSLocation?: AWSLocation;
 
   /**
    * <p>A description of the device.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -753,19 +794,19 @@ export interface CreateDeviceRequest {
 
   /**
    * <p>The vendor of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Vendor?: string;
 
   /**
    * <p>The model of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Model?: string;
 
   /**
    * <p>The serial number of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   SerialNumber?: string;
 
@@ -822,7 +863,7 @@ export interface Device {
   GlobalNetworkId?: string;
 
   /**
-   * <p>The AWS location of the device.</p>
+   * <p>The Amazon Web Services location of the device.</p>
    */
   AWSLocation?: AWSLocation;
 
@@ -907,7 +948,7 @@ export namespace CreateDeviceResponse {
 export interface CreateGlobalNetworkRequest {
   /**
    * <p>A description of the global network.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -1001,14 +1042,13 @@ export interface CreateLinkRequest {
 
   /**
    * <p>A description of the link.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The type of the link.</p>
-   *         <p>Constraints: Cannot include the following characters: | \ ^</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    */
   Type?: string;
 
@@ -1019,8 +1059,7 @@ export interface CreateLinkRequest {
 
   /**
    * <p>The provider of the link.</p>
-   *         <p>Constraints: Cannot include the following characters: | \ ^</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    */
   Provider?: string;
 
@@ -1144,7 +1183,7 @@ export interface CreateSiteRequest {
 
   /**
    * <p>A description of your site.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -1596,8 +1635,7 @@ export interface DisassociateCustomerGatewayRequest {
   GlobalNetworkId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the customer gateway. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
    */
   CustomerGatewayArn: string | undefined;
 }
@@ -1770,8 +1808,7 @@ export interface GetCustomerGatewayAssociationsRequest {
   GlobalNetworkId: string | undefined;
 
   /**
-   * <p>One or more customer gateway Amazon Resource Names (ARNs). For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>. The maximum is 10.</p>
+   * <p>One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.</p>
    */
   CustomerGatewayArns?: string[];
 
@@ -1998,6 +2035,1339 @@ export namespace GetLinksResponse {
   });
 }
 
+export interface GetNetworkResourceCountsRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>dxcon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-vif</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Network Manager:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>site</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Amazon VPC:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>customer-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpn-connection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourceCountsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourceCountsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource count.</p>
+ */
+export interface NetworkResourceCount {
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The resource count.</p>
+   */
+  Count?: number;
+}
+
+export namespace NetworkResourceCount {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkResourceCount): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkResourceCountsResponse {
+  /**
+   * <p>The count of resources.</p>
+   */
+  NetworkResourceCounts?: NetworkResourceCount[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourceCountsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourceCountsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkResourceRelationshipsRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the registered gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *         <p>The following are the supported resource types for Direct Connect:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>dxcon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-vif</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Network Manager:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>site</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Amazon VPC:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>customer-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpn-connection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourceRelationshipsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourceRelationshipsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a resource relationship.</p>
+ */
+export interface Relationship {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  From?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  To?: string;
+}
+
+export namespace Relationship {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Relationship): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkResourceRelationshipsResponse {
+  /**
+   * <p>The resource relationships.</p>
+   */
+  Relationships?: Relationship[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourceRelationshipsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourceRelationshipsResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkResourcesRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dxcon</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Connection.html">Connection</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dx-gateway</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DirectConnectGateway.html">DirectConnectGateway</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dx-vif</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html">VirtualInterface</a>.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>connection</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Connection.html">Connection</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>device</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Device.html">Device</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>link</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Link.html">Link</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>site</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Site.html">Site</a>.</p>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>customer-gateway</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CustomerGateway.html">CustomerGateway</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGateway.html">TransitGateway</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachment.html">TransitGatewayAttachment</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-connect-peer</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayConnectPeer.html">TransitGatewayConnectPeer</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayRouteTable.html">TransitGatewayRouteTable</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpn-connection</code> - The definition model is
+   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnConnection.html">VpnConnection</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourcesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourcesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network resource.</p>
+ */
+export interface NetworkResource {
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>dxcon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-vif</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Network Manager:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>site</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Amazon VPC:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>customer-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpn-connection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>Information about the resource, in JSON format. Network Manager gets this information by describing the resource using its Describe API call.</p>
+   */
+  Definition?: string;
+
+  /**
+   * <p>The time that the resource definition was retrieved.</p>
+   */
+  DefinitionTimestamp?: Date;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The resource metadata.</p>
+   */
+  Metadata?: { [key: string]: string };
+}
+
+export namespace NetworkResource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkResource): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkResourcesResponse {
+  /**
+   * <p>The network resources.</p>
+   */
+  NetworkResources?: NetworkResource[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkResourcesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkResourcesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a route table.</p>
+ */
+export interface RouteTableIdentifier {
+  /**
+   * <p>The ARN of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableArn?: string;
+}
+
+export namespace RouteTableIdentifier {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteTableIdentifier): any => ({
+    ...obj,
+  });
+}
+
+export enum RouteState {
+  ACTIVE = "ACTIVE",
+  BLACKHOLE = "BLACKHOLE",
+}
+
+export enum RouteType {
+  PROPAGATED = "PROPAGATED",
+  STATIC = "STATIC",
+}
+
+export interface GetNetworkRoutesRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   */
+  RouteTableIdentifier: RouteTableIdentifier | undefined;
+
+  /**
+   * <p>An exact CIDR block.</p>
+   */
+  ExactCidrMatches?: string[];
+
+  /**
+   * <p>The most specific route that matches the traffic (longest prefix match).</p>
+   */
+  LongestPrefixMatches?: string[];
+
+  /**
+   * <p>The routes with a subnet that match the specified CIDR filter.</p>
+   */
+  SubnetOfMatches?: string[];
+
+  /**
+   * <p>The routes with a CIDR that encompasses the CIDR filter. Example: If you specify 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   */
+  SupernetOfMatches?: string[];
+
+  /**
+   * <p>The IDs of the prefix lists.</p>
+   */
+  PrefixListIds?: string[];
+
+  /**
+   * <p>The route states.</p>
+   */
+  States?: (RouteState | string)[];
+
+  /**
+   * <p>The route types.</p>
+   */
+  Types?: (RouteType | string)[];
+
+  /**
+   * <p>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID, RESOURCE_ID, or RESOURCE_TYPE.</p>
+   */
+  DestinationFilters?: { [key: string]: string[] };
+}
+
+export namespace GetNetworkRoutesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkRoutesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the destination of a network route.</p>
+ */
+export interface NetworkRouteDestination {
+  /**
+   * <p>The ID of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+}
+
+export namespace NetworkRouteDestination {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkRouteDestination): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network route.</p>
+ */
+export interface NetworkRoute {
+  /**
+   * <p>A unique identifier for the route, such as a CIDR block.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The destinations.</p>
+   */
+  Destinations?: NetworkRouteDestination[];
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   */
+  PrefixListId?: string;
+
+  /**
+   * <p>The route state. The possible values are <code>active</code> and <code>blackhole</code>.</p>
+   */
+  State?: RouteState | string;
+
+  /**
+   * <p>The route type. The possible values are <code>propagated</code> and <code>static</code>.</p>
+   */
+  Type?: RouteType | string;
+}
+
+export namespace NetworkRoute {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkRoute): any => ({
+    ...obj,
+  });
+}
+
+export enum RouteTableType {
+  TRANSIT_GATEWAY_ROUTE_TABLE = "TRANSIT_GATEWAY_ROUTE_TABLE",
+}
+
+export interface GetNetworkRoutesResponse {
+  /**
+   * <p>The ARN of the route table.</p>
+   */
+  RouteTableArn?: string;
+
+  /**
+   * <p>The route table type.</p>
+   */
+  RouteTableType?: RouteTableType | string;
+
+  /**
+   * <p>The route table creation time.</p>
+   */
+  RouteTableTimestamp?: Date;
+
+  /**
+   * <p>The network routes.</p>
+   */
+  NetworkRoutes?: NetworkRoute[];
+}
+
+export namespace GetNetworkRoutesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkRoutesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkTelemetryRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   *         <p>The following are the supported resource types for Direct Connect:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>dxcon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>dx-vif</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Network Manager:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>site</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *
+   *         <p>The following are the supported resource types for Amazon VPC:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>customer-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpn-connection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkTelemetryRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkTelemetryRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes the telemetry information for a resource.</p>
+ */
+export interface NetworkTelemetry {
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   */
+  AwsRegion?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The address.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The connection health.</p>
+   */
+  Health?: ConnectionHealth;
+}
+
+export namespace NetworkTelemetry {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkTelemetry): any => ({
+    ...obj,
+  });
+}
+
+export interface GetNetworkTelemetryResponse {
+  /**
+   * <p>The network telemetry.</p>
+   */
+  NetworkTelemetry?: NetworkTelemetry[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace GetNetworkTelemetryResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetNetworkTelemetryResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRouteAnalysisRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ID of the route analysis.</p>
+   */
+  RouteAnalysisId: string | undefined;
+}
+
+export namespace GetRouteAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRouteAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a source or a destination.</p>
+ */
+export interface RouteAnalysisEndpointOptions {
+  /**
+   * <p>The ARN of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentArn?: string;
+
+  /**
+   * <p>The ARN of the transit gateway.</p>
+   */
+  TransitGatewayArn?: string;
+
+  /**
+   * <p>The IP address.</p>
+   */
+  IpAddress?: string;
+}
+
+export namespace RouteAnalysisEndpointOptions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteAnalysisEndpointOptions): any => ({
+    ...obj,
+  });
+}
+
+export enum RouteAnalysisCompletionReasonCode {
+  BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND = "BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND",
+  CYCLIC_PATH_DETECTED = "CYCLIC_PATH_DETECTED",
+  INACTIVE_ROUTE_FOR_DESTINATION_FOUND = "INACTIVE_ROUTE_FOR_DESTINATION_FOUND",
+  MAX_HOPS_EXCEEDED = "MAX_HOPS_EXCEEDED",
+  NO_DESTINATION_ARN_PROVIDED = "NO_DESTINATION_ARN_PROVIDED",
+  POSSIBLE_MIDDLEBOX = "POSSIBLE_MIDDLEBOX",
+  ROUTE_NOT_FOUND = "ROUTE_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT = "TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND",
+  TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY = "TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY",
+  TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND = "TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND",
+}
+
+export enum RouteAnalysisCompletionResultCode {
+  CONNECTED = "CONNECTED",
+  NOT_CONNECTED = "NOT_CONNECTED",
+}
+
+/**
+ * <p>Describes the status of an analysis at completion.</p>
+ */
+export interface RouteAnalysisCompletion {
+  /**
+   * <p>The result of the analysis. If the status is <code>NOT_CONNECTED</code>, check the
+   *             reason code.</p>
+   */
+  ResultCode?: RouteAnalysisCompletionResultCode | string;
+
+  /**
+   * <p>The reason code. Available only if a connection is not found.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND</code> - Found a black hole route with the destination CIDR block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CYCLIC_PATH_DETECTED</code> - Found the same resource multiple times while traversing the path.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE_ROUTE_FOR_DESTINATION_FOUND</code> - Found an inactive route with the destination CIDR block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAX_HOPS_EXCEEDED</code> - Analysis exceeded 64 hops without finding the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROUTE_NOT_FOUND</code> - Cannot find a route table with the destination CIDR block.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TGW_ATTACH_ARN_NO_MATCH</code> - Found an attachment, but not with the correct destination ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TGW_ATTACH_NOT_FOUND</code> - Cannot find an attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TGW_ATTACH_NOT_IN_TGW</code> - Found an attachment, but not to the correct transit gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TGW_ATTACH_STABLE_ROUTE_TABLE_NOT_FOUND</code> - The state of the route table association is not associated.</p>
+   *             </li>
+   *          </ul>
+   */
+  ReasonCode?: RouteAnalysisCompletionReasonCode | string;
+
+  /**
+   * <p>Additional information about the path. Available only if a connection is not found.</p>
+   */
+  ReasonContext?: { [key: string]: string };
+}
+
+export namespace RouteAnalysisCompletion {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteAnalysisCompletion): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a network resource.</p>
+ */
+export interface NetworkResourceSummary {
+  /**
+   * <p>The ARN of the gateway.</p>
+   */
+  RegisteredGatewayArn?: string;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The resource type.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Information about the resource, in JSON format. Network Manager gets this information by describing the resource using its Describe API call.</p>
+   */
+  Definition?: string;
+
+  /**
+   * <p>The value for the Name tag.</p>
+   */
+  NameTag?: string;
+
+  /**
+   * <p>Indicates whether this is a middlebox appliance.</p>
+   */
+  IsMiddlebox?: boolean;
+}
+
+export namespace NetworkResourceSummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NetworkResourceSummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a path component.</p>
+ */
+export interface PathComponent {
+  /**
+   * <p>The sequence number in the path. The destination is 0.</p>
+   */
+  Sequence?: number;
+
+  /**
+   * <p>The resource.</p>
+   */
+  Resource?: NetworkResourceSummary;
+
+  /**
+   * <p>The destination CIDR block in the route table.</p>
+   */
+  DestinationCidrBlock?: string;
+}
+
+export namespace PathComponent {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PathComponent): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a route analysis path.</p>
+ */
+export interface RouteAnalysisPath {
+  /**
+   * <p>The status of the analysis at completion.</p>
+   */
+  CompletionStatus?: RouteAnalysisCompletion;
+
+  /**
+   * <p>The route analysis path.</p>
+   */
+  Path?: PathComponent[];
+}
+
+export namespace RouteAnalysisPath {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteAnalysisPath): any => ({
+    ...obj,
+  });
+}
+
+export enum RouteAnalysisStatus {
+  completed = "COMPLETED",
+  failed = "FAILED",
+  running = "RUNNING",
+}
+
+/**
+ * <p>Describes a route analysis.</p>
+ */
+export interface RouteAnalysis {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId?: string;
+
+  /**
+   * <p>The ID of the AWS account that created the route analysis.</p>
+   */
+  OwnerAccountId?: string;
+
+  /**
+   * <p>The ID of the route analysis.</p>
+   */
+  RouteAnalysisId?: string;
+
+  /**
+   * <p>The time that the analysis started.</p>
+   */
+  StartTimestamp?: Date;
+
+  /**
+   * <p>The status of the route analysis.</p>
+   */
+  Status?: RouteAnalysisStatus | string;
+
+  /**
+   * <p>The source.</p>
+   */
+  Source?: RouteAnalysisEndpointOptions;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination?: RouteAnalysisEndpointOptions;
+
+  /**
+   * <p>Indicates whether to analyze the return path. The return path is not analyzed if the forward path
+   *             analysis does not succeed.</p>
+   */
+  IncludeReturnPath?: boolean;
+
+  /**
+   * <p>Indicates whether to include the location of middlebox appliances in the route analysis.</p>
+   */
+  UseMiddleboxes?: boolean;
+
+  /**
+   * <p>The forward path.</p>
+   */
+  ForwardPath?: RouteAnalysisPath;
+
+  /**
+   * <p>The return path.</p>
+   */
+  ReturnPath?: RouteAnalysisPath;
+}
+
+export namespace RouteAnalysis {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteAnalysis): any => ({
+    ...obj,
+  });
+}
+
+export interface GetRouteAnalysisResponse {
+  /**
+   * <p>The route analysis.</p>
+   */
+  RouteAnalysis?: RouteAnalysis;
+}
+
+export namespace GetRouteAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetRouteAnalysisResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface GetSitesRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2195,8 +3565,7 @@ export interface RegisterTransitGatewayRequest {
   GlobalNetworkId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the transit gateway. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies">Resources Defined by Amazon EC2</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
    */
   TransitGatewayArn: string | undefined;
 }
@@ -2222,6 +3591,83 @@ export namespace RegisterTransitGatewayResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: RegisterTransitGatewayResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a source or a destination.</p>
+ */
+export interface RouteAnalysisEndpointOptionsSpecification {
+  /**
+   * <p>The ARN of the transit gateway attachment.</p>
+   */
+  TransitGatewayAttachmentArn?: string;
+
+  /**
+   * <p>The IP address.</p>
+   */
+  IpAddress?: string;
+}
+
+export namespace RouteAnalysisEndpointOptionsSpecification {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RouteAnalysisEndpointOptionsSpecification): any => ({
+    ...obj,
+  });
+}
+
+export interface StartRouteAnalysisRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The source from which traffic originates.</p>
+   */
+  Source: RouteAnalysisEndpointOptionsSpecification | undefined;
+
+  /**
+   * <p>The destination.</p>
+   */
+  Destination: RouteAnalysisEndpointOptionsSpecification | undefined;
+
+  /**
+   * <p>Indicates whether to analyze the return path. The default is <code>false</code>.</p>
+   */
+  IncludeReturnPath?: boolean;
+
+  /**
+   * <p>Indicates whether to include the location of middlebox appliances in the route analysis.
+   *             The default is <code>false</code>.</p>
+   */
+  UseMiddleboxes?: boolean;
+}
+
+export namespace StartRouteAnalysisRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRouteAnalysisRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StartRouteAnalysisResponse {
+  /**
+   * <p>The route analysis.</p>
+   */
+  RouteAnalysis?: RouteAnalysis;
+}
+
+export namespace StartRouteAnalysisResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartRouteAnalysisResponse): any => ({
     ...obj,
   });
 }
@@ -2355,13 +3801,13 @@ export interface UpdateDeviceRequest {
   DeviceId: string | undefined;
 
   /**
-   * <p>The AWS location of the device.</p>
+   * <p>The Amazon Web Services location of the device, if applicable. For an on-premises device, you can omit this parameter.</p>
    */
   AWSLocation?: AWSLocation;
 
   /**
    * <p>A description of the device.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
@@ -2372,19 +3818,19 @@ export interface UpdateDeviceRequest {
 
   /**
    * <p>The vendor of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Vendor?: string;
 
   /**
    * <p>The model of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Model?: string;
 
   /**
    * <p>The serial number of the device.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   SerialNumber?: string;
 
@@ -2434,7 +3880,7 @@ export interface UpdateGlobalNetworkRequest {
 
   /**
    * <p>A description of the global network.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 }
@@ -2477,13 +3923,13 @@ export interface UpdateLinkRequest {
 
   /**
    * <p>A description of the link.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 
   /**
    * <p>The type of the link.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Type?: string;
 
@@ -2494,7 +3940,7 @@ export interface UpdateLinkRequest {
 
   /**
    * <p>The provider of the link.</p>
-   *         <p>Length Constraints: Maximum length of 128 characters.</p>
+   *         <p>Constraints: Maximum length of 128 characters.</p>
    */
   Provider?: string;
 }
@@ -2524,6 +3970,53 @@ export namespace UpdateLinkResponse {
   });
 }
 
+export interface UpdateNetworkResourceMetadataRequest {
+  /**
+   * <p>The ID of the global network.</p>
+   */
+  GlobalNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The resource metadata.</p>
+   */
+  Metadata: { [key: string]: string } | undefined;
+}
+
+export namespace UpdateNetworkResourceMetadataRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNetworkResourceMetadataRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateNetworkResourceMetadataResponse {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The updated resource metadata.</p>
+   */
+  Metadata?: { [key: string]: string };
+}
+
+export namespace UpdateNetworkResourceMetadataResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateNetworkResourceMetadataResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateSiteRequest {
   /**
    * <p>The ID of the global network.</p>
@@ -2537,7 +4030,7 @@ export interface UpdateSiteRequest {
 
   /**
    * <p>A description of your site.</p>
-   *         <p>Length Constraints: Maximum length of 256 characters.</p>
+   *         <p>Constraints: Maximum length of 256 characters.</p>
    */
   Description?: string;
 

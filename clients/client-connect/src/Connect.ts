@@ -77,6 +77,11 @@ import {
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
 import {
+  CreateSecurityProfileCommand,
+  CreateSecurityProfileCommandInput,
+  CreateSecurityProfileCommandOutput,
+} from "./commands/CreateSecurityProfileCommand";
+import {
   CreateUseCaseCommand,
   CreateUseCaseCommandInput,
   CreateUseCaseCommandOutput,
@@ -107,6 +112,11 @@ import {
   DeleteQuickConnectCommandInput,
   DeleteQuickConnectCommandOutput,
 } from "./commands/DeleteQuickConnectCommand";
+import {
+  DeleteSecurityProfileCommand,
+  DeleteSecurityProfileCommandInput,
+  DeleteSecurityProfileCommandOutput,
+} from "./commands/DeleteSecurityProfileCommand";
 import {
   DeleteUseCaseCommand,
   DeleteUseCaseCommandInput,
@@ -163,6 +173,11 @@ import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
 } from "./commands/DescribeRoutingProfileCommand";
+import {
+  DescribeSecurityProfileCommand,
+  DescribeSecurityProfileCommandInput,
+  DescribeSecurityProfileCommandOutput,
+} from "./commands/DescribeSecurityProfileCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
@@ -318,6 +333,11 @@ import {
   ListSecurityKeysCommandOutput,
 } from "./commands/ListSecurityKeysCommand";
 import {
+  ListSecurityProfilePermissionsCommand,
+  ListSecurityProfilePermissionsCommandInput,
+  ListSecurityProfilePermissionsCommandOutput,
+} from "./commands/ListSecurityProfilePermissionsCommand";
+import {
   ListSecurityProfilesCommand,
   ListSecurityProfilesCommandInput,
   ListSecurityProfilesCommandOutput,
@@ -354,6 +374,11 @@ import {
   StartContactRecordingCommandOutput,
 } from "./commands/StartContactRecordingCommand";
 import {
+  StartContactStreamingCommand,
+  StartContactStreamingCommandInput,
+  StartContactStreamingCommandOutput,
+} from "./commands/StartContactStreamingCommand";
+import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
@@ -369,6 +394,11 @@ import {
   StopContactRecordingCommandInput,
   StopContactRecordingCommandOutput,
 } from "./commands/StopContactRecordingCommand";
+import {
+  StopContactStreamingCommand,
+  StopContactStreamingCommandInput,
+  StopContactStreamingCommandOutput,
+} from "./commands/StopContactStreamingCommand";
 import {
   SuspendContactRecordingCommand,
   SuspendContactRecordingCommandInput,
@@ -471,6 +501,11 @@ import {
   UpdateRoutingProfileQueuesCommandOutput,
 } from "./commands/UpdateRoutingProfileQueuesCommand";
 import {
+  UpdateSecurityProfileCommand,
+  UpdateSecurityProfileCommandInput,
+  UpdateSecurityProfileCommandOutput,
+} from "./commands/UpdateSecurityProfileCommand";
+import {
   UpdateUserHierarchyCommand,
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
@@ -518,7 +553,7 @@ import { ConnectClient } from "./ConnectClient";
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>You can
  *    connect
- *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *    programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see
  *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *    Endpoints</a>.</p>
  *          <note>
@@ -929,7 +964,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates an AWS resource association with an Amazon Connect instance.</p>
+   * <p>Creates an Amazon Web Services resource association with an Amazon Connect instance.</p>
    */
   public createIntegrationAssociation(
     args: CreateIntegrationAssociationCommandInput,
@@ -1041,6 +1076,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateRoutingProfileCommandOutput) => void
   ): Promise<CreateRoutingProfileCommandOutput> | void {
     const command = new CreateRoutingProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Creates a security profile.</p>
+   */
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSecurityProfileCommandOutput>;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): void;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): void;
+  public createSecurityProfile(
+    args: CreateSecurityProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: CreateSecurityProfileCommandOutput) => void
+  ): Promise<CreateSecurityProfileCommandOutput> | void {
+    const command = new CreateSecurityProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1212,7 +1280,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Deletes an AWS resource association from an Amazon Connect instance. The association must not have
+   * <p>Deletes an Amazon Web Services resource association from an Amazon Connect instance. The association must not have
    *    any use cases associated with it.</p>
    */
   public deleteIntegrationAssociation(
@@ -1266,6 +1334,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteQuickConnectCommandOutput) => void
   ): Promise<DeleteQuickConnectCommandOutput> | void {
     const command = new DeleteQuickConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Deletes a security profile.</p>
+   */
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityProfileCommandOutput>;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+  public deleteSecurityProfile(
+    args: DeleteSecurityProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): Promise<DeleteSecurityProfileCommandOutput> | void {
+    const command = new DeleteSecurityProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1660,6 +1761,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DescribeRoutingProfileCommandOutput) => void
   ): Promise<DescribeRoutingProfileCommandOutput> | void {
     const command = new DescribeRoutingProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Gets basic information about the security profle.</p>
+   */
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityProfileCommandOutput>;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): void;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): void;
+  public describeSecurityProfile(
+    args: DescribeSecurityProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: DescribeSecurityProfileCommandOutput) => void
+  ): Promise<DescribeSecurityProfileCommandOutput> | void {
+    const command = new DescribeSecurityProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2440,7 +2574,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the AWS resource associations for the specified Amazon Connect
+   * <p>Provides summary information about the Amazon Web Services resource associations for the specified Amazon Connect
    *    instance.</p>
    */
   public listIntegrationAssociations(
@@ -2792,7 +2926,41 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Provides summary information about the security profiles for the specified Amazon Connect
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Lists the permissions granted to a security profile.</p>
+   */
+  public listSecurityProfilePermissions(
+    args: ListSecurityProfilePermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSecurityProfilePermissionsCommandOutput>;
+  public listSecurityProfilePermissions(
+    args: ListSecurityProfilePermissionsCommandInput,
+    cb: (err: any, data?: ListSecurityProfilePermissionsCommandOutput) => void
+  ): void;
+  public listSecurityProfilePermissions(
+    args: ListSecurityProfilePermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSecurityProfilePermissionsCommandOutput) => void
+  ): void;
+  public listSecurityProfilePermissions(
+    args: ListSecurityProfilePermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityProfilePermissionsCommandOutput) => void),
+    cb?: (err: any, data?: ListSecurityProfilePermissionsCommandOutput) => void
+  ): Promise<ListSecurityProfilePermissionsCommandOutput> | void {
+    const command = new ListSecurityProfilePermissionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Provides summary information about the security profiles for the specified Amazon Connect
    *    instance.</p>
    *          <p>For more information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
    *     <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3077,6 +3245,40 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p> Initiates real-time message streaming for a new chat contact.</p>
+   *          <p> For more information about message streaming, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html">Enable real-time chat message
+   *    streaming</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   */
+  public startContactStreaming(
+    args: StartContactStreamingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartContactStreamingCommandOutput>;
+  public startContactStreaming(
+    args: StartContactStreamingCommandInput,
+    cb: (err: any, data?: StartContactStreamingCommandOutput) => void
+  ): void;
+  public startContactStreaming(
+    args: StartContactStreamingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartContactStreamingCommandOutput) => void
+  ): void;
+  public startContactStreaming(
+    args: StartContactStreamingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartContactStreamingCommandOutput) => void),
+    cb?: (err: any, data?: StartContactStreamingCommandOutput) => void
+  ): Promise<StartContactStreamingCommandOutput> | void {
+    const command = new StartContactStreamingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Places an outbound call to a contact, and then initiates the contact flow. It performs the
    *    actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p>
    *
@@ -3212,6 +3414,40 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: StopContactRecordingCommandOutput) => void
   ): Promise<StopContactRecordingCommandOutput> | void {
     const command = new StopContactRecordingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p> Ends message streaming on a specified contact. To restart message streaming on that
+   *    contact, call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html">StartContactStreaming</a>
+   *    API. </p>
+   */
+  public stopContactStreaming(
+    args: StopContactStreamingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopContactStreamingCommandOutput>;
+  public stopContactStreaming(
+    args: StopContactStreamingCommandInput,
+    cb: (err: any, data?: StopContactStreamingCommandOutput) => void
+  ): void;
+  public stopContactStreaming(
+    args: StopContactStreamingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopContactStreamingCommandOutput) => void
+  ): void;
+  public stopContactStreaming(
+    args: StopContactStreamingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopContactStreamingCommandOutput) => void),
+    cb?: (err: any, data?: StopContactStreamingCommandOutput) => void
+  ): Promise<StopContactStreamingCommandOutput> | void {
+    const command = new StopContactStreamingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3924,6 +4160,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
   ): Promise<UpdateRoutingProfileQueuesCommandOutput> | void {
     const command = new UpdateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
+   *          <p>Updates a security profile.</p>
+   */
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityProfileCommandOutput>;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): void;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): void;
+  public updateSecurityProfile(
+    args: UpdateSecurityProfileCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecurityProfileCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSecurityProfileCommandOutput) => void
+  ): Promise<UpdateSecurityProfileCommandOutput> | void {
+    const command = new UpdateSecurityProfileCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

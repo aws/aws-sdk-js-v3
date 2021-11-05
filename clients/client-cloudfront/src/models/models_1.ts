@@ -39,6 +39,8 @@ import {
   PublicKeyConfig,
   QueryArgProfileConfig,
   RealtimeLogConfig,
+  ResponseHeadersPolicy,
+  ResponseHeadersPolicyConfig,
   Restrictions,
   S3Origin,
   StreamingDistribution,
@@ -47,6 +49,590 @@ import {
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+export interface DeleteMonitoringSubscriptionResult {}
+
+export namespace DeleteMonitoringSubscriptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteMonitoringSubscriptionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteOriginRequestPolicyRequest {
+  /**
+   * <p>The unique identifier for the origin request policy that you are deleting. To get the
+   * 			identifier, you can use <code>ListOriginRequestPolicies</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the origin request policy that you are deleting. The version is the origin
+   * 			request policy’s <code>ETag</code> value, which you can get using
+   * 			<code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or
+   * 			<code>GetOriginRequestPolicyConfig</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+export namespace DeleteOriginRequestPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteOriginRequestPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Cannot delete the origin request policy because it is attached to one or more cache
+ * 			behaviors.</p>
+ */
+export interface OriginRequestPolicyInUse extends __SmithyException, $MetadataBearer {
+  name: "OriginRequestPolicyInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace OriginRequestPolicyInUse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: OriginRequestPolicyInUse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeletePublicKeyRequest {
+  /**
+   * <p>The ID of the public key you want to remove from CloudFront.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when retrieving the
+   * 			public key identity to delete. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+export namespace DeletePublicKeyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeletePublicKeyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified public key is in use. </p>
+ */
+export interface PublicKeyInUse extends __SmithyException, $MetadataBearer {
+  name: "PublicKeyInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace PublicKeyInUse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: PublicKeyInUse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteRealtimeLogConfigRequest {
+  /**
+   * <p>The name of the real-time log configuration to delete.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the real-time log configuration to delete.</p>
+   */
+  ARN?: string;
+}
+
+export namespace DeleteRealtimeLogConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteRealtimeLogConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Cannot delete the real-time log configuration because it is attached to one or more cache
+ * 			behaviors.</p>
+ */
+export interface RealtimeLogConfigInUse extends __SmithyException, $MetadataBearer {
+  name: "RealtimeLogConfigInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace RealtimeLogConfigInUse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: RealtimeLogConfigInUse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteResponseHeadersPolicyRequest {
+  /**
+   * <p>The identifier for the response headers policy that you are deleting.</p>
+   * 		       <p>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the response headers policy that you are deleting.</p>
+   * 		       <p>The version is the response headers policy’s <code>ETag</code> value, which you can
+   * 			get using <code>ListResponseHeadersPolicies</code>,
+   * 				<code>GetResponseHeadersPolicy</code>, or
+   * 				<code>GetResponseHeadersPolicyConfig</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+export namespace DeleteResponseHeadersPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteResponseHeadersPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Cannot delete the response headers policy because it is attached to one or more cache
+ * 			behaviors in a CloudFront distribution. </p>
+ */
+export interface ResponseHeadersPolicyInUse extends __SmithyException, $MetadataBearer {
+  name: "ResponseHeadersPolicyInUse";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace ResponseHeadersPolicyInUse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyInUse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to delete a streaming distribution.</p>
+ */
+export interface DeleteStreamingDistributionRequest {
+  /**
+   * <p>The distribution ID. </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The value of the <code>ETag</code> header that you received when you disabled the
+   * 			streaming distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+export namespace DeleteStreamingDistributionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteStreamingDistributionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified streaming distribution does not exist.</p>
+ */
+export interface NoSuchStreamingDistribution extends __SmithyException, $MetadataBearer {
+  name: "NoSuchStreamingDistribution";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace NoSuchStreamingDistribution {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: NoSuchStreamingDistribution): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified CloudFront distribution is not disabled. You must disable
+ * 			the distribution before you can delete it.</p>
+ */
+export interface StreamingDistributionNotDisabled extends __SmithyException, $MetadataBearer {
+  name: "StreamingDistributionNotDisabled";
+  $fault: "client";
+  Message?: string;
+}
+
+export namespace StreamingDistributionNotDisabled {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StreamingDistributionNotDisabled): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFunctionRequest {
+  /**
+   * <p>The name of the function that you are getting information about.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   */
+  Stage?: FunctionStage | string;
+}
+
+export namespace DescribeFunctionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFunctionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeFunctionResult {
+  /**
+   * <p>Contains configuration information and metadata about a CloudFront function.</p>
+   */
+  FunctionSummary?: FunctionSummary;
+
+  /**
+   * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+}
+
+export namespace DescribeFunctionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeFunctionResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCachePolicyRequest {
+  /**
+   * <p>The unique identifier for the cache policy. If the cache policy is attached to a
+   * 			distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
+   * 			not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetCachePolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCachePolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCachePolicyResult {
+  /**
+   * <p>The cache policy.</p>
+   */
+  CachePolicy?: CachePolicy;
+
+  /**
+   * <p>The current version of the cache policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetCachePolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCachePolicyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCachePolicyConfigRequest {
+  /**
+   * <p>The unique identifier for the cache policy. If the cache policy is attached to a
+   * 			distribution’s cache behavior, you can get the policy’s identifier using
+   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
+   * 			not attached to a cache behavior, you can get the identifier using
+   * 			<code>ListCachePolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetCachePolicyConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCachePolicyConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetCachePolicyConfigResult {
+  /**
+   * <p>The cache policy configuration.</p>
+   */
+  CachePolicyConfig?: CachePolicyConfig;
+
+  /**
+   * <p>The current version of the cache policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetCachePolicyConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCachePolicyConfigResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to get an origin access identity's information.</p>
+ */
+export interface GetCloudFrontOriginAccessIdentityRequest {
+  /**
+   * <p>The identity's ID.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetCloudFrontOriginAccessIdentityRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetCloudFrontOriginAccessIdentityResult {
+  /**
+   * <p>The origin access identity's information.</p>
+   */
+  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
+
+  /**
+   * <p>The current version of the origin access identity's information. For example:
+   * 				<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetCloudFrontOriginAccessIdentityResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The origin access identity's configuration information. For more information, see
+ * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CloudFrontOriginAccessIdentityConfig.html">CloudFrontOriginAccessIdentityConfig</a>.</p>
+ */
+export interface GetCloudFrontOriginAccessIdentityConfigRequest {
+  /**
+   * <p>The identity's ID. </p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetCloudFrontOriginAccessIdentityConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetCloudFrontOriginAccessIdentityConfigResult {
+  /**
+   * <p>The origin access identity's configuration information. </p>
+   */
+  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
+
+  /**
+   * <p>The current version of the configuration. For example:
+   * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetCloudFrontOriginAccessIdentityConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetCloudFrontOriginAccessIdentityConfigResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The request to get a distribution's information.</p>
+ */
+export interface GetDistributionRequest {
+  /**
+   * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetDistributionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDistributionRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetDistributionResult {
+  /**
+   * <p>The distribution's information.</p>
+   */
+  Distribution?: Distribution;
+
+  /**
+   * <p>The current version of the distribution's information. For example:
+   * 				<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetDistributionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDistributionResult): any => ({
+    ...obj,
+    ...(obj.Distribution && { Distribution: Distribution.filterSensitiveLog(obj.Distribution) }),
+  });
+}
+
+/**
+ * <p>The request to get a distribution configuration.</p>
+ */
+export interface GetDistributionConfigRequest {
+  /**
+   * <p>The distribution's ID. If the ID is empty, an empty distribution configuration is returned.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetDistributionConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDistributionConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface GetDistributionConfigResult {
+  /**
+   * <p>The distribution's configuration information.</p>
+   */
+  DistributionConfig?: DistributionConfig;
+
+  /**
+   * <p>The current version of the configuration. For example:
+   * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetDistributionConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetDistributionConfigResult): any => ({
+    ...obj,
+    ...(obj.DistributionConfig && {
+      DistributionConfig: DistributionConfig.filterSensitiveLog(obj.DistributionConfig),
+    }),
+  });
+}
+
+export interface GetFieldLevelEncryptionRequest {
+  /**
+   * <p>Request the ID for the field-level encryption configuration information.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetFieldLevelEncryptionRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetFieldLevelEncryptionResult {
+  /**
+   * <p>Return the field-level encryption configuration information.</p>
+   */
+  FieldLevelEncryption?: FieldLevelEncryption;
+
+  /**
+   * <p>The current version of the field level encryption configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetFieldLevelEncryptionResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetFieldLevelEncryptionResult): any => ({
+    ...obj,
+  });
+}
 
 export interface GetFieldLevelEncryptionConfigRequest {
   /**
@@ -571,6 +1157,90 @@ export namespace GetRealtimeLogConfigResult {
   });
 }
 
+export interface GetResponseHeadersPolicyRequest {
+  /**
+   * <p>The identifier for the response headers policy.</p>
+   * 		       <p>If the response headers policy is attached to a distribution’s cache behavior, you can
+   * 			get the policy’s identifier using <code>ListDistributions</code> or
+   * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
+   * 			cache behavior, you can get the identifier using
+   * 				<code>ListResponseHeadersPolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetResponseHeadersPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResponseHeadersPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResponseHeadersPolicyResult {
+  /**
+   * <p>Contains a response headers policy.</p>
+   */
+  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+
+  /**
+   * <p>The version identifier for the current version of the response headers policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetResponseHeadersPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResponseHeadersPolicyResult): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResponseHeadersPolicyConfigRequest {
+  /**
+   * <p>The identifier for the response headers policy.</p>
+   * 		       <p>If the response headers policy is attached to a distribution’s cache behavior, you can
+   * 			get the policy’s identifier using <code>ListDistributions</code> or
+   * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
+   * 			cache behavior, you can get the identifier using
+   * 				<code>ListResponseHeadersPolicies</code>.</p>
+   */
+  Id: string | undefined;
+}
+
+export namespace GetResponseHeadersPolicyConfigRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResponseHeadersPolicyConfigRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface GetResponseHeadersPolicyConfigResult {
+  /**
+   * <p>Contains a response headers policy.</p>
+   */
+  ResponseHeadersPolicyConfig?: ResponseHeadersPolicyConfig;
+
+  /**
+   * <p>The version identifier for the current version of the response headers policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace GetResponseHeadersPolicyConfigResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: GetResponseHeadersPolicyConfigResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request to get a streaming distribution's information.</p>
  */
@@ -670,7 +1340,7 @@ export interface ListCachePoliciesRequest {
    * 			         </li>
    *             <li>
    * 				           <p>
-   *                   <code>custom</code> – Returns only the custom policies created in your account.</p>
+   *                   <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p>
    * 			         </li>
    *          </ul>
    */
@@ -816,13 +1486,13 @@ export interface CloudFrontOriginAccessIdentityList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of CloudFront origin access identities that were created by the current account.</p>
+   * <p>The number of CloudFront origin access identities that were created by the current Amazon Web Services account.</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>CloudFrontOriginAccessIdentitySummary</code>
-   * 			element for each origin access identity that was created by the current account.</p>
+   * 			element for each origin access identity that was created by the current Amazon Web Services account.</p>
    */
   Items?: CloudFrontOriginAccessIdentitySummary[];
 }
@@ -1019,7 +1689,7 @@ export interface DistributionSummary {
   /**
    * <p>The ARN (Amazon Resource Name) for the distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your account ID.</p>
+   * 				<code>123456789012</code> is your Amazon Web Services account ID.</p>
    */
   ARN: string | undefined;
 
@@ -1170,13 +1840,13 @@ export interface DistributionList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of distributions that were created by the current account.</p>
+   * <p>The number of distributions that were created by the current Amazon Web Services account.</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>DistributionSummary</code> element for each
-   * 			distribution that was created by the current account.</p>
+   * 			distribution that was created by the current Amazon Web Services account.</p>
    */
   Items?: DistributionSummary[];
 }
@@ -1440,6 +2110,52 @@ export namespace ListDistributionsByRealtimeLogConfigResult {
    * @internal
    */
   export const filterSensitiveLog = (obj: ListDistributionsByRealtimeLogConfigResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByResponseHeadersPolicyIdRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			distribution IDs. The response includes distribution IDs in the list that occur after
+   * 			the marker. To get the next page of the list, set this field’s value to the value of
+   * 				<code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of distribution IDs that you want to get in the response.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * <p>The ID of the response headers policy whose associated distribution IDs you want to
+   * 			list.</p>
+   */
+  ResponseHeadersPolicyId: string | undefined;
+}
+
+export namespace ListDistributionsByResponseHeadersPolicyIdRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDistributionsByResponseHeadersPolicyIdRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDistributionsByResponseHeadersPolicyIdResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   */
+  DistributionIdList?: DistributionIdList;
+}
+
+export namespace ListDistributionsByResponseHeadersPolicyIdResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDistributionsByResponseHeadersPolicyIdResult): any => ({
     ...obj,
   });
 }
@@ -1914,14 +2630,14 @@ export interface InvalidationList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of invalidation batches that were created by the current account.
+   * <p>The number of invalidation batches that were created by the current Amazon Web Services account.
    * 		</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>InvalidationSummary</code> element for each
-   * 			invalidation batch created by the current account.</p>
+   * 			invalidation batch created by the current Amazon Web Services account.</p>
    */
   Items?: InvalidationSummary[];
 }
@@ -2062,7 +2778,7 @@ export interface ListOriginRequestPoliciesRequest {
    * 			         </li>
    *             <li>
    * 				           <p>
-   *                   <code>custom</code> – Returns only the custom policies created in your account.</p>
+   *                   <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p>
    * 			         </li>
    *          </ul>
    */
@@ -2097,7 +2813,7 @@ export namespace ListOriginRequestPoliciesRequest {
 export interface OriginRequestPolicySummary {
   /**
    * <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
-   * 			<code>custom</code> (created in this account).</p>
+   * 			<code>custom</code> (created in this Amazon Web Services account).</p>
    */
   Type: OriginRequestPolicyType | string | undefined;
 
@@ -2367,6 +3083,129 @@ export namespace ListRealtimeLogConfigsResult {
   });
 }
 
+export enum ResponseHeadersPolicyType {
+  custom = "custom",
+  managed = "managed",
+}
+
+export interface ListResponseHeadersPoliciesRequest {
+  /**
+   * <p>A filter to get only the specified kind of response headers policies. Valid values
+   * 			are:</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>managed</code> – Gets only the managed policies created by Amazon Web Services.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>custom</code> – Gets only the custom policies created in your
+   * 					Amazon Web Services account.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Type?: ResponseHeadersPolicyType | string;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of response
+   * 			headers policies. The response includes response headers policies in the list that occur
+   * 			after the marker. To get the next page of the list, set this field’s value to the value
+   * 			of <code>NextMarker</code> from the current page’s response. </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of response headers policies that you want to get in the response.</p>
+   */
+  MaxItems?: number;
+}
+
+export namespace ListResponseHeadersPoliciesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListResponseHeadersPoliciesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains a response headers policy.</p>
+ */
+export interface ResponseHeadersPolicySummary {
+  /**
+   * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or
+   * 				<code>custom</code> (created in this Amazon Web Services account).</p>
+   */
+  Type: ResponseHeadersPolicyType | string | undefined;
+
+  /**
+   * <p>The response headers policy.</p>
+   */
+  ResponseHeadersPolicy: ResponseHeadersPolicy | undefined;
+}
+
+export namespace ResponseHeadersPolicySummary {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicySummary): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A list of response headers policies.</p>
+ */
+export interface ResponseHeadersPolicyList {
+  /**
+   * <p>If there are more items in the list than are in this response, this element is present. It
+   * 			contains the value that you should use in the <code>Marker</code> field of a subsequent
+   * 			request to continue listing response headers policies where you left off.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of response headers policies requested.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The number of response headers policies returned.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The response headers policies in the list.</p>
+   */
+  Items?: ResponseHeadersPolicySummary[];
+}
+
+export namespace ResponseHeadersPolicyList {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResponseHeadersPolicyList): any => ({
+    ...obj,
+  });
+}
+
+export interface ListResponseHeadersPoliciesResult {
+  /**
+   * <p>A list of response headers policies.</p>
+   */
+  ResponseHeadersPolicyList?: ResponseHeadersPolicyList;
+}
+
+export namespace ListResponseHeadersPoliciesResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListResponseHeadersPoliciesResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request to list your streaming distributions. </p>
  */
@@ -2403,7 +3242,7 @@ export interface StreamingDistributionSummary {
   /**
    * <p> The ARN (Amazon Resource Name) for the streaming distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your account ID.</p>
+   * 				<code>123456789012</code> is your Amazon Web Services account ID.</p>
    */
   ARN: string | undefined;
 
@@ -2437,7 +3276,7 @@ export interface StreamingDistributionSummary {
   Aliases: Aliases | undefined;
 
   /**
-   * <p>A complex type that specifies the accounts, if any, that you want to allow to
+   * <p>A complex type that specifies the Amazon Web Services accounts, if any, that you want to allow to
    * 			create signed URLs for private content. If you want to require signed URLs in requests for
    * 			objects in the target origin that match the <code>PathPattern</code> for this cache behavior,
    * 			specify <code>true</code> for <code>Enabled</code>, and specify the applicable values for
@@ -2508,14 +3347,14 @@ export interface StreamingDistributionList {
   IsTruncated: boolean | undefined;
 
   /**
-   * <p>The number of streaming distributions that were created by the current account.
+   * <p>The number of streaming distributions that were created by the current Amazon Web Services account.
    * 		</p>
    */
   Quantity: number | undefined;
 
   /**
    * <p>A complex type that contains one <code>StreamingDistributionSummary</code> element for
-   * 			each distribution that was created by the current account.</p>
+   * 			each distribution that was created by the current Amazon Web Services account.</p>
    */
   Items?: StreamingDistributionSummary[];
 }
@@ -2743,6 +3582,9 @@ export namespace TestResult {
    */
   export const filterSensitiveLog = (obj: TestResult): any => ({
     ...obj,
+    ...(obj.FunctionExecutionLogs && { FunctionExecutionLogs: SENSITIVE_STRING }),
+    ...(obj.FunctionErrorMessage && { FunctionErrorMessage: SENSITIVE_STRING }),
+    ...(obj.FunctionOutput && { FunctionOutput: SENSITIVE_STRING }),
   });
 }
 
@@ -2760,6 +3602,7 @@ export namespace TestFunctionResult {
    */
   export const filterSensitiveLog = (obj: TestFunctionResult): any => ({
     ...obj,
+    ...(obj.TestResult && { TestResult: TestResult.filterSensitiveLog(obj.TestResult) }),
   });
 }
 
@@ -2808,6 +3651,11 @@ export namespace UntagResourceRequest {
 
 export interface UpdateCachePolicyRequest {
   /**
+   * <p>A cache policy configuration.</p>
+   */
+  CachePolicyConfig: CachePolicyConfig | undefined;
+
+  /**
    * <p>The unique identifier for the cache policy that you are updating. The identifier is returned
    * 			in a cache behavior’s <code>CachePolicyId</code> field in the response to
    * 			<code>GetDistributionConfig</code>.</p>
@@ -2820,11 +3668,6 @@ export interface UpdateCachePolicyRequest {
    * 			<code>GetCachePolicyConfig</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>A cache policy configuration.</p>
-   */
-  CachePolicyConfig: CachePolicyConfig | undefined;
 }
 
 export namespace UpdateCachePolicyRequest {
@@ -2862,6 +3705,11 @@ export namespace UpdateCachePolicyResult {
  */
 export interface UpdateCloudFrontOriginAccessIdentityRequest {
   /**
+   * <p>The identity's configuration information.</p>
+   */
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
+
+  /**
    * <p>The identity's id.</p>
    */
   Id: string | undefined;
@@ -2871,11 +3719,6 @@ export interface UpdateCloudFrontOriginAccessIdentityRequest {
    * 			identity's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>The identity's configuration information.</p>
-   */
-  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
 }
 
 export namespace UpdateCloudFrontOriginAccessIdentityRequest {
@@ -2917,6 +3760,11 @@ export namespace UpdateCloudFrontOriginAccessIdentityResult {
  */
 export interface UpdateDistributionRequest {
   /**
+   * <p>The distribution's configuration information.</p>
+   */
+  DistributionConfig: DistributionConfig | undefined;
+
+  /**
    * <p>The distribution's id.</p>
    */
   Id: string | undefined;
@@ -2926,11 +3774,6 @@ export interface UpdateDistributionRequest {
    * 			distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>The distribution's configuration information.</p>
-   */
-  DistributionConfig: DistributionConfig | undefined;
 }
 
 export namespace UpdateDistributionRequest {
@@ -2973,6 +3816,11 @@ export namespace UpdateDistributionResult {
 
 export interface UpdateFieldLevelEncryptionConfigRequest {
   /**
+   * <p>Request to update a field-level encryption configuration. </p>
+   */
+  FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
+
+  /**
    * <p>The ID of the configuration you want to update.</p>
    */
   Id: string | undefined;
@@ -2982,11 +3830,6 @@ export interface UpdateFieldLevelEncryptionConfigRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>Request to update a field-level encryption configuration. </p>
-   */
-  FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionConfigRequest {
@@ -3022,6 +3865,11 @@ export namespace UpdateFieldLevelEncryptionConfigResult {
 
 export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
+   * <p>Request to update a field-level encryption profile. </p>
+   */
+  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
+
+  /**
    * <p>The ID of the field-level encryption profile request. </p>
    */
   Id: string | undefined;
@@ -3031,11 +3879,6 @@ export interface UpdateFieldLevelEncryptionProfileRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>Request to update a field-level encryption profile. </p>
-   */
-  FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 }
 
 export namespace UpdateFieldLevelEncryptionProfileRequest {
@@ -3125,6 +3968,11 @@ export namespace UpdateFunctionResult {
 
 export interface UpdateKeyGroupRequest {
   /**
+   * <p>The key group configuration.</p>
+   */
+  KeyGroupConfig: KeyGroupConfig | undefined;
+
+  /**
    * <p>The identifier of the key group that you are updating.</p>
    */
   Id: string | undefined;
@@ -3134,11 +3982,6 @@ export interface UpdateKeyGroupRequest {
    * 			<code>ETag</code> value.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>The key group configuration.</p>
-   */
-  KeyGroupConfig: KeyGroupConfig | undefined;
 }
 
 export namespace UpdateKeyGroupRequest {
@@ -3173,6 +4016,11 @@ export namespace UpdateKeyGroupResult {
 
 export interface UpdateOriginRequestPolicyRequest {
   /**
+   * <p>An origin request policy configuration.</p>
+   */
+  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
+
+  /**
    * <p>The unique identifier for the origin request policy that you are updating. The identifier is
    * 			returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in the response
    * 			to <code>GetDistributionConfig</code>.</p>
@@ -3185,11 +4033,6 @@ export interface UpdateOriginRequestPolicyRequest {
    * 			<code>GetOriginRequestPolicyConfig</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>An origin request policy configuration.</p>
-   */
-  OriginRequestPolicyConfig: OriginRequestPolicyConfig | undefined;
 }
 
 export namespace UpdateOriginRequestPolicyRequest {
@@ -3224,6 +4067,11 @@ export namespace UpdateOriginRequestPolicyResult {
 
 export interface UpdatePublicKeyRequest {
   /**
+   * <p>A public key configuration.</p>
+   */
+  PublicKeyConfig: PublicKeyConfig | undefined;
+
+  /**
    * <p>The identifier of the public key that you are updating.</p>
    */
   Id: string | undefined;
@@ -3233,11 +4081,6 @@ export interface UpdatePublicKeyRequest {
    * 			For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>A public key configuration.</p>
-   */
-  PublicKeyConfig: PublicKeyConfig | undefined;
 }
 
 export namespace UpdatePublicKeyRequest {
@@ -3327,10 +4170,64 @@ export namespace UpdateRealtimeLogConfigResult {
   });
 }
 
+export interface UpdateResponseHeadersPolicyRequest {
+  /**
+   * <p>A response headers policy configuration.</p>
+   */
+  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
+
+  /**
+   * <p>The identifier for the response headers policy that you are updating.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the response headers policy that you are updating.</p>
+   * 		       <p>The version is returned in the cache policy’s <code>ETag</code> field in the response
+   * 			to <code>GetResponseHeadersPolicyConfig</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+export namespace UpdateResponseHeadersPolicyRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResponseHeadersPolicyRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateResponseHeadersPolicyResult {
+  /**
+   * <p>A response headers policy.</p>
+   */
+  ResponseHeadersPolicy?: ResponseHeadersPolicy;
+
+  /**
+   * <p>The current version of the response headers policy.</p>
+   */
+  ETag?: string;
+}
+
+export namespace UpdateResponseHeadersPolicyResult {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateResponseHeadersPolicyResult): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>The request to update a streaming distribution.</p>
  */
 export interface UpdateStreamingDistributionRequest {
+  /**
+   * <p>The streaming distribution's configuration information.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
+
   /**
    * <p>The streaming distribution's id.</p>
    */
@@ -3341,11 +4238,6 @@ export interface UpdateStreamingDistributionRequest {
    * 			streaming distribution's configuration. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
-
-  /**
-   * <p>The streaming distribution's configuration information.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
 }
 
 export namespace UpdateStreamingDistributionRequest {

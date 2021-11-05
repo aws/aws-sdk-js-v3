@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_0";
+import { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetDistributionConfigCommand,
   serializeAws_restXmlGetDistributionConfigCommand,

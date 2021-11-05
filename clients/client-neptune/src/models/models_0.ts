@@ -14,7 +14,7 @@ export interface AddRoleToDBClusterMessage {
 
   /**
    * <p>The name of the feature for the Neptune DB cluster that the IAM role is to be associated with.
-   *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   *       For the list of supported feature names, see <a href="neptune/latest/userguide/api-other-apis.html#DBEngineVersion">DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
 }
@@ -289,17 +289,17 @@ export namespace SubscriptionNotFoundFault {
 export interface Tag {
   /**
    * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode
-   *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
-   *       only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
-   *       regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *       characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>.
+   *       The string can only contain the set of Unicode letters, digits, white-space,
+   *       '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Key?: string;
 
   /**
    * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode
-   *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
-   *       only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
-   *       regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   *       characters in length and can't be prefixed with <code>aws:</code> or <code>rds:</code>.
+   *       The string can only contain the set of Unicode letters, digits, white-space,
+   *       '_', '.', '/', '=', '+', '-' (Java regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
 }
@@ -1463,7 +1463,7 @@ export interface DBClusterRole {
 
   /**
    * <p>The name of the feature associated with the Amazon Identity and Access Management (IAM) role.
-   *       For the list of supported feature names, see <a>DBEngineVersion</a>.
+   *       For the list of supported feature names, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.
    *     </p>
    */
   FeatureName?: string;
@@ -5254,7 +5254,7 @@ export interface DescribeDBClusterSnapshotsMessage {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my AWS
+   *                   <code>manual</code> - Return all DB cluster snapshots that have been taken by my Amazon
    *           account.</p>
    *             </li>
    *             <li>
@@ -5304,7 +5304,7 @@ export interface DescribeDBClusterSnapshotsMessage {
   Marker?: string;
 
   /**
-   * <p>True to include shared manual DB cluster snapshots from other Amazon accounts that this AWS
+   * <p>True to include shared manual DB cluster snapshots from other Amazon accounts that this Amazon
    *       account has been given permission to copy or restore, and otherwise false. The default is
    *       <code>false</code>.</p>
    *          <p>You can give an Amazon account permission to restore a manual DB cluster snapshot from
@@ -7031,6 +7031,36 @@ export interface ModifyDBClusterMessage {
   EngineVersion?: string;
 
   /**
+   * <p>A value that indicates whether upgrades between different major versions are allowed.</p>
+   *          <p>Constraints: You must set the allow-major-version-upgrade flag when providing an
+   *       <code>EngineVersion</code> parameter that uses a different major version than the DB cluster's current
+   *       version.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The name of the DB parameter group to apply to all instances of the DB cluster. </p>
+   *          <note>
+   *             <p>When you apply a parameter group using <code>DBInstanceParameterGroupName</code>,
+   *       parameter changes aren't applied during the next maintenance window but instead are
+   *       applied immediately.</p>
+   *          </note>
+   *          <p>Default: The existing name setting</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The DB parameter group must be in the same DB parameter group family as
+   *         the target DB cluster version.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>DBInstanceParameterGroupName</code> parameter is only valid in combination with
+   *         the <code>AllowMajorVersionUpgrade</code> parameter.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBInstanceParameterGroupName?: string;
+
+  /**
    * <p>A value that indicates whether the DB cluster has deletion protection enabled.
    *       The database can't be deleted when deletion protection is enabled. By default,
    *       deletion protection is disabled.</p>
@@ -7270,7 +7300,7 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *          <p>To authorize other Amazon accounts to copy or restore a manual DB cluster snapshot, set this
    *       list to include one or more Amazon account IDs, or <code>all</code> to make the manual DB cluster
    *       snapshot restorable by any Amazon account. Do not add the <code>all</code> value for any manual
-   *       DB cluster snapshots that contain private information that you don't want available to all AWS
+   *       DB cluster snapshots that contain private information that you don't want available to all Amazon
    *       accounts.</p>
    */
   ValuesToAdd?: string[];
@@ -7397,7 +7427,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The new compute and memory capacity of the DB instance, for example,
-   *       <code>db.m4.large</code>. Not all DB instance classes are available in all AWS
+   *       <code>db.m4.large</code>. Not all DB instance classes are available in all Amazon
    *       Regions.</p>
    *          <p>If you modify the DB instance class, an outage occurs during the change. The change is
    *       applied during the next maintenance window, unless <code>ApplyImmediately</code> is specified
@@ -8034,7 +8064,7 @@ export interface RemoveRoleFromDBClusterMessage {
 
   /**
    * <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from.
-   *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   *       For the list of supported feature names, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.</p>
    */
   FeatureName?: string;
 }

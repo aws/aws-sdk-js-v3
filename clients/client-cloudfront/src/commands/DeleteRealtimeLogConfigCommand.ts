@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteRealtimeLogConfigRequest } from "../models/models_0";
+import { DeleteRealtimeLogConfigRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteRealtimeLogConfigCommand,
   serializeAws_restXmlDeleteRealtimeLogConfigCommand,

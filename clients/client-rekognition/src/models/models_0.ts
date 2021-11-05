@@ -1029,6 +1029,11 @@ export interface CelebrityDetail {
    * <p>Face details for the recognized celebrity.</p>
    */
   Face?: FaceDetail;
+
+  /**
+   * <p>Retrieves the known gender for the celebrity.</p>
+   */
+  KnownGender?: KnownGender;
 }
 
 export namespace CelebrityDetail {
@@ -1633,6 +1638,149 @@ export namespace ServiceQuotaExceededException {
   });
 }
 
+/**
+ * <p>
+ * The source that Amazon Rekognition Custom Labels uses to create a dataset. To
+ * use an Amazon Sagemaker format manifest file, specify the  S3 bucket location in the <code>GroundTruthManifest</code> field.
+ * The S3 bucket must be in your AWS account.
+ * To create a copy of an existing dataset,  specify the Amazon Resource Name (ARN) of
+ * an existing dataset in <code>DatasetArn</code>.</p>
+ *          <p>You need to specify a value for <code>DatasetArn</code> or <code>GroundTruthManifest</code>, but not both.
+ *     if you supply both values, or if you don't specify any values, an InvalidParameterException exception occurs.
+ *  </p>
+ *          <p>For more information, see <a>CreateDataset</a>.</p>
+ */
+export interface DatasetSource {
+  /**
+   * <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
+   * </p>
+   */
+  GroundTruthManifest?: GroundTruthManifest;
+
+  /**
+   * <p>
+   * The ARN of an Amazon Rekognition Custom Labels dataset that you want to copy.
+   * </p>
+   */
+  DatasetArn?: string;
+}
+
+export namespace DatasetSource {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetSource): any => ({
+    ...obj,
+  });
+}
+
+export enum DatasetType {
+  TEST = "TEST",
+  TRAIN = "TRAIN",
+}
+
+export interface CreateDatasetRequest {
+  /**
+   * <p>
+   * The source files for the dataset. You can specify the ARN of an existing dataset or specify the Amazon S3 bucket location
+   * of an Amazon Sagemaker format manifest file. If you don't specify <code>datasetSource</code>, an empty dataset is created.
+   *   To add labeled images to the dataset,  You can use the console or call <a>UpdateDatasetEntries</a>.
+   *
+   * </p>
+   */
+  DatasetSource?: DatasetSource;
+
+  /**
+   * <p>
+   * The type of the dataset. Specify <code>train</code> to create a training dataset. Specify <code>test</code>
+   *    to create a test dataset.
+   * </p>
+   */
+  DatasetType: DatasetType | string | undefined;
+
+  /**
+   * <p>
+   * The ARN of the Amazon Rekognition Custom Labels project to which you want to asssign the dataset.
+   * </p>
+   */
+  ProjectArn: string | undefined;
+}
+
+export namespace CreateDatasetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateDatasetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDatasetResponse {
+  /**
+   * <p>
+   * The ARN of the created  Amazon Rekognition Custom Labels dataset.
+   * </p>
+   */
+  DatasetArn?: string;
+}
+
+export namespace CreateDatasetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateDatasetResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
+ *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
+ *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ */
+export interface LimitExceededException extends __SmithyException, $MetadataBearer {
+  name: "LimitExceededException";
+  $fault: "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+}
+
+export namespace LimitExceededException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The resource specified in the request cannot be found.</p>
+ */
+export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
+  name: "ResourceNotFoundException";
+  $fault: "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+}
+
+export namespace ResourceNotFoundException {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateProjectRequest {
   /**
    * <p>The name of the project to create.</p>
@@ -1662,31 +1810,6 @@ export namespace CreateProjectResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateProjectResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
- */
-export interface LimitExceededException extends __SmithyException, $MetadataBearer {
-  name: "LimitExceededException";
-  $fault: "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-}
-
-export namespace LimitExceededException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LimitExceededException): any => ({
     ...obj,
   });
 }
@@ -1739,8 +1862,8 @@ export namespace OutputConfig {
 }
 
 /**
- * <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set,  Amazon Rekognition Custom Labels creates a
- *          testing dataset using an 80/20 split of the training dataset.</p>
+ * <p>The dataset used for testing. Optionally, if <code>AutoCreate</code> is set,  Amazon Rekognition Custom Labels uses the
+ *          training dataset to create a test dataset with a temporary split of the training dataset. </p>
  */
 export interface TestingData {
   /**
@@ -1749,7 +1872,8 @@ export interface TestingData {
   Assets?: Asset[];
 
   /**
-   * <p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>
+   * <p>If specified, Amazon Rekognition Custom Labels temporarily splits the training dataset (80%) to create a test dataset (20%) for the training job.
+   *       After training completes, the test dataset is not stored and the training dataset reverts to its previous size.</p>
    */
   AutoCreate?: boolean;
 }
@@ -1802,14 +1926,19 @@ export interface CreateProjectVersionRequest {
   OutputConfig: OutputConfig | undefined;
 
   /**
-   * <p>The dataset to use for training. </p>
+   * <p>Specifies an external manifest that the services uses to train the model.
+   *          If you specify <code>TrainingData</code> you must also specify <code>TestingData</code>.
+   *          The project must not have any associated datasets.
+   *       </p>
    */
-  TrainingData: TrainingData | undefined;
+  TrainingData?: TrainingData;
 
   /**
-   * <p>The dataset to use for testing.</p>
+   * <p>Specifies an external manifest that the service uses to test the model.
+   *          If you specify <code>TestingData</code> you must also specify <code>TrainingData</code>.
+   *          The project must not have any associated datasets.</p>
    */
-  TestingData: TestingData | undefined;
+  TestingData?: TestingData;
 
   /**
    * <p>
@@ -1819,13 +1948,13 @@ export interface CreateProjectVersionRequest {
   Tags?: { [key: string]: string };
 
   /**
-   * <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK).
-   *          You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK,
-   *          an alias for your CMK, or an alias ARN.
+   * <p>The identifier for your AWS Key Management Service key (AWS KMS key).
+   *          You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key,
+   *          an alias for your KMS key, or an alias ARN.
    *          The key is used to encrypt training and test images copied into the service for model training.
    *          Your source images are unaffected. The key is also used to encrypt training results
    *          and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p>
-   *          <p>If you choose to use your own CMK, you need the following permissions on the CMK.</p>
+   *          <p>If you choose to use your own KMS key, you need the following permissions on the KMS key.</p>
    *          <ul>
    *             <li>
    *                <p>kms:CreateGrant</p>
@@ -1868,29 +1997,6 @@ export namespace CreateProjectVersionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: CreateProjectVersionResponse): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The resource specified in the request cannot be found.</p>
- */
-export interface ResourceNotFoundException extends __SmithyException, $MetadataBearer {
-  name: "ResourceNotFoundException";
-  $fault: "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * <p>A universally unique identifier (UUID) for the request.</p>
-   */
-  Logref?: string;
-}
-
-export namespace ResourceNotFoundException {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: ResourceNotFoundException): any => ({
     ...obj,
   });
 }
@@ -1985,8 +2091,8 @@ export interface FaceSearchSettings {
   CollectionId?: string;
 
   /**
-   * <p>Minimum face match confidence score that must be met to return a result for a recognized face. Default is 80.
-   *         0 is the lowest confidence. 100 is the highest confidence.</p>
+   * <p>Minimum face match confidence score that must be met to return a result for a recognized face. The default is 80.
+   *         0 is the lowest confidence. 100 is the highest confidence. Values between 0 and 100 are accepted, and values lower than 80 are set to 80.</p>
    */
   FaceMatchThreshold?: number;
 }
@@ -2171,6 +2277,283 @@ export namespace CustomLabel {
   });
 }
 
+/**
+ * <p>
+ * Describes updates or additions to a dataset. A Single update or addition
+ * is an entry (JSON Line) that provides information about a single image. To update an existing entry,
+ * you match the <code>source-ref</code> field of the update entry with the <code>source-ref</code> filed of the entry that you want to update.
+ *  If the <code>source-ref</code> field doesn't match an existing entry, the entry is added to dataset as a new entry. </p>
+ */
+export interface DatasetChanges {
+  /**
+   * <p>A Base64-encoded binary data object
+   *    containing one or JSON lines that either update the dataset or are additions to the dataset.  You change a dataset by calling <a>UpdateDatasetEntries</a>.
+   *    If you are using an AWS SDK to call <code>UpdateDatasetEntries</code>, you don't need to encode <code>Changes</code> as the SDK encodes the data for you.
+   *
+   * </p>
+   *
+   *
+   *          <p>For example JSON lines,
+   *       see Image-Level labels in manifest files and
+   *       and Object localization in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
+   *    </p>
+   */
+  GroundTruth: Uint8Array | undefined;
+}
+
+export namespace DatasetChanges {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetChanges): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Provides statistics about a dataset. For more information, see <a>DescribeDataset</a>.
+ *
+ * </p>
+ */
+export interface DatasetStats {
+  /**
+   * <p>
+   * The total number of images in the dataset that have labels.
+   * </p>
+   */
+  LabeledEntries?: number;
+
+  /**
+   * <p>
+   * The total number of images in the dataset.
+   * </p>
+   */
+  TotalEntries?: number;
+
+  /**
+   * <p>
+   * The total number of labels declared in the dataset.
+   * </p>
+   */
+  TotalLabels?: number;
+
+  /**
+   * <p>
+   *          The total number of entries that contain at least one error.
+   *       </p>
+   */
+  ErrorEntries?: number;
+}
+
+export namespace DatasetStats {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetStats): any => ({
+    ...obj,
+  });
+}
+
+export enum DatasetStatus {
+  CREATE_COMPLETE = "CREATE_COMPLETE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  UPDATE_COMPLETE = "UPDATE_COMPLETE",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+}
+
+export enum DatasetStatusMessageCode {
+  CLIENT_ERROR = "CLIENT_ERROR",
+  SERVICE_ERROR = "SERVICE_ERROR",
+  SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>
+ * A description for a dataset. For more information, see <a>DescribeDataset</a>.</p>
+ *          <p>The status fields <code>Status</code>, <code>StatusMessage</code>, and <code>StatusMessageCode</code>
+ * reflect the last operation on the dataset.
+ * </p>
+ */
+export interface DatasetDescription {
+  /**
+   * <p>
+   * The Unix timestamp for the time and date that the dataset was created.
+   * </p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>
+   *    The Unix timestamp for the date and time that the dataset was last updated.
+   * </p>
+   */
+  LastUpdatedTimestamp?: Date;
+
+  /**
+   * <p>
+   *    The status of the dataset.
+   * </p>
+   */
+  Status?: DatasetStatus | string;
+
+  /**
+   * <p>
+   *    The status message for the dataset.
+   * </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>
+   *    The status message code for the dataset operation. If a service error occurs, try the
+   *    API call again later. If a client error occurs, check the input parameters to the dataset
+   *    API call that failed.
+   * </p>
+   */
+  StatusMessageCode?: DatasetStatusMessageCode | string;
+
+  /**
+   * <p>
+   * The status message code for the dataset.
+   * </p>
+   */
+  DatasetStats?: DatasetStats;
+}
+
+export namespace DatasetDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *    Statistics about a label used in a dataset. For more information, see <a>DatasetLabelDescription</a>.
+ * </p>
+ */
+export interface DatasetLabelStats {
+  /**
+   * <p>
+   * The total number of images that use the label.
+   * </p>
+   */
+  EntryCount?: number;
+
+  /**
+   * <p>
+   * The total number of images that have the label assigned to a bounding box.
+   * </p>
+   */
+  BoundingBoxCount?: number;
+}
+
+export namespace DatasetLabelStats {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetLabelStats): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ * Describes a dataset label. For more information, see <a>ListDatasetLabels</a>.
+ * </p>
+ */
+export interface DatasetLabelDescription {
+  /**
+   * <p>
+   * The name of the label.
+   * </p>
+   */
+  LabelName?: string;
+
+  /**
+   * <p>
+   * Statistics about the label.
+   * </p>
+   */
+  LabelStats?: DatasetLabelStats;
+}
+
+export namespace DatasetLabelDescription {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetLabelDescription): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *    Summary information for an Amazon Rekognition Custom Labels dataset. For more information, see
+ *    <a>ProjectDescription</a>.
+ * </p>
+ */
+export interface DatasetMetadata {
+  /**
+   * <p>
+   *    The Unix timestamp for the date and time that the dataset was created.
+   * </p>
+   */
+  CreationTimestamp?: Date;
+
+  /**
+   * <p>
+   *    The type of the dataset.
+   * </p>
+   */
+  DatasetType?: DatasetType | string;
+
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) for the dataset.
+   * </p>
+   */
+  DatasetArn?: string;
+
+  /**
+   * <p>
+   *    The status for the dataset.
+   * </p>
+   */
+  Status?: DatasetStatus | string;
+
+  /**
+   * <p>
+   *    The status message for the dataset.
+   * </p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>
+   *    The status message code for the dataset operation. If a service error occurs, try the
+   *    API call again later. If a client error occurs, check the input parameters to the dataset
+   *    API call that failed.
+   * </p>
+   */
+  StatusMessageCode?: DatasetStatusMessageCode | string;
+}
+
+export namespace DatasetMetadata {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DatasetMetadata): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteCollectionRequest {
   /**
    * <p>ID of the collection to delete.</p>
@@ -2199,6 +2582,35 @@ export namespace DeleteCollectionResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DeleteCollectionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDatasetRequest {
+  /**
+   * <p>
+   * The ARN of the Amazon Rekognition Custom Labels dataset that you want to delete.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+}
+
+export namespace DeleteDatasetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDatasetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDatasetResponse {}
+
+export namespace DeleteDatasetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeleteDatasetResponse): any => ({
     ...obj,
   });
 }
@@ -2401,6 +2813,42 @@ export namespace DescribeCollectionResponse {
   });
 }
 
+export interface DescribeDatasetRequest {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the dataset that you want to describe.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+}
+
+export namespace DescribeDatasetRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDatasetRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDatasetResponse {
+  /**
+   * <p>
+   * The description for the dataset.
+   * </p>
+   */
+  DatasetDescription?: DatasetDescription;
+}
+
+export namespace DescribeDatasetResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeDatasetResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeProjectsRequest {
   /**
    * <p>If the previous response was incomplete (because there is more
@@ -2415,6 +2863,12 @@ export interface DescribeProjectsRequest {
    *          error occurs. The default value is 100. </p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>A list of the projects that you want Amazon Rekognition Custom Labels to describe. If you don't specify a value,
+   *       the response includes descriptions for all the projects in your AWS account.</p>
+   */
+  ProjectNames?: string[];
 }
 
 export namespace DescribeProjectsRequest {
@@ -2427,7 +2881,7 @@ export namespace DescribeProjectsRequest {
 }
 
 /**
- * <p>A description of a Amazon Rekognition Custom Labels project.</p>
+ * <p>A description of an Amazon Rekognition Custom Labels project. For more information, see <a>DescribeProjects</a>.</p>
  */
 export interface ProjectDescription {
   /**
@@ -2444,6 +2898,13 @@ export interface ProjectDescription {
    * <p>The current status of the project.</p>
    */
   Status?: ProjectStatus | string;
+
+  /**
+   * <p>
+   *          Information about the training and test datasets in the project.
+   *       </p>
+   */
+  Datasets?: DatasetMetadata[];
 }
 
 export namespace ProjectDescription {
@@ -2598,11 +3059,10 @@ export namespace EvaluationResult {
 
 /**
  * <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p>
+ *          <p>The validation data includes error information for individual JSON Lines in the dataset.
+ *          For more information, see <i>Debugging a Failed Model Training</i> in the
+ *          Amazon Rekognition Custom Labels Developer Guide. </p>
  *
- *          <p>The validation data includes error information for individual
- *          JSON lines in the dataset.
- *             For more information, see Debugging a Failed Model Training in the
- *             Amazon Rekognition Custom Labels Developer Guide. </p>
  *          <p>You get the <code>ValidationData</code> object for the training dataset (<a>TrainingDataResult</a>)
  *          and the test dataset (<a>TestingDataResult</a>) by calling <a>DescribeProjectVersions</a>. </p>
  *          <p>The assets array contains a single <a>Asset</a> object.
@@ -2686,7 +3146,7 @@ export namespace TrainingDataResult {
 }
 
 /**
- * <p>The description of a version of a model.</p>
+ * <p>A description of a version of an Amazon Rekognition Custom Labels model.</p>
  */
 export interface ProjectVersionDescription {
   /**
@@ -2716,7 +3176,7 @@ export interface ProjectVersionDescription {
   StatusMessage?: string;
 
   /**
-   * <p>The duration, in seconds, that the model version has been billed for training.
+   * <p>The duration, in seconds, that you were billed for a successful training of the model version.
    *       This value is only returned if the model version has been successfully trained.</p>
    */
   BillableTrainingTimeInSeconds?: number;
@@ -2753,7 +3213,7 @@ export interface ProjectVersionDescription {
   ManifestSummary?: GroundTruthManifest;
 
   /**
-   * <p>The identifer for the AWS Key Management Service (AWS KMS) customer master key that was used to encrypt the model during training. </p>
+   * <p>The identifer for the AWS Key Management Service key (AWS KMS key) that was used to encrypt the model during training. </p>
    */
   KmsKeyId?: string;
 }
@@ -3742,6 +4202,58 @@ export namespace DetectTextResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: DetectTextResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>
+ *          A training dataset or a test dataset used in a dataset distribution operation.
+ *          For more information, see <a>DistributeDatasetEntries</a>.
+ *       </p>
+ */
+export interface DistributeDataset {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset that you want to use.
+   *       </p>
+   */
+  Arn: string | undefined;
+}
+
+export namespace DistributeDataset {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DistributeDataset): any => ({
+    ...obj,
+  });
+}
+
+export interface DistributeDatasetEntriesRequest {
+  /**
+   * <p>The ARNS for the training dataset and test dataset that you want to use. The datasets must belong to
+   *          the same project. The test dataset must be empty.
+   *          </p>
+   */
+  Datasets: DistributeDataset[] | undefined;
+}
+
+export namespace DistributeDatasetEntriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DistributeDatasetEntriesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DistributeDatasetEntriesResponse {}
+
+export namespace DistributeDatasetEntriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DistributeDatasetEntriesResponse): any => ({
     ...obj,
   });
 }
@@ -5200,6 +5712,149 @@ export namespace ListCollectionsResponse {
   });
 }
 
+export interface ListDatasetEntriesRequest {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) for the dataset that you want to use.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>Specifies a label filter for the response. The response includes an entry only if one or more of the labels in <code>ContainsLabels</code> exist in the entry.
+   *       </p>
+   */
+  ContainsLabels?: string[];
+
+  /**
+   * <p>
+   *    Specify <code>true</code> to get only the JSON Lines where the image is labeled.
+   *    Specify <code>false</code> to get only the JSON Lines where the image isn't labeled. If you
+   *    don't specify <code>Labeled</code>, <code>ListDatasetEntries</code> returns JSON Lines for labeled and unlabeled
+   *    images.
+   * </p>
+   */
+  Labeled?: boolean;
+
+  /**
+   * <p>If specified, <code>ListDatasetEntries</code> only returns JSON Lines where the value of <code>SourceRefContains</code> is
+   *    part of the <code>source-ref</code> field. The <code>source-ref</code> field contains the Amazon S3 location of the image.
+   *    You can use <code>SouceRefContains</code> for tasks such as getting the JSON Line for a single image, or gettting JSON Lines for all images within a specific folder.</p>
+   */
+  SourceRefContains?: string;
+
+  /**
+   * <p>Specifies an error filter for the response. Specify <code>True</code> to only include entries that have errors.
+   *       </p>
+   */
+  HasErrors?: boolean;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *       results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
+   *       token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
+   *       If you specify a value greater than 100, a ValidationException
+   *       error occurs. The default value is 100. </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDatasetEntriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDatasetEntriesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDatasetEntriesResponse {
+  /**
+   * <p>
+   * A list of entries (images) in the dataset.
+   * </p>
+   */
+  DatasetEntries?: string[];
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *       results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
+   *       token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDatasetEntriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDatasetEntriesResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDatasetLabelsRequest {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the dataset that you want to use.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *       results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
+   *       token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per paginated call. The largest value you can specify is 100.
+   *       If you specify a value greater than 100, a ValidationException
+   *       error occurs. The default value is 100. </p>
+   */
+  MaxResults?: number;
+}
+
+export namespace ListDatasetLabelsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDatasetLabelsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface ListDatasetLabelsResponse {
+  /**
+   * <p>
+   * A list of the labels in the dataset.
+   * </p>
+   */
+  DatasetLabelDescriptions?: DatasetLabelDescription[];
+
+  /**
+   * <p>If the previous response was incomplete (because there is more
+   *       results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response. You can use this pagination
+   *       token to retrieve the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export namespace ListDatasetLabelsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ListDatasetLabelsResponse): any => ({
+    ...obj,
+  });
+}
+
 export interface ListFacesRequest {
   /**
    * <p>ID of the collection from which to list the faces.</p>
@@ -6432,6 +7087,42 @@ export namespace UntagResourceResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDatasetEntriesRequest {
+  /**
+   * <p>
+   * The Amazon Resource Name (ARN) of the dataset that you want to update.
+   * </p>
+   */
+  DatasetArn: string | undefined;
+
+  /**
+   * <p>
+   *    The changes that you want to make to the dataset.
+   * </p>
+   */
+  Changes: DatasetChanges | undefined;
+}
+
+export namespace UpdateDatasetEntriesRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDatasetEntriesRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateDatasetEntriesResponse {}
+
+export namespace UpdateDatasetEntriesResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateDatasetEntriesResponse): any => ({
     ...obj,
   });
 }

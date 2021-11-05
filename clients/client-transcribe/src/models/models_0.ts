@@ -238,6 +238,41 @@ export namespace ContentRedaction {
   });
 }
 
+/**
+ * <p>Language-specific settings that can be specified when language identification is enabled.</p>
+ */
+export interface LanguageIdSettings {
+  /**
+   * <p>The name of the vocabulary you want to use when processing your transcription job. The
+   *             vocabulary you specify must have the same language code as the transcription job; if the languages don't
+   *             match, the vocabulary won't be applied.</p>
+   */
+  VocabularyName?: string;
+
+  /**
+   * <p>The name of the vocabulary filter you want to use when transcribing your audio. The filter you specify
+   *             must have the same language code as the transcription job; if the languages don't match, the vocabulary
+   *             filter won't be applied.</p>
+   */
+  VocabularyFilterName?: string;
+
+  /**
+   * <p>The name of the language model you want to use when transcribing your audio. The model you specify
+   *             must have the same language code as the transcription job; if the languages don't match, the language model
+   *             won't be applied.</p>
+   */
+  LanguageModelName?: string;
+}
+
+export namespace LanguageIdSettings {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: LanguageIdSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum VocabularyFilterMethod {
   MASK = "mask",
   REMOVE = "remove",
@@ -287,6 +322,13 @@ export interface CallAnalyticsJobSettings {
    *                 features</a> for additional information.</p>
    */
   LanguageOptions?: (LanguageCode | string)[];
+
+  /**
+   * <p>The language identification settings associated with your call analytics job. These settings include
+   *             <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
+   *             <code>LanguageModelName</code>.</p>
+   */
+  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
 }
 
 export namespace CallAnalyticsJobSettings {
@@ -435,7 +477,8 @@ export interface CallAnalyticsJob {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Number (ARN) that you use to get access to the analytics job.</p>
+   * <p>The Amazon Resource Number (ARN) that you use to access the analytics job. ARNs have the format
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p>
    */
   DataAccessRoleArn?: string;
 
@@ -1023,7 +1066,8 @@ export interface InputDataConfig {
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the permissions you've given Amazon Transcribe to access your
-   *             Amazon S3 buckets containing your media files or text data.</p>
+   *             Amazon S3 buckets containing your media files or text data. ARNs have the format
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code>.</p>
    */
   DataAccessRoleArn: string | undefined;
 }
@@ -2111,9 +2155,11 @@ export interface JobExecutionSettings {
   AllowDeferredExecution?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a role that has access to the S3 bucket that contains the input files. Amazon Transcribe
-   *             assumes this role to read queued media files. If you have specified an output S3 bucket for the transcription results,
-   *             this role should have access to the output bucket as well.</p>
+   * <p>The Amazon Resource Name (ARN), in the form
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code>, of a role
+   *             that has access to the S3 bucket that contains the input files. Amazon Transcribe assumes this role to read queued
+   *             media files. If you have specified an output S3 bucket for the transcription results, this role should
+   *             have access to the output bucket as well.</p>
    *         <p>If you specify the <code>AllowDeferredExecution</code> field, you must specify the
    *             <code>DataAccessRoleArn</code> field.</p>
    */
@@ -2398,6 +2444,13 @@ export interface TranscriptionJob {
    * <p>Generate subtitles for your batch transcription job.</p>
    */
   Subtitles?: SubtitlesOutput;
+
+  /**
+   * <p>Language-specific settings that can be specified when language identification is enabled for your transcription
+   *             job. These settings include <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
+   *             <code>LanguageModelName</code>LanguageModelName.</p>
+   */
+  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
 }
 
 export namespace TranscriptionJob {
@@ -2953,7 +3006,13 @@ export namespace ListMedicalVocabulariesResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>Lists all tags associated with a given Amazon Resource Name (ARN).</p>
+   * <p>Lists all tags associated with a given Amazon Resource Name (ARN). ARNs have the format
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code> (for example,
+   *             <code>arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name</code>). Valid
+   *             values for <code>resource-type</code> are: <code>transcription-job</code>,
+   *             <code>medical-transcription-job</code>, <code>vocabulary</code>,
+   *             <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
+   *             <code>language-model</code>.</p>
    */
   ResourceArn: string | undefined;
 }
@@ -2969,7 +3028,7 @@ export namespace ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Lists all tags associated with the given Amazon Resource Name (ARN).</p>
+   * <p>Lists all tags associated with the given Amazon Resource Name (ARN). </p>
    */
   ResourceArn?: string;
 
@@ -3475,7 +3534,7 @@ export interface StartMedicalTranscriptionJobRequest {
    *         <ul>
    *             <li>
    *                 <p>Amazon Resource Name (ARN) of a KMS key in the current account or another
-   *                     account: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</p>
+   *                     account: "arn:aws:kms:region:account-ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</p>
    *             </li>
    *             <li>
    *                 <p>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</p>
@@ -3652,7 +3711,7 @@ export interface StartTranscriptionJobRequest {
    *                     ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</p>
    *             </li>
    *             <li>
-   *                 <p>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</p>
+   *                 <p>ARN of a KMS Key Alias: "arn:aws:kms:region:account-ID:alias/ExampleAlias"</p>
    *             </li>
    *          </ul>
    *         <p>If you don't specify an encryption key, the output of the transcription job is encrypted with the default
@@ -3714,6 +3773,13 @@ export interface StartTranscriptionJobRequest {
    * <p>Add tags to an Amazon Transcribe transcription job.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The language identification settings associated with your transcription job. These settings include
+   *             <code>VocabularyName</code>, <code>VocabularyFilterName</code>, and
+   *             <code>LanguageModelName</code>.</p>
+   */
+  LanguageIdSettings?: { [key: string]: LanguageIdSettings };
 }
 
 export namespace StartTranscriptionJobRequest {
@@ -3743,7 +3809,13 @@ export namespace StartTranscriptionJobResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to tag.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to tag. ARNs have the format
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code> (for example,
+   *             <code>arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name</code>). Valid
+   *             values for <code>resource-type</code> are: <code>transcription-job</code>,
+   *             <code>medical-transcription-job</code>, <code>vocabulary</code>,
+   *             <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
+   *             <code>language-model</code>.</p>
    */
   ResourceArn: string | undefined;
 
@@ -3775,7 +3847,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove tags from.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Transcribe resource you want to remove tags from.
+   *             ARNs have the format
+   *             <code>arn:partition:service:region:account-id:resource-type/resource-id</code> (for example,
+   *             <code>arn:aws:transcribe:us-east-1:account-id:transcription-job/your-job-name</code>). Valid
+   *             values for <code>resource-type</code> are: <code>transcription-job</code>,
+   *             <code>medical-transcription-job</code>, <code>vocabulary</code>,
+   *             <code>medical-vocabulary</code>, <code>vocabulary-filter</code>, and
+   *             <code>language-model</code>.</p>
    */
   ResourceArn: string | undefined;
 

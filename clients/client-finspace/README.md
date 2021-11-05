@@ -7,8 +7,7 @@
 
 AWS SDK for JavaScript Finspace Client for Node.js, Browser and React Native.
 
-<p>The FinSpace management service provides the APIs for managing the FinSpace
-environments. </p>
+<p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
 
 ## Installing
 

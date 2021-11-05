@@ -51,6 +51,7 @@ import {
 
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommandInput,
@@ -61,6 +62,7 @@ import {
   CreateStreamProcessorCommandOutput,
 } from "./commands/CreateStreamProcessorCommand";
 import { DeleteCollectionCommandInput, DeleteCollectionCommandOutput } from "./commands/DeleteCollectionCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
 import {
@@ -72,6 +74,7 @@ import {
   DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand";
 import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import { DescribeProjectsCommandInput, DescribeProjectsCommandOutput } from "./commands/DescribeProjectsCommand";
 import {
   DescribeProjectVersionsCommandInput,
@@ -93,6 +96,10 @@ import {
   DetectProtectiveEquipmentCommandOutput,
 } from "./commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand";
+import {
+  DistributeDatasetEntriesCommandInput,
+  DistributeDatasetEntriesCommandOutput,
+} from "./commands/DistributeDatasetEntriesCommand";
 import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand";
 import {
   GetCelebrityRecognitionCommandInput,
@@ -113,6 +120,8 @@ import {
 import { GetTextDetectionCommandInput, GetTextDetectionCommandOutput } from "./commands/GetTextDetectionCommand";
 import { IndexFacesCommandInput, IndexFacesCommandOutput } from "./commands/IndexFacesCommand";
 import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./commands/ListCollectionsCommand";
+import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
+import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
 import {
   ListStreamProcessorsCommandInput,
@@ -166,20 +175,27 @@ import {
 } from "./commands/StopStreamProcessorCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateDatasetEntriesCommandInput,
+  UpdateDatasetEntriesCommandOutput,
+} from "./commands/UpdateDatasetEntriesCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CompareFacesCommandInput
   | CreateCollectionCommandInput
+  | CreateDatasetCommandInput
   | CreateProjectCommandInput
   | CreateProjectVersionCommandInput
   | CreateStreamProcessorCommandInput
   | DeleteCollectionCommandInput
+  | DeleteDatasetCommandInput
   | DeleteFacesCommandInput
   | DeleteProjectCommandInput
   | DeleteProjectVersionCommandInput
   | DeleteStreamProcessorCommandInput
   | DescribeCollectionCommandInput
+  | DescribeDatasetCommandInput
   | DescribeProjectVersionsCommandInput
   | DescribeProjectsCommandInput
   | DescribeStreamProcessorCommandInput
@@ -189,6 +205,7 @@ export type ServiceInputTypes =
   | DetectModerationLabelsCommandInput
   | DetectProtectiveEquipmentCommandInput
   | DetectTextCommandInput
+  | DistributeDatasetEntriesCommandInput
   | GetCelebrityInfoCommandInput
   | GetCelebrityRecognitionCommandInput
   | GetContentModerationCommandInput
@@ -200,6 +217,8 @@ export type ServiceInputTypes =
   | GetTextDetectionCommandInput
   | IndexFacesCommandInput
   | ListCollectionsCommandInput
+  | ListDatasetEntriesCommandInput
+  | ListDatasetLabelsCommandInput
   | ListFacesCommandInput
   | ListStreamProcessorsCommandInput
   | ListTagsForResourceCommandInput
@@ -219,20 +238,24 @@ export type ServiceInputTypes =
   | StopProjectVersionCommandInput
   | StopStreamProcessorCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateDatasetEntriesCommandInput;
 
 export type ServiceOutputTypes =
   | CompareFacesCommandOutput
   | CreateCollectionCommandOutput
+  | CreateDatasetCommandOutput
   | CreateProjectCommandOutput
   | CreateProjectVersionCommandOutput
   | CreateStreamProcessorCommandOutput
   | DeleteCollectionCommandOutput
+  | DeleteDatasetCommandOutput
   | DeleteFacesCommandOutput
   | DeleteProjectCommandOutput
   | DeleteProjectVersionCommandOutput
   | DeleteStreamProcessorCommandOutput
   | DescribeCollectionCommandOutput
+  | DescribeDatasetCommandOutput
   | DescribeProjectVersionsCommandOutput
   | DescribeProjectsCommandOutput
   | DescribeStreamProcessorCommandOutput
@@ -242,6 +265,7 @@ export type ServiceOutputTypes =
   | DetectModerationLabelsCommandOutput
   | DetectProtectiveEquipmentCommandOutput
   | DetectTextCommandOutput
+  | DistributeDatasetEntriesCommandOutput
   | GetCelebrityInfoCommandOutput
   | GetCelebrityRecognitionCommandOutput
   | GetContentModerationCommandOutput
@@ -253,6 +277,8 @@ export type ServiceOutputTypes =
   | GetTextDetectionCommandOutput
   | IndexFacesCommandOutput
   | ListCollectionsCommandOutput
+  | ListDatasetEntriesCommandOutput
+  | ListDatasetLabelsCommandOutput
   | ListFacesCommandOutput
   | ListStreamProcessorsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -272,7 +298,8 @@ export type ServiceOutputTypes =
   | StopProjectVersionCommandOutput
   | StopStreamProcessorCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateDatasetEntriesCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
