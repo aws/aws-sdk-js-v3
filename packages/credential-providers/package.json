@@ -7,16 +7,16 @@
   "browser": {
     "@aws-sdk/credential-provider-env": false,
     "@aws-sdk/credential-provider-imds": false,
-    "./fromIni": false,
     "@aws-sdk/credential-provider-process": false,
-    "./fromTokenFile": false
+    "@aws-sdk/credential-provider-sso": false,
+    "@aws-sdk/credential-provider-ini": false
   },
   "react-native": {
     "@aws-sdk/credential-provider-env": false,
     "@aws-sdk/credential-provider-imds": false,
-    "./fromIni": false,
     "@aws-sdk/credential-provider-process": false,
-    "./fromTokenFile": false
+    "@aws-sdk/credential-provider-sso": false,
+    "@aws-sdk/credential-provider-ini": false
   },
   "sideEffects": false,
   "scripts": {
