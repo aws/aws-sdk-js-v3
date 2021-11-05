@@ -26,6 +26,7 @@ import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "../commands/CreateLocationFsxWindowsCommand";
+import { CreateLocationHdfsCommandInput, CreateLocationHdfsCommandOutput } from "../commands/CreateLocationHdfsCommand";
 import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "../commands/CreateLocationNfsCommand";
 import {
   CreateLocationObjectStorageCommandInput,
@@ -46,6 +47,10 @@ import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
 } from "../commands/DescribeLocationFsxWindowsCommand";
+import {
+  DescribeLocationHdfsCommandInput,
+  DescribeLocationHdfsCommandOutput,
+} from "../commands/DescribeLocationHdfsCommand";
 import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
@@ -76,6 +81,7 @@ import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "../commands/UpdateAgentCommand";
+import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "../commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "../commands/UpdateLocationNfsCommand";
 import {
   UpdateLocationObjectStorageCommandInput,
@@ -97,6 +103,8 @@ import {
   CreateLocationEfsResponse,
   CreateLocationFsxWindowsRequest,
   CreateLocationFsxWindowsResponse,
+  CreateLocationHdfsRequest,
+  CreateLocationHdfsResponse,
   CreateLocationNfsRequest,
   CreateLocationNfsResponse,
   CreateLocationObjectStorageRequest,
@@ -119,6 +127,8 @@ import {
   DescribeLocationEfsResponse,
   DescribeLocationFsxWindowsRequest,
   DescribeLocationFsxWindowsResponse,
+  DescribeLocationHdfsRequest,
+  DescribeLocationHdfsResponse,
   DescribeLocationNfsRequest,
   DescribeLocationNfsResponse,
   DescribeLocationObjectStorageRequest,
@@ -133,6 +143,7 @@ import {
   DescribeTaskResponse,
   Ec2Config,
   FilterRule,
+  HdfsNameNode,
   InternalException,
   InvalidRequestException,
   ListAgentsRequest,
@@ -151,6 +162,7 @@ import {
   OnPremConfig,
   Options,
   PrivateLinkConfig,
+  QopConfiguration,
   S3Config,
   SmbMountOptions,
   StartTaskExecutionRequest,
@@ -167,6 +179,8 @@ import {
   UntagResourceResponse,
   UpdateAgentRequest,
   UpdateAgentResponse,
+  UpdateLocationHdfsRequest,
+  UpdateLocationHdfsResponse,
   UpdateLocationNfsRequest,
   UpdateLocationNfsResponse,
   UpdateLocationObjectStorageRequest,
@@ -228,6 +242,19 @@ export const serializeAws_json1_1CreateLocationFsxWindowsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateLocationFsxWindowsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationHdfsCommand = async (
+  input: CreateLocationHdfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.CreateLocationHdfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -371,6 +398,19 @@ export const serializeAws_json1_1DescribeLocationFsxWindowsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeLocationFsxWindowsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeLocationHdfsCommand = async (
+  input: DescribeLocationHdfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.DescribeLocationHdfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -566,6 +606,19 @@ export const serializeAws_json1_1UpdateAgentCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateAgentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateLocationHdfsCommand = async (
+  input: UpdateLocationHdfsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "FmrsService.UpdateLocationHdfs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateLocationHdfsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -841,6 +894,68 @@ const deserializeAws_json1_1CreateLocationFsxWindowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLocationFsxWindowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1CreateLocationHdfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationHdfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLocationHdfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationHdfsResponse(data, context);
+  const response: CreateLocationHdfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationHdfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationHdfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1523,6 +1638,68 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationFsxWindowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DescribeLocationHdfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationHdfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLocationHdfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLocationHdfsResponse(data, context);
+  const response: DescribeLocationHdfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLocationHdfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLocationHdfsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2494,6 +2671,68 @@ const deserializeAws_json1_1UpdateAgentCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateLocationHdfsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationHdfsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateLocationHdfsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateLocationHdfsResponse(data, context);
+  const response: UpdateLocationHdfsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateLocationHdfsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLocationHdfsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.datasync#InternalException":
+      response = {
+        ...(await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.datasync#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateLocationNfsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2906,6 +3145,39 @@ const serializeAws_json1_1CreateLocationFsxWindowsRequest = (
   };
 };
 
+const serializeAws_json1_1CreateLocationHdfsRequest = (
+  input: CreateLocationHdfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AgentArns !== undefined &&
+      input.AgentArns !== null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
+    ...(input.AuthenticationType !== undefined &&
+      input.AuthenticationType !== null && { AuthenticationType: input.AuthenticationType }),
+    ...(input.BlockSize !== undefined && input.BlockSize !== null && { BlockSize: input.BlockSize }),
+    ...(input.KerberosKeytab !== undefined &&
+      input.KerberosKeytab !== null && { KerberosKeytab: context.base64Encoder(input.KerberosKeytab) }),
+    ...(input.KerberosKrb5Conf !== undefined &&
+      input.KerberosKrb5Conf !== null && { KerberosKrb5Conf: context.base64Encoder(input.KerberosKrb5Conf) }),
+    ...(input.KerberosPrincipal !== undefined &&
+      input.KerberosPrincipal !== null && { KerberosPrincipal: input.KerberosPrincipal }),
+    ...(input.KmsKeyProviderUri !== undefined &&
+      input.KmsKeyProviderUri !== null && { KmsKeyProviderUri: input.KmsKeyProviderUri }),
+    ...(input.NameNodes !== undefined &&
+      input.NameNodes !== null && { NameNodes: serializeAws_json1_1HdfsNameNodeList(input.NameNodes, context) }),
+    ...(input.QopConfiguration !== undefined &&
+      input.QopConfiguration !== null && {
+        QopConfiguration: serializeAws_json1_1QopConfiguration(input.QopConfiguration, context),
+      }),
+    ...(input.ReplicationFactor !== undefined &&
+      input.ReplicationFactor !== null && { ReplicationFactor: input.ReplicationFactor }),
+    ...(input.SimpleUser !== undefined && input.SimpleUser !== null && { SimpleUser: input.SimpleUser }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_json1_1InputTagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1CreateLocationNfsRequest = (
   input: CreateLocationNfsRequest,
   context: __SerdeContext
@@ -3047,6 +3319,15 @@ const serializeAws_json1_1DescribeLocationFsxWindowsRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeLocationHdfsRequest = (
+  input: DescribeLocationHdfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+  };
+};
+
 const serializeAws_json1_1DescribeLocationNfsRequest = (
   input: DescribeLocationNfsRequest,
   context: __SerdeContext
@@ -3146,6 +3427,24 @@ const serializeAws_json1_1FilterValues = (input: string[], context: __SerdeConte
         return null as any;
       }
       return entry;
+    });
+};
+
+const serializeAws_json1_1HdfsNameNode = (input: HdfsNameNode, context: __SerdeContext): any => {
+  return {
+    ...(input.Hostname !== undefined && input.Hostname !== null && { Hostname: input.Hostname }),
+    ...(input.Port !== undefined && input.Port !== null && { Port: input.Port }),
+  };
+};
+
+const serializeAws_json1_1HdfsNameNodeList = (input: HdfsNameNode[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_json1_1HdfsNameNode(entry, context);
     });
 };
 
@@ -3286,6 +3585,14 @@ const serializeAws_json1_1PLSubnetArnList = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_json1_1QopConfiguration = (input: QopConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.DataTransferProtection !== undefined &&
+      input.DataTransferProtection !== null && { DataTransferProtection: input.DataTransferProtection }),
+    ...(input.RpcProtection !== undefined && input.RpcProtection !== null && { RpcProtection: input.RpcProtection }),
+  };
+};
+
 const serializeAws_json1_1S3Config = (input: S3Config, context: __SerdeContext): any => {
   return {
     ...(input.BucketAccessRoleArn !== undefined &&
@@ -3381,6 +3688,38 @@ const serializeAws_json1_1UpdateAgentRequest = (input: UpdateAgentRequest, conte
   return {
     ...(input.AgentArn !== undefined && input.AgentArn !== null && { AgentArn: input.AgentArn }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  };
+};
+
+const serializeAws_json1_1UpdateLocationHdfsRequest = (
+  input: UpdateLocationHdfsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AgentArns !== undefined &&
+      input.AgentArns !== null && { AgentArns: serializeAws_json1_1AgentArnList(input.AgentArns, context) }),
+    ...(input.AuthenticationType !== undefined &&
+      input.AuthenticationType !== null && { AuthenticationType: input.AuthenticationType }),
+    ...(input.BlockSize !== undefined && input.BlockSize !== null && { BlockSize: input.BlockSize }),
+    ...(input.KerberosKeytab !== undefined &&
+      input.KerberosKeytab !== null && { KerberosKeytab: context.base64Encoder(input.KerberosKeytab) }),
+    ...(input.KerberosKrb5Conf !== undefined &&
+      input.KerberosKrb5Conf !== null && { KerberosKrb5Conf: context.base64Encoder(input.KerberosKrb5Conf) }),
+    ...(input.KerberosPrincipal !== undefined &&
+      input.KerberosPrincipal !== null && { KerberosPrincipal: input.KerberosPrincipal }),
+    ...(input.KmsKeyProviderUri !== undefined &&
+      input.KmsKeyProviderUri !== null && { KmsKeyProviderUri: input.KmsKeyProviderUri }),
+    ...(input.LocationArn !== undefined && input.LocationArn !== null && { LocationArn: input.LocationArn }),
+    ...(input.NameNodes !== undefined &&
+      input.NameNodes !== null && { NameNodes: serializeAws_json1_1HdfsNameNodeList(input.NameNodes, context) }),
+    ...(input.QopConfiguration !== undefined &&
+      input.QopConfiguration !== null && {
+        QopConfiguration: serializeAws_json1_1QopConfiguration(input.QopConfiguration, context),
+      }),
+    ...(input.ReplicationFactor !== undefined &&
+      input.ReplicationFactor !== null && { ReplicationFactor: input.ReplicationFactor }),
+    ...(input.SimpleUser !== undefined && input.SimpleUser !== null && { SimpleUser: input.SimpleUser }),
+    ...(input.Subdirectory !== undefined && input.Subdirectory !== null && { Subdirectory: input.Subdirectory }),
   };
 };
 
@@ -3526,6 +3865,15 @@ const deserializeAws_json1_1CreateLocationFsxWindowsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1CreateLocationHdfsResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLocationHdfsResponse => {
+  return {
+    LocationArn: __expectString(output.LocationArn),
+  } as any;
+};
+
 const deserializeAws_json1_1CreateLocationNfsResponse = (
   output: any,
   context: __SerdeContext
@@ -3636,6 +3984,38 @@ const deserializeAws_json1_1DescribeLocationFsxWindowsResponse = (
         ? deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context)
         : undefined,
     User: __expectString(output.User),
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLocationHdfsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLocationHdfsResponse => {
+  return {
+    AgentArns:
+      output.AgentArns !== undefined && output.AgentArns !== null
+        ? deserializeAws_json1_1AgentArnList(output.AgentArns, context)
+        : undefined,
+    AuthenticationType: __expectString(output.AuthenticationType),
+    BlockSize: __expectInt32(output.BlockSize),
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    KerberosPrincipal: __expectString(output.KerberosPrincipal),
+    KmsKeyProviderUri: __expectString(output.KmsKeyProviderUri),
+    LocationArn: __expectString(output.LocationArn),
+    LocationUri: __expectString(output.LocationUri),
+    NameNodes:
+      output.NameNodes !== undefined && output.NameNodes !== null
+        ? deserializeAws_json1_1HdfsNameNodeList(output.NameNodes, context)
+        : undefined,
+    QopConfiguration:
+      output.QopConfiguration !== undefined && output.QopConfiguration !== null
+        ? deserializeAws_json1_1QopConfiguration(output.QopConfiguration, context)
+        : undefined,
+    ReplicationFactor: __expectInt32(output.ReplicationFactor),
+    SimpleUser: __expectString(output.SimpleUser),
   } as any;
 };
 
@@ -3856,6 +4236,24 @@ const deserializeAws_json1_1FilterRule = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1HdfsNameNode = (output: any, context: __SerdeContext): HdfsNameNode => {
+  return {
+    Hostname: __expectString(output.Hostname),
+    Port: __expectInt32(output.Port),
+  } as any;
+};
+
+const deserializeAws_json1_1HdfsNameNodeList = (output: any, context: __SerdeContext): HdfsNameNode[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1HdfsNameNode(entry, context);
+    });
+};
+
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
     errorCode: __expectString(output.errorCode),
@@ -4029,6 +4427,13 @@ const deserializeAws_json1_1PrivateLinkConfig = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1QopConfiguration = (output: any, context: __SerdeContext): QopConfiguration => {
+  return {
+    DataTransferProtection: __expectString(output.DataTransferProtection),
+    RpcProtection: __expectString(output.RpcProtection),
+  } as any;
+};
+
 const deserializeAws_json1_1S3Config = (output: any, context: __SerdeContext): S3Config => {
   return {
     BucketAccessRoleArn: __expectString(output.BucketAccessRoleArn),
@@ -4137,6 +4542,13 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1UpdateAgentResponse = (output: any, context: __SerdeContext): UpdateAgentResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateLocationHdfsResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateLocationHdfsResponse => {
   return {} as any;
 };
 

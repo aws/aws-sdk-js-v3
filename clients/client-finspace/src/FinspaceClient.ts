@@ -231,8 +231,7 @@ type FinspaceClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHand
 export interface FinspaceClientResolvedConfig extends FinspaceClientResolvedConfigType {}
 
 /**
- * <p>The FinSpace management service provides the APIs for managing the FinSpace
- *            environments. </p>
+ * <p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
  */
 export class FinspaceClient extends __Client<
   __HttpHandlerOptions,

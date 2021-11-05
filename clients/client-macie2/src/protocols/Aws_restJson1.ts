@@ -280,6 +280,7 @@ import {
   SessionContextAttributes,
   SessionIssuer,
   Severity,
+  SeverityLevel,
   SimpleCriterionForJob,
   SimpleScopeTerm,
   SortCriteria,
@@ -430,6 +431,10 @@ export const serializeAws_restJson1CreateCustomDataIdentifierCommand = async (
       input.maximumMatchDistance !== null && { maximumMatchDistance: input.maximumMatchDistance }),
     ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.regex !== undefined && input.regex !== null && { regex: input.regex }),
+    ...(input.severityLevels !== undefined &&
+      input.severityLevels !== null && {
+        severityLevels: serializeAws_restJson1SeverityLevelList(input.severityLevels, context),
+      }),
     ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -4724,6 +4729,7 @@ export const deserializeAws_restJson1GetCustomDataIdentifierCommand = async (
     maximumMatchDistance: undefined,
     name: undefined,
     regex: undefined,
+    severityLevels: undefined,
     tags: undefined,
   };
   const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
@@ -4756,6 +4762,9 @@ export const deserializeAws_restJson1GetCustomDataIdentifierCommand = async (
   }
   if (data.regex !== undefined && data.regex !== null) {
     contents.regex = __expectString(data.regex);
+  }
+  if (data.severityLevels !== undefined && data.severityLevels !== null) {
+    contents.severityLevels = deserializeAws_restJson1SeverityLevelList(data.severityLevels, context);
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
@@ -8435,6 +8444,25 @@ const serializeAws_restJson1SecurityHubConfiguration = (
   };
 };
 
+const serializeAws_restJson1SeverityLevel = (input: SeverityLevel, context: __SerdeContext): any => {
+  return {
+    ...(input.occurrencesThreshold !== undefined &&
+      input.occurrencesThreshold !== null && { occurrencesThreshold: input.occurrencesThreshold }),
+    ...(input.severity !== undefined && input.severity !== null && { severity: input.severity }),
+  };
+};
+
+const serializeAws_restJson1SeverityLevelList = (input: SeverityLevel[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1SeverityLevel(entry, context);
+    });
+};
+
 const serializeAws_restJson1SimpleCriterionForJob = (input: SimpleCriterionForJob, context: __SerdeContext): any => {
   return {
     ...(input.comparator !== undefined && input.comparator !== null && { comparator: input.comparator }),
@@ -10011,6 +10039,24 @@ const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext):
     description: __expectString(output.description),
     score: __expectLong(output.score),
   } as any;
+};
+
+const deserializeAws_restJson1SeverityLevel = (output: any, context: __SerdeContext): SeverityLevel => {
+  return {
+    occurrencesThreshold: __expectLong(output.occurrencesThreshold),
+    severity: __expectString(output.severity),
+  } as any;
+};
+
+const deserializeAws_restJson1SeverityLevelList = (output: any, context: __SerdeContext): SeverityLevel[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SeverityLevel(entry, context);
+    });
 };
 
 const deserializeAws_restJson1SimpleCriterionForJob = (output: any, context: __SerdeContext): SimpleCriterionForJob => {

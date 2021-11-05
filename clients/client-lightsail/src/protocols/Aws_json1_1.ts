@@ -426,6 +426,7 @@ import {
   AvailabilityZone,
   Blueprint,
   Bucket,
+  BucketAccessLogConfig,
   BucketBundle,
   BucketState,
   Bundle,
@@ -639,7 +640,6 @@ import {
   InputOrigin,
   InstanceEntry,
   InstanceHardware,
-  InstanceNetworking,
   InstancePlatform,
   InstancePortInfo,
   InstanceSnapshotInfo,
@@ -734,6 +734,7 @@ import {
   Instance,
   InstanceAccessDetails,
   InstanceHealthSummary,
+  InstanceNetworking,
   InstancePortState,
   InstanceSnapshot,
   InstanceState,
@@ -17966,6 +17967,14 @@ const serializeAws_json1_1AutoSnapshotAddOnRequest = (
   };
 };
 
+const serializeAws_json1_1BucketAccessLogConfig = (input: BucketAccessLogConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.destination !== undefined && input.destination !== null && { destination: input.destination }),
+    ...(input.enabled !== undefined && input.enabled !== null && { enabled: input.enabled }),
+    ...(input.prefix !== undefined && input.prefix !== null && { prefix: input.prefix }),
+  };
+};
+
 const serializeAws_json1_1CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
   return {
     ...(input.behavior !== undefined && input.behavior !== null && { behavior: input.behavior }),
@@ -19914,6 +19923,10 @@ const serializeAws_json1_1UpdateBucketBundleRequest = (
 
 const serializeAws_json1_1UpdateBucketRequest = (input: UpdateBucketRequest, context: __SerdeContext): any => {
   return {
+    ...(input.accessLogConfig !== undefined &&
+      input.accessLogConfig !== null && {
+        accessLogConfig: serializeAws_json1_1BucketAccessLogConfig(input.accessLogConfig, context),
+      }),
     ...(input.accessRules !== undefined &&
       input.accessRules !== null && { accessRules: serializeAws_json1_1AccessRules(input.accessRules, context) }),
     ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
@@ -20347,6 +20360,10 @@ const deserializeAws_json1_1BlueprintList = (output: any, context: __SerdeContex
 const deserializeAws_json1_1Bucket = (output: any, context: __SerdeContext): Bucket => {
   return {
     ableToUpdateBundle: __expectBoolean(output.ableToUpdateBundle),
+    accessLogConfig:
+      output.accessLogConfig !== undefined && output.accessLogConfig !== null
+        ? deserializeAws_json1_1BucketAccessLogConfig(output.accessLogConfig, context)
+        : undefined,
     accessRules:
       output.accessRules !== undefined && output.accessRules !== null
         ? deserializeAws_json1_1AccessRules(output.accessRules, context)
@@ -20382,6 +20399,14 @@ const deserializeAws_json1_1Bucket = (output: any, context: __SerdeContext): Buc
         ? deserializeAws_json1_1TagList(output.tags, context)
         : undefined,
     url: __expectString(output.url),
+  } as any;
+};
+
+const deserializeAws_json1_1BucketAccessLogConfig = (output: any, context: __SerdeContext): BucketAccessLogConfig => {
+  return {
+    destination: __expectString(output.destination),
+    enabled: __expectBoolean(output.enabled),
+    prefix: __expectString(output.prefix),
   } as any;
 };
 

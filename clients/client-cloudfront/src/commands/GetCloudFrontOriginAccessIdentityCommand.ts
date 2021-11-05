@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/models_0";
+import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
   serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,

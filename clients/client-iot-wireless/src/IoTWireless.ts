@@ -6,6 +6,21 @@ import {
   AssociateAwsAccountWithPartnerAccountCommandOutput,
 } from "./commands/AssociateAwsAccountWithPartnerAccountCommand";
 import {
+  AssociateMulticastGroupWithFuotaTaskCommand,
+  AssociateMulticastGroupWithFuotaTaskCommandInput,
+  AssociateMulticastGroupWithFuotaTaskCommandOutput,
+} from "./commands/AssociateMulticastGroupWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithFuotaTaskCommand,
+  AssociateWirelessDeviceWithFuotaTaskCommandInput,
+  AssociateWirelessDeviceWithFuotaTaskCommandOutput,
+} from "./commands/AssociateWirelessDeviceWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithMulticastGroupCommand,
+  AssociateWirelessDeviceWithMulticastGroupCommandInput,
+  AssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "./commands/AssociateWirelessDeviceWithMulticastGroupCommand";
+import {
   AssociateWirelessDeviceWithThingCommand,
   AssociateWirelessDeviceWithThingCommandInput,
   AssociateWirelessDeviceWithThingCommandOutput,
@@ -21,6 +36,11 @@ import {
   AssociateWirelessGatewayWithThingCommandOutput,
 } from "./commands/AssociateWirelessGatewayWithThingCommand";
 import {
+  CancelMulticastGroupSessionCommand,
+  CancelMulticastGroupSessionCommandInput,
+  CancelMulticastGroupSessionCommandOutput,
+} from "./commands/CancelMulticastGroupSessionCommand";
+import {
   CreateDestinationCommand,
   CreateDestinationCommandInput,
   CreateDestinationCommandOutput,
@@ -30,6 +50,16 @@ import {
   CreateDeviceProfileCommandInput,
   CreateDeviceProfileCommandOutput,
 } from "./commands/CreateDeviceProfileCommand";
+import {
+  CreateFuotaTaskCommand,
+  CreateFuotaTaskCommandInput,
+  CreateFuotaTaskCommandOutput,
+} from "./commands/CreateFuotaTaskCommand";
+import {
+  CreateMulticastGroupCommand,
+  CreateMulticastGroupCommandInput,
+  CreateMulticastGroupCommandOutput,
+} from "./commands/CreateMulticastGroupCommand";
 import {
   CreateServiceProfileCommand,
   CreateServiceProfileCommandInput,
@@ -66,6 +96,16 @@ import {
   DeleteDeviceProfileCommandOutput,
 } from "./commands/DeleteDeviceProfileCommand";
 import {
+  DeleteFuotaTaskCommand,
+  DeleteFuotaTaskCommandInput,
+  DeleteFuotaTaskCommandOutput,
+} from "./commands/DeleteFuotaTaskCommand";
+import {
+  DeleteMulticastGroupCommand,
+  DeleteMulticastGroupCommandInput,
+  DeleteMulticastGroupCommandOutput,
+} from "./commands/DeleteMulticastGroupCommand";
+import {
   DeleteServiceProfileCommand,
   DeleteServiceProfileCommandInput,
   DeleteServiceProfileCommandOutput,
@@ -96,6 +136,21 @@ import {
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
 } from "./commands/DisassociateAwsAccountFromPartnerAccountCommand";
 import {
+  DisassociateMulticastGroupFromFuotaTaskCommand,
+  DisassociateMulticastGroupFromFuotaTaskCommandInput,
+  DisassociateMulticastGroupFromFuotaTaskCommandOutput,
+} from "./commands/DisassociateMulticastGroupFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromFuotaTaskCommand,
+  DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+  DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
+} from "./commands/DisassociateWirelessDeviceFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromMulticastGroupCommand,
+  DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "./commands/DisassociateWirelessDeviceFromMulticastGroupCommand";
+import {
   DisassociateWirelessDeviceFromThingCommand,
   DisassociateWirelessDeviceFromThingCommandInput,
   DisassociateWirelessDeviceFromThingCommandOutput,
@@ -121,15 +176,35 @@ import {
   GetDeviceProfileCommandOutput,
 } from "./commands/GetDeviceProfileCommand";
 import {
+  GetFuotaTaskCommand,
+  GetFuotaTaskCommandInput,
+  GetFuotaTaskCommandOutput,
+} from "./commands/GetFuotaTaskCommand";
+import {
   GetLogLevelsByResourceTypesCommand,
   GetLogLevelsByResourceTypesCommandInput,
   GetLogLevelsByResourceTypesCommandOutput,
 } from "./commands/GetLogLevelsByResourceTypesCommand";
 import {
+  GetMulticastGroupCommand,
+  GetMulticastGroupCommandInput,
+  GetMulticastGroupCommandOutput,
+} from "./commands/GetMulticastGroupCommand";
+import {
+  GetMulticastGroupSessionCommand,
+  GetMulticastGroupSessionCommandInput,
+  GetMulticastGroupSessionCommandOutput,
+} from "./commands/GetMulticastGroupSessionCommand";
+import {
   GetPartnerAccountCommand,
   GetPartnerAccountCommandInput,
   GetPartnerAccountCommandOutput,
 } from "./commands/GetPartnerAccountCommand";
+import {
+  GetResourceEventConfigurationCommand,
+  GetResourceEventConfigurationCommandInput,
+  GetResourceEventConfigurationCommandOutput,
+} from "./commands/GetResourceEventConfigurationCommand";
 import {
   GetResourceLogLevelCommand,
   GetResourceLogLevelCommandInput,
@@ -196,6 +271,21 @@ import {
   ListDeviceProfilesCommandOutput,
 } from "./commands/ListDeviceProfilesCommand";
 import {
+  ListFuotaTasksCommand,
+  ListFuotaTasksCommandInput,
+  ListFuotaTasksCommandOutput,
+} from "./commands/ListFuotaTasksCommand";
+import {
+  ListMulticastGroupsByFuotaTaskCommand,
+  ListMulticastGroupsByFuotaTaskCommandInput,
+  ListMulticastGroupsByFuotaTaskCommandOutput,
+} from "./commands/ListMulticastGroupsByFuotaTaskCommand";
+import {
+  ListMulticastGroupsCommand,
+  ListMulticastGroupsCommandInput,
+  ListMulticastGroupsCommandOutput,
+} from "./commands/ListMulticastGroupsCommand";
+import {
   ListPartnerAccountsCommand,
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
@@ -241,10 +331,35 @@ import {
   ResetResourceLogLevelCommandOutput,
 } from "./commands/ResetResourceLogLevelCommand";
 import {
+  SendDataToMulticastGroupCommand,
+  SendDataToMulticastGroupCommandInput,
+  SendDataToMulticastGroupCommandOutput,
+} from "./commands/SendDataToMulticastGroupCommand";
+import {
   SendDataToWirelessDeviceCommand,
   SendDataToWirelessDeviceCommandInput,
   SendDataToWirelessDeviceCommandOutput,
 } from "./commands/SendDataToWirelessDeviceCommand";
+import {
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "./commands/StartBulkAssociateWirelessDeviceWithMulticastGroupCommand";
+import {
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand,
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "./commands/StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand";
+import {
+  StartFuotaTaskCommand,
+  StartFuotaTaskCommandInput,
+  StartFuotaTaskCommandOutput,
+} from "./commands/StartFuotaTaskCommand";
+import {
+  StartMulticastGroupSessionCommand,
+  StartMulticastGroupSessionCommandInput,
+  StartMulticastGroupSessionCommandOutput,
+} from "./commands/StartMulticastGroupSessionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestWirelessDeviceCommand,
@@ -262,15 +377,30 @@ import {
   UpdateDestinationCommandOutput,
 } from "./commands/UpdateDestinationCommand";
 import {
+  UpdateFuotaTaskCommand,
+  UpdateFuotaTaskCommandInput,
+  UpdateFuotaTaskCommandOutput,
+} from "./commands/UpdateFuotaTaskCommand";
+import {
   UpdateLogLevelsByResourceTypesCommand,
   UpdateLogLevelsByResourceTypesCommandInput,
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMulticastGroupCommand,
+  UpdateMulticastGroupCommandInput,
+  UpdateMulticastGroupCommandOutput,
+} from "./commands/UpdateMulticastGroupCommand";
+import {
   UpdatePartnerAccountCommand,
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
+import {
+  UpdateResourceEventConfigurationCommand,
+  UpdateResourceEventConfigurationCommandInput,
+  UpdateResourceEventConfigurationCommandOutput,
+} from "./commands/UpdateResourceEventConfigurationCommand";
 import {
   UpdateWirelessDeviceCommand,
   UpdateWirelessDeviceCommandInput,
@@ -311,6 +441,104 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: AssociateAwsAccountWithPartnerAccountCommandOutput) => void
   ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> | void {
     const command = new AssociateAwsAccountWithPartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate a multicast group with a FUOTA task.</p>
+   */
+  public associateMulticastGroupWithFuotaTask(
+    args: AssociateMulticastGroupWithFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput>;
+  public associateMulticastGroupWithFuotaTask(
+    args: AssociateMulticastGroupWithFuotaTaskCommandInput,
+    cb: (err: any, data?: AssociateMulticastGroupWithFuotaTaskCommandOutput) => void
+  ): void;
+  public associateMulticastGroupWithFuotaTask(
+    args: AssociateMulticastGroupWithFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateMulticastGroupWithFuotaTaskCommandOutput) => void
+  ): void;
+  public associateMulticastGroupWithFuotaTask(
+    args: AssociateMulticastGroupWithFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateMulticastGroupWithFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: AssociateMulticastGroupWithFuotaTaskCommandOutput) => void
+  ): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> | void {
+    const command = new AssociateMulticastGroupWithFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associate a wireless device with a FUOTA task.</p>
+   */
+  public associateWirelessDeviceWithFuotaTask(
+    args: AssociateWirelessDeviceWithFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput>;
+  public associateWirelessDeviceWithFuotaTask(
+    args: AssociateWirelessDeviceWithFuotaTaskCommandInput,
+    cb: (err: any, data?: AssociateWirelessDeviceWithFuotaTaskCommandOutput) => void
+  ): void;
+  public associateWirelessDeviceWithFuotaTask(
+    args: AssociateWirelessDeviceWithFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateWirelessDeviceWithFuotaTaskCommandOutput) => void
+  ): void;
+  public associateWirelessDeviceWithFuotaTask(
+    args: AssociateWirelessDeviceWithFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateWirelessDeviceWithFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWirelessDeviceWithFuotaTaskCommandOutput) => void
+  ): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> | void {
+    const command = new AssociateWirelessDeviceWithFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a wireless device with a multicast group.</p>
+   */
+  public associateWirelessDeviceWithMulticastGroup(
+    args: AssociateWirelessDeviceWithMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput>;
+  public associateWirelessDeviceWithMulticastGroup(
+    args: AssociateWirelessDeviceWithMulticastGroupCommandInput,
+    cb: (err: any, data?: AssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): void;
+  public associateWirelessDeviceWithMulticastGroup(
+    args: AssociateWirelessDeviceWithMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): void;
+  public associateWirelessDeviceWithMulticastGroup(
+    args: AssociateWirelessDeviceWithMulticastGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateWirelessDeviceWithMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: AssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput> | void {
+    const command = new AssociateWirelessDeviceWithMulticastGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -420,6 +648,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Cancels an existing multicast group session.</p>
+   */
+  public cancelMulticastGroupSession(
+    args: CancelMulticastGroupSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelMulticastGroupSessionCommandOutput>;
+  public cancelMulticastGroupSession(
+    args: CancelMulticastGroupSessionCommandInput,
+    cb: (err: any, data?: CancelMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public cancelMulticastGroupSession(
+    args: CancelMulticastGroupSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public cancelMulticastGroupSession(
+    args: CancelMulticastGroupSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelMulticastGroupSessionCommandOutput) => void),
+    cb?: (err: any, data?: CancelMulticastGroupSessionCommandOutput) => void
+  ): Promise<CancelMulticastGroupSessionCommandOutput> | void {
+    const command = new CancelMulticastGroupSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a new destination that maps a device message to an AWS IoT rule.</p>
    */
   public createDestination(
@@ -473,6 +733,70 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: CreateDeviceProfileCommandOutput) => void
   ): Promise<CreateDeviceProfileCommandOutput> | void {
     const command = new CreateDeviceProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a FUOTA task.</p>
+   */
+  public createFuotaTask(
+    args: CreateFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateFuotaTaskCommandOutput>;
+  public createFuotaTask(
+    args: CreateFuotaTaskCommandInput,
+    cb: (err: any, data?: CreateFuotaTaskCommandOutput) => void
+  ): void;
+  public createFuotaTask(
+    args: CreateFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFuotaTaskCommandOutput) => void
+  ): void;
+  public createFuotaTask(
+    args: CreateFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: CreateFuotaTaskCommandOutput) => void
+  ): Promise<CreateFuotaTaskCommandOutput> | void {
+    const command = new CreateFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a multicast group.</p>
+   */
+  public createMulticastGroup(
+    args: CreateMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMulticastGroupCommandOutput>;
+  public createMulticastGroup(
+    args: CreateMulticastGroupCommandInput,
+    cb: (err: any, data?: CreateMulticastGroupCommandOutput) => void
+  ): void;
+  public createMulticastGroup(
+    args: CreateMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMulticastGroupCommandOutput) => void
+  ): void;
+  public createMulticastGroup(
+    args: CreateMulticastGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateMulticastGroupCommandOutput) => void
+  ): Promise<CreateMulticastGroupCommandOutput> | void {
+    const command = new CreateMulticastGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -708,6 +1032,70 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Deletes a FUOTA task.</p>
+   */
+  public deleteFuotaTask(
+    args: DeleteFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteFuotaTaskCommandOutput>;
+  public deleteFuotaTask(
+    args: DeleteFuotaTaskCommandInput,
+    cb: (err: any, data?: DeleteFuotaTaskCommandOutput) => void
+  ): void;
+  public deleteFuotaTask(
+    args: DeleteFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFuotaTaskCommandOutput) => void
+  ): void;
+  public deleteFuotaTask(
+    args: DeleteFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: DeleteFuotaTaskCommandOutput) => void
+  ): Promise<DeleteFuotaTaskCommandOutput> | void {
+    const command = new DeleteFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
+   */
+  public deleteMulticastGroup(
+    args: DeleteMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMulticastGroupCommandOutput>;
+  public deleteMulticastGroup(
+    args: DeleteMulticastGroupCommandInput,
+    cb: (err: any, data?: DeleteMulticastGroupCommandOutput) => void
+  ): void;
+  public deleteMulticastGroup(
+    args: DeleteMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMulticastGroupCommandOutput) => void
+  ): void;
+  public deleteMulticastGroup(
+    args: DeleteMulticastGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMulticastGroupCommandOutput) => void
+  ): Promise<DeleteMulticastGroupCommandOutput> | void {
+    const command = new DeleteMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a service profile.</p>
    */
   public deleteServiceProfile(
@@ -902,6 +1290,108 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Disassociates a multicast group from a fuota task.</p>
+   */
+  public disassociateMulticastGroupFromFuotaTask(
+    args: DisassociateMulticastGroupFromFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput>;
+  public disassociateMulticastGroupFromFuotaTask(
+    args: DisassociateMulticastGroupFromFuotaTaskCommandInput,
+    cb: (err: any, data?: DisassociateMulticastGroupFromFuotaTaskCommandOutput) => void
+  ): void;
+  public disassociateMulticastGroupFromFuotaTask(
+    args: DisassociateMulticastGroupFromFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateMulticastGroupFromFuotaTaskCommandOutput) => void
+  ): void;
+  public disassociateMulticastGroupFromFuotaTask(
+    args: DisassociateMulticastGroupFromFuotaTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateMulticastGroupFromFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateMulticastGroupFromFuotaTaskCommandOutput) => void
+  ): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> | void {
+    const command = new DisassociateMulticastGroupFromFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates a wireless device from a FUOTA task.</p>
+   */
+  public disassociateWirelessDeviceFromFuotaTask(
+    args: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput>;
+  public disassociateWirelessDeviceFromFuotaTask(
+    args: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+    cb: (err: any, data?: DisassociateWirelessDeviceFromFuotaTaskCommandOutput) => void
+  ): void;
+  public disassociateWirelessDeviceFromFuotaTask(
+    args: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateWirelessDeviceFromFuotaTaskCommandOutput) => void
+  ): void;
+  public disassociateWirelessDeviceFromFuotaTask(
+    args: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateWirelessDeviceFromFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWirelessDeviceFromFuotaTaskCommandOutput) => void
+  ): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> | void {
+    const command = new DisassociateWirelessDeviceFromFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates a wireless device from a multicast group.</p>
+   */
+  public disassociateWirelessDeviceFromMulticastGroup(
+    args: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput>;
+  public disassociateWirelessDeviceFromMulticastGroup(
+    args: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    cb: (err: any, data?: DisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): void;
+  public disassociateWirelessDeviceFromMulticastGroup(
+    args: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): void;
+  public disassociateWirelessDeviceFromMulticastGroup(
+    args: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> | void {
+    const command = new DisassociateWirelessDeviceFromMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates a wireless device from its currently associated thing.</p>
    */
   public disassociateWirelessDeviceFromThing(
@@ -1064,6 +1554,35 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Gets information about a FUOTA task.</p>
+   */
+  public getFuotaTask(
+    args: GetFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFuotaTaskCommandOutput>;
+  public getFuotaTask(args: GetFuotaTaskCommandInput, cb: (err: any, data?: GetFuotaTaskCommandOutput) => void): void;
+  public getFuotaTask(
+    args: GetFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFuotaTaskCommandOutput) => void
+  ): void;
+  public getFuotaTask(
+    args: GetFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: GetFuotaTaskCommandOutput) => void
+  ): Promise<GetFuotaTaskCommandOutput> | void {
+    const command = new GetFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns current default log levels or log levels by resource types. Based on resource types, log levels can be
    *             for wireless device log options or wireless gateway log options.</p>
    */
@@ -1097,6 +1616,70 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Gets information about a multicast group.</p>
+   */
+  public getMulticastGroup(
+    args: GetMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMulticastGroupCommandOutput>;
+  public getMulticastGroup(
+    args: GetMulticastGroupCommandInput,
+    cb: (err: any, data?: GetMulticastGroupCommandOutput) => void
+  ): void;
+  public getMulticastGroup(
+    args: GetMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMulticastGroupCommandOutput) => void
+  ): void;
+  public getMulticastGroup(
+    args: GetMulticastGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetMulticastGroupCommandOutput) => void
+  ): Promise<GetMulticastGroupCommandOutput> | void {
+    const command = new GetMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about a multicast group session.</p>
+   */
+  public getMulticastGroupSession(
+    args: GetMulticastGroupSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMulticastGroupSessionCommandOutput>;
+  public getMulticastGroupSession(
+    args: GetMulticastGroupSessionCommandInput,
+    cb: (err: any, data?: GetMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public getMulticastGroupSession(
+    args: GetMulticastGroupSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public getMulticastGroupSession(
+    args: GetMulticastGroupSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMulticastGroupSessionCommandOutput) => void),
+    cb?: (err: any, data?: GetMulticastGroupSessionCommandOutput) => void
+  ): Promise<GetMulticastGroupSessionCommandOutput> | void {
+    const command = new GetMulticastGroupSessionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a partner account. If <code>PartnerAccountId</code> and <code>PartnerType</code> are <code>null</code>, returns all partner accounts.</p>
    */
   public getPartnerAccount(
@@ -1118,6 +1701,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: GetPartnerAccountCommandOutput) => void
   ): Promise<GetPartnerAccountCommandOutput> | void {
     const command = new GetPartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the event configuration for a particular resource identifier.</p>
+   */
+  public getResourceEventConfiguration(
+    args: GetResourceEventConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceEventConfigurationCommandOutput>;
+  public getResourceEventConfiguration(
+    args: GetResourceEventConfigurationCommandInput,
+    cb: (err: any, data?: GetResourceEventConfigurationCommandOutput) => void
+  ): void;
+  public getResourceEventConfiguration(
+    args: GetResourceEventConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceEventConfigurationCommandOutput) => void
+  ): void;
+  public getResourceEventConfiguration(
+    args: GetResourceEventConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceEventConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceEventConfigurationCommandOutput) => void
+  ): Promise<GetResourceEventConfigurationCommandOutput> | void {
+    const command = new GetResourceEventConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1548,6 +2163,102 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Lists the FUOTA tasks registered to your AWS account.</p>
+   */
+  public listFuotaTasks(
+    args: ListFuotaTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFuotaTasksCommandOutput>;
+  public listFuotaTasks(
+    args: ListFuotaTasksCommandInput,
+    cb: (err: any, data?: ListFuotaTasksCommandOutput) => void
+  ): void;
+  public listFuotaTasks(
+    args: ListFuotaTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFuotaTasksCommandOutput) => void
+  ): void;
+  public listFuotaTasks(
+    args: ListFuotaTasksCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFuotaTasksCommandOutput) => void),
+    cb?: (err: any, data?: ListFuotaTasksCommandOutput) => void
+  ): Promise<ListFuotaTasksCommandOutput> | void {
+    const command = new ListFuotaTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the multicast groups registered to your AWS account.</p>
+   */
+  public listMulticastGroups(
+    args: ListMulticastGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMulticastGroupsCommandOutput>;
+  public listMulticastGroups(
+    args: ListMulticastGroupsCommandInput,
+    cb: (err: any, data?: ListMulticastGroupsCommandOutput) => void
+  ): void;
+  public listMulticastGroups(
+    args: ListMulticastGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMulticastGroupsCommandOutput) => void
+  ): void;
+  public listMulticastGroups(
+    args: ListMulticastGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMulticastGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListMulticastGroupsCommandOutput) => void
+  ): Promise<ListMulticastGroupsCommandOutput> | void {
+    const command = new ListMulticastGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all multicast groups associated with a fuota task.</p>
+   */
+  public listMulticastGroupsByFuotaTask(
+    args: ListMulticastGroupsByFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMulticastGroupsByFuotaTaskCommandOutput>;
+  public listMulticastGroupsByFuotaTask(
+    args: ListMulticastGroupsByFuotaTaskCommandInput,
+    cb: (err: any, data?: ListMulticastGroupsByFuotaTaskCommandOutput) => void
+  ): void;
+  public listMulticastGroupsByFuotaTask(
+    args: ListMulticastGroupsByFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMulticastGroupsByFuotaTaskCommandOutput) => void
+  ): void;
+  public listMulticastGroupsByFuotaTask(
+    args: ListMulticastGroupsByFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMulticastGroupsByFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: ListMulticastGroupsByFuotaTaskCommandOutput) => void
+  ): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> | void {
+    const command = new ListMulticastGroupsByFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the partner accounts associated with your AWS account.</p>
    */
   public listPartnerAccounts(
@@ -1838,6 +2549,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Sends the specified data to a multicast group.</p>
+   */
+  public sendDataToMulticastGroup(
+    args: SendDataToMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendDataToMulticastGroupCommandOutput>;
+  public sendDataToMulticastGroup(
+    args: SendDataToMulticastGroupCommandInput,
+    cb: (err: any, data?: SendDataToMulticastGroupCommandOutput) => void
+  ): void;
+  public sendDataToMulticastGroup(
+    args: SendDataToMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendDataToMulticastGroupCommandOutput) => void
+  ): void;
+  public sendDataToMulticastGroup(
+    args: SendDataToMulticastGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendDataToMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: SendDataToMulticastGroupCommandOutput) => void
+  ): Promise<SendDataToMulticastGroupCommandOutput> | void {
+    const command = new SendDataToMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Sends a decrypted application data frame to a device.</p>
    */
   public sendDataToWirelessDevice(
@@ -1859,6 +2602,138 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: SendDataToWirelessDeviceCommandOutput) => void
   ): Promise<SendDataToWirelessDeviceCommandOutput> | void {
     const command = new SendDataToWirelessDeviceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a bulk association of all qualifying wireless devices with a multicast group.</p>
+   */
+  public startBulkAssociateWirelessDeviceWithMulticastGroup(
+    args: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput>;
+  public startBulkAssociateWirelessDeviceWithMulticastGroup(
+    args: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+    cb: (err: any, data?: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): void;
+  public startBulkAssociateWirelessDeviceWithMulticastGroup(
+    args: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): void;
+  public startBulkAssociateWirelessDeviceWithMulticastGroup(
+    args: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput) => void
+  ): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput> | void {
+    const command = new StartBulkAssociateWirelessDeviceWithMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a bulk disassociatin of all qualifying wireless devices from a multicast group.</p>
+   */
+  public startBulkDisassociateWirelessDeviceFromMulticastGroup(
+    args: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput>;
+  public startBulkDisassociateWirelessDeviceFromMulticastGroup(
+    args: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    cb: (err: any, data?: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): void;
+  public startBulkDisassociateWirelessDeviceFromMulticastGroup(
+    args: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): void;
+  public startBulkDisassociateWirelessDeviceFromMulticastGroup(
+    args: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput) => void
+  ): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> | void {
+    const command = new StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a FUOTA task.</p>
+   */
+  public startFuotaTask(
+    args: StartFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFuotaTaskCommandOutput>;
+  public startFuotaTask(
+    args: StartFuotaTaskCommandInput,
+    cb: (err: any, data?: StartFuotaTaskCommandOutput) => void
+  ): void;
+  public startFuotaTask(
+    args: StartFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFuotaTaskCommandOutput) => void
+  ): void;
+  public startFuotaTask(
+    args: StartFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: StartFuotaTaskCommandOutput) => void
+  ): Promise<StartFuotaTaskCommandOutput> | void {
+    const command = new StartFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a multicast group session.</p>
+   */
+  public startMulticastGroupSession(
+    args: StartMulticastGroupSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMulticastGroupSessionCommandOutput>;
+  public startMulticastGroupSession(
+    args: StartMulticastGroupSessionCommandInput,
+    cb: (err: any, data?: StartMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public startMulticastGroupSession(
+    args: StartMulticastGroupSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMulticastGroupSessionCommandOutput) => void
+  ): void;
+  public startMulticastGroupSession(
+    args: StartMulticastGroupSessionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMulticastGroupSessionCommandOutput) => void),
+    cb?: (err: any, data?: StartMulticastGroupSessionCommandOutput) => void
+  ): Promise<StartMulticastGroupSessionCommandOutput> | void {
+    const command = new StartMulticastGroupSessionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1992,6 +2867,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Updates properties of a FUOTA task.</p>
+   */
+  public updateFuotaTask(
+    args: UpdateFuotaTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFuotaTaskCommandOutput>;
+  public updateFuotaTask(
+    args: UpdateFuotaTaskCommandInput,
+    cb: (err: any, data?: UpdateFuotaTaskCommandOutput) => void
+  ): void;
+  public updateFuotaTask(
+    args: UpdateFuotaTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFuotaTaskCommandOutput) => void
+  ): void;
+  public updateFuotaTask(
+    args: UpdateFuotaTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFuotaTaskCommandOutput) => void),
+    cb?: (err: any, data?: UpdateFuotaTaskCommandOutput) => void
+  ): Promise<UpdateFuotaTaskCommandOutput> | void {
+    const command = new UpdateFuotaTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Set default log level, or log levels by resource types. This can be for wireless device log options or
    *             wireless gateways log options and is used to control the log messages that'll be displayed in CloudWatch.</p>
    */
@@ -2025,6 +2932,38 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * <p>Updates properties of a multicast group session.</p>
+   */
+  public updateMulticastGroup(
+    args: UpdateMulticastGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMulticastGroupCommandOutput>;
+  public updateMulticastGroup(
+    args: UpdateMulticastGroupCommandInput,
+    cb: (err: any, data?: UpdateMulticastGroupCommandOutput) => void
+  ): void;
+  public updateMulticastGroup(
+    args: UpdateMulticastGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMulticastGroupCommandOutput) => void
+  ): void;
+  public updateMulticastGroup(
+    args: UpdateMulticastGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMulticastGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMulticastGroupCommandOutput) => void
+  ): Promise<UpdateMulticastGroupCommandOutput> | void {
+    const command = new UpdateMulticastGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates properties of a partner account.</p>
    */
   public updatePartnerAccount(
@@ -2046,6 +2985,38 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdatePartnerAccountCommandOutput) => void
   ): Promise<UpdatePartnerAccountCommandOutput> | void {
     const command = new UpdatePartnerAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the event configuration for a particular resource identifier.</p>
+   */
+  public updateResourceEventConfiguration(
+    args: UpdateResourceEventConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceEventConfigurationCommandOutput>;
+  public updateResourceEventConfiguration(
+    args: UpdateResourceEventConfigurationCommandInput,
+    cb: (err: any, data?: UpdateResourceEventConfigurationCommandOutput) => void
+  ): void;
+  public updateResourceEventConfiguration(
+    args: UpdateResourceEventConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceEventConfigurationCommandOutput) => void
+  ): void;
+  public updateResourceEventConfiguration(
+    args: UpdateResourceEventConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourceEventConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourceEventConfigurationCommandOutput) => void
+  ): Promise<UpdateResourceEventConfigurationCommandOutput> | void {
+    const command = new UpdateResourceEventConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

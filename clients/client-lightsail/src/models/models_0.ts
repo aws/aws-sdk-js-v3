@@ -1508,6 +1508,52 @@ export namespace Blueprint {
 }
 
 /**
+ * <p>Describes the access log configuration for a bucket in the Amazon Lightsail object storage
+ *       service.</p>
+ *          <p>For more information about bucket access logs, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-bucket-access-logs">Logging bucket requests using access logging in Amazon Lightsail</a> in the
+ *         <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface BucketAccessLogConfig {
+  /**
+   * <p>A Boolean value that indicates whether bucket access logging is enabled for the
+   *       bucket.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the bucket where the access is saved. The destination can be a Lightsail
+   *       bucket in the same account, and in the same AWS Region as the source bucket.</p>
+   *          <note>
+   *             <p>This parameter is required when enabling the access log for a bucket, and should be
+   *         omitted when disabling the access log.</p>
+   *          </note>
+   */
+  destination?: string;
+
+  /**
+   * <p>The optional object prefix for the bucket access log.</p>
+   *          <p>The prefix is an optional addition to the object key that organizes your access log files
+   *       in the destination bucket. For example, if you specify a <code>logs/</code> prefix, then each
+   *       log object will begin with the <code>logs/</code> prefix in its key (for example,
+   *         <code>logs/2021-11-01-21-32-16-E568B2907131C0C0</code>).</p>
+   *          <note>
+   *             <p>This parameter can be optionally specified when enabling the access log for a bucket,
+   *         and should be omitted when disabling the access log.</p>
+   *          </note>
+   */
+  prefix?: string;
+}
+
+export namespace BucketAccessLogConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: BucketAccessLogConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Describes the state of an Amazon Lightsail bucket.</p>
  */
 export interface BucketState {
@@ -1689,6 +1735,11 @@ export interface Bucket {
    * <p>An object that describes the state of the bucket.</p>
    */
   state?: BucketState;
+
+  /**
+   * <p>An object that describes the access log configuration for the bucket.</p>
+   */
+  accessLogConfig?: BucketAccessLogConfig;
 }
 
 export namespace Bucket {
@@ -3020,10 +3071,17 @@ export interface Container {
    * <p>The name of the image used for the container.</p>
    *
    *          <p>Container images sourced from your Lightsail container service, that are registered and
-   *       stored on your service, start with a colon (<code>:</code>). For example,
-   *         <code>:container-service-1.mystaticwebsite.1</code>. Container images sourced from a public
-   *       registry like Docker Hub don't start with a colon. For example, <code>nginx:latest</code> or
-   *         <code>nginx</code>.</p>
+   *       stored on your service, start with a colon (<code>:</code>). For example, if your container
+   *       service name is <code>container-service-1</code>, the container image label is
+   *       <code>mystaticsite</code>, and you want to use the third (<code>3</code>) version of the
+   *       registered container image, then you should specify
+   *       <code>:container-service-1.mystaticsite.3</code>. To use the latest version of a container
+   *       image, specify <code>latest</code> instead of a version number (for example,
+   *       <code>:container-service-1.mystaticsite.latest</code>). Lightsail will automatically use
+   *       the highest numbered version of the registered container image.</p>
+   *
+   *          <p>Container images sourced from a public registry like Docker Hub don't start with a colon.
+   *       For example, <code>nginx:latest</code> or <code>nginx</code>.</p>
    */
   image?: string;
 
@@ -4261,7 +4319,7 @@ export interface CreateContainerServiceRequest {
   scale: number | undefined;
 
   /**
-   * <p>The tag keys and optional values to add to the certificate during create.</p>
+   * <p>The tag keys and optional values to add to the container service during create.</p>
    *          <p>Use the <code>TagResource</code> action to tag a resource after it's created.</p>
    *          <p>For more information about tags in Lightsail, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags">Amazon Lightsail Developer Guide</a>.</p>
    */
@@ -9643,30 +9701,6 @@ export namespace InstancePortInfo {
    * @internal
    */
   export const filterSensitiveLog = (obj: InstancePortInfo): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes monthly data transfer rates and port information for an instance.</p>
- */
-export interface InstanceNetworking {
-  /**
-   * <p>The amount of data in GB allocated for monthly data transfers.</p>
-   */
-  monthlyTransfer?: MonthlyTransfer;
-
-  /**
-   * <p>An array of key-value pairs containing information about the ports on the instance.</p>
-   */
-  ports?: InstancePortInfo[];
-}
-
-export namespace InstanceNetworking {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: InstanceNetworking): any => ({
     ...obj,
   });
 }

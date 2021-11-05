@@ -58,6 +58,10 @@ import {
   CreateRealtimeLogConfigCommandOutput,
 } from "../commands/CreateRealtimeLogConfigCommand";
 import {
+  CreateResponseHeadersPolicyCommandInput,
+  CreateResponseHeadersPolicyCommandOutput,
+} from "../commands/CreateResponseHeadersPolicyCommand";
+import {
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput,
 } from "../commands/CreateStreamingDistributionCommand";
@@ -94,6 +98,10 @@ import {
   DeleteRealtimeLogConfigCommandInput,
   DeleteRealtimeLogConfigCommandOutput,
 } from "../commands/DeleteRealtimeLogConfigCommand";
+import {
+  DeleteResponseHeadersPolicyCommandInput,
+  DeleteResponseHeadersPolicyCommandOutput,
+} from "../commands/DeleteResponseHeadersPolicyCommand";
 import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
@@ -156,6 +164,14 @@ import {
   GetRealtimeLogConfigCommandOutput,
 } from "../commands/GetRealtimeLogConfigCommand";
 import {
+  GetResponseHeadersPolicyCommandInput,
+  GetResponseHeadersPolicyCommandOutput,
+} from "../commands/GetResponseHeadersPolicyCommand";
+import {
+  GetResponseHeadersPolicyConfigCommandInput,
+  GetResponseHeadersPolicyConfigCommandOutput,
+} from "../commands/GetResponseHeadersPolicyConfigCommand";
+import {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
 } from "../commands/GetStreamingDistributionCommand";
@@ -189,6 +205,10 @@ import {
   ListDistributionsByRealtimeLogConfigCommandOutput,
 } from "../commands/ListDistributionsByRealtimeLogConfigCommand";
 import {
+  ListDistributionsByResponseHeadersPolicyIdCommandInput,
+  ListDistributionsByResponseHeadersPolicyIdCommandOutput,
+} from "../commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
 } from "../commands/ListDistributionsByWebACLIdCommand";
@@ -213,6 +233,10 @@ import {
   ListRealtimeLogConfigsCommandInput,
   ListRealtimeLogConfigsCommandOutput,
 } from "../commands/ListRealtimeLogConfigsCommand";
+import {
+  ListResponseHeadersPoliciesCommandInput,
+  ListResponseHeadersPoliciesCommandOutput,
+} from "../commands/ListResponseHeadersPoliciesCommand";
 import {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
@@ -250,6 +274,10 @@ import {
   UpdateRealtimeLogConfigCommandInput,
   UpdateRealtimeLogConfigCommandOutput,
 } from "../commands/UpdateRealtimeLogConfigCommand";
+import {
+  UpdateResponseHeadersPolicyCommandInput,
+  UpdateResponseHeadersPolicyCommandOutput,
+} from "../commands/UpdateResponseHeadersPolicyCommand";
 import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
@@ -372,7 +400,7 @@ import {
   NoSuchPublicKey,
   NoSuchRealtimeLogConfig,
   NoSuchResource,
-  NoSuchStreamingDistribution,
+  NoSuchResponseHeadersPolicy,
   Origin,
   OriginCustomHeader,
   OriginGroup,
@@ -385,7 +413,6 @@ import {
   OriginRequestPolicyConfig,
   OriginRequestPolicyCookiesConfig,
   OriginRequestPolicyHeadersConfig,
-  OriginRequestPolicyInUse,
   OriginRequestPolicyQueryStringsConfig,
   Origins,
   OriginShield,
@@ -396,7 +423,6 @@ import {
   PublicKey,
   PublicKeyAlreadyExists,
   PublicKeyConfig,
-  PublicKeyInUse,
   QueryArgProfile,
   QueryArgProfileConfig,
   QueryArgProfileEmpty,
@@ -405,10 +431,27 @@ import {
   QueryStringNames,
   RealtimeLogConfig,
   RealtimeLogConfigAlreadyExists,
-  RealtimeLogConfigInUse,
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
   ResourceInUse,
+  ResponseHeadersPolicy,
+  ResponseHeadersPolicyAccessControlAllowHeaders,
+  ResponseHeadersPolicyAccessControlAllowMethods,
+  ResponseHeadersPolicyAccessControlAllowMethodsValues,
+  ResponseHeadersPolicyAccessControlAllowOrigins,
+  ResponseHeadersPolicyAccessControlExposeHeaders,
+  ResponseHeadersPolicyAlreadyExists,
+  ResponseHeadersPolicyConfig,
+  ResponseHeadersPolicyContentSecurityPolicy,
+  ResponseHeadersPolicyContentTypeOptions,
+  ResponseHeadersPolicyCorsConfig,
+  ResponseHeadersPolicyCustomHeader,
+  ResponseHeadersPolicyCustomHeadersConfig,
+  ResponseHeadersPolicyFrameOptions,
+  ResponseHeadersPolicyReferrerPolicy,
+  ResponseHeadersPolicySecurityHeadersConfig,
+  ResponseHeadersPolicyStrictTransportSecurity,
+  ResponseHeadersPolicyXSSProtection,
   Restrictions,
   S3Origin,
   S3OriginConfig,
@@ -419,7 +462,6 @@ import {
   StreamingDistributionAlreadyExists,
   StreamingDistributionConfig,
   StreamingDistributionConfigWithTags,
-  StreamingDistributionNotDisabled,
   StreamingLoggingConfig,
   Tag,
   Tags,
@@ -430,12 +472,14 @@ import {
   TooManyCookieNamesInWhiteList,
   TooManyCookiesInCachePolicy,
   TooManyCookiesInOriginRequestPolicy,
+  TooManyCustomHeadersInResponseHeadersPolicy,
   TooManyDistributionCNAMEs,
   TooManyDistributions,
   TooManyDistributionsAssociatedToCachePolicy,
   TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
   TooManyDistributionsAssociatedToKeyGroup,
   TooManyDistributionsAssociatedToOriginRequestPolicy,
+  TooManyDistributionsAssociatedToResponseHeadersPolicy,
   TooManyDistributionsWithFunctionAssociations,
   TooManyDistributionsWithLambdaAssociations,
   TooManyDistributionsWithSingleFunctionARN,
@@ -464,6 +508,7 @@ import {
   TooManyQueryStringsInCachePolicy,
   TooManyQueryStringsInOriginRequestPolicy,
   TooManyRealtimeLogConfigs,
+  TooManyResponseHeadersPolicies,
   TooManyStreamingDistributionCNAMEs,
   TooManyStreamingDistributions,
   TooManyTrustedSigners,
@@ -492,12 +537,20 @@ import {
   KeyGroupList,
   KeyGroupSummary,
   NoSuchInvalidation,
+  NoSuchStreamingDistribution,
+  OriginRequestPolicyInUse,
   OriginRequestPolicyList,
   OriginRequestPolicySummary,
+  PublicKeyInUse,
   PublicKeyList,
   PublicKeySummary,
+  RealtimeLogConfigInUse,
   RealtimeLogConfigs,
+  ResponseHeadersPolicyInUse,
+  ResponseHeadersPolicyList,
+  ResponseHeadersPolicySummary,
   StreamingDistributionList,
+  StreamingDistributionNotDisabled,
   StreamingDistributionSummary,
   TagKeys,
   TestFunctionFailed,
@@ -1009,6 +1062,38 @@ export const serializeAws_restXmlCreateRealtimeLogConfigCommand = async (
   });
 };
 
+export const serializeAws_restXmlCreateResponseHeadersPolicyCommand = async (
+  input: CreateResponseHeadersPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
+  let body: any;
+  if (input.ResponseHeadersPolicyConfig !== undefined) {
+    body = serializeAws_restXmlResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
+  }
+  let contents: any;
+  if (input.ResponseHeadersPolicyConfig !== undefined) {
+    contents = serializeAws_restXmlResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlCreateStreamingDistributionCommand = async (
   input: CreateStreamingDistributionCommandInput,
   context: __SerdeContext
@@ -1419,6 +1504,37 @@ export const serializeAws_restXmlDeleteRealtimeLogConfigCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlDeleteResponseHeadersPolicyCommand = async (
+  input: DeleteResponseHeadersPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
     headers,
     path: resolvedPath,
     body,
@@ -2095,6 +2211,65 @@ export const serializeAws_restXmlGetRealtimeLogConfigCommand = async (
   });
 };
 
+export const serializeAws_restXmlGetResponseHeadersPolicyCommand = async (
+  input: GetResponseHeadersPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetResponseHeadersPolicyConfigCommand = async (
+  input: GetResponseHeadersPolicyConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/response-headers-policy/{Id}/config";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlGetStreamingDistributionCommand = async (
   input: GetStreamingDistributionCommandInput,
   context: __SerdeContext
@@ -2410,6 +2585,41 @@ export const serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand = a
   });
 };
 
+export const serializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand = async (
+  input: ListDistributionsByResponseHeadersPolicyIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}";
+  if (input.ResponseHeadersPolicyId !== undefined) {
+    const labelValue: string = input.ResponseHeadersPolicyId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ResponseHeadersPolicyId.");
+    }
+    resolvedPath = resolvedPath.replace("{ResponseHeadersPolicyId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ResponseHeadersPolicyId.");
+  }
+  const query: any = {
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   input: ListDistributionsByWebACLIdCommandInput,
   context: __SerdeContext
@@ -2641,6 +2851,32 @@ export const serializeAws_restXmlListRealtimeLogConfigsCommand = async (
   const query: any = {
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListResponseHeadersPoliciesCommand = async (
+  input: ListResponseHeadersPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy";
+  const query: any = {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
   return new __HttpRequest({
@@ -3297,6 +3533,48 @@ export const serializeAws_restXmlUpdateRealtimeLogConfigCommand = async (
   });
 };
 
+export const serializeAws_restXmlUpdateResponseHeadersPolicyCommand = async (
+  input: UpdateResponseHeadersPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+    ...(isSerializableHeaderValue(input.IfMatch) && { "if-match": input.IfMatch! }),
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/response-headers-policy/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  if (input.ResponseHeadersPolicyConfig !== undefined) {
+    body = serializeAws_restXmlResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
+  }
+  let contents: any;
+  if (input.ResponseHeadersPolicyConfig !== undefined) {
+    contents = serializeAws_restXmlResponseHeadersPolicyConfig(input.ResponseHeadersPolicyConfig, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlUpdateStreamingDistributionCommand = async (
   input: UpdateStreamingDistributionCommandInput,
   context: __SerdeContext
@@ -3936,6 +4214,14 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "RealtimeLogConfigOwnerMismatch":
     case "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch":
       response = {
@@ -4015,6 +4301,17 @@ const deserializeAws_restXmlCreateDistributionCommandError = async (
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyDistributionsAssociatedToResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolicyResponse(
           parsedOutput,
           context
         )),
@@ -4462,6 +4759,14 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "RealtimeLogConfigOwnerMismatch":
     case "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch":
       response = {
@@ -4541,6 +4846,17 @@ const deserializeAws_restXmlCreateDistributionWithTagsCommandError = async (
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyDistributionsAssociatedToResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolicyResponse(
           parsedOutput,
           context
         )),
@@ -5515,6 +5831,107 @@ const deserializeAws_restXmlCreateRealtimeLogConfigCommandError = async (
     case "com.amazonaws.cloudfront#TooManyRealtimeLogConfigs":
       response = {
         ...(await deserializeAws_restXmlTooManyRealtimeLogConfigsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlCreateResponseHeadersPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResponseHeadersPolicyCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCreateResponseHeadersPolicyCommandError(output, context);
+  }
+  const contents: CreateResponseHeadersPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ETag: undefined,
+    Location: undefined,
+    ResponseHeadersPolicy: undefined,
+  };
+  if (output.headers["location"] !== undefined) {
+    contents.Location = output.headers["location"];
+  }
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlCreateResponseHeadersPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResponseHeadersPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResponseHeadersPolicyAlreadyExists":
+    case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
+      response = {
+        ...(await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyCustomHeadersInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyResponseHeadersPolicies":
+    case "com.amazonaws.cloudfront#TooManyResponseHeadersPolicies":
+      response = {
+        ...(await deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -6718,6 +7135,97 @@ const deserializeAws_restXmlDeleteRealtimeLogConfigCommandError = async (
     case "com.amazonaws.cloudfront#RealtimeLogConfigInUse":
       response = {
         ...(await deserializeAws_restXmlRealtimeLogConfigInUseResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlDeleteResponseHeadersPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResponseHeadersPolicyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError(output, context);
+  }
+  const contents: DeleteResponseHeadersPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlDeleteResponseHeadersPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResponseHeadersPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalDelete":
+    case "com.amazonaws.cloudfront#IllegalDelete":
+      response = {
+        ...(await deserializeAws_restXmlIllegalDeleteResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResponseHeadersPolicyInUse":
+    case "com.amazonaws.cloudfront#ResponseHeadersPolicyInUse":
+      response = {
+        ...(await deserializeAws_restXmlResponseHeadersPolicyInUseResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -8192,6 +8700,136 @@ const deserializeAws_restXmlGetRealtimeLogConfigCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlGetResponseHeadersPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResponseHeadersPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetResponseHeadersPolicyCommandError(output, context);
+  }
+  const contents: GetResponseHeadersPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ETag: undefined,
+    ResponseHeadersPolicy: undefined,
+  };
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetResponseHeadersPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResponseHeadersPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResponseHeadersPolicyConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError(output, context);
+  }
+  const contents: GetResponseHeadersPolicyConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ETag: undefined,
+    ResponseHeadersPolicyConfig: undefined,
+  };
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ResponseHeadersPolicyConfig = deserializeAws_restXmlResponseHeadersPolicyConfig(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlGetResponseHeadersPolicyConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResponseHeadersPolicyConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlGetStreamingDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8810,6 +9448,75 @@ const deserializeAws_restXmlListDistributionsByRealtimeLogConfigCommandError = a
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandError(output, context);
+  }
+  const contents: ListDistributionsByResponseHeadersPolicyIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    DistributionIdList: undefined,
+  };
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionIdList = deserializeAws_restXmlDistributionIdList(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListDistributionsByResponseHeadersPolicyIdCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9330,6 +10037,75 @@ const deserializeAws_restXmlListRealtimeLogConfigsCommandError = async (
     case "com.amazonaws.cloudfront#NoSuchRealtimeLogConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlListResponseHeadersPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResponseHeadersPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListResponseHeadersPoliciesCommandError(output, context);
+  }
+  const contents: ListResponseHeadersPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ResponseHeadersPolicyList: undefined,
+  };
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ResponseHeadersPolicyList = deserializeAws_restXmlResponseHeadersPolicyList(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlListResponseHeadersPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResponseHeadersPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10350,6 +11126,14 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "PreconditionFailed":
     case "com.amazonaws.cloudfront#PreconditionFailed":
       response = {
@@ -10429,6 +11213,17 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
     case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
       response = {
         ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyResponse(
+          parsedOutput,
+          context
+        )),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyDistributionsAssociatedToResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolicyResponse(
           parsedOutput,
           context
         )),
@@ -11333,6 +12128,127 @@ const deserializeAws_restXmlUpdateRealtimeLogConfigCommandError = async (
     case "com.amazonaws.cloudfront#NoSuchRealtimeLogConfig":
       response = {
         ...(await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restXmlUpdateResponseHeadersPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResponseHeadersPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError(output, context);
+  }
+  const contents: UpdateResponseHeadersPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ETag: undefined,
+    ResponseHeadersPolicy: undefined,
+  };
+  if (output.headers["etag"] !== undefined) {
+    contents.ETag = output.headers["etag"];
+  }
+  const data: { [key: string]: any } | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(data, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restXmlUpdateResponseHeadersPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResponseHeadersPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      response = {
+        ...(await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "IllegalUpdate":
+    case "com.amazonaws.cloudfront#IllegalUpdate":
+      response = {
+        ...(await deserializeAws_restXmlIllegalUpdateResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
+      response = {
+        ...(await deserializeAws_restXmlInconsistentQuantitiesResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      response = {
+        ...(await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      response = {
+        ...(await deserializeAws_restXmlInvalidIfMatchVersionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      response = {
+        ...(await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResponseHeadersPolicyAlreadyExists":
+    case "com.amazonaws.cloudfront#ResponseHeadersPolicyAlreadyExists":
+      response = {
+        ...(await deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyCustomHeadersInResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyCustomHeadersInResponseHeadersPolicy":
+      response = {
+        ...(await deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -12527,6 +13443,23 @@ const deserializeAws_restXmlNoSuchResourceResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NoSuchResponseHeadersPolicy> => {
+  const contents: NoSuchResponseHeadersPolicy = {
+    name: "NoSuchResponseHeadersPolicy",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlNoSuchStreamingDistributionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12714,6 +13647,40 @@ const deserializeAws_restXmlResourceInUseResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlResponseHeadersPolicyAlreadyExistsResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResponseHeadersPolicyAlreadyExists> => {
+  const contents: ResponseHeadersPolicyAlreadyExists = {
+    name: "ResponseHeadersPolicyAlreadyExists",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyInUseResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResponseHeadersPolicyInUse> => {
+  const contents: ResponseHeadersPolicyInUse = {
+    name: "ResponseHeadersPolicyInUse",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12884,6 +13851,23 @@ const deserializeAws_restXmlTooManyCookiesInOriginRequestPolicyResponse = async 
   return contents;
 };
 
+const deserializeAws_restXmlTooManyCustomHeadersInResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyCustomHeadersInResponseHeadersPolicy> => {
+  const contents: TooManyCustomHeadersInResponseHeadersPolicy = {
+    name: "TooManyCustomHeadersInResponseHeadersPolicy",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlTooManyDistributionCNAMEsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -12975,6 +13959,23 @@ const deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyR
 ): Promise<TooManyDistributionsAssociatedToOriginRequestPolicy> => {
   const contents: TooManyDistributionsAssociatedToOriginRequestPolicy = {
     name: "TooManyDistributionsAssociatedToOriginRequestPolicy",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolicyResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyDistributionsAssociatedToResponseHeadersPolicy> => {
+  const contents: TooManyDistributionsAssociatedToResponseHeadersPolicy = {
+    name: "TooManyDistributionsAssociatedToResponseHeadersPolicy",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     Message: undefined,
@@ -13462,6 +14463,23 @@ const deserializeAws_restXmlTooManyRealtimeLogConfigsResponse = async (
   return contents;
 };
 
+const deserializeAws_restXmlTooManyResponseHeadersPoliciesResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyResponseHeadersPolicies> => {
+  const contents: TooManyResponseHeadersPolicies = {
+    name: "TooManyResponseHeadersPolicies",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    Message: undefined,
+  };
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlTooManyStreamingDistributionCNAMEsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13562,6 +14580,59 @@ const deserializeAws_restXmlUnsupportedOperationResponse = async (
     contents.Message = __expectString(data["Message"]);
   }
   return contents;
+};
+
+const serializeAws_restXmlAccessControlAllowHeadersList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Header");
+    });
+};
+
+const serializeAws_restXmlAccessControlAllowMethodsList = (
+  input: (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("ResponseHeadersPolicyAccessControlAllowMethodsValues").addChildNode(
+        new __XmlText(entry)
+      );
+      return node.withName("Method");
+    });
+};
+
+const serializeAws_restXmlAccessControlAllowOriginsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Origin");
+    });
+};
+
+const serializeAws_restXmlAccessControlExposeHeadersList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = new __XmlNode("string").addChildNode(new __XmlText(entry));
+      return node.withName("Header");
+    });
 };
 
 const serializeAws_restXmlAliases = (input: Aliases, context: __SerdeContext): any => {
@@ -13696,6 +14767,12 @@ const serializeAws_restXmlCacheBehavior = (input: CacheBehavior, context: __Serd
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginRequestPolicyId))
       .withName("OriginRequestPolicyId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ResponseHeadersPolicyId !== undefined && input.ResponseHeadersPolicyId !== null) {
+    const node = new __XmlNode("string")
+      .addChildNode(new __XmlText(input.ResponseHeadersPolicyId))
+      .withName("ResponseHeadersPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ForwardedValues !== undefined && input.ForwardedValues !== null) {
@@ -14150,6 +15227,12 @@ const serializeAws_restXmlDefaultCacheBehavior = (input: DefaultCacheBehavior, c
     const node = new __XmlNode("string")
       .addChildNode(new __XmlText(input.OriginRequestPolicyId))
       .withName("OriginRequestPolicyId");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ResponseHeadersPolicyId !== undefined && input.ResponseHeadersPolicyId !== null) {
+    const node = new __XmlNode("string")
+      .addChildNode(new __XmlText(input.ResponseHeadersPolicyId))
+      .withName("ResponseHeadersPolicyId");
     bodyNode.addChildNode(node);
   }
   if (input.ForwardedValues !== undefined && input.ForwardedValues !== null) {
@@ -14789,7 +15872,9 @@ const serializeAws_restXmlOriginCustomHeader = (input: OriginCustomHeader, conte
     bodyNode.addChildNode(node);
   }
   if (input.HeaderValue !== undefined && input.HeaderValue !== null) {
-    const node = new __XmlNode("string").addChildNode(new __XmlText(input.HeaderValue)).withName("HeaderValue");
+    const node = new __XmlNode("sensitiveStringType")
+      .addChildNode(new __XmlText(input.HeaderValue))
+      .withName("HeaderValue");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -15279,6 +16364,394 @@ const serializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
   return bodyNode;
 };
 
+const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders = (
+  input: ResponseHeadersPolicyAccessControlAllowHeaders,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowHeaders");
+  if (input.Quantity !== undefined && input.Quantity !== null) {
+    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items !== undefined && input.Items !== null) {
+    const nodes = serializeAws_restXmlAccessControlAllowHeadersList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods = (
+  input: ResponseHeadersPolicyAccessControlAllowMethods,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowMethods");
+  if (input.Quantity !== undefined && input.Quantity !== null) {
+    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items !== undefined && input.Items !== null) {
+    const nodes = serializeAws_restXmlAccessControlAllowMethodsList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins = (
+  input: ResponseHeadersPolicyAccessControlAllowOrigins,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlAllowOrigins");
+  if (input.Quantity !== undefined && input.Quantity !== null) {
+    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items !== undefined && input.Items !== null) {
+    const nodes = serializeAws_restXmlAccessControlAllowOriginsList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders = (
+  input: ResponseHeadersPolicyAccessControlExposeHeaders,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyAccessControlExposeHeaders");
+  if (input.Quantity !== undefined && input.Quantity !== null) {
+    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items !== undefined && input.Items !== null) {
+    const nodes = serializeAws_restXmlAccessControlExposeHeadersList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyConfig = (
+  input: ResponseHeadersPolicyConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyConfig");
+  if (input.Comment !== undefined && input.Comment !== null) {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Comment)).withName("Comment");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Name !== undefined && input.Name !== null) {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Name)).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CorsConfig !== undefined && input.CorsConfig !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyCorsConfig(input.CorsConfig, context).withName("CorsConfig");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SecurityHeadersConfig !== undefined && input.SecurityHeadersConfig !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig(
+      input.SecurityHeadersConfig,
+      context
+    ).withName("SecurityHeadersConfig");
+    bodyNode.addChildNode(node);
+  }
+  if (input.CustomHeadersConfig !== undefined && input.CustomHeadersConfig !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig(
+      input.CustomHeadersConfig,
+      context
+    ).withName("CustomHeadersConfig");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyContentSecurityPolicy = (
+  input: ResponseHeadersPolicyContentSecurityPolicy,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyContentSecurityPolicy");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentSecurityPolicy !== undefined && input.ContentSecurityPolicy !== null) {
+    const node = new __XmlNode("string")
+      .addChildNode(new __XmlText(input.ContentSecurityPolicy))
+      .withName("ContentSecurityPolicy");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyContentTypeOptions = (
+  input: ResponseHeadersPolicyContentTypeOptions,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyContentTypeOptions");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyCorsConfig = (
+  input: ResponseHeadersPolicyCorsConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyCorsConfig");
+  if (input.AccessControlAllowOrigins !== undefined && input.AccessControlAllowOrigins !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins(
+      input.AccessControlAllowOrigins,
+      context
+    ).withName("AccessControlAllowOrigins");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlAllowHeaders !== undefined && input.AccessControlAllowHeaders !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders(
+      input.AccessControlAllowHeaders,
+      context
+    ).withName("AccessControlAllowHeaders");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlAllowMethods !== undefined && input.AccessControlAllowMethods !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods(
+      input.AccessControlAllowMethods,
+      context
+    ).withName("AccessControlAllowMethods");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlAllowCredentials !== undefined && input.AccessControlAllowCredentials !== null) {
+    const node = new __XmlNode("boolean")
+      .addChildNode(new __XmlText(String(input.AccessControlAllowCredentials)))
+      .withName("AccessControlAllowCredentials");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlExposeHeaders !== undefined && input.AccessControlExposeHeaders !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders(
+      input.AccessControlExposeHeaders,
+      context
+    ).withName("AccessControlExposeHeaders");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlMaxAgeSec !== undefined && input.AccessControlMaxAgeSec !== null) {
+    const node = new __XmlNode("integer")
+      .addChildNode(new __XmlText(String(input.AccessControlMaxAgeSec)))
+      .withName("AccessControlMaxAgeSec");
+    bodyNode.addChildNode(node);
+  }
+  if (input.OriginOverride !== undefined && input.OriginOverride !== null) {
+    const node = new __XmlNode("boolean")
+      .addChildNode(new __XmlText(String(input.OriginOverride)))
+      .withName("OriginOverride");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyCustomHeader = (
+  input: ResponseHeadersPolicyCustomHeader,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeader");
+  if (input.Header !== undefined && input.Header !== null) {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Header)).withName("Header");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Value !== undefined && input.Value !== null) {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(input.Value)).withName("Value");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyCustomHeaderList = (
+  input: ResponseHeadersPolicyCustomHeader[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      const node = serializeAws_restXmlResponseHeadersPolicyCustomHeader(entry, context);
+      return node.withName("ResponseHeadersPolicyCustomHeader");
+    });
+};
+
+const serializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig = (
+  input: ResponseHeadersPolicyCustomHeadersConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyCustomHeadersConfig");
+  if (input.Quantity !== undefined && input.Quantity !== null) {
+    const node = new __XmlNode("integer").addChildNode(new __XmlText(String(input.Quantity))).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items !== undefined && input.Items !== null) {
+    const nodes = serializeAws_restXmlResponseHeadersPolicyCustomHeaderList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyFrameOptions = (
+  input: ResponseHeadersPolicyFrameOptions,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyFrameOptions");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  if (input.FrameOption !== undefined && input.FrameOption !== null) {
+    const node = new __XmlNode("FrameOptionsList")
+      .addChildNode(new __XmlText(input.FrameOption))
+      .withName("FrameOption");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyReferrerPolicy = (
+  input: ResponseHeadersPolicyReferrerPolicy,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyReferrerPolicy");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ReferrerPolicy !== undefined && input.ReferrerPolicy !== null) {
+    const node = new __XmlNode("ReferrerPolicyList")
+      .addChildNode(new __XmlText(input.ReferrerPolicy))
+      .withName("ReferrerPolicy");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig = (
+  input: ResponseHeadersPolicySecurityHeadersConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicySecurityHeadersConfig");
+  if (input.XSSProtection !== undefined && input.XSSProtection !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyXSSProtection(input.XSSProtection, context).withName(
+      "XSSProtection"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.FrameOptions !== undefined && input.FrameOptions !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyFrameOptions(input.FrameOptions, context).withName(
+      "FrameOptions"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.ReferrerPolicy !== undefined && input.ReferrerPolicy !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyReferrerPolicy(input.ReferrerPolicy, context).withName(
+      "ReferrerPolicy"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentSecurityPolicy !== undefined && input.ContentSecurityPolicy !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyContentSecurityPolicy(
+      input.ContentSecurityPolicy,
+      context
+    ).withName("ContentSecurityPolicy");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ContentTypeOptions !== undefined && input.ContentTypeOptions !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyContentTypeOptions(
+      input.ContentTypeOptions,
+      context
+    ).withName("ContentTypeOptions");
+    bodyNode.addChildNode(node);
+  }
+  if (input.StrictTransportSecurity !== undefined && input.StrictTransportSecurity !== null) {
+    const node = serializeAws_restXmlResponseHeadersPolicyStrictTransportSecurity(
+      input.StrictTransportSecurity,
+      context
+    ).withName("StrictTransportSecurity");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyStrictTransportSecurity = (
+  input: ResponseHeadersPolicyStrictTransportSecurity,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyStrictTransportSecurity");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  if (input.IncludeSubdomains !== undefined && input.IncludeSubdomains !== null) {
+    const node = new __XmlNode("boolean")
+      .addChildNode(new __XmlText(String(input.IncludeSubdomains)))
+      .withName("IncludeSubdomains");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Preload !== undefined && input.Preload !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Preload))).withName("Preload");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AccessControlMaxAgeSec !== undefined && input.AccessControlMaxAgeSec !== null) {
+    const node = new __XmlNode("integer")
+      .addChildNode(new __XmlText(String(input.AccessControlMaxAgeSec)))
+      .withName("AccessControlMaxAgeSec");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlResponseHeadersPolicyXSSProtection = (
+  input: ResponseHeadersPolicyXSSProtection,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ResponseHeadersPolicyXSSProtection");
+  if (input.Override !== undefined && input.Override !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Override))).withName("Override");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Protection !== undefined && input.Protection !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.Protection))).withName("Protection");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ModeBlock !== undefined && input.ModeBlock !== null) {
+    const node = new __XmlNode("boolean").addChildNode(new __XmlText(String(input.ModeBlock))).withName("ModeBlock");
+    bodyNode.addChildNode(node);
+  }
+  if (input.ReportUri !== undefined && input.ReportUri !== null) {
+    const node = new __XmlNode("string").addChildNode(new __XmlText(input.ReportUri)).withName("ReportUri");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlRestrictions = (input: Restrictions, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("Restrictions");
   if (input.GeoRestriction !== undefined && input.GeoRestriction !== null) {
@@ -15592,6 +17065,53 @@ const serializeAws_restXmlViewerCertificate = (input: ViewerCertificate, context
   return bodyNode;
 };
 
+const deserializeAws_restXmlAccessControlAllowHeadersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlAccessControlAllowMethodsList = (
+  output: any,
+  context: __SerdeContext
+): (ResponseHeadersPolicyAccessControlAllowMethodsValues | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlAccessControlAllowOriginsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlAccessControlExposeHeadersList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_restXmlActiveTrustedKeyGroups = (output: any, context: __SerdeContext): ActiveTrustedKeyGroups => {
   const contents: any = {
     Enabled: undefined,
@@ -15738,6 +17258,7 @@ const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContex
     RealtimeLogConfigArn: undefined,
     CachePolicyId: undefined,
     OriginRequestPolicyId: undefined,
+    ResponseHeadersPolicyId: undefined,
     ForwardedValues: undefined,
     MinTTL: undefined,
     DefaultTTL: undefined,
@@ -15787,6 +17308,9 @@ const deserializeAws_restXmlCacheBehavior = (output: any, context: __SerdeContex
   }
   if (output["OriginRequestPolicyId"] !== undefined) {
     contents.OriginRequestPolicyId = __expectString(output["OriginRequestPolicyId"]);
+  }
+  if (output["ResponseHeadersPolicyId"] !== undefined) {
+    contents.ResponseHeadersPolicyId = __expectString(output["ResponseHeadersPolicyId"]);
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(output["ForwardedValues"], context);
@@ -16404,6 +17928,7 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
     RealtimeLogConfigArn: undefined,
     CachePolicyId: undefined,
     OriginRequestPolicyId: undefined,
+    ResponseHeadersPolicyId: undefined,
     ForwardedValues: undefined,
     MinTTL: undefined,
     DefaultTTL: undefined,
@@ -16450,6 +17975,9 @@ const deserializeAws_restXmlDefaultCacheBehavior = (output: any, context: __Serd
   }
   if (output["OriginRequestPolicyId"] !== undefined) {
     contents.OriginRequestPolicyId = __expectString(output["OriginRequestPolicyId"]);
+  }
+  if (output["ResponseHeadersPolicyId"] !== undefined) {
+    contents.ResponseHeadersPolicyId = __expectString(output["ResponseHeadersPolicyId"]);
   }
   if (output["ForwardedValues"] !== undefined) {
     contents.ForwardedValues = deserializeAws_restXmlForwardedValues(output["ForwardedValues"], context);
@@ -18532,6 +20060,485 @@ const deserializeAws_restXmlRealtimeMetricsSubscriptionConfig = (
   };
   if (output["RealtimeMetricsSubscriptionStatus"] !== undefined) {
     contents.RealtimeMetricsSubscriptionStatus = __expectString(output["RealtimeMetricsSubscriptionStatus"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicy = (output: any, context: __SerdeContext): ResponseHeadersPolicy => {
+  const contents: any = {
+    Id: undefined,
+    LastModifiedTime: undefined,
+    ResponseHeadersPolicyConfig: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["LastModifiedTime"] !== undefined) {
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
+  }
+  if (output["ResponseHeadersPolicyConfig"] !== undefined) {
+    contents.ResponseHeadersPolicyConfig = deserializeAws_restXmlResponseHeadersPolicyConfig(
+      output["ResponseHeadersPolicyConfig"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyAccessControlAllowHeaders => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
+    contents.Items = deserializeAws_restXmlAccessControlAllowHeadersList(
+      __getArrayIfSingleItem(output["Items"]["Header"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyAccessControlAllowMethods => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["Method"] !== undefined) {
+    contents.Items = deserializeAws_restXmlAccessControlAllowMethodsList(
+      __getArrayIfSingleItem(output["Items"]["Method"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyAccessControlAllowOrigins => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["Origin"] !== undefined) {
+    contents.Items = deserializeAws_restXmlAccessControlAllowOriginsList(
+      __getArrayIfSingleItem(output["Items"]["Origin"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyAccessControlExposeHeaders => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["Header"] !== undefined) {
+    contents.Items = deserializeAws_restXmlAccessControlExposeHeadersList(
+      __getArrayIfSingleItem(output["Items"]["Header"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyConfig => {
+  const contents: any = {
+    Comment: undefined,
+    Name: undefined,
+    CorsConfig: undefined,
+    SecurityHeadersConfig: undefined,
+    CustomHeadersConfig: undefined,
+  };
+  if (output["Comment"] !== undefined) {
+    contents.Comment = __expectString(output["Comment"]);
+  }
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["CorsConfig"] !== undefined) {
+    contents.CorsConfig = deserializeAws_restXmlResponseHeadersPolicyCorsConfig(output["CorsConfig"], context);
+  }
+  if (output["SecurityHeadersConfig"] !== undefined) {
+    contents.SecurityHeadersConfig = deserializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig(
+      output["SecurityHeadersConfig"],
+      context
+    );
+  }
+  if (output["CustomHeadersConfig"] !== undefined) {
+    contents.CustomHeadersConfig = deserializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig(
+      output["CustomHeadersConfig"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyContentSecurityPolicy = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyContentSecurityPolicy => {
+  const contents: any = {
+    Override: undefined,
+    ContentSecurityPolicy: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  if (output["ContentSecurityPolicy"] !== undefined) {
+    contents.ContentSecurityPolicy = __expectString(output["ContentSecurityPolicy"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyContentTypeOptions = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyContentTypeOptions => {
+  const contents: any = {
+    Override: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyCorsConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyCorsConfig => {
+  const contents: any = {
+    AccessControlAllowOrigins: undefined,
+    AccessControlAllowHeaders: undefined,
+    AccessControlAllowMethods: undefined,
+    AccessControlAllowCredentials: undefined,
+    AccessControlExposeHeaders: undefined,
+    AccessControlMaxAgeSec: undefined,
+    OriginOverride: undefined,
+  };
+  if (output["AccessControlAllowOrigins"] !== undefined) {
+    contents.AccessControlAllowOrigins = deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowOrigins(
+      output["AccessControlAllowOrigins"],
+      context
+    );
+  }
+  if (output["AccessControlAllowHeaders"] !== undefined) {
+    contents.AccessControlAllowHeaders = deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowHeaders(
+      output["AccessControlAllowHeaders"],
+      context
+    );
+  }
+  if (output["AccessControlAllowMethods"] !== undefined) {
+    contents.AccessControlAllowMethods = deserializeAws_restXmlResponseHeadersPolicyAccessControlAllowMethods(
+      output["AccessControlAllowMethods"],
+      context
+    );
+  }
+  if (output["AccessControlAllowCredentials"] !== undefined) {
+    contents.AccessControlAllowCredentials = __parseBoolean(output["AccessControlAllowCredentials"]);
+  }
+  if (output["AccessControlExposeHeaders"] !== undefined) {
+    contents.AccessControlExposeHeaders = deserializeAws_restXmlResponseHeadersPolicyAccessControlExposeHeaders(
+      output["AccessControlExposeHeaders"],
+      context
+    );
+  }
+  if (output["AccessControlMaxAgeSec"] !== undefined) {
+    contents.AccessControlMaxAgeSec = __strictParseInt32(output["AccessControlMaxAgeSec"]) as number;
+  }
+  if (output["OriginOverride"] !== undefined) {
+    contents.OriginOverride = __parseBoolean(output["OriginOverride"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyCustomHeader = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyCustomHeader => {
+  const contents: any = {
+    Header: undefined,
+    Value: undefined,
+    Override: undefined,
+  };
+  if (output["Header"] !== undefined) {
+    contents.Header = __expectString(output["Header"]);
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = __expectString(output["Value"]);
+  }
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyCustomHeaderList = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyCustomHeader[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlResponseHeadersPolicyCustomHeader(entry, context);
+    });
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyCustomHeadersConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyCustomHeadersConfig => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicyCustomHeader"] !== undefined) {
+    contents.Items = deserializeAws_restXmlResponseHeadersPolicyCustomHeaderList(
+      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicyCustomHeader"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyFrameOptions = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyFrameOptions => {
+  const contents: any = {
+    Override: undefined,
+    FrameOption: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  if (output["FrameOption"] !== undefined) {
+    contents.FrameOption = __expectString(output["FrameOption"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyList = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyList => {
+  const contents: any = {
+    NextMarker: undefined,
+    MaxItems: undefined,
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  if (output["MaxItems"] !== undefined) {
+    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  }
+  if (output["Items"] !== undefined && output["Items"]["ResponseHeadersPolicySummary"] !== undefined) {
+    contents.Items = deserializeAws_restXmlResponseHeadersPolicySummaryList(
+      __getArrayIfSingleItem(output["Items"]["ResponseHeadersPolicySummary"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyReferrerPolicy = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyReferrerPolicy => {
+  const contents: any = {
+    Override: undefined,
+    ReferrerPolicy: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  if (output["ReferrerPolicy"] !== undefined) {
+    contents.ReferrerPolicy = __expectString(output["ReferrerPolicy"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicySecurityHeadersConfig = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicySecurityHeadersConfig => {
+  const contents: any = {
+    XSSProtection: undefined,
+    FrameOptions: undefined,
+    ReferrerPolicy: undefined,
+    ContentSecurityPolicy: undefined,
+    ContentTypeOptions: undefined,
+    StrictTransportSecurity: undefined,
+  };
+  if (output["XSSProtection"] !== undefined) {
+    contents.XSSProtection = deserializeAws_restXmlResponseHeadersPolicyXSSProtection(output["XSSProtection"], context);
+  }
+  if (output["FrameOptions"] !== undefined) {
+    contents.FrameOptions = deserializeAws_restXmlResponseHeadersPolicyFrameOptions(output["FrameOptions"], context);
+  }
+  if (output["ReferrerPolicy"] !== undefined) {
+    contents.ReferrerPolicy = deserializeAws_restXmlResponseHeadersPolicyReferrerPolicy(
+      output["ReferrerPolicy"],
+      context
+    );
+  }
+  if (output["ContentSecurityPolicy"] !== undefined) {
+    contents.ContentSecurityPolicy = deserializeAws_restXmlResponseHeadersPolicyContentSecurityPolicy(
+      output["ContentSecurityPolicy"],
+      context
+    );
+  }
+  if (output["ContentTypeOptions"] !== undefined) {
+    contents.ContentTypeOptions = deserializeAws_restXmlResponseHeadersPolicyContentTypeOptions(
+      output["ContentTypeOptions"],
+      context
+    );
+  }
+  if (output["StrictTransportSecurity"] !== undefined) {
+    contents.StrictTransportSecurity = deserializeAws_restXmlResponseHeadersPolicyStrictTransportSecurity(
+      output["StrictTransportSecurity"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyStrictTransportSecurity = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyStrictTransportSecurity => {
+  const contents: any = {
+    Override: undefined,
+    IncludeSubdomains: undefined,
+    Preload: undefined,
+    AccessControlMaxAgeSec: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  if (output["IncludeSubdomains"] !== undefined) {
+    contents.IncludeSubdomains = __parseBoolean(output["IncludeSubdomains"]);
+  }
+  if (output["Preload"] !== undefined) {
+    contents.Preload = __parseBoolean(output["Preload"]);
+  }
+  if (output["AccessControlMaxAgeSec"] !== undefined) {
+    contents.AccessControlMaxAgeSec = __strictParseInt32(output["AccessControlMaxAgeSec"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicySummary = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicySummary => {
+  const contents: any = {
+    Type: undefined,
+    ResponseHeadersPolicy: undefined,
+  };
+  if (output["Type"] !== undefined) {
+    contents.Type = __expectString(output["Type"]);
+  }
+  if (output["ResponseHeadersPolicy"] !== undefined) {
+    contents.ResponseHeadersPolicy = deserializeAws_restXmlResponseHeadersPolicy(
+      output["ResponseHeadersPolicy"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlResponseHeadersPolicySummaryList = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicySummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restXmlResponseHeadersPolicySummary(entry, context);
+    });
+};
+
+const deserializeAws_restXmlResponseHeadersPolicyXSSProtection = (
+  output: any,
+  context: __SerdeContext
+): ResponseHeadersPolicyXSSProtection => {
+  const contents: any = {
+    Override: undefined,
+    Protection: undefined,
+    ModeBlock: undefined,
+    ReportUri: undefined,
+  };
+  if (output["Override"] !== undefined) {
+    contents.Override = __parseBoolean(output["Override"]);
+  }
+  if (output["Protection"] !== undefined) {
+    contents.Protection = __parseBoolean(output["Protection"]);
+  }
+  if (output["ModeBlock"] !== undefined) {
+    contents.ModeBlock = __parseBoolean(output["ModeBlock"]);
+  }
+  if (output["ReportUri"] !== undefined) {
+    contents.ReportUri = __expectString(output["ReportUri"]);
   }
   return contents;
 };

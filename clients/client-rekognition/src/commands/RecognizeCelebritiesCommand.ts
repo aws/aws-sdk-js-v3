@@ -25,9 +25,9 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing Celebrities
  *     in the Amazon Rekognition Developer Guide. </p>
  *          <p>
- *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists
- *       recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces in the
- *         <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return
+ *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the
+ *       recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces in
+ *       the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return
  *       celebrities whose faces aren't among the largest 64 faces in the image.</p>
  *
  *          <p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a

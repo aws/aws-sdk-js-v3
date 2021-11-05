@@ -8571,6 +8571,12 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.EngineVersion !== undefined && input.EngineVersion !== null) {
     entries["EngineVersion"] = input.EngineVersion;
   }
+  if (input.AllowMajorVersionUpgrade !== undefined && input.AllowMajorVersionUpgrade !== null) {
+    entries["AllowMajorVersionUpgrade"] = input.AllowMajorVersionUpgrade;
+  }
+  if (input.DBInstanceParameterGroupName !== undefined && input.DBInstanceParameterGroupName !== null) {
+    entries["DBInstanceParameterGroupName"] = input.DBInstanceParameterGroupName;
+  }
   if (input.DeletionProtection !== undefined && input.DeletionProtection !== null) {
     entries["DeletionProtection"] = input.DeletionProtection;
   }

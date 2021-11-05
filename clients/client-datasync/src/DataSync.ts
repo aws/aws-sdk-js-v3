@@ -17,6 +17,11 @@ import {
   CreateLocationFsxWindowsCommandOutput,
 } from "./commands/CreateLocationFsxWindowsCommand";
 import {
+  CreateLocationHdfsCommand,
+  CreateLocationHdfsCommandInput,
+  CreateLocationHdfsCommandOutput,
+} from "./commands/CreateLocationHdfsCommand";
+import {
   CreateLocationNfsCommand,
   CreateLocationNfsCommandInput,
   CreateLocationNfsCommandOutput,
@@ -59,6 +64,11 @@ import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
 } from "./commands/DescribeLocationFsxWindowsCommand";
+import {
+  DescribeLocationHdfsCommand,
+  DescribeLocationHdfsCommandInput,
+  DescribeLocationHdfsCommandOutput,
+} from "./commands/DescribeLocationHdfsCommand";
 import {
   DescribeLocationNfsCommand,
   DescribeLocationNfsCommandInput,
@@ -118,6 +128,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import {
+  UpdateLocationHdfsCommand,
+  UpdateLocationHdfsCommandInput,
+  UpdateLocationHdfsCommandOutput,
+} from "./commands/UpdateLocationHdfsCommand";
 import {
   UpdateLocationNfsCommand,
   UpdateLocationNfsCommandInput,
@@ -284,6 +299,38 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: CreateLocationFsxWindowsCommandOutput) => void
   ): Promise<CreateLocationFsxWindowsCommandOutput> | void {
     const command = new CreateLocationFsxWindowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an endpoint for a Hadoop Distributed File System (HDFS). </p>
+   */
+  public createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLocationHdfsCommandOutput>;
+  public createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
+  ): void;
+  public createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLocationHdfsCommandOutput) => void
+  ): void;
+  public createLocationHdfs(
+    args: CreateLocationHdfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLocationHdfsCommandOutput) => void),
+    cb?: (err: any, data?: CreateLocationHdfsCommandOutput) => void
+  ): Promise<CreateLocationHdfsCommandOutput> | void {
+    const command = new CreateLocationHdfsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -651,6 +698,39 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: DescribeLocationFsxWindowsCommandOutput) => void
   ): Promise<DescribeLocationFsxWindowsCommandOutput> | void {
     const command = new DescribeLocationFsxWindowsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns metadata, such as the authentication information about the Hadoop Distributed File
+   *       System (HDFS) location. </p>
+   */
+  public describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLocationHdfsCommandOutput>;
+  public describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
+  ): void;
+  public describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
+  ): void;
+  public describeLocationHdfs(
+    args: DescribeLocationHdfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLocationHdfsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeLocationHdfsCommandOutput) => void
+  ): Promise<DescribeLocationHdfsCommandOutput> | void {
+    const command = new DescribeLocationHdfsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1123,6 +1203,39 @@ export class DataSync extends DataSyncClient {
     cb?: (err: any, data?: UpdateAgentCommandOutput) => void
   ): Promise<UpdateAgentCommandOutput> | void {
     const command = new UpdateAgentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
+   *       System cluster.</p>
+   */
+  public updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationHdfsCommandOutput>;
+  public updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
+  ): void;
+  public updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
+  ): void;
+  public updateLocationHdfs(
+    args: UpdateLocationHdfsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLocationHdfsCommandOutput) => void),
+    cb?: (err: any, data?: UpdateLocationHdfsCommandOutput) => void
+  ): Promise<UpdateLocationHdfsCommandOutput> | void {
+    const command = new UpdateLocationHdfsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

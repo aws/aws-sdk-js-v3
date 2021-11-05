@@ -12,7 +12,8 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_0";
+import { DeleteMonitoringSubscriptionRequest } from "../models/models_0";
+import { DeleteMonitoringSubscriptionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteMonitoringSubscriptionCommand,
   serializeAws_restXmlDeleteMonitoringSubscriptionCommand,

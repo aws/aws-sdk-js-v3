@@ -1088,6 +1088,14 @@ const deserializeAws_json1_1StartTextTranslationJobCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidRequestException":
     case "com.amazonaws.translate#InvalidRequestException":
       response = {
@@ -1746,6 +1754,10 @@ const serializeAws_json1_1ListTextTranslationJobsRequest = (
 
 const serializeAws_json1_1OutputDataConfig = (input: OutputDataConfig, context: __SerdeContext): any => {
   return {
+    ...(input.EncryptionKey !== undefined &&
+      input.EncryptionKey !== null && {
+        EncryptionKey: serializeAws_json1_1EncryptionKey(input.EncryptionKey, context),
+      }),
     ...(input.S3Uri !== undefined && input.S3Uri !== null && { S3Uri: input.S3Uri }),
   };
 };
@@ -2117,6 +2129,10 @@ const deserializeAws_json1_1ListTextTranslationJobsResponse = (
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
+    EncryptionKey:
+      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
+        : undefined,
     S3Uri: __expectString(output.S3Uri),
   } as any;
 };

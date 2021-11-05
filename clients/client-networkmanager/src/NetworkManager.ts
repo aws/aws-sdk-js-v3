@@ -91,6 +91,36 @@ import {
   GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
 import { GetLinksCommand, GetLinksCommandInput, GetLinksCommandOutput } from "./commands/GetLinksCommand";
+import {
+  GetNetworkResourceCountsCommand,
+  GetNetworkResourceCountsCommandInput,
+  GetNetworkResourceCountsCommandOutput,
+} from "./commands/GetNetworkResourceCountsCommand";
+import {
+  GetNetworkResourceRelationshipsCommand,
+  GetNetworkResourceRelationshipsCommandInput,
+  GetNetworkResourceRelationshipsCommandOutput,
+} from "./commands/GetNetworkResourceRelationshipsCommand";
+import {
+  GetNetworkResourcesCommand,
+  GetNetworkResourcesCommandInput,
+  GetNetworkResourcesCommandOutput,
+} from "./commands/GetNetworkResourcesCommand";
+import {
+  GetNetworkRoutesCommand,
+  GetNetworkRoutesCommandInput,
+  GetNetworkRoutesCommandOutput,
+} from "./commands/GetNetworkRoutesCommand";
+import {
+  GetNetworkTelemetryCommand,
+  GetNetworkTelemetryCommandInput,
+  GetNetworkTelemetryCommandOutput,
+} from "./commands/GetNetworkTelemetryCommand";
+import {
+  GetRouteAnalysisCommand,
+  GetRouteAnalysisCommandInput,
+  GetRouteAnalysisCommandOutput,
+} from "./commands/GetRouteAnalysisCommand";
 import { GetSitesCommand, GetSitesCommandInput, GetSitesCommandOutput } from "./commands/GetSitesCommand";
 import {
   GetTransitGatewayConnectPeerAssociationsCommand,
@@ -112,6 +142,11 @@ import {
   RegisterTransitGatewayCommandInput,
   RegisterTransitGatewayCommandOutput,
 } from "./commands/RegisterTransitGatewayCommand";
+import {
+  StartRouteAnalysisCommand,
+  StartRouteAnalysisCommandInput,
+  StartRouteAnalysisCommandOutput,
+} from "./commands/StartRouteAnalysisCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -134,13 +169,17 @@ import {
   UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
 import { UpdateLinkCommand, UpdateLinkCommandInput, UpdateLinkCommandOutput } from "./commands/UpdateLinkCommand";
+import {
+  UpdateNetworkResourceMetadataCommand,
+  UpdateNetworkResourceMetadataCommandInput,
+  UpdateNetworkResourceMetadataCommandOutput,
+} from "./commands/UpdateNetworkResourceMetadataCommand";
 import { UpdateSiteCommand, UpdateSiteCommandInput, UpdateSiteCommandOutput } from "./commands/UpdateSiteCommand";
 import { NetworkManagerClient } from "./NetworkManagerClient";
 
 /**
  * <p>Transit Gateway Network Manager (Network Manager) enables you to create a global network, in which you can monitor your
- *             AWS and on-premises networks that are built around transit gateways.</p>
- *         <p>The Network Manager APIs are supported in the US West (Oregon) Region only. You must specify the <code>us-west-2</code> Region in all requests made to Network Manager.</p>
+ *             Amazon Web Services and on-premises networks that are built around transit gateways.</p>
  */
 export class NetworkManager extends NetworkManagerClient {
   /**
@@ -864,6 +903,199 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
+   * <p>Gets the count of network resources, by resource type, for the specified global network.</p>
+   */
+  public getNetworkResourceCounts(
+    args: GetNetworkResourceCountsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkResourceCountsCommandOutput>;
+  public getNetworkResourceCounts(
+    args: GetNetworkResourceCountsCommandInput,
+    cb: (err: any, data?: GetNetworkResourceCountsCommandOutput) => void
+  ): void;
+  public getNetworkResourceCounts(
+    args: GetNetworkResourceCountsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkResourceCountsCommandOutput) => void
+  ): void;
+  public getNetworkResourceCounts(
+    args: GetNetworkResourceCountsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkResourceCountsCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkResourceCountsCommandOutput) => void
+  ): Promise<GetNetworkResourceCountsCommandOutput> | void {
+    const command = new GetNetworkResourceCountsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the network resource relationships for the specified global network.</p>
+   */
+  public getNetworkResourceRelationships(
+    args: GetNetworkResourceRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkResourceRelationshipsCommandOutput>;
+  public getNetworkResourceRelationships(
+    args: GetNetworkResourceRelationshipsCommandInput,
+    cb: (err: any, data?: GetNetworkResourceRelationshipsCommandOutput) => void
+  ): void;
+  public getNetworkResourceRelationships(
+    args: GetNetworkResourceRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkResourceRelationshipsCommandOutput) => void
+  ): void;
+  public getNetworkResourceRelationships(
+    args: GetNetworkResourceRelationshipsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkResourceRelationshipsCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkResourceRelationshipsCommandOutput) => void
+  ): Promise<GetNetworkResourceRelationshipsCommandOutput> | void {
+    const command = new GetNetworkResourceRelationshipsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the network resources for the specified global network.</p>
+   *          <p>The results include information from the corresponding Describe call for the resource, minus any sensitive information such as pre-shared keys.</p>
+   */
+  public getNetworkResources(
+    args: GetNetworkResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkResourcesCommandOutput>;
+  public getNetworkResources(
+    args: GetNetworkResourcesCommandInput,
+    cb: (err: any, data?: GetNetworkResourcesCommandOutput) => void
+  ): void;
+  public getNetworkResources(
+    args: GetNetworkResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkResourcesCommandOutput) => void
+  ): void;
+  public getNetworkResources(
+    args: GetNetworkResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkResourcesCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkResourcesCommandOutput) => void
+  ): Promise<GetNetworkResourcesCommandOutput> | void {
+    const command = new GetNetworkResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the network routes of the specified global network.</p>
+   */
+  public getNetworkRoutes(
+    args: GetNetworkRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkRoutesCommandOutput>;
+  public getNetworkRoutes(
+    args: GetNetworkRoutesCommandInput,
+    cb: (err: any, data?: GetNetworkRoutesCommandOutput) => void
+  ): void;
+  public getNetworkRoutes(
+    args: GetNetworkRoutesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkRoutesCommandOutput) => void
+  ): void;
+  public getNetworkRoutes(
+    args: GetNetworkRoutesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkRoutesCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkRoutesCommandOutput) => void
+  ): Promise<GetNetworkRoutesCommandOutput> | void {
+    const command = new GetNetworkRoutesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the network telemetry of the specified global network.</p>
+   */
+  public getNetworkTelemetry(
+    args: GetNetworkTelemetryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetNetworkTelemetryCommandOutput>;
+  public getNetworkTelemetry(
+    args: GetNetworkTelemetryCommandInput,
+    cb: (err: any, data?: GetNetworkTelemetryCommandOutput) => void
+  ): void;
+  public getNetworkTelemetry(
+    args: GetNetworkTelemetryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetNetworkTelemetryCommandOutput) => void
+  ): void;
+  public getNetworkTelemetry(
+    args: GetNetworkTelemetryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNetworkTelemetryCommandOutput) => void),
+    cb?: (err: any, data?: GetNetworkTelemetryCommandOutput) => void
+  ): Promise<GetNetworkTelemetryCommandOutput> | void {
+    const command = new GetNetworkTelemetryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about the specified route analysis.</p>
+   */
+  public getRouteAnalysis(
+    args: GetRouteAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRouteAnalysisCommandOutput>;
+  public getRouteAnalysis(
+    args: GetRouteAnalysisCommandInput,
+    cb: (err: any, data?: GetRouteAnalysisCommandOutput) => void
+  ): void;
+  public getRouteAnalysis(
+    args: GetRouteAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRouteAnalysisCommandOutput) => void
+  ): void;
+  public getRouteAnalysis(
+    args: GetRouteAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: GetRouteAnalysisCommandOutput) => void
+  ): Promise<GetRouteAnalysisCommandOutput> | void {
+    const command = new GetRouteAnalysisCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about one or more of your sites in a global network.</p>
    */
   public getSites(args: GetSitesCommandInput, options?: __HttpHandlerOptions): Promise<GetSitesCommandOutput>;
@@ -990,8 +1222,8 @@ export class NetworkManager extends NetworkManagerClient {
 
   /**
    * <p>Registers a transit gateway in your global network. The transit gateway can be in any
-   *             AWS Region, but it must be owned by the same AWS account that owns the global network.
-   *             You cannot register a transit gateway in more than one global network.</p>
+   *             Amazon Web Services Region, but it must be owned by the same Amazon Web Services account that owns
+   *             the global network. You cannot register a transit gateway in more than one global network.</p>
    */
   public registerTransitGateway(
     args: RegisterTransitGatewayCommandInput,
@@ -1012,6 +1244,39 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: RegisterTransitGatewayCommandOutput) => void
   ): Promise<RegisterTransitGatewayCommandOutput> | void {
     const command = new RegisterTransitGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts analyzing the routing path between the specified source and destination. For more information,
+   *             see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/route-analyzer.html">Route Analyzer</a>.</p>
+   */
+  public startRouteAnalysis(
+    args: StartRouteAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRouteAnalysisCommandOutput>;
+  public startRouteAnalysis(
+    args: StartRouteAnalysisCommandInput,
+    cb: (err: any, data?: StartRouteAnalysisCommandOutput) => void
+  ): void;
+  public startRouteAnalysis(
+    args: StartRouteAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRouteAnalysisCommandOutput) => void
+  ): void;
+  public startRouteAnalysis(
+    args: StartRouteAnalysisCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartRouteAnalysisCommandOutput) => void),
+    cb?: (err: any, data?: StartRouteAnalysisCommandOutput) => void
+  ): Promise<StartRouteAnalysisCommandOutput> | void {
+    const command = new StartRouteAnalysisCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1193,6 +1458,38 @@ export class NetworkManager extends NetworkManagerClient {
     cb?: (err: any, data?: UpdateLinkCommandOutput) => void
   ): Promise<UpdateLinkCommandOutput> | void {
     const command = new UpdateLinkCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the resource metadata for the specified global network.</p>
+   */
+  public updateNetworkResourceMetadata(
+    args: UpdateNetworkResourceMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateNetworkResourceMetadataCommandOutput>;
+  public updateNetworkResourceMetadata(
+    args: UpdateNetworkResourceMetadataCommandInput,
+    cb: (err: any, data?: UpdateNetworkResourceMetadataCommandOutput) => void
+  ): void;
+  public updateNetworkResourceMetadata(
+    args: UpdateNetworkResourceMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateNetworkResourceMetadataCommandOutput) => void
+  ): void;
+  public updateNetworkResourceMetadata(
+    args: UpdateNetworkResourceMetadataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNetworkResourceMetadataCommandOutput) => void),
+    cb?: (err: any, data?: UpdateNetworkResourceMetadataCommandOutput) => void
+  ): Promise<UpdateNetworkResourceMetadataCommandOutput> | void {
+    const command = new UpdateNetworkResourceMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -39,8 +39,7 @@ import {
 import { FinspaceClient } from "./FinspaceClient";
 
 /**
- * <p>The FinSpace management service provides the APIs for managing the FinSpace
- *            environments. </p>
+ * <p>The FinSpace management service provides the APIs for managing FinSpace environments.</p>
  */
 export class Finspace extends FinspaceClient {
   /**

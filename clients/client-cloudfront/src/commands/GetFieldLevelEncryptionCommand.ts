@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_0";
+import { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetFieldLevelEncryptionCommand,
   serializeAws_restXmlGetFieldLevelEncryptionCommand,

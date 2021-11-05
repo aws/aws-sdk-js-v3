@@ -22,7 +22,7 @@ export interface DescribeProjectsCommandInput extends DescribeProjectsRequest {}
 export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists and gets information about your Amazon Rekognition Custom Labels projects.</p>
+ * <p>Gets information about your Amazon Rekognition Custom Labels projects. </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjects</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

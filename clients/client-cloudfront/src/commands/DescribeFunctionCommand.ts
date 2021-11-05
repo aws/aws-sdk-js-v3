@@ -12,7 +12,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_0";
+import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlDescribeFunctionCommand,
   serializeAws_restXmlDescribeFunctionCommand,

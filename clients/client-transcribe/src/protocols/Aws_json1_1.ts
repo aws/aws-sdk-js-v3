@@ -202,6 +202,7 @@ import {
   InterruptionFilter,
   JobExecutionSettings,
   LanguageCode,
+  LanguageIdSettings,
   LanguageModel,
   LimitExceededException,
   ListCallAnalyticsCategoriesRequest,
@@ -3833,6 +3834,10 @@ const serializeAws_json1_1CallAnalyticsJobSettings = (
       input.ContentRedaction !== null && {
         ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
       }),
+    ...(input.LanguageIdSettings !== undefined &&
+      input.LanguageIdSettings !== null && {
+        LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
+      }),
     ...(input.LanguageModelName !== undefined &&
       input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
     ...(input.LanguageOptions !== undefined &&
@@ -4142,6 +4147,32 @@ const serializeAws_json1_1KMSEncryptionContextMap = (
     return {
       ...acc,
       [key]: value,
+    };
+  }, {});
+};
+
+const serializeAws_json1_1LanguageIdSettings = (input: LanguageIdSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.LanguageModelName !== undefined &&
+      input.LanguageModelName !== null && { LanguageModelName: input.LanguageModelName }),
+    ...(input.VocabularyFilterName !== undefined &&
+      input.VocabularyFilterName !== null && { VocabularyFilterName: input.VocabularyFilterName }),
+    ...(input.VocabularyName !== undefined &&
+      input.VocabularyName !== null && { VocabularyName: input.VocabularyName }),
+  };
+};
+
+const serializeAws_json1_1LanguageIdSettingsMap = (
+  input: { [key: string]: LanguageIdSettings },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [LanguageCode | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_json1_1LanguageIdSettings(value, context),
     };
   }, {});
 };
@@ -4479,6 +4510,10 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
         KMSEncryptionContext: serializeAws_json1_1KMSEncryptionContextMap(input.KMSEncryptionContext, context),
       }),
     ...(input.LanguageCode !== undefined && input.LanguageCode !== null && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageIdSettings !== undefined &&
+      input.LanguageIdSettings !== null && {
+        LanguageIdSettings: serializeAws_json1_1LanguageIdSettingsMap(input.LanguageIdSettings, context),
+      }),
     ...(input.LanguageOptions !== undefined &&
       input.LanguageOptions !== null && {
         LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
@@ -4725,6 +4760,10 @@ const deserializeAws_json1_1CallAnalyticsJobSettings = (
     ContentRedaction:
       output.ContentRedaction !== undefined && output.ContentRedaction !== null
         ? deserializeAws_json1_1ContentRedaction(output.ContentRedaction, context)
+        : undefined,
+    LanguageIdSettings:
+      output.LanguageIdSettings !== undefined && output.LanguageIdSettings !== null
+        ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
         : undefined,
     LanguageModelName: __expectString(output.LanguageModelName),
     LanguageOptions:
@@ -5067,6 +5106,32 @@ const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __Serd
     AllowDeferredExecution: __expectBoolean(output.AllowDeferredExecution),
     DataAccessRoleArn: __expectString(output.DataAccessRoleArn),
   } as any;
+};
+
+const deserializeAws_json1_1LanguageIdSettings = (output: any, context: __SerdeContext): LanguageIdSettings => {
+  return {
+    LanguageModelName: __expectString(output.LanguageModelName),
+    VocabularyFilterName: __expectString(output.VocabularyFilterName),
+    VocabularyName: __expectString(output.VocabularyName),
+  } as any;
+};
+
+const deserializeAws_json1_1LanguageIdSettingsMap = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: LanguageIdSettings } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: LanguageIdSettings }, [key, value]: [LanguageCode | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_json1_1LanguageIdSettings(value, context),
+      };
+    },
+    {}
+  );
 };
 
 const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContext): LanguageModel => {
@@ -5626,6 +5691,10 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
         : undefined,
     LanguageCode: __expectString(output.LanguageCode),
+    LanguageIdSettings:
+      output.LanguageIdSettings !== undefined && output.LanguageIdSettings !== null
+        ? deserializeAws_json1_1LanguageIdSettingsMap(output.LanguageIdSettings, context)
+        : undefined,
     LanguageOptions:
       output.LanguageOptions !== undefined && output.LanguageOptions !== null
         ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)

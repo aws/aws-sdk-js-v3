@@ -59,6 +59,7 @@ import {
   CreateLocationFsxWindowsCommandInput,
   CreateLocationFsxWindowsCommandOutput,
 } from "./commands/CreateLocationFsxWindowsCommand";
+import { CreateLocationHdfsCommandInput, CreateLocationHdfsCommandOutput } from "./commands/CreateLocationHdfsCommand";
 import { CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput } from "./commands/CreateLocationNfsCommand";
 import {
   CreateLocationObjectStorageCommandInput,
@@ -79,6 +80,10 @@ import {
   DescribeLocationFsxWindowsCommandInput,
   DescribeLocationFsxWindowsCommandOutput,
 } from "./commands/DescribeLocationFsxWindowsCommand";
+import {
+  DescribeLocationHdfsCommandInput,
+  DescribeLocationHdfsCommandOutput,
+} from "./commands/DescribeLocationHdfsCommand";
 import {
   DescribeLocationNfsCommandInput,
   DescribeLocationNfsCommandOutput,
@@ -109,6 +114,7 @@ import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from 
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
+import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
   UpdateLocationObjectStorageCommandInput,
@@ -127,6 +133,7 @@ export type ServiceInputTypes =
   | CreateAgentCommandInput
   | CreateLocationEfsCommandInput
   | CreateLocationFsxWindowsCommandInput
+  | CreateLocationHdfsCommandInput
   | CreateLocationNfsCommandInput
   | CreateLocationObjectStorageCommandInput
   | CreateLocationS3CommandInput
@@ -138,6 +145,7 @@ export type ServiceInputTypes =
   | DescribeAgentCommandInput
   | DescribeLocationEfsCommandInput
   | DescribeLocationFsxWindowsCommandInput
+  | DescribeLocationHdfsCommandInput
   | DescribeLocationNfsCommandInput
   | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
@@ -153,6 +161,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
+  | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
   | UpdateLocationSmbCommandInput
@@ -164,6 +173,7 @@ export type ServiceOutputTypes =
   | CreateAgentCommandOutput
   | CreateLocationEfsCommandOutput
   | CreateLocationFsxWindowsCommandOutput
+  | CreateLocationHdfsCommandOutput
   | CreateLocationNfsCommandOutput
   | CreateLocationObjectStorageCommandOutput
   | CreateLocationS3CommandOutput
@@ -175,6 +185,7 @@ export type ServiceOutputTypes =
   | DescribeAgentCommandOutput
   | DescribeLocationEfsCommandOutput
   | DescribeLocationFsxWindowsCommandOutput
+  | DescribeLocationHdfsCommandOutput
   | DescribeLocationNfsCommandOutput
   | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
@@ -190,6 +201,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
+  | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput
   | UpdateLocationSmbCommandOutput

@@ -41991,6 +41991,9 @@ const serializeAws_ec2FleetSpotCapacityRebalanceRequest = (
   if (input.ReplacementStrategy !== undefined && input.ReplacementStrategy !== null) {
     entries["ReplacementStrategy"] = input.ReplacementStrategy;
   }
+  if (input.TerminationDelay !== undefined && input.TerminationDelay !== null) {
+    entries["TerminationDelay"] = input.TerminationDelay;
+  }
   return entries;
 };
 
@@ -44228,6 +44231,12 @@ const serializeAws_ec2LaunchPermission = (input: LaunchPermission, context: __Se
   if (input.UserId !== undefined && input.UserId !== null) {
     entries["UserId"] = input.UserId;
   }
+  if (input.OrganizationArn !== undefined && input.OrganizationArn !== null) {
+    entries["OrganizationArn"] = input.OrganizationArn;
+  }
+  if (input.OrganizationalUnitArn !== undefined && input.OrganizationalUnitArn !== null) {
+    entries["OrganizationalUnitArn"] = input.OrganizationalUnitArn;
+  }
   return entries;
 };
 
@@ -45470,6 +45479,20 @@ const serializeAws_ec2ModifyImageAttributeRequest = (
   }
   if (input.DryRun !== undefined && input.DryRun !== null) {
     entries["DryRun"] = input.DryRun;
+  }
+  if (input.OrganizationArns !== undefined && input.OrganizationArns !== null) {
+    const memberEntries = serializeAws_ec2OrganizationArnStringList(input.OrganizationArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OrganizationArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.OrganizationalUnitArns !== undefined && input.OrganizationalUnitArns !== null) {
+    const memberEntries = serializeAws_ec2OrganizationalUnitArnStringList(input.OrganizationalUnitArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OrganizationalUnitArn.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -46937,6 +46960,32 @@ const serializeAws_ec2OnDemandOptionsRequest = (input: OnDemandOptionsRequest, c
   }
   if (input.MaxTotalPrice !== undefined && input.MaxTotalPrice !== null) {
     entries["MaxTotalPrice"] = input.MaxTotalPrice;
+  }
+  return entries;
+};
+
+const serializeAws_ec2OrganizationalUnitArnStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`OrganizationalUnitArn.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2OrganizationArnStringList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`OrganizationArn.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -49940,6 +49989,9 @@ const serializeAws_ec2SpotCapacityRebalance = (input: SpotCapacityRebalance, con
   const entries: any = {};
   if (input.ReplacementStrategy !== undefined && input.ReplacementStrategy !== null) {
     entries["ReplacementStrategy"] = input.ReplacementStrategy;
+  }
+  if (input.TerminationDelay !== undefined && input.TerminationDelay !== null) {
+    entries["TerminationDelay"] = input.TerminationDelay;
   }
   return entries;
 };
@@ -61494,9 +61546,13 @@ const deserializeAws_ec2FleetSpotCapacityRebalance = (
 ): FleetSpotCapacityRebalance => {
   const contents: any = {
     ReplacementStrategy: undefined,
+    TerminationDelay: undefined,
   };
   if (output["replacementStrategy"] !== undefined) {
     contents.ReplacementStrategy = __expectString(output["replacementStrategy"]);
+  }
+  if (output["terminationDelay"] !== undefined) {
+    contents.TerminationDelay = __strictParseInt32(output["terminationDelay"]) as number;
   }
   return contents;
 };
@@ -64669,12 +64725,16 @@ const deserializeAws_ec2InstanceNetworkInterfaceAssociation = (
 ): InstanceNetworkInterfaceAssociation => {
   const contents: any = {
     CarrierIp: undefined,
+    CustomerOwnedIp: undefined,
     IpOwnerId: undefined,
     PublicDnsName: undefined,
     PublicIp: undefined,
   };
   if (output["carrierIp"] !== undefined) {
     contents.CarrierIp = __expectString(output["carrierIp"]);
+  }
+  if (output["customerOwnedIp"] !== undefined) {
+    contents.CustomerOwnedIp = __expectString(output["customerOwnedIp"]);
   }
   if (output["ipOwnerId"] !== undefined) {
     contents.IpOwnerId = __expectString(output["ipOwnerId"]);
@@ -66064,12 +66124,20 @@ const deserializeAws_ec2LaunchPermission = (output: any, context: __SerdeContext
   const contents: any = {
     Group: undefined,
     UserId: undefined,
+    OrganizationArn: undefined,
+    OrganizationalUnitArn: undefined,
   };
   if (output["group"] !== undefined) {
     contents.Group = __expectString(output["group"]);
   }
   if (output["userId"] !== undefined) {
     contents.UserId = __expectString(output["userId"]);
+  }
+  if (output["organizationArn"] !== undefined) {
+    contents.OrganizationArn = __expectString(output["organizationArn"]);
+  }
+  if (output["organizationalUnitArn"] !== undefined) {
+    contents.OrganizationalUnitArn = __expectString(output["organizationalUnitArn"]);
   }
   return contents;
 };
@@ -72488,9 +72556,13 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
 const deserializeAws_ec2SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
   const contents: any = {
     ReplacementStrategy: undefined,
+    TerminationDelay: undefined,
   };
   if (output["replacementStrategy"] !== undefined) {
     contents.ReplacementStrategy = __expectString(output["replacementStrategy"]);
+  }
+  if (output["terminationDelay"] !== undefined) {
+    contents.TerminationDelay = __strictParseInt32(output["terminationDelay"]) as number;
   }
   return contents;
 };

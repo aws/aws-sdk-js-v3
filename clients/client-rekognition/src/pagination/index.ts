@@ -10,5 +10,7 @@ export * from "./GetSegmentDetectionPaginator";
 export * from "./GetTextDetectionPaginator";
 export * from "./Interfaces";
 export * from "./ListCollectionsPaginator";
+export * from "./ListDatasetEntriesPaginator";
+export * from "./ListDatasetLabelsPaginator";
 export * from "./ListFacesPaginator";
 export * from "./ListStreamProcessorsPaginator";

@@ -31,16 +31,19 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *             <li>
  *                 <p>Not all resources can have tags. For a list of services with resources that
  *                     support tagging using this operation, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/supported-services.html">Services that support the
- *                         Resource Groups Tagging API</a>.</p>
+ *                         Resource Groups Tagging API</a>. If the resource doesn't yet support
+ *                     this operation, the resource's service might support tagging using its own API
+ *                     operations. For more information, refer to the documentation for that
+ *                     service.</p>
  *             </li>
  *             <li>
- *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the <i>AWS General
+ *                 <p>Each resource can have up to 50 tags. For other limits, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html#tag-conventions">Tag Naming and Usage Conventions</a> in the <i>Amazon Web Services General
  *                         Reference.</i>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified AWS Region for
- *                     the AWS account.</p>
+ *                 <p>You can only tag resources that are located in the specified Amazon Web Services Region for
+ *                     the Amazon Web Services account.</p>
  *             </li>
  *             <li>
  *                 <p>To add tags to a resource, you need the necessary permissions for the service
@@ -54,6 +57,25 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *                 administration services. Tags are not intended to be used for private or sensitive
  *                 data.</p>
  *         </important>
+ *         <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *         <p>In addition to the <code>tag:TagResources</code> permission required by this
+ *             operation, you must also have the tagging permission defined by the service that created
+ *             the resource. For example, to tag an Amazon EC2 instance using the <code>TagResources</code>
+ *             operation, you must have both of the following permissions:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>tag:TagResource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>ec2:CreateTags</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

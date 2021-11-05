@@ -4,10 +4,13 @@ import {
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTime as __parseRfc3339DateTime,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -23,6 +26,18 @@ import {
   AssociateAwsAccountWithPartnerAccountCommandOutput,
 } from "../commands/AssociateAwsAccountWithPartnerAccountCommand";
 import {
+  AssociateMulticastGroupWithFuotaTaskCommandInput,
+  AssociateMulticastGroupWithFuotaTaskCommandOutput,
+} from "../commands/AssociateMulticastGroupWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithFuotaTaskCommandInput,
+  AssociateWirelessDeviceWithFuotaTaskCommandOutput,
+} from "../commands/AssociateWirelessDeviceWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithMulticastGroupCommandInput,
+  AssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "../commands/AssociateWirelessDeviceWithMulticastGroupCommand";
+import {
   AssociateWirelessDeviceWithThingCommandInput,
   AssociateWirelessDeviceWithThingCommandOutput,
 } from "../commands/AssociateWirelessDeviceWithThingCommand";
@@ -34,11 +49,20 @@ import {
   AssociateWirelessGatewayWithThingCommandInput,
   AssociateWirelessGatewayWithThingCommandOutput,
 } from "../commands/AssociateWirelessGatewayWithThingCommand";
+import {
+  CancelMulticastGroupSessionCommandInput,
+  CancelMulticastGroupSessionCommandOutput,
+} from "../commands/CancelMulticastGroupSessionCommand";
 import { CreateDestinationCommandInput, CreateDestinationCommandOutput } from "../commands/CreateDestinationCommand";
 import {
   CreateDeviceProfileCommandInput,
   CreateDeviceProfileCommandOutput,
 } from "../commands/CreateDeviceProfileCommand";
+import { CreateFuotaTaskCommandInput, CreateFuotaTaskCommandOutput } from "../commands/CreateFuotaTaskCommand";
+import {
+  CreateMulticastGroupCommandInput,
+  CreateMulticastGroupCommandOutput,
+} from "../commands/CreateMulticastGroupCommand";
 import {
   CreateServiceProfileCommandInput,
   CreateServiceProfileCommandOutput,
@@ -64,6 +88,11 @@ import {
   DeleteDeviceProfileCommandInput,
   DeleteDeviceProfileCommandOutput,
 } from "../commands/DeleteDeviceProfileCommand";
+import { DeleteFuotaTaskCommandInput, DeleteFuotaTaskCommandOutput } from "../commands/DeleteFuotaTaskCommand";
+import {
+  DeleteMulticastGroupCommandInput,
+  DeleteMulticastGroupCommandOutput,
+} from "../commands/DeleteMulticastGroupCommand";
 import {
   DeleteServiceProfileCommandInput,
   DeleteServiceProfileCommandOutput,
@@ -89,6 +118,18 @@ import {
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
 } from "../commands/DisassociateAwsAccountFromPartnerAccountCommand";
 import {
+  DisassociateMulticastGroupFromFuotaTaskCommandInput,
+  DisassociateMulticastGroupFromFuotaTaskCommandOutput,
+} from "../commands/DisassociateMulticastGroupFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+  DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
+} from "../commands/DisassociateWirelessDeviceFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "../commands/DisassociateWirelessDeviceFromMulticastGroupCommand";
+import {
   DisassociateWirelessDeviceFromThingCommandInput,
   DisassociateWirelessDeviceFromThingCommandOutput,
 } from "../commands/DisassociateWirelessDeviceFromThingCommand";
@@ -102,11 +143,21 @@ import {
 } from "../commands/DisassociateWirelessGatewayFromThingCommand";
 import { GetDestinationCommandInput, GetDestinationCommandOutput } from "../commands/GetDestinationCommand";
 import { GetDeviceProfileCommandInput, GetDeviceProfileCommandOutput } from "../commands/GetDeviceProfileCommand";
+import { GetFuotaTaskCommandInput, GetFuotaTaskCommandOutput } from "../commands/GetFuotaTaskCommand";
 import {
   GetLogLevelsByResourceTypesCommandInput,
   GetLogLevelsByResourceTypesCommandOutput,
 } from "../commands/GetLogLevelsByResourceTypesCommand";
+import { GetMulticastGroupCommandInput, GetMulticastGroupCommandOutput } from "../commands/GetMulticastGroupCommand";
+import {
+  GetMulticastGroupSessionCommandInput,
+  GetMulticastGroupSessionCommandOutput,
+} from "../commands/GetMulticastGroupSessionCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "../commands/GetPartnerAccountCommand";
+import {
+  GetResourceEventConfigurationCommandInput,
+  GetResourceEventConfigurationCommandOutput,
+} from "../commands/GetResourceEventConfigurationCommand";
 import {
   GetResourceLogLevelCommandInput,
   GetResourceLogLevelCommandOutput,
@@ -141,6 +192,15 @@ import {
 } from "../commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "../commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "../commands/ListDeviceProfilesCommand";
+import { ListFuotaTasksCommandInput, ListFuotaTasksCommandOutput } from "../commands/ListFuotaTasksCommand";
+import {
+  ListMulticastGroupsByFuotaTaskCommandInput,
+  ListMulticastGroupsByFuotaTaskCommandOutput,
+} from "../commands/ListMulticastGroupsByFuotaTaskCommand";
+import {
+  ListMulticastGroupsCommandInput,
+  ListMulticastGroupsCommandOutput,
+} from "../commands/ListMulticastGroupsCommand";
 import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
@@ -178,21 +238,47 @@ import {
   ResetResourceLogLevelCommandOutput,
 } from "../commands/ResetResourceLogLevelCommand";
 import {
+  SendDataToMulticastGroupCommandInput,
+  SendDataToMulticastGroupCommandOutput,
+} from "../commands/SendDataToMulticastGroupCommand";
+import {
   SendDataToWirelessDeviceCommandInput,
   SendDataToWirelessDeviceCommandOutput,
 } from "../commands/SendDataToWirelessDeviceCommand";
+import {
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "../commands/StartBulkAssociateWirelessDeviceWithMulticastGroupCommand";
+import {
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "../commands/StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand";
+import { StartFuotaTaskCommandInput, StartFuotaTaskCommandOutput } from "../commands/StartFuotaTaskCommand";
+import {
+  StartMulticastGroupSessionCommandInput,
+  StartMulticastGroupSessionCommandOutput,
+} from "../commands/StartMulticastGroupSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "../commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "../commands/UpdateDestinationCommand";
+import { UpdateFuotaTaskCommandInput, UpdateFuotaTaskCommandOutput } from "../commands/UpdateFuotaTaskCommand";
 import {
   UpdateLogLevelsByResourceTypesCommandInput,
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "../commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMulticastGroupCommandInput,
+  UpdateMulticastGroupCommandOutput,
+} from "../commands/UpdateMulticastGroupCommand";
+import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "../commands/UpdatePartnerAccountCommand";
+import {
+  UpdateResourceEventConfigurationCommandInput,
+  UpdateResourceEventConfigurationCommandOutput,
+} from "../commands/UpdateResourceEventConfigurationCommand";
 import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
@@ -209,23 +295,37 @@ import {
   ConflictException,
   Destinations,
   DeviceProfile,
+  DeviceRegistrationStateEventConfiguration,
+  FPorts,
+  FuotaTask,
   InternalServerException,
   LoRaWANDevice,
   LoRaWANDeviceMetadata,
   LoRaWANDeviceProfile,
+  LoRaWANFuotaTask,
+  LoRaWANFuotaTaskGetInfo,
   LoRaWANGateway,
   LoRaWANGatewayCurrentVersion,
   LoRaWANGatewayMetadata,
   LoRaWANGatewayVersion,
   LoRaWANGetServiceProfileInfo,
   LoRaWANListDevice,
+  LoRaWANMulticast,
+  LoRaWANMulticastGet,
+  LoRaWANMulticastMetadata,
+  LoRaWANMulticastSession,
   LoRaWANSendDataToDevice,
   LoRaWANServiceProfile,
+  LoRaWANStartFuotaTask,
   LoRaWANUpdateDevice,
   LoRaWANUpdateGatewayTaskCreate,
   LoRaWANUpdateGatewayTaskEntry,
+  MulticastGroup,
+  MulticastGroupByFuotaTask,
+  MulticastWirelessMetadata,
   OtaaV1_0_x,
   OtaaV1_1,
+  ProximityEventConfiguration,
   ResourceNotFoundException,
   ServiceProfile,
   SessionKeysAbpV1_0_x,
@@ -234,6 +334,7 @@ import {
   SidewalkAccountInfoWithFingerprint,
   SidewalkDevice,
   SidewalkDeviceMetadata,
+  SidewalkEventNotificationConfigurations,
   SidewalkListDevice,
   SidewalkSendDataToDevice,
   SidewalkUpdateAccount,
@@ -274,6 +375,111 @@ export const serializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommand 
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand = async (
+  input: AssociateMulticastGroupWithFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/multicast-group";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MulticastGroupId !== undefined &&
+      input.MulticastGroupId !== null && { MulticastGroupId: input.MulticastGroupId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand = async (
+  input: AssociateWirelessDeviceWithFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/wireless-device";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.WirelessDeviceId !== undefined &&
+      input.WirelessDeviceId !== null && { WirelessDeviceId: input.WirelessDeviceId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommand = async (
+  input: AssociateWirelessDeviceWithMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/wireless-device";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.WirelessDeviceId !== undefined &&
+      input.WirelessDeviceId !== null && { WirelessDeviceId: input.WirelessDeviceId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -383,6 +589,35 @@ export const serializeAws_restJson1AssociateWirelessGatewayWithThingCommand = as
   });
 };
 
+export const serializeAws_restJson1CancelMulticastGroupSessionCommand = async (
+  input: CancelMulticastGroupSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateDestinationCommand = async (
   input: CreateDestinationCommandInput,
   context: __SerdeContext
@@ -429,6 +664,70 @@ export const serializeAws_restJson1CreateDeviceProfileCommand = async (
     ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
     ...(input.LoRaWAN !== undefined &&
       input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANDeviceProfile(input.LoRaWAN, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateFuotaTaskCommand = async (
+  input: CreateFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FirmwareUpdateImage !== undefined &&
+      input.FirmwareUpdateImage !== null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
+    ...(input.FirmwareUpdateRole !== undefined &&
+      input.FirmwareUpdateRole !== null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateMulticastGroupCommand = async (
+  input: CreateMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups";
+  let body: any;
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
     ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
     ...(input.Tags !== undefined &&
       input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
@@ -663,6 +962,62 @@ export const serializeAws_restJson1DeleteDeviceProfileCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteFuotaTaskCommand = async (
+  input: DeleteFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteMulticastGroupCommand = async (
+  input: DeleteMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteServiceProfileCommand = async (
   input: DeleteServiceProfileCommandInput,
   context: __SerdeContext
@@ -838,6 +1193,123 @@ export const serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountComma
   });
 };
 
+export const serializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand = async (
+  input: DisassociateMulticastGroupFromFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/fuota-tasks/{Id}/multicast-groups/{MulticastGroupId}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  if (input.MulticastGroupId !== undefined) {
+    const labelValue: string = input.MulticastGroupId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MulticastGroupId.");
+    }
+    resolvedPath = resolvedPath.replace("{MulticastGroupId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MulticastGroupId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand = async (
+  input: DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/fuota-tasks/{Id}/wireless-devices/{WirelessDeviceId}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  if (input.WirelessDeviceId !== undefined) {
+    const labelValue: string = input.WirelessDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: WirelessDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{WirelessDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: WirelessDeviceId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupCommand = async (
+  input: DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/multicast-groups/{Id}/wireless-devices/{WirelessDeviceId}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  if (input.WirelessDeviceId !== undefined) {
+    const labelValue: string = input.WirelessDeviceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: WirelessDeviceId.");
+    }
+    resolvedPath = resolvedPath.replace("{WirelessDeviceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: WirelessDeviceId.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisassociateWirelessDeviceFromThingCommand = async (
   input: DisassociateWirelessDeviceFromThingCommandInput,
   context: __SerdeContext
@@ -981,6 +1453,34 @@ export const serializeAws_restJson1GetDeviceProfileCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetFuotaTaskCommand = async (
+  input: GetFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetLogLevelsByResourceTypesCommand = async (
   input: GetLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
@@ -992,6 +1492,63 @@ export const serializeAws_restJson1GetLogLevelsByResourceTypesCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/log-levels";
   let body: any;
   body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetMulticastGroupCommand = async (
+  input: GetMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetMulticastGroupSessionCommand = async (
+  input: GetMulticastGroupSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1021,6 +1578,40 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
     throw new Error("No value provided for input HTTP label: PartnerAccountId.");
   }
   const query: any = {
+    ...(input.PartnerType !== undefined && { partnerType: input.PartnerType }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetResourceEventConfigurationCommand = async (
+  input: GetResourceEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
+  if (input.Identifier !== undefined) {
+    const labelValue: string = input.Identifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Identifier.");
+    }
+    resolvedPath = resolvedPath.replace("{Identifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Identifier.");
+  }
+  const query: any = {
+    ...(input.IdentifierType !== undefined && { identifierType: input.IdentifierType }),
     ...(input.PartnerType !== undefined && { partnerType: input.PartnerType }),
   };
   let body: any;
@@ -1411,6 +2002,88 @@ export const serializeAws_restJson1ListDeviceProfilesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListFuotaTasksCommand = async (
+  input: ListFuotaTasksCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks";
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMulticastGroupsCommand = async (
+  input: ListMulticastGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups";
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand = async (
+  input: ListMulticastGroupsByFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}/multicast-groups";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  const query: any = {
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListPartnerAccountsCommand = async (
   input: ListPartnerAccountsCommandInput,
   context: __SerdeContext
@@ -1496,6 +2169,8 @@ export const serializeAws_restJson1ListWirelessDevicesCommand = async (
     ...(input.DeviceProfileId !== undefined && { deviceProfileId: input.DeviceProfileId }),
     ...(input.ServiceProfileId !== undefined && { serviceProfileId: input.ServiceProfileId }),
     ...(input.WirelessDeviceType !== undefined && { wirelessDeviceType: input.WirelessDeviceType }),
+    ...(input.FuotaTaskId !== undefined && { fuotaTaskId: input.FuotaTaskId }),
+    ...(input.MulticastGroupId !== undefined && { multicastGroupId: input.MulticastGroupId }),
   };
   let body: any;
   return new __HttpRequest({
@@ -1653,6 +2328,44 @@ export const serializeAws_restJson1ResetResourceLogLevelCommand = async (
   });
 };
 
+export const serializeAws_restJson1SendDataToMulticastGroupCommand = async (
+  input: SendDataToMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/data";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PayloadData !== undefined && input.PayloadData !== null && { PayloadData: input.PayloadData }),
+    ...(input.WirelessMetadata !== undefined &&
+      input.WirelessMetadata !== null && {
+        WirelessMetadata: serializeAws_restJson1MulticastWirelessMetadata(input.WirelessMetadata, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SendDataToWirelessDeviceCommand = async (
   input: SendDataToWirelessDeviceCommandInput,
   context: __SerdeContext
@@ -1686,6 +2399,147 @@ export const serializeAws_restJson1SendDataToWirelessDeviceCommand = async (
     hostname,
     port,
     method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand = async (
+  input: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueryString !== undefined && input.QueryString !== null && { QueryString: input.QueryString }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand = async (
+  input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/bulk";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.QueryString !== undefined && input.QueryString !== null && { QueryString: input.QueryString }),
+    ...(input.Tags !== undefined &&
+      input.Tags !== null && { Tags: serializeAws_restJson1TagList(input.Tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartFuotaTaskCommand = async (
+  input: StartFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANStartFuotaTask(input.LoRaWAN, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartMulticastGroupSessionCommand = async (
+  input: StartMulticastGroupSessionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}/session";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticastSession(input.LoRaWAN, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
     headers,
     path: resolvedPath,
     body,
@@ -1811,6 +2665,46 @@ export const serializeAws_restJson1UpdateDestinationCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateFuotaTaskCommand = async (
+  input: UpdateFuotaTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/fuota-tasks/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.FirmwareUpdateImage !== undefined &&
+      input.FirmwareUpdateImage !== null && { FirmwareUpdateImage: input.FirmwareUpdateImage }),
+    ...(input.FirmwareUpdateRole !== undefined &&
+      input.FirmwareUpdateRole !== null && { FirmwareUpdateRole: input.FirmwareUpdateRole }),
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANFuotaTask(input.LoRaWAN, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async (
   input: UpdateLogLevelsByResourceTypesCommandInput,
   context: __SerdeContext
@@ -1850,6 +2744,42 @@ export const serializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async
   });
 };
 
+export const serializeAws_restJson1UpdateMulticastGroupCommand = async (
+  input: UpdateMulticastGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/multicast-groups/{Id}";
+  if (input.Id !== undefined) {
+    const labelValue: string = input.Id;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Id.");
+    }
+    resolvedPath = resolvedPath.replace("{Id}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Id.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && input.Description !== null && { Description: input.Description }),
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticast(input.LoRaWAN, context) }),
+    ...(input.Name !== undefined && input.Name !== null && { Name: input.Name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
   input: UpdatePartnerAccountCommandInput,
   context: __SerdeContext
@@ -1876,6 +2806,55 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
   body = JSON.stringify({
     ...(input.Sidewalk !== undefined &&
       input.Sidewalk !== null && { Sidewalk: serializeAws_restJson1SidewalkUpdateAccount(input.Sidewalk, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = async (
+  input: UpdateResourceEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
+  if (input.Identifier !== undefined) {
+    const labelValue: string = input.Identifier;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Identifier.");
+    }
+    resolvedPath = resolvedPath.replace("{Identifier}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Identifier.");
+  }
+  const query: any = {
+    ...(input.IdentifierType !== undefined && { identifierType: input.IdentifierType }),
+    ...(input.PartnerType !== undefined && { partnerType: input.PartnerType }),
+  };
+  let body: any;
+  body = JSON.stringify({
+    ...(input.DeviceRegistrationState !== undefined &&
+      input.DeviceRegistrationState !== null && {
+        DeviceRegistrationState: serializeAws_restJson1DeviceRegistrationStateEventConfiguration(
+          input.DeviceRegistrationState,
+          context
+        ),
+      }),
+    ...(input.Proximity !== undefined &&
+      input.Proximity !== null && {
+        Proximity: serializeAws_restJson1ProximityEventConfiguration(input.Proximity, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -1993,6 +2972,279 @@ const deserializeAws_restJson1AssociateAwsAccountWithPartnerAccountCommandError 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAwsAccountWithPartnerAccountCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommandError(output, context);
+  }
+  const contents: AssociateMulticastGroupWithFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateMulticastGroupWithFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateMulticastGroupWithFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommandError(output, context);
+  }
+  const contents: AssociateWirelessDeviceWithFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateWirelessDeviceWithFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWirelessDeviceWithFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommandError(output, context);
+  }
+  const contents: AssociateWirelessDeviceWithMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AssociateWirelessDeviceWithMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -2343,6 +3595,97 @@ const deserializeAws_restJson1AssociateWirelessGatewayWithThingCommandError = as
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CancelMulticastGroupSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMulticastGroupSessionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CancelMulticastGroupSessionCommandError(output, context);
+  }
+  const contents: CancelMulticastGroupSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CancelMulticastGroupSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMulticastGroupSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2496,6 +3839,204 @@ const deserializeAws_restJson1CreateDeviceProfileCommandError = async (
     case "com.amazonaws.iotwireless#InternalServerException":
       response = {
         ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateFuotaTaskCommandError(output, context);
+  }
+  const contents: CreateFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Id: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateMulticastGroupCommandError(output, context);
+  }
+  const contents: CreateMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    Id: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3194,6 +4735,180 @@ const deserializeAws_restJson1DeleteDeviceProfileCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteFuotaTaskCommandError(output, context);
+  }
+  const contents: DeleteFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteMulticastGroupCommandError(output, context);
+  }
+  const contents: DeleteMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteServiceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3643,6 +5358,263 @@ const deserializeAws_restJson1DisassociateAwsAccountFromPartnerAccountCommandErr
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommandError(output, context);
+  }
+  const contents: DisassociateMulticastGroupFromFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateMulticastGroupFromFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateMulticastGroupFromFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommandError(output, context);
+  }
+  const contents: DisassociateWirelessDeviceFromFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateWirelessDeviceFromFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWirelessDeviceFromFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupCommandError(output, context);
+  }
+  const contents: DisassociateWirelessDeviceFromMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DisassociateWirelessDeviceFromMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       response = {
@@ -4163,6 +6135,125 @@ const deserializeAws_restJson1GetDeviceProfileCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetFuotaTaskCommandError(output, context);
+  }
+  const contents: GetFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    CreatedAt: undefined,
+    Description: undefined,
+    FirmwareUpdateImage: undefined,
+    FirmwareUpdateRole: undefined,
+    Id: undefined,
+    LoRaWAN: undefined,
+    Name: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
+  }
+  if (data.Description !== undefined && data.Description !== null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.FirmwareUpdateImage !== undefined && data.FirmwareUpdateImage !== null) {
+    contents.FirmwareUpdateImage = __expectString(data.FirmwareUpdateImage);
+  }
+  if (data.FirmwareUpdateRole !== undefined && data.FirmwareUpdateRole !== null) {
+    contents.FirmwareUpdateRole = __expectString(data.FirmwareUpdateRole);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
+    contents.LoRaWAN = deserializeAws_restJson1LoRaWANFuotaTaskGetInfo(data.LoRaWAN, context);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectString(data.Status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetLogLevelsByResourceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4264,6 +6355,204 @@ const deserializeAws_restJson1GetLogLevelsByResourceTypesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMulticastGroupCommandError(output, context);
+  }
+  const contents: GetMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    CreatedAt: undefined,
+    Description: undefined,
+    Id: undefined,
+    LoRaWAN: undefined,
+    Name: undefined,
+    Status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Arn !== undefined && data.Arn !== null) {
+    contents.Arn = __expectString(data.Arn);
+  }
+  if (data.CreatedAt !== undefined && data.CreatedAt !== null) {
+    contents.CreatedAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreatedAt)));
+  }
+  if (data.Description !== undefined && data.Description !== null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.Id !== undefined && data.Id !== null) {
+    contents.Id = __expectString(data.Id);
+  }
+  if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
+    contents.LoRaWAN = deserializeAws_restJson1LoRaWANMulticastGet(data.LoRaWAN, context);
+  }
+  if (data.Name !== undefined && data.Name !== null) {
+    contents.Name = __expectString(data.Name);
+  }
+  if (data.Status !== undefined && data.Status !== null) {
+    contents.Status = __expectString(data.Status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetMulticastGroupSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMulticastGroupSessionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetMulticastGroupSessionCommandError(output, context);
+  }
+  const contents: GetMulticastGroupSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    LoRaWAN: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.LoRaWAN !== undefined && data.LoRaWAN !== null) {
+    contents.LoRaWAN = deserializeAws_restJson1LoRaWANMulticastSession(data.LoRaWAN, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetMulticastGroupSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMulticastGroupSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetPartnerAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4298,6 +6587,100 @@ const deserializeAws_restJson1GetPartnerAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1GetResourceEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEventConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetResourceEventConfigurationCommandError(output, context);
+  }
+  const contents: GetResourceEventConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    DeviceRegistrationState: undefined,
+    Proximity: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DeviceRegistrationState !== undefined && data.DeviceRegistrationState !== null) {
+    contents.DeviceRegistrationState = deserializeAws_restJson1DeviceRegistrationStateEventConfiguration(
+      data.DeviceRegistrationState,
+      context
+    );
+  }
+  if (data.Proximity !== undefined && data.Proximity !== null) {
+    contents.Proximity = deserializeAws_restJson1ProximityEventConfiguration(data.Proximity, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetResourceEventConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceEventConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       response = {
@@ -5594,6 +7977,266 @@ const deserializeAws_restJson1ListDeviceProfilesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListFuotaTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFuotaTasksCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListFuotaTasksCommandError(output, context);
+  }
+  const contents: ListFuotaTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    FuotaTaskList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.FuotaTaskList !== undefined && data.FuotaTaskList !== null) {
+    contents.FuotaTaskList = deserializeAws_restJson1FuotaTaskList(data.FuotaTaskList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListFuotaTasksCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFuotaTasksCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListMulticastGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMulticastGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMulticastGroupsCommandError(output, context);
+  }
+  const contents: ListMulticastGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MulticastGroupList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MulticastGroupList !== undefined && data.MulticastGroupList !== null) {
+    contents.MulticastGroupList = deserializeAws_restJson1MulticastGroupList(data.MulticastGroupList, context);
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMulticastGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMulticastGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommandError(output, context);
+  }
+  const contents: ListMulticastGroupsByFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MulticastGroupList: undefined,
+    NextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MulticastGroupList !== undefined && data.MulticastGroupList !== null) {
+    contents.MulticastGroupList = deserializeAws_restJson1MulticastGroupListByFuotaTask(
+      data.MulticastGroupList,
+      context
+    );
+  }
+  if (data.NextToken !== undefined && data.NextToken !== null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListMulticastGroupsByFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMulticastGroupsByFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListPartnerAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6351,6 +8994,101 @@ const deserializeAws_restJson1ResetResourceLogLevelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1SendDataToMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDataToMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SendDataToMulticastGroupCommandError(output, context);
+  }
+  const contents: SendDataToMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    MessageId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MessageId !== undefined && data.MessageId !== null) {
+    contents.MessageId = __expectString(data.MessageId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1SendDataToMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendDataToMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1SendDataToWirelessDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6381,6 +9119,354 @@ const deserializeAws_restJson1SendDataToWirelessDeviceCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommandError(output, context);
+  }
+  const contents: StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandError(output, context);
+  }
+  const contents: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartFuotaTaskCommandError(output, context);
+  }
+  const contents: StartFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartMulticastGroupSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMulticastGroupSessionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartMulticastGroupSessionCommandError(output, context);
+  }
+  const contents: StartMulticastGroupSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartMulticastGroupSessionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMulticastGroupSessionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       response = {
@@ -6766,6 +9852,97 @@ const deserializeAws_restJson1UpdateDestinationCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateFuotaTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFuotaTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateFuotaTaskCommandError(output, context);
+  }
+  const contents: UpdateFuotaTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateFuotaTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFuotaTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -6784,6 +9961,97 @@ const deserializeAws_restJson1UpdateLogLevelsByResourceTypesCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLogLevelsByResourceTypesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateMulticastGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMulticastGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMulticastGroupCommandError(output, context);
+  }
+  const contents: UpdateMulticastGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateMulticastGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMulticastGroupCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -6883,6 +10151,97 @@ const deserializeAws_restJson1UpdatePartnerAccountCommandError = async (
   let errorCode = "UnknownError";
   errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iotwireless#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotwireless#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotwireless#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.iotwireless#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateResourceEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceEventConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateResourceEventConfigurationCommandError(output, context);
+  }
+  const contents: UpdateResourceEventConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateResourceEventConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceEventConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotwireless#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.iotwireless#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InternalServerException":
     case "com.amazonaws.iotwireless#InternalServerException":
       response = {
@@ -7257,6 +10616,18 @@ const serializeAws_restJson1AbpV1_1 = (input: AbpV1_1, context: __SerdeContext):
   };
 };
 
+const serializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
+  input: DeviceRegistrationStateEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk !== undefined &&
+      input.Sidewalk !== null && {
+        Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1FactoryPresetFreqsList = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7266,6 +10637,14 @@ const serializeAws_restJson1FactoryPresetFreqsList = (input: number[], context: 
       }
       return entry;
     });
+};
+
+const serializeAws_restJson1FPorts = (input: FPorts, context: __SerdeContext): any => {
+  return {
+    ...(input.ClockSync !== undefined && input.ClockSync !== null && { ClockSync: input.ClockSync }),
+    ...(input.Fuota !== undefined && input.Fuota !== null && { Fuota: input.Fuota }),
+    ...(input.Multicast !== undefined && input.Multicast !== null && { Multicast: input.Multicast }),
+  };
 };
 
 const serializeAws_restJson1JoinEuiFilters = (input: string[][], context: __SerdeContext): any => {
@@ -7299,6 +10678,8 @@ const serializeAws_restJson1LoRaWANDevice = (input: LoRaWANDevice, context: __Se
     ...(input.DevEui !== undefined && input.DevEui !== null && { DevEui: input.DevEui }),
     ...(input.DeviceProfileId !== undefined &&
       input.DeviceProfileId !== null && { DeviceProfileId: input.DeviceProfileId }),
+    ...(input.FPorts !== undefined &&
+      input.FPorts !== null && { FPorts: serializeAws_restJson1FPorts(input.FPorts, context) }),
     ...(input.OtaaV1_0_x !== undefined &&
       input.OtaaV1_0_x !== null && { OtaaV1_0_x: serializeAws_restJson1OtaaV1_0_x(input.OtaaV1_0_x, context) }),
     ...(input.OtaaV1_1 !== undefined &&
@@ -7340,6 +10721,12 @@ const serializeAws_restJson1LoRaWANDeviceProfile = (input: LoRaWANDeviceProfile,
   };
 };
 
+const serializeAws_restJson1LoRaWANFuotaTask = (input: LoRaWANFuotaTask, context: __SerdeContext): any => {
+  return {
+    ...(input.RfRegion !== undefined && input.RfRegion !== null && { RfRegion: input.RfRegion }),
+  };
+};
+
 const serializeAws_restJson1LoRaWANGateway = (input: LoRaWANGateway, context: __SerdeContext): any => {
   return {
     ...(input.GatewayEui !== undefined && input.GatewayEui !== null && { GatewayEui: input.GatewayEui }),
@@ -7364,6 +10751,38 @@ const serializeAws_restJson1LoRaWANGatewayVersion = (input: LoRaWANGatewayVersio
   };
 };
 
+const serializeAws_restJson1LoRaWANMulticast = (input: LoRaWANMulticast, context: __SerdeContext): any => {
+  return {
+    ...(input.DlClass !== undefined && input.DlClass !== null && { DlClass: input.DlClass }),
+    ...(input.RfRegion !== undefined && input.RfRegion !== null && { RfRegion: input.RfRegion }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANMulticastMetadata = (
+  input: LoRaWANMulticastMetadata,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.FPort !== undefined && input.FPort !== null && { FPort: input.FPort }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANMulticastSession = (
+  input: LoRaWANMulticastSession,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DlDr !== undefined && input.DlDr !== null && { DlDr: input.DlDr }),
+    ...(input.DlFreq !== undefined && input.DlFreq !== null && { DlFreq: input.DlFreq }),
+    ...(input.SessionStartTime !== undefined &&
+      input.SessionStartTime !== null && {
+        SessionStartTime: input.SessionStartTime.toISOString().split(".")[0] + "Z",
+      }),
+    ...(input.SessionTimeout !== undefined &&
+      input.SessionTimeout !== null && { SessionTimeout: input.SessionTimeout }),
+  };
+};
+
 const serializeAws_restJson1LoRaWANSendDataToDevice = (
   input: LoRaWANSendDataToDevice,
   context: __SerdeContext
@@ -7376,6 +10795,13 @@ const serializeAws_restJson1LoRaWANSendDataToDevice = (
 const serializeAws_restJson1LoRaWANServiceProfile = (input: LoRaWANServiceProfile, context: __SerdeContext): any => {
   return {
     ...(input.AddGwMetadata !== undefined && input.AddGwMetadata !== null && { AddGwMetadata: input.AddGwMetadata }),
+  };
+};
+
+const serializeAws_restJson1LoRaWANStartFuotaTask = (input: LoRaWANStartFuotaTask, context: __SerdeContext): any => {
+  return {
+    ...(input.StartTime !== undefined &&
+      input.StartTime !== null && { StartTime: input.StartTime.toISOString().split(".")[0] + "Z" }),
   };
 };
 
@@ -7407,6 +10833,16 @@ const serializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
   };
 };
 
+const serializeAws_restJson1MulticastWirelessMetadata = (
+  input: MulticastWirelessMetadata,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.LoRaWAN !== undefined &&
+      input.LoRaWAN !== null && { LoRaWAN: serializeAws_restJson1LoRaWANMulticastMetadata(input.LoRaWAN, context) }),
+  };
+};
+
 const serializeAws_restJson1NetIdFilters = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -7422,6 +10858,7 @@ const serializeAws_restJson1OtaaV1_0_x = (input: OtaaV1_0_x, context: __SerdeCon
   return {
     ...(input.AppEui !== undefined && input.AppEui !== null && { AppEui: input.AppEui }),
     ...(input.AppKey !== undefined && input.AppKey !== null && { AppKey: input.AppKey }),
+    ...(input.GenAppKey !== undefined && input.GenAppKey !== null && { GenAppKey: input.GenAppKey }),
   };
 };
 
@@ -7430,6 +10867,18 @@ const serializeAws_restJson1OtaaV1_1 = (input: OtaaV1_1, context: __SerdeContext
     ...(input.AppKey !== undefined && input.AppKey !== null && { AppKey: input.AppKey }),
     ...(input.JoinEui !== undefined && input.JoinEui !== null && { JoinEui: input.JoinEui }),
     ...(input.NwkKey !== undefined && input.NwkKey !== null && { NwkKey: input.NwkKey }),
+  };
+};
+
+const serializeAws_restJson1ProximityEventConfiguration = (
+  input: ProximityEventConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Sidewalk !== undefined &&
+      input.Sidewalk !== null && {
+        Sidewalk: serializeAws_restJson1SidewalkEventNotificationConfigurations(input.Sidewalk, context),
+      }),
   };
 };
 
@@ -7454,6 +10903,16 @@ const serializeAws_restJson1SidewalkAccountInfo = (input: SidewalkAccountInfo, c
     ...(input.AmazonId !== undefined && input.AmazonId !== null && { AmazonId: input.AmazonId }),
     ...(input.AppServerPrivateKey !== undefined &&
       input.AppServerPrivateKey !== null && { AppServerPrivateKey: input.AppServerPrivateKey }),
+  };
+};
+
+const serializeAws_restJson1SidewalkEventNotificationConfigurations = (
+  input: SidewalkEventNotificationConfigurations,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AmazonIdEventTopic !== undefined &&
+      input.AmazonIdEventTopic !== null && { AmazonIdEventTopic: input.AmazonIdEventTopic }),
   };
 };
 
@@ -7711,6 +11170,18 @@ const deserializeAws_restJson1DeviceProfileList = (output: any, context: __Serde
     });
 };
 
+const deserializeAws_restJson1DeviceRegistrationStateEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DeviceRegistrationStateEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk !== undefined && output.Sidewalk !== null
+        ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __SerdeContext): number[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7719,6 +11190,33 @@ const deserializeAws_restJson1FactoryPresetFreqsList = (output: any, context: __
         return null as any;
       }
       return __expectInt32(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1FPorts = (output: any, context: __SerdeContext): FPorts => {
+  return {
+    ClockSync: __expectInt32(output.ClockSync),
+    Fuota: __expectInt32(output.Fuota),
+    Multicast: __expectInt32(output.Multicast),
+  } as any;
+};
+
+const deserializeAws_restJson1FuotaTask = (output: any, context: __SerdeContext): FuotaTask => {
+  return {
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1FuotaTaskList = (output: any, context: __SerdeContext): FuotaTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FuotaTask(entry, context);
     });
 };
 
@@ -7756,6 +11254,10 @@ const deserializeAws_restJson1LoRaWANDevice = (output: any, context: __SerdeCont
         : undefined,
     DevEui: __expectString(output.DevEui),
     DeviceProfileId: __expectString(output.DeviceProfileId),
+    FPorts:
+      output.FPorts !== undefined && output.FPorts !== null
+        ? deserializeAws_restJson1FPorts(output.FPorts, context)
+        : undefined,
     OtaaV1_0_x:
       output.OtaaV1_0_x !== undefined && output.OtaaV1_0_x !== null
         ? deserializeAws_restJson1OtaaV1_0_x(output.OtaaV1_0_x, context)
@@ -7806,6 +11308,19 @@ const deserializeAws_restJson1LoRaWANDeviceProfile = (output: any, context: __Se
     SupportsClassB: __expectBoolean(output.SupportsClassB),
     SupportsClassC: __expectBoolean(output.SupportsClassC),
     SupportsJoin: __expectBoolean(output.SupportsJoin),
+  } as any;
+};
+
+const deserializeAws_restJson1LoRaWANFuotaTaskGetInfo = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANFuotaTaskGetInfo => {
+  return {
+    RfRegion: __expectString(output.RfRegion),
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.StartTime))
+        : undefined,
   } as any;
 };
 
@@ -7906,6 +11421,30 @@ const deserializeAws_restJson1LoRaWANListDevice = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1LoRaWANMulticastGet = (output: any, context: __SerdeContext): LoRaWANMulticastGet => {
+  return {
+    DlClass: __expectString(output.DlClass),
+    NumberOfDevicesInGroup: __expectInt32(output.NumberOfDevicesInGroup),
+    NumberOfDevicesRequested: __expectInt32(output.NumberOfDevicesRequested),
+    RfRegion: __expectString(output.RfRegion),
+  } as any;
+};
+
+const deserializeAws_restJson1LoRaWANMulticastSession = (
+  output: any,
+  context: __SerdeContext
+): LoRaWANMulticastSession => {
+  return {
+    DlDr: __expectInt32(output.DlDr),
+    DlFreq: __expectInt32(output.DlFreq),
+    SessionStartTime:
+      output.SessionStartTime !== undefined && output.SessionStartTime !== null
+        ? __expectNonNull(__parseRfc3339DateTime(output.SessionStartTime))
+        : undefined,
+    SessionTimeout: __expectInt32(output.SessionTimeout),
+  } as any;
+};
+
 const deserializeAws_restJson1LoRaWANUpdateGatewayTaskCreate = (
   output: any,
   context: __SerdeContext
@@ -7940,6 +11479,48 @@ const deserializeAws_restJson1LoRaWANUpdateGatewayTaskEntry = (
   } as any;
 };
 
+const deserializeAws_restJson1MulticastGroup = (output: any, context: __SerdeContext): MulticastGroup => {
+  return {
+    Arn: __expectString(output.Arn),
+    Id: __expectString(output.Id),
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_restJson1MulticastGroupByFuotaTask = (
+  output: any,
+  context: __SerdeContext
+): MulticastGroupByFuotaTask => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_restJson1MulticastGroupList = (output: any, context: __SerdeContext): MulticastGroup[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MulticastGroup(entry, context);
+    });
+};
+
+const deserializeAws_restJson1MulticastGroupListByFuotaTask = (
+  output: any,
+  context: __SerdeContext
+): MulticastGroupByFuotaTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MulticastGroupByFuotaTask(entry, context);
+    });
+};
+
 const deserializeAws_restJson1NetIdFilters = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -7955,6 +11536,7 @@ const deserializeAws_restJson1OtaaV1_0_x = (output: any, context: __SerdeContext
   return {
     AppEui: __expectString(output.AppEui),
     AppKey: __expectString(output.AppKey),
+    GenAppKey: __expectString(output.GenAppKey),
   } as any;
 };
 
@@ -7963,6 +11545,18 @@ const deserializeAws_restJson1OtaaV1_1 = (output: any, context: __SerdeContext):
     AppKey: __expectString(output.AppKey),
     JoinEui: __expectString(output.JoinEui),
     NwkKey: __expectString(output.NwkKey),
+  } as any;
+};
+
+const deserializeAws_restJson1ProximityEventConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ProximityEventConfiguration => {
+  return {
+    Sidewalk:
+      output.Sidewalk !== undefined && output.Sidewalk !== null
+        ? deserializeAws_restJson1SidewalkEventNotificationConfigurations(output.Sidewalk, context)
+        : undefined,
   } as any;
 };
 
@@ -8054,6 +11648,15 @@ const deserializeAws_restJson1SidewalkDeviceMetadata = (
     DeviceState: __expectString(output.DeviceState),
     Event: __expectString(output.Event),
     Rssi: __expectInt32(output.Rssi),
+  } as any;
+};
+
+const deserializeAws_restJson1SidewalkEventNotificationConfigurations = (
+  output: any,
+  context: __SerdeContext
+): SidewalkEventNotificationConfigurations => {
+  return {
+    AmazonIdEventTopic: __expectString(output.AmazonIdEventTopic),
   } as any;
 };
 
@@ -8185,12 +11788,15 @@ const deserializeAws_restJson1WirelessDeviceStatistics = (
   return {
     Arn: __expectString(output.Arn),
     DestinationName: __expectString(output.DestinationName),
+    FuotaDeviceStatus: __expectString(output.FuotaDeviceStatus),
     Id: __expectString(output.Id),
     LastUplinkReceivedAt: __expectString(output.LastUplinkReceivedAt),
     LoRaWAN:
       output.LoRaWAN !== undefined && output.LoRaWAN !== null
         ? deserializeAws_restJson1LoRaWANListDevice(output.LoRaWAN, context)
         : undefined,
+    McGroupId: __expectInt32(output.McGroupId),
+    MulticastDeviceStatus: __expectString(output.MulticastDeviceStatus),
     Name: __expectString(output.Name),
     Sidewalk:
       output.Sidewalk !== undefined && output.Sidewalk !== null

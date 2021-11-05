@@ -9623,8 +9623,9 @@ export namespace LaunchPermissionModifications {
  */
 export interface ModifyImageAttributeRequest {
   /**
-   * <p>The name of the attribute to modify.
-   *        The valid values are <code>description</code> and <code>launchPermission</code>.</p>
+   * <p>The name of the attribute to modify.</p>
+   *          <p>Valid values: <code>description</code> | <code>launchPermission</code>
+   *          </p>
    */
   Attribute?: string;
 
@@ -9678,6 +9679,16 @@ export interface ModifyImageAttributeRequest {
    *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  OrganizationArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   */
+  OrganizationalUnitArns?: string[];
 }
 
 export namespace ModifyImageAttributeRequest {

@@ -22,7 +22,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+ * <p>Tags an Amazon Transcribe resource with the given list of tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -38,8 +38,29 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *                     want to untag.</p>
  *             </li>
  *             <li>
- *                 <p>You can only tag resources that are located in the specified AWS Region for
- *                     the calling AWS account.</p>
+ *                 <p>You can only tag resources that are located in the specified Amazon Web Services Region for
+ *                     the calling Amazon Web Services account.</p>
+ *             </li>
+ *          </ul>
+ *
+ *         <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *         <p>In addition to the <code>tag:UntagResources</code> permission required by this
+ *             operation, you must also have the remove tags permission defined by the service that
+ *             created the resource. For example, to remove the tags from an Amazon EC2 instance using the
+ *                 <code>UntagResources</code> operation, you must have both of the following
+ *             permissions:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>tag:UntagResource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>ec2:DeleteTags</code>
+ *                </p>
  *             </li>
  *          </ul>
  * @example

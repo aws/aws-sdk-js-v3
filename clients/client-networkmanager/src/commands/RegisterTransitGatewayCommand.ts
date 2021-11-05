@@ -23,8 +23,8 @@ export interface RegisterTransitGatewayCommandOutput extends RegisterTransitGate
 
 /**
  * <p>Registers a transit gateway in your global network. The transit gateway can be in any
- *             AWS Region, but it must be owned by the same AWS account that owns the global network.
- *             You cannot register a transit gateway in more than one global network.</p>
+ *             Amazon Web Services Region, but it must be owned by the same Amazon Web Services account that owns
+ *             the global network. You cannot register a transit gateway in more than one global network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

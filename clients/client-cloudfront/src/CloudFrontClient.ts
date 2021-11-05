@@ -85,6 +85,10 @@ import {
   CreateRealtimeLogConfigCommandOutput,
 } from "./commands/CreateRealtimeLogConfigCommand";
 import {
+  CreateResponseHeadersPolicyCommandInput,
+  CreateResponseHeadersPolicyCommandOutput,
+} from "./commands/CreateResponseHeadersPolicyCommand";
+import {
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput,
 } from "./commands/CreateStreamingDistributionCommand";
@@ -121,6 +125,10 @@ import {
   DeleteRealtimeLogConfigCommandInput,
   DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
+import {
+  DeleteResponseHeadersPolicyCommandInput,
+  DeleteResponseHeadersPolicyCommandOutput,
+} from "./commands/DeleteResponseHeadersPolicyCommand";
 import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
@@ -183,6 +191,14 @@ import {
   GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
 import {
+  GetResponseHeadersPolicyCommandInput,
+  GetResponseHeadersPolicyCommandOutput,
+} from "./commands/GetResponseHeadersPolicyCommand";
+import {
+  GetResponseHeadersPolicyConfigCommandInput,
+  GetResponseHeadersPolicyConfigCommandOutput,
+} from "./commands/GetResponseHeadersPolicyConfigCommand";
+import {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
 } from "./commands/GetStreamingDistributionCommand";
@@ -216,6 +232,10 @@ import {
   ListDistributionsByRealtimeLogConfigCommandOutput,
 } from "./commands/ListDistributionsByRealtimeLogConfigCommand";
 import {
+  ListDistributionsByResponseHeadersPolicyIdCommandInput,
+  ListDistributionsByResponseHeadersPolicyIdCommandOutput,
+} from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
 } from "./commands/ListDistributionsByWebACLIdCommand";
@@ -240,6 +260,10 @@ import {
   ListRealtimeLogConfigsCommandInput,
   ListRealtimeLogConfigsCommandOutput,
 } from "./commands/ListRealtimeLogConfigsCommand";
+import {
+  ListResponseHeadersPoliciesCommandInput,
+  ListResponseHeadersPoliciesCommandOutput,
+} from "./commands/ListResponseHeadersPoliciesCommand";
 import {
   ListStreamingDistributionsCommandInput,
   ListStreamingDistributionsCommandOutput,
@@ -278,6 +302,10 @@ import {
   UpdateRealtimeLogConfigCommandOutput,
 } from "./commands/UpdateRealtimeLogConfigCommand";
 import {
+  UpdateResponseHeadersPolicyCommandInput,
+  UpdateResponseHeadersPolicyCommandOutput,
+} from "./commands/UpdateResponseHeadersPolicyCommand";
+import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
@@ -298,6 +326,7 @@ export type ServiceInputTypes =
   | CreateOriginRequestPolicyCommandInput
   | CreatePublicKeyCommandInput
   | CreateRealtimeLogConfigCommandInput
+  | CreateResponseHeadersPolicyCommandInput
   | CreateStreamingDistributionCommandInput
   | CreateStreamingDistributionWithTagsCommandInput
   | DeleteCachePolicyCommandInput
@@ -311,6 +340,7 @@ export type ServiceInputTypes =
   | DeleteOriginRequestPolicyCommandInput
   | DeletePublicKeyCommandInput
   | DeleteRealtimeLogConfigCommandInput
+  | DeleteResponseHeadersPolicyCommandInput
   | DeleteStreamingDistributionCommandInput
   | DescribeFunctionCommandInput
   | GetCachePolicyCommandInput
@@ -333,6 +363,8 @@ export type ServiceInputTypes =
   | GetPublicKeyCommandInput
   | GetPublicKeyConfigCommandInput
   | GetRealtimeLogConfigCommandInput
+  | GetResponseHeadersPolicyCommandInput
+  | GetResponseHeadersPolicyConfigCommandInput
   | GetStreamingDistributionCommandInput
   | GetStreamingDistributionConfigCommandInput
   | ListCachePoliciesCommandInput
@@ -342,6 +374,7 @@ export type ServiceInputTypes =
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
   | ListDistributionsByRealtimeLogConfigCommandInput
+  | ListDistributionsByResponseHeadersPolicyIdCommandInput
   | ListDistributionsByWebACLIdCommandInput
   | ListDistributionsCommandInput
   | ListFieldLevelEncryptionConfigsCommandInput
@@ -352,6 +385,7 @@ export type ServiceInputTypes =
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
   | ListRealtimeLogConfigsCommandInput
+  | ListResponseHeadersPoliciesCommandInput
   | ListStreamingDistributionsCommandInput
   | ListTagsForResourceCommandInput
   | PublishFunctionCommandInput
@@ -368,6 +402,7 @@ export type ServiceInputTypes =
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
   | UpdateRealtimeLogConfigCommandInput
+  | UpdateResponseHeadersPolicyCommandInput
   | UpdateStreamingDistributionCommandInput;
 
 export type ServiceOutputTypes =
@@ -385,6 +420,7 @@ export type ServiceOutputTypes =
   | CreateOriginRequestPolicyCommandOutput
   | CreatePublicKeyCommandOutput
   | CreateRealtimeLogConfigCommandOutput
+  | CreateResponseHeadersPolicyCommandOutput
   | CreateStreamingDistributionCommandOutput
   | CreateStreamingDistributionWithTagsCommandOutput
   | DeleteCachePolicyCommandOutput
@@ -398,6 +434,7 @@ export type ServiceOutputTypes =
   | DeleteOriginRequestPolicyCommandOutput
   | DeletePublicKeyCommandOutput
   | DeleteRealtimeLogConfigCommandOutput
+  | DeleteResponseHeadersPolicyCommandOutput
   | DeleteStreamingDistributionCommandOutput
   | DescribeFunctionCommandOutput
   | GetCachePolicyCommandOutput
@@ -420,6 +457,8 @@ export type ServiceOutputTypes =
   | GetPublicKeyCommandOutput
   | GetPublicKeyConfigCommandOutput
   | GetRealtimeLogConfigCommandOutput
+  | GetResponseHeadersPolicyCommandOutput
+  | GetResponseHeadersPolicyConfigCommandOutput
   | GetStreamingDistributionCommandOutput
   | GetStreamingDistributionConfigCommandOutput
   | ListCachePoliciesCommandOutput
@@ -429,6 +468,7 @@ export type ServiceOutputTypes =
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
   | ListDistributionsByRealtimeLogConfigCommandOutput
+  | ListDistributionsByResponseHeadersPolicyIdCommandOutput
   | ListDistributionsByWebACLIdCommandOutput
   | ListDistributionsCommandOutput
   | ListFieldLevelEncryptionConfigsCommandOutput
@@ -439,6 +479,7 @@ export type ServiceOutputTypes =
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
   | ListRealtimeLogConfigsCommandOutput
+  | ListResponseHeadersPoliciesCommandOutput
   | ListStreamingDistributionsCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishFunctionCommandOutput
@@ -455,6 +496,7 @@ export type ServiceOutputTypes =
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
   | UpdateRealtimeLogConfigCommandOutput
+  | UpdateResponseHeadersPolicyCommandOutput
   | UpdateStreamingDistributionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

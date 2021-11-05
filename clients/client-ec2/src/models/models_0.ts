@@ -7883,9 +7883,10 @@ export interface InstanceRequirementsRequest {
    *          an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The
    *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
    *             <code>r*</code>, <code>*3*</code>.</p>
-   *          <p>For example, if you specify <code>c5*.*</code>, Amazon EC2 will exclude the entire C5
-   *          instance family (all C5a and C5n instance types). If you specify <code>c5a.*</code>, Amazon EC2
-   *          excludes all the C5a instance types, but does not exclude the C5n instance types.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance
+   *       family, which includes all C5a and C5n instance types. If you specify
+   *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
+   *       instance types.</p>
    *          <p>Default: No excluded instance types</p>
    */
   ExcludedInstanceTypes?: string[];
@@ -8403,26 +8404,37 @@ export type SpotInstanceInterruptionBehavior = "hibernate" | "stop" | "terminate
 
 export enum FleetReplacementStrategy {
   LAUNCH = "launch",
+  LAUNCH_BEFORE_TERMINATE = "launch-before-terminate",
 }
 
 /**
- * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
- *          Spot Instance is at an elevated risk of being interrupted. For more information, see
- *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
+ *          notification signal that your Spot Instance is at an elevated risk of being interrupted.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetSpotCapacityRebalanceRequest {
   /**
    * <p>The replacement strategy to use. Only available for fleets of type
    *          <code>maintain</code>.</p>
-   *          <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance
-   *          notification is emitted for an existing Spot Instance in the fleet, specify
-   *          <code>launch</code>. You must specify a value, otherwise you get an error.</p>
-   *          <note>
-   *             <p>When a replacement instance is launched, the instance marked for rebalance is not
-   *             automatically terminated. You can terminate it, or you can leave it running. You are charged for all instances while they are running.</p>
-   *          </note>
+   *          <p>
+   *             <code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance
+   *          notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not
+   *          terminate the instances that receive a rebalance notification. You can terminate the old
+   *          instances, or you can leave them running. You are charged for all instances while they are
+   *          running. </p>
+   *          <p>
+   *             <code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance
+   *          when a rebalance notification is emitted for an existing Spot Instance in the fleet, and
+   *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
+   *          instances that received a rebalance notification.</p>
    */
   ReplacementStrategy?: FleetReplacementStrategy | string;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *          Instance after launching a new replacement Spot Instance.</p>
+   */
+  TerminationDelay?: number;
 }
 
 export namespace FleetSpotCapacityRebalanceRequest {

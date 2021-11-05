@@ -112,7 +112,7 @@ export namespace InvalidRequestException {
 }
 
 /**
- * <p>Represents a single entry in a list of AWS resource tags. <code>TagListEntry</code>
+ * <p>Represents a single entry in a list of Amazon Web Services resource tags. <code>TagListEntry</code>
  *       returns an array that contains a list of tasks when the
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTagsForResource.html">ListTagsForResource</a>
  *       operation is called.</p>
@@ -416,6 +416,211 @@ export namespace CreateLocationFsxWindowsResponse {
   });
 }
 
+export enum HdfsAuthenticationType {
+  KERBEROS = "KERBEROS",
+  SIMPLE = "SIMPLE",
+}
+
+/**
+ * <p>The NameNode of the Hadoop Distributed File System (HDFS). The NameNode manages the file
+ *       system's namespace. The NameNode performs operations such as opening, closing, and renaming
+ *       files and directories. The NameNode contains the information to map blocks of data to the
+ *       DataNodes.</p>
+ */
+export interface HdfsNameNode {
+  /**
+   * <p>The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain
+   *       Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this
+   *       hostname to communicate with the NameNode in the network.</p>
+   */
+  Hostname: string | undefined;
+
+  /**
+   * <p>The port that the NameNode uses to listen to client requests.</p>
+   */
+  Port: number | undefined;
+}
+
+export namespace HdfsNameNode {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: HdfsNameNode): any => ({
+    ...obj,
+  });
+}
+
+export enum HdfsDataTransferProtection {
+  AUTHENTICATION = "AUTHENTICATION",
+  DISABLED = "DISABLED",
+  INTEGRITY = "INTEGRITY",
+  PRIVACY = "PRIVACY",
+}
+
+export enum HdfsRpcProtection {
+  AUTHENTICATION = "AUTHENTICATION",
+  DISABLED = "DISABLED",
+  INTEGRITY = "INTEGRITY",
+  PRIVACY = "PRIVACY",
+}
+
+/**
+ * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
+ *       and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS)
+ *       cluster.</p>
+ */
+export interface QopConfiguration {
+  /**
+   * <p>The RPC protection setting configured on the HDFS cluster. This setting corresponds to
+   *       your <code>hadoop.rpc.protection</code> setting in your <code>core-site.xml</code> file on
+   *       your Hadoop cluster.</p>
+   */
+  RpcProtection?: HdfsRpcProtection | string;
+
+  /**
+   * <p>The data transfer protection setting configured on the HDFS cluster. This setting
+   *       corresponds to your <code>dfs.data.transfer.protection</code> setting in the
+   *         <code>hdfs-site.xml</code> file on your Hadoop cluster.</p>
+   */
+  DataTransferProtection?: HdfsDataTransferProtection | string;
+}
+
+export namespace QopConfiguration {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: QopConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLocationHdfsRequest {
+  /**
+   * <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write
+   *       data to the HDFS cluster. If the subdirectory isn't specified, it will default to
+   *         <code>/</code>.</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
+   *       opening, closing, and renaming files and directories. The NameNode contains the information to
+   *       map blocks of data to the DataNodes. You can use only one NameNode.</p>
+   */
+  NameNodes: HdfsNameNode[] | undefined;
+
+  /**
+   * <p>The size of data blocks to write into the HDFS cluster. The block size must be a multiple
+   *       of 512 bytes. The default block size is 128 mebibytes (MiB).</p>
+   */
+  BlockSize?: number;
+
+  /**
+   * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. By
+   *       default, data is replicated to three DataNodes.</p>
+   */
+  ReplicationFactor?: number;
+
+  /**
+   * <p>The URI of the HDFS cluster's Key Management Server (KMS). </p>
+   */
+  KmsKeyProviderUri?: string;
+
+  /**
+   * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
+   *       and data transfer protection settings configured on the Hadoop Distributed File System (HDFS)
+   *       cluster. If <code>QopConfiguration</code> isn't specified, <code>RpcProtection</code> and
+   *         <code>DataTransferProtection</code> default to <code>PRIVACY</code>. If you set
+   *         <code>RpcProtection</code> or <code>DataTransferProtection</code>, the other parameter
+   *       assumes the same value. </p>
+   */
+  QopConfiguration?: QopConfiguration;
+
+  /**
+   * <p>The type of authentication used to determine the identity of the user. </p>
+   */
+  AuthenticationType: HdfsAuthenticationType | string | undefined;
+
+  /**
+   * <p>The user name used to identify the client on the host operating system. </p>
+   *          <note>
+   *             <p>If <code>SIMPLE</code> is specified for <code>AuthenticationType</code>, this parameter
+   *         is required. </p>
+   *          </note>
+   */
+  SimpleUser?: string;
+
+  /**
+   * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p>
+   *          <note>
+   *             <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this
+   *         parameter is required.</p>
+   *          </note>
+   */
+  KerberosPrincipal?: string;
+
+  /**
+   * <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
+   *       principal and the encrypted keys. You can load the keytab from a file by providing the file's
+   *       address. If you're using the CLI, it performs base64 encoding for you.
+   *       Otherwise, provide the base64-encoded text. </p>
+   *          <note>
+   *             <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this
+   *         parameter is required. </p>
+   *          </note>
+   */
+  KerberosKeytab?: Uint8Array;
+
+  /**
+   * <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You
+   *       can load the <code>krb5.conf</code> file by providing the file's address. If you're using the
+   *         CLI, it performs the base64 encoding for you. Otherwise, provide the
+   *       base64-encoded text. </p>
+   *          <note>
+   *             <p>If <code>KERBEROS</code> is specified for <code>AuthenticationType</code>, this
+   *         parameter is required.</p>
+   *          </note>
+   */
+  KerberosKrb5Conf?: Uint8Array;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the agents that are used to connect to the HDFS
+   *       cluster.</p>
+   */
+  AgentArns: string[] | undefined;
+
+  /**
+   * <p>The key-value pair that represents the tag that you want to add to the location. The value
+   *       can be an empty string. We recommend using tags to name your resources. </p>
+   */
+  Tags?: TagListEntry[];
+}
+
+export namespace CreateLocationHdfsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationHdfsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateLocationHdfsResponse {
+  /**
+   * <p>The ARN of the source HDFS cluster location that's created. </p>
+   */
+  LocationArn?: string;
+}
+
+export namespace CreateLocationHdfsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CreateLocationHdfsResponse): any => ({
+    ...obj,
+  });
+}
+
 export enum NfsVersion {
   AUTOMATIC = "AUTOMATIC",
   NFS3 = "NFS3",
@@ -448,7 +653,7 @@ export interface NfsMountOptions {
    *                   <b>
    *                      <a href="https://tools.ietf.org/html/rfc3530">NFSv4.0</a>
    *                   </b> - stateful, firewall-friendly protocol version that supports
-   *           delegations and pseudo filesystems.</p>
+   *           delegations and pseudo file systems.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1345,9 +1550,8 @@ export interface CreateTaskRequest {
 
   /**
    * <p>A list of filter rules that determines which files to include when running a task. The
-   *       pattern should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe). For example:
-   *       <code>"/folder1|/folder2</code>"</p>
+   *       pattern contains a single filter string that consists of the patterns to include. The patterns
+   *       are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</p>
    */
   Includes?: FilterRule[];
 }
@@ -1708,6 +1912,98 @@ export namespace DescribeLocationFsxWindowsResponse {
   });
 }
 
+export interface DescribeLocationHdfsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the HDFS cluster location to describe.</p>
+   */
+  LocationArn: string | undefined;
+}
+
+export namespace DescribeLocationHdfsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationHdfsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocationHdfsResponse {
+  /**
+   * <p>The ARN of the HDFS cluster location.</p>
+   */
+  LocationArn?: string;
+
+  /**
+   * <p>The URI of the HDFS cluster location.</p>
+   */
+  LocationUri?: string;
+
+  /**
+   * <p>The NameNode that manage the HDFS namespace. </p>
+   */
+  NameNodes?: HdfsNameNode[];
+
+  /**
+   * <p>The size of the data blocks to write into the HDFS cluster. </p>
+   */
+  BlockSize?: number;
+
+  /**
+   * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. </p>
+   */
+  ReplicationFactor?: number;
+
+  /**
+   * <p> The URI of the HDFS cluster's Key Management Server (KMS). </p>
+   */
+  KmsKeyProviderUri?: string;
+
+  /**
+   * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
+   *       and data transfer protection settings configured on the Hadoop Distributed File System (HDFS)
+   *       cluster. </p>
+   */
+  QopConfiguration?: QopConfiguration;
+
+  /**
+   * <p>The type of authentication used to determine the identity of the user. </p>
+   */
+  AuthenticationType?: HdfsAuthenticationType | string;
+
+  /**
+   * <p>The user name used to identify the client on the host operating system. This parameter is
+   *       used if the <code>AuthenticationType</code> is defined as <code>SIMPLE</code>.</p>
+   */
+  SimpleUser?: string;
+
+  /**
+   * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. This
+   *       parameter is used if the <code>AuthenticationType</code> is defined as
+   *       <code>KERBEROS</code>.</p>
+   */
+  KerberosPrincipal?: string;
+
+  /**
+   * <p>The ARNs of the agents that are used to connect to the HDFS cluster. </p>
+   */
+  AgentArns?: string[];
+
+  /**
+   * <p>The time that the HDFS location was created.</p>
+   */
+  CreationTime?: Date;
+}
+
+export namespace DescribeLocationHdfsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeLocationHdfsResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>DescribeLocationNfsRequest</p>
  */
@@ -2059,14 +2355,14 @@ export interface DescribeTaskResponse {
   CloudWatchLogGroupArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source ENIs (Elastic Network Interface) that was
+   * <p>The Amazon Resource Names (ARNs) of the source elastic network interfaces (ENIs) that were
    *       created for your subnet.</p>
    */
   SourceNetworkInterfaceArns?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the destination ENIs (Elastic Network Interface) that
-   *       was created for your subnet.</p>
+   * <p>The Amazon Resource Names (ARNs) of the destination elastic network interfaces (ENIs) that
+   *       were created for your subnet.</p>
    */
   DestinationNetworkInterfaceArns?: string[];
 
@@ -2083,8 +2379,7 @@ export interface DescribeTaskResponse {
   /**
    * <p>A list of filter rules that determines which files to exclude from a task. The list should
    *       contain a single filter string that consists of the patterns to exclude. The patterns are
-   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
-   *          </p>
+   *       delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>. </p>
    *          <p>
    *     </p>
    */
@@ -2114,9 +2409,8 @@ export interface DescribeTaskResponse {
 
   /**
    * <p>A list of filter rules that determines which files to include when running a task. The
-   *       pattern should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe). For example:
-   *       <code>"/folder1|/folder2</code>"</p>
+   *       pattern contains a single filter string that consists of the patterns to include. The patterns
+   *       are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2</code>".</p>
    */
   Includes?: FilterRule[];
 }
@@ -2845,8 +3139,8 @@ export interface StartTaskExecutionRequest {
   /**
    * <p>A list of filter rules that determines which files to include when running a task. The
    *       pattern should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe). For example: <code>"/folder1|/folder2"</code>
-   *          </p>
+   *       patterns are delimited by "|" (that is, a pipe), for example,
+   *       <code>"/folder1|/folder2"</code>. </p>
    *
    *          <p>
    *     </p>
@@ -2855,9 +3149,8 @@ export interface StartTaskExecutionRequest {
 
   /**
    * <p>A list of filter rules that determines which files to exclude from a task. The list
-   *       should contain a single filter string that consists of the patterns to exclude. The
-   *       patterns are delimited by "|" (that is, a pipe), for example,
-   *       <code>"/folder1|/folder2"</code>. </p>
+   *       contains a single filter string that consists of the patterns to exclude. The patterns are
+   *       delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>. </p>
    */
   Excludes?: FilterRule[];
 }
@@ -2992,6 +3285,104 @@ export namespace UpdateAgentResponse {
    * @internal
    */
   export const filterSensitiveLog = (obj: UpdateAgentResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLocationHdfsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source HDFS cluster location.</p>
+   */
+  LocationArn: string | undefined;
+
+  /**
+   * <p>A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write
+   *       data to the HDFS cluster.</p>
+   */
+  Subdirectory?: string;
+
+  /**
+   * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
+   *       opening, closing, and renaming files and directories. The NameNode contains the information to
+   *       map blocks of data to the DataNodes. You can use only one NameNode.</p>
+   */
+  NameNodes?: HdfsNameNode[];
+
+  /**
+   * <p>The size of the data blocks to write into the HDFS cluster. </p>
+   */
+  BlockSize?: number;
+
+  /**
+   * <p>The number of DataNodes to replicate the data to when writing to the HDFS cluster. </p>
+   */
+  ReplicationFactor?: number;
+
+  /**
+   * <p>The URI of the HDFS cluster's Key Management Server (KMS). </p>
+   */
+  KmsKeyProviderUri?: string;
+
+  /**
+   * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
+   *       and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS)
+   *       cluster. </p>
+   */
+  QopConfiguration?: QopConfiguration;
+
+  /**
+   * <p>The type of authentication used to determine the identity of the user. </p>
+   */
+  AuthenticationType?: HdfsAuthenticationType | string;
+
+  /**
+   * <p>The user name used to identify the client on the host operating system.</p>
+   */
+  SimpleUser?: string;
+
+  /**
+   * <p>The Kerberos principal with access to the files and folders on the HDFS cluster. </p>
+   */
+  KerberosPrincipal?: string;
+
+  /**
+   * <p>The Kerberos key table (keytab) that contains mappings between the defined Kerberos
+   *       principal and the encrypted keys. You can load the keytab from a file by providing the file's
+   *       address. If you use the AWS CLI, it performs base64 encoding for you. Otherwise, provide the
+   *       base64-encoded text.</p>
+   */
+  KerberosKeytab?: Uint8Array;
+
+  /**
+   * <p>The <code>krb5.conf</code> file that contains the Kerberos configuration information. You
+   *       can load the <code>krb5.conf</code> file by providing the file's address. If you're using the
+   *       AWS CLI, it performs the base64 encoding for you. Otherwise, provide the base64-encoded
+   *       text.</p>
+   */
+  KerberosKrb5Conf?: Uint8Array;
+
+  /**
+   * <p>The ARNs of the agents that are used to connect to the HDFS cluster. </p>
+   */
+  AgentArns?: string[];
+}
+
+export namespace UpdateLocationHdfsRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLocationHdfsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateLocationHdfsResponse {}
+
+export namespace UpdateLocationHdfsResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: UpdateLocationHdfsResponse): any => ({
     ...obj,
   });
 }
@@ -3239,8 +3630,7 @@ export interface UpdateTaskRequest {
   /**
    * <p>A list of filter rules that determines which files to exclude from a task. The list should
    *       contain a single filter string that consists of the patterns to exclude. The patterns are
-   *       delimited by "|" (that is, a pipe), for example: <code>"/folder1|/folder2"</code>
-   *          </p>
+   *       delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</p>
    *          <p>
    *     </p>
    */
@@ -3260,16 +3650,15 @@ export interface UpdateTaskRequest {
   Name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource name of the CloudWatch
-   *       LogGroup.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource name of the Amazon CloudWatch log
+   *       group.</p>
    */
   CloudWatchLogGroupArn?: string;
 
   /**
    * <p>A list of filter rules that determines which files to include when running a task. The
-   *       pattern should contain a single filter string that consists of the patterns to include. The
-   *       patterns are delimited by "|" (that is, a pipe). For example:
-   *       <code>"/folder1|/folder2</code>"</p>
+   *       pattern contains a single filter string that consists of the patterns to include. The patterns
+   *       are delimited by "|" (that is, a pipe), for example, <code>"/folder1|/folder2"</code>.</p>
    */
   Includes?: FilterRule[];
 }

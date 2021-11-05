@@ -72,6 +72,11 @@ import {
   CreateRealtimeLogConfigCommandOutput,
 } from "./commands/CreateRealtimeLogConfigCommand";
 import {
+  CreateResponseHeadersPolicyCommand,
+  CreateResponseHeadersPolicyCommandInput,
+  CreateResponseHeadersPolicyCommandOutput,
+} from "./commands/CreateResponseHeadersPolicyCommand";
+import {
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionCommandInput,
   CreateStreamingDistributionCommandOutput,
@@ -136,6 +141,11 @@ import {
   DeleteRealtimeLogConfigCommandInput,
   DeleteRealtimeLogConfigCommandOutput,
 } from "./commands/DeleteRealtimeLogConfigCommand";
+import {
+  DeleteResponseHeadersPolicyCommand,
+  DeleteResponseHeadersPolicyCommandInput,
+  DeleteResponseHeadersPolicyCommandOutput,
+} from "./commands/DeleteResponseHeadersPolicyCommand";
 import {
   DeleteStreamingDistributionCommand,
   DeleteStreamingDistributionCommandInput,
@@ -239,6 +249,16 @@ import {
   GetRealtimeLogConfigCommandOutput,
 } from "./commands/GetRealtimeLogConfigCommand";
 import {
+  GetResponseHeadersPolicyCommand,
+  GetResponseHeadersPolicyCommandInput,
+  GetResponseHeadersPolicyCommandOutput,
+} from "./commands/GetResponseHeadersPolicyCommand";
+import {
+  GetResponseHeadersPolicyConfigCommand,
+  GetResponseHeadersPolicyConfigCommandInput,
+  GetResponseHeadersPolicyConfigCommandOutput,
+} from "./commands/GetResponseHeadersPolicyConfigCommand";
+import {
   GetStreamingDistributionCommand,
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
@@ -283,6 +303,11 @@ import {
   ListDistributionsByRealtimeLogConfigCommandInput,
   ListDistributionsByRealtimeLogConfigCommandOutput,
 } from "./commands/ListDistributionsByRealtimeLogConfigCommand";
+import {
+  ListDistributionsByResponseHeadersPolicyIdCommand,
+  ListDistributionsByResponseHeadersPolicyIdCommandInput,
+  ListDistributionsByResponseHeadersPolicyIdCommandOutput,
+} from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
 import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
@@ -333,6 +358,11 @@ import {
   ListRealtimeLogConfigsCommandInput,
   ListRealtimeLogConfigsCommandOutput,
 } from "./commands/ListRealtimeLogConfigsCommand";
+import {
+  ListResponseHeadersPoliciesCommand,
+  ListResponseHeadersPoliciesCommandInput,
+  ListResponseHeadersPoliciesCommandOutput,
+} from "./commands/ListResponseHeadersPoliciesCommand";
 import {
   ListStreamingDistributionsCommand,
   ListStreamingDistributionsCommandInput,
@@ -409,6 +439,11 @@ import {
   UpdateRealtimeLogConfigCommandInput,
   UpdateRealtimeLogConfigCommandOutput,
 } from "./commands/UpdateRealtimeLogConfigCommand";
+import {
+  UpdateResponseHeadersPolicyCommand,
+  UpdateResponseHeadersPolicyCommandInput,
+  UpdateResponseHeadersPolicyCommandOutput,
+} from "./commands/UpdateResponseHeadersPolicyCommand";
 import {
   UpdateStreamingDistributionCommand,
   UpdateStreamingDistributionCommandInput,
@@ -963,6 +998,45 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Creates a response headers policy.</p>
+   * 		       <p>A response headers policy contains information about a set of HTTP response headers
+   * 			and their values. To create a response headers policy, you provide some metadata about
+   * 			the policy, and a set of configurations that specify the response headers.</p>
+   * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or more
+   * 			cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront
+   * 			adds the headers in the policy to HTTP responses that it sends for requests that match
+   * 			the cache behavior.</p>
+   */
+  public createResponseHeadersPolicy(
+    args: CreateResponseHeadersPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResponseHeadersPolicyCommandOutput>;
+  public createResponseHeadersPolicy(
+    args: CreateResponseHeadersPolicyCommandInput,
+    cb: (err: any, data?: CreateResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public createResponseHeadersPolicy(
+    args: CreateResponseHeadersPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public createResponseHeadersPolicy(
+    args: CreateResponseHeadersPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResponseHeadersPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateResponseHeadersPolicyCommandOutput) => void
+  ): Promise<CreateResponseHeadersPolicyCommandOutput> | void {
+    const command = new CreateResponseHeadersPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is deprecated.
    *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
    *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
@@ -1402,6 +1476,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void
   ): Promise<DeleteRealtimeLogConfigCommandOutput> | void {
     const command = new DeleteRealtimeLogConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a response headers policy.</p>
+   * 		       <p>You cannot delete a response headers policy if it’s attached to a cache behavior.
+   * 			First update your distributions to remove the response headers policy from all cache
+   * 			behaviors, then delete the response headers policy.</p>
+   * 		       <p>To delete a response headers policy, you must provide the policy’s identifier and
+   * 			version. To get these values, you can use <code>ListResponseHeadersPolicies</code> or
+   * 				<code>GetResponseHeadersPolicy</code>. </p>
+   */
+  public deleteResponseHeadersPolicy(
+    args: DeleteResponseHeadersPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResponseHeadersPolicyCommandOutput>;
+  public deleteResponseHeadersPolicy(
+    args: DeleteResponseHeadersPolicyCommandInput,
+    cb: (err: any, data?: DeleteResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public deleteResponseHeadersPolicy(
+    args: DeleteResponseHeadersPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public deleteResponseHeadersPolicy(
+    args: DeleteResponseHeadersPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResponseHeadersPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResponseHeadersPolicyCommandOutput) => void
+  ): Promise<DeleteResponseHeadersPolicyCommandOutput> | void {
+    const command = new DeleteResponseHeadersPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2209,6 +2321,83 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a response headers policy, including metadata (the policy’s identifier and the date and
+   * 			time when the policy was last modified).</p>
+   * 		       <p>To get a response headers policy, you must provide the policy’s identifier. If the
+   * 			response headers policy is attached to a distribution’s cache behavior, you can get the
+   * 			policy’s identifier using <code>ListDistributions</code> or
+   * 			<code>GetDistribution</code>. If the response headers policy is not attached to a cache
+   * 			behavior, you can get the identifier using
+   * 			<code>ListResponseHeadersPolicies</code>.</p>
+   */
+  public getResponseHeadersPolicy(
+    args: GetResponseHeadersPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResponseHeadersPolicyCommandOutput>;
+  public getResponseHeadersPolicy(
+    args: GetResponseHeadersPolicyCommandInput,
+    cb: (err: any, data?: GetResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public getResponseHeadersPolicy(
+    args: GetResponseHeadersPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public getResponseHeadersPolicy(
+    args: GetResponseHeadersPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResponseHeadersPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetResponseHeadersPolicyCommandOutput) => void
+  ): Promise<GetResponseHeadersPolicyCommandOutput> | void {
+    const command = new GetResponseHeadersPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a response headers policy configuration.</p>
+   * 		       <p>To get a response headers policy configuration, you must provide the policy’s
+   * 			identifier. If the response headers policy is attached to a distribution’s cache
+   * 			behavior, you can get the policy’s identifier using <code>ListDistributions</code> or
+   * 			<code>GetDistribution</code>. If the response headers policy is not attached to a
+   * 			cache behavior, you can get the identifier using
+   * 			<code>ListResponseHeadersPolicies</code>.</p>
+   */
+  public getResponseHeadersPolicyConfig(
+    args: GetResponseHeadersPolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResponseHeadersPolicyConfigCommandOutput>;
+  public getResponseHeadersPolicyConfig(
+    args: GetResponseHeadersPolicyConfigCommandInput,
+    cb: (err: any, data?: GetResponseHeadersPolicyConfigCommandOutput) => void
+  ): void;
+  public getResponseHeadersPolicyConfig(
+    args: GetResponseHeadersPolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResponseHeadersPolicyConfigCommandOutput) => void
+  ): void;
+  public getResponseHeadersPolicyConfig(
+    args: GetResponseHeadersPolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResponseHeadersPolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetResponseHeadersPolicyConfigCommandOutput) => void
+  ): Promise<GetResponseHeadersPolicyConfigCommandOutput> | void {
+    const command = new GetResponseHeadersPolicyConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
    */
   public getStreamingDistribution(
@@ -2275,7 +2464,7 @@ export class CloudFront extends CloudFrontClient {
   /**
    * <p>Gets a list of cache policies.</p>
    * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
-   * 			only the custom policies created in your account.</p>
+   * 			only the custom policies created in your Amazon Web Services account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -2587,6 +2776,46 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
+   * 			associated with the specified response headers policy.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByResponseHeadersPolicyId(
+    args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput>;
+  public listDistributionsByResponseHeadersPolicyId(
+    args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByResponseHeadersPolicyId(
+    args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
+  ): void;
+  public listDistributionsByResponseHeadersPolicyId(
+    args: ListDistributionsByResponseHeadersPolicyIdCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByResponseHeadersPolicyIdCommandOutput) => void
+  ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> | void {
+    const command = new ListDistributionsByResponseHeadersPolicyIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List the distributions that are associated with a specified WAF web ACL.</p>
    */
   public listDistributionsByWebACLId(
@@ -2683,7 +2912,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a list of all CloudFront functions in your account.</p>
+   * <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
    * 		       <p>You can optionally apply a filter to return only the functions that are in the
    * 			specified stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -2793,7 +3022,7 @@ export class CloudFront extends CloudFrontClient {
   /**
    * <p>Gets a list of origin request policies.</p>
    * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
-   * 			only the custom policies created in your account.</p>
+   * 			only the custom policies created in your Amazon Web Services account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -2888,6 +3117,45 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListRealtimeLogConfigsCommandOutput) => void
   ): Promise<ListRealtimeLogConfigsCommandOutput> | void {
     const command = new ListRealtimeLogConfigsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of response headers policies.</p>
+   * 		       <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
+   * 			or only the custom policies created in your Amazon Web Services account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listResponseHeadersPolicies(
+    args: ListResponseHeadersPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResponseHeadersPoliciesCommandOutput>;
+  public listResponseHeadersPolicies(
+    args: ListResponseHeadersPoliciesCommandInput,
+    cb: (err: any, data?: ListResponseHeadersPoliciesCommandOutput) => void
+  ): void;
+  public listResponseHeadersPolicies(
+    args: ListResponseHeadersPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResponseHeadersPoliciesCommandOutput) => void
+  ): void;
+  public listResponseHeadersPolicies(
+    args: ListResponseHeadersPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResponseHeadersPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListResponseHeadersPoliciesCommandOutput) => void
+  ): Promise<ListResponseHeadersPoliciesCommandOutput> | void {
+    const command = new ListResponseHeadersPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3562,6 +3830,56 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void
   ): Promise<UpdateRealtimeLogConfigCommandOutput> | void {
     const command = new UpdateRealtimeLogConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a response headers policy.</p>
+   * 		       <p>When you update a response headers policy, the entire policy is replaced. You cannot
+   * 			update some policy fields independent of others. To update a response headers policy
+   * 			configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy’s
+   * 					configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Modify the fields in the response headers policy configuration that you want
+   * 					to update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response
+   * 					headers policy configuration, including the fields that you modified and those
+   * 					that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateResponseHeadersPolicy(
+    args: UpdateResponseHeadersPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResponseHeadersPolicyCommandOutput>;
+  public updateResponseHeadersPolicy(
+    args: UpdateResponseHeadersPolicyCommandInput,
+    cb: (err: any, data?: UpdateResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public updateResponseHeadersPolicy(
+    args: UpdateResponseHeadersPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResponseHeadersPolicyCommandOutput) => void
+  ): void;
+  public updateResponseHeadersPolicy(
+    args: UpdateResponseHeadersPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResponseHeadersPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResponseHeadersPolicyCommandOutput) => void
+  ): Promise<UpdateResponseHeadersPolicyCommandOutput> | void {
+    const command = new UpdateResponseHeadersPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

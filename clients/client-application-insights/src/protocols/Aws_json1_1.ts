@@ -2559,6 +2559,9 @@ const serializeAws_json1_1CreateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoConfigEnabled !== undefined &&
+      input.AutoConfigEnabled !== null && { AutoConfigEnabled: input.AutoConfigEnabled }),
+    ...(input.AutoCreate !== undefined && input.AutoCreate !== null && { AutoCreate: input.AutoCreate }),
     ...(input.CWEMonitorEnabled !== undefined &&
       input.CWEMonitorEnabled !== null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
     ...(input.OpsCenterEnabled !== undefined &&
@@ -2760,6 +2763,7 @@ const serializeAws_json1_1ListLogPatternsRequest = (input: ListLogPatternsReques
 
 const serializeAws_json1_1ListProblemsRequest = (input: ListProblemsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.ComponentName !== undefined && input.ComponentName !== null && { ComponentName: input.ComponentName }),
     ...(input.EndTime !== undefined &&
       input.EndTime !== null && { EndTime: Math.round(input.EndTime.getTime() / 1000) }),
     ...(input.MaxResults !== undefined && input.MaxResults !== null && { MaxResults: input.MaxResults }),
@@ -2840,6 +2844,8 @@ const serializeAws_json1_1UpdateApplicationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoConfigEnabled !== undefined &&
+      input.AutoConfigEnabled !== null && { AutoConfigEnabled: input.AutoConfigEnabled }),
     ...(input.CWEMonitorEnabled !== undefined &&
       input.CWEMonitorEnabled !== null && { CWEMonitorEnabled: input.CWEMonitorEnabled }),
     ...(input.OpsCenterEnabled !== undefined &&
@@ -2858,6 +2864,8 @@ const serializeAws_json1_1UpdateComponentConfigurationRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AutoConfigEnabled !== undefined &&
+      input.AutoConfigEnabled !== null && { AutoConfigEnabled: input.AutoConfigEnabled }),
     ...(input.ComponentConfiguration !== undefined &&
       input.ComponentConfiguration !== null && { ComponentConfiguration: input.ComponentConfiguration }),
     ...(input.ComponentName !== undefined && input.ComponentName !== null && { ComponentName: input.ComponentName }),
@@ -2929,7 +2937,9 @@ const deserializeAws_json1_1ApplicationComponentList = (
 
 const deserializeAws_json1_1ApplicationInfo = (output: any, context: __SerdeContext): ApplicationInfo => {
   return {
+    AutoConfigEnabled: __expectBoolean(output.AutoConfigEnabled),
     CWEMonitorEnabled: __expectBoolean(output.CWEMonitorEnabled),
+    DiscoveryType: __expectString(output.DiscoveryType),
     LifeCycle: __expectString(output.LifeCycle),
     OpsCenterEnabled: __expectBoolean(output.OpsCenterEnabled),
     OpsItemSNSTopicArn: __expectString(output.OpsItemSNSTopicArn),
@@ -3246,6 +3256,7 @@ const deserializeAws_json1_1ListProblemsResponse = (output: any, context: __Serd
       output.ProblemList !== undefined && output.ProblemList !== null
         ? deserializeAws_json1_1ProblemList(output.ProblemList, context)
         : undefined,
+    ResourceGroupName: __expectString(output.ResourceGroupName),
   } as any;
 };
 
@@ -3375,6 +3386,11 @@ const deserializeAws_json1_1Problem = (output: any, context: __SerdeContext): Pr
         : undefined,
     Id: __expectString(output.Id),
     Insights: __expectString(output.Insights),
+    LastRecurrenceTime:
+      output.LastRecurrenceTime !== undefined && output.LastRecurrenceTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRecurrenceTime)))
+        : undefined,
+    RecurringCount: __expectLong(output.RecurringCount),
     ResourceGroupName: __expectString(output.ResourceGroupName),
     SeverityLevel: __expectString(output.SeverityLevel),
     StartTime:

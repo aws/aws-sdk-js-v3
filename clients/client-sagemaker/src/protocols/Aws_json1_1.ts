@@ -27374,6 +27374,7 @@ const deserializeAws_json1_1DescribeDeviceFleetResponse = (
 
 const deserializeAws_json1_1DescribeDeviceResponse = (output: any, context: __SerdeContext): DescribeDeviceResponse => {
   return {
+    AgentVersion: __expectString(output.AgentVersion),
     Description: __expectString(output.Description),
     DeviceArn: __expectString(output.DeviceArn),
     DeviceFleetName: __expectString(output.DeviceFleetName),
@@ -28739,6 +28740,7 @@ const deserializeAws_json1_1DeviceSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
+    AgentVersion: __expectString(output.AgentVersion),
     Description: __expectString(output.Description),
     DeviceArn: __expectString(output.DeviceArn),
     DeviceFleetName: __expectString(output.DeviceFleetName),

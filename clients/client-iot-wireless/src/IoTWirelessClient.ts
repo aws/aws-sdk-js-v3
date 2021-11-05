@@ -54,6 +54,18 @@ import {
   AssociateAwsAccountWithPartnerAccountCommandOutput,
 } from "./commands/AssociateAwsAccountWithPartnerAccountCommand";
 import {
+  AssociateMulticastGroupWithFuotaTaskCommandInput,
+  AssociateMulticastGroupWithFuotaTaskCommandOutput,
+} from "./commands/AssociateMulticastGroupWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithFuotaTaskCommandInput,
+  AssociateWirelessDeviceWithFuotaTaskCommandOutput,
+} from "./commands/AssociateWirelessDeviceWithFuotaTaskCommand";
+import {
+  AssociateWirelessDeviceWithMulticastGroupCommandInput,
+  AssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "./commands/AssociateWirelessDeviceWithMulticastGroupCommand";
+import {
   AssociateWirelessDeviceWithThingCommandInput,
   AssociateWirelessDeviceWithThingCommandOutput,
 } from "./commands/AssociateWirelessDeviceWithThingCommand";
@@ -65,11 +77,20 @@ import {
   AssociateWirelessGatewayWithThingCommandInput,
   AssociateWirelessGatewayWithThingCommandOutput,
 } from "./commands/AssociateWirelessGatewayWithThingCommand";
+import {
+  CancelMulticastGroupSessionCommandInput,
+  CancelMulticastGroupSessionCommandOutput,
+} from "./commands/CancelMulticastGroupSessionCommand";
 import { CreateDestinationCommandInput, CreateDestinationCommandOutput } from "./commands/CreateDestinationCommand";
 import {
   CreateDeviceProfileCommandInput,
   CreateDeviceProfileCommandOutput,
 } from "./commands/CreateDeviceProfileCommand";
+import { CreateFuotaTaskCommandInput, CreateFuotaTaskCommandOutput } from "./commands/CreateFuotaTaskCommand";
+import {
+  CreateMulticastGroupCommandInput,
+  CreateMulticastGroupCommandOutput,
+} from "./commands/CreateMulticastGroupCommand";
 import {
   CreateServiceProfileCommandInput,
   CreateServiceProfileCommandOutput,
@@ -95,6 +116,11 @@ import {
   DeleteDeviceProfileCommandInput,
   DeleteDeviceProfileCommandOutput,
 } from "./commands/DeleteDeviceProfileCommand";
+import { DeleteFuotaTaskCommandInput, DeleteFuotaTaskCommandOutput } from "./commands/DeleteFuotaTaskCommand";
+import {
+  DeleteMulticastGroupCommandInput,
+  DeleteMulticastGroupCommandOutput,
+} from "./commands/DeleteMulticastGroupCommand";
 import {
   DeleteServiceProfileCommandInput,
   DeleteServiceProfileCommandOutput,
@@ -120,6 +146,18 @@ import {
   DisassociateAwsAccountFromPartnerAccountCommandOutput,
 } from "./commands/DisassociateAwsAccountFromPartnerAccountCommand";
 import {
+  DisassociateMulticastGroupFromFuotaTaskCommandInput,
+  DisassociateMulticastGroupFromFuotaTaskCommandOutput,
+} from "./commands/DisassociateMulticastGroupFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromFuotaTaskCommandInput,
+  DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
+} from "./commands/DisassociateWirelessDeviceFromFuotaTaskCommand";
+import {
+  DisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "./commands/DisassociateWirelessDeviceFromMulticastGroupCommand";
+import {
   DisassociateWirelessDeviceFromThingCommandInput,
   DisassociateWirelessDeviceFromThingCommandOutput,
 } from "./commands/DisassociateWirelessDeviceFromThingCommand";
@@ -133,11 +171,21 @@ import {
 } from "./commands/DisassociateWirelessGatewayFromThingCommand";
 import { GetDestinationCommandInput, GetDestinationCommandOutput } from "./commands/GetDestinationCommand";
 import { GetDeviceProfileCommandInput, GetDeviceProfileCommandOutput } from "./commands/GetDeviceProfileCommand";
+import { GetFuotaTaskCommandInput, GetFuotaTaskCommandOutput } from "./commands/GetFuotaTaskCommand";
 import {
   GetLogLevelsByResourceTypesCommandInput,
   GetLogLevelsByResourceTypesCommandOutput,
 } from "./commands/GetLogLevelsByResourceTypesCommand";
+import { GetMulticastGroupCommandInput, GetMulticastGroupCommandOutput } from "./commands/GetMulticastGroupCommand";
+import {
+  GetMulticastGroupSessionCommandInput,
+  GetMulticastGroupSessionCommandOutput,
+} from "./commands/GetMulticastGroupSessionCommand";
 import { GetPartnerAccountCommandInput, GetPartnerAccountCommandOutput } from "./commands/GetPartnerAccountCommand";
+import {
+  GetResourceEventConfigurationCommandInput,
+  GetResourceEventConfigurationCommandOutput,
+} from "./commands/GetResourceEventConfigurationCommand";
 import {
   GetResourceLogLevelCommandInput,
   GetResourceLogLevelCommandOutput,
@@ -172,6 +220,15 @@ import {
 } from "./commands/GetWirelessGatewayTaskDefinitionCommand";
 import { ListDestinationsCommandInput, ListDestinationsCommandOutput } from "./commands/ListDestinationsCommand";
 import { ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput } from "./commands/ListDeviceProfilesCommand";
+import { ListFuotaTasksCommandInput, ListFuotaTasksCommandOutput } from "./commands/ListFuotaTasksCommand";
+import {
+  ListMulticastGroupsByFuotaTaskCommandInput,
+  ListMulticastGroupsByFuotaTaskCommandOutput,
+} from "./commands/ListMulticastGroupsByFuotaTaskCommand";
+import {
+  ListMulticastGroupsCommandInput,
+  ListMulticastGroupsCommandOutput,
+} from "./commands/ListMulticastGroupsCommand";
 import {
   ListPartnerAccountsCommandInput,
   ListPartnerAccountsCommandOutput,
@@ -209,21 +266,47 @@ import {
   ResetResourceLogLevelCommandOutput,
 } from "./commands/ResetResourceLogLevelCommand";
 import {
+  SendDataToMulticastGroupCommandInput,
+  SendDataToMulticastGroupCommandOutput,
+} from "./commands/SendDataToMulticastGroupCommand";
+import {
   SendDataToWirelessDeviceCommandInput,
   SendDataToWirelessDeviceCommandOutput,
 } from "./commands/SendDataToWirelessDeviceCommand";
+import {
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
+  StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
+} from "./commands/StartBulkAssociateWirelessDeviceWithMulticastGroupCommand";
+import {
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
+  StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
+} from "./commands/StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand";
+import { StartFuotaTaskCommandInput, StartFuotaTaskCommandOutput } from "./commands/StartFuotaTaskCommand";
+import {
+  StartMulticastGroupSessionCommandInput,
+  StartMulticastGroupSessionCommandOutput,
+} from "./commands/StartMulticastGroupSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestWirelessDeviceCommandInput, TestWirelessDeviceCommandOutput } from "./commands/TestWirelessDeviceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from "./commands/UpdateDestinationCommand";
+import { UpdateFuotaTaskCommandInput, UpdateFuotaTaskCommandOutput } from "./commands/UpdateFuotaTaskCommand";
 import {
   UpdateLogLevelsByResourceTypesCommandInput,
   UpdateLogLevelsByResourceTypesCommandOutput,
 } from "./commands/UpdateLogLevelsByResourceTypesCommand";
 import {
+  UpdateMulticastGroupCommandInput,
+  UpdateMulticastGroupCommandOutput,
+} from "./commands/UpdateMulticastGroupCommand";
+import {
   UpdatePartnerAccountCommandInput,
   UpdatePartnerAccountCommandOutput,
 } from "./commands/UpdatePartnerAccountCommand";
+import {
+  UpdateResourceEventConfigurationCommandInput,
+  UpdateResourceEventConfigurationCommandOutput,
+} from "./commands/UpdateResourceEventConfigurationCommand";
 import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
@@ -236,11 +319,17 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandInput
+  | AssociateMulticastGroupWithFuotaTaskCommandInput
+  | AssociateWirelessDeviceWithFuotaTaskCommandInput
+  | AssociateWirelessDeviceWithMulticastGroupCommandInput
   | AssociateWirelessDeviceWithThingCommandInput
   | AssociateWirelessGatewayWithCertificateCommandInput
   | AssociateWirelessGatewayWithThingCommandInput
+  | CancelMulticastGroupSessionCommandInput
   | CreateDestinationCommandInput
   | CreateDeviceProfileCommandInput
+  | CreateFuotaTaskCommandInput
+  | CreateMulticastGroupCommandInput
   | CreateServiceProfileCommandInput
   | CreateWirelessDeviceCommandInput
   | CreateWirelessGatewayCommandInput
@@ -248,19 +337,28 @@ export type ServiceInputTypes =
   | CreateWirelessGatewayTaskDefinitionCommandInput
   | DeleteDestinationCommandInput
   | DeleteDeviceProfileCommandInput
+  | DeleteFuotaTaskCommandInput
+  | DeleteMulticastGroupCommandInput
   | DeleteServiceProfileCommandInput
   | DeleteWirelessDeviceCommandInput
   | DeleteWirelessGatewayCommandInput
   | DeleteWirelessGatewayTaskCommandInput
   | DeleteWirelessGatewayTaskDefinitionCommandInput
   | DisassociateAwsAccountFromPartnerAccountCommandInput
+  | DisassociateMulticastGroupFromFuotaTaskCommandInput
+  | DisassociateWirelessDeviceFromFuotaTaskCommandInput
+  | DisassociateWirelessDeviceFromMulticastGroupCommandInput
   | DisassociateWirelessDeviceFromThingCommandInput
   | DisassociateWirelessGatewayFromCertificateCommandInput
   | DisassociateWirelessGatewayFromThingCommandInput
   | GetDestinationCommandInput
   | GetDeviceProfileCommandInput
+  | GetFuotaTaskCommandInput
   | GetLogLevelsByResourceTypesCommandInput
+  | GetMulticastGroupCommandInput
+  | GetMulticastGroupSessionCommandInput
   | GetPartnerAccountCommandInput
+  | GetResourceEventConfigurationCommandInput
   | GetResourceLogLevelCommandInput
   | GetServiceEndpointCommandInput
   | GetServiceProfileCommandInput
@@ -274,6 +372,9 @@ export type ServiceInputTypes =
   | GetWirelessGatewayTaskDefinitionCommandInput
   | ListDestinationsCommandInput
   | ListDeviceProfilesCommandInput
+  | ListFuotaTasksCommandInput
+  | ListMulticastGroupsByFuotaTaskCommandInput
+  | ListMulticastGroupsCommandInput
   | ListPartnerAccountsCommandInput
   | ListServiceProfilesCommandInput
   | ListTagsForResourceCommandInput
@@ -283,23 +384,37 @@ export type ServiceInputTypes =
   | PutResourceLogLevelCommandInput
   | ResetAllResourceLogLevelsCommandInput
   | ResetResourceLogLevelCommandInput
+  | SendDataToMulticastGroupCommandInput
   | SendDataToWirelessDeviceCommandInput
+  | StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput
+  | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput
+  | StartFuotaTaskCommandInput
+  | StartMulticastGroupSessionCommandInput
   | TagResourceCommandInput
   | TestWirelessDeviceCommandInput
   | UntagResourceCommandInput
   | UpdateDestinationCommandInput
+  | UpdateFuotaTaskCommandInput
   | UpdateLogLevelsByResourceTypesCommandInput
+  | UpdateMulticastGroupCommandInput
   | UpdatePartnerAccountCommandInput
+  | UpdateResourceEventConfigurationCommandInput
   | UpdateWirelessDeviceCommandInput
   | UpdateWirelessGatewayCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateAwsAccountWithPartnerAccountCommandOutput
+  | AssociateMulticastGroupWithFuotaTaskCommandOutput
+  | AssociateWirelessDeviceWithFuotaTaskCommandOutput
+  | AssociateWirelessDeviceWithMulticastGroupCommandOutput
   | AssociateWirelessDeviceWithThingCommandOutput
   | AssociateWirelessGatewayWithCertificateCommandOutput
   | AssociateWirelessGatewayWithThingCommandOutput
+  | CancelMulticastGroupSessionCommandOutput
   | CreateDestinationCommandOutput
   | CreateDeviceProfileCommandOutput
+  | CreateFuotaTaskCommandOutput
+  | CreateMulticastGroupCommandOutput
   | CreateServiceProfileCommandOutput
   | CreateWirelessDeviceCommandOutput
   | CreateWirelessGatewayCommandOutput
@@ -307,19 +422,28 @@ export type ServiceOutputTypes =
   | CreateWirelessGatewayTaskDefinitionCommandOutput
   | DeleteDestinationCommandOutput
   | DeleteDeviceProfileCommandOutput
+  | DeleteFuotaTaskCommandOutput
+  | DeleteMulticastGroupCommandOutput
   | DeleteServiceProfileCommandOutput
   | DeleteWirelessDeviceCommandOutput
   | DeleteWirelessGatewayCommandOutput
   | DeleteWirelessGatewayTaskCommandOutput
   | DeleteWirelessGatewayTaskDefinitionCommandOutput
   | DisassociateAwsAccountFromPartnerAccountCommandOutput
+  | DisassociateMulticastGroupFromFuotaTaskCommandOutput
+  | DisassociateWirelessDeviceFromFuotaTaskCommandOutput
+  | DisassociateWirelessDeviceFromMulticastGroupCommandOutput
   | DisassociateWirelessDeviceFromThingCommandOutput
   | DisassociateWirelessGatewayFromCertificateCommandOutput
   | DisassociateWirelessGatewayFromThingCommandOutput
   | GetDestinationCommandOutput
   | GetDeviceProfileCommandOutput
+  | GetFuotaTaskCommandOutput
   | GetLogLevelsByResourceTypesCommandOutput
+  | GetMulticastGroupCommandOutput
+  | GetMulticastGroupSessionCommandOutput
   | GetPartnerAccountCommandOutput
+  | GetResourceEventConfigurationCommandOutput
   | GetResourceLogLevelCommandOutput
   | GetServiceEndpointCommandOutput
   | GetServiceProfileCommandOutput
@@ -333,6 +457,9 @@ export type ServiceOutputTypes =
   | GetWirelessGatewayTaskDefinitionCommandOutput
   | ListDestinationsCommandOutput
   | ListDeviceProfilesCommandOutput
+  | ListFuotaTasksCommandOutput
+  | ListMulticastGroupsByFuotaTaskCommandOutput
+  | ListMulticastGroupsCommandOutput
   | ListPartnerAccountsCommandOutput
   | ListServiceProfilesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -342,13 +469,21 @@ export type ServiceOutputTypes =
   | PutResourceLogLevelCommandOutput
   | ResetAllResourceLogLevelsCommandOutput
   | ResetResourceLogLevelCommandOutput
+  | SendDataToMulticastGroupCommandOutput
   | SendDataToWirelessDeviceCommandOutput
+  | StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
+  | StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput
+  | StartFuotaTaskCommandOutput
+  | StartMulticastGroupSessionCommandOutput
   | TagResourceCommandOutput
   | TestWirelessDeviceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDestinationCommandOutput
+  | UpdateFuotaTaskCommandOutput
   | UpdateLogLevelsByResourceTypesCommandOutput
+  | UpdateMulticastGroupCommandOutput
   | UpdatePartnerAccountCommandOutput
+  | UpdateResourceEventConfigurationCommandOutput
   | UpdateWirelessDeviceCommandOutput
   | UpdateWirelessGatewayCommandOutput;
 

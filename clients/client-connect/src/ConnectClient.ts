@@ -92,6 +92,10 @@ import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import {
+  CreateSecurityProfileCommandInput,
+  CreateSecurityProfileCommandOutput,
+} from "./commands/CreateSecurityProfileCommand";
 import { CreateUseCaseCommandInput, CreateUseCaseCommandOutput } from "./commands/CreateUseCaseCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
@@ -108,6 +112,10 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
+import {
+  DeleteSecurityProfileCommandInput,
+  DeleteSecurityProfileCommandOutput,
+} from "./commands/DeleteSecurityProfileCommand";
 import { DeleteUseCaseCommandInput, DeleteUseCaseCommandOutput } from "./commands/DeleteUseCaseCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
@@ -144,6 +152,10 @@ import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
 } from "./commands/DescribeRoutingProfileCommand";
+import {
+  DescribeSecurityProfileCommandInput,
+  DescribeSecurityProfileCommandOutput,
+} from "./commands/DescribeSecurityProfileCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
@@ -236,6 +248,10 @@ import {
 } from "./commands/ListRoutingProfilesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "./commands/ListSecurityKeysCommand";
 import {
+  ListSecurityProfilePermissionsCommandInput,
+  ListSecurityProfilePermissionsCommandOutput,
+} from "./commands/ListSecurityProfilePermissionsCommand";
+import {
   ListSecurityProfilesCommandInput,
   ListSecurityProfilesCommandOutput,
 } from "./commands/ListSecurityProfilesCommand";
@@ -259,6 +275,10 @@ import {
   StartContactRecordingCommandOutput,
 } from "./commands/StartContactRecordingCommand";
 import {
+  StartContactStreamingCommandInput,
+  StartContactStreamingCommandOutput,
+} from "./commands/StartContactStreamingCommand";
+import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
@@ -268,6 +288,10 @@ import {
   StopContactRecordingCommandInput,
   StopContactRecordingCommandOutput,
 } from "./commands/StopContactRecordingCommand";
+import {
+  StopContactStreamingCommandInput,
+  StopContactStreamingCommandOutput,
+} from "./commands/StopContactStreamingCommand";
 import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
@@ -338,6 +362,10 @@ import {
   UpdateRoutingProfileQueuesCommandOutput,
 } from "./commands/UpdateRoutingProfileQueuesCommand";
 import {
+  UpdateSecurityProfileCommandInput,
+  UpdateSecurityProfileCommandOutput,
+} from "./commands/UpdateSecurityProfileCommand";
+import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
@@ -384,6 +412,7 @@ export type ServiceInputTypes =
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
+  | CreateSecurityProfileCommandInput
   | CreateUseCaseCommandInput
   | CreateUserCommandInput
   | CreateUserHierarchyGroupCommandInput
@@ -391,6 +420,7 @@ export type ServiceInputTypes =
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
   | DeleteQuickConnectCommandInput
+  | DeleteSecurityProfileCommandInput
   | DeleteUseCaseCommandInput
   | DeleteUserCommandInput
   | DeleteUserHierarchyGroupCommandInput
@@ -403,6 +433,7 @@ export type ServiceInputTypes =
   | DescribeQueueCommandInput
   | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
+  | DescribeSecurityProfileCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
@@ -437,6 +468,7 @@ export type ServiceInputTypes =
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
   | ListSecurityKeysCommandInput
+  | ListSecurityProfilePermissionsCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
   | ListUseCasesCommandInput
@@ -445,10 +477,12 @@ export type ServiceInputTypes =
   | ResumeContactRecordingCommandInput
   | StartChatContactCommandInput
   | StartContactRecordingCommandInput
+  | StartContactStreamingCommandInput
   | StartOutboundVoiceContactCommandInput
   | StartTaskContactCommandInput
   | StopContactCommandInput
   | StopContactRecordingCommandInput
+  | StopContactStreamingCommandInput
   | SuspendContactRecordingCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -470,6 +504,7 @@ export type ServiceInputTypes =
   | UpdateRoutingProfileDefaultOutboundQueueCommandInput
   | UpdateRoutingProfileNameCommandInput
   | UpdateRoutingProfileQueuesCommandInput
+  | UpdateSecurityProfileCommandInput
   | UpdateUserHierarchyCommandInput
   | UpdateUserHierarchyGroupNameCommandInput
   | UpdateUserHierarchyStructureCommandInput
@@ -495,6 +530,7 @@ export type ServiceOutputTypes =
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
+  | CreateSecurityProfileCommandOutput
   | CreateUseCaseCommandOutput
   | CreateUserCommandOutput
   | CreateUserHierarchyGroupCommandOutput
@@ -502,6 +538,7 @@ export type ServiceOutputTypes =
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
   | DeleteQuickConnectCommandOutput
+  | DeleteSecurityProfileCommandOutput
   | DeleteUseCaseCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserHierarchyGroupCommandOutput
@@ -514,6 +551,7 @@ export type ServiceOutputTypes =
   | DescribeQueueCommandOutput
   | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
+  | DescribeSecurityProfileCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
@@ -548,6 +586,7 @@ export type ServiceOutputTypes =
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
   | ListSecurityKeysCommandOutput
+  | ListSecurityProfilePermissionsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUseCasesCommandOutput
@@ -556,10 +595,12 @@ export type ServiceOutputTypes =
   | ResumeContactRecordingCommandOutput
   | StartChatContactCommandOutput
   | StartContactRecordingCommandOutput
+  | StartContactStreamingCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StartTaskContactCommandOutput
   | StopContactCommandOutput
   | StopContactRecordingCommandOutput
+  | StopContactStreamingCommandOutput
   | SuspendContactRecordingCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -581,6 +622,7 @@ export type ServiceOutputTypes =
   | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
   | UpdateRoutingProfileNameCommandOutput
   | UpdateRoutingProfileQueuesCommandOutput
+  | UpdateSecurityProfileCommandOutput
   | UpdateUserHierarchyCommandOutput
   | UpdateUserHierarchyGroupNameCommandOutput
   | UpdateUserHierarchyStructureCommandOutput
@@ -748,7 +790,7 @@ export interface ConnectClientResolvedConfig extends ConnectClientResolvedConfig
  *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>You can
  *    connect
- *    programmatically to an AWS service by using an endpoint. For a list of Amazon Connect endpoints, see
+ *    programmatically to an Amazon Web Services service by using an endpoint. For a list of Amazon Connect endpoints, see
  *     <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
  *    Endpoints</a>.</p>
  *          <note>

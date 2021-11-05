@@ -6590,6 +6590,11 @@ export interface DescribeDeviceResponse {
    * <p>The response from the last list when returning a list large enough to need tokening.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Edge Manager agent version.</p>
+   */
+  AgentVersion?: string;
 }
 
 export namespace DescribeDeviceResponse {

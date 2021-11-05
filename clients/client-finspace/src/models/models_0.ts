@@ -1,3 +1,4 @@
+import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException } from "@aws-sdk/types";
 
 /**
@@ -70,6 +71,36 @@ export namespace FederationParameters {
   });
 }
 
+/**
+ * <p>Configuration information for the superuser.</p>
+ */
+export interface SuperuserParameters {
+  /**
+   * <p>The email address of the superuser.</p>
+   */
+  emailAddress: string | undefined;
+
+  /**
+   * <p>The first name of the superuser.</p>
+   */
+  firstName: string | undefined;
+
+  /**
+   * <p>The last name of the superuser.</p>
+   */
+  lastName: string | undefined;
+}
+
+export namespace SuperuserParameters {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: SuperuserParameters): any => ({
+    ...obj,
+    ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+  });
+}
+
 export interface CreateEnvironmentRequest {
   /**
    * <p>The name of the FinSpace environment to be created.</p>
@@ -110,6 +141,26 @@ export interface CreateEnvironmentRequest {
    * <p>Configuration information when authentication mode is FEDERATED.</p>
    */
   federationParameters?: FederationParameters;
+
+  /**
+   * <p>Configuration information for the superuser.</p>
+   */
+  superuserParameters?: SuperuserParameters;
+
+  /**
+   * <p>The list of Amazon Resource Names (ARN) of the data bundles to install. Currently supported data bundle ARNs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:finspace:${Region}::data-bundle/capital-markets-sample</code> - Contains sample Capital Markets datasets, categories and controlled vocabularies.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arn:aws:finspace:${Region}::data-bundle/taq</code> (default) - Contains trades and quotes data in addition to sample Capital Markets data.</p>
+   *             </li>
+   *          </ul>
+   */
+  dataBundles?: string[];
 }
 
 export namespace CreateEnvironmentRequest {
@@ -118,6 +169,9 @@ export namespace CreateEnvironmentRequest {
    */
   export const filterSensitiveLog = (obj: CreateEnvironmentRequest): any => ({
     ...obj,
+    ...(obj.superuserParameters && {
+      superuserParameters: SuperuserParameters.filterSensitiveLog(obj.superuserParameters),
+    }),
   });
 }
 
