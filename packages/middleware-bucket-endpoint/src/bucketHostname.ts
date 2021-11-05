@@ -5,12 +5,10 @@ import {
   BucketHostnameParams,
   DOT_PATTERN,
   getArnResources,
-  getPseudoRegion,
   getSuffix,
   getSuffixForArnEndpoint,
   isBucketNameOptions,
   isDnsCompatibleBucketName,
-  isFipsRegion,
   validateAccountId,
   validateArnEndpointOptions,
   validateCustomEndpoint,
@@ -48,6 +46,7 @@ const getEndpointFromBucketName = ({
   baseHostname,
   bucketName,
   dualstackEndpoint = false,
+  fipsEndpoint = false,
   pathStyleEndpoint = false,
   tlsCompatible = true,
   isCustomEndpoint = false,
@@ -79,6 +78,7 @@ const getEndpointFromArn = (options: ArnHostnameParams): BucketHostname => {
   const {
     pathStyleEndpoint,
     accelerateEndpoint = false,
+    fipsEndpoint = false,
     tlsCompatible = true,
     bucketName,
     clientPartition = "aws",
@@ -106,6 +106,7 @@ const getEndpointFromArn = (options: ArnHostnameParams): BucketHostname => {
 
 const getEndpointFromObjectLambdaArn = ({
   dualstackEndpoint = false,
+  fipsEndpoint = false,
   tlsCompatible = true,
   useArnRegion,
   clientRegion,
@@ -120,7 +121,13 @@ const getEndpointFromObjectLambdaArn = ({
 }): BucketHostname => {
   const { accountId, region, service } = bucketName;
   validateRegionalClient(clientRegion);
-  validateRegion(region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
+  validateRegion(region, {
+    useArnRegion,
+    clientRegion,
+    clientSigningRegion,
+    allowFipsRegion: true,
+    useFipsEndpoint: fipsEndpoint,
+  });
   validateNoDualstack(dualstackEndpoint);
   const DNSHostLabel = `${accesspointName}-${accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
@@ -130,9 +137,7 @@ const getEndpointFromObjectLambdaArn = ({
 
   return {
     bucketEndpoint: true,
-    hostname: `${DNSHostLabel}.${service}${isFipsRegion(clientRegion) ? "-fips" : ""}.${getPseudoRegion(
-      endpointRegion
-    )}.${hostnameSuffix}`,
+    hostname: `${DNSHostLabel}.${service}${fipsEndpoint ? "-fips" : ""}.${endpointRegion}.${hostnameSuffix}`,
     signingRegion,
     signingService: service,
   };
@@ -165,6 +170,7 @@ const getEndpointFromOutpostArn = ({
   bucketName,
   outpostId,
   dualstackEndpoint = false,
+  fipsEndpoint = false,
   tlsCompatible = true,
   accesspointName,
   isCustomEndpoint,
@@ -172,7 +178,7 @@ const getEndpointFromOutpostArn = ({
 }: ArnHostnameParams & { outpostId: string; accesspointName: string; hostnameSuffix: string }): BucketHostname => {
   // if this is an Outpost ARN
   validateRegionalClient(clientRegion);
-  validateRegion(bucketName.region, { useArnRegion, clientRegion, clientSigningRegion });
+  validateRegion(bucketName.region, { useArnRegion, clientRegion, clientSigningRegion, useFipsEndpoint: fipsEndpoint });
   const DNSHostLabel = `${accesspointName}-${bucketName.accountId}`;
   validateDNSHostLabel(DNSHostLabel, { tlsCompatible });
   const endpointRegion = useArnRegion ? bucketName.region : clientRegion;
@@ -180,7 +186,7 @@ const getEndpointFromOutpostArn = ({
   validateOutpostService(bucketName.service);
   validateDNSHostLabel(outpostId, { tlsCompatible });
   validateNoDualstack(dualstackEndpoint);
-  validateNoFIPS(endpointRegion);
+  validateNoFIPS(fipsEndpoint);
   const hostnamePrefix = `${DNSHostLabel}.${outpostId}`;
   return {
     bucketEndpoint: true,
@@ -196,6 +202,7 @@ const getEndpointFromAccessPointArn = ({
   clientSigningRegion = clientRegion,
   bucketName,
   dualstackEndpoint = false,
+  fipsEndpoint = false,
   tlsCompatible = true,
   accesspointName,
   isCustomEndpoint,
@@ -203,7 +210,13 @@ const getEndpointFromAccessPointArn = ({
 }: ArnHostnameParams & { accesspointName: string; hostnameSuffix: string }): BucketHostname => {
   // construct endpoint from Accesspoint ARN
   validateRegionalClient(clientRegion);
-  validateRegion(bucketName.region, { useArnRegion, clientRegion, clientSigningRegion, allowFipsRegion: true });
+  validateRegion(bucketName.region, {
+    useArnRegion,
+    clientRegion,
+    clientSigningRegion,
+    allowFipsRegion: true,
+    useFipsEndpoint: fipsEndpoint,
+  });
   const hostnamePrefix = `${accesspointName}-${bucketName.accountId}`;
   validateDNSHostLabel(hostnamePrefix, { tlsCompatible });
   const endpointRegion = useArnRegion ? bucketName.region : clientRegion;
@@ -214,9 +227,7 @@ const getEndpointFromAccessPointArn = ({
     hostname: `${hostnamePrefix}${
       isCustomEndpoint
         ? ""
-        : `.s3-accesspoint${isFipsRegion(clientRegion) ? "-fips" : ""}${
-            dualstackEndpoint ? ".dualstack" : ""
-          }.${getPseudoRegion(endpointRegion)}`
+        : `.s3-accesspoint${fipsEndpoint ? "-fips" : ""}${dualstackEndpoint ? ".dualstack" : ""}.${endpointRegion}`
     }.${hostnameSuffix}`,
     signingRegion,
   };

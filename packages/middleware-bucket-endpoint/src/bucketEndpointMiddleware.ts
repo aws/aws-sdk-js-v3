@@ -12,7 +12,6 @@ import {
 import { parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 
 import { bucketHostname } from "./bucketHostname";
-import { getPseudoRegion } from "./bucketHostnameUtils";
 import { BucketEndpointResolvedConfig } from "./configurations";
 
 export const bucketEndpointMiddleware =
@@ -30,7 +29,7 @@ export const bucketEndpointMiddleware =
         request.hostname = bucketName;
       } else if (validateArn(bucketName)) {
         const bucketArn = parseArn(bucketName);
-        const clientRegion = getPseudoRegion(await options.region());
+        const clientRegion = await options.region();
         const useDualstackEndpoint = await options.useDualstackEndpoint();
         const useFipsEndpoint = await options.useFipsEndpoint();
         const { partition, signingRegion = clientRegion } =
@@ -46,6 +45,7 @@ export const bucketEndpointMiddleware =
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint: useDualstackEndpoint,
+          fipsEndpoint: useFipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           useArnRegion,
@@ -68,14 +68,16 @@ export const bucketEndpointMiddleware =
         request.hostname = hostname;
         replaceBucketInPath = bucketEndpoint;
       } else {
-        const clientRegion = getPseudoRegion(await options.region());
+        const clientRegion = await options.region();
         const dualstackEndpoint = await options.useDualstackEndpoint();
+        const fipsEndpoint = await options.useFipsEndpoint();
         const { hostname, bucketEndpoint } = bucketHostname({
           bucketName,
           clientRegion,
           baseHostname: request.hostname,
           accelerateEndpoint: options.useAccelerateEndpoint,
           dualstackEndpoint,
+          fipsEndpoint,
           pathStyleEndpoint: options.forcePathStyle,
           tlsCompatible: request.protocol === "https:",
           isCustomEndpoint: options.isCustomEndpoint,

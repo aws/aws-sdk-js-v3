@@ -324,9 +324,9 @@ describe("bucketHostname", () => {
       });
     });
 
-    describe("allows fips client region", () => {
+    describe("allows client region with fipsEndpoint", () => {
       const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-east-1:123456789012:accesspoint:myendpoint");
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const clientPartition = "aws-us-gov";
       it("should use client region", () => {
         const { bucketEndpoint, hostname } = bucketHostname({
@@ -335,6 +335,7 @@ describe("bucketHostname", () => {
           isCustomEndpoint: false,
           clientRegion,
           clientPartition,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
@@ -348,6 +349,7 @@ describe("bucketHostname", () => {
           clientRegion,
           clientPartition,
           useArnRegion: true,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.us-gov-east-1.amazonaws.com");
@@ -362,15 +364,16 @@ describe("bucketHostname", () => {
           clientPartition,
           useArnRegion: true,
           dualstackEndpoint: true,
+          fipsEndpoint: true,
         });
         expect(bucketEndpoint).toBe(true);
         expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint-fips.dualstack.us-gov-east-1.amazonaws.com");
       });
     });
 
-    describe("validates FIPS client region matching ARN region", () => {
+    describe("validates client region with fips endpoint matching ARN region", () => {
       const bucketArn = parseArn("arn:aws-us-gov:s3:us-gov-west-1:123456789012:accesspoint:myendpoint");
-      const clientRegion = "fips-us-gov-east-1";
+      const clientRegion = "us-gov-east-1";
       const clientPartition = "aws-us-gov";
       it("should throw client region doesn't match arn region", () => {
         expect(() =>
@@ -380,6 +383,7 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion,
             clientPartition,
+            fipsEndpoint: true,
           })
         ).toThrowError();
       });
@@ -393,6 +397,7 @@ describe("bucketHostname", () => {
             clientRegion,
             clientPartition,
             useArnRegion: true,
+            fipsEndpoint: true,
           })
         ).toThrowError();
       });
@@ -693,7 +698,7 @@ describe("bucketHostname", () => {
 
     describe("fips region", () => {
       it("should throw if client is using fips region", () => {
-        const clientRegion = "fips-us-gov-east-1";
+        const clientRegion = "us-gov-east-1";
         const clientPartition = "aws-us-gov";
         expect.assertions(2);
         expect(() => {
@@ -705,6 +710,7 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion,
             clientPartition,
+            fipsEndpoint: true,
           });
         }).toThrow("FIPS region is not supported");
 
@@ -718,6 +724,7 @@ describe("bucketHostname", () => {
             clientRegion,
             clientPartition,
             useArnRegion: true,
+            fipsEndpoint: true,
           });
         }).toThrow("FIPS region is not supported");
       });
@@ -962,9 +969,10 @@ describe("bucketHostname", () => {
             bucketName: parseArn(arn),
             baseHostname: `s3.${region}.amazonaws.com`,
             isCustomEndpoint: false,
-            clientRegion,
+            clientRegion: clientRegion.startsWith("fips-") ? clientRegion.replace(/fips-/, "") : clientRegion,
             useArnRegion,
             clientPartition,
+            fipsEndpoint: clientRegion.startsWith("fips-"),
           });
           expect(bucketEndpoint).toBe(true);
           expect(hostname).toBe(expectedEndpoint);
@@ -1080,8 +1088,9 @@ describe("bucketHostname", () => {
               baseHostname: `s3.${region}.amazonaws.com`,
               isCustomEndpoint: false,
               useArnRegion,
-              clientRegion,
+              clientRegion: clientRegion.startsWith("fips-") ? clientRegion.replace(/fips-/, "") : clientRegion,
               clientPartition,
+              fipsEndpoint: clientRegion.startsWith("fips-"),
             });
             // should never get here
             fail();
