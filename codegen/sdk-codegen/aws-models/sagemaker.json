@@ -10721,6 +10721,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The response from the last list when returning a list large enough to need tokening.</p>"
           }
+        },
+        "AgentVersion": {
+          "target": "com.amazonaws.sagemaker#EdgeVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Edge Manager agent version.</p>"
+          }
         }
       }
     },
@@ -15100,6 +15106,12 @@
           "target": "com.amazonaws.sagemaker#EdgeModelSummaries",
           "traits": {
             "smithy.api#documentation": "<p>Models on the device.</p>"
+          }
+        },
+        "AgentVersion": {
+          "target": "com.amazonaws.sagemaker#EdgeVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Edge Manager agent version.</p>"
           }
         }
       },

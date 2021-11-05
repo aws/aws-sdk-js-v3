@@ -20845,7 +20845,7 @@
         "ExecutableUsers": {
           "target": "com.amazonaws.ec2#ExecutableByStringList",
           "traits": {
-            "smithy.api#documentation": "<p>Scopes the images by users with explicit launch permissions. \n       Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),\n\t\t\t\tor <code>all</code> (public AMIs).</p>",
+            "smithy.api#documentation": "<p>Scopes the images by users with explicit launch permissions. \n       Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),\n\t\t\t\tor <code>all</code> (public AMIs).</p>\n         <ul>\n            <li>\n               <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs\n          shared with that specific Amazon Web Services account ID are returned. However, AMIs that\n          are shared with the account’s organization or organizational unit (OU) are not\n          returned.</p>\n            </li>\n            <li>\n               <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs\n          shared with your account are returned. In addition, AMIs that are shared with the\n          organization or OU of which you are member are also returned. </p>\n            </li>\n            <li>\n               <p>If you specify <code>all</code>, all public AMIs are returned.</p>\n            </li>\n         </ul>",
             "smithy.api#xmlName": "ExecutableBy"
           }
         },
@@ -33639,6 +33639,10 @@
           {
             "value": "launch",
             "name": "LAUNCH"
+          },
+          {
+            "value": "launch-before-terminate",
+            "name": "LAUNCH_BEFORE_TERMINATE"
           }
         ]
       }
@@ -33659,8 +33663,16 @@
           "target": "com.amazonaws.ec2#FleetReplacementStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "ReplacementStrategy",
-            "smithy.api#documentation": "<p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n            <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can leave it running. You are charged for both instances while they are running.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n         <code>maintain</code>.</p>\n         <p>\n            <code>launch</code> - EC2 Fleet launches a new replacement Spot Instance when a\n         rebalance notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet\n         does not terminate the instances that receive a rebalance notification. You can terminate\n         the old instances, or you can leave them running. You are charged for all instances while\n         they are running. </p>\n         <p>\n            <code>launch-before-terminate</code> - EC2 Fleet launches a new replacement Spot\n         Instance when a rebalance notification is emitted for an existing Spot Instance in the\n         fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),\n         terminates the instances that received a rebalance notification.</p>",
             "smithy.api#xmlName": "replacementStrategy"
+          }
+        },
+        "TerminationDelay": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TerminationDelay",
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>",
+            "smithy.api#xmlName": "terminationDelay"
           }
         }
       },
@@ -33674,12 +33686,18 @@
         "ReplacementStrategy": {
           "target": "com.amazonaws.ec2#FleetReplacementStrategy",
           "traits": {
-            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n         <code>maintain</code>.</p>\n         <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance\n         notification is emitted for an existing Spot Instance in the fleet, specify\n         <code>launch</code>. You must specify a value, otherwise you get an error.</p>\n         <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n            automatically terminated. You can terminate it, or you can leave it running. You are charged for all instances while they are running.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n         <code>maintain</code>.</p>\n         <p>\n            <code>launch</code> - EC2 Fleet launches a replacement Spot Instance when a rebalance\n         notification is emitted for an existing Spot Instance in the fleet. EC2 Fleet does not\n         terminate the instances that receive a rebalance notification. You can terminate the old\n         instances, or you can leave them running. You are charged for all instances while they are\n         running. </p>\n         <p>\n            <code>launch-before-terminate</code> - EC2 Fleet launches a replacement Spot Instance\n         when a rebalance notification is emitted for an existing Spot Instance in the fleet, and\n         then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the\n         instances that received a rebalance notification.</p>"
+          }
+        },
+        "TerminationDelay": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n         Instance after launching a new replacement Spot Instance.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your\n         Spot Instance is at an elevated risk of being interrupted. For more information, see\n         <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance\n         notification signal that your Spot Instance is at an elevated risk of being interrupted.\n         For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance\">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>"
       }
     },
     "com.amazonaws.ec2#FleetSpotMaintenanceStrategies": {
@@ -40891,6 +40909,14 @@
             "smithy.api#xmlName": "carrierIp"
           }
         },
+        "CustomerOwnedIp": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "CustomerOwnedIp",
+            "smithy.api#documentation": "<p>The customer-owned IP address associated with the network interface.</p>",
+            "smithy.api#xmlName": "customerOwnedIp"
+          }
+        },
         "IpOwnerId": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
@@ -41229,7 +41255,7 @@
           "target": "com.amazonaws.ec2#ExcludedInstanceTypeSet",
           "traits": {
             "aws.protocols#ec2QueryName": "ExcludedInstanceTypeSet",
-            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n      an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The\n      following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n      <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*.*</code>, Amazon EC2 will exclude the entire C5\n         instance family (all C5a and C5n instance types). If you specify <code>c5a.*</code>, Amazon EC2\n         excludes all the C5a instance types, but does not exclude the C5n instance types.</p>\n         <p>Default: No excluded instance types</p>",
+            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n      an asterisk (<code>*</code>), to exclude an instance type, size, or generation. The\n      following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n      <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
             "smithy.api#xmlName": "excludedInstanceTypeSet"
           }
         },
@@ -41399,7 +41425,7 @@
         "ExcludedInstanceTypes": {
           "target": "com.amazonaws.ec2#ExcludedInstanceTypeSet",
           "traits": {
-            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n         an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The\n         following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n            <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*.*</code>, Amazon EC2 will exclude the entire C5\n         instance family (all C5a and C5n instance types). If you specify <code>c5a.*</code>, Amazon EC2\n         excludes all the C5a instance types, but does not exclude the C5n instance types.</p>\n         <p>Default: No excluded instance types</p>",
+            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards, represented by\n         an asterisk (<code>*</code>), to exclude an instance family, type, size, or generation. The\n         following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n            <code>r*</code>, <code>*3*</code>.</p>\n         <p>For example, if you specify <code>c5*</code>,Amazon EC2 will exclude the entire C5 instance\n      family, which includes all C5a and C5n instance types. If you specify\n      <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n\n      instance types.</p>\n         <p>Default: No excluded instance types</p>",
             "smithy.api#xmlName": "ExcludedInstanceType"
           }
         },
@@ -44810,6 +44836,22 @@
             "aws.protocols#ec2QueryName": "UserId",
             "smithy.api#documentation": "<p>The Amazon Web Services account ID.</p>\n         <p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>",
             "smithy.api#xmlName": "userId"
+          }
+        },
+        "OrganizationArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OrganizationArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an organization.</p>",
+            "smithy.api#xmlName": "organizationArn"
+          }
+        },
+        "OrganizationalUnitArn": {
+          "target": "com.amazonaws.ec2#String",
+          "traits": {
+            "aws.protocols#ec2QueryName": "OrganizationalUnitArn",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an organizational unit (OU).</p>",
+            "smithy.api#xmlName": "organizationalUnitArn"
           }
         }
       },
@@ -48649,7 +48691,7 @@
         "Attribute": {
           "target": "com.amazonaws.ec2#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute to modify. \n       The valid values are <code>description</code> and <code>launchPermission</code>.</p>"
+            "smithy.api#documentation": "<p>The name of the attribute to modify.</p>\n         <p>Valid values: <code>description</code> | <code>launchPermission</code>\n         </p>"
           }
         },
         "Description": {
@@ -48710,6 +48752,20 @@
             "aws.protocols#ec2QueryName": "DryRun",
             "smithy.api#documentation": "<p>Checks whether you have the required permissions for the action, without actually making the request, \n       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. \n       Otherwise, it is <code>UnauthorizedOperation</code>.</p>",
             "smithy.api#xmlName": "dryRun"
+          }
+        },
+        "OrganizationArns": {
+          "target": "com.amazonaws.ec2#OrganizationArnStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>",
+            "smithy.api#xmlName": "OrganizationArn"
+          }
+        },
+        "OrganizationalUnitArns": {
+          "target": "com.amazonaws.ec2#OrganizationalUnitArnStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>",
+            "smithy.api#xmlName": "OrganizationalUnitArn"
           }
         }
       },
@@ -53132,6 +53188,24 @@
         ]
       }
     },
+    "com.amazonaws.ec2#OrganizationArnStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#String",
+        "traits": {
+          "smithy.api#xmlName": "OrganizationArn"
+        }
+      }
+    },
+    "com.amazonaws.ec2#OrganizationalUnitArnStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ec2#String",
+        "traits": {
+          "smithy.api#xmlName": "OrganizationalUnitArn"
+        }
+      }
+    },
     "com.amazonaws.ec2#OutpostArn": {
       "type": "string",
       "traits": {
@@ -56861,6 +56935,10 @@
           {
             "value": "launch",
             "name": "LAUNCH"
+          },
+          {
+            "value": "launch-before-terminate",
+            "name": "LAUNCH_BEFORE_TERMINATE"
           }
         ]
       }
@@ -62905,8 +62983,16 @@
           "target": "com.amazonaws.ec2#ReplacementStrategy",
           "traits": {
             "aws.protocols#ec2QueryName": "ReplacementStrategy",
-            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n                <code>maintain</code>. You must specify a value, otherwise you get an error.</p>\n        <p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance\n            notification is emitted for a Spot Instance in the fleet, specify\n            <code>launch</code>.</p>\n        <note>\n            <p>When a replacement instance is launched, the instance marked for rebalance is not\n                automatically terminated. You can terminate it, or you can leave it running. You are\n                charged for all instances while they are running.</p>\n        </note>",
+            "smithy.api#documentation": "<p>The replacement strategy to use. Only available for fleets of type\n            <code>maintain</code>.</p>\n        <p>\n            <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a\n            rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet\n            does not terminate the instances that receive a rebalance notification. You can\n            terminate the old instances, or you can leave them running. You are charged for all\n            instances while they are running. </p>\n        <p>\n            <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot\n            Instance when a rebalance notification is emitted for an existing Spot Instance in the\n            fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),\n            terminates the instances that received a rebalance notification.</p>",
             "smithy.api#xmlName": "replacementStrategy"
+          }
+        },
+        "TerminationDelay": {
+          "target": "com.amazonaws.ec2#Integer",
+          "traits": {
+            "aws.protocols#ec2QueryName": "TerminationDelay",
+            "smithy.api#documentation": "<p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot\n            Instance after launching a new replacement Spot Instance.</p>",
+            "smithy.api#xmlName": "terminationDelay"
           }
         }
       },
