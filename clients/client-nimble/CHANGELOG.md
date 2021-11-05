@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
+
+
+### Features
+
+* **client-nimble:** update model as of 11/02/2021 ([#2976](https://github.com/aws/aws-sdk-js-v3/issues/2976)) ([47d2a6c](https://github.com/aws/aws-sdk-js-v3/commit/47d2a6c10033b4a52f19db58d85549e40e325d2e))
+* **clients:** populate variants in endpoints hashes ([#2974](https://github.com/aws/aws-sdk-js-v3/issues/2974)) ([0dd68ef](https://github.com/aws/aws-sdk-js-v3/commit/0dd68ef8b04ea0e96e43b05a9a10221e433fdf86))
+
+
+
+
+
 # [3.39.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.38.0...v3.39.0) (2021-10-29)
 
 **Note:** Version bump only for package @aws-sdk/client-nimble
