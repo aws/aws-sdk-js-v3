@@ -19,13 +19,14 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/protocol-http": "3.38.0",
-    "@aws-sdk/node-config-provider": "3.39.0",
     "@aws-sdk/types": "3.38.0",
     "@aws-sdk/util-arn-parser": "3.37.0",
+    "@aws-sdk/util-config-provider": "3.39.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@aws-sdk/middleware-stack": "3.38.0",
+    "@aws-sdk/node-config-provider": "3.39.0",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "typescript": "~4.3.5"
