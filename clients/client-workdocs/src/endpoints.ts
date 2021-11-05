@@ -2,26 +2,6 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
-  "fips-us-east-1": {
-    hostname: "workdocs-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "workdocs-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "fips-us-west-2": {
-    hostname: "workdocs-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "workdocs-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
   "us-east-1": {
     hostname: "workdocs.us-east-1.amazonaws.com",
     variants: [

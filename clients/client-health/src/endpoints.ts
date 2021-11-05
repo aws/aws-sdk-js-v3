@@ -1,56 +1,7 @@
 import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolver";
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
-const regionHash: RegionHash = {
-  "fips-us-east-2": {
-    hostname: "health-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "health-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "fips-us-gov-west-1": {
-    hostname: "health-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "health-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "us-east-2": {
-    hostname: "health.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "health.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "health-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "us-gov-west-1": {
-    hostname: "health.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "health.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "health-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-};
+const regionHash: RegionHash = {};
 
 const partitionHash: PartitionHash = {
   aws: {

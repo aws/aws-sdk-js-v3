@@ -60,26 +60,6 @@ const regionHash: RegionHash = {
     ],
     signingRegion: "us-gov-west-1",
   },
-  "fips-aws-global": {
-    hostname: "route53-fips.amazonaws.com",
-    variants: [
-      {
-        hostname: "route53-fips.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "fips-aws-us-gov-global": {
-    hostname: "route53.us-gov.amazonaws.com",
-    variants: [
-      {
-        hostname: "route53.us-gov.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
 };
 
 const partitionHash: PartitionHash = {

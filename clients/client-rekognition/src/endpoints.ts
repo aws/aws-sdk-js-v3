@@ -15,160 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "ca-central-1-fips": {
-    hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
-  "rekognition-fips.ca-central-1": {
-    hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
-  "rekognition-fips.us-east-1": {
-    hostname: "rekognition-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "rekognition-fips.us-east-2": {
-    hostname: "rekognition-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "rekognition-fips.us-gov-west-1": {
-    hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "rekognition-fips.us-west-1": {
-    hostname: "rekognition-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
-  "rekognition-fips.us-west-2": {
-    hostname: "rekognition-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
-  "rekognition.ca-central-1": {
-    hostname: "rekognition.rekognition.ca-central-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.ca-central-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.ca-central-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "ca-central-1",
-  },
-  "rekognition.us-east-1": {
-    hostname: "rekognition.rekognition.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.us-east-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.us-east-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
-  "rekognition.us-east-2": {
-    hostname: "rekognition.rekognition.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.us-east-2.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.us-east-2.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
-  "rekognition.us-gov-west-1": {
-    hostname: "rekognition.rekognition.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
-  },
-  "rekognition.us-west-1": {
-    hostname: "rekognition.rekognition.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.us-west-1.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.us-west-1.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
-  "rekognition.us-west-2": {
-    hostname: "rekognition.rekognition.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition.rekognition.us-west-2.amazonaws.com",
-        tags: [],
-      },
-      {
-        hostname: "rekognition-fips.us-west-2.amazonaws.com",
-        tags: ["fips"],
-      },
-    ],
-    signingRegion: "us-west-2",
-  },
   "us-east-1": {
     hostname: "rekognition.us-east-1.amazonaws.com",
     variants: [
@@ -181,16 +27,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-east-1-fips": {
-    hostname: "rekognition-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
   },
   "us-east-2": {
     hostname: "rekognition.us-east-2.amazonaws.com",
@@ -205,16 +41,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-2-fips": {
-    hostname: "rekognition-fips.us-east-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-east-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-2",
-  },
   "us-gov-west-1": {
     hostname: "rekognition.us-gov-west-1.amazonaws.com",
     variants: [
@@ -227,16 +53,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-gov-west-1-fips": {
-    hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-gov-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-gov-west-1",
   },
   "us-west-1": {
     hostname: "rekognition.us-west-1.amazonaws.com",
@@ -251,16 +67,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-west-1-fips": {
-    hostname: "rekognition-fips.us-west-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-west-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-1",
-  },
   "us-west-2": {
     hostname: "rekognition.us-west-2.amazonaws.com",
     variants: [
@@ -273,16 +79,6 @@ const regionHash: RegionHash = {
         tags: ["fips"],
       },
     ],
-  },
-  "us-west-2-fips": {
-    hostname: "rekognition-fips.us-west-2.amazonaws.com",
-    variants: [
-      {
-        hostname: "rekognition-fips.us-west-2.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-west-2",
   },
 };
 

@@ -15,16 +15,6 @@ const regionHash: RegionHash = {
       },
     ],
   },
-  "us-east-1-fips": {
-    hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
-    variants: [
-      {
-        hostname: "messaging-chime-fips.us-east-1.amazonaws.com",
-        tags: [],
-      },
-    ],
-    signingRegion: "us-east-1",
-  },
 };
 
 const partitionHash: PartitionHash = {
