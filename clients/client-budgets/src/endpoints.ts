@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "aws-cn-global": {
-    hostname: "budgets.amazonaws.com.cn",
     variants: [
       {
         hostname: "budgets.amazonaws.com.cn",
@@ -13,7 +12,6 @@ const regionHash: RegionHash = {
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
-    hostname: "budgets.amazonaws.com",
     variants: [
       {
         hostname: "budgets.amazonaws.com",
@@ -51,7 +49,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "budgets.{region}.amazonaws.com",
     variants: [
       {
         hostname: "budgets.{region}.amazonaws.com",
@@ -75,7 +72,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "budgets.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "budgets.{region}.amazonaws.com.cn",
@@ -99,7 +95,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "budgets.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "budgets.{region}.c2s.ic.gov",
@@ -110,7 +105,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "budgets.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "budgets.{region}.sc2s.sgov.gov",
@@ -121,7 +115,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "budgets.{region}.amazonaws.com",
     variants: [
       {
         hostname: "budgets.{region}.amazonaws.com",

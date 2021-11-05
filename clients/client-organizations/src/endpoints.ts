@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "aws-cn-global": {
-    hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
     variants: [
       {
         hostname: "organizations.cn-northwest-1.amazonaws.com.cn",
@@ -13,7 +12,6 @@ const regionHash: RegionHash = {
     signingRegion: "cn-northwest-1",
   },
   "aws-global": {
-    hostname: "organizations.us-east-1.amazonaws.com",
     variants: [
       {
         hostname: "organizations.us-east-1.amazonaws.com",
@@ -27,7 +25,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-east-1",
   },
   "aws-us-gov-global": {
-    hostname: "organizations.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "organizations.us-gov-west-1.amazonaws.com",
@@ -70,7 +67,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com",
     variants: [
       {
         hostname: "organizations.{region}.amazonaws.com",
@@ -94,7 +90,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["aws-cn-global", "cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "organizations.{region}.amazonaws.com.cn",
@@ -118,7 +113,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "organizations.{region}.c2s.ic.gov",
@@ -129,7 +123,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "organizations.{region}.sc2s.sgov.gov",
@@ -140,7 +133,6 @@ const partitionHash: PartitionHash = {
   "aws-us-gov": {
     regions: ["aws-us-gov-global", "fips-aws-us-gov-global", "us-gov-east-1", "us-gov-west-1"],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "organizations.{region}.amazonaws.com",
     variants: [
       {
         hostname: "organizations.{region}.amazonaws.com",

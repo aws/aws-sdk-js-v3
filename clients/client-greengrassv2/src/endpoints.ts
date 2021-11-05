@@ -3,7 +3,6 @@ import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
   "dataplane-us-gov-east-1": {
-    hostname: "greengrass-ats.iot.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "greengrass-ats.iot.us-gov-east-1.amazonaws.com",
@@ -13,7 +12,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-gov-east-1",
   },
   "dataplane-us-gov-west-1": {
-    hostname: "greengrass-ats.iot.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "greengrass-ats.iot.us-gov-west-1.amazonaws.com",
@@ -23,7 +21,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-gov-west-1",
   },
   "us-gov-east-1": {
-    hostname: "greengrass.us-gov-east-1.amazonaws.com",
     variants: [
       {
         hostname: "greengrass.us-gov-east-1.amazonaws.com",
@@ -37,7 +34,6 @@ const regionHash: RegionHash = {
     signingRegion: "us-gov-east-1",
   },
   "us-gov-west-1": {
-    hostname: "greengrass.us-gov-west-1.amazonaws.com",
     variants: [
       {
         hostname: "greengrass.us-gov-west-1.amazonaws.com",
@@ -74,7 +70,6 @@ const partitionHash: PartitionHash = {
       "us-west-2",
     ],
     regionRegex: "^(us|eu|ap|sa|ca|me|af)\\-\\w+\\-\\d+$",
-    hostname: "greengrass.{region}.amazonaws.com",
     variants: [
       {
         hostname: "greengrass.{region}.amazonaws.com",
@@ -97,7 +92,6 @@ const partitionHash: PartitionHash = {
   "aws-cn": {
     regions: ["cn-north-1", "cn-northwest-1"],
     regionRegex: "^cn\\-\\w+\\-\\d+$",
-    hostname: "greengrass.{region}.amazonaws.com.cn",
     variants: [
       {
         hostname: "greengrass.{region}.amazonaws.com.cn",
@@ -120,7 +114,6 @@ const partitionHash: PartitionHash = {
   "aws-iso": {
     regions: ["us-iso-east-1", "us-iso-west-1"],
     regionRegex: "^us\\-iso\\-\\w+\\-\\d+$",
-    hostname: "greengrass.{region}.c2s.ic.gov",
     variants: [
       {
         hostname: "greengrass.{region}.c2s.ic.gov",
@@ -131,7 +124,6 @@ const partitionHash: PartitionHash = {
   "aws-iso-b": {
     regions: ["us-isob-east-1"],
     regionRegex: "^us\\-isob\\-\\w+\\-\\d+$",
-    hostname: "greengrass.{region}.sc2s.sgov.gov",
     variants: [
       {
         hostname: "greengrass.{region}.sc2s.sgov.gov",
@@ -148,7 +140,6 @@ const partitionHash: PartitionHash = {
       "us-gov-west-1",
     ],
     regionRegex: "^us\\-gov\\-\\w+\\-\\d+$",
-    hostname: "greengrass.{region}.amazonaws.com",
     variants: [
       {
         hostname: "greengrass.{region}.amazonaws.com",
