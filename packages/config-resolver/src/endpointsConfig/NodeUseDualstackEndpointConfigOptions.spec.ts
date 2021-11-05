@@ -1,4 +1,4 @@
-import { booleanSelector, SelectorType } from "@aws-sdk/node-config-provider";
+import { booleanSelector, SelectorType } from "@aws-sdk/util-config-provider";
 
 import {
   CONFIG_USE_DUALSTACK_ENDPOINT,
@@ -7,7 +7,7 @@ import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
 } from "./NodeUseDualstackEndpointConfigOptions";
 
-jest.mock("@aws-sdk/node-config-provider");
+jest.mock("@aws-sdk/util-config-provider");
 
 describe("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS", () => {
   afterEach(() => {
