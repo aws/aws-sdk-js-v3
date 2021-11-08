@@ -51,6 +51,7 @@ const getEndpointFromBucketName = ({
   tlsCompatible = true,
   isCustomEndpoint = false,
 }: BucketHostnameParams): BucketHostname => {
+  // TODO: Remove checks for ".dualstack" from entire middleware.
   const suffixHostname = dualstackEndpoint ? baseHostname.replace(".dualstack", "") : baseHostname;
   const [clientRegion, hostnameSuffix] = isCustomEndpoint ? [region, baseHostname] : getSuffix(suffixHostname);
   if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
