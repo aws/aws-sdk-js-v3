@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.40.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.40.0...v3.40.1) (2021-11-08)
+
+
+### Bug Fixes
+
+* **middleware-bucket-endpoint:** remove dualstack from hostname before processing ([#3003](https://github.com/aws/aws-sdk-js-v3/issues/3003)) ([d7aa2c3](https://github.com/aws/aws-sdk-js-v3/commit/d7aa2c329c62a9c2957631502bfe8da7fda86a4f))
+
+
+
+
+
 # [3.40.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.39.0...v3.40.0) (2021-11-05)
 
 

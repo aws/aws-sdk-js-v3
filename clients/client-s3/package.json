@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-s3",
   "description": "AWS SDK for JavaScript S3 Client for Node.js, Browser and React Native",
-  "version": "3.40.0",
+  "version": "3.40.1",
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
     "build:cjs": "tsc -p tsconfig.json",
@@ -36,7 +36,7 @@
     "@aws-sdk/invalid-dependency": "3.40.0",
     "@aws-sdk/md5-js": "3.40.0",
     "@aws-sdk/middleware-apply-body-checksum": "3.40.0",
-    "@aws-sdk/middleware-bucket-endpoint": "3.40.0",
+    "@aws-sdk/middleware-bucket-endpoint": "3.40.1",
     "@aws-sdk/middleware-content-length": "3.40.0",
     "@aws-sdk/middleware-expect-continue": "3.40.0",
     "@aws-sdk/middleware-host-header": "3.40.0",
