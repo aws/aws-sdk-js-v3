@@ -6,6 +6,7 @@ describe("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
     [
+      { baseHostname: "s3.dualstack.us-west-2.amazonaws.com", isCustomEndpoint: false, dualstackEndpoint: true },
       { baseHostname: "s3.us-west-2.amazonaws.com", isCustomEndpoint: false },
       { baseHostname: "beta.example.com", isCustomEndpoint: true },
     ].forEach(({ baseHostname, isCustomEndpoint }) => {
@@ -187,20 +188,24 @@ describe("bucketHostname", () => {
 
   describe("from Access Point ARN", () => {
     describe("populates access point endpoint from ARN", () => {
-      const s3Hostname = "s3.us-west-2.amazonaws.com";
       const customHostname = "example.com";
 
-      describe(`baseHostname: ${s3Hostname}`, () => {
-        const baseHostname = s3Hostname;
+      describe.each([
+        ["s3.us-west-2.amazonaws.com", false],
+        ["s3.dualstack.us-west-2.amazonaws.com", true],
+      ])(`baseHostname: %s, dualstackEndpoint: %s`, (baseHostname, dualstackEndpoint) => {
         it("should use client region", () => {
           const { bucketEndpoint, hostname } = bucketHostname({
             bucketName: parseArn("arn:aws:s3:us-west-2:123456789012:accesspoint:myendpoint"),
             baseHostname,
             isCustomEndpoint: false,
             clientRegion: region,
+            dualstackEndpoint,
           });
           expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-west-2.amazonaws.com");
+          expect(hostname).toBe(
+            `myendpoint-123456789012.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.us-west-2.amazonaws.com`
+          );
         });
 
         it("should use ARN region", () => {
@@ -210,9 +215,12 @@ describe("bucketHostname", () => {
             isCustomEndpoint: false,
             clientRegion: region,
             useArnRegion: true,
+            dualstackEndpoint,
           });
           expect(bucketEndpoint).toBe(true);
-          expect(hostname).toBe("myendpoint-123456789012.s3-accesspoint.us-east-1.amazonaws.com");
+          expect(hostname).toBe(
+            `myendpoint-123456789012.s3-accesspoint${dualstackEndpoint ? ".dualstack" : ""}.us-east-1.amazonaws.com`
+          );
         });
       });
 

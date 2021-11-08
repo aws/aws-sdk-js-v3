@@ -33,11 +33,16 @@ export interface BucketHostname {
 
 export const bucketHostname = (options: BucketHostnameParams | ArnHostnameParams): BucketHostname => {
   validateCustomEndpoint(options);
+
+  // TODO: Remove checks for ".dualstack" from entire middleware.
+  const { dualstackEndpoint, baseHostname } = options;
+  const updatedBaseHostname = dualstackEndpoint ? baseHostname.replace(".dualstack", "") : baseHostname;
+
   return isBucketNameOptions(options)
     ? // Construct endpoint when bucketName is a string referring to a bucket name
-      getEndpointFromBucketName(options)
+      getEndpointFromBucketName({ ...options, baseHostname: updatedBaseHostname })
     : // Construct endpoint when bucketName is an ARN referring to an S3 resource like Access Point
-      getEndpointFromArn(options);
+      getEndpointFromArn({ ...options, baseHostname: updatedBaseHostname });
 };
 
 const getEndpointFromBucketName = ({
