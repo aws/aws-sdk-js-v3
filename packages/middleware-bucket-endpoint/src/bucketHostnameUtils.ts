@@ -4,7 +4,7 @@ const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
 const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
 const DOTS_PATTERN = /\.\./;
 export const DOT_PATTERN = /\./;
-export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3[.-]([a-z0-9-]+)\./;
+export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9-]+)\./;
 const S3_US_EAST_1_ALTNAME_PATTERN = /^s3(-external-1)?\.amazonaws\.com$/;
 const AWS_PARTITION_SUFFIX = "amazonaws.com";
 
@@ -49,7 +49,7 @@ export const isDnsCompatibleBucketName = (bucketName: string): boolean =>
 
 const getRegionalSuffix = (hostname: string): [string, string] => {
   const parts = hostname.match(S3_HOSTNAME_PATTERN)!;
-  return [parts[2], hostname.replace(new RegExp(`^${parts[0]}`), "")];
+  return [parts[4], hostname.replace(new RegExp(`^${parts[0]}`), "")];
 };
 
 export const getSuffix = (hostname: string): [string, string] =>
