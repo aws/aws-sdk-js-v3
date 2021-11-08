@@ -6,6 +6,7 @@ describe("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
     [
+      { baseHostname: "s3.dualstack.us-west-2.amazonaws.com", isCustomEndpoint: false, dualstackEndpoint: true },
       { baseHostname: "s3.us-west-2.amazonaws.com", isCustomEndpoint: false },
       { baseHostname: "beta.example.com", isCustomEndpoint: true },
     ].forEach(({ baseHostname, isCustomEndpoint }) => {

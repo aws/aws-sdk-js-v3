@@ -51,7 +51,8 @@ const getEndpointFromBucketName = ({
   tlsCompatible = true,
   isCustomEndpoint = false,
 }: BucketHostnameParams): BucketHostname => {
-  const [clientRegion, hostnameSuffix] = isCustomEndpoint ? [region, baseHostname] : getSuffix(baseHostname);
+  const suffixHostname = dualstackEndpoint ? baseHostname.replace(".dualstack", "") : baseHostname;
+  const [clientRegion, hostnameSuffix] = isCustomEndpoint ? [region, baseHostname] : getSuffix(suffixHostname);
   if (pathStyleEndpoint || !isDnsCompatibleBucketName(bucketName) || (tlsCompatible && DOT_PATTERN.test(bucketName))) {
     return {
       bucketEndpoint: false,
