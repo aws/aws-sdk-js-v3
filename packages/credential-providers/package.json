@@ -5,18 +5,20 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": {
-    "@aws-sdk/credential-provider-env": false,
-    "@aws-sdk/credential-provider-imds": false,
-    "@aws-sdk/credential-provider-process": false,
-    "@aws-sdk/credential-provider-sso": false,
-    "@aws-sdk/credential-provider-ini": false
+    "./fromContainerMetadata": false,
+    "./fromEnv": false,
+    "./fromInstanceMetadata": false,
+    "./fromProcess": false,
+    "./fromSSO": false,
+    "./fromIni": false
   },
   "react-native": {
-    "@aws-sdk/credential-provider-env": false,
-    "@aws-sdk/credential-provider-imds": false,
-    "@aws-sdk/credential-provider-process": false,
-    "@aws-sdk/credential-provider-sso": false,
-    "@aws-sdk/credential-provider-ini": false
+    "./fromContainerMetadata": false,
+    "./fromEnv": false,
+    "./fromInstanceMetadata": false,
+    "./fromProcess": false,
+    "./fromSSO": false,
+    "./fromIni": false
   },
   "sideEffects": false,
   "scripts": {
