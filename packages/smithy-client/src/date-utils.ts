@@ -37,9 +37,7 @@ export function dateToUtcString(date: Date): string {
   return `${DAYS[dayOfWeek]}, ${dayOfMonthString} ${MONTHS[month]} ${year} ${hoursString}:${minutesString}:${secondsString} GMT`;
 }
 
-const RFC3339 = new RegExp(
-  /^(?<Y>\d{4})-(?<M>\d{2})-(?<D>\d{2})[tT](?<H>\d{2}):(?<m>\d{2}):(?<s>\d{2})(?:\.(?<frac>\d+))?[zZ]$/
-);
+const RFC3339 = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/);
 
 /**
  * Parses a value into a Date. Returns undefined if the input is null or
@@ -62,24 +60,27 @@ export const parseRfc3339DateTime = (value: unknown): Date | undefined => {
     throw new TypeError("RFC-3339 date-times must be expressed as strings");
   }
   const match = RFC3339.exec(value);
-  if (!match || !match.groups) {
+  if (!match) {
     throw new TypeError("Invalid RFC-3339 date-time value");
   }
-  const year = strictParseShort(stripLeadingZeroes(match.groups["Y"]))!;
-  const month = parseDateValue(match.groups["M"], "month", 1, 12);
-  const day = parseDateValue(match.groups["D"], "day", 1, 31);
 
-  return buildDate(year, month, day, match);
+  const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+
+  const year = strictParseShort(stripLeadingZeroes(yearStr))!;
+  const month = parseDateValue(monthStr, "month", 1, 12);
+  const day = parseDateValue(dayStr, "day", 1, 31);
+
+  return buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
 };
 
 const IMF_FIXDATE = new RegExp(
-  /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (?<D>\d{2}) (?<M>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?<Y>\d{4}) (?<H>\d{2}):(?<m>\d{2}):(?<s>\d{2})(?:\.(?<frac>\d+))? GMT$/
+  /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/
 );
 const RFC_850_DATE = new RegExp(
-  /^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (?<D>\d{2})-(?<M>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(?<Y>\d{2}) (?<H>\d{2}):(?<m>\d{2}):(?<s>\d{2})(?:\.(?<frac>\d+))? GMT$/
+  /^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d{2})-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{2}) (\d{2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/
 );
 const ASC_TIME = new RegExp(
-  /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) (?<M>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (?<D> [1-9]|\d{2}) (?<H>\d{2}):(?<m>\d{2}):(?<s>\d{2})(?:\.(?<frac>\d+))? (?<Y>\d{4})$/
+  /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( [1-9]|\d{2}) (\d{2}):(\d{2}):(\d{2})(?:\.(\d+))? (\d{4})$/
 );
 
 /**
@@ -102,37 +103,45 @@ export const parseRfc7231DateTime = (value: unknown): Date | undefined => {
     throw new TypeError("RFC-7231 date-times must be expressed as strings");
   }
 
-  //allow customization of day parsing for asctime days, which can be left-padded with spaces
-  let dayFn: (value: string) => number = (value) => parseDateValue(value, "day", 1, 31);
-
-  //all formats other than RFC 850 use a four-digit year
-  let yearFn: (value: string) => number = (value: string) => strictParseShort(stripLeadingZeroes(value))!;
-  //RFC 850 dates need post-processing to adjust year values if they are too far in the future
-  let dateAdjustmentFn: (value: Date) => Date = (value) => value;
-
   let match = IMF_FIXDATE.exec(value);
-  if (!match || !match.groups) {
-    match = RFC_850_DATE.exec(value);
-    if (match && match.groups) {
-      // RFC 850 dates use 2-digit years. So we parse the year specifically,
-      // and then once we've constructed the entire date, we adjust it if the resultant date
-      // is too far in the future.
-      yearFn = parseTwoDigitYear;
-      dateAdjustmentFn = adjustRfc850Year;
-    } else {
-      match = ASC_TIME.exec(value);
-      if (match && match.groups) {
-        dayFn = (value) => parseDateValue(value.trimLeft(), "day", 1, 31);
-      } else {
-        throw new TypeError("Invalid RFC-7231 date-time value");
-      }
-    }
+  if (match) {
+    const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+    return buildDate(
+      strictParseShort(stripLeadingZeroes(yearStr))!,
+      parseMonthByShortName(monthStr),
+      parseDateValue(dayStr, "day", 1, 31),
+      { hours, minutes, seconds, fractionalMilliseconds }
+    );
   }
 
-  const year = yearFn(match.groups["Y"]);
-  const month = parseMonthByShortName(match.groups["M"]);
-  const day = dayFn(match.groups["D"]);
-  return dateAdjustmentFn(buildDate(year, month, day, match));
+  match = RFC_850_DATE.exec(value);
+  if (match) {
+    const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+    // RFC 850 dates use 2-digit years. So we parse the year specifically,
+    // and then once we've constructed the entire date, we adjust it if the resultant date
+    // is too far in the future.
+    return adjustRfc850Year(
+      buildDate(parseTwoDigitYear(yearStr), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), {
+        hours,
+        minutes,
+        seconds,
+        fractionalMilliseconds,
+      })
+    );
+  }
+
+  match = ASC_TIME.exec(value);
+  if (match) {
+    const [_, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, yearStr] = match;
+    return buildDate(
+      strictParseShort(stripLeadingZeroes(yearStr))!,
+      parseMonthByShortName(monthStr),
+      parseDateValue(dayStr.trimLeft(), "day", 1, 31),
+      { hours, minutes, seconds, fractionalMilliseconds }
+    );
+  }
+
+  throw new TypeError("Invalid RFC-7231 date-time value");
 };
 
 /**
@@ -164,6 +173,13 @@ export const parseEpochTimestamp = (value: unknown): Date | undefined => {
   return new Date(Math.round(valueAsDouble * 1000));
 };
 
+interface RawTime {
+  hours: string;
+  minutes: string;
+  seconds: string;
+  fractionalMilliseconds: string | undefined;
+}
+
 /**
  * Build a date from a numeric year, month, date, and an match with named groups
  * "H", "m", s", and "frac", representing hours, minutes, seconds, and optional fractional seconds.
@@ -172,7 +188,7 @@ export const parseEpochTimestamp = (value: unknown): Date | undefined => {
  * @param day numeric year
  * @param match match with groups "H", "m", s", and "frac"
  */
-const buildDate = (year: number, month: number, day: number, match: RegExpMatchArray): Date => {
+const buildDate = (year: number, month: number, day: number, time: RawTime): Date => {
   const adjustedMonth = month - 1; // JavaScript, and our internal data structures, expect 0-indexed months
   validateDayOfMonth(year, adjustedMonth, day);
   // Adjust month down by 1
@@ -181,11 +197,11 @@ const buildDate = (year: number, month: number, day: number, match: RegExpMatchA
       year,
       adjustedMonth,
       day,
-      parseDateValue(match.groups!["H"]!, "hour", 0, 23),
-      parseDateValue(match.groups!["m"]!, "minute", 0, 59),
+      parseDateValue(time.hours, "hour", 0, 23),
+      parseDateValue(time.minutes, "minute", 0, 59),
       // seconds can go up to 60 for leap seconds
-      parseDateValue(match.groups!["s"]!, "seconds", 0, 60),
-      parseMilliseconds(match.groups!["frac"])
+      parseDateValue(time.seconds, "seconds", 0, 60),
+      parseMilliseconds(time.fractionalMilliseconds)
     )
   );
 };
