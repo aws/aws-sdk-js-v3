@@ -4,22 +4,8 @@
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
-  "browser": {
-    "./fromContainerMetadata": false,
-    "./fromEnv": false,
-    "./fromInstanceMetadata": false,
-    "./fromProcess": false,
-    "./fromSSO": false,
-    "./fromIni": false
-  },
-  "react-native": {
-    "./fromContainerMetadata": false,
-    "./fromEnv": false,
-    "./fromInstanceMetadata": false,
-    "./fromProcess": false,
-    "./fromSSO": false,
-    "./fromIni": false
-  },
+  "browser": "./dist-es/index.web.js",
+  "react-native": "./dist-es/index.web.js",
   "sideEffects": false,
   "scripts": {
     "build": "yarn build:cjs && yarn build:es && yarn build:types",
