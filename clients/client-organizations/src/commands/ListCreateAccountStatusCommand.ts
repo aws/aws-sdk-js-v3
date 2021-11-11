@@ -46,7 +46,7 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *
  * @see {@link ListCreateAccountStatusCommandInput} for command's `input` shape.
  * @see {@link ListCreateAccountStatusCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListCreateAccountStatusCommand extends $Command<

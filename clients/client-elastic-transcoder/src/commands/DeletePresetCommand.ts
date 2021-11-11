@@ -42,7 +42,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  *
  * @see {@link DeletePresetCommandInput} for command's `input` shape.
  * @see {@link DeletePresetCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class DeletePresetCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListRoomMembershipsCommandOutput extends ListRoomMembershipsRes
  *
  * @see {@link ListRoomMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListRoomMembershipsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListRoomMembershipsCommand extends $Command<

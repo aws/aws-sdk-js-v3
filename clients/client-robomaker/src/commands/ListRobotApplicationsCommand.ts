@@ -36,7 +36,7 @@ export interface ListRobotApplicationsCommandOutput extends ListRobotApplication
  *
  * @see {@link ListRobotApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListRobotApplicationsCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class ListRobotApplicationsCommand extends $Command<

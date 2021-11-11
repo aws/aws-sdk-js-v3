@@ -35,7 +35,7 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  *
  * @see {@link UpdateLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateLoggerDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class UpdateLoggerDefinitionCommand extends $Command<

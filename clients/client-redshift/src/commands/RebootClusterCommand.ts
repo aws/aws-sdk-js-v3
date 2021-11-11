@@ -42,7 +42,7 @@ export interface RebootClusterCommandOutput extends RebootClusterResult, __Metad
  *
  * @see {@link RebootClusterCommandInput} for command's `input` shape.
  * @see {@link RebootClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class RebootClusterCommand extends $Command<

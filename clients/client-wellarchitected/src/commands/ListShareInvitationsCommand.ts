@@ -35,7 +35,7 @@ export interface ListShareInvitationsCommandOutput extends ListShareInvitationsO
  *
  * @see {@link ListShareInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListShareInvitationsCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class ListShareInvitationsCommand extends $Command<

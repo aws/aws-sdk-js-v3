@@ -35,7 +35,7 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  *
  * @see {@link XmlAttributesCommandInput} for command's `input` shape.
  * @see {@link XmlAttributesCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class XmlAttributesCommand extends $Command<

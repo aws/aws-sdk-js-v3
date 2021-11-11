@@ -40,7 +40,7 @@ export interface DescribeAssociationExecutionTargetsCommandOutput
  *
  * @see {@link DescribeAssociationExecutionTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssociationExecutionTargetsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeAssociationExecutionTargetsCommand extends $Command<

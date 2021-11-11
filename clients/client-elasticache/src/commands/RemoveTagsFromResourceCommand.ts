@@ -38,7 +38,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  *
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

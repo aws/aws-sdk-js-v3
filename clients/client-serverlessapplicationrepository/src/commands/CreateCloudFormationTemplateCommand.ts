@@ -41,7 +41,7 @@ export interface CreateCloudFormationTemplateCommandOutput
  *
  * @see {@link CreateCloudFormationTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationTemplateCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  */
 export class CreateCloudFormationTemplateCommand extends $Command<

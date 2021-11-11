@@ -35,7 +35,7 @@ export interface ListHarvestJobsCommandOutput extends ListHarvestJobsResponse, _
  *
  * @see {@link ListHarvestJobsCommandInput} for command's `input` shape.
  * @see {@link ListHarvestJobsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class ListHarvestJobsCommand extends $Command<

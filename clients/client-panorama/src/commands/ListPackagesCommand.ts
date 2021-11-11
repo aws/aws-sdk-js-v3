@@ -35,7 +35,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResponse, __Metad
  *
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class ListPackagesCommand extends $Command<

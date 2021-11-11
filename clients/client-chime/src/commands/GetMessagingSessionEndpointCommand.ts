@@ -37,7 +37,7 @@ export interface GetMessagingSessionEndpointCommandOutput
  *
  * @see {@link GetMessagingSessionEndpointCommandInput} for command's `input` shape.
  * @see {@link GetMessagingSessionEndpointCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetMessagingSessionEndpointCommand extends $Command<

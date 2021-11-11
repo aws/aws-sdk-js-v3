@@ -35,7 +35,7 @@ export interface DeleteFrameworkCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFrameworkCommandInput} for command's `input` shape.
  * @see {@link DeleteFrameworkCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteFrameworkCommand extends $Command<

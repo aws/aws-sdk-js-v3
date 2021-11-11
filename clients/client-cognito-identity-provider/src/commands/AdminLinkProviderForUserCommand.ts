@@ -60,7 +60,7 @@ export interface AdminLinkProviderForUserCommandOutput extends AdminLinkProvider
  *
  * @see {@link AdminLinkProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminLinkProviderForUserCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminLinkProviderForUserCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CreateLicenseConfigurationCommandOutput extends CreateLicenseCo
  *
  * @see {@link CreateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class CreateLicenseConfigurationCommand extends $Command<

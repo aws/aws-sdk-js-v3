@@ -37,7 +37,7 @@ export interface DescribeAnalysisPermissionsCommandOutput
  *
  * @see {@link DescribeAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeAnalysisPermissionsCommand extends $Command<

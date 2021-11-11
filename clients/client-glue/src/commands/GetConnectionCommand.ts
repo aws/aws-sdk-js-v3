@@ -35,7 +35,7 @@ export interface GetConnectionCommandOutput extends GetConnectionResponse, __Met
  *
  * @see {@link GetConnectionCommandInput} for command's `input` shape.
  * @see {@link GetConnectionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetConnectionCommand extends $Command<

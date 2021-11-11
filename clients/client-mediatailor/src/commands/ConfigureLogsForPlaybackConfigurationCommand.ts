@@ -41,7 +41,7 @@ export interface ConfigureLogsForPlaybackConfigurationCommandOutput
  *
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsForPlaybackConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class ConfigureLogsForPlaybackConfigurationCommand extends $Command<

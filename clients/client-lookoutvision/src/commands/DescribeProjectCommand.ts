@@ -37,7 +37,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  *
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class DescribeProjectCommand extends $Command<

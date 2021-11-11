@@ -41,7 +41,7 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  *
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandInput} for command's `input` shape.
  * @see {@link ListFailuresForLicenseConfigurationOperationsCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<

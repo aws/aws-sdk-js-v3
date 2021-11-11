@@ -35,7 +35,7 @@ export interface CreateConferenceProviderCommandOutput extends CreateConferenceP
  *
  * @see {@link CreateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link CreateConferenceProviderCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class CreateConferenceProviderCommand extends $Command<

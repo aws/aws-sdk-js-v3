@@ -37,7 +37,7 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  *
  * @see {@link GetFieldLevelEncryptionProfileCommandInput} for command's `input` shape.
  * @see {@link GetFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class GetFieldLevelEncryptionProfileCommand extends $Command<

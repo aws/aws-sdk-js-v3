@@ -42,7 +42,7 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  *
  * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
- * @see {@link JSONRPC10ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
  */
 export class GreetingWithErrorsCommand extends $Command<

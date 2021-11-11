@@ -35,7 +35,7 @@ export interface GetBulkPublishDetailsCommandOutput extends GetBulkPublishDetail
  *
  * @see {@link GetBulkPublishDetailsCommandInput} for command's `input` shape.
  * @see {@link GetBulkPublishDetailsCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class GetBulkPublishDetailsCommand extends $Command<

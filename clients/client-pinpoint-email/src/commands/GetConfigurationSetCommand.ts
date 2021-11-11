@@ -42,7 +42,7 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  *
  * @see {@link GetConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class GetConfigurationSetCommand extends $Command<

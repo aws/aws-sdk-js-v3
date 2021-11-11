@@ -35,7 +35,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  *
  * @see {@link ListDataSetsCommandInput} for command's `input` shape.
  * @see {@link ListDataSetsCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class ListDataSetsCommand extends $Command<

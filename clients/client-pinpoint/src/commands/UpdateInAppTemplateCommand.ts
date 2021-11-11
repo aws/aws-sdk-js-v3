@@ -35,7 +35,7 @@ export interface UpdateInAppTemplateCommandOutput extends UpdateInAppTemplateRes
  *
  * @see {@link UpdateInAppTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateInAppTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateInAppTemplateCommand extends $Command<

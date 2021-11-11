@@ -35,7 +35,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  *
  * @see {@link GetFunctionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class GetFunctionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  *
  * @see {@link GetArtifactUrlCommandInput} for command's `input` shape.
  * @see {@link GetArtifactUrlCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetArtifactUrlCommand extends $Command<

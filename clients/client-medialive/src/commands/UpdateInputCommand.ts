@@ -35,7 +35,7 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *
  * @see {@link UpdateInputCommandInput} for command's `input` shape.
  * @see {@link UpdateInputCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class UpdateInputCommand extends $Command<

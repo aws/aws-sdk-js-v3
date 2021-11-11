@@ -35,7 +35,7 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
  *
  * @see {@link GetMedicalVocabularyCommandInput} for command's `input` shape.
  * @see {@link GetMedicalVocabularyCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class GetMedicalVocabularyCommand extends $Command<

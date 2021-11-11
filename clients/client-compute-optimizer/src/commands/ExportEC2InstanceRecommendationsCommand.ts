@@ -45,7 +45,7 @@ export interface ExportEC2InstanceRecommendationsCommandOutput
  *
  * @see {@link ExportEC2InstanceRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportEC2InstanceRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class ExportEC2InstanceRecommendationsCommand extends $Command<

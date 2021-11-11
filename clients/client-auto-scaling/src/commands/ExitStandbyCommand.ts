@@ -37,7 +37,7 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  *
  * @see {@link ExitStandbyCommandInput} for command's `input` shape.
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class ExitStandbyCommand extends $Command<

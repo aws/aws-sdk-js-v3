@@ -35,7 +35,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  *
  * @see {@link UpdateDataCatalogCommandInput} for command's `input` shape.
  * @see {@link UpdateDataCatalogCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class UpdateDataCatalogCommand extends $Command<

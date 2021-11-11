@@ -39,7 +39,7 @@ export interface UpdateHITReviewStatusCommandOutput extends UpdateHITReviewStatu
  *
  * @see {@link UpdateHITReviewStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateHITReviewStatusCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class UpdateHITReviewStatusCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeReportCreationCommandOutput extends DescribeReportCreat
  *
  * @see {@link DescribeReportCreationCommandInput} for command's `input` shape.
  * @see {@link DescribeReportCreationCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for ResourceGroupsTaggingAPIClient's `config` shape.
  *
  */
 export class DescribeReportCreationCommand extends $Command<

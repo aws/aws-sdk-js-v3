@@ -54,7 +54,7 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class PutPermissionCommand extends $Command<

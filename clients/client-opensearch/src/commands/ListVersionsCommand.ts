@@ -35,7 +35,7 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  *
  * @see {@link ListVersionsCommandInput} for command's `input` shape.
  * @see {@link ListVersionsCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class ListVersionsCommand extends $Command<

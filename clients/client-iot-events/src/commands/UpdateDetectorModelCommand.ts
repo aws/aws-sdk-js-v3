@@ -36,7 +36,7 @@ export interface UpdateDetectorModelCommandOutput extends UpdateDetectorModelRes
  *
  * @see {@link UpdateDetectorModelCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorModelCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
  *
  */
 export class UpdateDetectorModelCommand extends $Command<

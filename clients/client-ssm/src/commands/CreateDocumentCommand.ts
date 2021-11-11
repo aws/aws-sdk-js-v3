@@ -38,7 +38,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *
  * @see {@link CreateDocumentCommandInput} for command's `input` shape.
  * @see {@link CreateDocumentCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class CreateDocumentCommand extends $Command<

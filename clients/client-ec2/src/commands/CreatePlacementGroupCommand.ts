@@ -44,7 +44,7 @@ export interface CreatePlacementGroupCommandOutput extends CreatePlacementGroupR
  *
  * @see {@link CreatePlacementGroupCommandInput} for command's `input` shape.
  * @see {@link CreatePlacementGroupCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreatePlacementGroupCommand extends $Command<

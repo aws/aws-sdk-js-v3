@@ -35,7 +35,7 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  *
  * @see {@link ListInputDevicesCommandInput} for command's `input` shape.
  * @see {@link ListInputDevicesCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class ListInputDevicesCommand extends $Command<

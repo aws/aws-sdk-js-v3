@@ -36,7 +36,7 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  *
  * @see {@link PutResourceLogLevelCommandInput} for command's `input` shape.
  * @see {@link PutResourceLogLevelCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class PutResourceLogLevelCommand extends $Command<

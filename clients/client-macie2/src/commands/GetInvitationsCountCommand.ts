@@ -35,7 +35,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *
  * @see {@link GetInvitationsCountCommandInput} for command's `input` shape.
  * @see {@link GetInvitationsCountCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class GetInvitationsCountCommand extends $Command<

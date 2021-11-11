@@ -38,7 +38,7 @@ export interface DescribeAssessmentTemplatesCommandOutput
  *
  * @see {@link DescribeAssessmentTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentTemplatesCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class DescribeAssessmentTemplatesCommand extends $Command<

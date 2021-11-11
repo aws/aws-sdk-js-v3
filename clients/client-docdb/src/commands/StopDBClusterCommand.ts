@@ -38,7 +38,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *
  * @see {@link StopDBClusterCommandInput} for command's `input` shape.
  * @see {@link StopDBClusterCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class StopDBClusterCommand extends $Command<

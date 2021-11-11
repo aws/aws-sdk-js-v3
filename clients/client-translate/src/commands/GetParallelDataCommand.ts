@@ -35,7 +35,7 @@ export interface GetParallelDataCommandOutput extends GetParallelDataResponse, _
  *
  * @see {@link GetParallelDataCommandInput} for command's `input` shape.
  * @see {@link GetParallelDataCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class GetParallelDataCommand extends $Command<

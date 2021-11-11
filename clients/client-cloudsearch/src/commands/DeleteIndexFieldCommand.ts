@@ -35,7 +35,7 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  *
  * @see {@link DeleteIndexFieldCommandInput} for command's `input` shape.
  * @see {@link DeleteIndexFieldCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DeleteIndexFieldCommand extends $Command<

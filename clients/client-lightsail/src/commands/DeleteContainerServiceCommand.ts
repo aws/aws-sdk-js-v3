@@ -35,7 +35,7 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  *
  * @see {@link DeleteContainerServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerServiceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteContainerServiceCommand extends $Command<

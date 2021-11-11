@@ -49,7 +49,7 @@ export interface SendContactMethodVerificationCommandOutput
  *
  * @see {@link SendContactMethodVerificationCommandInput} for command's `input` shape.
  * @see {@link SendContactMethodVerificationCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class SendContactMethodVerificationCommand extends $Command<

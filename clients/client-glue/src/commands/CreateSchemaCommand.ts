@@ -37,7 +37,7 @@ export interface CreateSchemaCommandOutput extends CreateSchemaResponse, __Metad
  *
  * @see {@link CreateSchemaCommandInput} for command's `input` shape.
  * @see {@link CreateSchemaCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreateSchemaCommand extends $Command<

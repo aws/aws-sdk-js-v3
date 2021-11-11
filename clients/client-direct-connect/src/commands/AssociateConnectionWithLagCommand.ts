@@ -48,7 +48,7 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *
  * @see {@link AssociateConnectionWithLagCommandInput} for command's `input` shape.
  * @see {@link AssociateConnectionWithLagCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class AssociateConnectionWithLagCommand extends $Command<

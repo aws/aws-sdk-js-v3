@@ -49,7 +49,7 @@ export interface DeleteServerCertificateCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteServerCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteServerCertificateCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteServerCertificateCommand extends $Command<

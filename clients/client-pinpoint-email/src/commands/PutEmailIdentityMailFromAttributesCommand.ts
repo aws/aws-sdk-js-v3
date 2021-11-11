@@ -41,7 +41,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityMailFromAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityMailFromAttributesCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class PutEmailIdentityMailFromAttributesCommand extends $Command<

@@ -39,7 +39,7 @@ export interface GetReadinessCheckStatusCommandOutput extends GetReadinessCheckS
  *
  * @see {@link GetReadinessCheckStatusCommandInput} for command's `input` shape.
  * @see {@link GetReadinessCheckStatusCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class GetReadinessCheckStatusCommand extends $Command<

@@ -37,7 +37,7 @@ export interface CreateWorkspaceBundleCommandOutput extends CreateWorkspaceBundl
  *
  * @see {@link CreateWorkspaceBundleCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceBundleCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class CreateWorkspaceBundleCommand extends $Command<

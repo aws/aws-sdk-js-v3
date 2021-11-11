@@ -62,7 +62,7 @@ export interface DeleteRateBasedRuleCommandOutput extends DeleteRateBasedRuleRes
  *
  * @see {@link DeleteRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRateBasedRuleCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class DeleteRateBasedRuleCommand extends $Command<

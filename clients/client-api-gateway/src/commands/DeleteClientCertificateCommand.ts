@@ -35,7 +35,7 @@ export interface DeleteClientCertificateCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteClientCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteClientCertificateCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class DeleteClientCertificateCommand extends $Command<

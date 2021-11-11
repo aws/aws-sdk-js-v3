@@ -37,7 +37,7 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link DeleteOrganizationalUnitCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DeleteOrganizationalUnitCommand extends $Command<

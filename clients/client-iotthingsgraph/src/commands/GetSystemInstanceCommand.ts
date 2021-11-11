@@ -35,7 +35,7 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  *
  * @see {@link GetSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link GetSystemInstanceCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class GetSystemInstanceCommand extends $Command<

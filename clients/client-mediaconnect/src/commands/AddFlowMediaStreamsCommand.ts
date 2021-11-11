@@ -35,7 +35,7 @@ export interface AddFlowMediaStreamsCommandOutput extends AddFlowMediaStreamsRes
  *
  * @see {@link AddFlowMediaStreamsCommandInput} for command's `input` shape.
  * @see {@link AddFlowMediaStreamsCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class AddFlowMediaStreamsCommand extends $Command<

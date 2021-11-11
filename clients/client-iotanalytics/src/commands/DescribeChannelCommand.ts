@@ -35,7 +35,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  *
  * @see {@link DescribeChannelCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class DescribeChannelCommand extends $Command<

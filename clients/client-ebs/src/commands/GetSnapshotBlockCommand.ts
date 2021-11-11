@@ -35,7 +35,7 @@ export interface GetSnapshotBlockCommandOutput extends GetSnapshotBlockResponse,
  *
  * @see {@link GetSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link GetSnapshotBlockCommandOutput} for command's `response` shape.
- * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  */
 export class GetSnapshotBlockCommand extends $Command<

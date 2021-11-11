@@ -36,7 +36,7 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  *
  * @see {@link GetPullRequestOverrideStateCommandInput} for command's `input` shape.
  * @see {@link GetPullRequestOverrideStateCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetPullRequestOverrideStateCommand extends $Command<

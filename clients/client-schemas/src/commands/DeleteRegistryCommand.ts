@@ -35,7 +35,7 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class DeleteRegistryCommand extends $Command<

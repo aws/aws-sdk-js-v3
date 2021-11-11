@@ -40,7 +40,7 @@ export interface ClaimDevicesByClaimCodeCommandOutput extends ClaimDevicesByClai
  *
  * @see {@link ClaimDevicesByClaimCodeCommandInput} for command's `input` shape.
  * @see {@link ClaimDevicesByClaimCodeCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
  */
 export class ClaimDevicesByClaimCodeCommand extends $Command<

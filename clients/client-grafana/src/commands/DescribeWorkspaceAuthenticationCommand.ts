@@ -37,7 +37,7 @@ export interface DescribeWorkspaceAuthenticationCommandOutput
  *
  * @see {@link DescribeWorkspaceAuthenticationCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceAuthenticationCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  */
 export class DescribeWorkspaceAuthenticationCommand extends $Command<

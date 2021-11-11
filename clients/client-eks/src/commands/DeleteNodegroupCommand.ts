@@ -35,7 +35,7 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  *
  * @see {@link DeleteNodegroupCommandInput} for command's `input` shape.
  * @see {@link DeleteNodegroupCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class DeleteNodegroupCommand extends $Command<

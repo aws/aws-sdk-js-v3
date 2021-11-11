@@ -38,7 +38,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * @see {@link CreateWorkflowCommandInput} for command's `input` shape.
  * @see {@link CreateWorkflowCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class CreateWorkflowCommand extends $Command<

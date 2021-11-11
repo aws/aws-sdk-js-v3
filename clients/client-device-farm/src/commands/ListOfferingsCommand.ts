@@ -38,7 +38,7 @@ export interface ListOfferingsCommandOutput extends ListOfferingsResult, __Metad
  *
  * @see {@link ListOfferingsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListOfferingsCommand extends $Command<

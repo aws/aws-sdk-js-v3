@@ -40,7 +40,7 @@ export interface DescribeCollectionCommandOutput extends DescribeCollectionRespo
  *
  * @see {@link DescribeCollectionCommandInput} for command's `input` shape.
  * @see {@link DescribeCollectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class DescribeCollectionCommand extends $Command<

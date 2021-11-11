@@ -43,7 +43,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *
  * @see {@link DescribeInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeInstancesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
  *
  * @see {@link DeleteNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteNetworkProfileCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class DeleteNetworkProfileCommand extends $Command<

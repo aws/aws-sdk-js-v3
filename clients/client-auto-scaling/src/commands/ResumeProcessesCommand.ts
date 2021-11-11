@@ -38,7 +38,7 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ResumeProcessesCommandInput} for command's `input` shape.
  * @see {@link ResumeProcessesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class ResumeProcessesCommand extends $Command<

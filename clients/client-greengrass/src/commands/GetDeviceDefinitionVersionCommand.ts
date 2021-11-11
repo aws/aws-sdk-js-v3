@@ -35,7 +35,7 @@ export interface GetDeviceDefinitionVersionCommandOutput extends GetDeviceDefini
  *
  * @see {@link GetDeviceDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link GetDeviceDefinitionVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class GetDeviceDefinitionVersionCommand extends $Command<

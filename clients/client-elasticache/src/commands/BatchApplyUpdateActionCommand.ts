@@ -35,7 +35,7 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  *
  * @see {@link BatchApplyUpdateActionCommandInput} for command's `input` shape.
  * @see {@link BatchApplyUpdateActionCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class BatchApplyUpdateActionCommand extends $Command<

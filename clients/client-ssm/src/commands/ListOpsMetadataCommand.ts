@@ -36,7 +36,7 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  *
  * @see {@link ListOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link ListOpsMetadataCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ListOpsMetadataCommand extends $Command<

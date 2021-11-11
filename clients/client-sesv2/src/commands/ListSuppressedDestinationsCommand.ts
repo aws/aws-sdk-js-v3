@@ -36,7 +36,7 @@ export interface ListSuppressedDestinationsCommandOutput extends ListSuppressedD
  *
  * @see {@link ListSuppressedDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListSuppressedDestinationsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class ListSuppressedDestinationsCommand extends $Command<

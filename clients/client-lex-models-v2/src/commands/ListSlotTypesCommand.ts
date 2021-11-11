@@ -35,7 +35,7 @@ export interface ListSlotTypesCommandOutput extends ListSlotTypesResponse, __Met
  *
  * @see {@link ListSlotTypesCommandInput} for command's `input` shape.
  * @see {@link ListSlotTypesCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class ListSlotTypesCommand extends $Command<

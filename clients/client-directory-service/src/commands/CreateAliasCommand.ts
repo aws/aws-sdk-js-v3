@@ -40,7 +40,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  *
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class CreateAliasCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  *
  * @see {@link CreateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceProfileCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class CreateInstanceProfileCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListBackupSelectionsCommandOutput extends ListBackupSelectionsO
  *
  * @see {@link ListBackupSelectionsCommandInput} for command's `input` shape.
  * @see {@link ListBackupSelectionsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class ListBackupSelectionsCommand extends $Command<

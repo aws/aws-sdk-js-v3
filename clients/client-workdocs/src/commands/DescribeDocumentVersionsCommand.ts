@@ -36,7 +36,7 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  *
  * @see {@link DescribeDocumentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentVersionsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DescribeDocumentVersionsCommand extends $Command<

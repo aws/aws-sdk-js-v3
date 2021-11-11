@@ -37,7 +37,7 @@ export interface UpdateNetworkResourceMetadataCommandOutput
  *
  * @see {@link UpdateNetworkResourceMetadataCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkResourceMetadataCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class UpdateNetworkResourceMetadataCommand extends $Command<

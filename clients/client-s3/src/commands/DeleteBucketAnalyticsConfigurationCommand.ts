@@ -65,7 +65,7 @@ export interface DeleteBucketAnalyticsConfigurationCommandOutput extends __Metad
  *
  * @see {@link DeleteBucketAnalyticsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBucketAnalyticsConfigurationCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class DeleteBucketAnalyticsConfigurationCommand extends $Command<

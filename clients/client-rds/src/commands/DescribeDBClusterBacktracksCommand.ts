@@ -42,7 +42,7 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  *
  * @see {@link DescribeDBClusterBacktracksCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterBacktracksCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeDBClusterBacktracksCommand extends $Command<

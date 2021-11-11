@@ -35,7 +35,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResult, __MetadataB
  *
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListDevicesCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  *
  * @see {@link CloneReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class CloneReceiptRuleSetCommand extends $Command<

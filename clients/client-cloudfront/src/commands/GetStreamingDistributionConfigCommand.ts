@@ -37,7 +37,7 @@ export interface GetStreamingDistributionConfigCommandOutput
  *
  * @see {@link GetStreamingDistributionConfigCommandInput} for command's `input` shape.
  * @see {@link GetStreamingDistributionConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class GetStreamingDistributionConfigCommand extends $Command<

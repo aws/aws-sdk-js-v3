@@ -39,7 +39,7 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *
  * @see {@link StartCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link StartCallAnalyticsJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class StartCallAnalyticsJobCommand extends $Command<

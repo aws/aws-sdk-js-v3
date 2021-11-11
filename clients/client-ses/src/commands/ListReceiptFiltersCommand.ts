@@ -39,7 +39,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  *
  * @see {@link ListReceiptFiltersCommandInput} for command's `input` shape.
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class ListReceiptFiltersCommand extends $Command<

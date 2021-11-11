@@ -36,7 +36,7 @@ export interface ListBuildsForProjectCommandOutput extends ListBuildsForProjectO
  *
  * @see {@link ListBuildsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListBuildsForProjectCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class ListBuildsForProjectCommand extends $Command<

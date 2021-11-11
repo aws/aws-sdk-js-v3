@@ -35,7 +35,7 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  *
  * @see {@link ListPortfoliosCommandInput} for command's `input` shape.
  * @see {@link ListPortfoliosCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListPortfoliosCommand extends $Command<

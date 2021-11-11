@@ -37,7 +37,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
  *
  * @see {@link UpdateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link UpdateStorageVirtualMachineCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class UpdateStorageVirtualMachineCommand extends $Command<

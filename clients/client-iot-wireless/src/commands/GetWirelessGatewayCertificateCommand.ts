@@ -37,7 +37,7 @@ export interface GetWirelessGatewayCertificateCommandOutput
  *
  * @see {@link GetWirelessGatewayCertificateCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayCertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class GetWirelessGatewayCertificateCommand extends $Command<

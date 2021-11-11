@@ -35,7 +35,7 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  *
  * @see {@link DeleteClassifierCommandInput} for command's `input` shape.
  * @see {@link DeleteClassifierCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteClassifierCommand extends $Command<

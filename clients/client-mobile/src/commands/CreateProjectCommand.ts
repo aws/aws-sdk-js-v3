@@ -37,7 +37,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  *
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
  */
 export class CreateProjectCommand extends $Command<

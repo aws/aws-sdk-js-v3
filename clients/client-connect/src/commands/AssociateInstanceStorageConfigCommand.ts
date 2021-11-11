@@ -43,7 +43,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *
  * @see {@link AssociateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateInstanceStorageConfigCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateInstanceStorageConfigCommand extends $Command<

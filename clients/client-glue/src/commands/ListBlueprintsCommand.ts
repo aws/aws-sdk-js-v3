@@ -35,7 +35,7 @@ export interface ListBlueprintsCommandOutput extends ListBlueprintsResponse, __M
  *
  * @see {@link ListBlueprintsCommandInput} for command's `input` shape.
  * @see {@link ListBlueprintsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class ListBlueprintsCommand extends $Command<

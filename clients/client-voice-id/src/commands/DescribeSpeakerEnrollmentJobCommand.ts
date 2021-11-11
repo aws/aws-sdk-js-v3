@@ -37,7 +37,7 @@ export interface DescribeSpeakerEnrollmentJobCommandOutput
  *
  * @see {@link DescribeSpeakerEnrollmentJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerEnrollmentJobCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class DescribeSpeakerEnrollmentJobCommand extends $Command<

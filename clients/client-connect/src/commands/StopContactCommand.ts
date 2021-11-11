@@ -35,7 +35,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *
  * @see {@link StopContactCommandInput} for command's `input` shape.
  * @see {@link StopContactCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class StopContactCommand extends $Command<

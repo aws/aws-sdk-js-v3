@@ -35,7 +35,7 @@ export interface DescribeFlowCommandOutput extends DescribeFlowResponse, __Metad
  *
  * @see {@link DescribeFlowCommandInput} for command's `input` shape.
  * @see {@link DescribeFlowCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class DescribeFlowCommand extends $Command<

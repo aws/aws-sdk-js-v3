@@ -35,7 +35,7 @@ export interface IndexDocumentsCommandOutput extends IndexDocumentsResponse, __M
  *
  * @see {@link IndexDocumentsCommandInput} for command's `input` shape.
  * @see {@link IndexDocumentsCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class IndexDocumentsCommand extends $Command<

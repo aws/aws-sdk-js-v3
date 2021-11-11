@@ -35,7 +35,7 @@ export interface GetServiceProfileCommandOutput extends GetServiceProfileRespons
  *
  * @see {@link GetServiceProfileCommandInput} for command's `input` shape.
  * @see {@link GetServiceProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class GetServiceProfileCommand extends $Command<

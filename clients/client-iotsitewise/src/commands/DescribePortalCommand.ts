@@ -35,7 +35,7 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  *
  * @see {@link DescribePortalCommandInput} for command's `input` shape.
  * @see {@link DescribePortalCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribePortalCommand extends $Command<

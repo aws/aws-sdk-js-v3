@@ -37,7 +37,7 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  *
  * @see {@link PutBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class PutBackupVaultAccessPolicyCommand extends $Command<

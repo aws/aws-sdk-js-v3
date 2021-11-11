@@ -36,7 +36,7 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  *
  * @see {@link DescribeBackupCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class DescribeBackupCommand extends $Command<

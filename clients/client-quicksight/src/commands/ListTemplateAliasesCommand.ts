@@ -35,7 +35,7 @@ export interface ListTemplateAliasesCommandOutput extends ListTemplateAliasesRes
  *
  * @see {@link ListTemplateAliasesCommandInput} for command's `input` shape.
  * @see {@link ListTemplateAliasesCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListTemplateAliasesCommand extends $Command<

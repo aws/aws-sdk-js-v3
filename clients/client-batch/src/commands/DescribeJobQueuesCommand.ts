@@ -35,7 +35,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  *
  * @see {@link DescribeJobQueuesCommandInput} for command's `input` shape.
  * @see {@link DescribeJobQueuesCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class DescribeJobQueuesCommand extends $Command<

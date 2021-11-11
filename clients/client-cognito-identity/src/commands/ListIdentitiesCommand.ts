@@ -37,7 +37,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  *
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class ListIdentitiesCommand extends $Command<

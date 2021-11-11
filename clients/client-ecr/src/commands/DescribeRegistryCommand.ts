@@ -37,7 +37,7 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  *
  * @see {@link DescribeRegistryCommandInput} for command's `input` shape.
  * @see {@link DescribeRegistryCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class DescribeRegistryCommand extends $Command<

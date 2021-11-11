@@ -35,7 +35,7 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  *
  * @see {@link DeregisterOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<

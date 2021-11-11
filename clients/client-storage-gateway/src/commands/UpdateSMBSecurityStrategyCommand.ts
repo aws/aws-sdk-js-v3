@@ -42,7 +42,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  *
  * @see {@link UpdateSMBSecurityStrategyCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBSecurityStrategyCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command<

@@ -77,7 +77,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *
  * @see {@link ListObjectsV2CommandInput} for command's `input` shape.
  * @see {@link ListObjectsV2CommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class ListObjectsV2Command extends $Command<

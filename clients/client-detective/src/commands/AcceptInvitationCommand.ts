@@ -38,7 +38,7 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class AcceptInvitationCommand extends $Command<

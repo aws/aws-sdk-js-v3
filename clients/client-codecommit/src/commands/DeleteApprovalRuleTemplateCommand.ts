@@ -35,7 +35,7 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  *
  * @see {@link DeleteApprovalRuleTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteApprovalRuleTemplateCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DeleteApprovalRuleTemplateCommand extends $Command<

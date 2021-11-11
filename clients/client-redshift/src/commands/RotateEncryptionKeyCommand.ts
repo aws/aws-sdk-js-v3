@@ -35,7 +35,7 @@ export interface RotateEncryptionKeyCommandOutput extends RotateEncryptionKeyRes
  *
  * @see {@link RotateEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link RotateEncryptionKeyCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class RotateEncryptionKeyCommand extends $Command<

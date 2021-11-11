@@ -35,7 +35,7 @@ export interface UpdateGlobalTableSettingsCommandOutput extends UpdateGlobalTabl
  *
  * @see {@link UpdateGlobalTableSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateGlobalTableSettingsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class UpdateGlobalTableSettingsCommand extends $Command<

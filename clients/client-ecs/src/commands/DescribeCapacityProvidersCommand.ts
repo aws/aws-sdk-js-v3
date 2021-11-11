@@ -35,7 +35,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  *
  * @see {@link DescribeCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link DescribeCapacityProvidersCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class DescribeCapacityProvidersCommand extends $Command<

@@ -38,7 +38,7 @@ export interface AssociateSkillGroupWithRoomCommandOutput
  *
  * @see {@link AssociateSkillGroupWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillGroupWithRoomCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class AssociateSkillGroupWithRoomCommand extends $Command<

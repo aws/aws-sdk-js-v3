@@ -39,7 +39,7 @@ export interface ListDeviceResourcesCommandOutput extends ListDeviceResourcesOut
  *
  * @see {@link ListDeviceResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceResourcesCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  */
 export class ListDeviceResourcesCommand extends $Command<

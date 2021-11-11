@@ -35,7 +35,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class UpdateConnectionCommand extends $Command<

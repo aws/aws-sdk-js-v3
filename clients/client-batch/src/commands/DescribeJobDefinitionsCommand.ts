@@ -36,7 +36,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  *
  * @see {@link DescribeJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class DescribeJobDefinitionsCommand extends $Command<

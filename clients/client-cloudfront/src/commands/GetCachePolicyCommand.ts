@@ -48,7 +48,7 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  *
  * @see {@link GetCachePolicyCommandInput} for command's `input` shape.
  * @see {@link GetCachePolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class GetCachePolicyCommand extends $Command<

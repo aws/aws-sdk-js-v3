@@ -35,7 +35,7 @@ export interface BatchGetBuildBatchesCommandOutput extends BatchGetBuildBatchesO
  *
  * @see {@link BatchGetBuildBatchesCommandInput} for command's `input` shape.
  * @see {@link BatchGetBuildBatchesCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class BatchGetBuildBatchesCommand extends $Command<

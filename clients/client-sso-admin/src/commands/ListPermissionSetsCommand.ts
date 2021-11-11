@@ -35,7 +35,7 @@ export interface ListPermissionSetsCommandOutput extends ListPermissionSetsRespo
  *
  * @see {@link ListPermissionSetsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetsCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class ListPermissionSetsCommand extends $Command<

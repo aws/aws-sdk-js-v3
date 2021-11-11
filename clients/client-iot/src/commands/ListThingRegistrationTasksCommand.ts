@@ -36,7 +36,7 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  *
  * @see {@link ListThingRegistrationTasksCommandInput} for command's `input` shape.
  * @see {@link ListThingRegistrationTasksCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListThingRegistrationTasksCommand extends $Command<

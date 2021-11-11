@@ -43,7 +43,7 @@ export interface GetRepositoryCommandOutput extends GetRepositoryOutput, __Metad
  *
  * @see {@link GetRepositoryCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetRepositoryCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeSecurityConfigurationCommandOutput
  *
  * @see {@link DescribeSecurityConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityConfigurationCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DescribeSecurityConfigurationCommand extends $Command<

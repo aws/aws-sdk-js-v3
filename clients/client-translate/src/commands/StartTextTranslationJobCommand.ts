@@ -42,7 +42,7 @@ export interface StartTextTranslationJobCommandOutput extends StartTextTranslati
  *
  * @see {@link StartTextTranslationJobCommandInput} for command's `input` shape.
  * @see {@link StartTextTranslationJobCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class StartTextTranslationJobCommand extends $Command<

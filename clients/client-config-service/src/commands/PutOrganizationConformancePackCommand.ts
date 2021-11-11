@@ -57,7 +57,7 @@ export interface PutOrganizationConformancePackCommandOutput
  *
  * @see {@link PutOrganizationConformancePackCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConformancePackCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutOrganizationConformancePackCommand extends $Command<

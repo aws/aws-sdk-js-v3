@@ -38,7 +38,7 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  *
  * @see {@link DescribeTapesCommandInput} for command's `input` shape.
  * @see {@link DescribeTapesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeTapesCommand extends $Command<

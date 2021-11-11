@@ -40,7 +40,7 @@ export interface DescribeClusterVersionsCommandOutput extends ClusterVersionsMes
  *
  * @see {@link DescribeClusterVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterVersionsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DescribeClusterVersionsCommand extends $Command<

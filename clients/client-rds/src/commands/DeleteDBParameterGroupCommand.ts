@@ -35,7 +35,7 @@ export interface DeleteDBParameterGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DeleteDBParameterGroupCommand extends $Command<

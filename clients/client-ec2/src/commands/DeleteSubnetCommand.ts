@@ -32,7 +32,7 @@ export interface DeleteSubnetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSubnetCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteSubnetCommand extends $Command<

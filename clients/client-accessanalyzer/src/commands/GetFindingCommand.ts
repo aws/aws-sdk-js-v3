@@ -35,7 +35,7 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  *
  * @see {@link GetFindingCommandInput} for command's `input` shape.
  * @see {@link GetFindingCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class GetFindingCommand extends $Command<

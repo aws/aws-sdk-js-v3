@@ -35,7 +35,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationRespons
  *
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class UpdateDestinationCommand extends $Command<

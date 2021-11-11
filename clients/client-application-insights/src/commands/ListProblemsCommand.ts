@@ -39,7 +39,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  *
  * @see {@link ListProblemsCommandInput} for command's `input` shape.
  * @see {@link ListProblemsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  */
 export class ListProblemsCommand extends $Command<

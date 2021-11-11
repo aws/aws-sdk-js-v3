@@ -39,7 +39,7 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *
  * @see {@link TestConnectionCommandInput} for command's `input` shape.
  * @see {@link TestConnectionCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class TestConnectionCommand extends $Command<

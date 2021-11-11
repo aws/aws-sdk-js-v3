@@ -36,7 +36,7 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  *
  * @see {@link DeleteAccountSettingCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountSettingCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class DeleteAccountSettingCommand extends $Command<

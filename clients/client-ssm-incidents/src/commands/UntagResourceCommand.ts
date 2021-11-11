@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

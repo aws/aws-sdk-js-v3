@@ -38,7 +38,7 @@ export interface UpdatePublishingDestinationCommandOutput
  *
  * @see {@link UpdatePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdatePublishingDestinationCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class UpdatePublishingDestinationCommand extends $Command<

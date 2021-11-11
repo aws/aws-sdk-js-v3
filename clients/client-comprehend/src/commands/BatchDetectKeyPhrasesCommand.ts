@@ -35,7 +35,7 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  *
  * @see {@link BatchDetectKeyPhrasesCommandInput} for command's `input` shape.
  * @see {@link BatchDetectKeyPhrasesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class BatchDetectKeyPhrasesCommand extends $Command<

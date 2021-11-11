@@ -41,7 +41,7 @@ export interface InferRxNormCommandOutput extends InferRxNormResponse, __Metadat
  *
  * @see {@link InferRxNormCommandInput} for command's `input` shape.
  * @see {@link InferRxNormCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class InferRxNormCommand extends $Command<

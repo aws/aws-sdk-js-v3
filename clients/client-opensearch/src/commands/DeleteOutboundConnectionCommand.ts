@@ -35,7 +35,7 @@ export interface DeleteOutboundConnectionCommandOutput extends DeleteOutboundCon
  *
  * @see {@link DeleteOutboundConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteOutboundConnectionCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DeleteOutboundConnectionCommand extends $Command<

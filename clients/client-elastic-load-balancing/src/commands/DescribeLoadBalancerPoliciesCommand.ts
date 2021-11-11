@@ -45,7 +45,7 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  *
  * @see {@link DescribeLoadBalancerPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class DescribeLoadBalancerPoliciesCommand extends $Command<

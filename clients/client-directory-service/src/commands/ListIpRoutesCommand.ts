@@ -35,7 +35,7 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  *
  * @see {@link ListIpRoutesCommandInput} for command's `input` shape.
  * @see {@link ListIpRoutesCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class ListIpRoutesCommand extends $Command<

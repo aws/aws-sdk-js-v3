@@ -44,7 +44,7 @@ export interface ListAttachedUserPoliciesCommandOutput extends ListAttachedUserP
  *
  * @see {@link ListAttachedUserPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedUserPoliciesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListAttachedUserPoliciesCommand extends $Command<

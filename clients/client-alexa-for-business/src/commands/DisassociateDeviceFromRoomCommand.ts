@@ -37,7 +37,7 @@ export interface DisassociateDeviceFromRoomCommandOutput extends DisassociateDev
  *
  * @see {@link DisassociateDeviceFromRoomCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromRoomCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class DisassociateDeviceFromRoomCommand extends $Command<

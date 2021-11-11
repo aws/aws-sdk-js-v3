@@ -37,7 +37,7 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  *
  * @see {@link DisassociateFileSystemCommandInput} for command's `input` shape.
  * @see {@link DisassociateFileSystemCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DisassociateFileSystemCommand extends $Command<

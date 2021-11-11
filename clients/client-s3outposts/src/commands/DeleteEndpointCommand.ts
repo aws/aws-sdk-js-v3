@@ -56,7 +56,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
- * @see {@link S3OutpostsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
  */
 export class DeleteEndpointCommand extends $Command<

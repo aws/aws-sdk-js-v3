@@ -40,7 +40,7 @@ export interface ReleaseHostsCommandOutput extends ReleaseHostsResult, __Metadat
  *
  * @see {@link ReleaseHostsCommandInput} for command's `input` shape.
  * @see {@link ReleaseHostsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ReleaseHostsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetCoipPoolUsageCommandOutput extends GetCoipPoolUsageResult, _
  *
  * @see {@link GetCoipPoolUsageCommandInput} for command's `input` shape.
  * @see {@link GetCoipPoolUsageCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class GetCoipPoolUsageCommand extends $Command<

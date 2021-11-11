@@ -40,7 +40,7 @@ export interface DetachElasticLoadBalancerCommandOutput extends __MetadataBearer
  *
  * @see {@link DetachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DetachElasticLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DetachElasticLoadBalancerCommand extends $Command<

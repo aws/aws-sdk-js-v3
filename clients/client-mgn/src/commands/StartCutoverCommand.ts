@@ -35,7 +35,7 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  *
  * @see {@link StartCutoverCommandInput} for command's `input` shape.
  * @see {@link StartCutoverCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class StartCutoverCommand extends $Command<

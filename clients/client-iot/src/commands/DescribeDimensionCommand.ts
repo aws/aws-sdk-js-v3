@@ -36,7 +36,7 @@ export interface DescribeDimensionCommandOutput extends DescribeDimensionRespons
  *
  * @see {@link DescribeDimensionCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeDimensionCommand extends $Command<

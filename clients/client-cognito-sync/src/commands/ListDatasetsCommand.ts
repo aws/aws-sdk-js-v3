@@ -93,7 +93,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *
  * @see {@link ListDatasetsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class ListDatasetsCommand extends $Command<

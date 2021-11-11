@@ -56,7 +56,7 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  *
  * @see {@link UpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserAttributesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class UpdateUserAttributesCommand extends $Command<

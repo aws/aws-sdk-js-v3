@@ -41,7 +41,7 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  *
  * @see {@link DescribeDeliveryChannelsCommandInput} for command's `input` shape.
  * @see {@link DescribeDeliveryChannelsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeDeliveryChannelsCommand extends $Command<

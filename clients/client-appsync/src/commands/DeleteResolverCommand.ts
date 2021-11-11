@@ -35,7 +35,7 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  *
  * @see {@link DeleteResolverCommandInput} for command's `input` shape.
  * @see {@link DeleteResolverCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class DeleteResolverCommand extends $Command<

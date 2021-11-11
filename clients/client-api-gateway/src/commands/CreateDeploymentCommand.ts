@@ -35,7 +35,7 @@ export interface CreateDeploymentCommandOutput extends Deployment, __MetadataBea
  *
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class CreateDeploymentCommand extends $Command<

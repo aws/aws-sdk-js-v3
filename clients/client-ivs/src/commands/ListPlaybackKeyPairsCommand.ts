@@ -36,7 +36,7 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  *
  * @see {@link ListPlaybackKeyPairsCommandInput} for command's `input` shape.
  * @see {@link ListPlaybackKeyPairsCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class ListPlaybackKeyPairsCommand extends $Command<

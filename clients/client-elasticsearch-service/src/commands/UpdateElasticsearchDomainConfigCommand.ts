@@ -41,7 +41,7 @@ export interface UpdateElasticsearchDomainConfigCommandOutput
  *
  * @see {@link UpdateElasticsearchDomainConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticsearchDomainConfigCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class UpdateElasticsearchDomainConfigCommand extends $Command<

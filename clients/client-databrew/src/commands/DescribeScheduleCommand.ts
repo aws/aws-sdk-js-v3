@@ -35,7 +35,7 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  *
  * @see {@link DescribeScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeScheduleCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class DescribeScheduleCommand extends $Command<

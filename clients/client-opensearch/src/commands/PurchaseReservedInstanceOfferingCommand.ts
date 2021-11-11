@@ -37,7 +37,7 @@ export interface PurchaseReservedInstanceOfferingCommandOutput
  *
  * @see {@link PurchaseReservedInstanceOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedInstanceOfferingCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class PurchaseReservedInstanceOfferingCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  *
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class CreateAuthorizerCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateAppCommand extends $Command<

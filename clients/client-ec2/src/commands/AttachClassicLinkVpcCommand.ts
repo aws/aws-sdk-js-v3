@@ -41,7 +41,7 @@ export interface AttachClassicLinkVpcCommandOutput extends AttachClassicLinkVpcR
  *
  * @see {@link AttachClassicLinkVpcCommandInput} for command's `input` shape.
  * @see {@link AttachClassicLinkVpcCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class AttachClassicLinkVpcCommand extends $Command<

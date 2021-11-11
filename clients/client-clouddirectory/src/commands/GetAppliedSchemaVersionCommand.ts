@@ -35,7 +35,7 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  *
  * @see {@link GetAppliedSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link GetAppliedSchemaVersionCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class GetAppliedSchemaVersionCommand extends $Command<

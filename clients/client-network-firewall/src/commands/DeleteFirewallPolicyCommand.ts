@@ -35,7 +35,7 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  *
  * @see {@link DeleteFirewallPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallPolicyCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class DeleteFirewallPolicyCommand extends $Command<

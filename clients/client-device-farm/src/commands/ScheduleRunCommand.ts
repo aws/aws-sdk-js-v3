@@ -35,7 +35,7 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *
  * @see {@link ScheduleRunCommandInput} for command's `input` shape.
  * @see {@link ScheduleRunCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ScheduleRunCommand extends $Command<

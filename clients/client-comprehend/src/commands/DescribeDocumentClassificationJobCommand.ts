@@ -41,7 +41,7 @@ export interface DescribeDocumentClassificationJobCommandOutput
  *
  * @see {@link DescribeDocumentClassificationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDocumentClassificationJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeDocumentClassificationJobCommand extends $Command<

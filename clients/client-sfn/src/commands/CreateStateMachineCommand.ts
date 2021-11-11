@@ -53,7 +53,7 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  *
  * @see {@link CreateStateMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class CreateStateMachineCommand extends $Command<

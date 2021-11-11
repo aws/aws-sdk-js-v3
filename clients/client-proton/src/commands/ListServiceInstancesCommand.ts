@@ -35,7 +35,7 @@ export interface ListServiceInstancesCommandOutput extends ListServiceInstancesO
  *
  * @see {@link ListServiceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListServiceInstancesCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class ListServiceInstancesCommand extends $Command<

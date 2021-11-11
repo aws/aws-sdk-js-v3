@@ -40,7 +40,7 @@ export interface UpdateNodeCommandOutput extends UpdateNodeOutput, __MetadataBea
  *
  * @see {@link UpdateNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateNodeCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class UpdateNodeCommand extends $Command<

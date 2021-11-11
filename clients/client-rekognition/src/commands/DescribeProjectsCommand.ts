@@ -36,7 +36,7 @@ export interface DescribeProjectsCommandOutput extends DescribeProjectsResponse,
  *
  * @see {@link DescribeProjectsCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectsCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class DescribeProjectsCommand extends $Command<

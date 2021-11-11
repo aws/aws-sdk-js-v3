@@ -41,7 +41,7 @@ export interface CreateQualificationTypeCommandOutput extends CreateQualificatio
  *
  * @see {@link CreateQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link CreateQualificationTypeCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class CreateQualificationTypeCommand extends $Command<

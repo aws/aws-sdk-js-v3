@@ -36,7 +36,7 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  *
  * @see {@link DescribeCACertificateCommandInput} for command's `input` shape.
  * @see {@link DescribeCACertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeCACertificateCommand extends $Command<

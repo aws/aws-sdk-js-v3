@@ -35,7 +35,7 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  *
  * @see {@link ListGitHubAccountTokenNamesCommandInput} for command's `input` shape.
  * @see {@link ListGitHubAccountTokenNamesCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command<

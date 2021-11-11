@@ -38,7 +38,7 @@ export interface CancelStepsCommandOutput extends CancelStepsOutput, __MetadataB
  *
  * @see {@link CancelStepsCommandInput} for command's `input` shape.
  * @see {@link CancelStepsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class CancelStepsCommand extends $Command<

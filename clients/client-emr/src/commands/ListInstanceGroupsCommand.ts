@@ -35,7 +35,7 @@ export interface ListInstanceGroupsCommandOutput extends ListInstanceGroupsOutpu
  *
  * @see {@link ListInstanceGroupsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceGroupsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ListInstanceGroupsCommand extends $Command<

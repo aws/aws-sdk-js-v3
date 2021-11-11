@@ -88,7 +88,7 @@ export interface CreateGameSessionCommandOutput extends CreateGameSessionOutput,
  *
  * @see {@link CreateGameSessionCommandInput} for command's `input` shape.
  * @see {@link CreateGameSessionCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class CreateGameSessionCommand extends $Command<

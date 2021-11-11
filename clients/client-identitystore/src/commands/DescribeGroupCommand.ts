@@ -35,7 +35,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  *
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
- * @see {@link IdentitystoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  */
 export class DescribeGroupCommand extends $Command<

@@ -43,7 +43,7 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  *
  * @see {@link ListLocalDisksCommandInput} for command's `input` shape.
  * @see {@link ListLocalDisksCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class ListLocalDisksCommand extends $Command<

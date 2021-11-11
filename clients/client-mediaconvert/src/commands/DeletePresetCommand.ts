@@ -35,7 +35,7 @@ export interface DeletePresetCommandOutput extends DeletePresetResponse, __Metad
  *
  * @see {@link DeletePresetCommandInput} for command's `input` shape.
  * @see {@link DeletePresetCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class DeletePresetCommand extends $Command<

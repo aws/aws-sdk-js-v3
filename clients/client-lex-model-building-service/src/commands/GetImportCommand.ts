@@ -40,7 +40,7 @@ export interface GetImportCommandOutput extends GetImportResponse, __MetadataBea
  *
  * @see {@link GetImportCommandInput} for command's `input` shape.
  * @see {@link GetImportCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetImportCommand extends $Command<

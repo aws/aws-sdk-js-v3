@@ -43,7 +43,7 @@ export interface PutDeliverabilityDashboardOptionCommandOutput
  *
  * @see {@link PutDeliverabilityDashboardOptionCommandInput} for command's `input` shape.
  * @see {@link PutDeliverabilityDashboardOptionCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutDeliverabilityDashboardOptionCommand extends $Command<

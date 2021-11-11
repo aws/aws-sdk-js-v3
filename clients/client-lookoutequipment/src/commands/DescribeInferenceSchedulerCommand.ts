@@ -36,7 +36,7 @@ export interface DescribeInferenceSchedulerCommandOutput extends DescribeInferen
  *
  * @see {@link DescribeInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DescribeInferenceSchedulerCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
 export class DescribeInferenceSchedulerCommand extends $Command<

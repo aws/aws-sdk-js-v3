@@ -37,7 +37,7 @@ export interface ListReportsCommandOutput extends ListReportsOutput, __MetadataB
  *
  * @see {@link ListReportsCommandInput} for command's `input` shape.
  * @see {@link ListReportsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class ListReportsCommand extends $Command<

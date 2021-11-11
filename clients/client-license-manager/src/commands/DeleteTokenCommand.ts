@@ -35,7 +35,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  *
  * @see {@link DeleteTokenCommandInput} for command's `input` shape.
  * @see {@link DeleteTokenCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class DeleteTokenCommand extends $Command<

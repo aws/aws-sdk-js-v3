@@ -35,7 +35,7 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *
  * @see {@link UpdateSegmentCommandInput} for command's `input` shape.
  * @see {@link UpdateSegmentCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateSegmentCommand extends $Command<

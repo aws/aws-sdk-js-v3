@@ -35,7 +35,7 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  *
  * @see {@link RemoveFacetFromObjectCommandInput} for command's `input` shape.
  * @see {@link RemoveFacetFromObjectCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class RemoveFacetFromObjectCommand extends $Command<

@@ -40,7 +40,7 @@ export interface UpdateAccountCustomizationCommandOutput extends UpdateAccountCu
  *
  * @see {@link UpdateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountCustomizationCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateAccountCustomizationCommand extends $Command<

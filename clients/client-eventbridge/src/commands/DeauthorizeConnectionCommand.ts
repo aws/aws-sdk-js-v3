@@ -36,7 +36,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  *
  * @see {@link DeauthorizeConnectionCommandInput} for command's `input` shape.
  * @see {@link DeauthorizeConnectionCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DeauthorizeConnectionCommand extends $Command<

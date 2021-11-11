@@ -51,7 +51,7 @@ export interface CreateExperimentCommandOutput extends CreateExperimentResponse,
  *
  * @see {@link CreateExperimentCommandInput} for command's `input` shape.
  * @see {@link CreateExperimentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateExperimentCommand extends $Command<

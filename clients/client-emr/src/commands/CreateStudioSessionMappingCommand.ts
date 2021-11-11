@@ -36,7 +36,7 @@ export interface CreateStudioSessionMappingCommandOutput extends __MetadataBeare
  *
  * @see {@link CreateStudioSessionMappingCommandInput} for command's `input` shape.
  * @see {@link CreateStudioSessionMappingCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class CreateStudioSessionMappingCommand extends $Command<

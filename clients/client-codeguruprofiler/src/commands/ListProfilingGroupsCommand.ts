@@ -41,7 +41,7 @@ export interface ListProfilingGroupsCommandOutput extends ListProfilingGroupsRes
  *
  * @see {@link ListProfilingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListProfilingGroupsCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class ListProfilingGroupsCommand extends $Command<

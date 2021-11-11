@@ -36,7 +36,7 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  *
  * @see {@link UpdateReportPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateReportPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class UpdateReportPlanCommand extends $Command<

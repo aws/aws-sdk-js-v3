@@ -80,7 +80,7 @@ export interface ListGrantsCommandOutput extends ListGrantsResponse, __MetadataB
  *
  * @see {@link ListGrantsCommandInput} for command's `input` shape.
  * @see {@link ListGrantsCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class ListGrantsCommand extends $Command<

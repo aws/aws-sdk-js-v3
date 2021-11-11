@@ -120,7 +120,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *
  * @see {@link DecryptCommandInput} for command's `input` shape.
  * @see {@link DecryptCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class DecryptCommand extends $Command<DecryptCommandInput, DecryptCommandOutput, KMSClientResolvedConfig> {

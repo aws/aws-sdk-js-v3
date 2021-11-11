@@ -39,7 +39,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *
  * @see {@link UpdateProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class UpdateProfileCommand extends $Command<

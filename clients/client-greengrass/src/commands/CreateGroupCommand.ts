@@ -35,7 +35,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *
  * @see {@link CreateGroupCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateGroupCommand extends $Command<

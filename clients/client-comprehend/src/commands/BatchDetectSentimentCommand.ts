@@ -37,7 +37,7 @@ export interface BatchDetectSentimentCommandOutput extends BatchDetectSentimentR
  *
  * @see {@link BatchDetectSentimentCommandInput} for command's `input` shape.
  * @see {@link BatchDetectSentimentCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class BatchDetectSentimentCommand extends $Command<

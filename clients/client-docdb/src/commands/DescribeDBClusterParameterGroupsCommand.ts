@@ -37,7 +37,7 @@ export interface DescribeDBClusterParameterGroupsCommandOutput
  *
  * @see {@link DescribeDBClusterParameterGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterParameterGroupsCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeDBClusterParameterGroupsCommand extends $Command<

@@ -124,7 +124,7 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *
  * @see {@link UpdateSecretCommandInput} for command's `input` shape.
  * @see {@link UpdateSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class UpdateSecretCommand extends $Command<

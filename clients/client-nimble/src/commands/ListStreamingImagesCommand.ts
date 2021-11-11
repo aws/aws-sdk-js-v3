@@ -37,7 +37,7 @@ export interface ListStreamingImagesCommandOutput extends ListStreamingImagesRes
  *
  * @see {@link ListStreamingImagesCommandInput} for command's `input` shape.
  * @see {@link ListStreamingImagesCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class ListStreamingImagesCommand extends $Command<

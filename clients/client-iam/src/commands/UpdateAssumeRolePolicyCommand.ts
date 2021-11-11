@@ -38,7 +38,7 @@ export interface UpdateAssumeRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAssumeRolePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssumeRolePolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateAssumeRolePolicyCommand extends $Command<

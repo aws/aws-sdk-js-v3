@@ -46,7 +46,7 @@ export interface UpdateInstanceAccessControlAttributeConfigurationCommandOutput
  *
  * @see {@link UpdateInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class UpdateInstanceAccessControlAttributeConfigurationCommand extends $Command<

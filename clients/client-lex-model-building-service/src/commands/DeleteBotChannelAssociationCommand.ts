@@ -42,7 +42,7 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteBotChannelAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteBotChannelAssociationCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class DeleteBotChannelAssociationCommand extends $Command<

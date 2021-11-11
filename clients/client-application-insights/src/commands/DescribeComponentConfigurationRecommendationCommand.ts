@@ -45,7 +45,7 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput
  *
  * @see {@link DescribeComponentConfigurationRecommendationCommandInput} for command's `input` shape.
  * @see {@link DescribeComponentConfigurationRecommendationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  */
 export class DescribeComponentConfigurationRecommendationCommand extends $Command<

@@ -42,7 +42,7 @@ export interface DescribeConnectionAliasPermissionsCommandOutput
  *
  * @see {@link DescribeConnectionAliasPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasPermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DescribeConnectionAliasPermissionsCommand extends $Command<

@@ -41,7 +41,7 @@ export interface AddUploadBufferCommandOutput extends AddUploadBufferOutput, __M
  *
  * @see {@link AddUploadBufferCommandInput} for command's `input` shape.
  * @see {@link AddUploadBufferCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class AddUploadBufferCommand extends $Command<

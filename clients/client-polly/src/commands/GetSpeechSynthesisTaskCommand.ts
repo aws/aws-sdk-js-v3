@@ -38,7 +38,7 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  *
  * @see {@link GetSpeechSynthesisTaskCommandInput} for command's `input` shape.
  * @see {@link GetSpeechSynthesisTaskCommandOutput} for command's `response` shape.
- * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  */
 export class GetSpeechSynthesisTaskCommand extends $Command<

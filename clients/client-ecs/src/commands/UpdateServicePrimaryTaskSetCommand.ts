@@ -41,7 +41,7 @@ export interface UpdateServicePrimaryTaskSetCommandOutput
  *
  * @see {@link UpdateServicePrimaryTaskSetCommandInput} for command's `input` shape.
  * @see {@link UpdateServicePrimaryTaskSetCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class UpdateServicePrimaryTaskSetCommand extends $Command<

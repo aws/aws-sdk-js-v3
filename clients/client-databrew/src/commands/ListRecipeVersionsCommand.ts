@@ -36,7 +36,7 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  *
  * @see {@link ListRecipeVersionsCommandInput} for command's `input` shape.
  * @see {@link ListRecipeVersionsCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class ListRecipeVersionsCommand extends $Command<

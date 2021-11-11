@@ -44,7 +44,7 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  *
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class UpdateConnectionCommand extends $Command<

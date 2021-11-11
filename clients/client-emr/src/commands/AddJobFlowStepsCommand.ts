@@ -51,7 +51,7 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *
  * @see {@link AddJobFlowStepsCommandInput} for command's `input` shape.
  * @see {@link AddJobFlowStepsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class AddJobFlowStepsCommand extends $Command<

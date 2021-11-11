@@ -37,7 +37,7 @@ export interface CancelExportTaskCommandOutput extends ExportTask, __MetadataBea
  *
  * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CancelExportTaskCommand extends $Command<

@@ -36,7 +36,7 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopLabelingJobCommandInput} for command's `input` shape.
  * @see {@link StopLabelingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class StopLabelingJobCommand extends $Command<

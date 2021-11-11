@@ -35,7 +35,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyOutpu
  *
  * @see {@link GetLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class GetLifecyclePolicyCommand extends $Command<

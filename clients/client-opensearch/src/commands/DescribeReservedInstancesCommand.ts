@@ -35,7 +35,7 @@ export interface DescribeReservedInstancesCommandOutput extends DescribeReserved
  *
  * @see {@link DescribeReservedInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedInstancesCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DescribeReservedInstancesCommand extends $Command<

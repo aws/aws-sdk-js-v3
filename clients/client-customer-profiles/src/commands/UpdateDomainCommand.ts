@@ -40,7 +40,7 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *
  * @see {@link UpdateDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class UpdateDomainCommand extends $Command<

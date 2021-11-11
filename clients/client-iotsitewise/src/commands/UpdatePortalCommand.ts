@@ -35,7 +35,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *
  * @see {@link UpdatePortalCommandInput} for command's `input` shape.
  * @see {@link UpdatePortalCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class UpdatePortalCommand extends $Command<

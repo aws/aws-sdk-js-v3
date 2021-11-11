@@ -35,7 +35,7 @@ export interface RestartSimulationJobCommandOutput extends RestartSimulationJobR
  *
  * @see {@link RestartSimulationJobCommandInput} for command's `input` shape.
  * @see {@link RestartSimulationJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class RestartSimulationJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class CreateJobCommand extends $Command<

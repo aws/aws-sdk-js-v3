@@ -35,7 +35,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  *
  * @see {@link DescribePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribePoliciesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DescribePoliciesCommand extends $Command<

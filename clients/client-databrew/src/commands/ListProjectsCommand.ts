@@ -35,7 +35,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  *
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class ListProjectsCommand extends $Command<

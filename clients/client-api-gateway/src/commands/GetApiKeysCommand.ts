@@ -35,7 +35,7 @@ export interface GetApiKeysCommandOutput extends ApiKeys, __MetadataBearer {}
  *
  * @see {@link GetApiKeysCommandInput} for command's `input` shape.
  * @see {@link GetApiKeysCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetApiKeysCommand extends $Command<

@@ -63,7 +63,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *
  * @see {@link GetObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link GetObjectTaggingCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class GetObjectTaggingCommand extends $Command<

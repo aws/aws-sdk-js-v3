@@ -35,7 +35,7 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  *
  * @see {@link StartDeviceAuthorizationCommandInput} for command's `input` shape.
  * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link SSOOIDCClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  */
 export class StartDeviceAuthorizationCommand extends $Command<

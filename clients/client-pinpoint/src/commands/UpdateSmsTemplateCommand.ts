@@ -35,7 +35,7 @@ export interface UpdateSmsTemplateCommandOutput extends UpdateSmsTemplateRespons
  *
  * @see {@link UpdateSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSmsTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateSmsTemplateCommand extends $Command<

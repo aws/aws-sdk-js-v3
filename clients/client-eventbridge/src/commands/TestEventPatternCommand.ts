@@ -39,7 +39,7 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  *
  * @see {@link TestEventPatternCommandInput} for command's `input` shape.
  * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class TestEventPatternCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeGlobalClustersCommandOutput extends GlobalClustersMessa
  *
  * @see {@link DescribeGlobalClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalClustersCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeGlobalClustersCommand extends $Command<

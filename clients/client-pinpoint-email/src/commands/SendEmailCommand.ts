@@ -52,7 +52,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class SendEmailCommand extends $Command<

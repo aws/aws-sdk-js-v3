@@ -35,7 +35,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *
  * @see {@link UpdateOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateOriginEndpointCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class UpdateOriginEndpointCommand extends $Command<

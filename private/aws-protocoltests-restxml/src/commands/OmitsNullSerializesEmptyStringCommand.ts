@@ -35,7 +35,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  *
  * @see {@link OmitsNullSerializesEmptyStringCommandInput} for command's `input` shape.
  * @see {@link OmitsNullSerializesEmptyStringCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command<

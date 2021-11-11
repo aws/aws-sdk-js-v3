@@ -37,7 +37,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
- * @see {@link IdentitystoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
  */
 export class ListGroupsCommand extends $Command<

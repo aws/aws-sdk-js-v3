@@ -37,7 +37,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  *
  * @see {@link DescribeChangeSetCommandInput} for command's `input` shape.
  * @see {@link DescribeChangeSetCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DescribeChangeSetCommand extends $Command<

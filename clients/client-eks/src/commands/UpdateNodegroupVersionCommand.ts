@@ -52,7 +52,7 @@ export interface UpdateNodegroupVersionCommandOutput extends UpdateNodegroupVers
  *
  * @see {@link UpdateNodegroupVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupVersionCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class UpdateNodegroupVersionCommand extends $Command<

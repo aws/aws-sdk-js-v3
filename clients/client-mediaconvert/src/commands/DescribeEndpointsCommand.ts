@@ -35,7 +35,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *
  * @see {@link DescribeEndpointsCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class DescribeEndpointsCommand extends $Command<

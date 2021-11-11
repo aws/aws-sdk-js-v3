@@ -39,7 +39,7 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  *
  * @see {@link GetCommandInvocationCommandInput} for command's `input` shape.
  * @see {@link GetCommandInvocationCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class GetCommandInvocationCommand extends $Command<

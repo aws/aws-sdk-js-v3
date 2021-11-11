@@ -38,7 +38,7 @@ export interface CreateEmailTemplateCommandOutput extends CreateEmailTemplateRes
  *
  * @see {@link CreateEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class CreateEmailTemplateCommand extends $Command<

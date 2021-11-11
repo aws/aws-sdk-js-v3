@@ -35,7 +35,7 @@ export interface DescribeAppInstanceUserCommandOutput extends DescribeAppInstanc
  *
  * @see {@link DescribeAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeAppInstanceUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DescribeAppInstanceUserCommand extends $Command<

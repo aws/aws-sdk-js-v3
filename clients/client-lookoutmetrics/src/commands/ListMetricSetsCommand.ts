@@ -37,7 +37,7 @@ export interface ListMetricSetsCommandOutput extends ListMetricSetsResponse, __M
  *
  * @see {@link ListMetricSetsCommandInput} for command's `input` shape.
  * @see {@link ListMetricSetsCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class ListMetricSetsCommand extends $Command<

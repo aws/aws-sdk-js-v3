@@ -35,7 +35,7 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  *
  * @see {@link CreateInvalidationCommandInput} for command's `input` shape.
  * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class CreateInvalidationCommand extends $Command<

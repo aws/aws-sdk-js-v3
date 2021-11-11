@@ -55,7 +55,7 @@ export interface GetOrganizationsAccessReportCommandOutput
  *
  * @see {@link GetOrganizationsAccessReportCommandInput} for command's `input` shape.
  * @see {@link GetOrganizationsAccessReportCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetOrganizationsAccessReportCommand extends $Command<

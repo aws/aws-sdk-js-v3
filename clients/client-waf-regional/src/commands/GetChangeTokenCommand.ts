@@ -49,7 +49,7 @@ export interface GetChangeTokenCommandOutput extends GetChangeTokenResponse, __M
  *
  * @see {@link GetChangeTokenCommandInput} for command's `input` shape.
  * @see {@link GetChangeTokenCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class GetChangeTokenCommand extends $Command<

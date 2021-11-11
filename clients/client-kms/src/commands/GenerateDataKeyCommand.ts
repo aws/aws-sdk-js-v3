@@ -132,7 +132,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *
  * @see {@link GenerateDataKeyCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class GenerateDataKeyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  *
  * @see {@link CreateHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link CreateHoursOfOperationCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateHoursOfOperationCommand extends $Command<

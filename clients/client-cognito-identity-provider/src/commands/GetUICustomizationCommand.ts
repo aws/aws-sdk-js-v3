@@ -43,7 +43,7 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  *
  * @see {@link GetUICustomizationCommandInput} for command's `input` shape.
  * @see {@link GetUICustomizationCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class GetUICustomizationCommand extends $Command<

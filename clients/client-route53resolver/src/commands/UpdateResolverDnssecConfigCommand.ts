@@ -35,7 +35,7 @@ export interface UpdateResolverDnssecConfigCommandOutput extends UpdateResolverD
  *
  * @see {@link UpdateResolverDnssecConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverDnssecConfigCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class UpdateResolverDnssecConfigCommand extends $Command<

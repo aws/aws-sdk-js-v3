@@ -42,7 +42,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *
  * @see {@link UpdateTableCommandInput} for command's `input` shape.
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class UpdateTableCommand extends $Command<

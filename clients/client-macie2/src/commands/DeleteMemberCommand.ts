@@ -35,7 +35,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberResponse, __Metad
  *
  * @see {@link DeleteMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteMemberCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class DeleteMemberCommand extends $Command<

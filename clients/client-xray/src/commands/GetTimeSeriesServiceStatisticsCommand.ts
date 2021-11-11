@@ -38,7 +38,7 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput
  *
  * @see {@link GetTimeSeriesServiceStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetTimeSeriesServiceStatisticsCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetTimeSeriesServiceStatisticsCommand extends $Command<

@@ -53,7 +53,7 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  *
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<

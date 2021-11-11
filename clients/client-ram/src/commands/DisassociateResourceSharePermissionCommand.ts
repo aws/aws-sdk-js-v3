@@ -40,7 +40,7 @@ export interface DisassociateResourceSharePermissionCommandOutput
  *
  * @see {@link DisassociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceSharePermissionCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class DisassociateResourceSharePermissionCommand extends $Command<

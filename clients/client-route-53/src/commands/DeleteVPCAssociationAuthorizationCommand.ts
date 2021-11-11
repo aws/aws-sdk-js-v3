@@ -49,7 +49,7 @@ export interface DeleteVPCAssociationAuthorizationCommandOutput
  *
  * @see {@link DeleteVPCAssociationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class DeleteVPCAssociationAuthorizationCommand extends $Command<

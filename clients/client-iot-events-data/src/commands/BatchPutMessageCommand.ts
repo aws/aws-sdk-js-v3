@@ -39,7 +39,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  *
  * @see {@link BatchPutMessageCommandInput} for command's `input` shape.
  * @see {@link BatchPutMessageCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsDataClientResolvedConfig | config} for IoTEventsDataClient's `config` shape.
  *
  */
 export class BatchPutMessageCommand extends $Command<

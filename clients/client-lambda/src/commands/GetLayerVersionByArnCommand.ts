@@ -37,7 +37,7 @@ export interface GetLayerVersionByArnCommandOutput extends GetLayerVersionRespon
  *
  * @see {@link GetLayerVersionByArnCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionByArnCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class GetLayerVersionByArnCommand extends $Command<

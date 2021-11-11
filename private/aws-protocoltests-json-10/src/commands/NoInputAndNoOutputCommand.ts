@@ -36,7 +36,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  *
  * @see {@link NoInputAndNoOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
- * @see {@link JSONRPC10ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
  */
 export class NoInputAndNoOutputCommand extends $Command<

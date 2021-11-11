@@ -36,7 +36,7 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  *
  * @see {@link ApplySchemaCommandInput} for command's `input` shape.
  * @see {@link ApplySchemaCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class ApplySchemaCommand extends $Command<

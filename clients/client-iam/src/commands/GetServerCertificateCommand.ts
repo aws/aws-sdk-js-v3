@@ -39,7 +39,7 @@ export interface GetServerCertificateCommandOutput extends GetServerCertificateR
  *
  * @see {@link GetServerCertificateCommandInput} for command's `input` shape.
  * @see {@link GetServerCertificateCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetServerCertificateCommand extends $Command<

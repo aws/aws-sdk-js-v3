@@ -35,7 +35,7 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  *
  * @see {@link UpdateConferenceProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class UpdateConferenceProviderCommand extends $Command<

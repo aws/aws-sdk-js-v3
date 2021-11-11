@@ -36,7 +36,7 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  *
  * @see {@link DescribeExportTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeExportTasksCommand extends $Command<

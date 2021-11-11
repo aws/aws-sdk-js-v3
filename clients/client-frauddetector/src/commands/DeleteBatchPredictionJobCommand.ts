@@ -35,7 +35,7 @@ export interface DeleteBatchPredictionJobCommandOutput extends DeleteBatchPredic
  *
  * @see {@link DeleteBatchPredictionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionJobCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteBatchPredictionJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  *
  * @see {@link GetMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link GetMetricPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class GetMetricPolicyCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  *
  * @see {@link DeleteNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationRuleCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  */
 export class DeleteNotificationRuleCommand extends $Command<

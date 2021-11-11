@@ -38,7 +38,7 @@ export interface DescribeRepositoryCommandOutput extends DescribeRepositoryResul
  *
  * @see {@link DescribeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class DescribeRepositoryCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeSentimentDetectionJobCommandOutput
  *
  * @see {@link DescribeSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSentimentDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeSentimentDetectionJobCommand extends $Command<

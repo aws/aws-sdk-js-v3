@@ -37,7 +37,7 @@ export interface SetEndpointAttributesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetEndpointAttributesCommandInput} for command's `input` shape.
  * @see {@link SetEndpointAttributesCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class SetEndpointAttributesCommand extends $Command<

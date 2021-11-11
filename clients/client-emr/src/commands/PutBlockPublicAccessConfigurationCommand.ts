@@ -40,7 +40,7 @@ export interface PutBlockPublicAccessConfigurationCommandOutput
  *
  * @see {@link PutBlockPublicAccessConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBlockPublicAccessConfigurationCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class PutBlockPublicAccessConfigurationCommand extends $Command<

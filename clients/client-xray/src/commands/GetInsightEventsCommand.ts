@@ -37,7 +37,7 @@ export interface GetInsightEventsCommandOutput extends GetInsightEventsResult, _
  *
  * @see {@link GetInsightEventsCommandInput} for command's `input` shape.
  * @see {@link GetInsightEventsCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetInsightEventsCommand extends $Command<

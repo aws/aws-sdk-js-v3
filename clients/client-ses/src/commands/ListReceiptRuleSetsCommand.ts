@@ -40,7 +40,7 @@ export interface ListReceiptRuleSetsCommandOutput extends ListReceiptRuleSetsRes
  *
  * @see {@link ListReceiptRuleSetsCommandInput} for command's `input` shape.
  * @see {@link ListReceiptRuleSetsCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class ListReceiptRuleSetsCommand extends $Command<

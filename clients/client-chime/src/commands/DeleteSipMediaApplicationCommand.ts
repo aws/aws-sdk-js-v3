@@ -35,7 +35,7 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteSipMediaApplicationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeleteSipMediaApplicationCommand extends $Command<

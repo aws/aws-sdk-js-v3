@@ -41,7 +41,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *
  * @see {@link RestoreDBClusterToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<

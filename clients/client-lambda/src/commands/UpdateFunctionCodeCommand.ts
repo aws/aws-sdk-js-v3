@@ -43,7 +43,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *
  * @see {@link UpdateFunctionCodeCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionCodeCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class UpdateFunctionCodeCommand extends $Command<

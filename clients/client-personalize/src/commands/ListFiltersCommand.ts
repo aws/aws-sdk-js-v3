@@ -35,7 +35,7 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  *
  * @see {@link ListFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFiltersCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class ListFiltersCommand extends $Command<

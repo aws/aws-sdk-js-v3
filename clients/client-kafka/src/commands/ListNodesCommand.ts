@@ -35,7 +35,7 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  *
  * @see {@link ListNodesCommandInput} for command's `input` shape.
  * @see {@link ListNodesCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class ListNodesCommand extends $Command<

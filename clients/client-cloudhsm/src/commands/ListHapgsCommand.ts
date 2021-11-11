@@ -46,7 +46,7 @@ export interface ListHapgsCommandOutput extends ListHapgsResponse, __MetadataBea
  *
  * @see {@link ListHapgsCommandInput} for command's `input` shape.
  * @see {@link ListHapgsCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class ListHapgsCommand extends $Command<

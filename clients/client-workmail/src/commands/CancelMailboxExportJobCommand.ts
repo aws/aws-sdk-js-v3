@@ -39,7 +39,7 @@ export interface CancelMailboxExportJobCommandOutput extends CancelMailboxExport
  *
  * @see {@link CancelMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelMailboxExportJobCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class CancelMailboxExportJobCommand extends $Command<

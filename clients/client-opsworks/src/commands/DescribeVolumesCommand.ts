@@ -43,7 +43,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  *
  * @see {@link DescribeVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeVolumesCommand extends $Command<

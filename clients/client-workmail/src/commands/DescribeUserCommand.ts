@@ -35,7 +35,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DescribeUserCommand extends $Command<

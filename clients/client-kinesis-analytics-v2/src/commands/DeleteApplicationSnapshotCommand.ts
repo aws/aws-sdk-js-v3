@@ -39,7 +39,7 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  *
  * @see {@link DeleteApplicationSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationSnapshotCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
  */
 export class DeleteApplicationSnapshotCommand extends $Command<

@@ -59,7 +59,7 @@ export interface ListAccessPointsForObjectLambdaCommandOutput
  *
  * @see {@link ListAccessPointsForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link ListAccessPointsForObjectLambdaCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class ListAccessPointsForObjectLambdaCommand extends $Command<

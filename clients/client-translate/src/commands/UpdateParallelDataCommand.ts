@@ -36,7 +36,7 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *
  * @see {@link UpdateParallelDataCommandInput} for command's `input` shape.
  * @see {@link UpdateParallelDataCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class UpdateParallelDataCommand extends $Command<

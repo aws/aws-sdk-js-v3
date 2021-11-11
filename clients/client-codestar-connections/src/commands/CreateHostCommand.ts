@@ -46,7 +46,7 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  *
  * @see {@link CreateHostCommandInput} for command's `input` shape.
  * @see {@link CreateHostCommandOutput} for command's `response` shape.
- * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
  */
 export class CreateHostCommand extends $Command<

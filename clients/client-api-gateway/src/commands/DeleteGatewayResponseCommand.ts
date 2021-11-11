@@ -35,7 +35,7 @@ export interface DeleteGatewayResponseCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayResponseCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class DeleteGatewayResponseCommand extends $Command<

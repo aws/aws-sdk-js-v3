@@ -35,7 +35,7 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  *
  * @see {@link UpdateDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class UpdateDeviceCommand extends $Command<

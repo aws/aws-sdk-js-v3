@@ -47,7 +47,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  *
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link AddApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command<

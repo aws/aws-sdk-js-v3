@@ -35,7 +35,7 @@ export interface DeleteCommentContentCommandOutput extends DeleteCommentContentO
  *
  * @see {@link DeleteCommentContentCommandInput} for command's `input` shape.
  * @see {@link DeleteCommentContentCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DeleteCommentContentCommand extends $Command<

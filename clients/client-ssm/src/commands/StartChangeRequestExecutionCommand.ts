@@ -37,7 +37,7 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *
  * @see {@link StartChangeRequestExecutionCommandInput} for command's `input` shape.
  * @see {@link StartChangeRequestExecutionCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class StartChangeRequestExecutionCommand extends $Command<

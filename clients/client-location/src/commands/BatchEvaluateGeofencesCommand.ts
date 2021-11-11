@@ -55,7 +55,7 @@ export interface BatchEvaluateGeofencesCommandOutput extends BatchEvaluateGeofen
  *
  * @see {@link BatchEvaluateGeofencesCommandInput} for command's `input` shape.
  * @see {@link BatchEvaluateGeofencesCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class BatchEvaluateGeofencesCommand extends $Command<

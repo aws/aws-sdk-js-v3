@@ -39,7 +39,7 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  *
  * @see {@link GetServiceGraphCommandInput} for command's `input` shape.
  * @see {@link GetServiceGraphCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetServiceGraphCommand extends $Command<

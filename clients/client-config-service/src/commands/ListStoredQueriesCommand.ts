@@ -35,7 +35,7 @@ export interface ListStoredQueriesCommandOutput extends ListStoredQueriesRespons
  *
  * @see {@link ListStoredQueriesCommandInput} for command's `input` shape.
  * @see {@link ListStoredQueriesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class ListStoredQueriesCommand extends $Command<

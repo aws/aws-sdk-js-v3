@@ -41,7 +41,7 @@ export interface UpdateLoginProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateLoginProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateLoginProfileCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateLoginProfileCommand extends $Command<

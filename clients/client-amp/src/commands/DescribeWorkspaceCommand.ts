@@ -35,7 +35,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  *
  * @see {@link DescribeWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class DescribeWorkspaceCommand extends $Command<

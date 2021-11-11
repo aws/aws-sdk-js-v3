@@ -35,7 +35,7 @@ export interface UpdateSecurityCommandOutput extends UpdateSecurityResponse, __M
  *
  * @see {@link UpdateSecurityCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class UpdateSecurityCommand extends $Command<

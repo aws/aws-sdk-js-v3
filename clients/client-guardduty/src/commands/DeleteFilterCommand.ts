@@ -35,7 +35,7 @@ export interface DeleteFilterCommandOutput extends DeleteFilterResponse, __Metad
  *
  * @see {@link DeleteFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFilterCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DeleteFilterCommand extends $Command<

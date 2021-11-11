@@ -36,7 +36,7 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  *
  * @see {@link AssociateLambdaFunctionCommandInput} for command's `input` shape.
  * @see {@link AssociateLambdaFunctionCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateLambdaFunctionCommand extends $Command<

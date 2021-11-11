@@ -35,7 +35,7 @@ export interface GetActiveNamesCommandOutput extends GetActiveNamesResult, __Met
  *
  * @see {@link GetActiveNamesCommandInput} for command's `input` shape.
  * @see {@link GetActiveNamesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetActiveNamesCommand extends $Command<

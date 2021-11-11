@@ -35,7 +35,7 @@ export interface UpdateDeviceDefinitionCommandOutput extends UpdateDeviceDefinit
  *
  * @see {@link UpdateDeviceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class UpdateDeviceDefinitionCommand extends $Command<

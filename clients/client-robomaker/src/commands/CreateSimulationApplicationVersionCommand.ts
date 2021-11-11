@@ -40,7 +40,7 @@ export interface CreateSimulationApplicationVersionCommandOutput
  *
  * @see {@link CreateSimulationApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationApplicationVersionCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CreateSimulationApplicationVersionCommand extends $Command<

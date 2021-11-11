@@ -40,7 +40,7 @@ export interface ListAggregateDiscoveredResourcesCommandOutput
  *
  * @see {@link ListAggregateDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListAggregateDiscoveredResourcesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class ListAggregateDiscoveredResourcesCommand extends $Command<

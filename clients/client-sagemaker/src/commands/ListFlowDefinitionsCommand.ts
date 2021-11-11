@@ -35,7 +35,7 @@ export interface ListFlowDefinitionsCommandOutput extends ListFlowDefinitionsRes
  *
  * @see {@link ListFlowDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListFlowDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListFlowDefinitionsCommand extends $Command<

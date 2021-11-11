@@ -37,7 +37,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  *
  * @see {@link ListResolverEndpointIpAddressesCommandInput} for command's `input` shape.
  * @see {@link ListResolverEndpointIpAddressesCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class ListResolverEndpointIpAddressesCommand extends $Command<

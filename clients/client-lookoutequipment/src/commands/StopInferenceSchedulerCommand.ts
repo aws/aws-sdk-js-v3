@@ -35,7 +35,7 @@ export interface StopInferenceSchedulerCommandOutput extends StopInferenceSchedu
  *
  * @see {@link StopInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link StopInferenceSchedulerCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
 export class StopInferenceSchedulerCommand extends $Command<

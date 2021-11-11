@@ -42,7 +42,7 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *
  * @see {@link CancelChangeSetCommandInput} for command's `input` shape.
  * @see {@link CancelChangeSetCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
 export class CancelChangeSetCommand extends $Command<

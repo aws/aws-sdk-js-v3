@@ -54,7 +54,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  *
  * @see {@link UpdateLagCommandInput} for command's `input` shape.
  * @see {@link UpdateLagCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class UpdateLagCommand extends $Command<

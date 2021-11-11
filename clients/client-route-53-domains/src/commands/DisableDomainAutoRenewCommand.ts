@@ -35,7 +35,7 @@ export interface DisableDomainAutoRenewCommandOutput extends DisableDomainAutoRe
  *
  * @see {@link DisableDomainAutoRenewCommandInput} for command's `input` shape.
  * @see {@link DisableDomainAutoRenewCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class DisableDomainAutoRenewCommand extends $Command<

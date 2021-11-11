@@ -35,7 +35,7 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  *
  * @see {@link StopAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link StopAutomationExecutionCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class StopAutomationExecutionCommand extends $Command<

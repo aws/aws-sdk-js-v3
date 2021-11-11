@@ -38,7 +38,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  *
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<

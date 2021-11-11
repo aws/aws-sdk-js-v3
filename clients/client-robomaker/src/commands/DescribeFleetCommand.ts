@@ -35,7 +35,7 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
  *
  * @see {@link DescribeFleetCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DescribeFleetCommand extends $Command<

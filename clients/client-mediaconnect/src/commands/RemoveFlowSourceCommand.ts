@@ -35,7 +35,7 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  *
  * @see {@link RemoveFlowSourceCommandInput} for command's `input` shape.
  * @see {@link RemoveFlowSourceCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class RemoveFlowSourceCommand extends $Command<

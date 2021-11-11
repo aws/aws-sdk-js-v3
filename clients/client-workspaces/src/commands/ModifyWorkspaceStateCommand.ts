@@ -40,7 +40,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  *
  * @see {@link ModifyWorkspaceStateCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceStateCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class ModifyWorkspaceStateCommand extends $Command<

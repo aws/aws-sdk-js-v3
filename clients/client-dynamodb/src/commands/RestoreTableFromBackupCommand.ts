@@ -59,7 +59,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *
  * @see {@link RestoreTableFromBackupCommandInput} for command's `input` shape.
  * @see {@link RestoreTableFromBackupCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class RestoreTableFromBackupCommand extends $Command<

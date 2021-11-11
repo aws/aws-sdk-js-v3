@@ -35,7 +35,7 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  *
  * @see {@link AddTagsToOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link AddTagsToOnPremisesInstancesCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<

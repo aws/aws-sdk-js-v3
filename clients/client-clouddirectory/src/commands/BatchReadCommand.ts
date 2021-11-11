@@ -35,7 +35,7 @@ export interface BatchReadCommandOutput extends BatchReadResponse, __MetadataBea
  *
  * @see {@link BatchReadCommandInput} for command's `input` shape.
  * @see {@link BatchReadCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class BatchReadCommand extends $Command<

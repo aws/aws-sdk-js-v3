@@ -39,7 +39,7 @@ export interface PutBackupVaultLockConfigurationCommandOutput extends __Metadata
  *
  * @see {@link PutBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class PutBackupVaultLockConfigurationCommand extends $Command<

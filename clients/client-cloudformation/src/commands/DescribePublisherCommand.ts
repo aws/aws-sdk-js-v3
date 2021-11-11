@@ -53,7 +53,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *
  * @see {@link DescribePublisherCommandInput} for command's `input` shape.
  * @see {@link DescribePublisherCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DescribePublisherCommand extends $Command<

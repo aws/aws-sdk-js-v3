@@ -35,7 +35,7 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  *
  * @see {@link DeleteRegistryCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteRegistryCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateWirelessDeviceCommandOutput extends UpdateWirelessDeviceR
  *
  * @see {@link UpdateWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link UpdateWirelessDeviceCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class UpdateWirelessDeviceCommand extends $Command<

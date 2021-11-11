@@ -85,7 +85,7 @@ export interface UpdateContainerInstancesStateCommandOutput
  *
  * @see {@link UpdateContainerInstancesStateCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerInstancesStateCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class UpdateContainerInstancesStateCommand extends $Command<

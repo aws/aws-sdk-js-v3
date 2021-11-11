@@ -37,7 +37,7 @@ export interface DeleteOutcomeCommandOutput extends DeleteOutcomeResult, __Metad
  *
  * @see {@link DeleteOutcomeCommandInput} for command's `input` shape.
  * @see {@link DeleteOutcomeCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteOutcomeCommand extends $Command<

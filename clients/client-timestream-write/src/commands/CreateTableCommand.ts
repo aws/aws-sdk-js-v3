@@ -43,7 +43,7 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *
  * @see {@link CreateTableCommandInput} for command's `input` shape.
  * @see {@link CreateTableCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class CreateTableCommand extends $Command<

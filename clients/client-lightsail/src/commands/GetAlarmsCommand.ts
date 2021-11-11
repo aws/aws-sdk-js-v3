@@ -38,7 +38,7 @@ export interface GetAlarmsCommandOutput extends GetAlarmsResult, __MetadataBeare
  *
  * @see {@link GetAlarmsCommandInput} for command's `input` shape.
  * @see {@link GetAlarmsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetAlarmsCommand extends $Command<

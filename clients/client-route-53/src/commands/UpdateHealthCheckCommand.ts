@@ -38,7 +38,7 @@ export interface UpdateHealthCheckCommandOutput extends UpdateHealthCheckRespons
  *
  * @see {@link UpdateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link UpdateHealthCheckCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class UpdateHealthCheckCommand extends $Command<

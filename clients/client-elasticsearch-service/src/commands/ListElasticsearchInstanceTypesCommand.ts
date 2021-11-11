@@ -41,7 +41,7 @@ export interface ListElasticsearchInstanceTypesCommandOutput
  *
  * @see {@link ListElasticsearchInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchInstanceTypesCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class ListElasticsearchInstanceTypesCommand extends $Command<

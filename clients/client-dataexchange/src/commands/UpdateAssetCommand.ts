@@ -35,7 +35,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  *
  * @see {@link UpdateAssetCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class UpdateAssetCommand extends $Command<

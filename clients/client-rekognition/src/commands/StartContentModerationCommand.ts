@@ -46,7 +46,7 @@ export interface StartContentModerationCommandOutput extends StartContentModerat
  *
  * @see {@link StartContentModerationCommandInput} for command's `input` shape.
  * @see {@link StartContentModerationCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StartContentModerationCommand extends $Command<

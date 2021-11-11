@@ -37,7 +37,7 @@ export interface DescribeApplicationVersionsCommandOutput
  *
  * @see {@link DescribeApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationVersionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DescribeApplicationVersionsCommand extends $Command<

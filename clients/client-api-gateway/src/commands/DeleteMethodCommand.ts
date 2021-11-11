@@ -35,7 +35,7 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteMethodCommandInput} for command's `input` shape.
  * @see {@link DeleteMethodCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class DeleteMethodCommand extends $Command<

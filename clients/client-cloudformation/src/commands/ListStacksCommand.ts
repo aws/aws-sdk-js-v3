@@ -36,7 +36,7 @@ export interface ListStacksCommandOutput extends ListStacksOutput, __MetadataBea
  *
  * @see {@link ListStacksCommandInput} for command's `input` shape.
  * @see {@link ListStacksCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class ListStacksCommand extends $Command<

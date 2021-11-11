@@ -35,7 +35,7 @@ export interface DescribeBackupJobCommandOutput extends DescribeBackupJobOutput,
  *
  * @see {@link DescribeBackupJobCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupJobCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DescribeBackupJobCommand extends $Command<

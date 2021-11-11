@@ -40,7 +40,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
  *
  * @see {@link GetDashboardCommandInput} for command's `input` shape.
  * @see {@link GetDashboardCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class GetDashboardCommand extends $Command<

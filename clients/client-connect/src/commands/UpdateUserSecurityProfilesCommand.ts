@@ -35,7 +35,7 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  *
  * @see {@link UpdateUserSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link UpdateUserSecurityProfilesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateUserSecurityProfilesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateEdgePackagingJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link CreateEdgePackagingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateEdgePackagingJobCommand extends $Command<

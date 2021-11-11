@@ -46,7 +46,7 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  *
  * @see {@link StopDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class StopDominantLanguageDetectionJobCommand extends $Command<

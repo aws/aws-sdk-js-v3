@@ -36,7 +36,7 @@ export interface ActivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ActivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link ActivateEventSourceCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class ActivateEventSourceCommand extends $Command<

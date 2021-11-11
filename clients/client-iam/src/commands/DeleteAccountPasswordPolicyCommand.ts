@@ -34,7 +34,7 @@ export interface DeleteAccountPasswordPolicyCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteAccountPasswordPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountPasswordPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DeleteAccountPasswordPolicyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListReportJobsCommandOutput extends ListReportJobsOutput, __Met
  *
  * @see {@link ListReportJobsCommandInput} for command's `input` shape.
  * @see {@link ListReportJobsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class ListReportJobsCommand extends $Command<

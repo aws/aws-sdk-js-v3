@@ -35,7 +35,7 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *
  * @see {@link CreateDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateDBSubnetGroupCommand extends $Command<

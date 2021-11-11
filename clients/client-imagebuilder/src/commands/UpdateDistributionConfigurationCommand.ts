@@ -38,7 +38,7 @@ export interface UpdateDistributionConfigurationCommandOutput
  *
  * @see {@link UpdateDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateDistributionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class UpdateDistributionConfigurationCommand extends $Command<

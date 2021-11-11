@@ -41,7 +41,7 @@ export interface CreatePolicyCommandOutput extends CreatePolicyResponse, __Metad
  *
  * @see {@link CreatePolicyCommandInput} for command's `input` shape.
  * @see {@link CreatePolicyCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class CreatePolicyCommand extends $Command<

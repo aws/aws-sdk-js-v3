@@ -35,7 +35,7 @@ export interface GetRouteCommandOutput extends GetRouteResult, __MetadataBearer 
  *
  * @see {@link GetRouteCommandInput} for command's `input` shape.
  * @see {@link GetRouteCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetRouteCommand extends $Command<

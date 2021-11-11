@@ -35,7 +35,7 @@ export interface DeleteResourcesByExternalIdCommandOutput extends DeleteResource
  *
  * @see {@link DeleteResourcesByExternalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcesByExternalIdCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class DeleteResourcesByExternalIdCommand extends $Command<

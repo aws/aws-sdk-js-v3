@@ -45,7 +45,7 @@ export interface ListActivatedRulesInRuleGroupCommandOutput
  *
  * @see {@link ListActivatedRulesInRuleGroupCommandInput} for command's `input` shape.
  * @see {@link ListActivatedRulesInRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class ListActivatedRulesInRuleGroupCommand extends $Command<

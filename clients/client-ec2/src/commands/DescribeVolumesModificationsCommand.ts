@@ -43,7 +43,7 @@ export interface DescribeVolumesModificationsCommandOutput
  *
  * @see {@link DescribeVolumesModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVolumesModificationsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeVolumesModificationsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteConfigurationProfileCommandOutput extends __MetadataBeare
  *
  * @see {@link DeleteConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationProfileCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
 export class DeleteConfigurationProfileCommand extends $Command<

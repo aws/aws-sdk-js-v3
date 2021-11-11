@@ -35,7 +35,7 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  *
  * @see {@link ListResolversCommandInput} for command's `input` shape.
  * @see {@link ListResolversCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class ListResolversCommand extends $Command<

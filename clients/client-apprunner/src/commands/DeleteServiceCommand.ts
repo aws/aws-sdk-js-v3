@@ -37,7 +37,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *
  * @see {@link DeleteServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
  */
 export class DeleteServiceCommand extends $Command<

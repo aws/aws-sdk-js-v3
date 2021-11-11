@@ -36,7 +36,7 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ReplaceNetworkAclEntryCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclEntryCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ReplaceNetworkAclEntryCommand extends $Command<

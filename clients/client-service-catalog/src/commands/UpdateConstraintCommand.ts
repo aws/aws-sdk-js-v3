@@ -35,7 +35,7 @@ export interface UpdateConstraintCommandOutput extends UpdateConstraintOutput, _
  *
  * @see {@link UpdateConstraintCommandInput} for command's `input` shape.
  * @see {@link UpdateConstraintCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class UpdateConstraintCommand extends $Command<

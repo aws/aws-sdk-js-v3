@@ -35,7 +35,7 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  *
  * @see {@link DescribeSavingsPlanRatesCommandInput} for command's `input` shape.
  * @see {@link DescribeSavingsPlanRatesCommandOutput} for command's `response` shape.
- * @see {@link SavingsplansClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
  */
 export class DescribeSavingsPlanRatesCommand extends $Command<

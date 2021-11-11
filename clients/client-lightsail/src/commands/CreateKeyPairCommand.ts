@@ -37,7 +37,7 @@ export interface CreateKeyPairCommandOutput extends CreateKeyPairResult, __Metad
  *
  * @see {@link CreateKeyPairCommandInput} for command's `input` shape.
  * @see {@link CreateKeyPairCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateKeyPairCommand extends $Command<

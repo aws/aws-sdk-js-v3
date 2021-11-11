@@ -35,7 +35,7 @@ export interface ListExclusionsCommandOutput extends ListExclusionsResponse, __M
  *
  * @see {@link ListExclusionsCommandInput} for command's `input` shape.
  * @see {@link ListExclusionsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class ListExclusionsCommand extends $Command<

@@ -43,7 +43,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteCustomActionTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomActionTypeCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class DeleteCustomActionTypeCommand extends $Command<

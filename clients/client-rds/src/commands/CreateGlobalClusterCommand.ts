@@ -51,7 +51,7 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *
  * @see {@link CreateGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateGlobalClusterCommand extends $Command<

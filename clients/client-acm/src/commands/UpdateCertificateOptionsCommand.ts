@@ -38,7 +38,7 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *
  * @see {@link UpdateCertificateOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateOptionsCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class UpdateCertificateOptionsCommand extends $Command<

@@ -64,7 +64,7 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  *
  * @see {@link GetWorkflowExecutionHistoryCommandInput} for command's `input` shape.
  * @see {@link GetWorkflowExecutionHistoryCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class GetWorkflowExecutionHistoryCommand extends $Command<

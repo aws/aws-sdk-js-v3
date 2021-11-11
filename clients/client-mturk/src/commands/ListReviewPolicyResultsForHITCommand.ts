@@ -43,7 +43,7 @@ export interface ListReviewPolicyResultsForHITCommandOutput
  *
  * @see {@link ListReviewPolicyResultsForHITCommandInput} for command's `input` shape.
  * @see {@link ListReviewPolicyResultsForHITCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class ListReviewPolicyResultsForHITCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  *
  * @see {@link ListTriggersCommandInput} for command's `input` shape.
  * @see {@link ListTriggersCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class ListTriggersCommand extends $Command<

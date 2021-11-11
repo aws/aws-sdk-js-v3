@@ -36,7 +36,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  *
  * @see {@link CreateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateApiDestinationCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class CreateApiDestinationCommand extends $Command<

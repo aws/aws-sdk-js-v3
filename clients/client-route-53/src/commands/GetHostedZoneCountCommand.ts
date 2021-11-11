@@ -35,7 +35,7 @@ export interface GetHostedZoneCountCommandOutput extends GetHostedZoneCountRespo
  *
  * @see {@link GetHostedZoneCountCommandInput} for command's `input` shape.
  * @see {@link GetHostedZoneCountCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class GetHostedZoneCountCommand extends $Command<

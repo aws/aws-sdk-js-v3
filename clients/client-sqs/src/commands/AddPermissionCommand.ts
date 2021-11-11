@@ -74,7 +74,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class AddPermissionCommand extends $Command<

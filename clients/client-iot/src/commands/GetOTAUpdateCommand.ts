@@ -36,7 +36,7 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  *
  * @see {@link GetOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link GetOTAUpdateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetOTAUpdateCommand extends $Command<

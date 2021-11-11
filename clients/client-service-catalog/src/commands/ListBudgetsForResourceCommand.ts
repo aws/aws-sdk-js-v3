@@ -35,7 +35,7 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  *
  * @see {@link ListBudgetsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListBudgetsForResourceCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListBudgetsForResourceCommand extends $Command<

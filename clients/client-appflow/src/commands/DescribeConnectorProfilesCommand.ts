@@ -39,7 +39,7 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  *
  * @see {@link DescribeConnectorProfilesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorProfilesCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class DescribeConnectorProfilesCommand extends $Command<

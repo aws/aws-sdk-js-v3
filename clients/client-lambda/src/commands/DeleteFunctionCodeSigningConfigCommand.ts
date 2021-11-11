@@ -35,7 +35,7 @@ export interface DeleteFunctionCodeSigningConfigCommandOutput extends __Metadata
  *
  * @see {@link DeleteFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteFunctionCodeSigningConfigCommand extends $Command<

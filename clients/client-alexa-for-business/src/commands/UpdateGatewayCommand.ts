@@ -36,7 +36,7 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *
  * @see {@link UpdateGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class UpdateGatewayCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListResourceInventoryCommandOutput extends ListResourceInventor
  *
  * @see {@link ListResourceInventoryCommandInput} for command's `input` shape.
  * @see {@link ListResourceInventoryCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListResourceInventoryCommand extends $Command<

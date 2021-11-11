@@ -43,7 +43,7 @@ export interface ListRateBasedRulesCommandOutput extends ListRateBasedRulesRespo
  *
  * @see {@link ListRateBasedRulesCommandInput} for command's `input` shape.
  * @see {@link ListRateBasedRulesCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class ListRateBasedRulesCommand extends $Command<

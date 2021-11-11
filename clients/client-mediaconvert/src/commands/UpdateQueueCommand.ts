@@ -35,7 +35,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  *
  * @see {@link UpdateQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class UpdateQueueCommand extends $Command<

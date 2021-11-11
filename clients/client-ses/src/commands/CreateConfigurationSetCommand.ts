@@ -39,7 +39,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *
  * @see {@link CreateConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class CreateConfigurationSetCommand extends $Command<

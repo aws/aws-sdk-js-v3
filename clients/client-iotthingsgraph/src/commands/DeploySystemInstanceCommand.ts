@@ -46,7 +46,7 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  *
  * @see {@link DeploySystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeploySystemInstanceCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class DeploySystemInstanceCommand extends $Command<

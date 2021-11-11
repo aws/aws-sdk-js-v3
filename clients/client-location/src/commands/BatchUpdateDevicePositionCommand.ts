@@ -45,7 +45,7 @@ export interface BatchUpdateDevicePositionCommandOutput extends BatchUpdateDevic
  *
  * @see {@link BatchUpdateDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateDevicePositionCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class BatchUpdateDevicePositionCommand extends $Command<

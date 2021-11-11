@@ -44,7 +44,7 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  *
  * @see {@link DeleteScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class DeleteScalingPolicyCommand extends $Command<

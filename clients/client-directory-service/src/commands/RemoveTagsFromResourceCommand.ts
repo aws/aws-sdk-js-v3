@@ -35,7 +35,7 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  *
  * @see {@link RemoveTagsFromResourceCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class RemoveTagsFromResourceCommand extends $Command<

@@ -47,7 +47,7 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput
  *
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByOriginRequestPolicyIdCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<

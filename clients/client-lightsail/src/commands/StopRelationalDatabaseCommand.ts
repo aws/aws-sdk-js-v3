@@ -38,7 +38,7 @@ export interface StopRelationalDatabaseCommandOutput extends StopRelationalDatab
  *
  * @see {@link StopRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link StopRelationalDatabaseCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class StopRelationalDatabaseCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetAssetCommandOutput extends GetAssetResponse, __MetadataBeare
  *
  * @see {@link GetAssetCommandInput} for command's `input` shape.
  * @see {@link GetAssetCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class GetAssetCommand extends $Command<

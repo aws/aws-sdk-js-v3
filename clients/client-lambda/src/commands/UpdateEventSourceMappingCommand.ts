@@ -60,7 +60,7 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *
  * @see {@link UpdateEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateEventSourceMappingCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class UpdateEventSourceMappingCommand extends $Command<

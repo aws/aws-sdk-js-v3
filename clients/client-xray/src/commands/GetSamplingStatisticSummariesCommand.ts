@@ -37,7 +37,7 @@ export interface GetSamplingStatisticSummariesCommandOutput
  *
  * @see {@link GetSamplingStatisticSummariesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingStatisticSummariesCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetSamplingStatisticSummariesCommand extends $Command<

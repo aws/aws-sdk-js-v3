@@ -40,7 +40,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  *
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallPolicyChangeProtectionCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command<

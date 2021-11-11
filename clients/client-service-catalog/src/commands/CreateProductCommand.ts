@@ -41,7 +41,7 @@ export interface CreateProductCommandOutput extends CreateProductOutput, __Metad
  *
  * @see {@link CreateProductCommandInput} for command's `input` shape.
  * @see {@link CreateProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class CreateProductCommand extends $Command<

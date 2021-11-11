@@ -40,7 +40,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *
  * @see {@link CancelInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link CancelInstanceRefreshCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class CancelInstanceRefreshCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  *
  * @see {@link ListTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListTranscriptionJobsCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class ListTranscriptionJobsCommand extends $Command<

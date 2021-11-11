@@ -64,7 +64,7 @@ export interface GetMultiRegionAccessPointCommandOutput extends GetMultiRegionAc
  *
  * @see {@link GetMultiRegionAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetMultiRegionAccessPointCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class GetMultiRegionAccessPointCommand extends $Command<

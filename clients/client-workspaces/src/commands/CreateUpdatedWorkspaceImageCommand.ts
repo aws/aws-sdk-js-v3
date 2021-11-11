@@ -58,7 +58,7 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  *
  * @see {@link CreateUpdatedWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CreateUpdatedWorkspaceImageCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class CreateUpdatedWorkspaceImageCommand extends $Command<

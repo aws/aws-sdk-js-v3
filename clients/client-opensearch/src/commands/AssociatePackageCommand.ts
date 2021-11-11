@@ -35,7 +35,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  *
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class AssociatePackageCommand extends $Command<

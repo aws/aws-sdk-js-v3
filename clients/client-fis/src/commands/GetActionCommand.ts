@@ -35,7 +35,7 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  *
  * @see {@link GetActionCommandInput} for command's `input` shape.
  * @see {@link GetActionCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  */
 export class GetActionCommand extends $Command<GetActionCommandInput, GetActionCommandOutput, FisClientResolvedConfig> {

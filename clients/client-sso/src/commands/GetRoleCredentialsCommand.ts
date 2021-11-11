@@ -36,7 +36,7 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  *
  * @see {@link GetRoleCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetRoleCredentialsCommandOutput} for command's `response` shape.
- * @see {@link SSOClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOClientResolvedConfig | config} for SSOClient's `config` shape.
  *
  */
 export class GetRoleCredentialsCommand extends $Command<

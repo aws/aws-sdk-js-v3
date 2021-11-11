@@ -35,7 +35,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResult, __M
  *
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class DescribeProjectCommand extends $Command<

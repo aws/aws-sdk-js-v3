@@ -35,7 +35,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *
  * @see {@link StartJobRunCommandInput} for command's `input` shape.
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class StartJobRunCommand extends $Command<

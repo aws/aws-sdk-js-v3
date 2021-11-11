@@ -35,7 +35,7 @@ export interface DescribeActivitiesCommandOutput extends DescribeActivitiesRespo
  *
  * @see {@link DescribeActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeActivitiesCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DescribeActivitiesCommand extends $Command<

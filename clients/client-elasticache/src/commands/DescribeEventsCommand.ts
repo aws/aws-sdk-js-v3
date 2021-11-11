@@ -40,7 +40,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeEventsCommand extends $Command<

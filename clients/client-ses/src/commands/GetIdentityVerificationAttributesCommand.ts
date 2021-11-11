@@ -55,7 +55,7 @@ export interface GetIdentityVerificationAttributesCommandOutput
  *
  * @see {@link GetIdentityVerificationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityVerificationAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetIdentityVerificationAttributesCommand extends $Command<

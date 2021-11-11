@@ -37,7 +37,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  *
  * @see {@link DescribeMetricSetCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricSetCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class DescribeMetricSetCommand extends $Command<

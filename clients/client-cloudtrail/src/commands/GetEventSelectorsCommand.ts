@@ -51,7 +51,7 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *
  * @see {@link GetEventSelectorsCommandInput} for command's `input` shape.
  * @see {@link GetEventSelectorsCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
 export class GetEventSelectorsCommand extends $Command<

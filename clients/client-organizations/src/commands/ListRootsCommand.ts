@@ -49,7 +49,7 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *
  * @see {@link ListRootsCommandInput} for command's `input` shape.
  * @see {@link ListRootsCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class ListRootsCommand extends $Command<

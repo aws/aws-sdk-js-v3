@@ -47,7 +47,7 @@ export interface GetRateBasedRuleManagedKeysCommandOutput
  *
  * @see {@link GetRateBasedRuleManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedRuleManagedKeysCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class GetRateBasedRuleManagedKeysCommand extends $Command<

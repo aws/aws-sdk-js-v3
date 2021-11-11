@@ -46,7 +46,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *
  * @see {@link CopyDBSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBSnapshotCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CopyDBSnapshotCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DisassociateCustomerGatewayCommandOutput
  *
  * @see {@link DisassociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link DisassociateCustomerGatewayCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DisassociateCustomerGatewayCommand extends $Command<

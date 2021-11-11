@@ -37,7 +37,7 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  *
  * @see {@link DeleteEntityTypeCommandInput} for command's `input` shape.
  * @see {@link DeleteEntityTypeCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteEntityTypeCommand extends $Command<

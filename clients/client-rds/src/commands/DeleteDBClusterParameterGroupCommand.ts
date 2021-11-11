@@ -42,7 +42,7 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *
  * @see {@link DeleteDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DeleteDBClusterParameterGroupCommand extends $Command<

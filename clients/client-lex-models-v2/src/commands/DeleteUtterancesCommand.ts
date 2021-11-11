@@ -46,7 +46,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  *
  * @see {@link DeleteUtterancesCommandInput} for command's `input` shape.
  * @see {@link DeleteUtterancesCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class DeleteUtterancesCommand extends $Command<

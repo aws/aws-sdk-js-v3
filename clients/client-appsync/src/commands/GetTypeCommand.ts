@@ -35,7 +35,7 @@ export interface GetTypeCommandOutput extends GetTypeResponse, __MetadataBearer 
  *
  * @see {@link GetTypeCommandInput} for command's `input` shape.
  * @see {@link GetTypeCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommandOutput, AppSyncClientResolvedConfig> {

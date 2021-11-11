@@ -53,7 +53,7 @@ export interface StartMLLabelingSetGenerationTaskRunCommandOutput
  *
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLLabelingSetGenerationTaskRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class StartMLLabelingSetGenerationTaskRunCommand extends $Command<

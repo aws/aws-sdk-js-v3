@@ -35,7 +35,7 @@ export interface CreateGlobalNetworkCommandOutput extends CreateGlobalNetworkRes
  *
  * @see {@link CreateGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateGlobalNetworkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class CreateGlobalNetworkCommand extends $Command<

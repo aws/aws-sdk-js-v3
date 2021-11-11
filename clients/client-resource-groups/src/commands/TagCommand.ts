@@ -50,7 +50,7 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  *
  * @see {@link TagCommandInput} for command's `input` shape.
  * @see {@link TagCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class TagCommand extends $Command<TagCommandInput, TagCommandOutput, ResourceGroupsClientResolvedConfig> {

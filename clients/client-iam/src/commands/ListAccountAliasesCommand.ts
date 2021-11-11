@@ -37,7 +37,7 @@ export interface ListAccountAliasesCommandOutput extends ListAccountAliasesRespo
  *
  * @see {@link ListAccountAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAccountAliasesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListAccountAliasesCommand extends $Command<

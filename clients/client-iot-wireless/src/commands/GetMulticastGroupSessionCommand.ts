@@ -35,7 +35,7 @@ export interface GetMulticastGroupSessionCommandOutput extends GetMulticastGroup
  *
  * @see {@link GetMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link GetMulticastGroupSessionCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class GetMulticastGroupSessionCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  *
  * @see {@link ListElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link ListElasticsearchVersionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class ListElasticsearchVersionsCommand extends $Command<

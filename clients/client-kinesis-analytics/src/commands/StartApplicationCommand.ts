@@ -46,7 +46,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *
  * @see {@link StartApplicationCommandInput} for command's `input` shape.
  * @see {@link StartApplicationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class StartApplicationCommand extends $Command<

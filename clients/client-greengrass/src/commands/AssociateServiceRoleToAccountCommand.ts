@@ -37,7 +37,7 @@ export interface AssociateServiceRoleToAccountCommandOutput
  *
  * @see {@link AssociateServiceRoleToAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class AssociateServiceRoleToAccountCommand extends $Command<

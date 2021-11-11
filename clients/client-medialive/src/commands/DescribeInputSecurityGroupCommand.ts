@@ -35,7 +35,7 @@ export interface DescribeInputSecurityGroupCommandOutput extends DescribeInputSe
  *
  * @see {@link DescribeInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeInputSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class DescribeInputSecurityGroupCommand extends $Command<

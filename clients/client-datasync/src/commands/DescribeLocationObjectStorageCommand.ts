@@ -38,7 +38,7 @@ export interface DescribeLocationObjectStorageCommandOutput
  *
  * @see {@link DescribeLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeLocationObjectStorageCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeLocationObjectStorageCommand extends $Command<

@@ -40,7 +40,7 @@ export interface UpdateVolumeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateVolumeCommandInput} for command's `input` shape.
  * @see {@link UpdateVolumeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class UpdateVolumeCommand extends $Command<

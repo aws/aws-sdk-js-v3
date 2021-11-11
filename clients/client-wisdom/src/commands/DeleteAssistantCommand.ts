@@ -35,7 +35,7 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  *
  * @see {@link DeleteAssistantCommandInput} for command's `input` shape.
  * @see {@link DeleteAssistantCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class DeleteAssistantCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  *
  * @see {@link ConstantAndVariableQueryStringCommandInput} for command's `input` shape.
  * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class ConstantAndVariableQueryStringCommand extends $Command<

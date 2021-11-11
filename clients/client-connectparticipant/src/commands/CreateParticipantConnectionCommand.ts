@@ -69,7 +69,7 @@ export interface CreateParticipantConnectionCommandOutput
  *
  * @see {@link CreateParticipantConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateParticipantConnectionCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for ConnectParticipantClient's `config` shape.
  *
  */
 export class CreateParticipantConnectionCommand extends $Command<

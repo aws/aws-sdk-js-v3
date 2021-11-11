@@ -35,7 +35,7 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  *
  * @see {@link DescribeSpotFleetInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotFleetInstancesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeSpotFleetInstancesCommand extends $Command<

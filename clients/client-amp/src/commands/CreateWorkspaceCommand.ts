@@ -35,7 +35,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *
  * @see {@link CreateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link CreateWorkspaceCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  */
 export class CreateWorkspaceCommand extends $Command<

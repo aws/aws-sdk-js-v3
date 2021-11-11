@@ -44,7 +44,7 @@ export interface CreateAcceleratorCommandOutput extends CreateAcceleratorRespons
  *
  * @see {@link CreateAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class CreateAcceleratorCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListAuditSuppressionsCommandOutput extends ListAuditSuppression
  *
  * @see {@link ListAuditSuppressionsCommandInput} for command's `input` shape.
  * @see {@link ListAuditSuppressionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListAuditSuppressionsCommand extends $Command<

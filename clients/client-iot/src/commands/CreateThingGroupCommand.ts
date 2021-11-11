@@ -40,7 +40,7 @@ export interface CreateThingGroupCommandOutput extends CreateThingGroupResponse,
  *
  * @see {@link CreateThingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CreateThingGroupCommand extends $Command<

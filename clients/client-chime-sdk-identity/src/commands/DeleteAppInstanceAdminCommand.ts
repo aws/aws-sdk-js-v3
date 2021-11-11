@@ -36,7 +36,7 @@ export interface DeleteAppInstanceAdminCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAppInstanceAdminCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceAdminCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class DeleteAppInstanceAdminCommand extends $Command<

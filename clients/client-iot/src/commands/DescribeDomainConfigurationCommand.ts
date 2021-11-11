@@ -38,7 +38,7 @@ export interface DescribeDomainConfigurationCommandOutput
  *
  * @see {@link DescribeDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeDomainConfigurationCommand extends $Command<

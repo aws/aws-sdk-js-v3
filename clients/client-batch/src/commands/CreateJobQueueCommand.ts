@@ -40,7 +40,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *
  * @see {@link CreateJobQueueCommandInput} for command's `input` shape.
  * @see {@link CreateJobQueueCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class CreateJobQueueCommand extends $Command<

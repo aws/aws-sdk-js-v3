@@ -35,7 +35,7 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
  *
  * @see {@link DeleteVirtualServiceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualServiceCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class DeleteVirtualServiceCommand extends $Command<

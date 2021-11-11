@@ -36,7 +36,7 @@ export interface CreateDataCatalogCommandOutput extends CreateDataCatalogOutput,
  *
  * @see {@link CreateDataCatalogCommandInput} for command's `input` shape.
  * @see {@link CreateDataCatalogCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class CreateDataCatalogCommand extends $Command<

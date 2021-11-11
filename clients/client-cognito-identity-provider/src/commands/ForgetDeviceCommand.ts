@@ -40,7 +40,7 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ForgetDeviceCommandInput} for command's `input` shape.
  * @see {@link ForgetDeviceCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class ForgetDeviceCommand extends $Command<

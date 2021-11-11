@@ -38,7 +38,7 @@ export interface ListPolicyVersionsCommandOutput extends ListPolicyVersionsRespo
  *
  * @see {@link ListPolicyVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyVersionsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListPolicyVersionsCommand extends $Command<

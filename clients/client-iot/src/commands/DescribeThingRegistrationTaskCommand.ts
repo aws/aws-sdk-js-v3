@@ -38,7 +38,7 @@ export interface DescribeThingRegistrationTaskCommandOutput
  *
  * @see {@link DescribeThingRegistrationTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeThingRegistrationTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeThingRegistrationTaskCommand extends $Command<

@@ -37,7 +37,7 @@ export interface UpdateMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * @see {@link UpdateMissionProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateMissionProfileCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class UpdateMissionProfileCommand extends $Command<

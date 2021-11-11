@@ -35,7 +35,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  *
  * @see {@link DescribeGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class DescribeGroupCommand extends $Command<

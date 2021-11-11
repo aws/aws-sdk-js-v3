@@ -36,7 +36,7 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  *
  * @see {@link DisassociateQueueQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link DisassociateQueueQuickConnectsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DisassociateQueueQuickConnectsCommand extends $Command<

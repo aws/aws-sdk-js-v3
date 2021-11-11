@@ -35,7 +35,7 @@ export interface DescribeBackupVaultCommandOutput extends DescribeBackupVaultOut
  *
  * @see {@link DescribeBackupVaultCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupVaultCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DescribeBackupVaultCommand extends $Command<

@@ -35,7 +35,7 @@ export interface StartTranscriptionJobCommandOutput extends StartTranscriptionJo
  *
  * @see {@link StartTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartTranscriptionJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class StartTranscriptionJobCommand extends $Command<

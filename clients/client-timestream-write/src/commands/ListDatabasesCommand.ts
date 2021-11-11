@@ -38,7 +38,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesResponse, __Met
  *
  * @see {@link ListDatabasesCommandInput} for command's `input` shape.
  * @see {@link ListDatabasesCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class ListDatabasesCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribePlatformVersionCommandOutput extends DescribePlatformVe
  *
  * @see {@link DescribePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePlatformVersionCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DescribePlatformVersionCommand extends $Command<

@@ -41,7 +41,7 @@ export interface IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
  *
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class IncreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command<

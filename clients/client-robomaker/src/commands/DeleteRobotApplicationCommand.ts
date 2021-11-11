@@ -35,7 +35,7 @@ export interface DeleteRobotApplicationCommandOutput extends DeleteRobotApplicat
  *
  * @see {@link DeleteRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link DeleteRobotApplicationCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DeleteRobotApplicationCommand extends $Command<

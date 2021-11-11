@@ -39,7 +39,7 @@ export interface GetContactReachabilityStatusCommandOutput
  *
  * @see {@link GetContactReachabilityStatusCommandInput} for command's `input` shape.
  * @see {@link GetContactReachabilityStatusCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class GetContactReachabilityStatusCommand extends $Command<

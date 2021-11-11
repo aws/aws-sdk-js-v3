@@ -35,7 +35,7 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  *
  * @see {@link DescribeMaintenanceWindowsCommandInput} for command's `input` shape.
  * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<

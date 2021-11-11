@@ -51,7 +51,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *
  * @see {@link CreateSMBFileShareCommandInput} for command's `input` shape.
  * @see {@link CreateSMBFileShareCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class CreateSMBFileShareCommand extends $Command<

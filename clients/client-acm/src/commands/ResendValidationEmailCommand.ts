@@ -43,7 +43,7 @@ export interface ResendValidationEmailCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ResendValidationEmailCommandInput} for command's `input` shape.
  * @see {@link ResendValidationEmailCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class ResendValidationEmailCommand extends $Command<

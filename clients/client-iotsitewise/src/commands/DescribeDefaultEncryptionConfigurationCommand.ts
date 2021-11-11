@@ -43,7 +43,7 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput
  *
  * @see {@link DescribeDefaultEncryptionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultEncryptionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribeDefaultEncryptionConfigurationCommand extends $Command<

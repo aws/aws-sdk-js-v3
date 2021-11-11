@@ -38,7 +38,7 @@ export interface DescribeIdentityCommandOutput extends IdentityDescription, __Me
  *
  * @see {@link DescribeIdentityCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class DescribeIdentityCommand extends $Command<

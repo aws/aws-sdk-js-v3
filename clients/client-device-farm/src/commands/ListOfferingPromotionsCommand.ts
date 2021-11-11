@@ -37,7 +37,7 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  *
  * @see {@link ListOfferingPromotionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingPromotionsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListOfferingPromotionsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListNotebookInstancesCommandOutput extends ListNotebookInstance
  *
  * @see {@link ListNotebookInstancesCommandInput} for command's `input` shape.
  * @see {@link ListNotebookInstancesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListNotebookInstancesCommand extends $Command<

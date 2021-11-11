@@ -35,7 +35,7 @@ export interface ListSnapshotBlocksCommandOutput extends ListSnapshotBlocksRespo
  *
  * @see {@link ListSnapshotBlocksCommandInput} for command's `input` shape.
  * @see {@link ListSnapshotBlocksCommandOutput} for command's `response` shape.
- * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  */
 export class ListSnapshotBlocksCommand extends $Command<

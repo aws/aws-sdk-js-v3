@@ -36,7 +36,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  *
  * @see {@link DescribeIndexCommandInput} for command's `input` shape.
  * @see {@link DescribeIndexCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeIndexCommand extends $Command<

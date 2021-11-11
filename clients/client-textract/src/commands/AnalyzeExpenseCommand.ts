@@ -48,7 +48,7 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  *
  * @see {@link AnalyzeExpenseCommandInput} for command's `input` shape.
  * @see {@link AnalyzeExpenseCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  */
 export class AnalyzeExpenseCommand extends $Command<

@@ -43,7 +43,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  *
  * @see {@link ListResourcesForWebACLCommandInput} for command's `input` shape.
  * @see {@link ListResourcesForWebACLCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class ListResourcesForWebACLCommand extends $Command<

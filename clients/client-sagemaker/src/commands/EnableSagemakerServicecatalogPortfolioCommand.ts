@@ -42,7 +42,7 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput
  *
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandInput} for command's `input` shape.
  * @see {@link EnableSagemakerServicecatalogPortfolioCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class EnableSagemakerServicecatalogPortfolioCommand extends $Command<

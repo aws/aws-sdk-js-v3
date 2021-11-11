@@ -38,7 +38,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class CancelJobCommand extends $Command<

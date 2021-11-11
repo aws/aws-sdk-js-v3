@@ -32,7 +32,7 @@ export interface GetSuiteCommandOutput extends GetSuiteResult, __MetadataBearer 
  *
  * @see {@link GetSuiteCommandInput} for command's `input` shape.
  * @see {@link GetSuiteCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class GetSuiteCommand extends $Command<

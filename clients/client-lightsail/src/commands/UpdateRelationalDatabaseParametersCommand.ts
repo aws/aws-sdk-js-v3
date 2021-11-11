@@ -49,7 +49,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  *
  * @see {@link UpdateRelationalDatabaseParametersCommandInput} for command's `input` shape.
  * @see {@link UpdateRelationalDatabaseParametersCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class UpdateRelationalDatabaseParametersCommand extends $Command<

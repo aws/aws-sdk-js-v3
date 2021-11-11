@@ -54,7 +54,7 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput
  *
  * @see {@link GetInterpolatedAssetPropertyValuesCommandInput} for command's `input` shape.
  * @see {@link GetInterpolatedAssetPropertyValuesCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class GetInterpolatedAssetPropertyValuesCommand extends $Command<

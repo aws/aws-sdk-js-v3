@@ -35,7 +35,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResult, __Metad
  *
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class UpdateContactCommand extends $Command<

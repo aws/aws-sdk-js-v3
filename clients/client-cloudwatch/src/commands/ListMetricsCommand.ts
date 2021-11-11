@@ -45,7 +45,7 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
  *
  * @see {@link ListMetricsCommandInput} for command's `input` shape.
  * @see {@link ListMetricsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class ListMetricsCommand extends $Command<

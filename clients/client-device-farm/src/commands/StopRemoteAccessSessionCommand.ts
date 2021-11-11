@@ -35,7 +35,7 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  *
  * @see {@link StopRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link StopRemoteAccessSessionCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class StopRemoteAccessSessionCommand extends $Command<

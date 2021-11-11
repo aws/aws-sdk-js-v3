@@ -37,7 +37,7 @@ export interface UpdateAppCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class UpdateAppCommand extends $Command<

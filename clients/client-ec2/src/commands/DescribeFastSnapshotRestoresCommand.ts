@@ -37,7 +37,7 @@ export interface DescribeFastSnapshotRestoresCommandOutput
  *
  * @see {@link DescribeFastSnapshotRestoresCommandInput} for command's `input` shape.
  * @see {@link DescribeFastSnapshotRestoresCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeFastSnapshotRestoresCommand extends $Command<

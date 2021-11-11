@@ -37,7 +37,7 @@ export interface DeleteSystemInstanceCommandOutput extends DeleteSystemInstanceR
  *
  * @see {@link DeleteSystemInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteSystemInstanceCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class DeleteSystemInstanceCommand extends $Command<

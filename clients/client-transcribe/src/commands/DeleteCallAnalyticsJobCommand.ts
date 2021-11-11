@@ -35,7 +35,7 @@ export interface DeleteCallAnalyticsJobCommandOutput extends DeleteCallAnalytics
  *
  * @see {@link DeleteCallAnalyticsJobCommandInput} for command's `input` shape.
  * @see {@link DeleteCallAnalyticsJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class DeleteCallAnalyticsJobCommand extends $Command<

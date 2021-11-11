@@ -35,7 +35,7 @@ export interface StopStreamProcessorCommandOutput extends StopStreamProcessorRes
  *
  * @see {@link StopStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link StopStreamProcessorCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StopStreamProcessorCommand extends $Command<

@@ -58,7 +58,7 @@ export interface RequestUploadCredentialsCommandOutput extends RequestUploadCred
  *
  * @see {@link RequestUploadCredentialsCommandInput} for command's `input` shape.
  * @see {@link RequestUploadCredentialsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class RequestUploadCredentialsCommand extends $Command<

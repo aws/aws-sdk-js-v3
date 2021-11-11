@@ -35,7 +35,7 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  *
  * @see {@link DescribeInventoryDeletionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInventoryDeletionsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeInventoryDeletionsCommand extends $Command<

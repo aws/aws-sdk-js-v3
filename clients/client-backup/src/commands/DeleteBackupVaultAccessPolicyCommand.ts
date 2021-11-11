@@ -35,7 +35,7 @@ export interface DeleteBackupVaultAccessPolicyCommandOutput extends __MetadataBe
  *
  * @see {@link DeleteBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteBackupVaultAccessPolicyCommand extends $Command<

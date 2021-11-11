@@ -36,7 +36,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *
  * @see {@link SearchUsersCommandInput} for command's `input` shape.
  * @see {@link SearchUsersCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class SearchUsersCommand extends $Command<

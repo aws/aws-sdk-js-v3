@@ -35,7 +35,7 @@ export interface PutTelemetryRecordsCommandOutput extends PutTelemetryRecordsRes
  *
  * @see {@link PutTelemetryRecordsCommandInput} for command's `input` shape.
  * @see {@link PutTelemetryRecordsCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class PutTelemetryRecordsCommand extends $Command<

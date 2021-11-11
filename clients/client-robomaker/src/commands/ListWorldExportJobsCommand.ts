@@ -35,7 +35,7 @@ export interface ListWorldExportJobsCommandOutput extends ListWorldExportJobsRes
  *
  * @see {@link ListWorldExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListWorldExportJobsCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class ListWorldExportJobsCommand extends $Command<

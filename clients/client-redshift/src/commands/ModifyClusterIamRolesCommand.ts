@@ -37,7 +37,7 @@ export interface ModifyClusterIamRolesCommandOutput extends ModifyClusterIamRole
  *
  * @see {@link ModifyClusterIamRolesCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterIamRolesCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyClusterIamRolesCommand extends $Command<

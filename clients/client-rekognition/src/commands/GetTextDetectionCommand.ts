@@ -53,7 +53,7 @@ export interface GetTextDetectionCommandOutput extends GetTextDetectionResponse,
  *
  * @see {@link GetTextDetectionCommandInput} for command's `input` shape.
  * @see {@link GetTextDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class GetTextDetectionCommand extends $Command<

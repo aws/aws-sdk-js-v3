@@ -39,7 +39,7 @@ export interface UpdateUserProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class UpdateUserProfileCommand extends $Command<

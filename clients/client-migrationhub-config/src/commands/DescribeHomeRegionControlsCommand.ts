@@ -40,7 +40,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  *
  * @see {@link DescribeHomeRegionControlsCommandInput} for command's `input` shape.
  * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
  *
  */
 export class DescribeHomeRegionControlsCommand extends $Command<

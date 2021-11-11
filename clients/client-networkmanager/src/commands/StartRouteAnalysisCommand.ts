@@ -36,7 +36,7 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  *
  * @see {@link StartRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartRouteAnalysisCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class StartRouteAnalysisCommand extends $Command<

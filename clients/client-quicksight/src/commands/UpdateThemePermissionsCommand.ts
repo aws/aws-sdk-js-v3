@@ -128,7 +128,7 @@ export interface UpdateThemePermissionsCommandOutput extends UpdateThemePermissi
  *
  * @see {@link UpdateThemePermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateThemePermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateThemePermissionsCommand extends $Command<

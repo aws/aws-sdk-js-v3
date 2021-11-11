@@ -47,7 +47,7 @@ export interface UpdateManagedRuleSetVersionExpiryDateCommandOutput
  *
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedRuleSetVersionExpiryDateCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class UpdateManagedRuleSetVersionExpiryDateCommand extends $Command<

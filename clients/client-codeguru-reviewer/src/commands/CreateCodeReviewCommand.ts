@@ -41,7 +41,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewResponse,
  *
  * @see {@link CreateCodeReviewCommandInput} for command's `input` shape.
  * @see {@link CreateCodeReviewCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  */
 export class CreateCodeReviewCommand extends $Command<

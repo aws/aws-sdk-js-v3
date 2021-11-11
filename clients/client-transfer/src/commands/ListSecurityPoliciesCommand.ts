@@ -36,7 +36,7 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  *
  * @see {@link ListSecurityPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityPoliciesCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class ListSecurityPoliciesCommand extends $Command<

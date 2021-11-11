@@ -37,7 +37,7 @@ export interface ListEnvironmentTemplateVersionsCommandOutput
  *
  * @see {@link ListEnvironmentTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentTemplateVersionsCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class ListEnvironmentTemplateVersionsCommand extends $Command<

@@ -74,7 +74,7 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *
  * @see {@link CreateProjectVersionCommandInput} for command's `input` shape.
  * @see {@link CreateProjectVersionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class CreateProjectVersionCommand extends $Command<

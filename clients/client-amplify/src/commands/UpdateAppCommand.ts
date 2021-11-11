@@ -35,7 +35,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *
  * @see {@link UpdateAppCommandInput} for command's `input` shape.
  * @see {@link UpdateAppCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class UpdateAppCommand extends $Command<

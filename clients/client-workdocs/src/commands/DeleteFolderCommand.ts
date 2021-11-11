@@ -35,7 +35,7 @@ export interface DeleteFolderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFolderCommandInput} for command's `input` shape.
  * @see {@link DeleteFolderCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DeleteFolderCommand extends $Command<

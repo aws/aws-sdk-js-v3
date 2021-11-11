@@ -64,7 +64,7 @@ export interface ApproveAssignmentCommandOutput extends ApproveAssignmentRespons
  *
  * @see {@link ApproveAssignmentCommandInput} for command's `input` shape.
  * @see {@link ApproveAssignmentCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class ApproveAssignmentCommand extends $Command<

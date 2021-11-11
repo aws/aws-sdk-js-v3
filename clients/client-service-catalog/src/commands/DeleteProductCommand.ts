@@ -37,7 +37,7 @@ export interface DeleteProductCommandOutput extends DeleteProductOutput, __Metad
  *
  * @see {@link DeleteProductCommandInput} for command's `input` shape.
  * @see {@link DeleteProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class DeleteProductCommand extends $Command<

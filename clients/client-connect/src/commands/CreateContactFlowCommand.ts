@@ -37,7 +37,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  *
  * @see {@link CreateContactFlowCommandInput} for command's `input` shape.
  * @see {@link CreateContactFlowCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateContactFlowCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DescribePlacementCommandOutput extends DescribePlacementRespons
  *
  * @see {@link DescribePlacementCommandInput} for command's `input` shape.
  * @see {@link DescribePlacementCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
  */
 export class DescribePlacementCommand extends $Command<

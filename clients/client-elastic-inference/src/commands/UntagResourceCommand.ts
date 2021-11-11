@@ -37,7 +37,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResult, __Metad
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link ElasticInferenceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

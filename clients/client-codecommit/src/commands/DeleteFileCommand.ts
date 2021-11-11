@@ -37,7 +37,7 @@ export interface DeleteFileCommandOutput extends DeleteFileOutput, __MetadataBea
  *
  * @see {@link DeleteFileCommandInput} for command's `input` shape.
  * @see {@link DeleteFileCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DeleteFileCommand extends $Command<

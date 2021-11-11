@@ -35,7 +35,7 @@ export interface PutKMSEncryptionKeyCommandOutput extends PutKMSEncryptionKeyRes
  *
  * @see {@link PutKMSEncryptionKeyCommandInput} for command's `input` shape.
  * @see {@link PutKMSEncryptionKeyCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class PutKMSEncryptionKeyCommand extends $Command<

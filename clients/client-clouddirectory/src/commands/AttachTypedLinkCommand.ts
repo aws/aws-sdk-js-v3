@@ -35,7 +35,7 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  *
  * @see {@link AttachTypedLinkCommandInput} for command's `input` shape.
  * @see {@link AttachTypedLinkCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class AttachTypedLinkCommand extends $Command<

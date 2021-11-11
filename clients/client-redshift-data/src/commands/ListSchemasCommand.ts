@@ -49,7 +49,7 @@ export interface ListSchemasCommandOutput extends ListSchemasResponse, __Metadat
  *
  * @see {@link ListSchemasCommandInput} for command's `input` shape.
  * @see {@link ListSchemasCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class ListSchemasCommand extends $Command<

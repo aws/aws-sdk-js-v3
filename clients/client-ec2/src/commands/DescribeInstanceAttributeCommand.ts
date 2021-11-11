@@ -42,7 +42,7 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  *
  * @see {@link DescribeInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeInstanceAttributeCommand extends $Command<

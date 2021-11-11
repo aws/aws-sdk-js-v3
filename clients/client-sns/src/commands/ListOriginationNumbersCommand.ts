@@ -37,7 +37,7 @@ export interface ListOriginationNumbersCommandOutput extends ListOriginationNumb
  *
  * @see {@link ListOriginationNumbersCommandInput} for command's `input` shape.
  * @see {@link ListOriginationNumbersCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class ListOriginationNumbersCommand extends $Command<

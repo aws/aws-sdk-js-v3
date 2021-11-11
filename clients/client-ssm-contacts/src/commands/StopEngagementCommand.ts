@@ -36,7 +36,7 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *
  * @see {@link StopEngagementCommandInput} for command's `input` shape.
  * @see {@link StopEngagementCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class StopEngagementCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeIpGroupsCommandOutput extends DescribeIpGroupsResult, _
  *
  * @see {@link DescribeIpGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeIpGroupsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DescribeIpGroupsCommand extends $Command<

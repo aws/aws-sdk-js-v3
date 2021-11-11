@@ -35,7 +35,7 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  *
  * @see {@link UpdateWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkloadShareCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class UpdateWorkloadShareCommand extends $Command<

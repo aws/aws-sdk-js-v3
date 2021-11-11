@@ -39,7 +39,7 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  *
  * @see {@link TestInvokeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link TestInvokeAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class TestInvokeAuthorizerCommand extends $Command<

@@ -40,7 +40,7 @@ export interface SetDesiredCapacityCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetDesiredCapacityCommandInput} for command's `input` shape.
  * @see {@link SetDesiredCapacityCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class SetDesiredCapacityCommand extends $Command<

@@ -60,7 +60,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *
  * @see {@link EnableAllFeaturesCommandInput} for command's `input` shape.
  * @see {@link EnableAllFeaturesCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class EnableAllFeaturesCommand extends $Command<

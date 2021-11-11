@@ -39,7 +39,7 @@ export interface ListChannelFlowsCommandOutput extends ListChannelFlowsResponse,
  *
  * @see {@link ListChannelFlowsCommandInput} for command's `input` shape.
  * @see {@link ListChannelFlowsCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class ListChannelFlowsCommand extends $Command<

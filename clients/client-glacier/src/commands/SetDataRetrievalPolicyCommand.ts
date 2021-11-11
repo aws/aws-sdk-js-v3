@@ -40,7 +40,7 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetDataRetrievalPolicyCommandInput} for command's `input` shape.
  * @see {@link SetDataRetrievalPolicyCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class SetDataRetrievalPolicyCommand extends $Command<

@@ -41,7 +41,7 @@ export interface UpdateLicenseManagerReportGeneratorCommandOutput
  *
  * @see {@link UpdateLicenseManagerReportGeneratorCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseManagerReportGeneratorCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class UpdateLicenseManagerReportGeneratorCommand extends $Command<

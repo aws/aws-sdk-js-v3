@@ -35,7 +35,7 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  *
  * @see {@link ImportBackendAuthCommandInput} for command's `input` shape.
  * @see {@link ImportBackendAuthCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class ImportBackendAuthCommand extends $Command<

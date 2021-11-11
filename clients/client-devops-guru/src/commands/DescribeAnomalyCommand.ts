@@ -37,7 +37,7 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  *
  * @see {@link DescribeAnomalyCommandInput} for command's `input` shape.
  * @see {@link DescribeAnomalyCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  */
 export class DescribeAnomalyCommand extends $Command<

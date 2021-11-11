@@ -35,7 +35,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  *
  * @see {@link BatchGetDevicePositionCommandInput} for command's `input` shape.
  * @see {@link BatchGetDevicePositionCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class BatchGetDevicePositionCommand extends $Command<

@@ -42,7 +42,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  *
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeSnapshotsCommand extends $Command<

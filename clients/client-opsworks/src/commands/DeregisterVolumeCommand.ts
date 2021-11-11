@@ -42,7 +42,7 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeregisterVolumeCommandInput} for command's `input` shape.
  * @see {@link DeregisterVolumeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DeregisterVolumeCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CreateDirectConnectGatewayCommandOutput extends CreateDirectCon
  *
  * @see {@link CreateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateDirectConnectGatewayCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class CreateDirectConnectGatewayCommand extends $Command<

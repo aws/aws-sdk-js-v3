@@ -35,7 +35,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  *
  * @see {@link UpdateChannelClassCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelClassCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class UpdateChannelClassCommand extends $Command<

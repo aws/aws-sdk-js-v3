@@ -36,7 +36,7 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link HttpRequestWithLabelsCommandInput} for command's `input` shape.
  * @see {@link HttpRequestWithLabelsCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class HttpRequestWithLabelsCommand extends $Command<

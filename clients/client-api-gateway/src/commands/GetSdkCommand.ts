@@ -32,7 +32,7 @@ export interface GetSdkCommandOutput extends SdkResponse, __MetadataBearer {}
  *
  * @see {@link GetSdkCommandInput} for command's `input` shape.
  * @see {@link GetSdkCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetSdkCommand extends $Command<GetSdkCommandInput, GetSdkCommandOutput, APIGatewayClientResolvedConfig> {

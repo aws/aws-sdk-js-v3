@@ -36,7 +36,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  *
  * @see {@link GetDigestCommandInput} for command's `input` shape.
  * @see {@link GetDigestCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class GetDigestCommand extends $Command<

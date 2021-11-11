@@ -38,7 +38,7 @@ export interface ListConnectorEntitiesCommandOutput extends ListConnectorEntitie
  *
  * @see {@link ListConnectorEntitiesCommandInput} for command's `input` shape.
  * @see {@link ListConnectorEntitiesCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class ListConnectorEntitiesCommand extends $Command<

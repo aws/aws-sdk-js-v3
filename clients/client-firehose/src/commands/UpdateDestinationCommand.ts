@@ -58,7 +58,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *
  * @see {@link UpdateDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateDestinationCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class UpdateDestinationCommand extends $Command<

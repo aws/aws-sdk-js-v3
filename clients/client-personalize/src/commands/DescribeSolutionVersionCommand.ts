@@ -35,7 +35,7 @@ export interface DescribeSolutionVersionCommandOutput extends DescribeSolutionVe
  *
  * @see {@link DescribeSolutionVersionCommandInput} for command's `input` shape.
  * @see {@link DescribeSolutionVersionCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class DescribeSolutionVersionCommand extends $Command<

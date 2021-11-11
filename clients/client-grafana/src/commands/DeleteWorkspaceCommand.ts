@@ -35,7 +35,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  *
  * @see {@link DeleteWorkspaceCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkspaceCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  */
 export class DeleteWorkspaceCommand extends $Command<

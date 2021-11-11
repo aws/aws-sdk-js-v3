@@ -35,7 +35,7 @@ export interface CancelContactCommandOutput extends ContactIdResponse, __Metadat
  *
  * @see {@link CancelContactCommandInput} for command's `input` shape.
  * @see {@link CancelContactCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class CancelContactCommand extends $Command<

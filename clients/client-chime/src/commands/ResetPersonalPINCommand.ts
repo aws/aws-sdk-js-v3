@@ -36,7 +36,7 @@ export interface ResetPersonalPINCommandOutput extends ResetPersonalPINResponse,
  *
  * @see {@link ResetPersonalPINCommandInput} for command's `input` shape.
  * @see {@link ResetPersonalPINCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ResetPersonalPINCommand extends $Command<

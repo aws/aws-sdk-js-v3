@@ -37,7 +37,7 @@ export interface DescribeStorediSCSIVolumesCommandOutput extends DescribeStoredi
  *
  * @see {@link DescribeStorediSCSIVolumesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorediSCSIVolumesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeStorediSCSIVolumesCommand extends $Command<

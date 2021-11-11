@@ -50,7 +50,7 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class ListStreamsCommand extends $Command<

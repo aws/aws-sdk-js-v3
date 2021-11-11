@@ -38,7 +38,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
- * @see {@link IoTFleetHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
  *
  */
 export class UpdateApplicationCommand extends $Command<

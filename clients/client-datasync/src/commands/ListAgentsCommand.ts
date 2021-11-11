@@ -42,7 +42,7 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  *
  * @see {@link ListAgentsCommandInput} for command's `input` shape.
  * @see {@link ListAgentsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class ListAgentsCommand extends $Command<

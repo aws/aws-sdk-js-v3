@@ -47,7 +47,7 @@ export interface BatchUpsertTableRowsCommandOutput extends BatchUpsertTableRowsR
  *
  * @see {@link BatchUpsertTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpsertTableRowsCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
  *
  */
 export class BatchUpsertTableRowsCommand extends $Command<

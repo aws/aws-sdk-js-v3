@@ -49,7 +49,7 @@ export interface DeregisterContainerInstanceCommandOutput
  *
  * @see {@link DeregisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterContainerInstanceCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class DeregisterContainerInstanceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  *
  * @see {@link CreateTriggerCommandInput} for command's `input` shape.
  * @see {@link CreateTriggerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CreateTriggerCommand extends $Command<

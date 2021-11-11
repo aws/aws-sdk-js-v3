@@ -36,7 +36,7 @@ export interface DeleteEmailIdentityCommandOutput extends DeleteEmailIdentityRes
  *
  * @see {@link DeleteEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class DeleteEmailIdentityCommand extends $Command<

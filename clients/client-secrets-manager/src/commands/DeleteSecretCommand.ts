@@ -80,7 +80,7 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *
  * @see {@link DeleteSecretCommandInput} for command's `input` shape.
  * @see {@link DeleteSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class DeleteSecretCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeactivateEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DeactivateEventSourceCommand extends $Command<

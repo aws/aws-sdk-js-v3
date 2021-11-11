@@ -75,7 +75,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *
  * @see {@link StartMatchmakingCommandInput} for command's `input` shape.
  * @see {@link StartMatchmakingCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class StartMatchmakingCommand extends $Command<

@@ -38,7 +38,7 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  *
  * @see {@link GetSendStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetSendStatisticsCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetSendStatisticsCommand extends $Command<

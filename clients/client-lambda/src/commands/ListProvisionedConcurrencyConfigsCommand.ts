@@ -40,7 +40,7 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  *
  * @see {@link ListProvisionedConcurrencyConfigsCommandInput} for command's `input` shape.
  * @see {@link ListProvisionedConcurrencyConfigsCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command<

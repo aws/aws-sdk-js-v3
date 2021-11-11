@@ -40,7 +40,7 @@ export interface CloneStackCommandOutput extends CloneStackResult, __MetadataBea
  *
  * @see {@link CloneStackCommandInput} for command's `input` shape.
  * @see {@link CloneStackCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class CloneStackCommand extends $Command<

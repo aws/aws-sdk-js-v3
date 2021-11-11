@@ -45,7 +45,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *
  * @see {@link CreateDeploymentCommandInput} for command's `input` shape.
  * @see {@link CreateDeploymentCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  */
 export class CreateDeploymentCommand extends $Command<

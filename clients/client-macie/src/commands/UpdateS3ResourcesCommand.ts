@@ -39,7 +39,7 @@ export interface UpdateS3ResourcesCommandOutput extends UpdateS3ResourcesResult,
  *
  * @see {@link UpdateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link UpdateS3ResourcesCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class UpdateS3ResourcesCommand extends $Command<

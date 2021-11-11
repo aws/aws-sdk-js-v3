@@ -35,7 +35,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *
  * @see {@link CreateFlowCommandInput} for command's `input` shape.
  * @see {@link CreateFlowCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class CreateFlowCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateInstanceAttributeCommandOutput extends __MetadataBearer {
  *
  * @see {@link UpdateInstanceAttributeCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceAttributeCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateInstanceAttributeCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  *
  * @see {@link GetAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class GetAccountSendingEnabledCommand extends $Command<

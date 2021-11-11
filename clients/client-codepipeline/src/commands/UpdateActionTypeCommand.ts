@@ -38,7 +38,7 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateActionTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateActionTypeCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class UpdateActionTypeCommand extends $Command<

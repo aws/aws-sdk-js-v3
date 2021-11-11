@@ -40,7 +40,7 @@ export interface ListQuerySuggestionsBlockListsCommandOutput
  *
  * @see {@link ListQuerySuggestionsBlockListsCommandInput} for command's `input` shape.
  * @see {@link ListQuerySuggestionsBlockListsCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class ListQuerySuggestionsBlockListsCommand extends $Command<

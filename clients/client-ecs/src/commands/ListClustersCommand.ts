@@ -35,7 +35,7 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  *
  * @see {@link ListClustersCommandInput} for command's `input` shape.
  * @see {@link ListClustersCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class ListClustersCommand extends $Command<

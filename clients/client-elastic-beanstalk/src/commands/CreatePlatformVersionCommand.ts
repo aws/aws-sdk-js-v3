@@ -35,7 +35,7 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  *
  * @see {@link CreatePlatformVersionCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformVersionCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class CreatePlatformVersionCommand extends $Command<

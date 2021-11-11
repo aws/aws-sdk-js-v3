@@ -35,7 +35,7 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  *
  * @see {@link GetGroupsCommandInput} for command's `input` shape.
  * @see {@link GetGroupsCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetGroupsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteEventActionCommandInput} for command's `input` shape.
  * @see {@link DeleteEventActionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class DeleteEventActionCommand extends $Command<

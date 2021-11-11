@@ -37,7 +37,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  *
  * @see {@link GetCurrentMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetCurrentMetricDataCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class GetCurrentMetricDataCommand extends $Command<

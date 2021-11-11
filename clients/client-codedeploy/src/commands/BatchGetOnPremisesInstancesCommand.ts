@@ -36,7 +36,7 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  *
  * @see {@link BatchGetOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link BatchGetOnPremisesInstancesCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class BatchGetOnPremisesInstancesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateAppCommandOutput extends CreateAppResult, __MetadataBeare
  *
  * @see {@link CreateAppCommandInput} for command's `input` shape.
  * @see {@link CreateAppCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class CreateAppCommand extends $Command<

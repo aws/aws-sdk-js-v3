@@ -37,7 +37,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  *
  * @see {@link GetAdministratorAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdministratorAccountCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class GetAdministratorAccountCommand extends $Command<

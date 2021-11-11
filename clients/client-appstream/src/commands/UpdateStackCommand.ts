@@ -35,7 +35,7 @@ export interface UpdateStackCommandOutput extends UpdateStackResult, __MetadataB
  *
  * @see {@link UpdateStackCommandInput} for command's `input` shape.
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class UpdateStackCommand extends $Command<

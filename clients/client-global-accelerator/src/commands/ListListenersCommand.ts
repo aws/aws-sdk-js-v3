@@ -39,7 +39,7 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  *
  * @see {@link ListListenersCommandInput} for command's `input` shape.
  * @see {@link ListListenersCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class ListListenersCommand extends $Command<

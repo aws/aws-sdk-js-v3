@@ -48,7 +48,7 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CompleteVaultLockCommandInput} for command's `input` shape.
  * @see {@link CompleteVaultLockCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class CompleteVaultLockCommand extends $Command<

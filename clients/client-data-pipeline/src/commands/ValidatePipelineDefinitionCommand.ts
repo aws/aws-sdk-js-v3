@@ -186,7 +186,7 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  *
  * @see {@link ValidatePipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link ValidatePipelineDefinitionCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  */
 export class ValidatePipelineDefinitionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  *
  * @see {@link StartNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class StartNotebookExecutionCommand extends $Command<

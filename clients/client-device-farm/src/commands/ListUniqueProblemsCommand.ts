@@ -39,7 +39,7 @@ export interface ListUniqueProblemsCommandOutput extends ListUniqueProblemsResul
  *
  * @see {@link ListUniqueProblemsCommandInput} for command's `input` shape.
  * @see {@link ListUniqueProblemsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListUniqueProblemsCommand extends $Command<

@@ -41,7 +41,7 @@ export interface RegisterCACertificateCommandOutput extends RegisterCACertificat
  *
  * @see {@link RegisterCACertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCACertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class RegisterCACertificateCommand extends $Command<

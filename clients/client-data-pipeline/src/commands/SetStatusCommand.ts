@@ -64,7 +64,7 @@ export interface SetStatusCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetStatusCommandInput} for command's `input` shape.
  * @see {@link SetStatusCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  */
 export class SetStatusCommand extends $Command<

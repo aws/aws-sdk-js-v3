@@ -42,7 +42,7 @@ export interface ListSigningProfilesCommandOutput extends ListSigningProfilesRes
  *
  * @see {@link ListSigningProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSigningProfilesCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class ListSigningProfilesCommand extends $Command<

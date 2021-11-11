@@ -35,7 +35,7 @@ export interface GetBackupVaultNotificationsCommandOutput extends GetBackupVault
  *
  * @see {@link GetBackupVaultNotificationsCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultNotificationsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class GetBackupVaultNotificationsCommand extends $Command<

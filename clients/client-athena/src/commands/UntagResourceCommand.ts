@@ -35,7 +35,7 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

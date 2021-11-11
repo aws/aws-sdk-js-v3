@@ -36,7 +36,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  *
  * @see {@link UpdateLocationHdfsCommandInput} for command's `input` shape.
  * @see {@link UpdateLocationHdfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class UpdateLocationHdfsCommand extends $Command<

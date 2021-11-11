@@ -35,7 +35,7 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *
  * @see {@link RemoveNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link RemoveNotificationChannelCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class RemoveNotificationChannelCommand extends $Command<

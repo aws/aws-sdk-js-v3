@@ -49,7 +49,7 @@ export interface UpdateBucketBundleCommandOutput extends UpdateBucketBundleResul
  *
  * @see {@link UpdateBucketBundleCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketBundleCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class UpdateBucketBundleCommand extends $Command<

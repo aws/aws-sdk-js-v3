@@ -40,7 +40,7 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  *
  * @see {@link ComposeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ComposeEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class ComposeEnvironmentsCommand extends $Command<

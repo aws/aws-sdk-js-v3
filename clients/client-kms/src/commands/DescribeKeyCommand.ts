@@ -114,7 +114,7 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *
  * @see {@link DescribeKeyCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class DescribeKeyCommand extends $Command<

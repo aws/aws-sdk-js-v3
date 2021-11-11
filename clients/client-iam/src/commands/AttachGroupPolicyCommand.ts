@@ -42,7 +42,7 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AttachGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachGroupPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class AttachGroupPolicyCommand extends $Command<

@@ -38,7 +38,7 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *
  * @see {@link CreateFlowCommandInput} for command's `input` shape.
  * @see {@link CreateFlowCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class CreateFlowCommand extends $Command<

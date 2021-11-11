@@ -39,7 +39,7 @@ export interface InstallToRemoteAccessSessionCommandOutput
  *
  * @see {@link InstallToRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link InstallToRemoteAccessSessionCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class InstallToRemoteAccessSessionCommand extends $Command<

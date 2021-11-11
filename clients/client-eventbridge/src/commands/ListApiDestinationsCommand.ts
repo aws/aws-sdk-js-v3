@@ -35,7 +35,7 @@ export interface ListApiDestinationsCommandOutput extends ListApiDestinationsRes
  *
  * @see {@link ListApiDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListApiDestinationsCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class ListApiDestinationsCommand extends $Command<

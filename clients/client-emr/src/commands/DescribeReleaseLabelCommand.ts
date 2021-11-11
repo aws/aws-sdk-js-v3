@@ -35,7 +35,7 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  *
  * @see {@link DescribeReleaseLabelCommandInput} for command's `input` shape.
  * @see {@link DescribeReleaseLabelCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DescribeReleaseLabelCommand extends $Command<

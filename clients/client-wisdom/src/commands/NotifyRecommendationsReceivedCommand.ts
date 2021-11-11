@@ -39,7 +39,7 @@ export interface NotifyRecommendationsReceivedCommandOutput
  *
  * @see {@link NotifyRecommendationsReceivedCommandInput} for command's `input` shape.
  * @see {@link NotifyRecommendationsReceivedCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class NotifyRecommendationsReceivedCommand extends $Command<

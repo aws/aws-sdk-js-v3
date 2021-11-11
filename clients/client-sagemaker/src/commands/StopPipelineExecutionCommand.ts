@@ -59,7 +59,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class StopPipelineExecutionCommand extends $Command<

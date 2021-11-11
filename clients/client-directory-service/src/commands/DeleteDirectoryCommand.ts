@@ -39,7 +39,7 @@ export interface DeleteDirectoryCommandOutput extends DeleteDirectoryResult, __M
  *
  * @see {@link DeleteDirectoryCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeleteDirectoryCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  *
  * @see {@link ListSpeakersCommandInput} for command's `input` shape.
  * @see {@link ListSpeakersCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class ListSpeakersCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class ListChannelsCommand extends $Command<

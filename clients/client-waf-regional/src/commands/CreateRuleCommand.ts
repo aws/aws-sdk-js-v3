@@ -86,7 +86,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class CreateRuleCommand extends $Command<

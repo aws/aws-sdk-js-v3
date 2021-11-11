@@ -42,7 +42,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  *
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class ListExecutionsCommand extends $Command<

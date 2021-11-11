@@ -35,7 +35,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  *
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class ListNotificationsCommand extends $Command<

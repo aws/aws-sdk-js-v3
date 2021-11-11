@@ -37,7 +37,7 @@ export interface DescribeEventTrackerCommandOutput extends DescribeEventTrackerR
  *
  * @see {@link DescribeEventTrackerCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTrackerCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class DescribeEventTrackerCommand extends $Command<

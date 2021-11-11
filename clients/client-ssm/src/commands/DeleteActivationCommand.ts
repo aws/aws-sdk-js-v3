@@ -38,7 +38,7 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *
  * @see {@link DeleteActivationCommandInput} for command's `input` shape.
  * @see {@link DeleteActivationCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DeleteActivationCommand extends $Command<

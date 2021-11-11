@@ -35,7 +35,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AllQueryStringTypesCommandInput} for command's `input` shape.
  * @see {@link AllQueryStringTypesCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class AllQueryStringTypesCommand extends $Command<

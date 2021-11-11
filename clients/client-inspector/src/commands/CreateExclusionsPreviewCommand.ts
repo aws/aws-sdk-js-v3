@@ -37,7 +37,7 @@ export interface CreateExclusionsPreviewCommandOutput extends CreateExclusionsPr
  *
  * @see {@link CreateExclusionsPreviewCommandInput} for command's `input` shape.
  * @see {@link CreateExclusionsPreviewCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class CreateExclusionsPreviewCommand extends $Command<

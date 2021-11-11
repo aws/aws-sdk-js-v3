@@ -33,7 +33,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  *
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteJobCommand extends $Command<

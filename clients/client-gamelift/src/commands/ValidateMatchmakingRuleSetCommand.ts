@@ -62,7 +62,7 @@ export interface ValidateMatchmakingRuleSetCommandOutput extends ValidateMatchma
  *
  * @see {@link ValidateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link ValidateMatchmakingRuleSetCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class ValidateMatchmakingRuleSetCommand extends $Command<

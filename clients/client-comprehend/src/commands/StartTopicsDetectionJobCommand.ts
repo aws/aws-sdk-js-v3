@@ -36,7 +36,7 @@ export interface StartTopicsDetectionJobCommandOutput extends StartTopicsDetecti
  *
  * @see {@link StartTopicsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartTopicsDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class StartTopicsDetectionJobCommand extends $Command<

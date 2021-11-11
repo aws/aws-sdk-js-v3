@@ -35,7 +35,7 @@ export interface GetDocumentVersionCommandOutput extends GetDocumentVersionRespo
  *
  * @see {@link GetDocumentVersionCommandInput} for command's `input` shape.
  * @see {@link GetDocumentVersionCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class GetDocumentVersionCommand extends $Command<

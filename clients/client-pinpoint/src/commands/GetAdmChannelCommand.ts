@@ -35,7 +35,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  *
  * @see {@link GetAdmChannelCommandInput} for command's `input` shape.
  * @see {@link GetAdmChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetAdmChannelCommand extends $Command<

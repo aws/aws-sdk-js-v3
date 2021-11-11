@@ -45,7 +45,7 @@ export interface ListAvailableManagementCidrRangesCommandOutput
  *
  * @see {@link ListAvailableManagementCidrRangesCommandInput} for command's `input` shape.
  * @see {@link ListAvailableManagementCidrRangesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class ListAvailableManagementCidrRangesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  *
  * @see {@link DescribeResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class DescribeResourceCommand extends $Command<

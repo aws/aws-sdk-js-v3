@@ -41,7 +41,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class RebootDBInstanceCommand extends $Command<

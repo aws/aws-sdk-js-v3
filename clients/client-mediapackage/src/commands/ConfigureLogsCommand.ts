@@ -35,7 +35,7 @@ export interface ConfigureLogsCommandOutput extends ConfigureLogsResponse, __Met
  *
  * @see {@link ConfigureLogsCommandInput} for command's `input` shape.
  * @see {@link ConfigureLogsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class ConfigureLogsCommand extends $Command<

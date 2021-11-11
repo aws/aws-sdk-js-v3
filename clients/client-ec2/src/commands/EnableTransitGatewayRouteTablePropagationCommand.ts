@@ -42,7 +42,7 @@ export interface EnableTransitGatewayRouteTablePropagationCommandOutput
  *
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandInput} for command's `input` shape.
  * @see {@link EnableTransitGatewayRouteTablePropagationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class EnableTransitGatewayRouteTablePropagationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileResul
  *
  * @see {@link GetInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link GetInstanceProfileCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class GetInstanceProfileCommand extends $Command<

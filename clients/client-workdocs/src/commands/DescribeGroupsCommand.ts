@@ -36,7 +36,7 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  *
  * @see {@link DescribeGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeGroupsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DescribeGroupsCommand extends $Command<

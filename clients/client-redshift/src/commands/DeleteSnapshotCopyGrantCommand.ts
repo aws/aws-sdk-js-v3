@@ -35,7 +35,7 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCopyGrantCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DeleteSnapshotCopyGrantCommand extends $Command<

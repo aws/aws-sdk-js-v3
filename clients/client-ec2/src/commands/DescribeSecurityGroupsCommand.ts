@@ -41,7 +41,7 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  *
  * @see {@link DescribeSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityGroupsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeSecurityGroupsCommand extends $Command<

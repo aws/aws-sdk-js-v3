@@ -40,7 +40,7 @@ export interface ListGeoLocationsCommandOutput extends ListGeoLocationsResponse,
  *
  * @see {@link ListGeoLocationsCommandInput} for command's `input` shape.
  * @see {@link ListGeoLocationsCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class ListGeoLocationsCommand extends $Command<

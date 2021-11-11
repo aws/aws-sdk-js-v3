@@ -106,7 +106,7 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  *
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandInput} for command's `input` shape.
  * @see {@link GenerateDataKeyPairWithoutPlaintextCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command<

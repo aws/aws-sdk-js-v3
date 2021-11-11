@@ -43,7 +43,7 @@ export interface ListQueryLoggingConfigsCommandOutput extends ListQueryLoggingCo
  *
  * @see {@link ListQueryLoggingConfigsCommandInput} for command's `input` shape.
  * @see {@link ListQueryLoggingConfigsCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class ListQueryLoggingConfigsCommand extends $Command<

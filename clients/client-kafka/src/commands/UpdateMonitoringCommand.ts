@@ -35,7 +35,7 @@ export interface UpdateMonitoringCommandOutput extends UpdateMonitoringResponse,
  *
  * @see {@link UpdateMonitoringCommandInput} for command's `input` shape.
  * @see {@link UpdateMonitoringCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class UpdateMonitoringCommand extends $Command<

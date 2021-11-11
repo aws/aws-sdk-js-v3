@@ -35,7 +35,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *
  * @see {@link CreateFleetCommandInput} for command's `input` shape.
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class CreateFleetCommand extends $Command<

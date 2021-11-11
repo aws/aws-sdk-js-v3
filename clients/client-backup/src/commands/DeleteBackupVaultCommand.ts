@@ -36,7 +36,7 @@ export interface DeleteBackupVaultCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBackupVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteBackupVaultCommand extends $Command<

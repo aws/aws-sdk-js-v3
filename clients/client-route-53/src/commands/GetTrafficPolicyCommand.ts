@@ -39,7 +39,7 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  *
  * @see {@link GetTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link GetTrafficPolicyCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class GetTrafficPolicyCommand extends $Command<

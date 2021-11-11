@@ -47,7 +47,7 @@ export interface GetAggregateConfigRuleComplianceSummaryCommandOutput
  *
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAggregateConfigRuleComplianceSummaryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetAggregateConfigRuleComplianceSummaryCommand extends $Command<

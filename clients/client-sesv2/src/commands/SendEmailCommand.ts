@@ -58,7 +58,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *
  * @see {@link SendEmailCommandInput} for command's `input` shape.
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class SendEmailCommand extends $Command<

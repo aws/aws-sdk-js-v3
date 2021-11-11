@@ -35,7 +35,7 @@ export interface UpdateModelCommandOutput extends UpdateModelResult, __MetadataB
  *
  * @see {@link UpdateModelCommandInput} for command's `input` shape.
  * @see {@link UpdateModelCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class UpdateModelCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  *
  * @see {@link ListOriginEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListOriginEndpointsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for MediaPackageClient's `config` shape.
  *
  */
 export class ListOriginEndpointsCommand extends $Command<

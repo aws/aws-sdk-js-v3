@@ -40,7 +40,7 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  *
  * @see {@link DetachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DetachLoadBalancersCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DetachLoadBalancersCommand extends $Command<

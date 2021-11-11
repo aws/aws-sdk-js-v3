@@ -39,7 +39,7 @@ export interface UpdateNodegroupConfigCommandOutput extends UpdateNodegroupConfi
  *
  * @see {@link UpdateNodegroupConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateNodegroupConfigCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class UpdateNodegroupConfigCommand extends $Command<

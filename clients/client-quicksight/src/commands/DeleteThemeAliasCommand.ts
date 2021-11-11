@@ -37,7 +37,7 @@ export interface DeleteThemeAliasCommandOutput extends DeleteThemeAliasResponse,
  *
  * @see {@link DeleteThemeAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteThemeAliasCommand extends $Command<

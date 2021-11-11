@@ -46,7 +46,7 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *
  * @see {@link UngroupResourcesCommandInput} for command's `input` shape.
  * @see {@link UngroupResourcesCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class UngroupResourcesCommand extends $Command<

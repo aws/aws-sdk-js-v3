@@ -49,7 +49,7 @@ export interface GetUserPolicyCommandOutput extends GetUserPolicyResponse, __Met
  *
  * @see {@link GetUserPolicyCommandInput} for command's `input` shape.
  * @see {@link GetUserPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetUserPolicyCommand extends $Command<

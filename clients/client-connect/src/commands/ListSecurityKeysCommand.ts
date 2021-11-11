@@ -36,7 +36,7 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  *
  * @see {@link ListSecurityKeysCommandInput} for command's `input` shape.
  * @see {@link ListSecurityKeysCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListSecurityKeysCommand extends $Command<

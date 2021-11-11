@@ -35,7 +35,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeTagsCommand extends $Command<

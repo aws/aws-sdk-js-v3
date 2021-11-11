@@ -47,7 +47,7 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *
  * @see {@link CreateFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFeatureGroupCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateFeatureGroupCommand extends $Command<

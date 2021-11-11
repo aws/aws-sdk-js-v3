@@ -37,7 +37,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class AddTagsToResourceCommand extends $Command<

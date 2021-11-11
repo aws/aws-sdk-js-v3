@@ -36,7 +36,7 @@ export interface GetDiskSnapshotsCommandOutput extends GetDiskSnapshotsResult, _
  *
  * @see {@link GetDiskSnapshotsCommandInput} for command's `input` shape.
  * @see {@link GetDiskSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetDiskSnapshotsCommand extends $Command<

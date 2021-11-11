@@ -35,7 +35,7 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  *
  * @see {@link ListApplicationRevisionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationRevisionsCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class ListApplicationRevisionsCommand extends $Command<

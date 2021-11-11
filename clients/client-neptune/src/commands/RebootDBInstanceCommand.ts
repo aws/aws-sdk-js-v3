@@ -39,7 +39,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * @see {@link RebootDBInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class RebootDBInstanceCommand extends $Command<

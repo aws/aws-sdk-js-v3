@@ -36,7 +36,7 @@ export interface PutPartnerEventsCommandOutput extends PutPartnerEventsResponse,
  *
  * @see {@link PutPartnerEventsCommandInput} for command's `input` shape.
  * @see {@link PutPartnerEventsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class PutPartnerEventsCommand extends $Command<

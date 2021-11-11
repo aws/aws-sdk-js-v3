@@ -40,7 +40,7 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput
  *
  * @see {@link DeleteLoadBalancerTlsCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerTlsCertificateCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteLoadBalancerTlsCertificateCommand extends $Command<

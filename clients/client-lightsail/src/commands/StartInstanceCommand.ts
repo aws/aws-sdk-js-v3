@@ -44,7 +44,7 @@ export interface StartInstanceCommandOutput extends StartInstanceResult, __Metad
  *
  * @see {@link StartInstanceCommandInput} for command's `input` shape.
  * @see {@link StartInstanceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class StartInstanceCommand extends $Command<

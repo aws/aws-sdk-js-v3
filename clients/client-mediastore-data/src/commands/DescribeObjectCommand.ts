@@ -35,7 +35,7 @@ export interface DescribeObjectCommandOutput extends DescribeObjectResponse, __M
  *
  * @see {@link DescribeObjectCommandInput} for command's `input` shape.
  * @see {@link DescribeObjectCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
  */
 export class DescribeObjectCommand extends $Command<

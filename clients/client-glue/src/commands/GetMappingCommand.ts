@@ -35,7 +35,7 @@ export interface GetMappingCommandOutput extends GetMappingResponse, __MetadataB
  *
  * @see {@link GetMappingCommandInput} for command's `input` shape.
  * @see {@link GetMappingCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetMappingCommand extends $Command<

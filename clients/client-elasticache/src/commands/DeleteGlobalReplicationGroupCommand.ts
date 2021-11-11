@@ -53,7 +53,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  *
  * @see {@link DeleteGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalReplicationGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command<

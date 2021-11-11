@@ -36,7 +36,7 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *
  * @see {@link ListAliasesCommandInput} for command's `input` shape.
  * @see {@link ListAliasesCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class ListAliasesCommand extends $Command<

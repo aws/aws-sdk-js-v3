@@ -35,7 +35,7 @@ export interface GetStudioComponentCommandOutput extends GetStudioComponentRespo
  *
  * @see {@link GetStudioComponentCommandInput} for command's `input` shape.
  * @see {@link GetStudioComponentCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class GetStudioComponentCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateAnalysisPermissionsCommandOutput extends UpdateAnalysisPe
  *
  * @see {@link UpdateAnalysisPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateAnalysisPermissionsCommand extends $Command<

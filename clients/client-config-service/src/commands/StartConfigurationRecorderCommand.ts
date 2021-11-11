@@ -38,7 +38,7 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  *
  * @see {@link StartConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class StartConfigurationRecorderCommand extends $Command<

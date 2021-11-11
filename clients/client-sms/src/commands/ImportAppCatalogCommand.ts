@@ -35,7 +35,7 @@ export interface ImportAppCatalogCommandOutput extends ImportAppCatalogResponse,
  *
  * @see {@link ImportAppCatalogCommandInput} for command's `input` shape.
  * @see {@link ImportAppCatalogCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class ImportAppCatalogCommand extends $Command<

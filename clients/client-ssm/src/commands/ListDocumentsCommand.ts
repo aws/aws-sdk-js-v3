@@ -36,7 +36,7 @@ export interface ListDocumentsCommandOutput extends ListDocumentsResult, __Metad
  *
  * @see {@link ListDocumentsCommandInput} for command's `input` shape.
  * @see {@link ListDocumentsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class ListDocumentsCommand extends $Command<

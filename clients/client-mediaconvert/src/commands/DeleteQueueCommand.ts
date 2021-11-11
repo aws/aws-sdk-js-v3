@@ -35,7 +35,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  *
  * @see {@link DeleteQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class DeleteQueueCommand extends $Command<

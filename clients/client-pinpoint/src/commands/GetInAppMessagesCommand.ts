@@ -35,7 +35,7 @@ export interface GetInAppMessagesCommandOutput extends GetInAppMessagesResponse,
  *
  * @see {@link GetInAppMessagesCommandInput} for command's `input` shape.
  * @see {@link GetInAppMessagesCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetInAppMessagesCommand extends $Command<

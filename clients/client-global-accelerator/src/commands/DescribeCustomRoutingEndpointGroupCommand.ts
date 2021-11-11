@@ -44,7 +44,7 @@ export interface DescribeCustomRoutingEndpointGroupCommandOutput
  *
  * @see {@link DescribeCustomRoutingEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomRoutingEndpointGroupCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class DescribeCustomRoutingEndpointGroupCommand extends $Command<

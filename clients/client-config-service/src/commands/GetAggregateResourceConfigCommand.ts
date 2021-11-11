@@ -35,7 +35,7 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  *
  * @see {@link GetAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link GetAggregateResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetAggregateResourceConfigCommand extends $Command<

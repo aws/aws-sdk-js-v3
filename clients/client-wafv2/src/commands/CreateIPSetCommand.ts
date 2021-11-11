@@ -38,7 +38,7 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *
  * @see {@link CreateIPSetCommandInput} for command's `input` shape.
  * @see {@link CreateIPSetCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class CreateIPSetCommand extends $Command<

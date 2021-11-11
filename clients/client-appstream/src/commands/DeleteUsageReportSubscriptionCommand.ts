@@ -37,7 +37,7 @@ export interface DeleteUsageReportSubscriptionCommandOutput
  *
  * @see {@link DeleteUsageReportSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteUsageReportSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DeleteUsageReportSubscriptionCommand extends $Command<

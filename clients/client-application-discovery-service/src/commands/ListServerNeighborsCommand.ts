@@ -40,7 +40,7 @@ export interface ListServerNeighborsCommandOutput extends ListServerNeighborsRes
  *
  * @see {@link ListServerNeighborsCommandInput} for command's `input` shape.
  * @see {@link ListServerNeighborsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class ListServerNeighborsCommand extends $Command<

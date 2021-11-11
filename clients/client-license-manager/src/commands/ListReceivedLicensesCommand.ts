@@ -35,7 +35,7 @@ export interface ListReceivedLicensesCommandOutput extends ListReceivedLicensesR
  *
  * @see {@link ListReceivedLicensesCommandInput} for command's `input` shape.
  * @see {@link ListReceivedLicensesCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListReceivedLicensesCommand extends $Command<

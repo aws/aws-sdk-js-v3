@@ -43,7 +43,7 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  *
  * @see {@link DisableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link DisableSecurityHubCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class DisableSecurityHubCommand extends $Command<

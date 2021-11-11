@@ -39,7 +39,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  *
  * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
  * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command<

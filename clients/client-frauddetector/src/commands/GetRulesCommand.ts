@@ -33,7 +33,7 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  *
  * @see {@link GetRulesCommandInput} for command's `input` shape.
  * @see {@link GetRulesCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetRulesCommand extends $Command<

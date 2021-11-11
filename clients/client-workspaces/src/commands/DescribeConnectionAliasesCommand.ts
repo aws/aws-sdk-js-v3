@@ -37,7 +37,7 @@ export interface DescribeConnectionAliasesCommandOutput extends DescribeConnecti
  *
  * @see {@link DescribeConnectionAliasesCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectionAliasesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class DescribeConnectionAliasesCommand extends $Command<

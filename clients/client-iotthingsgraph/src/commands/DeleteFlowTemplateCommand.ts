@@ -36,7 +36,7 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  *
  * @see {@link DeleteFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class DeleteFlowTemplateCommand extends $Command<

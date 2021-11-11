@@ -42,7 +42,7 @@ export interface GetCertificateCommandOutput extends GetCertificateResponse, __M
  *
  * @see {@link GetCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  */
 export class GetCertificateCommand extends $Command<

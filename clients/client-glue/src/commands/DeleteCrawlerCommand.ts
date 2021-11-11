@@ -36,7 +36,7 @@ export interface DeleteCrawlerCommandOutput extends DeleteCrawlerResponse, __Met
  *
  * @see {@link DeleteCrawlerCommandInput} for command's `input` shape.
  * @see {@link DeleteCrawlerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class DeleteCrawlerCommand extends $Command<

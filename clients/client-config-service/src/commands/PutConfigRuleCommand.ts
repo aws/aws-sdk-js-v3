@@ -69,7 +69,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutConfigRuleCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutConfigRuleCommand extends $Command<

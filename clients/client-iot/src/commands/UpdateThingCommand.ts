@@ -36,7 +36,7 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  *
  * @see {@link UpdateThingCommandInput} for command's `input` shape.
  * @see {@link UpdateThingCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateThingCommand extends $Command<

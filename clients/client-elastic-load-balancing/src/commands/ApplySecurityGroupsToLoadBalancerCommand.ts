@@ -43,7 +43,7 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput
  *
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link ApplySecurityGroupsToLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class ApplySecurityGroupsToLoadBalancerCommand extends $Command<

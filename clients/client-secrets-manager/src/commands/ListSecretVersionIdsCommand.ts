@@ -63,7 +63,7 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *
  * @see {@link ListSecretVersionIdsCommandInput} for command's `input` shape.
  * @see {@link ListSecretVersionIdsCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class ListSecretVersionIdsCommand extends $Command<

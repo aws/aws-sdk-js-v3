@@ -36,7 +36,7 @@ export interface DeleteDetectorVersionCommandOutput extends DeleteDetectorVersio
  *
  * @see {@link DeleteDetectorVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteDetectorVersionCommand extends $Command<

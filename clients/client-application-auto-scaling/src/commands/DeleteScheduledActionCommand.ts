@@ -40,7 +40,7 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  *
  * @see {@link DeleteScheduledActionCommandInput} for command's `input` shape.
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class DeleteScheduledActionCommand extends $Command<

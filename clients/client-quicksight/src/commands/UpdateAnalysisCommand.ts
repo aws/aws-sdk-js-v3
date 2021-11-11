@@ -35,7 +35,7 @@ export interface UpdateAnalysisCommandOutput extends UpdateAnalysisResponse, __M
  *
  * @see {@link UpdateAnalysisCommandInput} for command's `input` shape.
  * @see {@link UpdateAnalysisCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateAnalysisCommand extends $Command<

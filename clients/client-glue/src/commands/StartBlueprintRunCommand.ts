@@ -35,7 +35,7 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  *
  * @see {@link StartBlueprintRunCommandInput} for command's `input` shape.
  * @see {@link StartBlueprintRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class StartBlueprintRunCommand extends $Command<

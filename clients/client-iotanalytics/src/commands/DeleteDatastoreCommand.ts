@@ -35,7 +35,7 @@ export interface DeleteDatastoreCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteDatastoreCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class DeleteDatastoreCommand extends $Command<

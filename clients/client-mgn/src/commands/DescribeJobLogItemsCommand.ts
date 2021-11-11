@@ -35,7 +35,7 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  *
  * @see {@link DescribeJobLogItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobLogItemsCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class DescribeJobLogItemsCommand extends $Command<

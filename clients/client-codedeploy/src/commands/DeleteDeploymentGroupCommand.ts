@@ -35,7 +35,7 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  *
  * @see {@link DeleteDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class DeleteDeploymentGroupCommand extends $Command<

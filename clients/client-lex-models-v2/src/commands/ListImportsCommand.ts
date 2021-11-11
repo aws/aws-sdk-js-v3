@@ -36,7 +36,7 @@ export interface ListImportsCommandOutput extends ListImportsResponse, __Metadat
  *
  * @see {@link ListImportsCommandInput} for command's `input` shape.
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class ListImportsCommand extends $Command<

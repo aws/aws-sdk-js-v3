@@ -39,7 +39,7 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *
  * @see {@link ListCompatibleImagesCommandInput} for command's `input` shape.
  * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class ListCompatibleImagesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  *
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class UpdateGroupCommand extends $Command<

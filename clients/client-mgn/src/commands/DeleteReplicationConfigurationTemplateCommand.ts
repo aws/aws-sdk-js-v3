@@ -41,7 +41,7 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput
  *
  * @see {@link DeleteReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class DeleteReplicationConfigurationTemplateCommand extends $Command<

@@ -43,7 +43,7 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  *
  * @see {@link ListGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListGroupPoliciesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListGroupPoliciesCommand extends $Command<

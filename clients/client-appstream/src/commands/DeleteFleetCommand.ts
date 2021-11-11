@@ -35,7 +35,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  *
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DeleteFleetCommand extends $Command<

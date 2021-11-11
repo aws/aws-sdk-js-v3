@@ -63,7 +63,7 @@ export interface GetBucketCommandOutput extends GetBucketResult, __MetadataBeare
  *
  * @see {@link GetBucketCommandInput} for command's `input` shape.
  * @see {@link GetBucketCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class GetBucketCommand extends $Command<

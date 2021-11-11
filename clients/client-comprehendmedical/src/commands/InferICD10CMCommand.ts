@@ -42,7 +42,7 @@ export interface InferICD10CMCommandOutput extends InferICD10CMResponse, __Metad
  *
  * @see {@link InferICD10CMCommandInput} for command's `input` shape.
  * @see {@link InferICD10CMCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class InferICD10CMCommand extends $Command<

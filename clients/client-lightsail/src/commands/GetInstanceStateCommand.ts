@@ -35,7 +35,7 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  *
  * @see {@link GetInstanceStateCommandInput} for command's `input` shape.
  * @see {@link GetInstanceStateCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetInstanceStateCommand extends $Command<

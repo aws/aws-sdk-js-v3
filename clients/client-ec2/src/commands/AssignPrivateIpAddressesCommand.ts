@@ -50,7 +50,7 @@ export interface AssignPrivateIpAddressesCommandOutput extends AssignPrivateIpAd
  *
  * @see {@link AssignPrivateIpAddressesCommandInput} for command's `input` shape.
  * @see {@link AssignPrivateIpAddressesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class AssignPrivateIpAddressesCommand extends $Command<

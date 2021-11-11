@@ -58,7 +58,7 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  *
  * @see {@link GetComplianceDetailCommandInput} for command's `input` shape.
  * @see {@link GetComplianceDetailCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class GetComplianceDetailCommand extends $Command<

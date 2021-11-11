@@ -41,7 +41,7 @@ export interface DescribeStackSummaryCommandOutput extends DescribeStackSummaryR
  *
  * @see {@link DescribeStackSummaryCommandInput} for command's `input` shape.
  * @see {@link DescribeStackSummaryCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeStackSummaryCommand extends $Command<

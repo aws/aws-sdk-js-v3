@@ -39,7 +39,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class DeleteEndpointCommand extends $Command<

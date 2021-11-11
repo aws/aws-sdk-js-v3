@@ -40,7 +40,7 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  *
  * @see {@link GetMemberCommandInput} for command's `input` shape.
  * @see {@link GetMemberCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class GetMemberCommand extends $Command<

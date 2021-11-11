@@ -41,7 +41,7 @@ export interface StartICD10CMInferenceJobCommandOutput extends StartICD10CMInfer
  *
  * @see {@link StartICD10CMInferenceJobCommandInput} for command's `input` shape.
  * @see {@link StartICD10CMInferenceJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class StartICD10CMInferenceJobCommand extends $Command<

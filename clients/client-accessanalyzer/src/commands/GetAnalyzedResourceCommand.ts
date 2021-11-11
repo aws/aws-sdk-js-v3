@@ -35,7 +35,7 @@ export interface GetAnalyzedResourceCommandOutput extends GetAnalyzedResourceRes
  *
  * @see {@link GetAnalyzedResourceCommandInput} for command's `input` shape.
  * @see {@link GetAnalyzedResourceCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class GetAnalyzedResourceCommand extends $Command<

@@ -45,7 +45,7 @@ export interface StartModelCommandOutput extends StartModelResponse, __MetadataB
  *
  * @see {@link StartModelCommandInput} for command's `input` shape.
  * @see {@link StartModelCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class StartModelCommand extends $Command<

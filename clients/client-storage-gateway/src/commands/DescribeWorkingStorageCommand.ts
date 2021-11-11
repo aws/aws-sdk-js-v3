@@ -45,7 +45,7 @@ export interface DescribeWorkingStorageCommandOutput extends DescribeWorkingStor
  *
  * @see {@link DescribeWorkingStorageCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkingStorageCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeWorkingStorageCommand extends $Command<

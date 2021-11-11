@@ -42,7 +42,7 @@ export interface BatchGetRepositoriesCommandOutput extends BatchGetRepositoriesO
  *
  * @see {@link BatchGetRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchGetRepositoriesCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class BatchGetRepositoriesCommand extends $Command<

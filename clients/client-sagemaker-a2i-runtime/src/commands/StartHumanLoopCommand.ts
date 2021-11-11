@@ -39,7 +39,7 @@ export interface StartHumanLoopCommandOutput extends StartHumanLoopResponse, __M
  *
  * @see {@link StartHumanLoopCommandInput} for command's `input` shape.
  * @see {@link StartHumanLoopCommandOutput} for command's `response` shape.
- * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerA2IRuntimeClientResolvedConfig | config} for SageMakerA2IRuntimeClient's `config` shape.
  *
  */
 export class StartHumanLoopCommand extends $Command<

@@ -37,7 +37,7 @@ export interface RemoveLayerVersionPermissionCommandOutput extends __MetadataBea
  *
  * @see {@link RemoveLayerVersionPermissionCommandInput} for command's `input` shape.
  * @see {@link RemoveLayerVersionPermissionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class RemoveLayerVersionPermissionCommand extends $Command<

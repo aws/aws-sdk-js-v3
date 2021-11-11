@@ -38,7 +38,7 @@ export interface DeleteDBSecurityGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DeleteDBSecurityGroupCommand extends $Command<

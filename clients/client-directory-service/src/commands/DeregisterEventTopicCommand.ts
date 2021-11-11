@@ -35,7 +35,7 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  *
  * @see {@link DeregisterEventTopicCommandInput} for command's `input` shape.
  * @see {@link DeregisterEventTopicCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeregisterEventTopicCommand extends $Command<

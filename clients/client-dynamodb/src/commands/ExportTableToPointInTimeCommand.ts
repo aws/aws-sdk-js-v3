@@ -37,7 +37,7 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  *
  * @see {@link ExportTableToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link ExportTableToPointInTimeCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ExportTableToPointInTimeCommand extends $Command<

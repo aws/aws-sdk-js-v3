@@ -35,7 +35,7 @@ export interface DescribeResourcePoliciesCommandOutput extends DescribeResourceP
  *
  * @see {@link DescribeResourcePoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePoliciesCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class DescribeResourcePoliciesCommand extends $Command<

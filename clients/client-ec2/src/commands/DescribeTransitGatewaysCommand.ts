@@ -36,7 +36,7 @@ export interface DescribeTransitGatewaysCommandOutput extends DescribeTransitGat
  *
  * @see {@link DescribeTransitGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeTransitGatewaysCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeTransitGatewaysCommand extends $Command<

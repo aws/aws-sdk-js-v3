@@ -43,7 +43,7 @@ export interface CreateThingCommandOutput extends CreateThingResponse, __Metadat
  *
  * @see {@link CreateThingCommandInput} for command's `input` shape.
  * @see {@link CreateThingCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CreateThingCommand extends $Command<

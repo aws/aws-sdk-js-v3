@@ -39,7 +39,7 @@ export interface DeleteChannelCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class DeleteChannelCommand extends $Command<

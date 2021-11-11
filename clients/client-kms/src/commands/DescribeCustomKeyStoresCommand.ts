@@ -88,7 +88,7 @@ export interface DescribeCustomKeyStoresCommandOutput extends DescribeCustomKeyS
  *
  * @see {@link DescribeCustomKeyStoresCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomKeyStoresCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class DescribeCustomKeyStoresCommand extends $Command<

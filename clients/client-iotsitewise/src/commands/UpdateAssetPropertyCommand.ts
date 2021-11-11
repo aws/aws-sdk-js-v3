@@ -40,7 +40,7 @@ export interface UpdateAssetPropertyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link UpdateAssetPropertyCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class UpdateAssetPropertyCommand extends $Command<

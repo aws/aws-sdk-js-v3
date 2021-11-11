@@ -35,7 +35,7 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  *
  * @see {@link ListServicesCommandInput} for command's `input` shape.
  * @see {@link ListServicesCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class ListServicesCommand extends $Command<

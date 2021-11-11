@@ -44,7 +44,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *
  * @see {@link CreateExportCommandInput} for command's `input` shape.
  * @see {@link CreateExportCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class CreateExportCommand extends $Command<

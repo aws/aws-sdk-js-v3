@@ -38,7 +38,7 @@ export interface ListResourcesCommandOutput extends ListResourcesOutput, __Metad
  *
  * @see {@link ListResourcesCommandInput} for command's `input` shape.
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
- * @see {@link CloudControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
  */
 export class ListResourcesCommand extends $Command<

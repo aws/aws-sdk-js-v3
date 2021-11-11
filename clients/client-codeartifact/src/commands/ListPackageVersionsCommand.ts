@@ -39,7 +39,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *
  * @see {@link ListPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionsCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class ListPackageVersionsCommand extends $Command<

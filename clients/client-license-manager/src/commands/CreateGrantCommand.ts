@@ -35,7 +35,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *
  * @see {@link CreateGrantCommandInput} for command's `input` shape.
  * @see {@link CreateGrantCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class CreateGrantCommand extends $Command<

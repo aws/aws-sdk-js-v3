@@ -44,7 +44,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutResourceConfigCommandInput} for command's `input` shape.
  * @see {@link PutResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class PutResourceConfigCommand extends $Command<

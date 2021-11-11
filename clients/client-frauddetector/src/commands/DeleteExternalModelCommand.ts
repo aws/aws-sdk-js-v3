@@ -36,7 +36,7 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  *
  * @see {@link DeleteExternalModelCommandInput} for command's `input` shape.
  * @see {@link DeleteExternalModelCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteExternalModelCommand extends $Command<

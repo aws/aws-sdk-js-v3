@@ -35,7 +35,7 @@ export interface AcceptEulasCommandOutput extends AcceptEulasResponse, __Metadat
  *
  * @see {@link AcceptEulasCommandInput} for command's `input` shape.
  * @see {@link AcceptEulasCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class AcceptEulasCommand extends $Command<

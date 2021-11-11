@@ -35,7 +35,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *
  * @see {@link CreateConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateConnectorCommandOutput} for command's `response` shape.
- * @see {@link KafkaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  */
 export class CreateConnectorCommand extends $Command<

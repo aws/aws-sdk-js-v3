@@ -37,7 +37,7 @@ export interface DisassociateDataShareConsumerCommandOutput extends DataShare, _
  *
  * @see {@link DisassociateDataShareConsumerCommandInput} for command's `input` shape.
  * @see {@link DisassociateDataShareConsumerCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DisassociateDataShareConsumerCommand extends $Command<

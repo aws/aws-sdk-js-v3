@@ -44,7 +44,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *
  * @see {@link DetectEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class DetectEntitiesCommand extends $Command<

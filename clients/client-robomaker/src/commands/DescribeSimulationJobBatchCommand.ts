@@ -35,7 +35,7 @@ export interface DescribeSimulationJobBatchCommandOutput extends DescribeSimulat
  *
  * @see {@link DescribeSimulationJobBatchCommandInput} for command's `input` shape.
  * @see {@link DescribeSimulationJobBatchCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DescribeSimulationJobBatchCommand extends $Command<

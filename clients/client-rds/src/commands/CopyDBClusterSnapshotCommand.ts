@@ -109,7 +109,7 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  *
  * @see {@link CopyDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link CopyDBClusterSnapshotCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CopyDBClusterSnapshotCommand extends $Command<

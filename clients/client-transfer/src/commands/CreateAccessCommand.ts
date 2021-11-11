@@ -40,7 +40,7 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  *
  * @see {@link CreateAccessCommandInput} for command's `input` shape.
  * @see {@link CreateAccessCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class CreateAccessCommand extends $Command<

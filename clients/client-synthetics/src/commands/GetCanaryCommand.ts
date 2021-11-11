@@ -37,7 +37,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  *
  * @see {@link GetCanaryCommandInput} for command's `input` shape.
  * @see {@link GetCanaryCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
 export class GetCanaryCommand extends $Command<

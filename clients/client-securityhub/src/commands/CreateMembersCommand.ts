@@ -70,7 +70,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class CreateMembersCommand extends $Command<

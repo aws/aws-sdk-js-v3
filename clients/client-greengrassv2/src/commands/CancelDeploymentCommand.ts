@@ -37,7 +37,7 @@ export interface CancelDeploymentCommandOutput extends CancelDeploymentResponse,
  *
  * @see {@link CancelDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelDeploymentCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  */
 export class CancelDeploymentCommand extends $Command<

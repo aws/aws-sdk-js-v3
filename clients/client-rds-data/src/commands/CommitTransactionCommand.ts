@@ -36,7 +36,7 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  *
  * @see {@link CommitTransactionCommandInput} for command's `input` shape.
  * @see {@link CommitTransactionCommandOutput} for command's `response` shape.
- * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  */
 export class CommitTransactionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteModelExplainabilityJobDefinitionCommandOutput extends __M
  *
  * @see {@link DeleteModelExplainabilityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelExplainabilityJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteModelExplainabilityJobDefinitionCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  *
  * @see {@link ListClusterJobsCommandInput} for command's `input` shape.
  * @see {@link ListClusterJobsCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class ListClusterJobsCommand extends $Command<

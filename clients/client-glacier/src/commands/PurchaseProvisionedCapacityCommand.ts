@@ -35,7 +35,7 @@ export interface PurchaseProvisionedCapacityCommandOutput extends PurchaseProvis
  *
  * @see {@link PurchaseProvisionedCapacityCommandInput} for command's `input` shape.
  * @see {@link PurchaseProvisionedCapacityCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class PurchaseProvisionedCapacityCommand extends $Command<

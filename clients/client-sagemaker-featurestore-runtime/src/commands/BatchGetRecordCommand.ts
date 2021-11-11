@@ -39,7 +39,7 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  *
  * @see {@link BatchGetRecordCommandInput} for command's `input` shape.
  * @see {@link BatchGetRecordCommandOutput} for command's `response` shape.
- * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
  */
 export class BatchGetRecordCommand extends $Command<

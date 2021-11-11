@@ -40,7 +40,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  *
  * @see {@link DescribeInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DescribeInstanceCommand extends $Command<

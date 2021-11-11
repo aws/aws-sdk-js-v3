@@ -38,7 +38,7 @@ export interface GetDistributionBundlesCommandOutput extends GetDistributionBund
  *
  * @see {@link GetDistributionBundlesCommandInput} for command's `input` shape.
  * @see {@link GetDistributionBundlesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetDistributionBundlesCommand extends $Command<

@@ -71,7 +71,7 @@ export interface CreateNotebookInstanceCommandOutput extends CreateNotebookInsta
  *
  * @see {@link CreateNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateNotebookInstanceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class CreateNotebookInstanceCommand extends $Command<

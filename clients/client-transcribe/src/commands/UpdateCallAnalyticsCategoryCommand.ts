@@ -38,7 +38,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  *
  * @see {@link UpdateCallAnalyticsCategoryCommandInput} for command's `input` shape.
  * @see {@link UpdateCallAnalyticsCategoryCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class UpdateCallAnalyticsCategoryCommand extends $Command<

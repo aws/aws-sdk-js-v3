@@ -35,7 +35,7 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  *
  * @see {@link DeleteCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomMetadataCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DeleteCustomMetadataCommand extends $Command<

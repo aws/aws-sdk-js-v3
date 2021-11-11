@@ -108,7 +108,7 @@ export interface UpdateIPSetCommandOutput extends UpdateIPSetResponse, __Metadat
  *
  * @see {@link UpdateIPSetCommandInput} for command's `input` shape.
  * @see {@link UpdateIPSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class UpdateIPSetCommand extends $Command<

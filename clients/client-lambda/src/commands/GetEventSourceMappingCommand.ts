@@ -36,7 +36,7 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  *
  * @see {@link GetEventSourceMappingCommandInput} for command's `input` shape.
  * @see {@link GetEventSourceMappingCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class GetEventSourceMappingCommand extends $Command<

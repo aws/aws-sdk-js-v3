@@ -35,7 +35,7 @@ export interface AssociateFirewallRuleGroupCommandOutput extends AssociateFirewa
  *
  * @see {@link AssociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link AssociateFirewallRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class AssociateFirewallRuleGroupCommand extends $Command<

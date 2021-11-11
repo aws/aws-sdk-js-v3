@@ -39,7 +39,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  *
  * @see {@link AssociatePackageCommandInput} for command's `input` shape.
  * @see {@link AssociatePackageCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class AssociatePackageCommand extends $Command<

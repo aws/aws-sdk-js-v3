@@ -32,7 +32,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  *
  * @see {@link StopBuildCommandInput} for command's `input` shape.
  * @see {@link StopBuildCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class StopBuildCommand extends $Command<

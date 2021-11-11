@@ -36,7 +36,7 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  *
  * @see {@link CreateFleetMetricCommandInput} for command's `input` shape.
  * @see {@link CreateFleetMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CreateFleetMetricCommand extends $Command<

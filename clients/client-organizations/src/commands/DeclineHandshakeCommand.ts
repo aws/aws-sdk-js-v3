@@ -41,7 +41,7 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *
  * @see {@link DeclineHandshakeCommandInput} for command's `input` shape.
  * @see {@link DeclineHandshakeCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DeclineHandshakeCommand extends $Command<

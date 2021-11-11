@@ -45,7 +45,7 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  *
  * @see {@link AttachLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancersCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class AttachLoadBalancersCommand extends $Command<

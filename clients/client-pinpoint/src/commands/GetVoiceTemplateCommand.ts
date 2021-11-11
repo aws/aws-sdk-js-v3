@@ -35,7 +35,7 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  *
  * @see {@link GetVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link GetVoiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetVoiceTemplateCommand extends $Command<

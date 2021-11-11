@@ -37,7 +37,7 @@ export interface GetMedicalTranscriptionJobCommandOutput extends GetMedicalTrans
  *
  * @see {@link GetMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link GetMedicalTranscriptionJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for TranscribeClient's `config` shape.
  *
  */
 export class GetMedicalTranscriptionJobCommand extends $Command<

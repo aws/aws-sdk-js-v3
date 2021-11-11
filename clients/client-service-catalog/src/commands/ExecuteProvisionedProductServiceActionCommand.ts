@@ -41,7 +41,7 @@ export interface ExecuteProvisionedProductServiceActionCommandOutput
  *
  * @see {@link ExecuteProvisionedProductServiceActionCommandInput} for command's `input` shape.
  * @see {@link ExecuteProvisionedProductServiceActionCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ExecuteProvisionedProductServiceActionCommand extends $Command<

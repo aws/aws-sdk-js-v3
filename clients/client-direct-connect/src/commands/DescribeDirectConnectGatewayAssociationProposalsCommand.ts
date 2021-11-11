@@ -41,7 +41,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput
  *
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command<

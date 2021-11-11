@@ -37,7 +37,7 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  *
  * @see {@link CreateBudgetActionCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetActionCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for BudgetsClient's `config` shape.
  *
  */
 export class CreateBudgetActionCommand extends $Command<

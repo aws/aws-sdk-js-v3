@@ -40,7 +40,7 @@ export interface DescribeInstanceAssociationsStatusCommandOutput
  *
  * @see {@link DescribeInstanceAssociationsStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAssociationsStatusCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DescribeInstanceAssociationsStatusCommand extends $Command<

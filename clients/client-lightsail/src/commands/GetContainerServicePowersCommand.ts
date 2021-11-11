@@ -39,7 +39,7 @@ export interface GetContainerServicePowersCommandOutput extends GetContainerServ
  *
  * @see {@link GetContainerServicePowersCommandInput} for command's `input` shape.
  * @see {@link GetContainerServicePowersCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetContainerServicePowersCommand extends $Command<

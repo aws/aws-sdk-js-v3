@@ -35,7 +35,7 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *
  * @see {@link UpdateComputeEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateComputeEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class UpdateComputeEnvironmentCommand extends $Command<

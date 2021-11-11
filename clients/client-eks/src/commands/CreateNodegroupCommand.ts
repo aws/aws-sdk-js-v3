@@ -44,7 +44,7 @@ export interface CreateNodegroupCommandOutput extends CreateNodegroupResponse, _
  *
  * @see {@link CreateNodegroupCommandInput} for command's `input` shape.
  * @see {@link CreateNodegroupCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class CreateNodegroupCommand extends $Command<

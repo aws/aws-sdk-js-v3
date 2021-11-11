@@ -40,7 +40,7 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  *
  * @see {@link DeleteReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  */
 export class DeleteReportDefinitionCommand extends $Command<

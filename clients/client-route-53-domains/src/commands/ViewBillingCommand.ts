@@ -35,7 +35,7 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  *
  * @see {@link ViewBillingCommandInput} for command's `input` shape.
  * @see {@link ViewBillingCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class ViewBillingCommand extends $Command<

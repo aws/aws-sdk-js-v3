@@ -35,7 +35,7 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  *
  * @see {@link UpdateFlowMediaStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowMediaStreamCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class UpdateFlowMediaStreamCommand extends $Command<

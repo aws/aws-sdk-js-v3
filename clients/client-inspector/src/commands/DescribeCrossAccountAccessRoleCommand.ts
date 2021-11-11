@@ -38,7 +38,7 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  *
  * @see {@link DescribeCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link DescribeCrossAccountAccessRoleCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class DescribeCrossAccountAccessRoleCommand extends $Command<

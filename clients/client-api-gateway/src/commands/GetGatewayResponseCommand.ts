@@ -35,7 +35,7 @@ export interface GetGatewayResponseCommandOutput extends GatewayResponse, __Meta
  *
  * @see {@link GetGatewayResponseCommandInput} for command's `input` shape.
  * @see {@link GetGatewayResponseCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetGatewayResponseCommand extends $Command<

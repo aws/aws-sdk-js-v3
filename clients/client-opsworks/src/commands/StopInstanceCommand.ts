@@ -43,7 +43,7 @@ export interface StopInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class StopInstanceCommand extends $Command<

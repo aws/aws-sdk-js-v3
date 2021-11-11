@@ -75,7 +75,7 @@ export interface BatchDeleteRecipeVersionCommandOutput extends BatchDeleteRecipe
  *
  * @see {@link BatchDeleteRecipeVersionCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteRecipeVersionCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class BatchDeleteRecipeVersionCommand extends $Command<

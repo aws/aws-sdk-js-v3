@@ -35,7 +35,7 @@ export interface ListFolderMembersCommandOutput extends ListFolderMembersRespons
  *
  * @see {@link ListFolderMembersCommandInput} for command's `input` shape.
  * @see {@link ListFolderMembersCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListFolderMembersCommand extends $Command<

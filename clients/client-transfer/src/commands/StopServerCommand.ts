@@ -49,7 +49,7 @@ export interface StopServerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopServerCommandInput} for command's `input` shape.
  * @see {@link StopServerCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class StopServerCommand extends $Command<

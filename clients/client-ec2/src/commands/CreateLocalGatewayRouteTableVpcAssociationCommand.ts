@@ -41,7 +41,7 @@ export interface CreateLocalGatewayRouteTableVpcAssociationCommandOutput
  *
  * @see {@link CreateLocalGatewayRouteTableVpcAssociationCommandInput} for command's `input` shape.
  * @see {@link CreateLocalGatewayRouteTableVpcAssociationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateLocalGatewayRouteTableVpcAssociationCommand extends $Command<

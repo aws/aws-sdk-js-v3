@@ -35,7 +35,7 @@ export interface DisassociateDomainCommandOutput extends DisassociateDomainRespo
  *
  * @see {@link DisassociateDomainCommandInput} for command's `input` shape.
  * @see {@link DisassociateDomainCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class DisassociateDomainCommand extends $Command<

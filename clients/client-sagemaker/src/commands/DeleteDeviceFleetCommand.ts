@@ -35,7 +35,7 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceFleetCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteDeviceFleetCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateModelVersionCommandOutput extends CreateModelVersionResul
  *
  * @see {@link CreateModelVersionCommandInput} for command's `input` shape.
  * @see {@link CreateModelVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class CreateModelVersionCommand extends $Command<

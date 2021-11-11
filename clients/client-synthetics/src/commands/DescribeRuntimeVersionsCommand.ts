@@ -37,7 +37,7 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  *
  * @see {@link DescribeRuntimeVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeVersionsCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
 export class DescribeRuntimeVersionsCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DeleteClusterParameterGroupCommand extends $Command<

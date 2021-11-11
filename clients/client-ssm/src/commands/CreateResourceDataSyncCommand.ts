@@ -55,7 +55,7 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *
  * @see {@link CreateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link CreateResourceDataSyncCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class CreateResourceDataSyncCommand extends $Command<

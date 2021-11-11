@@ -69,7 +69,7 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  *
  * @see {@link RegisterGameServerCommandInput} for command's `input` shape.
  * @see {@link RegisterGameServerCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class RegisterGameServerCommand extends $Command<

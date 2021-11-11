@@ -40,7 +40,7 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  *
  * @see {@link DescribeDimensionKeysCommandInput} for command's `input` shape.
  * @see {@link DescribeDimensionKeysCommandOutput} for command's `response` shape.
- * @see {@link PIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  */
 export class DescribeDimensionKeysCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteOriginRequestPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginRequestPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class DeleteOriginRequestPolicyCommand extends $Command<

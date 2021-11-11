@@ -80,7 +80,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

@@ -58,7 +58,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateKeyDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateKeyDescriptionCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class UpdateKeyDescriptionCommand extends $Command<

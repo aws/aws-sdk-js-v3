@@ -35,7 +35,7 @@ export interface PutProtocolsListCommandOutput extends PutProtocolsListResponse,
  *
  * @see {@link PutProtocolsListCommandInput} for command's `input` shape.
  * @see {@link PutProtocolsListCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class PutProtocolsListCommand extends $Command<

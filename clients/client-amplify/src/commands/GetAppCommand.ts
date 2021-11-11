@@ -32,7 +32,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  *
  * @see {@link GetAppCommandInput} for command's `input` shape.
  * @see {@link GetAppCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, AmplifyClientResolvedConfig> {

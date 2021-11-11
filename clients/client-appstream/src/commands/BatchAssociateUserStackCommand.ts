@@ -35,7 +35,7 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  *
  * @see {@link BatchAssociateUserStackCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateUserStackCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class BatchAssociateUserStackCommand extends $Command<

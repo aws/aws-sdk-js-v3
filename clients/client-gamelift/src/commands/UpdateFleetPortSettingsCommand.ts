@@ -68,7 +68,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *
  * @see {@link UpdateFleetPortSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetPortSettingsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class UpdateFleetPortSettingsCommand extends $Command<

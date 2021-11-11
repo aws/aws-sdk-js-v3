@@ -50,7 +50,7 @@ export interface CreateChannelBanCommandOutput extends CreateChannelBanResponse,
  *
  * @see {@link CreateChannelBanCommandInput} for command's `input` shape.
  * @see {@link CreateChannelBanCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class CreateChannelBanCommand extends $Command<

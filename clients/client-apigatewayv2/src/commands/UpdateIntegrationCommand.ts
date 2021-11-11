@@ -35,7 +35,7 @@ export interface UpdateIntegrationCommandOutput extends UpdateIntegrationResult,
  *
  * @see {@link UpdateIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateIntegrationCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class UpdateIntegrationCommand extends $Command<

@@ -125,7 +125,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class CopySnapshotCommand extends $Command<

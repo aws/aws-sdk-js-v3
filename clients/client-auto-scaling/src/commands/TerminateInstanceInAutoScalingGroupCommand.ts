@@ -46,7 +46,7 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  *
  * @see {@link TerminateInstanceInAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command<

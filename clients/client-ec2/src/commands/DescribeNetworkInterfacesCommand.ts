@@ -35,7 +35,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  *
  * @see {@link DescribeNetworkInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DescribeNetworkInterfacesCommand extends $Command<

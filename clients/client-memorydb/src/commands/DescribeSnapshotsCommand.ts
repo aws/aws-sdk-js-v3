@@ -36,7 +36,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class DescribeSnapshotsCommand extends $Command<

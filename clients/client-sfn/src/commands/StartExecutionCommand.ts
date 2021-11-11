@@ -43,7 +43,7 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *
  * @see {@link StartExecutionCommandInput} for command's `input` shape.
  * @see {@link StartExecutionCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
 export class StartExecutionCommand extends $Command<

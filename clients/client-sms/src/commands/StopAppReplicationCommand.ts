@@ -36,7 +36,7 @@ export interface StopAppReplicationCommandOutput extends StopAppReplicationRespo
  *
  * @see {@link StopAppReplicationCommandInput} for command's `input` shape.
  * @see {@link StopAppReplicationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class StopAppReplicationCommand extends $Command<

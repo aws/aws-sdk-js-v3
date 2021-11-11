@@ -39,7 +39,7 @@ export interface UpdateServiceAccessPoliciesCommandOutput
  *
  * @see {@link UpdateServiceAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceAccessPoliciesCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class UpdateServiceAccessPoliciesCommand extends $Command<

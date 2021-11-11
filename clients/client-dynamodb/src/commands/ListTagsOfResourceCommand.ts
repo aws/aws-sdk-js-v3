@@ -38,7 +38,7 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  *
  * @see {@link ListTagsOfResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsOfResourceCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ListTagsOfResourceCommand extends $Command<

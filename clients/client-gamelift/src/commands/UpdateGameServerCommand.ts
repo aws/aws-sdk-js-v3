@@ -80,7 +80,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *
  * @see {@link UpdateGameServerCommandInput} for command's `input` shape.
  * @see {@link UpdateGameServerCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class UpdateGameServerCommand extends $Command<

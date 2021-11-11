@@ -36,7 +36,7 @@ export interface GetAuthorizersCommandOutput extends Authorizers, __MetadataBear
  *
  * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetAuthorizersCommand extends $Command<

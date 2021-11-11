@@ -35,7 +35,7 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  *
  * @see {@link CancelPolicyGenerationCommandInput} for command's `input` shape.
  * @see {@link CancelPolicyGenerationCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class CancelPolicyGenerationCommand extends $Command<

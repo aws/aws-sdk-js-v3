@@ -42,7 +42,7 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  *
  * @see {@link GetBuiltinIntentsCommandInput} for command's `input` shape.
  * @see {@link GetBuiltinIntentsCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetBuiltinIntentsCommand extends $Command<

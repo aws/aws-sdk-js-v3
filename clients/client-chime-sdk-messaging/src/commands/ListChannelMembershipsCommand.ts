@@ -48,7 +48,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
  *
  * @see {@link ListChannelMembershipsCommandInput} for command's `input` shape.
  * @see {@link ListChannelMembershipsCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class ListChannelMembershipsCommand extends $Command<

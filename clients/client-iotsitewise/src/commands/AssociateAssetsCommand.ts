@@ -37,7 +37,7 @@ export interface AssociateAssetsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateAssetsCommandInput} for command's `input` shape.
  * @see {@link AssociateAssetsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class AssociateAssetsCommand extends $Command<

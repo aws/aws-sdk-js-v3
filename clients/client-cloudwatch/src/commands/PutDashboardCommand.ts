@@ -45,7 +45,7 @@ export interface PutDashboardCommandOutput extends PutDashboardOutput, __Metadat
  *
  * @see {@link PutDashboardCommandInput} for command's `input` shape.
  * @see {@link PutDashboardCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class PutDashboardCommand extends $Command<

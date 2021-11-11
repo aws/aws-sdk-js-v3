@@ -41,7 +41,7 @@ export interface DeletePhoneNumberCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeletePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link DeletePhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeletePhoneNumberCommand extends $Command<

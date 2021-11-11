@@ -35,7 +35,7 @@ export interface DescribeGatewayCommandOutput extends DescribeGatewayResponse, _
  *
  * @see {@link DescribeGatewayCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribeGatewayCommand extends $Command<

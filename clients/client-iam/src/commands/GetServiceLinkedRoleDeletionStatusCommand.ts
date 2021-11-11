@@ -44,7 +44,7 @@ export interface GetServiceLinkedRoleDeletionStatusCommandOutput
  *
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link GetServiceLinkedRoleDeletionStatusCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetServiceLinkedRoleDeletionStatusCommand extends $Command<

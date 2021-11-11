@@ -37,7 +37,7 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *
  * @see {@link ExecuteTransactionCommandInput} for command's `input` shape.
  * @see {@link ExecuteTransactionCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ExecuteTransactionCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateConnectionCommandOutput extends UpdateConnectionResponse,
  *
  * @see {@link UpdateConnectionCommandInput} for command's `input` shape.
  * @see {@link UpdateConnectionCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class UpdateConnectionCommand extends $Command<

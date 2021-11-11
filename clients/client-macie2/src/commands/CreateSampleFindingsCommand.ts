@@ -35,7 +35,7 @@ export interface CreateSampleFindingsCommandOutput extends CreateSampleFindingsR
  *
  * @see {@link CreateSampleFindingsCommandInput} for command's `input` shape.
  * @see {@link CreateSampleFindingsCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class CreateSampleFindingsCommand extends $Command<

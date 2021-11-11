@@ -42,7 +42,7 @@ export interface CreateAccessPointCommandOutput extends AccessPointDescription, 
  *
  * @see {@link CreateAccessPointCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPointCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class CreateAccessPointCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetVpcLinksCommandOutput extends GetVpcLinksResponse, __Metadat
  *
  * @see {@link GetVpcLinksCommandInput} for command's `input` shape.
  * @see {@link GetVpcLinksCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetVpcLinksCommand extends $Command<

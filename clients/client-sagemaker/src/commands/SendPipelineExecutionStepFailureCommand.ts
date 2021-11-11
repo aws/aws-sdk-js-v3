@@ -39,7 +39,7 @@ export interface SendPipelineExecutionStepFailureCommandOutput
  *
  * @see {@link SendPipelineExecutionStepFailureCommandInput} for command's `input` shape.
  * @see {@link SendPipelineExecutionStepFailureCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class SendPipelineExecutionStepFailureCommand extends $Command<

@@ -35,7 +35,7 @@ export interface RemoveBackendConfigCommandOutput extends RemoveBackendConfigRes
  *
  * @see {@link RemoveBackendConfigCommandInput} for command's `input` shape.
  * @see {@link RemoveBackendConfigCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class RemoveBackendConfigCommand extends $Command<

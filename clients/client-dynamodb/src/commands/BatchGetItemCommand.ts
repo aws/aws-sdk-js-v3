@@ -80,7 +80,7 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *
  * @see {@link BatchGetItemCommandInput} for command's `input` shape.
  * @see {@link BatchGetItemCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class BatchGetItemCommand extends $Command<

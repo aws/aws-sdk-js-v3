@@ -47,7 +47,7 @@ export interface StreamingTraitsCommandOutput extends StreamingTraitsInputOutput
  *
  * @see {@link StreamingTraitsCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class StreamingTraitsCommand extends $Command<

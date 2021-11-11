@@ -35,7 +35,7 @@ export interface GetEventIntegrationCommandOutput extends GetEventIntegrationRes
  *
  * @see {@link GetEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link GetEventIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class GetEventIntegrationCommand extends $Command<

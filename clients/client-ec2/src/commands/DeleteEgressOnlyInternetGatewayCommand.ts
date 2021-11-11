@@ -37,7 +37,7 @@ export interface DeleteEgressOnlyInternetGatewayCommandOutput
  *
  * @see {@link DeleteEgressOnlyInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteEgressOnlyInternetGatewayCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteEgressOnlyInternetGatewayCommand extends $Command<

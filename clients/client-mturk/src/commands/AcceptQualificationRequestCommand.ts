@@ -44,7 +44,7 @@ export interface AcceptQualificationRequestCommandOutput extends AcceptQualifica
  *
  * @see {@link AcceptQualificationRequestCommandInput} for command's `input` shape.
  * @see {@link AcceptQualificationRequestCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class AcceptQualificationRequestCommand extends $Command<

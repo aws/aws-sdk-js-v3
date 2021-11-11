@@ -41,7 +41,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
- * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  */
 export class ExecuteStatementCommand extends $Command<

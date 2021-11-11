@@ -35,7 +35,7 @@ export interface ListGeofencesCommandOutput extends ListGeofencesResponse, __Met
  *
  * @see {@link ListGeofencesCommandInput} for command's `input` shape.
  * @see {@link ListGeofencesCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class ListGeofencesCommand extends $Command<

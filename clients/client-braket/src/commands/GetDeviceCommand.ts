@@ -35,7 +35,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  *
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  */
 export class GetDeviceCommand extends $Command<

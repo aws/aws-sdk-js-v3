@@ -44,7 +44,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  *
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandInput} for command's `input` shape.
  * @see {@link ModifyTrafficMirrorFilterNetworkServicesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<

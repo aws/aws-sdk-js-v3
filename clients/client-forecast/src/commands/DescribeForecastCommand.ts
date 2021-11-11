@@ -63,7 +63,7 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  *
  * @see {@link DescribeForecastCommandInput} for command's `input` shape.
  * @see {@link DescribeForecastCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class DescribeForecastCommand extends $Command<

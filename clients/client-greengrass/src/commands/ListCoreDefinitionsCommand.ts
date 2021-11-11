@@ -35,7 +35,7 @@ export interface ListCoreDefinitionsCommandOutput extends ListCoreDefinitionsRes
  *
  * @see {@link ListCoreDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCoreDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class ListCoreDefinitionsCommand extends $Command<

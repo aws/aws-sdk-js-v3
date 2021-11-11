@@ -44,7 +44,7 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAccessKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessKeyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateAccessKeyCommand extends $Command<

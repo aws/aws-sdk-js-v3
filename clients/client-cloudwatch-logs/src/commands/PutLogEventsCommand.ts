@@ -72,7 +72,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *
  * @see {@link PutLogEventsCommandInput} for command's `input` shape.
  * @see {@link PutLogEventsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class PutLogEventsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

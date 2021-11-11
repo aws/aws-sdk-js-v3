@@ -39,7 +39,7 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeletePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DeletePartnerEventSourceCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class DeletePartnerEventSourceCommand extends $Command<

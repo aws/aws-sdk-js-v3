@@ -35,7 +35,7 @@ export interface ListAnomalyGroupSummariesCommandOutput extends ListAnomalyGroup
  *
  * @see {@link ListAnomalyGroupSummariesCommandInput} for command's `input` shape.
  * @see {@link ListAnomalyGroupSummariesCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class ListAnomalyGroupSummariesCommand extends $Command<

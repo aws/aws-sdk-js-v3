@@ -41,7 +41,7 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *
  * @see {@link InviteMembersCommandInput} for command's `input` shape.
  * @see {@link InviteMembersCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class InviteMembersCommand extends $Command<

@@ -43,7 +43,7 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  *
  * @see {@link InitiateDeviceClaimCommandInput} for command's `input` shape.
  * @see {@link InitiateDeviceClaimCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
  */
 export class InitiateDeviceClaimCommand extends $Command<

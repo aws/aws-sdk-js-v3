@@ -36,7 +36,7 @@ export interface RegisterCrossAccountAccessRoleCommandOutput extends __MetadataB
  *
  * @see {@link RegisterCrossAccountAccessRoleCommandInput} for command's `input` shape.
  * @see {@link RegisterCrossAccountAccessRoleCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class RegisterCrossAccountAccessRoleCommand extends $Command<

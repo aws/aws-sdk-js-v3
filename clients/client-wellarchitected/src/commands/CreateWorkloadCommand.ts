@@ -39,7 +39,7 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *
  * @see {@link CreateWorkloadCommandInput} for command's `input` shape.
  * @see {@link CreateWorkloadCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class CreateWorkloadCommand extends $Command<

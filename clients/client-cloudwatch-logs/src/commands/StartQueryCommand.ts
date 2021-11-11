@@ -40,7 +40,7 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *
  * @see {@link StartQueryCommandInput} for command's `input` shape.
  * @see {@link StartQueryCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class StartQueryCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * @see {@link ListBotsCommandInput} for command's `input` shape.
  * @see {@link ListBotsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListBotsCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeServiceErrorsCommandOutput extends DescribeServiceError
  *
  * @see {@link DescribeServiceErrorsCommandInput} for command's `input` shape.
  * @see {@link DescribeServiceErrorsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeServiceErrorsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface CreateStorageVirtualMachineCommandOutput
  *
  * @see {@link CreateStorageVirtualMachineCommandInput} for command's `input` shape.
  * @see {@link CreateStorageVirtualMachineCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class CreateStorageVirtualMachineCommand extends $Command<

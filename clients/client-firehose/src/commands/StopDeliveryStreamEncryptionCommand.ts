@@ -56,7 +56,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  *
  * @see {@link StopDeliveryStreamEncryptionCommandInput} for command's `input` shape.
  * @see {@link StopDeliveryStreamEncryptionCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command<

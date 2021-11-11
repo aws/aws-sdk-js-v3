@@ -50,7 +50,7 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  *
  * @see {@link StartSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link StartSegmentDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StartSegmentDetectionCommand extends $Command<

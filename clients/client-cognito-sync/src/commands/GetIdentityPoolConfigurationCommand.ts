@@ -83,7 +83,7 @@ export interface GetIdentityPoolConfigurationCommandOutput
  *
  * @see {@link GetIdentityPoolConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoolConfigurationCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class GetIdentityPoolConfigurationCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListIdentitiesCommandOutput extends ListIdentitiesResponse, __M
  *
  * @see {@link ListIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListIdentitiesCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class ListIdentitiesCommand extends $Command<

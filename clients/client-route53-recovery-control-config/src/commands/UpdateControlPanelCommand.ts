@@ -39,7 +39,7 @@ export interface UpdateControlPanelCommandOutput extends UpdateControlPanelRespo
  *
  * @see {@link UpdateControlPanelCommandInput} for command's `input` shape.
  * @see {@link UpdateControlPanelCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  */
 export class UpdateControlPanelCommand extends $Command<

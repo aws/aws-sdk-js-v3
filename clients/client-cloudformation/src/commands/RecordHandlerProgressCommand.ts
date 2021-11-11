@@ -36,7 +36,7 @@ export interface RecordHandlerProgressCommandOutput extends RecordHandlerProgres
  *
  * @see {@link RecordHandlerProgressCommandInput} for command's `input` shape.
  * @see {@link RecordHandlerProgressCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class RecordHandlerProgressCommand extends $Command<

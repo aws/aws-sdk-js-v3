@@ -37,7 +37,7 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  *
  * @see {@link CreateConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link CreateConditionalForwarderCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class CreateConditionalForwarderCommand extends $Command<

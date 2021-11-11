@@ -39,7 +39,7 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  *
  * @see {@link GetSnowballUsageCommandInput} for command's `input` shape.
  * @see {@link GetSnowballUsageCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class GetSnowballUsageCommand extends $Command<

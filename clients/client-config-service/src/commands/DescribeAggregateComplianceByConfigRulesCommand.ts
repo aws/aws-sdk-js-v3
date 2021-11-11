@@ -48,7 +48,7 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput
  *
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandInput} for command's `input` shape.
  * @see {@link DescribeAggregateComplianceByConfigRulesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeAggregateComplianceByConfigRulesCommand extends $Command<

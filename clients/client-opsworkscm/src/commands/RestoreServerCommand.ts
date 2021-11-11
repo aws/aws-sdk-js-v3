@@ -49,7 +49,7 @@ export interface RestoreServerCommandOutput extends RestoreServerResponse, __Met
  *
  * @see {@link RestoreServerCommandInput} for command's `input` shape.
  * @see {@link RestoreServerCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
  */
 export class RestoreServerCommand extends $Command<

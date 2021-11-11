@@ -66,7 +66,7 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  *
  * @see {@link CreateByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateByteMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class CreateByteMatchSetCommand extends $Command<

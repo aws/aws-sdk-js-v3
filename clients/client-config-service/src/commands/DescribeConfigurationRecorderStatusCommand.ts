@@ -47,7 +47,7 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
  *
  * @see {@link DescribeConfigurationRecorderStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRecorderStatusCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeConfigurationRecorderStatusCommand extends $Command<

@@ -37,7 +37,7 @@ export interface GetIdentityPoolRolesCommandOutput extends GetIdentityPoolRolesR
  *
  * @see {@link GetIdentityPoolRolesCommandInput} for command's `input` shape.
  * @see {@link GetIdentityPoolRolesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class GetIdentityPoolRolesCommand extends $Command<

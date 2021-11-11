@@ -35,7 +35,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  *
  * @see {@link GetDataSourceCommandInput} for command's `input` shape.
  * @see {@link GetDataSourceCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class GetDataSourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  *
  * @see {@link DescribeTaskCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeTaskCommand extends $Command<

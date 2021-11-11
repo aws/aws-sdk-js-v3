@@ -37,7 +37,7 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteForecastExportJobCommandInput} for command's `input` shape.
  * @see {@link DeleteForecastExportJobCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class DeleteForecastExportJobCommand extends $Command<

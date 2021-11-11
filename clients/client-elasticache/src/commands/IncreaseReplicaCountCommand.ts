@@ -37,7 +37,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  *
  * @see {@link IncreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicaCountCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class IncreaseReplicaCountCommand extends $Command<

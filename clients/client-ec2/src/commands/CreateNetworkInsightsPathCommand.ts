@@ -38,7 +38,7 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
  *
  * @see {@link CreateNetworkInsightsPathCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInsightsPathCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateNetworkInsightsPathCommand extends $Command<

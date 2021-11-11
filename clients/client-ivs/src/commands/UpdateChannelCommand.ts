@@ -36,7 +36,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  */
 export class UpdateChannelCommand extends $Command<

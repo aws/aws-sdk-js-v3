@@ -43,7 +43,7 @@ export interface GetCertificateAuthorityCertificateCommandOutput
  *
  * @see {@link GetCertificateAuthorityCertificateCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  */
 export class GetCertificateAuthorityCertificateCommand extends $Command<

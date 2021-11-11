@@ -36,7 +36,7 @@ export interface CreateLabelsCommandOutput extends CreateLabelsResponse, __Metad
  *
  * @see {@link CreateLabelsCommandInput} for command's `input` shape.
  * @see {@link CreateLabelsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class CreateLabelsCommand extends $Command<

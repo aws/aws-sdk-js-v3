@@ -44,7 +44,7 @@ export interface UpdateResourceServerCommandOutput extends UpdateResourceServerR
  *
  * @see {@link UpdateResourceServerCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceServerCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class UpdateResourceServerCommand extends $Command<

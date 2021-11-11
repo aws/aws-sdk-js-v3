@@ -62,7 +62,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  *
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAffectedEntitiesForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<

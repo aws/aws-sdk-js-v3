@@ -35,7 +35,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  *
  * @see {@link GetEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  */
 export class GetEnvironmentCommand extends $Command<

@@ -43,7 +43,7 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *
  * @see {@link ListShardsCommandInput} for command's `input` shape.
  * @see {@link ListShardsCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class ListShardsCommand extends $Command<

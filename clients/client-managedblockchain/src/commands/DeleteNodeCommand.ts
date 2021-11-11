@@ -40,7 +40,7 @@ export interface DeleteNodeCommandOutput extends DeleteNodeOutput, __MetadataBea
  *
  * @see {@link DeleteNodeCommandInput} for command's `input` shape.
  * @see {@link DeleteNodeCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class DeleteNodeCommand extends $Command<

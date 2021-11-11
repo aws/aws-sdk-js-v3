@@ -36,7 +36,7 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyOutpu
  *
  * @see {@link PutLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link PutLifecyclePolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class PutLifecyclePolicyCommand extends $Command<

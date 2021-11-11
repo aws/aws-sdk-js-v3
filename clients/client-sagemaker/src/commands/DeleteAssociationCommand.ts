@@ -35,7 +35,7 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationRespons
  *
  * @see {@link DeleteAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteAssociationCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteAssociationCommand extends $Command<

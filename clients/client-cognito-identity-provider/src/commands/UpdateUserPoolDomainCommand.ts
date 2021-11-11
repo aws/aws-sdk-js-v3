@@ -60,7 +60,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  *
  * @see {@link UpdateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolDomainCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class UpdateUserPoolDomainCommand extends $Command<

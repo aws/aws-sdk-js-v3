@@ -43,7 +43,7 @@ export interface StopInstanceCommandOutput extends StopInstanceResult, __Metadat
  *
  * @see {@link StopInstanceCommandInput} for command's `input` shape.
  * @see {@link StopInstanceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class StopInstanceCommand extends $Command<

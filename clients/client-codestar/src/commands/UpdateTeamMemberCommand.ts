@@ -37,7 +37,7 @@ export interface UpdateTeamMemberCommandOutput extends UpdateTeamMemberResult, _
  *
  * @see {@link UpdateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateTeamMemberCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class UpdateTeamMemberCommand extends $Command<

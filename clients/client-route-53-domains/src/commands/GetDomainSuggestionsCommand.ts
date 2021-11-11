@@ -35,7 +35,7 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  *
  * @see {@link GetDomainSuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetDomainSuggestionsCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
 export class GetDomainSuggestionsCommand extends $Command<

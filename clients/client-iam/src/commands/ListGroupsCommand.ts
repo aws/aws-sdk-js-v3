@@ -34,7 +34,7 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListGroupsCommand extends $Command<

@@ -56,7 +56,7 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *
  * @see {@link DetectTextCommandInput} for command's `input` shape.
  * @see {@link DetectTextCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class DetectTextCommand extends $Command<

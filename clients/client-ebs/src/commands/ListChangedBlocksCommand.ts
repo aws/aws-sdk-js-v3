@@ -36,7 +36,7 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  *
  * @see {@link ListChangedBlocksCommandInput} for command's `input` shape.
  * @see {@link ListChangedBlocksCommandOutput} for command's `response` shape.
- * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
  */
 export class ListChangedBlocksCommand extends $Command<

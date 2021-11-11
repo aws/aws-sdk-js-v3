@@ -35,7 +35,7 @@ export interface GetInsightSummariesCommandOutput extends GetInsightSummariesRes
  *
  * @see {@link GetInsightSummariesCommandInput} for command's `input` shape.
  * @see {@link GetInsightSummariesCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class GetInsightSummariesCommand extends $Command<

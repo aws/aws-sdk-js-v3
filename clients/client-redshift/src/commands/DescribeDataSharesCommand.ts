@@ -36,7 +36,7 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  *
  * @see {@link DescribeDataSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSharesCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DescribeDataSharesCommand extends $Command<

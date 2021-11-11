@@ -50,7 +50,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  *
  * @see {@link ModifyDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyDBParameterGroupCommand extends $Command<

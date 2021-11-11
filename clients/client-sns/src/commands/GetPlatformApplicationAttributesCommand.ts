@@ -39,7 +39,7 @@ export interface GetPlatformApplicationAttributesCommandOutput
  *
  * @see {@link GetPlatformApplicationAttributesCommandInput} for command's `input` shape.
  * @see {@link GetPlatformApplicationAttributesCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class GetPlatformApplicationAttributesCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *
  * @see {@link GetIPSetCommandInput} for command's `input` shape.
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for WAFV2Client's `config` shape.
  *
  */
 export class GetIPSetCommand extends $Command<GetIPSetCommandInput, GetIPSetCommandOutput, WAFV2ClientResolvedConfig> {

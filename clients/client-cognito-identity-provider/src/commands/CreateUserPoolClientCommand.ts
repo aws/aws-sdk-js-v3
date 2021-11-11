@@ -42,7 +42,7 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  *
  * @see {@link CreateUserPoolClientCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolClientCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class CreateUserPoolClientCommand extends $Command<

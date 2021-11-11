@@ -48,7 +48,7 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  *
  * @see {@link ModifyHsmCommandInput} for command's `input` shape.
  * @see {@link ModifyHsmCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class ModifyHsmCommand extends $Command<

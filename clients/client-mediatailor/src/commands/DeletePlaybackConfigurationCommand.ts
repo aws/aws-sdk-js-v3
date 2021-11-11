@@ -37,7 +37,7 @@ export interface DeletePlaybackConfigurationCommandOutput
  *
  * @see {@link DeletePlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeletePlaybackConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class DeletePlaybackConfigurationCommand extends $Command<

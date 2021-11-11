@@ -41,7 +41,7 @@ export interface ListEntitiesDetectionV2JobsCommandOutput
  *
  * @see {@link ListEntitiesDetectionV2JobsCommandInput} for command's `input` shape.
  * @see {@link ListEntitiesDetectionV2JobsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class ListEntitiesDetectionV2JobsCommand extends $Command<

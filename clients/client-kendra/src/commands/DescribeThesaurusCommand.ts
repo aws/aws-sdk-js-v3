@@ -35,7 +35,7 @@ export interface DescribeThesaurusCommandOutput extends DescribeThesaurusRespons
  *
  * @see {@link DescribeThesaurusCommandInput} for command's `input` shape.
  * @see {@link DescribeThesaurusCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class DescribeThesaurusCommand extends $Command<

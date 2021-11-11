@@ -72,7 +72,7 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *
  * @see {@link RemoveAccountFromOrganizationCommandInput} for command's `input` shape.
  * @see {@link RemoveAccountFromOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class RemoveAccountFromOrganizationCommand extends $Command<

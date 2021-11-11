@@ -35,7 +35,7 @@ export interface TestWirelessDeviceCommandOutput extends TestWirelessDeviceRespo
  *
  * @see {@link TestWirelessDeviceCommandInput} for command's `input` shape.
  * @see {@link TestWirelessDeviceCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class TestWirelessDeviceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *
  * @see {@link GetDevicePoolCompatibilityCommandInput} for command's `input` shape.
  * @see {@link GetDevicePoolCompatibilityCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class GetDevicePoolCompatibilityCommand extends $Command<

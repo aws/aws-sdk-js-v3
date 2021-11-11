@@ -44,7 +44,7 @@ export interface DeleteDatabaseCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteDatabaseCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for TimestreamWriteClient's `config` shape.
  *
  */
 export class DeleteDatabaseCommand extends $Command<

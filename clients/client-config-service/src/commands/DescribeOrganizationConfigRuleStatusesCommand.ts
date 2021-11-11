@@ -49,7 +49,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  *
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConfigRuleStatusesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeOrganizationConfigRuleStatusesCommand extends $Command<

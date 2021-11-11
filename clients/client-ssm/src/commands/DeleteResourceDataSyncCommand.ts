@@ -37,7 +37,7 @@ export interface DeleteResourceDataSyncCommandOutput extends DeleteResourceDataS
  *
  * @see {@link DeleteResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDataSyncCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class DeleteResourceDataSyncCommand extends $Command<

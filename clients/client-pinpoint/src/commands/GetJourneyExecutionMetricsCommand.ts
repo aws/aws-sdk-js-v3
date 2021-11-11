@@ -35,7 +35,7 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  *
  * @see {@link GetJourneyExecutionMetricsCommandInput} for command's `input` shape.
  * @see {@link GetJourneyExecutionMetricsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetJourneyExecutionMetricsCommand extends $Command<

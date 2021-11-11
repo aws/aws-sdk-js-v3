@@ -37,7 +37,7 @@ export interface DeletePublishingDestinationCommandOutput
  *
  * @see {@link DeletePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link DeletePublishingDestinationCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DeletePublishingDestinationCommand extends $Command<

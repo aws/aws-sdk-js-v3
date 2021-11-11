@@ -47,7 +47,7 @@ export interface SetLoadBalancerPoliciesOfListenerCommandOutput
  *
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandInput} for command's `input` shape.
  * @see {@link SetLoadBalancerPoliciesOfListenerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class SetLoadBalancerPoliciesOfListenerCommand extends $Command<

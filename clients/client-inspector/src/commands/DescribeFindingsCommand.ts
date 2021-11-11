@@ -35,7 +35,7 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  *
  * @see {@link DescribeFindingsCommandInput} for command's `input` shape.
  * @see {@link DescribeFindingsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class DescribeFindingsCommand extends $Command<

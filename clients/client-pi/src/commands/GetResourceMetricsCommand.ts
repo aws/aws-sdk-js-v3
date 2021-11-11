@@ -41,7 +41,7 @@ export interface GetResourceMetricsCommandOutput extends GetResourceMetricsRespo
  *
  * @see {@link GetResourceMetricsCommandInput} for command's `input` shape.
  * @see {@link GetResourceMetricsCommandOutput} for command's `response` shape.
- * @see {@link PIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
  */
 export class GetResourceMetricsCommand extends $Command<

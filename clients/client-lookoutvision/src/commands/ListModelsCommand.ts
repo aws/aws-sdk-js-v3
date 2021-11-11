@@ -37,7 +37,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  *
  * @see {@link ListModelsCommandInput} for command's `input` shape.
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class ListModelsCommand extends $Command<

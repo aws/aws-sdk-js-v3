@@ -35,7 +35,7 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  *
  * @see {@link DetachPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class DetachPolicyCommand extends $Command<

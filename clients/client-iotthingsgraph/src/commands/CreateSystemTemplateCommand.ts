@@ -36,7 +36,7 @@ export interface CreateSystemTemplateCommandOutput extends CreateSystemTemplateR
  *
  * @see {@link CreateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSystemTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class CreateSystemTemplateCommand extends $Command<

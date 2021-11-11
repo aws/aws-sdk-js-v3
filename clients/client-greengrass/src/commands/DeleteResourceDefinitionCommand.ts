@@ -35,7 +35,7 @@ export interface DeleteResourceDefinitionCommandOutput extends DeleteResourceDef
  *
  * @see {@link DeleteResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class DeleteResourceDefinitionCommand extends $Command<

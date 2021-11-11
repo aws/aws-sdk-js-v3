@@ -35,7 +35,7 @@ export interface UpdateDevEndpointCommandOutput extends UpdateDevEndpointRespons
  *
  * @see {@link UpdateDevEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateDevEndpointCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateDevEndpointCommand extends $Command<

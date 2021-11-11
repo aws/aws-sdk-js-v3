@@ -37,7 +37,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *
  * @see {@link CreateGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateGatewayCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class CreateGatewayCommand extends $Command<

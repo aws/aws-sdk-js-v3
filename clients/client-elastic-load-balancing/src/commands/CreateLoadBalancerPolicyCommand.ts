@@ -40,7 +40,7 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  *
  * @see {@link CreateLoadBalancerPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLoadBalancerPolicyCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class CreateLoadBalancerPolicyCommand extends $Command<

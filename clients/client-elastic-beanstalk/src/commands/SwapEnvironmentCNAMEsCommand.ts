@@ -35,7 +35,7 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SwapEnvironmentCNAMEsCommandInput} for command's `input` shape.
  * @see {@link SwapEnvironmentCNAMEsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class SwapEnvironmentCNAMEsCommand extends $Command<

@@ -83,7 +83,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class CreateQueueCommand extends $Command<

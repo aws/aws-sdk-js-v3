@@ -37,7 +37,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DescribeUserCommand extends $Command<

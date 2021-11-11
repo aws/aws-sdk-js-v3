@@ -39,7 +39,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *
  * @see {@link CreateLaunchTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchTemplateCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateLaunchTemplateCommand extends $Command<

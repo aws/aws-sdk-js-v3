@@ -36,7 +36,7 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  *
  * @see {@link CreateCustomMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateCustomMetadataCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class CreateCustomMetadataCommand extends $Command<

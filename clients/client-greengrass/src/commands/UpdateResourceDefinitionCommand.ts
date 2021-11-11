@@ -35,7 +35,7 @@ export interface UpdateResourceDefinitionCommandOutput extends UpdateResourceDef
  *
  * @see {@link UpdateResourceDefinitionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class UpdateResourceDefinitionCommand extends $Command<

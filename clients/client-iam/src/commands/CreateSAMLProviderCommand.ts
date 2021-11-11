@@ -52,7 +52,7 @@ export interface CreateSAMLProviderCommandOutput extends CreateSAMLProviderRespo
  *
  * @see {@link CreateSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link CreateSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class CreateSAMLProviderCommand extends $Command<

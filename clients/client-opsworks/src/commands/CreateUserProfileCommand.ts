@@ -39,7 +39,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  *
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class CreateUserProfileCommand extends $Command<

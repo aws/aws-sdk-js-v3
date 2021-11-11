@@ -35,7 +35,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  *
  * @see {@link ListSchedulesCommandInput} for command's `input` shape.
  * @see {@link ListSchedulesCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class ListSchedulesCommand extends $Command<

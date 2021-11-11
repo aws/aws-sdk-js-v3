@@ -63,7 +63,7 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  *
  * @see {@link DeleteFleetLocationsCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetLocationsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DeleteFleetLocationsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface GetRelationalDatabaseLogStreamsCommandOutput
  *
  * @see {@link GetRelationalDatabaseLogStreamsCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseLogStreamsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetRelationalDatabaseLogStreamsCommand extends $Command<

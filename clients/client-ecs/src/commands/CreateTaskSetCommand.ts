@@ -38,7 +38,7 @@ export interface CreateTaskSetCommandOutput extends CreateTaskSetResponse, __Met
  *
  * @see {@link CreateTaskSetCommandInput} for command's `input` shape.
  * @see {@link CreateTaskSetCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class CreateTaskSetCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  *
  * @see {@link ListLaunchPathsCommandInput} for command's `input` shape.
  * @see {@link ListLaunchPathsCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListLaunchPathsCommand extends $Command<

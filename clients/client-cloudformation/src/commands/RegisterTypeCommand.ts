@@ -59,7 +59,7 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *
  * @see {@link RegisterTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterTypeCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class RegisterTypeCommand extends $Command<

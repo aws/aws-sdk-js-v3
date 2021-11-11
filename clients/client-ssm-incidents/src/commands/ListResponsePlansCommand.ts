@@ -35,7 +35,7 @@ export interface ListResponsePlansCommandOutput extends ListResponsePlansOutput,
  *
  * @see {@link ListResponsePlansCommandInput} for command's `input` shape.
  * @see {@link ListResponsePlansCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class ListResponsePlansCommand extends $Command<

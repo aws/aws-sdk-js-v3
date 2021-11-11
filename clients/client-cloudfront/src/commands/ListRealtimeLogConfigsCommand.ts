@@ -40,7 +40,7 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  *
  * @see {@link ListRealtimeLogConfigsCommandInput} for command's `input` shape.
  * @see {@link ListRealtimeLogConfigsCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class ListRealtimeLogConfigsCommand extends $Command<

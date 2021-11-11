@@ -39,7 +39,7 @@ export interface DescribeTunnelCommandOutput extends DescribeTunnelResponse, __M
  *
  * @see {@link DescribeTunnelCommandInput} for command's `input` shape.
  * @see {@link DescribeTunnelCommandOutput} for command's `response` shape.
- * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
  */
 export class DescribeTunnelCommand extends $Command<

@@ -45,7 +45,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  *
  * @see {@link CreatePrivateVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateVirtualInterfaceCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class CreatePrivateVirtualInterfaceCommand extends $Command<

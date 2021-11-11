@@ -36,7 +36,7 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  *
  * @see {@link GrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link GrantPermissionsCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class GrantPermissionsCommand extends $Command<

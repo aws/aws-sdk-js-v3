@@ -39,7 +39,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
  *
  * @see {@link DisassociateIamInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DisassociateIamInstanceProfileCommand extends $Command<

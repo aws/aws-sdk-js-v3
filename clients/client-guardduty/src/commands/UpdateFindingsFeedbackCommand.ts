@@ -35,7 +35,7 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  *
  * @see {@link UpdateFindingsFeedbackCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsFeedbackCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class UpdateFindingsFeedbackCommand extends $Command<

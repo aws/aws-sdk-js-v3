@@ -37,7 +37,7 @@ export interface DescribeTestCasesCommandOutput extends DescribeTestCasesOutput,
  *
  * @see {@link DescribeTestCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeTestCasesCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class DescribeTestCasesCommand extends $Command<

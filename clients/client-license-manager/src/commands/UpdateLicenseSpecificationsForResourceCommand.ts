@@ -44,7 +44,7 @@ export interface UpdateLicenseSpecificationsForResourceCommandOutput
  *
  * @see {@link UpdateLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class UpdateLicenseSpecificationsForResourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  *
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListArtifactsCommand extends $Command<

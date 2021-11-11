@@ -35,7 +35,7 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  *
  * @see {@link UpdateSmsChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSmsChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateSmsChannelCommand extends $Command<

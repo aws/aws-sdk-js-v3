@@ -62,7 +62,7 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *
  * @see {@link GetUtterancesViewCommandInput} for command's `input` shape.
  * @see {@link GetUtterancesViewCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetUtterancesViewCommand extends $Command<

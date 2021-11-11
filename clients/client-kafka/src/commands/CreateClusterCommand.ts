@@ -35,7 +35,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class CreateClusterCommand extends $Command<

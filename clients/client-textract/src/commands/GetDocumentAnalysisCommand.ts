@@ -79,7 +79,7 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *
  * @see {@link GetDocumentAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  */
 export class GetDocumentAnalysisCommand extends $Command<

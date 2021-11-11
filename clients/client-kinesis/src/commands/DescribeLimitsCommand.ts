@@ -38,7 +38,7 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *
  * @see {@link DescribeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeLimitsCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class DescribeLimitsCommand extends $Command<

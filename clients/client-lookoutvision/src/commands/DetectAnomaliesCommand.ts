@@ -53,7 +53,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  *
  * @see {@link DetectAnomaliesCommandInput} for command's `input` shape.
  * @see {@link DetectAnomaliesCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class DetectAnomaliesCommand extends $Command<

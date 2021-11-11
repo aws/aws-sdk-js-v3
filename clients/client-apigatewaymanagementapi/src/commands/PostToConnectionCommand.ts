@@ -39,7 +39,7 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PostToConnectionCommandInput} for command's `input` shape.
  * @see {@link PostToConnectionCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
  *
  */
 export class PostToConnectionCommand extends $Command<

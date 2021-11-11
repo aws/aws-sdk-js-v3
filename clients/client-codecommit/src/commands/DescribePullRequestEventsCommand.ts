@@ -35,7 +35,7 @@ export interface DescribePullRequestEventsCommandOutput extends DescribePullRequ
  *
  * @see {@link DescribePullRequestEventsCommandInput} for command's `input` shape.
  * @see {@link DescribePullRequestEventsCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class DescribePullRequestEventsCommand extends $Command<

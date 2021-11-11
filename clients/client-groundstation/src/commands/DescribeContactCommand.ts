@@ -35,7 +35,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  *
  * @see {@link DescribeContactCommandInput} for command's `input` shape.
  * @see {@link DescribeContactCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class DescribeContactCommand extends $Command<

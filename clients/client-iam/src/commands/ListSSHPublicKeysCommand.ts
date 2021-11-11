@@ -42,7 +42,7 @@ export interface ListSSHPublicKeysCommandOutput extends ListSSHPublicKeysRespons
  *
  * @see {@link ListSSHPublicKeysCommandInput} for command's `input` shape.
  * @see {@link ListSSHPublicKeysCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListSSHPublicKeysCommand extends $Command<

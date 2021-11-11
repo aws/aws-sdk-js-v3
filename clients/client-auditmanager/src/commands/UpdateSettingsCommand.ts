@@ -35,7 +35,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  *
  * @see {@link UpdateSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateSettingsCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class UpdateSettingsCommand extends $Command<

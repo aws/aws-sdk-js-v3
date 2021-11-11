@@ -49,7 +49,7 @@ export interface DiscoverInputSchemaCommandOutput extends DiscoverInputSchemaRes
  *
  * @see {@link DiscoverInputSchemaCommandInput} for command's `input` shape.
  * @see {@link DiscoverInputSchemaCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
  */
 export class DiscoverInputSchemaCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateFleetMetricCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateFleetMetricCommandInput} for command's `input` shape.
  * @see {@link UpdateFleetMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateFleetMetricCommand extends $Command<

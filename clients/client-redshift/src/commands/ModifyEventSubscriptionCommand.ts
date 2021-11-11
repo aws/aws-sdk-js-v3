@@ -35,7 +35,7 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *
  * @see {@link ModifyEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyEventSubscriptionCommand extends $Command<

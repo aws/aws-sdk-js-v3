@@ -35,7 +35,7 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  *
  * @see {@link CreateReturnShippingLabelCommandInput} for command's `input` shape.
  * @see {@link CreateReturnShippingLabelCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class CreateReturnShippingLabelCommand extends $Command<

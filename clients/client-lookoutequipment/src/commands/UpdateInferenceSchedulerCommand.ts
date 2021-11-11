@@ -35,7 +35,7 @@ export interface UpdateInferenceSchedulerCommandOutput extends __MetadataBearer 
  *
  * @see {@link UpdateInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link UpdateInferenceSchedulerCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for LookoutEquipmentClient's `config` shape.
  *
  */
 export class UpdateInferenceSchedulerCommand extends $Command<

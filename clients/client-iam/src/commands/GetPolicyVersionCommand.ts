@@ -50,7 +50,7 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  *
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetPolicyVersionCommand extends $Command<

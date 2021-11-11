@@ -35,7 +35,7 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *
  * @see {@link CreatePrefetchScheduleCommandInput} for command's `input` shape.
  * @see {@link CreatePrefetchScheduleCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class CreatePrefetchScheduleCommand extends $Command<

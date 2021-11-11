@@ -35,7 +35,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *
  * @see {@link CreateBrokerCommandInput} for command's `input` shape.
  * @see {@link CreateBrokerCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  */
 export class CreateBrokerCommand extends $Command<

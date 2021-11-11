@@ -36,7 +36,7 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  *
  * @see {@link GetDomainStatisticsReportCommandInput} for command's `input` shape.
  * @see {@link GetDomainStatisticsReportCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class GetDomainStatisticsReportCommand extends $Command<

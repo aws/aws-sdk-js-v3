@@ -42,7 +42,7 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  *
  * @see {@link UpdateSigningCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateSigningCertificateCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UpdateSigningCertificateCommand extends $Command<

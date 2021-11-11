@@ -35,7 +35,7 @@ export interface ListMulticastGroupsCommandOutput extends ListMulticastGroupsRes
  *
  * @see {@link ListMulticastGroupsCommandInput} for command's `input` shape.
  * @see {@link ListMulticastGroupsCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class ListMulticastGroupsCommand extends $Command<

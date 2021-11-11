@@ -36,7 +36,7 @@ export interface GetResolverRulePolicyCommandOutput extends GetResolverRulePolic
  *
  * @see {@link GetResolverRulePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResolverRulePolicyCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class GetResolverRulePolicyCommand extends $Command<

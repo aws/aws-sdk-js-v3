@@ -36,7 +36,7 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  *
  * @see {@link ListTagsForStreamCommandInput} for command's `input` shape.
  * @see {@link ListTagsForStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class ListTagsForStreamCommand extends $Command<

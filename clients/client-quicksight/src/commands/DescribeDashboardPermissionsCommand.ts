@@ -37,7 +37,7 @@ export interface DescribeDashboardPermissionsCommandOutput
  *
  * @see {@link DescribeDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDashboardPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DescribeDashboardPermissionsCommand extends $Command<

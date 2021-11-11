@@ -35,7 +35,7 @@ export interface ListTagsForProjectCommandOutput extends ListTagsForProjectResul
  *
  * @see {@link ListTagsForProjectCommandInput} for command's `input` shape.
  * @see {@link ListTagsForProjectCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
  */
 export class ListTagsForProjectCommand extends $Command<

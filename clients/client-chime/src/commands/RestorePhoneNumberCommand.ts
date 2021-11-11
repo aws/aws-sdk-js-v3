@@ -36,7 +36,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  *
  * @see {@link RestorePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link RestorePhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class RestorePhoneNumberCommand extends $Command<

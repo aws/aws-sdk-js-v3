@@ -49,7 +49,7 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  *
  * @see {@link InvokeAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class InvokeAsyncCommand extends $Command<

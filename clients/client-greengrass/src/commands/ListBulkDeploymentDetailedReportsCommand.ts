@@ -40,7 +40,7 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput
  *
  * @see {@link ListBulkDeploymentDetailedReportsCommandInput} for command's `input` shape.
  * @see {@link ListBulkDeploymentDetailedReportsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class ListBulkDeploymentDetailedReportsCommand extends $Command<

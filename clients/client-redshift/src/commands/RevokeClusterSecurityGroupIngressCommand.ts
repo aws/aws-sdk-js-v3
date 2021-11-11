@@ -41,7 +41,7 @@ export interface RevokeClusterSecurityGroupIngressCommandOutput
  *
  * @see {@link RevokeClusterSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeClusterSecurityGroupIngressCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class RevokeClusterSecurityGroupIngressCommand extends $Command<

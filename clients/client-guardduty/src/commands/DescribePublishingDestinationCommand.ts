@@ -38,7 +38,7 @@ export interface DescribePublishingDestinationCommandOutput
  *
  * @see {@link DescribePublishingDestinationCommandInput} for command's `input` shape.
  * @see {@link DescribePublishingDestinationCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class DescribePublishingDestinationCommand extends $Command<

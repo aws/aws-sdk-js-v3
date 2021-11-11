@@ -37,7 +37,7 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  *
  * @see {@link BatchGetTracesCommandInput} for command's `input` shape.
  * @see {@link BatchGetTracesCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for XRayClient's `config` shape.
  *
  */
 export class BatchGetTracesCommand extends $Command<

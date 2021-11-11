@@ -36,7 +36,7 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  *
  * @see {@link ListEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link ListEngineVersionsCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
 export class ListEngineVersionsCommand extends $Command<

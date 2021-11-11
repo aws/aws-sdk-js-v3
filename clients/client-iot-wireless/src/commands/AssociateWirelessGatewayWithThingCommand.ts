@@ -40,7 +40,7 @@ export interface AssociateWirelessGatewayWithThingCommandOutput
  *
  * @see {@link AssociateWirelessGatewayWithThingCommandInput} for command's `input` shape.
  * @see {@link AssociateWirelessGatewayWithThingCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class AssociateWirelessGatewayWithThingCommand extends $Command<

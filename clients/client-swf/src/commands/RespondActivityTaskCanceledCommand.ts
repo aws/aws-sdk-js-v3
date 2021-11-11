@@ -76,7 +76,7 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  *
  * @see {@link RespondActivityTaskCanceledCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCanceledCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class RespondActivityTaskCanceledCommand extends $Command<

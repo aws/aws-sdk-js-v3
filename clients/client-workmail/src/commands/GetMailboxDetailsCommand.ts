@@ -35,7 +35,7 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *
  * @see {@link GetMailboxDetailsCommandInput} for command's `input` shape.
  * @see {@link GetMailboxDetailsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class GetMailboxDetailsCommand extends $Command<

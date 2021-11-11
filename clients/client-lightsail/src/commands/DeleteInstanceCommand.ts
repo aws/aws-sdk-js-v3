@@ -38,7 +38,7 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResult, __Met
  *
  * @see {@link DeleteInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteInstanceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class DeleteInstanceCommand extends $Command<

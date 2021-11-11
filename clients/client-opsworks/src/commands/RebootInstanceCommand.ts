@@ -41,7 +41,7 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RebootInstanceCommandInput} for command's `input` shape.
  * @see {@link RebootInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class RebootInstanceCommand extends $Command<

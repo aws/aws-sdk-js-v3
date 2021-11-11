@@ -36,7 +36,7 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  *
  * @see {@link CreateOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class CreateOpsMetadataCommand extends $Command<

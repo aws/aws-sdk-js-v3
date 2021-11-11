@@ -36,7 +36,7 @@ export interface DeleteNotificationChannelCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationChannelCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class DeleteNotificationChannelCommand extends $Command<

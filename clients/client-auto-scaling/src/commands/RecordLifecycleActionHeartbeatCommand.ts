@@ -69,7 +69,7 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  *
  * @see {@link RecordLifecycleActionHeartbeatCommandInput} for command's `input` shape.
  * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class RecordLifecycleActionHeartbeatCommand extends $Command<

@@ -38,7 +38,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *
  * @see {@link CreateProjectCommandInput} for command's `input` shape.
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for LookoutVisionClient's `config` shape.
  *
  */
 export class CreateProjectCommand extends $Command<

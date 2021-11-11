@@ -41,7 +41,7 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class DeleteVaultAccessPolicyCommand extends $Command<

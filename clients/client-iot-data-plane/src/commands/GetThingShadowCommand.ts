@@ -38,7 +38,7 @@ export interface GetThingShadowCommandOutput extends GetThingShadowResponse, __M
  *
  * @see {@link GetThingShadowCommandInput} for command's `input` shape.
  * @see {@link GetThingShadowCommandOutput} for command's `response` shape.
- * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for IoTDataPlaneClient's `config` shape.
  *
  */
 export class GetThingShadowCommand extends $Command<

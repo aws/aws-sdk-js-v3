@@ -47,7 +47,7 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *
  * @see {@link GetSampledRequestsCommandInput} for command's `input` shape.
  * @see {@link GetSampledRequestsCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class GetSampledRequestsCommand extends $Command<

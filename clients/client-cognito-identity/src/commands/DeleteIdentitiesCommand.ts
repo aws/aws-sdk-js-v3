@@ -38,7 +38,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  *
  * @see {@link DeleteIdentitiesCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentitiesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class DeleteIdentitiesCommand extends $Command<

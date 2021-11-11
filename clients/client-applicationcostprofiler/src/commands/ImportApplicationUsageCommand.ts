@@ -42,7 +42,7 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  *
  * @see {@link ImportApplicationUsageCommandInput} for command's `input` shape.
  * @see {@link ImportApplicationUsageCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  */
 export class ImportApplicationUsageCommand extends $Command<

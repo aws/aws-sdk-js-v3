@@ -35,7 +35,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  *
  * @see {@link PutLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class PutLoggingOptionsCommand extends $Command<

@@ -63,7 +63,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesOutput, __M
  *
  * @see {@link SearchResourcesCommandInput} for command's `input` shape.
  * @see {@link SearchResourcesCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class SearchResourcesCommand extends $Command<

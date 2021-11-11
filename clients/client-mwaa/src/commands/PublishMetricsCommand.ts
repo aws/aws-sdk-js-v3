@@ -35,7 +35,7 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  *
  * @see {@link PublishMetricsCommandInput} for command's `input` shape.
  * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
- * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  */
 export class PublishMetricsCommand extends $Command<

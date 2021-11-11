@@ -37,7 +37,7 @@ export interface DeleteTrialCommandOutput extends DeleteTrialResponse, __Metadat
  *
  * @see {@link DeleteTrialCommandInput} for command's `input` shape.
  * @see {@link DeleteTrialCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteTrialCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  *
  * @see {@link ListNamespacesCommandInput} for command's `input` shape.
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListNamespacesCommand extends $Command<

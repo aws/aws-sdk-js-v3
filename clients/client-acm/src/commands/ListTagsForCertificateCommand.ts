@@ -37,7 +37,7 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  *
  * @see {@link ListTagsForCertificateCommandInput} for command's `input` shape.
  * @see {@link ListTagsForCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class ListTagsForCertificateCommand extends $Command<

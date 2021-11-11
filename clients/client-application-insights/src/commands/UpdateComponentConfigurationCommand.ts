@@ -43,7 +43,7 @@ export interface UpdateComponentConfigurationCommandOutput
  *
  * @see {@link UpdateComponentConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateComponentConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
  */
 export class UpdateComponentConfigurationCommand extends $Command<

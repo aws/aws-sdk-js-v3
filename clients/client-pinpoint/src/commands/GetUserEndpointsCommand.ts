@@ -35,7 +35,7 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  *
  * @see {@link GetUserEndpointsCommandInput} for command's `input` shape.
  * @see {@link GetUserEndpointsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetUserEndpointsCommand extends $Command<

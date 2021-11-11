@@ -35,7 +35,7 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  *
  * @see {@link GetBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link GetBasePathMappingCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetBasePathMappingCommand extends $Command<

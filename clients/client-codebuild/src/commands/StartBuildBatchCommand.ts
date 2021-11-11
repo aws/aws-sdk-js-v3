@@ -35,7 +35,7 @@ export interface StartBuildBatchCommandOutput extends StartBuildBatchOutput, __M
  *
  * @see {@link StartBuildBatchCommandInput} for command's `input` shape.
  * @see {@link StartBuildBatchCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class StartBuildBatchCommand extends $Command<

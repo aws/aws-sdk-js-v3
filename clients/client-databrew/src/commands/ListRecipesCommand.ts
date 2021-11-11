@@ -35,7 +35,7 @@ export interface ListRecipesCommandOutput extends ListRecipesResponse, __Metadat
  *
  * @see {@link ListRecipesCommandInput} for command's `input` shape.
  * @see {@link ListRecipesCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class ListRecipesCommand extends $Command<

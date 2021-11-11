@@ -35,7 +35,7 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  *
  * @see {@link DescribeWorkflowCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkflowCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DescribeWorkflowCommand extends $Command<

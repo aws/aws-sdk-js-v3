@@ -43,7 +43,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class ListFunctionsCommand extends $Command<

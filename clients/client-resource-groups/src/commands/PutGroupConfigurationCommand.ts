@@ -48,7 +48,7 @@ export interface PutGroupConfigurationCommandOutput extends PutGroupConfiguratio
  *
  * @see {@link PutGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutGroupConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class PutGroupConfigurationCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListReportGroupsCommandOutput extends ListReportGroupsOutput, _
  *
  * @see {@link ListReportGroupsCommandInput} for command's `input` shape.
  * @see {@link ListReportGroupsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class ListReportGroupsCommand extends $Command<

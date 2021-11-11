@@ -38,7 +38,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  *
  * @see {@link DescribeSubscriptionFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeSubscriptionFiltersCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class DescribeSubscriptionFiltersCommand extends $Command<

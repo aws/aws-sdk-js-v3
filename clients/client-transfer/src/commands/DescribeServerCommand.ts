@@ -40,7 +40,7 @@ export interface DescribeServerCommandOutput extends DescribeServerResponse, __M
  *
  * @see {@link DescribeServerCommandInput} for command's `input` shape.
  * @see {@link DescribeServerCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DescribeServerCommand extends $Command<

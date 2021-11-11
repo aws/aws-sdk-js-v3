@@ -45,7 +45,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
  */
 export class DescribeBackupsCommand extends $Command<

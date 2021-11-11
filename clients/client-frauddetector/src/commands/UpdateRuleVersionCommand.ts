@@ -35,7 +35,7 @@ export interface UpdateRuleVersionCommandOutput extends UpdateRuleVersionResult,
  *
  * @see {@link UpdateRuleVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateRuleVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class UpdateRuleVersionCommand extends $Command<

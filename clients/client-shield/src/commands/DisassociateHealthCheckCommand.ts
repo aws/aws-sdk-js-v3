@@ -36,7 +36,7 @@ export interface DisassociateHealthCheckCommandOutput extends DisassociateHealth
  *
  * @see {@link DisassociateHealthCheckCommandInput} for command's `input` shape.
  * @see {@link DisassociateHealthCheckCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DisassociateHealthCheckCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @see {@link CreateDBClusterCommandInput} for command's `input` shape.
  * @see {@link CreateDBClusterCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class CreateDBClusterCommand extends $Command<

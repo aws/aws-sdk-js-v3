@@ -65,7 +65,7 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  *
  * @see {@link CreateDataSourceFromS3CommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceFromS3CommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class CreateDataSourceFromS3Command extends $Command<

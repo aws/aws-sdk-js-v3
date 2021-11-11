@@ -37,7 +37,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *
  * @see {@link GetExclusionsPreviewCommandInput} for command's `input` shape.
  * @see {@link GetExclusionsPreviewCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class GetExclusionsPreviewCommand extends $Command<

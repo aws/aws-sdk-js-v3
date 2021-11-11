@@ -35,7 +35,7 @@ export interface DescribeRepositoriesCommandOutput extends DescribeRepositoriesR
  *
  * @see {@link DescribeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeRepositoriesCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class DescribeRepositoriesCommand extends $Command<

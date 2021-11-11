@@ -38,7 +38,7 @@ export interface DescribeNotificationConfigurationsCommandOutput
  *
  * @see {@link DescribeNotificationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DescribeNotificationConfigurationsCommand extends $Command<

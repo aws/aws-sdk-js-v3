@@ -37,7 +37,7 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  *
  * @see {@link RestoreBackupCommandInput} for command's `input` shape.
  * @see {@link RestoreBackupCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  */
 export class RestoreBackupCommand extends $Command<

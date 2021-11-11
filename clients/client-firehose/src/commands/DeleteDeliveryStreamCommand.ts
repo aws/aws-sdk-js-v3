@@ -44,7 +44,7 @@ export interface DeleteDeliveryStreamCommandOutput extends DeleteDeliveryStreamO
  *
  * @see {@link DeleteDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteDeliveryStreamCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class DeleteDeliveryStreamCommand extends $Command<

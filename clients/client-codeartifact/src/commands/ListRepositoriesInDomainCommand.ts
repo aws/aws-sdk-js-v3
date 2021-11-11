@@ -40,7 +40,7 @@ export interface ListRepositoriesInDomainCommandOutput extends ListRepositoriesI
  *
  * @see {@link ListRepositoriesInDomainCommandInput} for command's `input` shape.
  * @see {@link ListRepositoriesInDomainCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class ListRepositoriesInDomainCommand extends $Command<

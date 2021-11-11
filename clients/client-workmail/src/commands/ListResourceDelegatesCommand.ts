@@ -36,7 +36,7 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  *
  * @see {@link ListResourceDelegatesCommandInput} for command's `input` shape.
  * @see {@link ListResourceDelegatesCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class ListResourceDelegatesCommand extends $Command<

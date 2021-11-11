@@ -43,7 +43,7 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *
  * @see {@link DetachVolumeCommandInput} for command's `input` shape.
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DetachVolumeCommand extends $Command<

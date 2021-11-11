@@ -36,7 +36,7 @@ export interface ListPortfolioAccessCommandOutput extends ListPortfolioAccessOut
  *
  * @see {@link ListPortfolioAccessCommandInput} for command's `input` shape.
  * @see {@link ListPortfolioAccessCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListPortfolioAccessCommand extends $Command<

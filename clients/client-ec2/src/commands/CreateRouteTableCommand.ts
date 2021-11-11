@@ -37,7 +37,7 @@ export interface CreateRouteTableCommandOutput extends CreateRouteTableResult, _
  *
  * @see {@link CreateRouteTableCommandInput} for command's `input` shape.
  * @see {@link CreateRouteTableCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class CreateRouteTableCommand extends $Command<

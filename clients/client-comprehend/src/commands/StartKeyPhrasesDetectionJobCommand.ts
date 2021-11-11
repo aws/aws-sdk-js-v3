@@ -39,7 +39,7 @@ export interface StartKeyPhrasesDetectionJobCommandOutput
  *
  * @see {@link StartKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class StartKeyPhrasesDetectionJobCommand extends $Command<

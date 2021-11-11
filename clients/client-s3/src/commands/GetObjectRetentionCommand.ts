@@ -37,7 +37,7 @@ export interface GetObjectRetentionCommandOutput extends GetObjectRetentionOutpu
  *
  * @see {@link GetObjectRetentionCommandInput} for command's `input` shape.
  * @see {@link GetObjectRetentionCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class GetObjectRetentionCommand extends $Command<

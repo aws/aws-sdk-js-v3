@@ -39,7 +39,7 @@ export interface ListTasksCommandOutput extends ListTasksOutput, __MetadataBeare
  *
  * @see {@link ListTasksCommandInput} for command's `input` shape.
  * @see {@link ListTasksCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for SnowDeviceManagementClient's `config` shape.
  *
  */
 export class ListTasksCommand extends $Command<

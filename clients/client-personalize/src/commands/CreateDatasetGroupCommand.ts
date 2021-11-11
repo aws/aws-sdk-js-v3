@@ -110,7 +110,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class CreateDatasetGroupCommand extends $Command<

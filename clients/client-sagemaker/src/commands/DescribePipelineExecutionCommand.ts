@@ -35,7 +35,7 @@ export interface DescribePipelineExecutionCommandOutput extends DescribePipeline
  *
  * @see {@link DescribePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribePipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribePipelineExecutionCommand extends $Command<

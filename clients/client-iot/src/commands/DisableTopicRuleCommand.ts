@@ -36,7 +36,7 @@ export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisableTopicRuleCommandInput} for command's `input` shape.
  * @see {@link DisableTopicRuleCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DisableTopicRuleCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  *
  * @see {@link DescribeAccountAttributesCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAttributesCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeAccountAttributesCommand extends $Command<

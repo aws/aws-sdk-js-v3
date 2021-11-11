@@ -36,7 +36,7 @@ export interface UpdateExperimentCommandOutput extends UpdateExperimentResponse,
  *
  * @see {@link UpdateExperimentCommandInput} for command's `input` shape.
  * @see {@link UpdateExperimentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class UpdateExperimentCommand extends $Command<

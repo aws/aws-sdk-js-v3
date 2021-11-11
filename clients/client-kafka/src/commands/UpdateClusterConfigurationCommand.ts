@@ -35,7 +35,7 @@ export interface UpdateClusterConfigurationCommandOutput extends UpdateClusterCo
  *
  * @see {@link UpdateClusterConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class UpdateClusterConfigurationCommand extends $Command<

@@ -37,7 +37,7 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  *
  * @see {@link GetContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContainerPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class GetContainerPolicyCommand extends $Command<

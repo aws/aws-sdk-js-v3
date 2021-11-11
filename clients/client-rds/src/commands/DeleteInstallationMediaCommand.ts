@@ -36,7 +36,7 @@ export interface DeleteInstallationMediaCommandOutput extends InstallationMedia,
  *
  * @see {@link DeleteInstallationMediaCommandInput} for command's `input` shape.
  * @see {@link DeleteInstallationMediaCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DeleteInstallationMediaCommand extends $Command<

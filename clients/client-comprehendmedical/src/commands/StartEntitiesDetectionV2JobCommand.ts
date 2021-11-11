@@ -42,7 +42,7 @@ export interface StartEntitiesDetectionV2JobCommandOutput
  *
  * @see {@link StartEntitiesDetectionV2JobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionV2JobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
  */
 export class StartEntitiesDetectionV2JobCommand extends $Command<

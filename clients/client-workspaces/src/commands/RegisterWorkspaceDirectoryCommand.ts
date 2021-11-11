@@ -39,7 +39,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *
  * @see {@link RegisterWorkspaceDirectoryCommandInput} for command's `input` shape.
  * @see {@link RegisterWorkspaceDirectoryCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command<

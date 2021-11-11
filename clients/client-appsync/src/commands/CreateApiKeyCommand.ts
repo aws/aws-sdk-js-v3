@@ -36,7 +36,7 @@ export interface CreateApiKeyCommandOutput extends CreateApiKeyResponse, __Metad
  *
  * @see {@link CreateApiKeyCommandInput} for command's `input` shape.
  * @see {@link CreateApiKeyCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class CreateApiKeyCommand extends $Command<

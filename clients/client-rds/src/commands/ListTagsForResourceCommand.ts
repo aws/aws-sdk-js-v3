@@ -38,7 +38,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

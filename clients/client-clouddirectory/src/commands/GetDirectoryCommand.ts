@@ -35,7 +35,7 @@ export interface GetDirectoryCommandOutput extends GetDirectoryResponse, __Metad
  *
  * @see {@link GetDirectoryCommandInput} for command's `input` shape.
  * @see {@link GetDirectoryCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class GetDirectoryCommand extends $Command<

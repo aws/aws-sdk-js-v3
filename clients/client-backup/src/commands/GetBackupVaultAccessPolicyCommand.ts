@@ -36,7 +36,7 @@ export interface GetBackupVaultAccessPolicyCommandOutput extends GetBackupVaultA
  *
  * @see {@link GetBackupVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBackupVaultAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class GetBackupVaultAccessPolicyCommand extends $Command<

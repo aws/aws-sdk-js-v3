@@ -40,7 +40,7 @@ export interface CreateResourceServerCommandOutput extends CreateResourceServerR
  *
  * @see {@link CreateResourceServerCommandInput} for command's `input` shape.
  * @see {@link CreateResourceServerCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class CreateResourceServerCommand extends $Command<

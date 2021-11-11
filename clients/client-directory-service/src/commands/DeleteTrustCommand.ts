@@ -36,7 +36,7 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  *
  * @see {@link DeleteTrustCommandInput} for command's `input` shape.
  * @see {@link DeleteTrustCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeleteTrustCommand extends $Command<

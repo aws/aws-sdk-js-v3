@@ -88,7 +88,7 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *
  * @see {@link CreateFileSystemCommandInput} for command's `input` shape.
  * @see {@link CreateFileSystemCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class CreateFileSystemCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetJobCommandOutput extends GetJobResult, __MetadataBearer {}
  *
  * @see {@link GetJobCommandInput} for command's `input` shape.
  * @see {@link GetJobCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOutput, AmplifyClientResolvedConfig> {

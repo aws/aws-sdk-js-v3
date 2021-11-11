@@ -35,7 +35,7 @@ export interface CreateEnvironmentMembershipCommandOutput extends CreateEnvironm
  *
  * @see {@link CreateEnvironmentMembershipCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentMembershipCommandOutput} for command's `response` shape.
- * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for Cloud9Client's `config` shape.
  *
  */
 export class CreateEnvironmentMembershipCommand extends $Command<

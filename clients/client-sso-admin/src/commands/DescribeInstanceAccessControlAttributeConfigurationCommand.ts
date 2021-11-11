@@ -44,7 +44,7 @@ export interface DescribeInstanceAccessControlAttributeConfigurationCommandOutpu
  *
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceAccessControlAttributeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class DescribeInstanceAccessControlAttributeConfigurationCommand extends $Command<

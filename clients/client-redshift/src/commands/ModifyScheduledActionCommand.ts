@@ -37,7 +37,7 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  *
  * @see {@link ModifyScheduledActionCommandInput} for command's `input` shape.
  * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyScheduledActionCommand extends $Command<

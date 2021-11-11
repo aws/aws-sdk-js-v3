@@ -35,7 +35,7 @@ export interface DescribeDeviceCommandOutput extends DescribeDeviceResponse, __M
  *
  * @see {@link DescribeDeviceCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeDeviceCommand extends $Command<

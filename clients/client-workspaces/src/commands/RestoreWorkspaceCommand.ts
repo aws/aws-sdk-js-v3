@@ -42,7 +42,7 @@ export interface RestoreWorkspaceCommandOutput extends RestoreWorkspaceResult, _
  *
  * @see {@link RestoreWorkspaceCommandInput} for command's `input` shape.
  * @see {@link RestoreWorkspaceCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class RestoreWorkspaceCommand extends $Command<

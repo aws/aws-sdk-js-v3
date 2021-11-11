@@ -44,7 +44,7 @@ export interface PutBotAliasCommandOutput extends PutBotAliasResponse, __Metadat
  *
  * @see {@link PutBotAliasCommandInput} for command's `input` shape.
  * @see {@link PutBotAliasCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class PutBotAliasCommand extends $Command<

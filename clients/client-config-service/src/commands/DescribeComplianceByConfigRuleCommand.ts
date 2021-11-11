@@ -69,7 +69,7 @@ export interface DescribeComplianceByConfigRuleCommandOutput
  *
  * @see {@link DescribeComplianceByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByConfigRuleCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeComplianceByConfigRuleCommand extends $Command<

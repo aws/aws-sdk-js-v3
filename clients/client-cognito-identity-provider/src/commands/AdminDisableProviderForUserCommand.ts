@@ -69,7 +69,7 @@ export interface AdminDisableProviderForUserCommandOutput
  *
  * @see {@link AdminDisableProviderForUserCommandInput} for command's `input` shape.
  * @see {@link AdminDisableProviderForUserCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminDisableProviderForUserCommand extends $Command<

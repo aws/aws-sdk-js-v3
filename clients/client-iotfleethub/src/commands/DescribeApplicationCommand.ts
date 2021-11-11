@@ -38,7 +38,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *
  * @see {@link DescribeApplicationCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
- * @see {@link IoTFleetHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTFleetHubClientResolvedConfig | config} for IoTFleetHubClient's `config` shape.
  *
  */
 export class DescribeApplicationCommand extends $Command<

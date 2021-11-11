@@ -32,7 +32,7 @@ export interface PutLabelCommandOutput extends PutLabelResult, __MetadataBearer 
  *
  * @see {@link PutLabelCommandInput} for command's `input` shape.
  * @see {@link PutLabelCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class PutLabelCommand extends $Command<

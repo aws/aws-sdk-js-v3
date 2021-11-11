@@ -58,7 +58,7 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *
  * @see {@link DeleteByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteByteMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class DeleteByteMatchSetCommand extends $Command<

@@ -41,7 +41,7 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  *
  * @see {@link ExportCertificateCommandInput} for command's `input` shape.
  * @see {@link ExportCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class ExportCertificateCommand extends $Command<

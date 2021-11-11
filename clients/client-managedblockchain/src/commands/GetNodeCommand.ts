@@ -40,7 +40,7 @@ export interface GetNodeCommandOutput extends GetNodeOutput, __MetadataBearer {}
  *
  * @see {@link GetNodeCommandInput} for command's `input` shape.
  * @see {@link GetNodeCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class GetNodeCommand extends $Command<

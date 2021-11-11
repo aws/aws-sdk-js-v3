@@ -37,7 +37,7 @@ export interface CreateEventBusCommandOutput extends CreateEventBusResponse, __M
  *
  * @see {@link CreateEventBusCommandInput} for command's `input` shape.
  * @see {@link CreateEventBusCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class CreateEventBusCommand extends $Command<

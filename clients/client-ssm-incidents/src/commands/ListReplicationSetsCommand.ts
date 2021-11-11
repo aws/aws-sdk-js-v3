@@ -35,7 +35,7 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  *
  * @see {@link ListReplicationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReplicationSetsCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class ListReplicationSetsCommand extends $Command<

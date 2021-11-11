@@ -54,7 +54,7 @@ export interface PutSlotTypeCommandOutput extends PutSlotTypeResponse, __Metadat
  *
  * @see {@link PutSlotTypeCommandInput} for command's `input` shape.
  * @see {@link PutSlotTypeCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class PutSlotTypeCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeRemediationExecutionStatusCommandOutput
  *
  * @see {@link DescribeRemediationExecutionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationExecutionStatusCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeRemediationExecutionStatusCommand extends $Command<

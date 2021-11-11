@@ -35,7 +35,7 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  *
  * @see {@link RemoveIpRoutesCommandInput} for command's `input` shape.
  * @see {@link RemoveIpRoutesCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class RemoveIpRoutesCommand extends $Command<

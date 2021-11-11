@@ -38,7 +38,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  *
  * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class NoInputAndOutputCommand extends $Command<

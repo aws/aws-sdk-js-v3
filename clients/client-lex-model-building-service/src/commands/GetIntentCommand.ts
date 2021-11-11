@@ -42,7 +42,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  *
  * @see {@link GetIntentCommandInput} for command's `input` shape.
  * @see {@link GetIntentCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetIntentCommand extends $Command<

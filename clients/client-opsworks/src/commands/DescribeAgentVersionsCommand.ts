@@ -37,7 +37,7 @@ export interface DescribeAgentVersionsCommandOutput extends DescribeAgentVersion
  *
  * @see {@link DescribeAgentVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentVersionsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeAgentVersionsCommand extends $Command<

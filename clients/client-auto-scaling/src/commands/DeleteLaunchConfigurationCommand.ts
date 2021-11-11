@@ -37,7 +37,7 @@ export interface DeleteLaunchConfigurationCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DeleteLaunchConfigurationCommand extends $Command<

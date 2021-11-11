@@ -39,7 +39,7 @@ export interface ListDeliverabilityTestReportsCommandOutput
  *
  * @see {@link ListDeliverabilityTestReportsCommandInput} for command's `input` shape.
  * @see {@link ListDeliverabilityTestReportsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class ListDeliverabilityTestReportsCommand extends $Command<

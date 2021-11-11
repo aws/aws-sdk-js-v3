@@ -35,7 +35,7 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  *
  * @see {@link GetContentCommandInput} for command's `input` shape.
  * @see {@link GetContentCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class GetContentCommand extends $Command<

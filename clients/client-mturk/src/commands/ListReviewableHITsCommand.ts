@@ -38,7 +38,7 @@ export interface ListReviewableHITsCommandOutput extends ListReviewableHITsRespo
  *
  * @see {@link ListReviewableHITsCommandInput} for command's `input` shape.
  * @see {@link ListReviewableHITsCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class ListReviewableHITsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *
  * @see {@link UpdateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link UpdateCapacityProviderCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class UpdateCapacityProviderCommand extends $Command<

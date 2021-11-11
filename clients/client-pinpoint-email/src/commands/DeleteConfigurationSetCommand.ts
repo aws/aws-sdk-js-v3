@@ -40,7 +40,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  *
  * @see {@link DeleteConfigurationSetCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class DeleteConfigurationSetCommand extends $Command<

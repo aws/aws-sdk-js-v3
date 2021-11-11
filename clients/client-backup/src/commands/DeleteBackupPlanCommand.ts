@@ -37,7 +37,7 @@ export interface DeleteBackupPlanCommandOutput extends DeleteBackupPlanOutput, _
  *
  * @see {@link DeleteBackupPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DeleteBackupPlanCommand extends $Command<

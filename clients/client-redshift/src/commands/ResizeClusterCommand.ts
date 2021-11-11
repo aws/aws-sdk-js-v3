@@ -78,7 +78,7 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  *
  * @see {@link ResizeClusterCommandInput} for command's `input` shape.
  * @see {@link ResizeClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ResizeClusterCommand extends $Command<

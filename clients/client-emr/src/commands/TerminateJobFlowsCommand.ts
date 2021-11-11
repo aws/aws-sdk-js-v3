@@ -42,7 +42,7 @@ export interface TerminateJobFlowsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TerminateJobFlowsCommandInput} for command's `input` shape.
  * @see {@link TerminateJobFlowsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class TerminateJobFlowsCommand extends $Command<

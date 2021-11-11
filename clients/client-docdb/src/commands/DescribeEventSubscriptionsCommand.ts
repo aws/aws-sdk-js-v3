@@ -36,7 +36,7 @@ export interface DescribeEventSubscriptionsCommandOutput extends EventSubscripti
  *
  * @see {@link DescribeEventSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventSubscriptionsCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeEventSubscriptionsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  *
  * @see {@link PutCodeBindingCommandInput} for command's `input` shape.
  * @see {@link PutCodeBindingCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class PutCodeBindingCommand extends $Command<

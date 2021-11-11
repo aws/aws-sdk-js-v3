@@ -38,7 +38,7 @@ export interface UpdateIndexingConfigurationCommandOutput
  *
  * @see {@link UpdateIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateIndexingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateIndexingConfigurationCommand extends $Command<

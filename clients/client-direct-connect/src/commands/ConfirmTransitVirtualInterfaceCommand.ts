@@ -39,7 +39,7 @@ export interface ConfirmTransitVirtualInterfaceCommandOutput
  *
  * @see {@link ConfirmTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link ConfirmTransitVirtualInterfaceCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class ConfirmTransitVirtualInterfaceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DescribeEventsCommand extends $Command<

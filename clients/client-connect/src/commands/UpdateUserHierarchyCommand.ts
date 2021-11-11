@@ -35,7 +35,7 @@ export interface UpdateUserHierarchyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateUserHierarchyCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateUserHierarchyCommand extends $Command<

@@ -59,7 +59,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *
  * @see {@link ModifySpotFleetRequestCommandInput} for command's `input` shape.
  * @see {@link ModifySpotFleetRequestCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ModifySpotFleetRequestCommand extends $Command<

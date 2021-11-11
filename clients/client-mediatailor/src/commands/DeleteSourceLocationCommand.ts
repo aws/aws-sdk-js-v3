@@ -35,7 +35,7 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  *
  * @see {@link DeleteSourceLocationCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceLocationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class DeleteSourceLocationCommand extends $Command<

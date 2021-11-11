@@ -35,7 +35,7 @@ export interface CreateStackCommandOutput extends CreateStackResult, __MetadataB
  *
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class CreateStackCommand extends $Command<

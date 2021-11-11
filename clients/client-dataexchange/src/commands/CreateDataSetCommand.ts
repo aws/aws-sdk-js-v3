@@ -35,7 +35,7 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *
  * @see {@link CreateDataSetCommandInput} for command's `input` shape.
  * @see {@link CreateDataSetCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class CreateDataSetCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  *
  * @see {@link DeleteConnectorProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectorProfileCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class DeleteConnectorProfileCommand extends $Command<

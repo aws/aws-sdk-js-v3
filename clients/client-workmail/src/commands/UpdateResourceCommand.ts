@@ -37,7 +37,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
  */
 export class UpdateResourceCommand extends $Command<

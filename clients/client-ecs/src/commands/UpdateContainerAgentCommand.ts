@@ -50,7 +50,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  *
  * @see {@link UpdateContainerAgentCommandInput} for command's `input` shape.
  * @see {@link UpdateContainerAgentCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class UpdateContainerAgentCommand extends $Command<

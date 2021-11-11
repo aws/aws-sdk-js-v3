@@ -34,7 +34,7 @@ export interface ImportImageCommandOutput extends ImportImageResult, __MetadataB
  *
  * @see {@link ImportImageCommandInput} for command's `input` shape.
  * @see {@link ImportImageCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ImportImageCommand extends $Command<

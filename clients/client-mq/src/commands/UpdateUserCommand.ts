@@ -35,7 +35,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *
  * @see {@link UpdateUserCommandInput} for command's `input` shape.
  * @see {@link UpdateUserCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MqClientResolvedConfig | config} for MqClient's `config` shape.
  *
  */
 export class UpdateUserCommand extends $Command<

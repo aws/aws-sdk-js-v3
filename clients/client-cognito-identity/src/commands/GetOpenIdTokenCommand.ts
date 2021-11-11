@@ -39,7 +39,7 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  *
  * @see {@link GetOpenIdTokenCommandInput} for command's `input` shape.
  * @see {@link GetOpenIdTokenCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for CognitoIdentityClient's `config` shape.
  *
  */
 export class GetOpenIdTokenCommand extends $Command<

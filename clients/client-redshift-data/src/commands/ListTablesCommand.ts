@@ -50,7 +50,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class ListTablesCommand extends $Command<

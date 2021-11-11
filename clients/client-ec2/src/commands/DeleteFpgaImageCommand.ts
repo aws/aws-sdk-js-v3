@@ -32,7 +32,7 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  *
  * @see {@link DeleteFpgaImageCommandInput} for command's `input` shape.
  * @see {@link DeleteFpgaImageCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class DeleteFpgaImageCommand extends $Command<

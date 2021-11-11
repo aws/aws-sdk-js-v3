@@ -39,7 +39,7 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  *
  * @see {@link ConfigureAgentCommandInput} for command's `input` shape.
  * @see {@link ConfigureAgentCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class ConfigureAgentCommand extends $Command<

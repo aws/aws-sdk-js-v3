@@ -38,7 +38,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  *
  * @see {@link EmptyInputAndEmptyOutputCommandInput} for command's `input` shape.
  * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
- * @see {@link JSONRPC10ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
  *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<

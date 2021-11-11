@@ -46,7 +46,7 @@ export interface ListGroupsCommandOutput extends ListGroupsOutput, __MetadataBea
  *
  * @see {@link ListGroupsCommandInput} for command's `input` shape.
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for ResourceGroupsClient's `config` shape.
  *
  */
 export class ListGroupsCommand extends $Command<

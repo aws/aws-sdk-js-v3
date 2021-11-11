@@ -35,7 +35,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *
  * @see {@link PutStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutStorageConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class PutStorageConfigurationCommand extends $Command<

@@ -38,7 +38,7 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  *
  * @see {@link CreateServerCommandInput} for command's `input` shape.
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class CreateServerCommand extends $Command<

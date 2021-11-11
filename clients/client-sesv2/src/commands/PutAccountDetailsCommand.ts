@@ -35,7 +35,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  *
  * @see {@link PutAccountDetailsCommandInput} for command's `input` shape.
  * @see {@link PutAccountDetailsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutAccountDetailsCommand extends $Command<

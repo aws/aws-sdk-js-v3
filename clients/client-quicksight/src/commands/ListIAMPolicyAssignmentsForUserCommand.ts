@@ -39,7 +39,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  *
  * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
  * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command<

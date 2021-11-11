@@ -41,7 +41,7 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SuspendProcessesCommandInput} for command's `input` shape.
  * @see {@link SuspendProcessesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class SuspendProcessesCommand extends $Command<

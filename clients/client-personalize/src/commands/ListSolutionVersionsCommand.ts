@@ -38,7 +38,7 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  *
  * @see {@link ListSolutionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionVersionsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class ListSolutionVersionsCommand extends $Command<

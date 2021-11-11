@@ -35,7 +35,7 @@ export interface UpdateTrainingJobCommandOutput extends UpdateTrainingJobRespons
  *
  * @see {@link UpdateTrainingJobCommandInput} for command's `input` shape.
  * @see {@link UpdateTrainingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class UpdateTrainingJobCommand extends $Command<

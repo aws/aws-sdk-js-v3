@@ -37,7 +37,7 @@ export interface AcceptResourceShareInvitationCommandOutput
  *
  * @see {@link AcceptResourceShareInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptResourceShareInvitationCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class AcceptResourceShareInvitationCommand extends $Command<

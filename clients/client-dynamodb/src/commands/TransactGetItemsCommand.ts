@@ -60,7 +60,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *
  * @see {@link TransactGetItemsCommandInput} for command's `input` shape.
  * @see {@link TransactGetItemsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class TransactGetItemsCommand extends $Command<

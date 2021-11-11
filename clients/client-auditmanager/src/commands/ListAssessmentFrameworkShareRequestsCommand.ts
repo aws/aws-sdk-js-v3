@@ -40,7 +40,7 @@ export interface ListAssessmentFrameworkShareRequestsCommandOutput
  *
  * @see {@link ListAssessmentFrameworkShareRequestsCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworkShareRequestsCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class ListAssessmentFrameworkShareRequestsCommand extends $Command<

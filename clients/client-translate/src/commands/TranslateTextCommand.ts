@@ -36,7 +36,7 @@ export interface TranslateTextCommandOutput extends TranslateTextResponse, __Met
  *
  * @see {@link TranslateTextCommandInput} for command's `input` shape.
  * @see {@link TranslateTextCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
  */
 export class TranslateTextCommand extends $Command<

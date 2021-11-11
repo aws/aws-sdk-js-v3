@@ -45,7 +45,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
 export class GetQueryResultsCommand extends $Command<

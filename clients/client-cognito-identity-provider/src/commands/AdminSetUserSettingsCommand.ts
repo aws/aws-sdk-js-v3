@@ -43,7 +43,7 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  *
  * @see {@link AdminSetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link AdminSetUserSettingsCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminSetUserSettingsCommand extends $Command<

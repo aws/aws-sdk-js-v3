@@ -35,7 +35,7 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  *
  * @see {@link UpdateInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateInputSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class UpdateInputSecurityGroupCommand extends $Command<

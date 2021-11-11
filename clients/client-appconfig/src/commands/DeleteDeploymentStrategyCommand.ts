@@ -36,7 +36,7 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteDeploymentStrategyCommandInput} for command's `input` shape.
  * @see {@link DeleteDeploymentStrategyCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
 export class DeleteDeploymentStrategyCommand extends $Command<

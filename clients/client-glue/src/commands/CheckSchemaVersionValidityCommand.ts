@@ -35,7 +35,7 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  *
  * @see {@link CheckSchemaVersionValidityCommandInput} for command's `input` shape.
  * @see {@link CheckSchemaVersionValidityCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class CheckSchemaVersionValidityCommand extends $Command<

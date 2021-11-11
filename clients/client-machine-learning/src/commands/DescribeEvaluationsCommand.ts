@@ -35,7 +35,7 @@ export interface DescribeEvaluationsCommandOutput extends DescribeEvaluationsOut
  *
  * @see {@link DescribeEvaluationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEvaluationsCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class DescribeEvaluationsCommand extends $Command<

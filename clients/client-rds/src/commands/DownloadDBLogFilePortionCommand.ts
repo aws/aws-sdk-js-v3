@@ -36,7 +36,7 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *
  * @see {@link DownloadDBLogFilePortionCommandInput} for command's `input` shape.
  * @see {@link DownloadDBLogFilePortionCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DownloadDBLogFilePortionCommand extends $Command<

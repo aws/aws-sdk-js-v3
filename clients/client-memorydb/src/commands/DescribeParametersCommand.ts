@@ -35,7 +35,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  *
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class DescribeParametersCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  *
  * @see {@link DeleteDBClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DeleteDBClusterCommand extends $Command<

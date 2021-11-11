@@ -41,7 +41,7 @@ export interface CreateCloudFormationChangeSetCommandOutput
  *
  * @see {@link CreateCloudFormationChangeSetCommandInput} for command's `input` shape.
  * @see {@link CreateCloudFormationChangeSetCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for ServerlessApplicationRepositoryClient's `config` shape.
  *
  */
 export class CreateCloudFormationChangeSetCommand extends $Command<

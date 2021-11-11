@@ -36,7 +36,7 @@ export interface DeleteThingGroupCommandOutput extends DeleteThingGroupResponse,
  *
  * @see {@link DeleteThingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DeleteThingGroupCommand extends $Command<

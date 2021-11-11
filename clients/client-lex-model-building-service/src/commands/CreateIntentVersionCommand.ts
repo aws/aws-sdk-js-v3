@@ -52,7 +52,7 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *
  * @see {@link CreateIntentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateIntentVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class CreateIntentVersionCommand extends $Command<

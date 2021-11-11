@@ -40,7 +40,7 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  *
  * @see {@link AllocateHostedConnectionCommandInput} for command's `input` shape.
  * @see {@link AllocateHostedConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class AllocateHostedConnectionCommand extends $Command<

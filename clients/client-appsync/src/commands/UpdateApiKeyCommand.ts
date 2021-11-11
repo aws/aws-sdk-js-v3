@@ -35,7 +35,7 @@ export interface UpdateApiKeyCommandOutput extends UpdateApiKeyResponse, __Metad
  *
  * @see {@link UpdateApiKeyCommandInput} for command's `input` shape.
  * @see {@link UpdateApiKeyCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class UpdateApiKeyCommand extends $Command<

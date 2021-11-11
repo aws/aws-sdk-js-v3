@@ -35,7 +35,7 @@ export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBea
  *
  * @see {@link GetStudioCommandInput} for command's `input` shape.
  * @see {@link GetStudioCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class GetStudioCommand extends $Command<

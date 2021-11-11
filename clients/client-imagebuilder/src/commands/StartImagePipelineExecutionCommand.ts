@@ -37,7 +37,7 @@ export interface StartImagePipelineExecutionCommandOutput
  *
  * @see {@link StartImagePipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StartImagePipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class StartImagePipelineExecutionCommand extends $Command<

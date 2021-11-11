@@ -34,7 +34,7 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  *
  * @see {@link GetHITCommandInput} for command's `input` shape.
  * @see {@link GetHITCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {

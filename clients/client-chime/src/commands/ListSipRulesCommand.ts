@@ -35,7 +35,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  *
  * @see {@link ListSipRulesCommandInput} for command's `input` shape.
  * @see {@link ListSipRulesCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class ListSipRulesCommand extends $Command<

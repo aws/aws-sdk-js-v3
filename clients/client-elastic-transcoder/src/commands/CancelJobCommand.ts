@@ -44,7 +44,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class CancelJobCommand extends $Command<

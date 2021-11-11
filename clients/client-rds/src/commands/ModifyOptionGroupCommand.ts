@@ -35,7 +35,7 @@ export interface ModifyOptionGroupCommandOutput extends ModifyOptionGroupResult,
  *
  * @see {@link ModifyOptionGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyOptionGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class ModifyOptionGroupCommand extends $Command<

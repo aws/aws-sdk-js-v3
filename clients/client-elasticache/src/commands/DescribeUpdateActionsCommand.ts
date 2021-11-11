@@ -35,7 +35,7 @@ export interface DescribeUpdateActionsCommandOutput extends UpdateActionsMessage
  *
  * @see {@link DescribeUpdateActionsCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateActionsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeUpdateActionsCommand extends $Command<

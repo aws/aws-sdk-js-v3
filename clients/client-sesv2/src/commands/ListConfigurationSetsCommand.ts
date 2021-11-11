@@ -41,7 +41,7 @@ export interface ListConfigurationSetsCommandOutput extends ListConfigurationSet
  *
  * @see {@link ListConfigurationSetsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationSetsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class ListConfigurationSetsCommand extends $Command<

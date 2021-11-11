@@ -35,7 +35,7 @@ export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
  *
  * @see {@link UpdateMethodCommandInput} for command's `input` shape.
  * @see {@link UpdateMethodCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class UpdateMethodCommand extends $Command<

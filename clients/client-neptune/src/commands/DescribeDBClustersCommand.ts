@@ -41,7 +41,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  *
  * @see {@link DescribeDBClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class DescribeDBClustersCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  *
  * @see {@link ListServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListServiceQuotasCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class ListServiceQuotasCommand extends $Command<

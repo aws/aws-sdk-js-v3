@@ -35,7 +35,7 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  *
  * @see {@link BatchStopJobRunCommandInput} for command's `input` shape.
  * @see {@link BatchStopJobRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class BatchStopJobRunCommand extends $Command<

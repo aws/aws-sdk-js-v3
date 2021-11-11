@@ -41,7 +41,7 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *
  * @see {@link CreateCapacityProviderCommandInput} for command's `input` shape.
  * @see {@link CreateCapacityProviderCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class CreateCapacityProviderCommand extends $Command<

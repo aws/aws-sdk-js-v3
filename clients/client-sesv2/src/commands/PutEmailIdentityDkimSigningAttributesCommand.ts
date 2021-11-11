@@ -63,7 +63,7 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimSigningAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command<

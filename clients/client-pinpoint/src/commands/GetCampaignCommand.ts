@@ -35,7 +35,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  *
  * @see {@link GetCampaignCommandInput} for command's `input` shape.
  * @see {@link GetCampaignCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetCampaignCommand extends $Command<

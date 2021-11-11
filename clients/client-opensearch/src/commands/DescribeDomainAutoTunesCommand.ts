@@ -37,7 +37,7 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  *
  * @see {@link DescribeDomainAutoTunesCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainAutoTunesCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DescribeDomainAutoTunesCommand extends $Command<

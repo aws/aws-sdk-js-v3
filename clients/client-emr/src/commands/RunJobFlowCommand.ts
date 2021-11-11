@@ -57,7 +57,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *
  * @see {@link RunJobFlowCommandInput} for command's `input` shape.
  * @see {@link RunJobFlowCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class RunJobFlowCommand extends $Command<

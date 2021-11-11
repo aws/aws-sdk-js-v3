@@ -35,7 +35,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  *
  * @see {@link ListContainerRecipesCommandInput} for command's `input` shape.
  * @see {@link ListContainerRecipesCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class ListContainerRecipesCommand extends $Command<

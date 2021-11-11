@@ -35,7 +35,7 @@ export interface DescribeSpeakerCommandOutput extends DescribeSpeakerResponse, _
  *
  * @see {@link DescribeSpeakerCommandInput} for command's `input` shape.
  * @see {@link DescribeSpeakerCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class DescribeSpeakerCommand extends $Command<

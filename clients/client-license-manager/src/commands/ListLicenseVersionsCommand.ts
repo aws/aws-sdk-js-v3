@@ -35,7 +35,7 @@ export interface ListLicenseVersionsCommandOutput extends ListLicenseVersionsRes
  *
  * @see {@link ListLicenseVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLicenseVersionsCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListLicenseVersionsCommand extends $Command<

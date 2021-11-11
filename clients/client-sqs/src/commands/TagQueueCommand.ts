@@ -57,7 +57,7 @@ export interface TagQueueCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagQueueCommandInput} for command's `input` shape.
  * @see {@link TagQueueCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueCommandOutput, SQSClientResolvedConfig> {

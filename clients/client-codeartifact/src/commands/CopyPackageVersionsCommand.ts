@@ -42,7 +42,7 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *
  * @see {@link CopyPackageVersionsCommandInput} for command's `input` shape.
  * @see {@link CopyPackageVersionsCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class CopyPackageVersionsCommand extends $Command<

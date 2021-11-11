@@ -37,7 +37,7 @@ export interface CreateGroupCertificateAuthorityCommandOutput
  *
  * @see {@link CreateGroupCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link CreateGroupCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateGroupCertificateAuthorityCommand extends $Command<

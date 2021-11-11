@@ -38,7 +38,7 @@ export interface RemoveThingFromBillingGroupCommandOutput
  *
  * @see {@link RemoveThingFromBillingGroupCommandInput} for command's `input` shape.
  * @see {@link RemoveThingFromBillingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class RemoveThingFromBillingGroupCommand extends $Command<

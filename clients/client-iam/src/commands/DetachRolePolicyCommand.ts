@@ -39,7 +39,7 @@ export interface DetachRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DetachRolePolicyCommandInput} for command's `input` shape.
  * @see {@link DetachRolePolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DetachRolePolicyCommand extends $Command<

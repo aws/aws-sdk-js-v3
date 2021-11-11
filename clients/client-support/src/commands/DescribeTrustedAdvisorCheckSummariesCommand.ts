@@ -57,7 +57,7 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  *
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<

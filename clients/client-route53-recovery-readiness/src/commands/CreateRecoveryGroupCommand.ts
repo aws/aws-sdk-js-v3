@@ -39,7 +39,7 @@ export interface CreateRecoveryGroupCommandOutput extends CreateRecoveryGroupRes
  *
  * @see {@link CreateRecoveryGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRecoveryGroupCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class CreateRecoveryGroupCommand extends $Command<

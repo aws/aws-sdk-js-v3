@@ -37,7 +37,7 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  *
  * @see {@link DescribeDomainConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainConfigCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DescribeDomainConfigCommand extends $Command<

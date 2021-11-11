@@ -35,7 +35,7 @@ export interface DisableProactiveEngagementCommandOutput extends DisableProactiv
  *
  * @see {@link DisableProactiveEngagementCommandInput} for command's `input` shape.
  * @see {@link DisableProactiveEngagementCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class DisableProactiveEngagementCommand extends $Command<

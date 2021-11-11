@@ -37,7 +37,7 @@ export interface StartNextPendingJobExecutionCommandOutput
  *
  * @see {@link StartNextPendingJobExecutionCommandInput} for command's `input` shape.
  * @see {@link StartNextPendingJobExecutionCommandOutput} for command's `response` shape.
- * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTJobsDataPlaneClientResolvedConfig | config} for IoTJobsDataPlaneClient's `config` shape.
  *
  */
 export class StartNextPendingJobExecutionCommand extends $Command<

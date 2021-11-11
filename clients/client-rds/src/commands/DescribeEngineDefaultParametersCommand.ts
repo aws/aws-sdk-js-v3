@@ -37,7 +37,7 @@ export interface DescribeEngineDefaultParametersCommandOutput
  *
  * @see {@link DescribeEngineDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultParametersCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeEngineDefaultParametersCommand extends $Command<

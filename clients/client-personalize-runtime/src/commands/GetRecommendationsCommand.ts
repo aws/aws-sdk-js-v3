@@ -53,7 +53,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *
  * @see {@link GetRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
  */
 export class GetRecommendationsCommand extends $Command<

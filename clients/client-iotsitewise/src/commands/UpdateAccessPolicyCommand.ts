@@ -36,7 +36,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  *
  * @see {@link UpdateAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class UpdateAccessPolicyCommand extends $Command<

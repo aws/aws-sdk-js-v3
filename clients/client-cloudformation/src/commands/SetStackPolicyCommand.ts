@@ -35,7 +35,7 @@ export interface SetStackPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetStackPolicyCommandInput} for command's `input` shape.
  * @see {@link SetStackPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class SetStackPolicyCommand extends $Command<

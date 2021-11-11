@@ -40,7 +40,7 @@ export interface DisassociateWirelessDeviceFromThingCommandOutput
  *
  * @see {@link DisassociateWirelessDeviceFromThingCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromThingCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class DisassociateWirelessDeviceFromThingCommand extends $Command<

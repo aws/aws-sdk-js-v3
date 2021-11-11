@@ -35,7 +35,7 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  *
  * @see {@link ListEventIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListEventIntegrationsCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class ListEventIntegrationsCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  *
  * @see {@link ListAWSDefaultServiceQuotasCommandInput} for command's `input` shape.
  * @see {@link ListAWSDefaultServiceQuotasCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for ServiceQuotasClient's `config` shape.
  *
  */
 export class ListAWSDefaultServiceQuotasCommand extends $Command<

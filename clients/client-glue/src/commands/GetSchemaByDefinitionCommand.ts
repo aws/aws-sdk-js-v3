@@ -35,7 +35,7 @@ export interface GetSchemaByDefinitionCommandOutput extends GetSchemaByDefinitio
  *
  * @see {@link GetSchemaByDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSchemaByDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetSchemaByDefinitionCommand extends $Command<

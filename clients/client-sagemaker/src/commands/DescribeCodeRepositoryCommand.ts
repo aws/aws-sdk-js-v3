@@ -35,7 +35,7 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  *
  * @see {@link DescribeCodeRepositoryCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeRepositoryCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeCodeRepositoryCommand extends $Command<

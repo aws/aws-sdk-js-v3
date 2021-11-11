@@ -37,7 +37,7 @@ export interface RegisterAppInstanceUserEndpointCommandOutput
  *
  * @see {@link RegisterAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link RegisterAppInstanceUserEndpointCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class RegisterAppInstanceUserEndpointCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  *
  * @see {@link UpdateProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateProtectionGroupCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
  */
 export class UpdateProtectionGroupCommand extends $Command<

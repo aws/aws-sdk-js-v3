@@ -38,7 +38,7 @@ export interface ListAuditMitigationActionsTasksCommandOutput
  *
  * @see {@link ListAuditMitigationActionsTasksCommandInput} for command's `input` shape.
  * @see {@link ListAuditMitigationActionsTasksCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListAuditMitigationActionsTasksCommand extends $Command<

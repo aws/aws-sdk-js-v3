@@ -37,7 +37,7 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  *
  * @see {@link AssociateDeviceWithRoomCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class AssociateDeviceWithRoomCommand extends $Command<

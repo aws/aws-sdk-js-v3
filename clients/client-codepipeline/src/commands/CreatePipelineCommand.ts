@@ -41,7 +41,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  *
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class CreatePipelineCommand extends $Command<

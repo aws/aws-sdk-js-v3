@@ -35,7 +35,7 @@ export interface ListDataflowEndpointGroupsCommandOutput extends ListDataflowEnd
  *
  * @see {@link ListDataflowEndpointGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDataflowEndpointGroupsCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class ListDataflowEndpointGroupsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribePackageCommandOutput extends DescribePackageResponse, _
  *
  * @see {@link DescribePackageCommandInput} for command's `input` shape.
  * @see {@link DescribePackageCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class DescribePackageCommand extends $Command<

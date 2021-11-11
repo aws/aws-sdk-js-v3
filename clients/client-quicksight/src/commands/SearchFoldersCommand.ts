@@ -35,7 +35,7 @@ export interface SearchFoldersCommandOutput extends SearchFoldersResponse, __Met
  *
  * @see {@link SearchFoldersCommandInput} for command's `input` shape.
  * @see {@link SearchFoldersCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class SearchFoldersCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ListReadinessChecksCommandOutput extends ListReadinessChecksRes
  *
  * @see {@link ListReadinessChecksCommandInput} for command's `input` shape.
  * @see {@link ListReadinessChecksCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for Route53RecoveryReadinessClient's `config` shape.
  *
  */
 export class ListReadinessChecksCommand extends $Command<

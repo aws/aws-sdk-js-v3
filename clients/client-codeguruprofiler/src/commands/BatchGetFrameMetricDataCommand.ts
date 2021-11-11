@@ -37,7 +37,7 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  *
  * @see {@link BatchGetFrameMetricDataCommandInput} for command's `input` shape.
  * @see {@link BatchGetFrameMetricDataCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class BatchGetFrameMetricDataCommand extends $Command<

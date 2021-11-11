@@ -41,7 +41,7 @@ export interface SubmitAttachmentStateChangesCommandOutput
  *
  * @see {@link SubmitAttachmentStateChangesCommandInput} for command's `input` shape.
  * @see {@link SubmitAttachmentStateChangesCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class SubmitAttachmentStateChangesCommand extends $Command<

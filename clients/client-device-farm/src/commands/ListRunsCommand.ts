@@ -32,7 +32,7 @@ export interface ListRunsCommandOutput extends ListRunsResult, __MetadataBearer 
  *
  * @see {@link ListRunsCommandInput} for command's `input` shape.
  * @see {@link ListRunsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class ListRunsCommand extends $Command<

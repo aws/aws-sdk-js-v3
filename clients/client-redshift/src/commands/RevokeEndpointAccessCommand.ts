@@ -36,7 +36,7 @@ export interface RevokeEndpointAccessCommandOutput extends EndpointAuthorization
  *
  * @see {@link RevokeEndpointAccessCommandInput} for command's `input` shape.
  * @see {@link RevokeEndpointAccessCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class RevokeEndpointAccessCommand extends $Command<

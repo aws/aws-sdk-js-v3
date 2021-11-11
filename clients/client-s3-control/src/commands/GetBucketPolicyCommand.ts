@@ -76,7 +76,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyResult, __M
  *
  * @see {@link GetBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link GetBucketPolicyCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class GetBucketPolicyCommand extends $Command<

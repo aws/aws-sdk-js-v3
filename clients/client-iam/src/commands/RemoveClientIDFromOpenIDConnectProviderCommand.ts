@@ -40,7 +40,7 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  *
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link RemoveClientIDFromOpenIDConnectProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command<

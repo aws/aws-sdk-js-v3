@@ -41,7 +41,7 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  *
  * @see {@link GetMeetingCommandInput} for command's `input` shape.
  * @see {@link GetMeetingCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetMeetingCommand extends $Command<

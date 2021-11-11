@@ -42,7 +42,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *
  * @see {@link GetPackageVersionReadmeCommandInput} for command's `input` shape.
  * @see {@link GetPackageVersionReadmeCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class GetPackageVersionReadmeCommand extends $Command<

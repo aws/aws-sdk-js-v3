@@ -37,7 +37,7 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput
  *
  * @see {@link PutDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class PutDedicatedIpWarmupAttributesCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteTargetCommandOutput extends DeleteTargetResult, __Metadat
  *
  * @see {@link DeleteTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
  */
 export class DeleteTargetCommand extends $Command<

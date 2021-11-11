@@ -39,7 +39,7 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  *
  * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
  * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class DescribeUpdateCommand extends $Command<

@@ -58,7 +58,7 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  *
  * @see {@link DeleteSizeConstraintSetCommandInput} for command's `input` shape.
  * @see {@link DeleteSizeConstraintSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class DeleteSizeConstraintSetCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateProgramCommandOutput extends CreateProgramResponse, __Met
  *
  * @see {@link CreateProgramCommandInput} for command's `input` shape.
  * @see {@link CreateProgramCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
  */
 export class CreateProgramCommand extends $Command<

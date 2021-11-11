@@ -42,7 +42,7 @@ export interface CreateResourceShareCommandOutput extends CreateResourceShareRes
  *
  * @see {@link CreateResourceShareCommandInput} for command's `input` shape.
  * @see {@link CreateResourceShareCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class CreateResourceShareCommand extends $Command<

@@ -35,7 +35,7 @@ export interface BatchCreateAttendeeCommandOutput extends BatchCreateAttendeeRes
  *
  * @see {@link BatchCreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link BatchCreateAttendeeCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
  *
  */
 export class BatchCreateAttendeeCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  *
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class DeleteFunctionCommand extends $Command<

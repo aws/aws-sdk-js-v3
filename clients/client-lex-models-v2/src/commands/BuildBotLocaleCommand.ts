@@ -37,7 +37,7 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  *
  * @see {@link BuildBotLocaleCommandInput} for command's `input` shape.
  * @see {@link BuildBotLocaleCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class BuildBotLocaleCommand extends $Command<

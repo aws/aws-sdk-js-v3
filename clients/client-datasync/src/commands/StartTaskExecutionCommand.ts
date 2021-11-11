@@ -43,7 +43,7 @@ export interface StartTaskExecutionCommandOutput extends StartTaskExecutionRespo
  *
  * @see {@link StartTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link StartTaskExecutionCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class StartTaskExecutionCommand extends $Command<

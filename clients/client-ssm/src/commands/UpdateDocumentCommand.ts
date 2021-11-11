@@ -35,7 +35,7 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  *
  * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class UpdateDocumentCommand extends $Command<

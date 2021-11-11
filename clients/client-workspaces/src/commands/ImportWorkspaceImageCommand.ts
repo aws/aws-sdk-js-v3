@@ -39,7 +39,7 @@ export interface ImportWorkspaceImageCommandOutput extends ImportWorkspaceImageR
  *
  * @see {@link ImportWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link ImportWorkspaceImageCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class ImportWorkspaceImageCommand extends $Command<

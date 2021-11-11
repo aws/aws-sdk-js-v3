@@ -36,7 +36,7 @@ export interface ListDeploymentGroupsCommandOutput extends ListDeploymentGroupsO
  *
  * @see {@link ListDeploymentGroupsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentGroupsCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class ListDeploymentGroupsCommand extends $Command<

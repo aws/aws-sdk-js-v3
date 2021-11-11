@@ -36,7 +36,7 @@ export interface DeleteAssessmentTargetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAssessmentTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssessmentTargetCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class DeleteAssessmentTargetCommand extends $Command<

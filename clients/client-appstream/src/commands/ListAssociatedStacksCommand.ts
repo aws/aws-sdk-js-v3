@@ -35,7 +35,7 @@ export interface ListAssociatedStacksCommandOutput extends ListAssociatedStacksR
  *
  * @see {@link ListAssociatedStacksCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedStacksCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class ListAssociatedStacksCommand extends $Command<

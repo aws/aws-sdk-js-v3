@@ -35,7 +35,7 @@ export interface ListManagedDataIdentifiersCommandOutput extends ListManagedData
  *
  * @see {@link ListManagedDataIdentifiersCommandInput} for command's `input` shape.
  * @see {@link ListManagedDataIdentifiersCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class ListManagedDataIdentifiersCommand extends $Command<

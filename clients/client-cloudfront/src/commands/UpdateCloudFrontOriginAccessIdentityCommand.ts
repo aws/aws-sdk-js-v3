@@ -40,7 +40,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandInput} for command's `input` shape.
  * @see {@link UpdateCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command<

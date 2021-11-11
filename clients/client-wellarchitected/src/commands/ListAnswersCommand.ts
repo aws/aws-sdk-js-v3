@@ -35,7 +35,7 @@ export interface ListAnswersCommandOutput extends ListAnswersOutput, __MetadataB
  *
  * @see {@link ListAnswersCommandInput} for command's `input` shape.
  * @see {@link ListAnswersCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
 export class ListAnswersCommand extends $Command<

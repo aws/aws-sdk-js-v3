@@ -37,7 +37,7 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput
  *
  * @see {@link HttpPayloadWithXmlNamespaceCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithXmlNamespaceCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class HttpPayloadWithXmlNamespaceCommand extends $Command<

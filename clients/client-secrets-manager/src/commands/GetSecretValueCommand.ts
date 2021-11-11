@@ -62,7 +62,7 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  *
  * @see {@link GetSecretValueCommandInput} for command's `input` shape.
  * @see {@link GetSecretValueCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class GetSecretValueCommand extends $Command<

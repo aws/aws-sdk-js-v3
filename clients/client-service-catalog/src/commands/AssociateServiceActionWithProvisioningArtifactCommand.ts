@@ -41,7 +41,7 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput
  *
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link AssociateServiceActionWithProvisioningArtifactCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command<

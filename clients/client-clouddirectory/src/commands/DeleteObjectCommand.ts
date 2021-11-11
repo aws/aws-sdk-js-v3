@@ -36,7 +36,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  *
  * @see {@link DeleteObjectCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class DeleteObjectCommand extends $Command<

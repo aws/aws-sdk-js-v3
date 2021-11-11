@@ -35,7 +35,7 @@ export interface StopFlowCommandOutput extends StopFlowResponse, __MetadataBeare
  *
  * @see {@link StopFlowCommandInput} for command's `input` shape.
  * @see {@link StopFlowCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  */
 export class StopFlowCommand extends $Command<

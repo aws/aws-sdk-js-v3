@@ -35,7 +35,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  *
  * @see {@link DeletePortalCommandInput} for command's `input` shape.
  * @see {@link DeletePortalCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DeletePortalCommand extends $Command<

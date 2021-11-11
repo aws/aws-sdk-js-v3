@@ -35,7 +35,7 @@ export interface DeleteStudioMemberCommandOutput extends DeleteStudioMemberRespo
  *
  * @see {@link DeleteStudioMemberCommandInput} for command's `input` shape.
  * @see {@link DeleteStudioMemberCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class DeleteStudioMemberCommand extends $Command<

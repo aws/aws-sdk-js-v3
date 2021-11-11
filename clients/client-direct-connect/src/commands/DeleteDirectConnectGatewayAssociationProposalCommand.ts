@@ -41,7 +41,7 @@ export interface DeleteDirectConnectGatewayAssociationProposalCommandOutput
  *
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectConnectGatewayAssociationProposalCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Command<

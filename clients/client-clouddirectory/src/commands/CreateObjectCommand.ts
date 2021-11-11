@@ -38,7 +38,7 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  *
  * @see {@link CreateObjectCommandInput} for command's `input` shape.
  * @see {@link CreateObjectCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class CreateObjectCommand extends $Command<

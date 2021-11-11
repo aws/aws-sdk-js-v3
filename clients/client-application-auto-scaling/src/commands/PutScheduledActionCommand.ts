@@ -53,7 +53,7 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  *
  * @see {@link PutScheduledActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledActionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
  */
 export class PutScheduledActionCommand extends $Command<

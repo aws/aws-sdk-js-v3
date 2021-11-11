@@ -35,7 +35,7 @@ export interface ResumeWorkflowRunCommandOutput extends ResumeWorkflowRunRespons
  *
  * @see {@link ResumeWorkflowRunCommandInput} for command's `input` shape.
  * @see {@link ResumeWorkflowRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class ResumeWorkflowRunCommand extends $Command<

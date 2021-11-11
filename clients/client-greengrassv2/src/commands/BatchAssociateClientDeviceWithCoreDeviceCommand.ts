@@ -53,7 +53,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceCommandOutput
  *
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateClientDeviceWithCoreDeviceCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
  */
 export class BatchAssociateClientDeviceWithCoreDeviceCommand extends $Command<

@@ -49,7 +49,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *
  * @see {@link ExecuteStatementCommandInput} for command's `input` shape.
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class ExecuteStatementCommand extends $Command<

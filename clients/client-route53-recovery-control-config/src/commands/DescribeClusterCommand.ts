@@ -39,7 +39,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
  */
 export class DescribeClusterCommand extends $Command<

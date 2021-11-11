@@ -36,7 +36,7 @@ export interface GetContactListCommandOutput extends GetContactListResponse, __M
  *
  * @see {@link GetContactListCommandInput} for command's `input` shape.
  * @see {@link GetContactListCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class GetContactListCommand extends $Command<

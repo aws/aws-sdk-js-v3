@@ -35,7 +35,7 @@ export interface UpdateSystemTemplateCommandOutput extends UpdateSystemTemplateR
  *
  * @see {@link UpdateSystemTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateSystemTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
  */
 export class UpdateSystemTemplateCommand extends $Command<

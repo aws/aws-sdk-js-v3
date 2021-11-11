@@ -40,7 +40,7 @@ export interface GetOutcomesCommandOutput extends GetOutcomesResult, __MetadataB
  *
  * @see {@link GetOutcomesCommandInput} for command's `input` shape.
  * @see {@link GetOutcomesCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetOutcomesCommand extends $Command<

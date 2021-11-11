@@ -38,7 +38,7 @@ export interface DescribeGlobalSettingsCommandOutput extends DescribeGlobalSetti
  *
  * @see {@link DescribeGlobalSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalSettingsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
 export class DescribeGlobalSettingsCommand extends $Command<

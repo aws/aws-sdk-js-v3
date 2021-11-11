@@ -52,7 +52,7 @@ export interface GetObjectTorrentCommandOutput extends GetObjectTorrentOutput, _
  *
  * @see {@link GetObjectTorrentCommandInput} for command's `input` shape.
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class GetObjectTorrentCommand extends $Command<

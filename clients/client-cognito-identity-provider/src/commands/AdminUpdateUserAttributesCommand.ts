@@ -64,7 +64,7 @@ export interface AdminUpdateUserAttributesCommandOutput extends AdminUpdateUserA
  *
  * @see {@link AdminUpdateUserAttributesCommandInput} for command's `input` shape.
  * @see {@link AdminUpdateUserAttributesCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminUpdateUserAttributesCommand extends $Command<

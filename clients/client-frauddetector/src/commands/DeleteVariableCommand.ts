@@ -38,7 +38,7 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  *
  * @see {@link DeleteVariableCommandInput} for command's `input` shape.
  * @see {@link DeleteVariableCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class DeleteVariableCommand extends $Command<

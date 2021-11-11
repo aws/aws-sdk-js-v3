@@ -36,7 +36,7 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  *
  * @see {@link DeleteIntegrationAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteIntegrationAssociationCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class DeleteIntegrationAssociationCommand extends $Command<

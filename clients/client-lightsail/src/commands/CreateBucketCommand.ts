@@ -40,7 +40,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *
  * @see {@link CreateBucketCommandInput} for command's `input` shape.
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class CreateBucketCommand extends $Command<

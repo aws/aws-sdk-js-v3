@@ -32,7 +32,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  *
  * @see {@link AddRegionCommandInput} for command's `input` shape.
  * @see {@link AddRegionCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class AddRegionCommand extends $Command<

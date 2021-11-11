@@ -44,7 +44,7 @@ export interface ProvisionByoipCidrCommandOutput extends ProvisionByoipCidrRespo
  *
  * @see {@link ProvisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link ProvisionByoipCidrCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class ProvisionByoipCidrCommand extends $Command<

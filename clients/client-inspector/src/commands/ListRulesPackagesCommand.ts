@@ -35,7 +35,7 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *
  * @see {@link ListRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link ListRulesPackagesCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class ListRulesPackagesCommand extends $Command<

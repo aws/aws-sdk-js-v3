@@ -53,7 +53,7 @@ export interface RestoreSecretCommandOutput extends RestoreSecretResponse, __Met
  *
  * @see {@link RestoreSecretCommandInput} for command's `input` shape.
  * @see {@link RestoreSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class RestoreSecretCommand extends $Command<

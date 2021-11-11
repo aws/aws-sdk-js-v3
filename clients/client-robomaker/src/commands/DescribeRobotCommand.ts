@@ -35,7 +35,7 @@ export interface DescribeRobotCommandOutput extends DescribeRobotResponse, __Met
  *
  * @see {@link DescribeRobotCommandInput} for command's `input` shape.
  * @see {@link DescribeRobotCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class DescribeRobotCommand extends $Command<

@@ -53,7 +53,7 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  *
  * @see {@link DeleteGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteGameSessionQueueCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DeleteGameSessionQueueCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetViolationDetailsCommandOutput extends GetViolationDetailsRes
  *
  * @see {@link GetViolationDetailsCommandInput} for command's `input` shape.
  * @see {@link GetViolationDetailsCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class GetViolationDetailsCommand extends $Command<

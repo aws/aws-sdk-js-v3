@@ -69,7 +69,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *
  * @see {@link GetInstanceAccessCommandInput} for command's `input` shape.
  * @see {@link GetInstanceAccessCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class GetInstanceAccessCommand extends $Command<

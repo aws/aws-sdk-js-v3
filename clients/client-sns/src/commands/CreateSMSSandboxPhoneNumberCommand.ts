@@ -44,7 +44,7 @@ export interface CreateSMSSandboxPhoneNumberCommandOutput extends CreateSMSSandb
  *
  * @see {@link CreateSMSSandboxPhoneNumberCommandInput} for command's `input` shape.
  * @see {@link CreateSMSSandboxPhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class CreateSMSSandboxPhoneNumberCommand extends $Command<

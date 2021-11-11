@@ -36,7 +36,7 @@ export interface CreateApiDestinationCommandOutput extends CreateApiDestinationR
  *
  * @see {@link CreateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateApiDestinationCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
  */
 export class CreateApiDestinationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  *
  * @see {@link DisableLoggingCommandInput} for command's `input` shape.
  * @see {@link DisableLoggingCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DisableLoggingCommand extends $Command<

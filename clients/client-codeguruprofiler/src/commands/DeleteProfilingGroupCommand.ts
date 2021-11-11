@@ -35,7 +35,7 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  *
  * @see {@link DeleteProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteProfilingGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class DeleteProfilingGroupCommand extends $Command<

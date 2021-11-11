@@ -42,7 +42,7 @@ export interface SetTimeBasedAutoScalingCommandOutput extends __MetadataBearer {
  *
  * @see {@link SetTimeBasedAutoScalingCommandInput} for command's `input` shape.
  * @see {@link SetTimeBasedAutoScalingCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class SetTimeBasedAutoScalingCommand extends $Command<

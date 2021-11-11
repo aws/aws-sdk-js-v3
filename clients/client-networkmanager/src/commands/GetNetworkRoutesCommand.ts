@@ -35,7 +35,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  *
  * @see {@link GetNetworkRoutesCommandInput} for command's `input` shape.
  * @see {@link GetNetworkRoutesCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class GetNetworkRoutesCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DescribeConfigurationRevisionCommandOutput
  *
  * @see {@link DescribeConfigurationRevisionCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationRevisionCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for KafkaClient's `config` shape.
  *
  */
 export class DescribeConfigurationRevisionCommand extends $Command<

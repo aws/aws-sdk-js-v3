@@ -75,7 +75,7 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  *
  * @see {@link GetChannelMessageStatusCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageStatusCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class GetChannelMessageStatusCommand extends $Command<

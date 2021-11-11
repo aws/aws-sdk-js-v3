@@ -35,7 +35,7 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  *
  * @see {@link ListCodeRepositoriesCommandInput} for command's `input` shape.
  * @see {@link ListCodeRepositoriesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListCodeRepositoriesCommand extends $Command<

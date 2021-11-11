@@ -33,7 +33,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  *
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DeleteDomainCommand extends $Command<

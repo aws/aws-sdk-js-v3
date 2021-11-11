@@ -53,7 +53,7 @@ export interface GetBotsCommandOutput extends GetBotsResponse, __MetadataBearer 
  *
  * @see {@link GetBotsCommandInput} for command's `input` shape.
  * @see {@link GetBotsCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class GetBotsCommand extends $Command<

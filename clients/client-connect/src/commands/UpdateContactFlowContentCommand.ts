@@ -37,7 +37,7 @@ export interface UpdateContactFlowContentCommandOutput extends __MetadataBearer 
  *
  * @see {@link UpdateContactFlowContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContactFlowContentCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateContactFlowContentCommand extends $Command<

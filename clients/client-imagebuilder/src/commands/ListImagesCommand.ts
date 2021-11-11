@@ -35,7 +35,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class ListImagesCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ModifyReplicationTaskCommandOutput extends ModifyReplicationTas
  *
  * @see {@link ModifyReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link ModifyReplicationTaskCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class ModifyReplicationTaskCommand extends $Command<

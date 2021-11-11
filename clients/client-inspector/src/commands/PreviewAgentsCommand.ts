@@ -36,7 +36,7 @@ export interface PreviewAgentsCommandOutput extends PreviewAgentsResponse, __Met
  *
  * @see {@link PreviewAgentsCommandInput} for command's `input` shape.
  * @see {@link PreviewAgentsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class PreviewAgentsCommand extends $Command<

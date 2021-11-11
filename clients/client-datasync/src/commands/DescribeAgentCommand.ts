@@ -37,7 +37,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  *
  * @see {@link DescribeAgentCommandInput} for command's `input` shape.
  * @see {@link DescribeAgentCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class DescribeAgentCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  *
  * @see {@link ListFunctionEventInvokeConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionEventInvokeConfigsCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class ListFunctionEventInvokeConfigsCommand extends $Command<

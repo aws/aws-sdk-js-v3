@@ -35,7 +35,7 @@ export interface DeleteWorkerBlockCommandOutput extends DeleteWorkerBlockRespons
  *
  * @see {@link DeleteWorkerBlockCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkerBlockCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
  */
 export class DeleteWorkerBlockCommand extends $Command<

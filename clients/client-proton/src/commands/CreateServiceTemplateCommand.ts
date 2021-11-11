@@ -39,7 +39,7 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  *
  * @see {@link CreateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateServiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class CreateServiceTemplateCommand extends $Command<

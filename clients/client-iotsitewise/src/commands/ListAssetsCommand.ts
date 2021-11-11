@@ -47,7 +47,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  *
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class ListAssetsCommand extends $Command<

@@ -55,7 +55,7 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  *
  * @see {@link GetAuthorizationTokenCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizationTokenCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for CodeartifactClient's `config` shape.
  *
  */
 export class GetAuthorizationTokenCommand extends $Command<

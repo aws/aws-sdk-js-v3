@@ -37,7 +37,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class ListInvitationsCommand extends $Command<

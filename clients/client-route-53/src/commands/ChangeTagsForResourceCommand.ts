@@ -38,7 +38,7 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  *
  * @see {@link ChangeTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ChangeTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class ChangeTagsForResourceCommand extends $Command<

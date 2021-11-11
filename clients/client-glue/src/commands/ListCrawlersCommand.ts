@@ -41,7 +41,7 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  *
  * @see {@link ListCrawlersCommandInput} for command's `input` shape.
  * @see {@link ListCrawlersCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class ListCrawlersCommand extends $Command<

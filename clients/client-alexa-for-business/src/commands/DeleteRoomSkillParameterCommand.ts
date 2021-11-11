@@ -35,7 +35,7 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  *
  * @see {@link DeleteRoomSkillParameterCommandInput} for command's `input` shape.
  * @see {@link DeleteRoomSkillParameterCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
  */
 export class DeleteRoomSkillParameterCommand extends $Command<

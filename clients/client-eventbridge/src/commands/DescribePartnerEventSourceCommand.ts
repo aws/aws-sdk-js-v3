@@ -38,7 +38,7 @@ export interface DescribePartnerEventSourceCommandOutput extends DescribePartner
  *
  * @see {@link DescribePartnerEventSourceCommandInput} for command's `input` shape.
  * @see {@link DescribePartnerEventSourceCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
  */
 export class DescribePartnerEventSourceCommand extends $Command<

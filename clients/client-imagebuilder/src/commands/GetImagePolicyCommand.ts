@@ -35,7 +35,7 @@ export interface GetImagePolicyCommandOutput extends GetImagePolicyResponse, __M
  *
  * @see {@link GetImagePolicyCommandInput} for command's `input` shape.
  * @see {@link GetImagePolicyCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class GetImagePolicyCommand extends $Command<

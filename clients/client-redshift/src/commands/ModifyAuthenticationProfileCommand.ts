@@ -35,7 +35,7 @@ export interface ModifyAuthenticationProfileCommandOutput extends ModifyAuthenti
  *
  * @see {@link ModifyAuthenticationProfileCommandInput} for command's `input` shape.
  * @see {@link ModifyAuthenticationProfileCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyAuthenticationProfileCommand extends $Command<

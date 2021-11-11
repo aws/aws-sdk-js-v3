@@ -35,7 +35,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  *
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class GetDocumentCommand extends $Command<

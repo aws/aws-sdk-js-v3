@@ -57,7 +57,7 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *
  * @see {@link CreateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualNodeCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class CreateVirtualNodeCommand extends $Command<

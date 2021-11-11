@@ -35,7 +35,7 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  *
  * @see {@link UpdateSchemaCommandInput} for command's `input` shape.
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class UpdateSchemaCommand extends $Command<

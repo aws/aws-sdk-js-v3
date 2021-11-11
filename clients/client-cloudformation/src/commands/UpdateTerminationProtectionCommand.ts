@@ -41,7 +41,7 @@ export interface UpdateTerminationProtectionCommandOutput extends UpdateTerminat
  *
  * @see {@link UpdateTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateTerminationProtectionCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class UpdateTerminationProtectionCommand extends $Command<

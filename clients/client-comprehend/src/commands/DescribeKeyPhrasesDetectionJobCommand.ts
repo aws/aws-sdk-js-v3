@@ -38,7 +38,7 @@ export interface DescribeKeyPhrasesDetectionJobCommandOutput
  *
  * @see {@link DescribeKeyPhrasesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeKeyPhrasesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeKeyPhrasesDetectionJobCommand extends $Command<

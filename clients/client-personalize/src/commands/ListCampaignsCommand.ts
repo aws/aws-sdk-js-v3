@@ -38,7 +38,7 @@ export interface ListCampaignsCommandOutput extends ListCampaignsResponse, __Met
  *
  * @see {@link ListCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListCampaignsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class ListCampaignsCommand extends $Command<

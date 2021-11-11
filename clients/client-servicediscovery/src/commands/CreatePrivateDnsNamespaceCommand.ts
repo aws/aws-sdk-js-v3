@@ -41,7 +41,7 @@ export interface CreatePrivateDnsNamespaceCommandOutput extends CreatePrivateDns
  *
  * @see {@link CreatePrivateDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePrivateDnsNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class CreatePrivateDnsNamespaceCommand extends $Command<

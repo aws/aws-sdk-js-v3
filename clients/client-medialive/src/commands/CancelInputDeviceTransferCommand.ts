@@ -35,7 +35,7 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @see {@link CancelInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link CancelInputDeviceTransferCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for MediaLiveClient's `config` shape.
  *
  */
 export class CancelInputDeviceTransferCommand extends $Command<

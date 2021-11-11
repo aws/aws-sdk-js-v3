@@ -47,7 +47,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  *
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<

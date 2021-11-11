@@ -36,7 +36,7 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *
  * @see {@link ListTargetsForPolicyCommandInput} for command's `input` shape.
  * @see {@link ListTargetsForPolicyCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListTargetsForPolicyCommand extends $Command<

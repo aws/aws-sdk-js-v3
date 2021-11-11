@@ -35,7 +35,7 @@ export interface DeleteActionCommandOutput extends DeleteActionResponse, __Metad
  *
  * @see {@link DeleteActionCommandInput} for command's `input` shape.
  * @see {@link DeleteActionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteActionCommand extends $Command<

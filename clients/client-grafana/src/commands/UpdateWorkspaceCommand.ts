@@ -40,7 +40,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  *
  * @see {@link UpdateWorkspaceCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  */
 export class UpdateWorkspaceCommand extends $Command<

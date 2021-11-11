@@ -35,7 +35,7 @@ export interface DescribeOptionGroupOptionsCommandOutput extends OptionGroupOpti
  *
  * @see {@link DescribeOptionGroupOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOptionGroupOptionsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeOptionGroupOptionsCommand extends $Command<

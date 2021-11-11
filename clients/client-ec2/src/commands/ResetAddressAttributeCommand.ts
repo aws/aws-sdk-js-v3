@@ -35,7 +35,7 @@ export interface ResetAddressAttributeCommandOutput extends ResetAddressAttribut
  *
  * @see {@link ResetAddressAttributeCommandInput} for command's `input` shape.
  * @see {@link ResetAddressAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class ResetAddressAttributeCommand extends $Command<

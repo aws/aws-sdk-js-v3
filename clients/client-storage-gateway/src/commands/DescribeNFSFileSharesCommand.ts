@@ -36,7 +36,7 @@ export interface DescribeNFSFileSharesCommandOutput extends DescribeNFSFileShare
  *
  * @see {@link DescribeNFSFileSharesCommandInput} for command's `input` shape.
  * @see {@link DescribeNFSFileSharesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeNFSFileSharesCommand extends $Command<

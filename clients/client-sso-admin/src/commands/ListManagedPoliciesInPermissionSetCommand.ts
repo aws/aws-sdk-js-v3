@@ -40,7 +40,7 @@ export interface ListManagedPoliciesInPermissionSetCommandOutput
  *
  * @see {@link ListManagedPoliciesInPermissionSetCommandInput} for command's `input` shape.
  * @see {@link ListManagedPoliciesInPermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class ListManagedPoliciesInPermissionSetCommand extends $Command<

@@ -103,7 +103,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *
  * @see {@link CreateDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link CreateDeliveryStreamCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
  */
 export class CreateDeliveryStreamCommand extends $Command<

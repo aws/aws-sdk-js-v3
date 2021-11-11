@@ -42,7 +42,7 @@ export interface ListDomainDeliverabilityCampaignsCommandOutput
  *
  * @see {@link ListDomainDeliverabilityCampaignsCommandInput} for command's `input` shape.
  * @see {@link ListDomainDeliverabilityCampaignsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class ListDomainDeliverabilityCampaignsCommand extends $Command<

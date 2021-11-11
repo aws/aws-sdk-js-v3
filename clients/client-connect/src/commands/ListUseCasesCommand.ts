@@ -35,7 +35,7 @@ export interface ListUseCasesCommandOutput extends ListUseCasesResponse, __Metad
  *
  * @see {@link ListUseCasesCommandInput} for command's `input` shape.
  * @see {@link ListUseCasesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class ListUseCasesCommand extends $Command<

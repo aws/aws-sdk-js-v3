@@ -35,7 +35,7 @@ export interface ListThemeAliasesCommandOutput extends ListThemeAliasesResponse,
  *
  * @see {@link ListThemeAliasesCommandInput} for command's `input` shape.
  * @see {@link ListThemeAliasesCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListThemeAliasesCommand extends $Command<

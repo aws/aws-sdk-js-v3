@@ -41,7 +41,7 @@ export interface PutVoiceConnectorOriginationCommandOutput
  *
  * @see {@link PutVoiceConnectorOriginationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorOriginationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class PutVoiceConnectorOriginationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteProfileKeyCommandOutput extends DeleteProfileKeyResponse,
  *
  * @see {@link DeleteProfileKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteProfileKeyCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for CustomerProfilesClient's `config` shape.
  *
  */
 export class DeleteProfileKeyCommand extends $Command<

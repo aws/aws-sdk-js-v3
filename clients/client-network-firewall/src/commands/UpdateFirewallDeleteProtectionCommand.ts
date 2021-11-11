@@ -40,7 +40,7 @@ export interface UpdateFirewallDeleteProtectionCommandOutput
  *
  * @see {@link UpdateFirewallDeleteProtectionCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDeleteProtectionCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  */
 export class UpdateFirewallDeleteProtectionCommand extends $Command<

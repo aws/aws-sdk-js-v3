@@ -45,7 +45,7 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
  *
  * @see {@link CreateMeetingWithAttendeesCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingWithAttendeesCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class CreateMeetingWithAttendeesCommand extends $Command<

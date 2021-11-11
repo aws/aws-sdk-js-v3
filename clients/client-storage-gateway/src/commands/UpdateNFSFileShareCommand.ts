@@ -61,7 +61,7 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *
  * @see {@link UpdateNFSFileShareCommandInput} for command's `input` shape.
  * @see {@link UpdateNFSFileShareCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class UpdateNFSFileShareCommand extends $Command<

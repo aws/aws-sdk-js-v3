@@ -41,7 +41,7 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  *
  * @see {@link StopLoggingCommandInput} for command's `input` shape.
  * @see {@link StopLoggingCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
 export class StopLoggingCommand extends $Command<

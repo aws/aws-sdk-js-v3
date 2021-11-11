@@ -35,7 +35,7 @@ export interface UpdateMapCommandOutput extends UpdateMapResponse, __MetadataBea
  *
  * @see {@link UpdateMapCommandInput} for command's `input` shape.
  * @see {@link UpdateMapCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class UpdateMapCommand extends $Command<

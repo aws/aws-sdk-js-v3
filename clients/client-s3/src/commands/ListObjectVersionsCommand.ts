@@ -74,7 +74,7 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  *
  * @see {@link ListObjectVersionsCommandInput} for command's `input` shape.
  * @see {@link ListObjectVersionsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class ListObjectVersionsCommand extends $Command<

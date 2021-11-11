@@ -40,7 +40,7 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  *
  * @see {@link StopCanaryCommandInput} for command's `input` shape.
  * @see {@link StopCanaryCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
 export class StopCanaryCommand extends $Command<

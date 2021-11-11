@@ -47,7 +47,7 @@ export interface SetIdentityDkimEnabledCommandOutput extends SetIdentityDkimEnab
  *
  * @see {@link SetIdentityDkimEnabledCommandInput} for command's `input` shape.
  * @see {@link SetIdentityDkimEnabledCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class SetIdentityDkimEnabledCommand extends $Command<

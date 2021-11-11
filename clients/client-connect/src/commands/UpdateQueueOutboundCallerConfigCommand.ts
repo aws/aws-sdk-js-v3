@@ -37,7 +37,7 @@ export interface UpdateQueueOutboundCallerConfigCommandOutput extends __Metadata
  *
  * @see {@link UpdateQueueOutboundCallerConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueOutboundCallerConfigCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateQueueOutboundCallerConfigCommand extends $Command<

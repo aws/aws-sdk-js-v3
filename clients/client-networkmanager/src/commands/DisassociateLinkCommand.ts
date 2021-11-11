@@ -36,7 +36,7 @@ export interface DisassociateLinkCommandOutput extends DisassociateLinkResponse,
  *
  * @see {@link DisassociateLinkCommandInput} for command's `input` shape.
  * @see {@link DisassociateLinkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class DisassociateLinkCommand extends $Command<

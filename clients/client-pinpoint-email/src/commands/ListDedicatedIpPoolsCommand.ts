@@ -36,7 +36,7 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  *
  * @see {@link ListDedicatedIpPoolsCommandInput} for command's `input` shape.
  * @see {@link ListDedicatedIpPoolsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class ListDedicatedIpPoolsCommand extends $Command<

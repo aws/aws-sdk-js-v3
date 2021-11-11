@@ -49,7 +49,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *
  * @see {@link UpdateFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateFunctionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class UpdateFunctionConfigurationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  *
  * @see {@link CreateFolderCommandInput} for command's `input` shape.
  * @see {@link CreateFolderCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class CreateFolderCommand extends $Command<

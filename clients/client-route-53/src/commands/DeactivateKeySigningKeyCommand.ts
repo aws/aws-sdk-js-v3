@@ -37,7 +37,7 @@ export interface DeactivateKeySigningKeyCommandOutput extends DeactivateKeySigni
  *
  * @see {@link DeactivateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeactivateKeySigningKeyCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class DeactivateKeySigningKeyCommand extends $Command<

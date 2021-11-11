@@ -36,7 +36,7 @@ export interface StartIncidentCommandOutput extends StartIncidentOutput, __Metad
  *
  * @see {@link StartIncidentCommandInput} for command's `input` shape.
  * @see {@link StartIncidentCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class StartIncidentCommand extends $Command<

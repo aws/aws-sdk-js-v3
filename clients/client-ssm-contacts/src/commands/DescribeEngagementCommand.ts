@@ -36,7 +36,7 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *
  * @see {@link DescribeEngagementCommandInput} for command's `input` shape.
  * @see {@link DescribeEngagementCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for SSMContactsClient's `config` shape.
  *
  */
 export class DescribeEngagementCommand extends $Command<

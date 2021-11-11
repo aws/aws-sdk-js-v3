@@ -35,7 +35,7 @@ export interface DeleteApnsChannelCommandOutput extends DeleteApnsChannelRespons
  *
  * @see {@link DeleteApnsChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class DeleteApnsChannelCommand extends $Command<

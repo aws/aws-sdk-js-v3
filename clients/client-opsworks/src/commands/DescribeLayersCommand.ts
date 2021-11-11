@@ -43,7 +43,7 @@ export interface DescribeLayersCommandOutput extends DescribeLayersResult, __Met
  *
  * @see {@link DescribeLayersCommandInput} for command's `input` shape.
  * @see {@link DescribeLayersCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DescribeLayersCommand extends $Command<

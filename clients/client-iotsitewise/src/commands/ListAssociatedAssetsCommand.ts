@@ -44,7 +44,7 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class ListAssociatedAssetsCommand extends $Command<

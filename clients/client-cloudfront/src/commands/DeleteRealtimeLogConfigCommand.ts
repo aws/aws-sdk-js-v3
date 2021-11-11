@@ -41,7 +41,7 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteRealtimeLogConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class DeleteRealtimeLogConfigCommand extends $Command<

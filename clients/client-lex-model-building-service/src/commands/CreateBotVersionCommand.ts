@@ -51,7 +51,7 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *
  * @see {@link CreateBotVersionCommandInput} for command's `input` shape.
  * @see {@link CreateBotVersionCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
  */
 export class CreateBotVersionCommand extends $Command<

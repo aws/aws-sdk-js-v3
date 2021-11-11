@@ -37,7 +37,7 @@ export interface GetNotificationConfigurationCommandOutput
  *
  * @see {@link GetNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetNotificationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class GetNotificationConfigurationCommand extends $Command<

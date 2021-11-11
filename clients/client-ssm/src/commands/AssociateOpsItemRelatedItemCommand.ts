@@ -39,7 +39,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  *
  * @see {@link AssociateOpsItemRelatedItemCommandInput} for command's `input` shape.
  * @see {@link AssociateOpsItemRelatedItemCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class AssociateOpsItemRelatedItemCommand extends $Command<

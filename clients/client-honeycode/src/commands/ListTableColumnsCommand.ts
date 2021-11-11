@@ -37,7 +37,7 @@ export interface ListTableColumnsCommandOutput extends ListTableColumnsResult, _
  *
  * @see {@link ListTableColumnsCommandInput} for command's `input` shape.
  * @see {@link ListTableColumnsCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
  *
  */
 export class ListTableColumnsCommand extends $Command<

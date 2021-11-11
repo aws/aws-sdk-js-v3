@@ -39,7 +39,7 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  *
  * @see {@link SendWorkflowStepStateCommandInput} for command's `input` shape.
  * @see {@link SendWorkflowStepStateCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class SendWorkflowStepStateCommand extends $Command<

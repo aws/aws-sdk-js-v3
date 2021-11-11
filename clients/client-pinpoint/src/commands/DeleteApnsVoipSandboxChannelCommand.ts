@@ -37,7 +37,7 @@ export interface DeleteApnsVoipSandboxChannelCommandOutput
  *
  * @see {@link DeleteApnsVoipSandboxChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteApnsVoipSandboxChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class DeleteApnsVoipSandboxChannelCommand extends $Command<

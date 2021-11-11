@@ -33,7 +33,7 @@ export interface GetTablesCommandOutput extends GetTablesResponse, __MetadataBea
  *
  * @see {@link GetTablesCommandInput} for command's `input` shape.
  * @see {@link GetTablesCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetTablesCommand extends $Command<

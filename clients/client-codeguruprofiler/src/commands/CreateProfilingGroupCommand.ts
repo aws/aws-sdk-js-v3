@@ -35,7 +35,7 @@ export interface CreateProfilingGroupCommandOutput extends CreateProfilingGroupR
  *
  * @see {@link CreateProfilingGroupCommandInput} for command's `input` shape.
  * @see {@link CreateProfilingGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class CreateProfilingGroupCommand extends $Command<

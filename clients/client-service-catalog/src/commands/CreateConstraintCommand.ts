@@ -36,7 +36,7 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  *
  * @see {@link CreateConstraintCommandInput} for command's `input` shape.
  * @see {@link CreateConstraintCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class CreateConstraintCommand extends $Command<

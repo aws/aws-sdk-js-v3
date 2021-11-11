@@ -35,7 +35,7 @@ export interface GetControlCommandOutput extends GetControlResponse, __MetadataB
  *
  * @see {@link GetControlCommandInput} for command's `input` shape.
  * @see {@link GetControlCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class GetControlCommand extends $Command<

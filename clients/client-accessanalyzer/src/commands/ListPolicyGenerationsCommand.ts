@@ -35,7 +35,7 @@ export interface ListPolicyGenerationsCommandOutput extends ListPolicyGeneration
  *
  * @see {@link ListPolicyGenerationsCommandInput} for command's `input` shape.
  * @see {@link ListPolicyGenerationsCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class ListPolicyGenerationsCommand extends $Command<

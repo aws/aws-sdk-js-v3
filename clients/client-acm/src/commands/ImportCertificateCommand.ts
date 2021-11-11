@@ -107,7 +107,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * @see {@link ImportCertificateCommandInput} for command's `input` shape.
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  */
 export class ImportCertificateCommand extends $Command<

@@ -37,7 +37,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  *
  * @see {@link InviteUsersCommandInput} for command's `input` shape.
  * @see {@link InviteUsersCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class InviteUsersCommand extends $Command<

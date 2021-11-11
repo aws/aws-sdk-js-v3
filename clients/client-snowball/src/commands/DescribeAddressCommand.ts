@@ -36,7 +36,7 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  *
  * @see {@link DescribeAddressCommandInput} for command's `input` shape.
  * @see {@link DescribeAddressCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class DescribeAddressCommand extends $Command<

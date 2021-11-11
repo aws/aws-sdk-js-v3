@@ -43,7 +43,7 @@ export interface GetXssMatchSetCommandOutput extends GetXssMatchSetResponse, __M
  *
  * @see {@link GetXssMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetXssMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class GetXssMatchSetCommand extends $Command<

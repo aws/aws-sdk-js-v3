@@ -35,7 +35,7 @@ export interface DescribeImportCommandOutput extends DescribeImportResponse, __M
  *
  * @see {@link DescribeImportCommandInput} for command's `input` shape.
  * @see {@link DescribeImportCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
 export class DescribeImportCommand extends $Command<

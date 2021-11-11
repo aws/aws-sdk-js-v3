@@ -40,7 +40,7 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetVaultAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link SetVaultAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class SetVaultAccessPolicyCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ListApplicationInstanceNodeInstancesCommandOutput
  *
  * @see {@link ListApplicationInstanceNodeInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstanceNodeInstancesCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class ListApplicationInstanceNodeInstancesCommand extends $Command<

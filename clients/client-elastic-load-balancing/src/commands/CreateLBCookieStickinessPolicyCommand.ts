@@ -47,7 +47,7 @@ export interface CreateLBCookieStickinessPolicyCommandOutput
  *
  * @see {@link CreateLBCookieStickinessPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLBCookieStickinessPolicyCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
  */
 export class CreateLBCookieStickinessPolicyCommand extends $Command<

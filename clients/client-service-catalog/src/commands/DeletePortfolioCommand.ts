@@ -38,7 +38,7 @@ export interface DeletePortfolioCommandOutput extends DeletePortfolioOutput, __M
  *
  * @see {@link DeletePortfolioCommandInput} for command's `input` shape.
  * @see {@link DeletePortfolioCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class DeletePortfolioCommand extends $Command<

@@ -41,7 +41,7 @@ export interface ListRecommendationFeedbackCommandOutput extends ListRecommendat
  *
  * @see {@link ListRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link ListRecommendationFeedbackCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
  */
 export class ListRecommendationFeedbackCommand extends $Command<

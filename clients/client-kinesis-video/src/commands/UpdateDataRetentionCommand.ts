@@ -61,7 +61,7 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *
  * @see {@link UpdateDataRetentionCommandInput} for command's `input` shape.
  * @see {@link UpdateDataRetentionCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  */
 export class UpdateDataRetentionCommand extends $Command<

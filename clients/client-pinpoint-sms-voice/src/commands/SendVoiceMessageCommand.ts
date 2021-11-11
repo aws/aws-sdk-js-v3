@@ -35,7 +35,7 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  *
  * @see {@link SendVoiceMessageCommandInput} for command's `input` shape.
  * @see {@link SendVoiceMessageCommandOutput} for command's `response` shape.
- * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
  *
  */
 export class SendVoiceMessageCommand extends $Command<

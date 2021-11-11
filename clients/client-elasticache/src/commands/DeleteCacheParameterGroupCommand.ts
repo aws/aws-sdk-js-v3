@@ -37,7 +37,7 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteCacheParameterGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DeleteCacheParameterGroupCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  *
  * @see {@link GetPartitionsCommandInput} for command's `input` shape.
  * @see {@link GetPartitionsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetPartitionsCommand extends $Command<

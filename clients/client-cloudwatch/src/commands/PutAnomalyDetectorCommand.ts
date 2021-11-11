@@ -37,7 +37,7 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  *
  * @see {@link PutAnomalyDetectorCommandInput} for command's `input` shape.
  * @see {@link PutAnomalyDetectorCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  */
 export class PutAnomalyDetectorCommand extends $Command<

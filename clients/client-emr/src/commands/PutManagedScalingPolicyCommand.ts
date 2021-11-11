@@ -38,7 +38,7 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  *
  * @see {@link PutManagedScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutManagedScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class PutManagedScalingPolicyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  *
  * @see {@link ListContributorInsightsCommandInput} for command's `input` shape.
  * @see {@link ListContributorInsightsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  */
 export class ListContributorInsightsCommand extends $Command<

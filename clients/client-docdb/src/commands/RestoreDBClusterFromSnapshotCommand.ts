@@ -39,7 +39,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<

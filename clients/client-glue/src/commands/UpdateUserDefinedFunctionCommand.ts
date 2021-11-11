@@ -35,7 +35,7 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  *
  * @see {@link UpdateUserDefinedFunctionCommandInput} for command's `input` shape.
  * @see {@link UpdateUserDefinedFunctionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class UpdateUserDefinedFunctionCommand extends $Command<

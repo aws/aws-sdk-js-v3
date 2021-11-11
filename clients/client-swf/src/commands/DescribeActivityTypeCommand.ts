@@ -73,7 +73,7 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  *
  * @see {@link DescribeActivityTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityTypeCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class DescribeActivityTypeCommand extends $Command<

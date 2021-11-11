@@ -35,7 +35,7 @@ export interface DisassociateMemberAccountCommandOutput extends __MetadataBearer
  *
  * @see {@link DisassociateMemberAccountCommandInput} for command's `input` shape.
  * @see {@link DisassociateMemberAccountCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class DisassociateMemberAccountCommand extends $Command<

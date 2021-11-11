@@ -40,7 +40,7 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  *
  * @see {@link ListDataIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListDataIntegrationsCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for AppIntegrationsClient's `config` shape.
  *
  */
 export class ListDataIntegrationsCommand extends $Command<

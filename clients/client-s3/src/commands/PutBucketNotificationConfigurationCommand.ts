@@ -97,7 +97,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
  *
  * @see {@link PutBucketNotificationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketNotificationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
  */
 export class PutBucketNotificationConfigurationCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeActiveReceiptRuleSetCommandOutput
  *
  * @see {@link DescribeActiveReceiptRuleSetCommandInput} for command's `input` shape.
  * @see {@link DescribeActiveReceiptRuleSetCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class DescribeActiveReceiptRuleSetCommand extends $Command<

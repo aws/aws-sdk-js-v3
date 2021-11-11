@@ -100,7 +100,7 @@ export interface GetDiscoveredResourceCountsCommandOutput
  *
  * @see {@link GetDiscoveredResourceCountsCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredResourceCountsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetDiscoveredResourceCountsCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetApiCommandOutput extends GetApiResponse, __MetadataBearer {}
  *
  * @see {@link GetApiCommandInput} for command's `input` shape.
  * @see {@link GetApiCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for ApiGatewayV2Client's `config` shape.
  *
  */
 export class GetApiCommand extends $Command<GetApiCommandInput, GetApiCommandOutput, ApiGatewayV2ClientResolvedConfig> {

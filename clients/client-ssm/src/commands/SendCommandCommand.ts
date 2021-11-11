@@ -35,7 +35,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class SendCommandCommand extends $Command<

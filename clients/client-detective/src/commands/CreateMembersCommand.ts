@@ -56,7 +56,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
  */
 export class CreateMembersCommand extends $Command<

@@ -40,7 +40,7 @@ export interface GetFindingsPublicationConfigurationCommandOutput
  *
  * @see {@link GetFindingsPublicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFindingsPublicationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class GetFindingsPublicationConfigurationCommand extends $Command<

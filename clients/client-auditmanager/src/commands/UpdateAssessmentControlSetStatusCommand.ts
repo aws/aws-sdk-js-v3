@@ -37,7 +37,7 @@ export interface UpdateAssessmentControlSetStatusCommandOutput
  *
  * @see {@link UpdateAssessmentControlSetStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentControlSetStatusCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class UpdateAssessmentControlSetStatusCommand extends $Command<

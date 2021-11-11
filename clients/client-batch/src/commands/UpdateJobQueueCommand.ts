@@ -35,7 +35,7 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *
  * @see {@link UpdateJobQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateJobQueueCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class UpdateJobQueueCommand extends $Command<

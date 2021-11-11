@@ -32,7 +32,7 @@ export interface GetJobsCommandOutput extends GetJobsResponse, __MetadataBearer 
  *
  * @see {@link GetJobsCommandInput} for command's `input` shape.
  * @see {@link GetJobsCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetJobsCommand extends $Command<GetJobsCommandInput, GetJobsCommandOutput, GlueClientResolvedConfig> {

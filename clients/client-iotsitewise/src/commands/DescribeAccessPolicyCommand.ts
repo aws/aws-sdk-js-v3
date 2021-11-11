@@ -36,7 +36,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  *
  * @see {@link DescribeAccessPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPolicyCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class DescribeAccessPolicyCommand extends $Command<

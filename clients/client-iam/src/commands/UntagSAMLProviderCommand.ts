@@ -38,7 +38,7 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link UntagSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class UntagSAMLProviderCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *
  * @see {@link DeleteEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link FinspaceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  */
 export class DeleteEnvironmentCommand extends $Command<

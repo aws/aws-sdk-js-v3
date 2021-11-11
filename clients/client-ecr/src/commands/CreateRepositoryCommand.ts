@@ -36,7 +36,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  *
  * @see {@link CreateRepositoryCommandInput} for command's `input` shape.
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
  */
 export class CreateRepositoryCommand extends $Command<

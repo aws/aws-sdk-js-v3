@@ -38,7 +38,7 @@ export interface SearchPlaceIndexForPositionCommandOutput
  *
  * @see {@link SearchPlaceIndexForPositionCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForPositionCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class SearchPlaceIndexForPositionCommand extends $Command<

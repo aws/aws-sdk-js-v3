@@ -35,7 +35,7 @@ export interface UpdateDomainAssociationCommandOutput extends UpdateDomainAssoci
  *
  * @see {@link UpdateDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainAssociationCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class UpdateDomainAssociationCommand extends $Command<

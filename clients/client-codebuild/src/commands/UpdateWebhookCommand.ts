@@ -39,7 +39,7 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookOutput, __Metad
  *
  * @see {@link UpdateWebhookCommandInput} for command's `input` shape.
  * @see {@link UpdateWebhookCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
  */
 export class UpdateWebhookCommand extends $Command<

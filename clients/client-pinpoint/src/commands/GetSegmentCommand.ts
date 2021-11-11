@@ -35,7 +35,7 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  *
  * @see {@link GetSegmentCommandInput} for command's `input` shape.
  * @see {@link GetSegmentCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class GetSegmentCommand extends $Command<

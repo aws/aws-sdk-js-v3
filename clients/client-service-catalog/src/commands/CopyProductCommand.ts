@@ -39,7 +39,7 @@ export interface CopyProductCommandOutput extends CopyProductOutput, __MetadataB
  *
  * @see {@link CopyProductCommandInput} for command's `input` shape.
  * @see {@link CopyProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class CopyProductCommand extends $Command<

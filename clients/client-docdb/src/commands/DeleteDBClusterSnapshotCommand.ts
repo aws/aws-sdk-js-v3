@@ -38,7 +38,7 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *
  * @see {@link DeleteDBClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteDBClusterSnapshotCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
  */
 export class DeleteDBClusterSnapshotCommand extends $Command<

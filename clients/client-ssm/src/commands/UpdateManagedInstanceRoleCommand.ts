@@ -37,7 +37,7 @@ export interface UpdateManagedInstanceRoleCommandOutput extends UpdateManagedIns
  *
  * @see {@link UpdateManagedInstanceRoleCommandInput} for command's `input` shape.
  * @see {@link UpdateManagedInstanceRoleCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class UpdateManagedInstanceRoleCommand extends $Command<

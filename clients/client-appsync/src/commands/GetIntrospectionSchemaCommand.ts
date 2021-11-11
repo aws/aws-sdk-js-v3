@@ -35,7 +35,7 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  *
  * @see {@link GetIntrospectionSchemaCommandInput} for command's `input` shape.
  * @see {@link GetIntrospectionSchemaCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class GetIntrospectionSchemaCommand extends $Command<

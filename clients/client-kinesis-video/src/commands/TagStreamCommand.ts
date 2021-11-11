@@ -44,7 +44,7 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *
  * @see {@link TagStreamCommandInput} for command's `input` shape.
  * @see {@link TagStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  */
 export class TagStreamCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  *
  * @see {@link DescribeCustomMetricCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeCustomMetricCommand extends $Command<

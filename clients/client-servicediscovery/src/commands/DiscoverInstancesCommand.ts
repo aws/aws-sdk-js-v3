@@ -37,7 +37,7 @@ export interface DiscoverInstancesCommandOutput extends DiscoverInstancesRespons
  *
  * @see {@link DiscoverInstancesCommandInput} for command's `input` shape.
  * @see {@link DiscoverInstancesCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
  */
 export class DiscoverInstancesCommand extends $Command<

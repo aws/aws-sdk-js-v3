@@ -37,7 +37,7 @@ export interface DeleteVirtualRouterCommandOutput extends DeleteVirtualRouterOut
  *
  * @see {@link DeleteVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualRouterCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for AppMeshClient's `config` shape.
  *
  */
 export class DeleteVirtualRouterCommand extends $Command<

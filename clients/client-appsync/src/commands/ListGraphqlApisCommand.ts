@@ -35,7 +35,7 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  *
  * @see {@link ListGraphqlApisCommandInput} for command's `input` shape.
  * @see {@link ListGraphqlApisCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
 export class ListGraphqlApisCommand extends $Command<

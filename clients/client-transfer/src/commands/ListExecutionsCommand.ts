@@ -35,7 +35,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  *
  * @see {@link ListExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListExecutionsCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class ListExecutionsCommand extends $Command<

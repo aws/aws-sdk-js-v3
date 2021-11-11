@@ -40,7 +40,7 @@ export interface DescribeCustomAvailabilityZonesCommandOutput extends CustomAvai
  *
  * @see {@link DescribeCustomAvailabilityZonesCommandInput} for command's `input` shape.
  * @see {@link DescribeCustomAvailabilityZonesCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeCustomAvailabilityZonesCommand extends $Command<

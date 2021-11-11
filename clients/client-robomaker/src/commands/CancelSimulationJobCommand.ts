@@ -35,7 +35,7 @@ export interface CancelSimulationJobCommandOutput extends CancelSimulationJobRes
  *
  * @see {@link CancelSimulationJobCommandInput} for command's `input` shape.
  * @see {@link CancelSimulationJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CancelSimulationJobCommand extends $Command<

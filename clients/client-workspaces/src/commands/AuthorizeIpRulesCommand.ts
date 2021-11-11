@@ -37,7 +37,7 @@ export interface AuthorizeIpRulesCommandOutput extends AuthorizeIpRulesResult, _
  *
  * @see {@link AuthorizeIpRulesCommandInput} for command's `input` shape.
  * @see {@link AuthorizeIpRulesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class AuthorizeIpRulesCommand extends $Command<

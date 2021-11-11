@@ -40,7 +40,7 @@ export interface DescribeTerminationPolicyTypesCommandOutput
  *
  * @see {@link DescribeTerminationPolicyTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeTerminationPolicyTypesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DescribeTerminationPolicyTypesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  *
  * @see {@link GetTopicRuleCommandInput} for command's `input` shape.
  * @see {@link GetTopicRuleCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetTopicRuleCommand extends $Command<

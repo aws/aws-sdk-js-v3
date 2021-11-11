@@ -43,7 +43,7 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupOutput,
  *
  * @see {@link DeleteTargetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteTargetGroupCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
  */
 export class DeleteTargetGroupCommand extends $Command<

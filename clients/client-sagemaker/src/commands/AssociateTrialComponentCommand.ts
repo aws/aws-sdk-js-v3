@@ -36,7 +36,7 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  *
  * @see {@link AssociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link AssociateTrialComponentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class AssociateTrialComponentCommand extends $Command<

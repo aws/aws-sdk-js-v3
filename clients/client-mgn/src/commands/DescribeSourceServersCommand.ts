@@ -35,7 +35,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  *
  * @see {@link DescribeSourceServersCommandInput} for command's `input` shape.
  * @see {@link DescribeSourceServersCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
 export class DescribeSourceServersCommand extends $Command<

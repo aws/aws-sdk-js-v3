@@ -37,7 +37,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  *
  * @see {@link DescribeCompilationJobCommandInput} for command's `input` shape.
  * @see {@link DescribeCompilationJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DescribeCompilationJobCommand extends $Command<

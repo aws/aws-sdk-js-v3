@@ -35,7 +35,7 @@ export interface TagMeetingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagMeetingCommandInput} for command's `input` shape.
  * @see {@link TagMeetingCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class TagMeetingCommand extends $Command<

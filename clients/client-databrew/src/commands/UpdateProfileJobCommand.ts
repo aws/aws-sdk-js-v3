@@ -35,7 +35,7 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  *
  * @see {@link UpdateProfileJobCommandInput} for command's `input` shape.
  * @see {@link UpdateProfileJobCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class UpdateProfileJobCommand extends $Command<

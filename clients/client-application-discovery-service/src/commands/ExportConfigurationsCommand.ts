@@ -46,7 +46,7 @@ export interface ExportConfigurationsCommandOutput extends ExportConfigurationsR
  *
  * @see {@link ExportConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ExportConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class ExportConfigurationsCommand extends $Command<

@@ -163,7 +163,7 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  *
  * @see {@link CreateJobCommandInput} for command's `input` shape.
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class CreateJobCommand extends $Command<

@@ -37,7 +37,7 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *
  * @see {@link CreateUserCommandInput} for command's `input` shape.
  * @see {@link CreateUserCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class CreateUserCommand extends $Command<

@@ -39,7 +39,7 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *
  * @see {@link CreatePipelineCommandInput} for command's `input` shape.
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
  */
 export class CreatePipelineCommand extends $Command<

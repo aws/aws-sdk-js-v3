@@ -36,7 +36,7 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  *
  * @see {@link ClassifyDocumentCommandInput} for command's `input` shape.
  * @see {@link ClassifyDocumentCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class ClassifyDocumentCommand extends $Command<

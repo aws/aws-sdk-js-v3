@@ -36,7 +36,7 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *
  * @see {@link RegisterClientCommandInput} for command's `input` shape.
  * @see {@link RegisterClientCommandOutput} for command's `response` shape.
- * @see {@link SSOOIDCClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
  */
 export class RegisterClientCommand extends $Command<

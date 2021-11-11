@@ -35,7 +35,7 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  *
  * @see {@link ListModelPackagesCommandInput} for command's `input` shape.
  * @see {@link ListModelPackagesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListModelPackagesCommand extends $Command<

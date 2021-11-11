@@ -61,7 +61,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class GetResourcePolicyCommand extends $Command<

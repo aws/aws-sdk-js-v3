@@ -35,7 +35,7 @@ export interface GetResourceCommandOutput extends Resource, __MetadataBearer {}
  *
  * @see {@link GetResourceCommandInput} for command's `input` shape.
  * @see {@link GetResourceCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  */
 export class GetResourceCommand extends $Command<

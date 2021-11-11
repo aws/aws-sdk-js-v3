@@ -41,7 +41,7 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  *
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<

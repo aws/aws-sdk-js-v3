@@ -35,7 +35,7 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  *
  * @see {@link RollbackTransactionCommandInput} for command's `input` shape.
  * @see {@link RollbackTransactionCommandOutput} for command's `response` shape.
- * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  */
 export class RollbackTransactionCommand extends $Command<

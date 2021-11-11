@@ -37,7 +37,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  *
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
  */
 export class DeleteRepositoryCommand extends $Command<

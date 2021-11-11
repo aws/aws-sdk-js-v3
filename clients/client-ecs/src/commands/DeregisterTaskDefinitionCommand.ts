@@ -50,7 +50,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  *
  * @see {@link DeregisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeregisterTaskDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class DeregisterTaskDefinitionCommand extends $Command<

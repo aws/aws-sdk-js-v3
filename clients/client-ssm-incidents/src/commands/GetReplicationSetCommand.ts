@@ -35,7 +35,7 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  *
  * @see {@link GetReplicationSetCommandInput} for command's `input` shape.
  * @see {@link GetReplicationSetCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for SSMIncidentsClient's `config` shape.
  *
  */
 export class GetReplicationSetCommand extends $Command<

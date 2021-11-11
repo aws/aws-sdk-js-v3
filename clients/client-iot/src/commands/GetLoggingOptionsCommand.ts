@@ -38,7 +38,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  *
  * @see {@link GetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetLoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class GetLoggingOptionsCommand extends $Command<

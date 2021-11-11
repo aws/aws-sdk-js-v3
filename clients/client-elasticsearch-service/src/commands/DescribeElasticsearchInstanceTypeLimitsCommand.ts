@@ -52,7 +52,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput
  *
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandInput} for command's `input` shape.
  * @see {@link DescribeElasticsearchInstanceTypeLimitsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command<

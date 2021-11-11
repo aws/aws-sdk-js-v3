@@ -38,7 +38,7 @@ export interface DeleteRouteCalculatorCommandOutput extends DeleteRouteCalculato
  *
  * @see {@link DeleteRouteCalculatorCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCalculatorCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class DeleteRouteCalculatorCommand extends $Command<

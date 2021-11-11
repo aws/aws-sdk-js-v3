@@ -99,7 +99,7 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  *
  * @see {@link GetPipelineDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetPipelineDefinitionCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  */
 export class GetPipelineDefinitionCommand extends $Command<

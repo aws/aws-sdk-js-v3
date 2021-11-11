@@ -35,7 +35,7 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  *
  * @see {@link DescribeJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeJobTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class DescribeJobTemplateCommand extends $Command<

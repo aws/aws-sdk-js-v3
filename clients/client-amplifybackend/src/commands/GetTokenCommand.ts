@@ -35,7 +35,7 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  *
  * @see {@link GetTokenCommandInput} for command's `input` shape.
  * @see {@link GetTokenCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class GetTokenCommand extends $Command<

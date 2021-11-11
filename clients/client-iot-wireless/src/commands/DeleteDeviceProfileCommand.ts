@@ -35,7 +35,7 @@ export interface DeleteDeviceProfileCommandOutput extends DeleteDeviceProfileRes
  *
  * @see {@link DeleteDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteDeviceProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class DeleteDeviceProfileCommand extends $Command<

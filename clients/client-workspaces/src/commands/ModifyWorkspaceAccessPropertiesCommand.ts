@@ -39,7 +39,7 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *
  * @see {@link ModifyWorkspaceAccessPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceAccessPropertiesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class ModifyWorkspaceAccessPropertiesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateLocationEfsCommandOutput extends CreateLocationEfsRespons
  *
  * @see {@link CreateLocationEfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationEfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
  */
 export class CreateLocationEfsCommand extends $Command<

@@ -50,7 +50,7 @@ export interface StreamingTraitsRequireLengthCommandOutput
  *
  * @see {@link StreamingTraitsRequireLengthCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsRequireLengthCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
  */
 export class StreamingTraitsRequireLengthCommand extends $Command<

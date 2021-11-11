@@ -35,7 +35,7 @@ export interface UpdateStudioComponentCommandOutput extends UpdateStudioComponen
  *
  * @see {@link UpdateStudioComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioComponentCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
 export class UpdateStudioComponentCommand extends $Command<

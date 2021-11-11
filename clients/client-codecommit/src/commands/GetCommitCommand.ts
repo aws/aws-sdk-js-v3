@@ -32,7 +32,7 @@ export interface GetCommitCommandOutput extends GetCommitOutput, __MetadataBeare
  *
  * @see {@link GetCommitCommandInput} for command's `input` shape.
  * @see {@link GetCommitCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetCommitCommand extends $Command<

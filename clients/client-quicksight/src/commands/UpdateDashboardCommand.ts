@@ -40,7 +40,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *
  * @see {@link UpdateDashboardCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class UpdateDashboardCommand extends $Command<

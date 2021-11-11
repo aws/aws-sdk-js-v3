@@ -35,7 +35,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *
  * @see {@link UpdateDeploymentGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDeploymentGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  */
 export class UpdateDeploymentGroupCommand extends $Command<

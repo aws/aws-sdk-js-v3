@@ -40,7 +40,7 @@ export interface GetEventTypesCommandOutput extends GetEventTypesResult, __Metad
  *
  * @see {@link GetEventTypesCommandInput} for command's `input` shape.
  * @see {@link GetEventTypesCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for FraudDetectorClient's `config` shape.
  *
  */
 export class GetEventTypesCommand extends $Command<

@@ -55,7 +55,7 @@ export interface GetLabelDetectionCommandOutput extends GetLabelDetectionRespons
  *
  * @see {@link GetLabelDetectionCommandInput} for command's `input` shape.
  * @see {@link GetLabelDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class GetLabelDetectionCommand extends $Command<

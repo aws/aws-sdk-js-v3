@@ -36,7 +36,7 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  *
  * @see {@link CreateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateFirewallRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class CreateFirewallRuleGroupCommand extends $Command<

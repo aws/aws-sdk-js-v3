@@ -35,7 +35,7 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  *
  * @see {@link UpdateUserHierarchyStructureCommandInput} for command's `input` shape.
  * @see {@link UpdateUserHierarchyStructureCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateUserHierarchyStructureCommand extends $Command<

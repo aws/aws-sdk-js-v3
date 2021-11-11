@@ -40,7 +40,7 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  *
  * @see {@link SendMessageCommandInput} for command's `input` shape.
  * @see {@link SendMessageCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  */
 export class SendMessageCommand extends $Command<

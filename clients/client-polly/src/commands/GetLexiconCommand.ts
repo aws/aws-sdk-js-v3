@@ -36,7 +36,7 @@ export interface GetLexiconCommandOutput extends GetLexiconOutput, __MetadataBea
  *
  * @see {@link GetLexiconCommandInput} for command's `input` shape.
  * @see {@link GetLexiconCommandOutput} for command's `response` shape.
- * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  */
 export class GetLexiconCommand extends $Command<

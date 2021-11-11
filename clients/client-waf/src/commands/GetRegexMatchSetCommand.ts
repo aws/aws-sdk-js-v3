@@ -43,7 +43,7 @@ export interface GetRegexMatchSetCommandOutput extends GetRegexMatchSetResponse,
  *
  * @see {@link GetRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link GetRegexMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
  */
 export class GetRegexMatchSetCommand extends $Command<

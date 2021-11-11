@@ -38,7 +38,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  *
  * @see {@link CreateTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
  */
 export class CreateTemplateCommand extends $Command<

@@ -42,7 +42,7 @@ export interface AcceptAdministratorInvitationCommandOutput
  *
  * @see {@link AcceptAdministratorInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptAdministratorInvitationCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class AcceptAdministratorInvitationCommand extends $Command<

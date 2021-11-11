@@ -38,7 +38,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  *
  * @see {@link TestDNSAnswerCommandInput} for command's `input` shape.
  * @see {@link TestDNSAnswerCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class TestDNSAnswerCommand extends $Command<

@@ -38,7 +38,7 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *
  * @see {@link CreateAddressCommandInput} for command's `input` shape.
  * @see {@link CreateAddressCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
  */
 export class CreateAddressCommand extends $Command<

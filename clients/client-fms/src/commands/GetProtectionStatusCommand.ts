@@ -36,7 +36,7 @@ export interface GetProtectionStatusCommandOutput extends GetProtectionStatusRes
  *
  * @see {@link GetProtectionStatusCommandInput} for command's `input` shape.
  * @see {@link GetProtectionStatusCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for FMSClient's `config` shape.
  *
  */
 export class GetProtectionStatusCommand extends $Command<

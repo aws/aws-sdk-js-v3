@@ -37,7 +37,7 @@ export interface AddSourceIdentifierToSubscriptionCommandOutput
  *
  * @see {@link AddSourceIdentifierToSubscriptionCommandInput} for command's `input` shape.
  * @see {@link AddSourceIdentifierToSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
  */
 export class AddSourceIdentifierToSubscriptionCommand extends $Command<

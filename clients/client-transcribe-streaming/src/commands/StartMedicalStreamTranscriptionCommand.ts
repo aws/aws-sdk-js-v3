@@ -44,7 +44,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  *
  * @see {@link StartMedicalStreamTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
- * @see {@link TranscribeStreamingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
  */
 export class StartMedicalStreamTranscriptionCommand extends $Command<

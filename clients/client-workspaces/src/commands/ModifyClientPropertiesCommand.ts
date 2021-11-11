@@ -35,7 +35,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  *
  * @see {@link ModifyClientPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class ModifyClientPropertiesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  *
  * @see {@link UpdateResourceShareCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceShareCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
  */
 export class UpdateResourceShareCommand extends $Command<

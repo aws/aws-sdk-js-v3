@@ -37,7 +37,7 @@ export interface GetDistributionConfigurationCommandOutput
  *
  * @see {@link GetDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetDistributionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class GetDistributionConfigurationCommand extends $Command<

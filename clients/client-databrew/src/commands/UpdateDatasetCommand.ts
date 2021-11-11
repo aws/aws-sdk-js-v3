@@ -35,7 +35,7 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *
  * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
  * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class UpdateDatasetCommand extends $Command<

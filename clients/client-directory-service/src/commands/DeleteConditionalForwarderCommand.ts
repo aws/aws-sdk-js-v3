@@ -36,7 +36,7 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  *
  * @see {@link DeleteConditionalForwarderCommandInput} for command's `input` shape.
  * @see {@link DeleteConditionalForwarderCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  */
 export class DeleteConditionalForwarderCommand extends $Command<

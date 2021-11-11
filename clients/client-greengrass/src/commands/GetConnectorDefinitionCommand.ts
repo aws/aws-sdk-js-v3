@@ -35,7 +35,7 @@ export interface GetConnectorDefinitionCommandOutput extends GetConnectorDefinit
  *
  * @see {@link GetConnectorDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetConnectorDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class GetConnectorDefinitionCommand extends $Command<

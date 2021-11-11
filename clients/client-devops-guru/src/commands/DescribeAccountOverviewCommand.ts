@@ -38,7 +38,7 @@ export interface DescribeAccountOverviewCommandOutput extends DescribeAccountOve
  *
  * @see {@link DescribeAccountOverviewCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountOverviewCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
  */
 export class DescribeAccountOverviewCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  *
  * @see {@link DeleteApplicationsCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class DeleteApplicationsCommand extends $Command<

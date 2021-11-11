@@ -41,7 +41,7 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
  *
  * @see {@link CreateLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class CreateLaunchConfigurationCommand extends $Command<

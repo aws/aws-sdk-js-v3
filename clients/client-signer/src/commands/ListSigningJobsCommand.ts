@@ -41,7 +41,7 @@ export interface ListSigningJobsCommandOutput extends ListSigningJobsResponse, _
  *
  * @see {@link ListSigningJobsCommandInput} for command's `input` shape.
  * @see {@link ListSigningJobsCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
  */
 export class ListSigningJobsCommand extends $Command<

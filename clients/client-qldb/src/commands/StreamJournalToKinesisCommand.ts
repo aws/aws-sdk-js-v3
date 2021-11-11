@@ -37,7 +37,7 @@ export interface StreamJournalToKinesisCommandOutput extends StreamJournalToKine
  *
  * @see {@link StreamJournalToKinesisCommandInput} for command's `input` shape.
  * @see {@link StreamJournalToKinesisCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class StreamJournalToKinesisCommand extends $Command<

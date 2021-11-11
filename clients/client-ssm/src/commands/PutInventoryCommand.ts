@@ -36,7 +36,7 @@ export interface PutInventoryCommandOutput extends PutInventoryResult, __Metadat
  *
  * @see {@link PutInventoryCommandInput} for command's `input` shape.
  * @see {@link PutInventoryCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class PutInventoryCommand extends $Command<

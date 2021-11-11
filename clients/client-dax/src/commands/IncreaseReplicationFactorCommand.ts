@@ -35,7 +35,7 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  *
  * @see {@link IncreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link IncreaseReplicationFactorCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class IncreaseReplicationFactorCommand extends $Command<

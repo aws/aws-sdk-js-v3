@@ -35,7 +35,7 @@ export interface AssociateRoutingProfileQueuesCommandOutput extends __MetadataBe
  *
  * @see {@link AssociateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link AssociateRoutingProfileQueuesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateRoutingProfileQueuesCommand extends $Command<

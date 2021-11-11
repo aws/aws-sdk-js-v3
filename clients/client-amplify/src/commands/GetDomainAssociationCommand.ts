@@ -35,7 +35,7 @@ export interface GetDomainAssociationCommandOutput extends GetDomainAssociationR
  *
  * @see {@link GetDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link GetDomainAssociationCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetDomainAssociationCommand extends $Command<

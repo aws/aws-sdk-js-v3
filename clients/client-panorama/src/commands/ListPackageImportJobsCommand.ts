@@ -35,7 +35,7 @@ export interface ListPackageImportJobsCommandOutput extends ListPackageImportJob
  *
  * @see {@link ListPackageImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListPackageImportJobsCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class ListPackageImportJobsCommand extends $Command<

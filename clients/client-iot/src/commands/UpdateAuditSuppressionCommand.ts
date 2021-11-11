@@ -37,7 +37,7 @@ export interface UpdateAuditSuppressionCommandOutput extends UpdateAuditSuppress
  *
  * @see {@link UpdateAuditSuppressionCommandInput} for command's `input` shape.
  * @see {@link UpdateAuditSuppressionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateAuditSuppressionCommand extends $Command<

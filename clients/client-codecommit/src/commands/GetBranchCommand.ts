@@ -32,7 +32,7 @@ export interface GetBranchCommandOutput extends GetBranchOutput, __MetadataBeare
  *
  * @see {@link GetBranchCommandInput} for command's `input` shape.
  * @see {@link GetBranchCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class GetBranchCommand extends $Command<

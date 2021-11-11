@@ -44,7 +44,7 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *
  * @see {@link SubmitJobCommandInput} for command's `input` shape.
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
  */
 export class SubmitJobCommand extends $Command<

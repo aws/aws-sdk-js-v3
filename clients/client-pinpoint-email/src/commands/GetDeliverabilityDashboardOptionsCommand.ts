@@ -46,7 +46,7 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  *
  * @see {@link GetDeliverabilityDashboardOptionsCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityDashboardOptionsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command<

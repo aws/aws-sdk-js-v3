@@ -36,7 +36,7 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  *
  * @see {@link CreateContainerCommandInput} for command's `input` shape.
  * @see {@link CreateContainerCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
  */
 export class CreateContainerCommand extends $Command<

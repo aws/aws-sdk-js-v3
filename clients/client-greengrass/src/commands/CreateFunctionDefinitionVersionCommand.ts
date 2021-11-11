@@ -37,7 +37,7 @@ export interface CreateFunctionDefinitionVersionCommandOutput
  *
  * @see {@link CreateFunctionDefinitionVersionCommandInput} for command's `input` shape.
  * @see {@link CreateFunctionDefinitionVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class CreateFunctionDefinitionVersionCommand extends $Command<

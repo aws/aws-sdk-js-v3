@@ -40,7 +40,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  *
  * @see {@link CancelQueryCommandInput} for command's `input` shape.
  * @see {@link CancelQueryCommandOutput} for command's `response` shape.
- * @see {@link TimestreamQueryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  */
 export class CancelQueryCommand extends $Command<

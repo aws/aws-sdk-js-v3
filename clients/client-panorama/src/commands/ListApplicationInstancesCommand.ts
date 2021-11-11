@@ -35,7 +35,7 @@ export interface ListApplicationInstancesCommandOutput extends ListApplicationIn
  *
  * @see {@link ListApplicationInstancesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationInstancesCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class ListApplicationInstancesCommand extends $Command<

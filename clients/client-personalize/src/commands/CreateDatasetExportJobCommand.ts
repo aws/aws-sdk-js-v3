@@ -56,7 +56,7 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *
  * @see {@link CreateDatasetExportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetExportJobCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
  */
 export class CreateDatasetExportJobCommand extends $Command<

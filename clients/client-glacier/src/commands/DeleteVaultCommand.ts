@@ -54,7 +54,7 @@ export interface DeleteVaultCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteVaultCommandInput} for command's `input` shape.
  * @see {@link DeleteVaultCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
  */
 export class DeleteVaultCommand extends $Command<

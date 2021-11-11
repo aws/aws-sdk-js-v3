@@ -81,7 +81,7 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  *
  * @see {@link CreateMatchmakingRuleSetCommandInput} for command's `input` shape.
  * @see {@link CreateMatchmakingRuleSetCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class CreateMatchmakingRuleSetCommand extends $Command<

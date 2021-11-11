@@ -35,7 +35,7 @@ export interface DeleteUserByPrincipalIdCommandOutput extends DeleteUserByPrinci
  *
  * @see {@link DeleteUserByPrincipalIdCommandInput} for command's `input` shape.
  * @see {@link DeleteUserByPrincipalIdCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteUserByPrincipalIdCommand extends $Command<

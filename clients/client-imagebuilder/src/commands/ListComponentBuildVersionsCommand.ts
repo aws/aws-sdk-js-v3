@@ -44,7 +44,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  *
  * @see {@link ListComponentBuildVersionsCommandInput} for command's `input` shape.
  * @see {@link ListComponentBuildVersionsCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class ListComponentBuildVersionsCommand extends $Command<

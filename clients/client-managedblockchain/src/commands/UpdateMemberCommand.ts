@@ -40,7 +40,7 @@ export interface UpdateMemberCommandOutput extends UpdateMemberOutput, __Metadat
  *
  * @see {@link UpdateMemberCommandInput} for command's `input` shape.
  * @see {@link UpdateMemberCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for ManagedBlockchainClient's `config` shape.
  *
  */
 export class UpdateMemberCommand extends $Command<

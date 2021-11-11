@@ -40,7 +40,7 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  *
  * @see {@link UpdateApplicationResourceLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationResourceLifecycleCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<

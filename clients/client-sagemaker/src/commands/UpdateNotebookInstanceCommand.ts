@@ -37,7 +37,7 @@ export interface UpdateNotebookInstanceCommandOutput extends UpdateNotebookInsta
  *
  * @see {@link UpdateNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateNotebookInstanceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class UpdateNotebookInstanceCommand extends $Command<

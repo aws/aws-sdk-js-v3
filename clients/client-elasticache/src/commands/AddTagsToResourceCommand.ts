@@ -46,7 +46,7 @@ export interface AddTagsToResourceCommandOutput extends TagListMessage, __Metada
  *
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class AddTagsToResourceCommand extends $Command<

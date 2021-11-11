@@ -35,7 +35,7 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  *
  * @see {@link ListContextsCommandInput} for command's `input` shape.
  * @see {@link ListContextsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class ListContextsCommand extends $Command<

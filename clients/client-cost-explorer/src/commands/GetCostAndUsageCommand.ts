@@ -40,7 +40,7 @@ export interface GetCostAndUsageCommandOutput extends GetCostAndUsageResponse, _
  *
  * @see {@link GetCostAndUsageCommandInput} for command's `input` shape.
  * @see {@link GetCostAndUsageCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
 export class GetCostAndUsageCommand extends $Command<

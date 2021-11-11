@@ -41,7 +41,7 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput
  *
  * @see {@link DeleteConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
- * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for PinpointSMSVoiceClient's `config` shape.
  *
  */
 export class DeleteConfigurationSetEventDestinationCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  *
  * @see {@link DeleteModelQualityJobDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelQualityJobDefinitionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
 export class DeleteModelQualityJobDefinitionCommand extends $Command<

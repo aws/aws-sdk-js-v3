@@ -35,7 +35,7 @@ export interface UpdateUploadCommandOutput extends UpdateUploadResult, __Metadat
  *
  * @see {@link UpdateUploadCommandInput} for command's `input` shape.
  * @see {@link UpdateUploadCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class UpdateUploadCommand extends $Command<

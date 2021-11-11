@@ -48,7 +48,7 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
  *
  * @see {@link SendChannelMessageCommandInput} for command's `input` shape.
  * @see {@link SendChannelMessageCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for ChimeSDKMessagingClient's `config` shape.
  *
  */
 export class SendChannelMessageCommand extends $Command<

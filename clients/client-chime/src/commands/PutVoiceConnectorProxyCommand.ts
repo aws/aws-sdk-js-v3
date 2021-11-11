@@ -35,7 +35,7 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
  *
  * @see {@link PutVoiceConnectorProxyCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorProxyCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class PutVoiceConnectorProxyCommand extends $Command<

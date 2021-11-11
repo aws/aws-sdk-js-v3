@@ -57,7 +57,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *
  * @see {@link DescribeScalingPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingPoliciesCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class DescribeScalingPoliciesCommand extends $Command<

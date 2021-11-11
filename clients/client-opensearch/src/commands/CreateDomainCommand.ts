@@ -38,7 +38,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class CreateDomainCommand extends $Command<

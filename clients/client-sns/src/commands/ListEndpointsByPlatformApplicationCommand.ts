@@ -49,7 +49,7 @@ export interface ListEndpointsByPlatformApplicationCommandOutput
  *
  * @see {@link ListEndpointsByPlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsByPlatformApplicationCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
  */
 export class ListEndpointsByPlatformApplicationCommand extends $Command<

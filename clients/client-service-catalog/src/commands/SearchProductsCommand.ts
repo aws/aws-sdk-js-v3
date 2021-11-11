@@ -35,7 +35,7 @@ export interface SearchProductsCommandOutput extends SearchProductsOutput, __Met
  *
  * @see {@link SearchProductsCommandInput} for command's `input` shape.
  * @see {@link SearchProductsCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class SearchProductsCommand extends $Command<

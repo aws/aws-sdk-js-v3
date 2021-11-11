@@ -38,7 +38,7 @@ export interface AbortDocumentVersionUploadCommandOutput extends __MetadataBeare
  *
  * @see {@link AbortDocumentVersionUploadCommandInput} for command's `input` shape.
  * @see {@link AbortDocumentVersionUploadCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class AbortDocumentVersionUploadCommand extends $Command<

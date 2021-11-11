@@ -32,7 +32,7 @@ export interface CreateFaqCommandOutput extends CreateFaqResponse, __MetadataBea
  *
  * @see {@link CreateFaqCommandInput} for command's `input` shape.
  * @see {@link CreateFaqCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class CreateFaqCommand extends $Command<

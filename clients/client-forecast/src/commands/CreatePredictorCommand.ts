@@ -96,7 +96,7 @@ export interface CreatePredictorCommandOutput extends CreatePredictorResponse, _
  *
  * @see {@link CreatePredictorCommandInput} for command's `input` shape.
  * @see {@link CreatePredictorCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
  */
 export class CreatePredictorCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  * @see {@link GetUserCommandInput} for command's `input` shape.
  * @see {@link GetUserCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class GetUserCommand extends $Command<

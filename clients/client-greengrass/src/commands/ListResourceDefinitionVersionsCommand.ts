@@ -37,7 +37,7 @@ export interface ListResourceDefinitionVersionsCommandOutput
  *
  * @see {@link ListResourceDefinitionVersionsCommandInput} for command's `input` shape.
  * @see {@link ListResourceDefinitionVersionsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
  */
 export class ListResourceDefinitionVersionsCommand extends $Command<

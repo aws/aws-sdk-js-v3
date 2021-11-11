@@ -36,7 +36,7 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  *
  * @see {@link ModifyClusterSnapshotCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class ModifyClusterSnapshotCommand extends $Command<

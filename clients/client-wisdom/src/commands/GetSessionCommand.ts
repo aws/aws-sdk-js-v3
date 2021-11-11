@@ -35,7 +35,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for WisdomClient's `config` shape.
  *
  */
 export class GetSessionCommand extends $Command<

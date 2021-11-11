@@ -40,7 +40,7 @@ export interface ListLicenseSpecificationsForResourceCommandOutput
  *
  * @see {@link ListLicenseSpecificationsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListLicenseSpecificationsForResourceCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
 export class ListLicenseSpecificationsForResourceCommand extends $Command<

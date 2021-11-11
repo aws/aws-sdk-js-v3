@@ -32,7 +32,7 @@ export interface GetLFTagCommandOutput extends GetLFTagResponse, __MetadataBeare
  *
  * @see {@link GetLFTagCommandInput} for command's `input` shape.
  * @see {@link GetLFTagCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
  */
 export class GetLFTagCommand extends $Command<

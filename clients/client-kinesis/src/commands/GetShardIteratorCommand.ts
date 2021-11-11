@@ -68,7 +68,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * @see {@link GetShardIteratorCommandInput} for command's `input` shape.
  * @see {@link GetShardIteratorCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for KinesisClient's `config` shape.
  *
  */
 export class GetShardIteratorCommand extends $Command<

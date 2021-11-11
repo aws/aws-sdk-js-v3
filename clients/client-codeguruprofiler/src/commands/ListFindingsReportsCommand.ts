@@ -35,7 +35,7 @@ export interface ListFindingsReportsCommandOutput extends ListFindingsReportsRes
  *
  * @see {@link ListFindingsReportsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsReportsCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
  */
 export class ListFindingsReportsCommand extends $Command<

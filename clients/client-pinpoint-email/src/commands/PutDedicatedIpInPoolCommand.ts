@@ -44,7 +44,7 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  *
  * @see {@link PutDedicatedIpInPoolCommandInput} for command's `input` shape.
  * @see {@link PutDedicatedIpInPoolCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class PutDedicatedIpInPoolCommand extends $Command<

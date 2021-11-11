@@ -36,7 +36,7 @@ export interface PutThirdPartyJobFailureResultCommandOutput extends __MetadataBe
  *
  * @see {@link PutThirdPartyJobFailureResultCommandInput} for command's `input` shape.
  * @see {@link PutThirdPartyJobFailureResultCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class PutThirdPartyJobFailureResultCommand extends $Command<

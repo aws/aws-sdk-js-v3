@@ -48,7 +48,7 @@ export interface GetEC2RecommendationProjectedMetricsCommandOutput
  *
  * @see {@link GetEC2RecommendationProjectedMetricsCommandInput} for command's `input` shape.
  * @see {@link GetEC2RecommendationProjectedMetricsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for ComputeOptimizerClient's `config` shape.
  *
  */
 export class GetEC2RecommendationProjectedMetricsCommand extends $Command<

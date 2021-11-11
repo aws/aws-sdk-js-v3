@@ -35,7 +35,7 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  *
  * @see {@link DescribeUserGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserGroupsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeUserGroupsCommand extends $Command<

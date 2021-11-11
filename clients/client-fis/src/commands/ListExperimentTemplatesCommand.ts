@@ -35,7 +35,7 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  *
  * @see {@link ListExperimentTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListExperimentTemplatesCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
  */
 export class ListExperimentTemplatesCommand extends $Command<

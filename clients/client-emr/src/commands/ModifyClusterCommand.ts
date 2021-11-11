@@ -36,7 +36,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  *
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class ModifyClusterCommand extends $Command<

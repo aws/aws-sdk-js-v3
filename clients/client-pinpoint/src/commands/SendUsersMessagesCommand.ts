@@ -35,7 +35,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *
  * @see {@link SendUsersMessagesCommandInput} for command's `input` shape.
  * @see {@link SendUsersMessagesCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class SendUsersMessagesCommand extends $Command<

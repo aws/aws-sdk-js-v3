@@ -35,7 +35,7 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFraudsterCommandInput} for command's `input` shape.
  * @see {@link DeleteFraudsterCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class DeleteFraudsterCommand extends $Command<

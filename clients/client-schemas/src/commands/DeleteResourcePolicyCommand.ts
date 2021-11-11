@@ -35,7 +35,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
  */
 export class DeleteResourcePolicyCommand extends $Command<

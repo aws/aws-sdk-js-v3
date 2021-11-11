@@ -35,7 +35,7 @@ export interface CreateWorldTemplateCommandOutput extends CreateWorldTemplateRes
  *
  * @see {@link CreateWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateWorldTemplateCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CreateWorldTemplateCommand extends $Command<

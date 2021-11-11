@@ -37,7 +37,7 @@ export interface ListInfrastructureConfigurationsCommandOutput
  *
  * @see {@link ListInfrastructureConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListInfrastructureConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  */
 export class ListInfrastructureConfigurationsCommand extends $Command<

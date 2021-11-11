@@ -40,7 +40,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFunctionCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteFunctionCommand extends $Command<

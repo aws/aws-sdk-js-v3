@@ -36,7 +36,7 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  *
  * @see {@link CreateDeviceCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  */
 export class CreateDeviceCommand extends $Command<

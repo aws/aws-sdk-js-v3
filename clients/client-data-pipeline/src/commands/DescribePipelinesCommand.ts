@@ -96,7 +96,7 @@ export interface DescribePipelinesCommandOutput extends DescribePipelinesOutput,
  *
  * @see {@link DescribePipelinesCommandInput} for command's `input` shape.
  * @see {@link DescribePipelinesCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for DataPipelineClient's `config` shape.
  *
  */
 export class DescribePipelinesCommand extends $Command<

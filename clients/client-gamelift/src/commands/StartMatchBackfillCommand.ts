@@ -81,7 +81,7 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *
  * @see {@link StartMatchBackfillCommandInput} for command's `input` shape.
  * @see {@link StartMatchBackfillCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class StartMatchBackfillCommand extends $Command<

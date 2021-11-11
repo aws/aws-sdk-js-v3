@@ -37,7 +37,7 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  *
  * @see {@link TerminateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link TerminateProvisionedProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class TerminateProvisionedProductCommand extends $Command<

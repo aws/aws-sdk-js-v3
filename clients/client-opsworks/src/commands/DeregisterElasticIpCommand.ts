@@ -41,7 +41,7 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeregisterElasticIpCommandInput} for command's `input` shape.
  * @see {@link DeregisterElasticIpCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
  */
 export class DeregisterElasticIpCommand extends $Command<

@@ -36,7 +36,7 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SubscribeToEventCommandInput} for command's `input` shape.
  * @see {@link SubscribeToEventCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class SubscribeToEventCommand extends $Command<

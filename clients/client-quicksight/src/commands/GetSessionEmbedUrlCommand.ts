@@ -59,7 +59,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *
  * @see {@link GetSessionEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetSessionEmbedUrlCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class GetSessionEmbedUrlCommand extends $Command<

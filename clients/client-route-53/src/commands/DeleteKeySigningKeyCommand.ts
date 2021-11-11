@@ -37,7 +37,7 @@ export interface DeleteKeySigningKeyCommandOutput extends DeleteKeySigningKeyRes
  *
  * @see {@link DeleteKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteKeySigningKeyCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
  */
 export class DeleteKeySigningKeyCommand extends $Command<

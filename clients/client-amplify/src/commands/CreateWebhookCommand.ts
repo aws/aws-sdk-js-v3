@@ -35,7 +35,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  *
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class CreateWebhookCommand extends $Command<

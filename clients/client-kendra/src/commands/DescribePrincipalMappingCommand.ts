@@ -40,7 +40,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  *
  * @see {@link DescribePrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link DescribePrincipalMappingCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for KendraClient's `config` shape.
  *
  */
 export class DescribePrincipalMappingCommand extends $Command<

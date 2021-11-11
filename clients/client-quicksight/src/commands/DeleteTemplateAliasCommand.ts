@@ -36,7 +36,7 @@ export interface DeleteTemplateAliasCommandOutput extends DeleteTemplateAliasRes
  *
  * @see {@link DeleteTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteTemplateAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteTemplateAliasCommand extends $Command<

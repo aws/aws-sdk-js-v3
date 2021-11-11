@@ -99,7 +99,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  *
  * @see {@link UpdateFileSystemCommandInput} for command's `input` shape.
  * @see {@link UpdateFileSystemCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class UpdateFileSystemCommand extends $Command<

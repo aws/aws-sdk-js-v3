@@ -35,7 +35,7 @@ export interface DescribeEventsDetectionJobCommandOutput extends DescribeEventsD
  *
  * @see {@link DescribeEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
  */
 export class DescribeEventsDetectionJobCommand extends $Command<

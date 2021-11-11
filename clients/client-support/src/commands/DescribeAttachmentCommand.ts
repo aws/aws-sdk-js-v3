@@ -53,7 +53,7 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  *
  * @see {@link DescribeAttachmentCommandInput} for command's `input` shape.
  * @see {@link DescribeAttachmentCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class DescribeAttachmentCommand extends $Command<

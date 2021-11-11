@@ -35,7 +35,7 @@ export interface DeleteServiceTemplateCommandOutput extends DeleteServiceTemplat
  *
  * @see {@link DeleteServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class DeleteServiceTemplateCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *
  * @see {@link DeleteLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link DeleteLifecycleHookCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
 export class DeleteLifecycleHookCommand extends $Command<

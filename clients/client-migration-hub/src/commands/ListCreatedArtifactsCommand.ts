@@ -49,7 +49,7 @@ export interface ListCreatedArtifactsCommandOutput extends ListCreatedArtifactsR
  *
  * @see {@link ListCreatedArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListCreatedArtifactsCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class ListCreatedArtifactsCommand extends $Command<

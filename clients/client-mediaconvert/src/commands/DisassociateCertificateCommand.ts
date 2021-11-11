@@ -35,7 +35,7 @@ export interface DisassociateCertificateCommandOutput extends DisassociateCertif
  *
  * @see {@link DisassociateCertificateCommandInput} for command's `input` shape.
  * @see {@link DisassociateCertificateCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for MediaConvertClient's `config` shape.
  *
  */
 export class DisassociateCertificateCommand extends $Command<

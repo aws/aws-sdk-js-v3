@@ -35,7 +35,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  *
  * @see {@link DescribeMLModelsCommandInput} for command's `input` shape.
  * @see {@link DescribeMLModelsCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
  */
 export class DescribeMLModelsCommand extends $Command<

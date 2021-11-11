@@ -36,7 +36,7 @@ export interface ListOTAUpdatesCommandOutput extends ListOTAUpdatesResponse, __M
  *
  * @see {@link ListOTAUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListOTAUpdatesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListOTAUpdatesCommand extends $Command<

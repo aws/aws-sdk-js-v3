@@ -35,7 +35,7 @@ export interface UpdateTrackerCommandOutput extends UpdateTrackerResponse, __Met
  *
  * @see {@link UpdateTrackerCommandInput} for command's `input` shape.
  * @see {@link UpdateTrackerCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for LocationClient's `config` shape.
  *
  */
 export class UpdateTrackerCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetReplicationRunsCommandOutput extends GetReplicationRunsRespo
  *
  * @see {@link GetReplicationRunsCommandInput} for command's `input` shape.
  * @see {@link GetReplicationRunsCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
  */
 export class GetReplicationRunsCommand extends $Command<

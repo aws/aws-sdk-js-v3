@@ -38,7 +38,7 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  *
  * @see {@link TestRenderEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link TestRenderEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
  */
 export class TestRenderEmailTemplateCommand extends $Command<

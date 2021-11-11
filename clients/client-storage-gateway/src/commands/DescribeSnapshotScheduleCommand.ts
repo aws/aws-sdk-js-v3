@@ -38,7 +38,7 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *
  * @see {@link DescribeSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotScheduleCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeSnapshotScheduleCommand extends $Command<

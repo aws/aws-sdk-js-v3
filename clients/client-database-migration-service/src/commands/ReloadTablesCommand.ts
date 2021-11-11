@@ -41,7 +41,7 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  *
  * @see {@link ReloadTablesCommandInput} for command's `input` shape.
  * @see {@link ReloadTablesCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
  */
 export class ReloadTablesCommand extends $Command<

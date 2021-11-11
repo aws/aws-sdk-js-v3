@@ -35,7 +35,7 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  *
  * @see {@link DeleteDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteDedicatedIpPoolCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class DeleteDedicatedIpPoolCommand extends $Command<

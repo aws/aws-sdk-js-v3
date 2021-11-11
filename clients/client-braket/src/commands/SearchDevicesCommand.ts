@@ -35,7 +35,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  *
  * @see {@link SearchDevicesCommandInput} for command's `input` shape.
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
  */
 export class SearchDevicesCommand extends $Command<

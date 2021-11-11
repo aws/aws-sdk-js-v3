@@ -35,7 +35,7 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  *
  * @see {@link ListApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
  */
 export class ListApplicationsCommand extends $Command<

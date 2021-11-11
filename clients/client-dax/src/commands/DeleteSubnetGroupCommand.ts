@@ -39,7 +39,7 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *
  * @see {@link DeleteSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
  */
 export class DeleteSubnetGroupCommand extends $Command<

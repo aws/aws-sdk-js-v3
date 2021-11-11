@@ -35,7 +35,7 @@ export interface UpdateUserPhoneConfigCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateUserPhoneConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPhoneConfigCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class UpdateUserPhoneConfigCommand extends $Command<

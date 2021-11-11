@@ -35,7 +35,7 @@ export interface ListProgressUpdateStreamsCommandOutput extends ListProgressUpda
  *
  * @see {@link ListProgressUpdateStreamsCommandInput} for command's `input` shape.
  * @see {@link ListProgressUpdateStreamsCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class ListProgressUpdateStreamsCommand extends $Command<

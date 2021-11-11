@@ -39,7 +39,7 @@ export interface CreateDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *
  * @see {@link CreateDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDataflowEndpointGroupCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
  */
 export class CreateDataflowEndpointGroupCommand extends $Command<

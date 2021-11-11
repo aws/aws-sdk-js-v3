@@ -37,7 +37,7 @@ export interface BatchDisassociateProjectAssetsCommandOutput
  *
  * @see {@link BatchDisassociateProjectAssetsCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateProjectAssetsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class BatchDisassociateProjectAssetsCommand extends $Command<

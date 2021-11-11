@@ -43,7 +43,7 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  *
  * @see {@link CreateDataRepositoryTaskCommandInput} for command's `input` shape.
  * @see {@link CreateDataRepositoryTaskCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
  */
 export class CreateDataRepositoryTaskCommand extends $Command<

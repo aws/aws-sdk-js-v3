@@ -35,7 +35,7 @@ export interface DeleteThemeCommandOutput extends DeleteThemeResponse, __Metadat
  *
  * @see {@link DeleteThemeCommandInput} for command's `input` shape.
  * @see {@link DeleteThemeCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteThemeCommand extends $Command<

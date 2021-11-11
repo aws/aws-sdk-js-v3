@@ -74,7 +74,7 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *
  * @see {@link DetectProtectiveEquipmentCommandInput} for command's `input` shape.
  * @see {@link DetectProtectiveEquipmentCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class DetectProtectiveEquipmentCommand extends $Command<

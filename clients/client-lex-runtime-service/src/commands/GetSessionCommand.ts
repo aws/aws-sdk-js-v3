@@ -40,7 +40,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  *
  * @see {@link GetSessionCommandInput} for command's `input` shape.
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
  */
 export class GetSessionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *
  * @see {@link ListChannelsCommandInput} for command's `input` shape.
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for IoTAnalyticsClient's `config` shape.
  *
  */
 export class ListChannelsCommand extends $Command<

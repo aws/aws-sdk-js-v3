@@ -38,7 +38,7 @@ export interface GetDistributionLatestCacheResetCommandOutput
  *
  * @see {@link GetDistributionLatestCacheResetCommandInput} for command's `input` shape.
  * @see {@link GetDistributionLatestCacheResetCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for LightsailClient's `config` shape.
  *
  */
 export class GetDistributionLatestCacheResetCommand extends $Command<

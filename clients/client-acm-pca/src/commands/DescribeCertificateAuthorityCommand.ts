@@ -77,7 +77,7 @@ export interface DescribeCertificateAuthorityCommandOutput
  *
  * @see {@link DescribeCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
  */
 export class DescribeCertificateAuthorityCommand extends $Command<

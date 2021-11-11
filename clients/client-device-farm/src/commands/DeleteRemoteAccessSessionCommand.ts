@@ -35,7 +35,7 @@ export interface DeleteRemoteAccessSessionCommandOutput extends DeleteRemoteAcce
  *
  * @see {@link DeleteRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteRemoteAccessSessionCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
  */
 export class DeleteRemoteAccessSessionCommand extends $Command<

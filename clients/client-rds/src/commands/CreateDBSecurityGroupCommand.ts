@@ -38,7 +38,7 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  *
  * @see {@link CreateDBSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class CreateDBSecurityGroupCommand extends $Command<

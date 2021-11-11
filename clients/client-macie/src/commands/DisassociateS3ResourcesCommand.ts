@@ -38,7 +38,7 @@ export interface DisassociateS3ResourcesCommandOutput extends DisassociateS3Reso
  *
  * @see {@link DisassociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link DisassociateS3ResourcesCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class DisassociateS3ResourcesCommand extends $Command<

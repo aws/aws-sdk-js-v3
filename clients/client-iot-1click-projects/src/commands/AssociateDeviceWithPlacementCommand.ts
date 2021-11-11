@@ -41,7 +41,7 @@ export interface AssociateDeviceWithPlacementCommandOutput
  *
  * @see {@link AssociateDeviceWithPlacementCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithPlacementCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
  */
 export class AssociateDeviceWithPlacementCommand extends $Command<

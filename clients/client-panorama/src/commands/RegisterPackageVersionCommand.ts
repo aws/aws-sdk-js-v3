@@ -35,7 +35,7 @@ export interface RegisterPackageVersionCommandOutput extends RegisterPackageVers
  *
  * @see {@link RegisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link RegisterPackageVersionCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
  */
 export class RegisterPackageVersionCommand extends $Command<

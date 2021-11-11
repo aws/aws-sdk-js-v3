@@ -37,7 +37,7 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  *
  * @see {@link DescribeGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeGatewayInformationCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeGatewayInformationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateRecipeCommandOutput extends UpdateRecipeResponse, __Metad
  *
  * @see {@link UpdateRecipeCommandInput} for command's `input` shape.
  * @see {@link UpdateRecipeCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
  */
 export class UpdateRecipeCommand extends $Command<

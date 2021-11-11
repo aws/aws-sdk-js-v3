@@ -40,7 +40,7 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  *
  * @see {@link AuthorizeSnapshotAccessCommandInput} for command's `input` shape.
  * @see {@link AuthorizeSnapshotAccessCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class AuthorizeSnapshotAccessCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  *
  * @see {@link ListVirtualInterfaceTestHistoryCommandInput} for command's `input` shape.
  * @see {@link ListVirtualInterfaceTestHistoryCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command<

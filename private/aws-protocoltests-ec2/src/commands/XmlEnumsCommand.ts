@@ -32,7 +32,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  *
  * @see {@link XmlEnumsCommandInput} for command's `input` shape.
  * @see {@link XmlEnumsCommandOutput} for command's `response` shape.
- * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
  */
 export class XmlEnumsCommand extends $Command<

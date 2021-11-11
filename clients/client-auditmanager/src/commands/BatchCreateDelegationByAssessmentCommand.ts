@@ -40,7 +40,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  *
  * @see {@link BatchCreateDelegationByAssessmentCommandInput} for command's `input` shape.
  * @see {@link BatchCreateDelegationByAssessmentCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class BatchCreateDelegationByAssessmentCommand extends $Command<

@@ -50,7 +50,7 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
  *
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointPolicyForObjectLambdaCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command<

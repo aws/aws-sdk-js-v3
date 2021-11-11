@@ -37,7 +37,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  *
  * @see {@link ListAlertsCommandInput} for command's `input` shape.
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for LookoutMetricsClient's `config` shape.
  *
  */
 export class ListAlertsCommand extends $Command<

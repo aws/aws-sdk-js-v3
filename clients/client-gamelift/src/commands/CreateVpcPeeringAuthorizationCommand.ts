@@ -70,7 +70,7 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  *
  * @see {@link CreateVpcPeeringAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  */
 export class CreateVpcPeeringAuthorizationCommand extends $Command<

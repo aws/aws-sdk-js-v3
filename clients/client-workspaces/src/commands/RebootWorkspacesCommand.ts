@@ -38,7 +38,7 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  *
  * @see {@link RebootWorkspacesCommandInput} for command's `input` shape.
  * @see {@link RebootWorkspacesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class RebootWorkspacesCommand extends $Command<

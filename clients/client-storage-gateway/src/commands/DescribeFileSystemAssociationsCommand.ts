@@ -38,7 +38,7 @@ export interface DescribeFileSystemAssociationsCommandOutput
  *
  * @see {@link DescribeFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemAssociationsCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class DescribeFileSystemAssociationsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *
  * @see {@link CreateElasticsearchDomainCommandInput} for command's `input` shape.
  * @see {@link CreateElasticsearchDomainCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
  */
 export class CreateElasticsearchDomainCommand extends $Command<

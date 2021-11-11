@@ -37,7 +37,7 @@ export interface PostCommentForComparedCommitCommandOutput
  *
  * @see {@link PostCommentForComparedCommitCommandInput} for command's `input` shape.
  * @see {@link PostCommentForComparedCommitCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
  */
 export class PostCommentForComparedCommitCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CreateAttendeeCommandOutput extends CreateAttendeeResponse, __M
  *
  * @see {@link CreateAttendeeCommandInput} for command's `input` shape.
  * @see {@link CreateAttendeeCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for ChimeSDKMeetingsClient's `config` shape.
  *
  */
 export class CreateAttendeeCommand extends $Command<

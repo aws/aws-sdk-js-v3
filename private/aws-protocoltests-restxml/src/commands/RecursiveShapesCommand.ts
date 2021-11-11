@@ -35,7 +35,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  *
  * @see {@link RecursiveShapesCommandInput} for command's `input` shape.
  * @see {@link RecursiveShapesCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
  */
 export class RecursiveShapesCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ListRolesCommandOutput extends ListRolesResponse, __MetadataBea
  *
  * @see {@link ListRolesCommandInput} for command's `input` shape.
  * @see {@link ListRolesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesCommandOutput, IAMClientResolvedConfig> {

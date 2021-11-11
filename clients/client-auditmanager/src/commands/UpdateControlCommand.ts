@@ -35,7 +35,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  *
  * @see {@link UpdateControlCommandInput} for command's `input` shape.
  * @see {@link UpdateControlCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
  */
 export class UpdateControlCommand extends $Command<

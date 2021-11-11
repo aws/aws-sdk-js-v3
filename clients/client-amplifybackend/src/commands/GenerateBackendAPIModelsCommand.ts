@@ -35,7 +35,7 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
  *
  * @see {@link GenerateBackendAPIModelsCommandInput} for command's `input` shape.
  * @see {@link GenerateBackendAPIModelsCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for AmplifyBackendClient's `config` shape.
  *
  */
 export class GenerateBackendAPIModelsCommand extends $Command<

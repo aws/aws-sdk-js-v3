@@ -38,7 +38,7 @@ export interface CreateAssessmentTemplateCommandOutput extends CreateAssessmentT
  *
  * @see {@link CreateAssessmentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateAssessmentTemplateCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
  */
 export class CreateAssessmentTemplateCommand extends $Command<

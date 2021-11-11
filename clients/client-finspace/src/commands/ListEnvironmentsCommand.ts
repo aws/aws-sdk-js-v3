@@ -35,7 +35,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  *
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link FinspaceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FinspaceClientResolvedConfig | config} for FinspaceClient's `config` shape.
  *
  */
 export class ListEnvironmentsCommand extends $Command<

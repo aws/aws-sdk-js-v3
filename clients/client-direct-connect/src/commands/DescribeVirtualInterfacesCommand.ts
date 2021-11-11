@@ -39,7 +39,7 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  *
  * @see {@link DescribeVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualInterfacesCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DescribeVirtualInterfacesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  *
  * @see {@link DescribeClusterCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class DescribeClusterCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceResponse,
  *
  * @see {@link DeleteDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteDataSourceCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class DeleteDataSourceCommand extends $Command<

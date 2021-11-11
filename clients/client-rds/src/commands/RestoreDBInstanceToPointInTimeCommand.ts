@@ -46,7 +46,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *
  * @see {@link RestoreDBInstanceToPointInTimeCommandInput} for command's `input` shape.
  * @see {@link RestoreDBInstanceToPointInTimeCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class RestoreDBInstanceToPointInTimeCommand extends $Command<

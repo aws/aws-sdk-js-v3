@@ -79,7 +79,7 @@ export interface UnsubscribeFromDatasetCommandOutput extends UnsubscribeFromData
  *
  * @see {@link UnsubscribeFromDatasetCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeFromDatasetCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
  */
 export class UnsubscribeFromDatasetCommand extends $Command<

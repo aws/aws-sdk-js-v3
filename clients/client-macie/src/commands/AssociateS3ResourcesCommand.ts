@@ -39,7 +39,7 @@ export interface AssociateS3ResourcesCommandOutput extends AssociateS3ResourcesR
  *
  * @see {@link AssociateS3ResourcesCommandInput} for command's `input` shape.
  * @see {@link AssociateS3ResourcesCommandOutput} for command's `response` shape.
- * @see {@link MacieClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
  */
 export class AssociateS3ResourcesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  *
  * @see {@link GetStoredQueryCommandInput} for command's `input` shape.
  * @see {@link GetStoredQueryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class GetStoredQueryCommand extends $Command<

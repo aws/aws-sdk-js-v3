@@ -38,7 +38,7 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAccessPointCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessPointCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
  */
 export class DeleteAccessPointCommand extends $Command<

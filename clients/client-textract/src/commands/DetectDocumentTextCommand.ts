@@ -45,7 +45,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  *
  * @see {@link DetectDocumentTextCommandInput} for command's `input` shape.
  * @see {@link DetectDocumentTextCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
  */
 export class DetectDocumentTextCommand extends $Command<

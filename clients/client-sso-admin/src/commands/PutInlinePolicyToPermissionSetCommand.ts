@@ -44,7 +44,7 @@ export interface PutInlinePolicyToPermissionSetCommandOutput
  *
  * @see {@link PutInlinePolicyToPermissionSetCommandInput} for command's `input` shape.
  * @see {@link PutInlinePolicyToPermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for SSOAdminClient's `config` shape.
  *
  */
 export class PutInlinePolicyToPermissionSetCommand extends $Command<

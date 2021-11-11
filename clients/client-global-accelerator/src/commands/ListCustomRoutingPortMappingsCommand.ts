@@ -49,7 +49,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  *
  * @see {@link ListCustomRoutingPortMappingsCommandInput} for command's `input` shape.
  * @see {@link ListCustomRoutingPortMappingsCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command<

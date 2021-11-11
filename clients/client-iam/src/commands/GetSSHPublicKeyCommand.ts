@@ -39,7 +39,7 @@ export interface GetSSHPublicKeyCommandOutput extends GetSSHPublicKeyResponse, _
  *
  * @see {@link GetSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link GetSSHPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class GetSSHPublicKeyCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateServiceTemplateCommandOutput extends UpdateServiceTemplat
  *
  * @see {@link UpdateServiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for ProtonClient's `config` shape.
  *
  */
 export class UpdateServiceTemplateCommand extends $Command<

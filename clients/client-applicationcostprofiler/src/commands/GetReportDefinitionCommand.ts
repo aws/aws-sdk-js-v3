@@ -39,7 +39,7 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  *
  * @see {@link GetReportDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetReportDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for ApplicationCostProfilerClient's `config` shape.
  *
  */
 export class GetReportDefinitionCommand extends $Command<

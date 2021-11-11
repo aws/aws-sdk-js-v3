@@ -42,7 +42,7 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  *
  * @see {@link DescribeDBClusterSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBClusterSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command<

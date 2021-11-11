@@ -44,7 +44,7 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  *
  * @see {@link DisassociateConnectionFromLagCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectionFromLagCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
  */
 export class DisassociateConnectionFromLagCommand extends $Command<

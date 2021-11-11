@@ -36,7 +36,7 @@ export interface ActivateUserCommandOutput extends ActivateUserResponse, __Metad
  *
  * @see {@link ActivateUserCommandInput} for command's `input` shape.
  * @see {@link ActivateUserCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class ActivateUserCommand extends $Command<

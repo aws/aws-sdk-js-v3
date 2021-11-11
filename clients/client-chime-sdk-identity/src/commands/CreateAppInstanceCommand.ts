@@ -38,7 +38,7 @@ export interface CreateAppInstanceCommandOutput extends CreateAppInstanceRespons
  *
  * @see {@link CreateAppInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateAppInstanceCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for ChimeSDKIdentityClient's `config` shape.
  *
  */
 export class CreateAppInstanceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  *
  * @see {@link GetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link GetUserSettingsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class GetUserSettingsCommand extends $Command<

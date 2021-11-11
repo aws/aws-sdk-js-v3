@@ -38,7 +38,7 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  *
  * @see {@link DescribeCacheSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheSubnetGroupsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
  */
 export class DescribeCacheSubnetGroupsCommand extends $Command<

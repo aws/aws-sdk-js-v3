@@ -38,7 +38,7 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *
  * @see {@link ListMembersCommandInput} for command's `input` shape.
  * @see {@link ListMembersCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class ListMembersCommand extends $Command<

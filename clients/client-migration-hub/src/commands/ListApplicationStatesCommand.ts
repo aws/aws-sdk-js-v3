@@ -37,7 +37,7 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  *
  * @see {@link ListApplicationStatesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationStatesCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for MigrationHubClient's `config` shape.
  *
  */
 export class ListApplicationStatesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListTypedLinkFacetNamesCommandOutput extends ListTypedLinkFacet
  *
  * @see {@link ListTypedLinkFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListTypedLinkFacetNamesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class ListTypedLinkFacetNamesCommand extends $Command<

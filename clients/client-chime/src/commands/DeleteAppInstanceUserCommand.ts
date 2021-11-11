@@ -35,7 +35,7 @@ export interface DeleteAppInstanceUserCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DeleteAppInstanceUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DeleteAppInstanceUserCommand extends $Command<

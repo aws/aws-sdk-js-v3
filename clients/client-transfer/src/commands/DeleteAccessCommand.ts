@@ -36,7 +36,7 @@ export interface DeleteAccessCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAccessCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for TransferClient's `config` shape.
  *
  */
 export class DeleteAccessCommand extends $Command<

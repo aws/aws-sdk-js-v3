@@ -40,7 +40,7 @@ export interface DescribeFolderContentsCommandOutput extends DescribeFolderConte
  *
  * @see {@link DescribeFolderContentsCommandInput} for command's `input` shape.
  * @see {@link DescribeFolderContentsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
  */
 export class DescribeFolderContentsCommand extends $Command<

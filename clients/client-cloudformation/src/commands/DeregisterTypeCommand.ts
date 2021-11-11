@@ -44,7 +44,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  *
  * @see {@link DeregisterTypeCommandInput} for command's `input` shape.
  * @see {@link DeregisterTypeCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
  */
 export class DeregisterTypeCommand extends $Command<

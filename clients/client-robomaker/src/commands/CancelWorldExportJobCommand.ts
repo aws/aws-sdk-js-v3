@@ -35,7 +35,7 @@ export interface CancelWorldExportJobCommandOutput extends CancelWorldExportJobR
  *
  * @see {@link CancelWorldExportJobCommandInput} for command's `input` shape.
  * @see {@link CancelWorldExportJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class CancelWorldExportJobCommand extends $Command<

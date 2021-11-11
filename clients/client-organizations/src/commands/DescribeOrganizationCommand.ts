@@ -42,7 +42,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  *
  * @see {@link DescribeOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
  */
 export class DescribeOrganizationCommand extends $Command<

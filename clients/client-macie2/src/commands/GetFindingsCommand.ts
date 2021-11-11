@@ -35,7 +35,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *
  * @see {@link GetFindingsCommandInput} for command's `input` shape.
  * @see {@link GetFindingsCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
 export class GetFindingsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *
  * @see {@link DescribeBackupsCommandInput} for command's `input` shape.
  * @see {@link DescribeBackupsCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for CloudHSMV2Client's `config` shape.
  *
  */
 export class DescribeBackupsCommand extends $Command<

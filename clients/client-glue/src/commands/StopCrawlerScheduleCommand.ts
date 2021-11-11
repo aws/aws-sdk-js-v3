@@ -37,7 +37,7 @@ export interface StopCrawlerScheduleCommandOutput extends StopCrawlerScheduleRes
  *
  * @see {@link StopCrawlerScheduleCommandInput} for command's `input` shape.
  * @see {@link StopCrawlerScheduleCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class StopCrawlerScheduleCommand extends $Command<

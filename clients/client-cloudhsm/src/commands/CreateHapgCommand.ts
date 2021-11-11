@@ -46,7 +46,7 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  *
  * @see {@link CreateHapgCommandInput} for command's `input` shape.
  * @see {@link CreateHapgCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for CloudHSMClient's `config` shape.
  *
  */
 export class CreateHapgCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DescribeRemediationConfigurationsCommandOutput
  *
  * @see {@link DescribeRemediationConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeRemediationConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
 export class DescribeRemediationConfigurationsCommand extends $Command<

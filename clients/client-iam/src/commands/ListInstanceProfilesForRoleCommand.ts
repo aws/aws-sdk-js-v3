@@ -42,7 +42,7 @@ export interface ListInstanceProfilesForRoleCommandOutput
  *
  * @see {@link ListInstanceProfilesForRoleCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesForRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class ListInstanceProfilesForRoleCommand extends $Command<

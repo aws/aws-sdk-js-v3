@@ -41,7 +41,7 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  *
  * @see {@link AdminRemoveUserFromGroupCommandInput} for command's `input` shape.
  * @see {@link AdminRemoveUserFromGroupCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  */
 export class AdminRemoveUserFromGroupCommand extends $Command<

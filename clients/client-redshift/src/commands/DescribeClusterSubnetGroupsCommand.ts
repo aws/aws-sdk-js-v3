@@ -45,7 +45,7 @@ export interface DescribeClusterSubnetGroupsCommandOutput extends ClusterSubnetG
  *
  * @see {@link DescribeClusterSubnetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeClusterSubnetGroupsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
  */
 export class DescribeClusterSubnetGroupsCommand extends $Command<

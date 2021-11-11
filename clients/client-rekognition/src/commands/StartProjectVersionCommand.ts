@@ -44,7 +44,7 @@ export interface StartProjectVersionCommandOutput extends StartProjectVersionRes
  *
  * @see {@link StartProjectVersionCommandInput} for command's `input` shape.
  * @see {@link StartProjectVersionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for RekognitionClient's `config` shape.
  *
  */
 export class StartProjectVersionCommand extends $Command<

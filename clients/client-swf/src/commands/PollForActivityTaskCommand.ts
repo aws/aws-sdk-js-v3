@@ -70,7 +70,7 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  *
  * @see {@link PollForActivityTaskCommandInput} for command's `input` shape.
  * @see {@link PollForActivityTaskCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
  */
 export class PollForActivityTaskCommand extends $Command<

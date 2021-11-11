@@ -35,7 +35,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

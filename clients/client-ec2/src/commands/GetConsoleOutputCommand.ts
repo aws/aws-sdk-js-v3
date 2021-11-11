@@ -47,7 +47,7 @@ export interface GetConsoleOutputCommandOutput extends GetConsoleOutputResult, _
  *
  * @see {@link GetConsoleOutputCommandInput} for command's `input` shape.
  * @see {@link GetConsoleOutputCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
  */
 export class GetConsoleOutputCommand extends $Command<

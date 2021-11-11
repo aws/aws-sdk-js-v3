@@ -42,7 +42,7 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  *
  * @see {@link CreateKeyGroupCommandInput} for command's `input` shape.
  * @see {@link CreateKeyGroupCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
 export class CreateKeyGroupCommand extends $Command<

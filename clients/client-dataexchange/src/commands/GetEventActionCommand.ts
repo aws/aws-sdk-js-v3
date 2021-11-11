@@ -35,7 +35,7 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  *
  * @see {@link GetEventActionCommandInput} for command's `input` shape.
  * @see {@link GetEventActionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for DataExchangeClient's `config` shape.
  *
  */
 export class GetEventActionCommand extends $Command<

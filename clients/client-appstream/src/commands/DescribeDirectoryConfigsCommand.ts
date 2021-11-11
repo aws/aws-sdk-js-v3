@@ -37,7 +37,7 @@ export interface DescribeDirectoryConfigsCommandOutput extends DescribeDirectory
  *
  * @see {@link DescribeDirectoryConfigsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectoryConfigsCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
  */
 export class DescribeDirectoryConfigsCommand extends $Command<

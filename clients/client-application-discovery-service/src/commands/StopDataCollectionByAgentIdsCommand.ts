@@ -41,7 +41,7 @@ export interface StopDataCollectionByAgentIdsCommandOutput
  *
  * @see {@link StopDataCollectionByAgentIdsCommandInput} for command's `input` shape.
  * @see {@link StopDataCollectionByAgentIdsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class StopDataCollectionByAgentIdsCommand extends $Command<

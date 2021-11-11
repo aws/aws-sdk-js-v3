@@ -37,7 +37,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  *
  * @see {@link ListOutgoingTypedLinksCommandInput} for command's `input` shape.
  * @see {@link ListOutgoingTypedLinksCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
  */
 export class ListOutgoingTypedLinksCommand extends $Command<

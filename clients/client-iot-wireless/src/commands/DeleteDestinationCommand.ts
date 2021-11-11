@@ -35,7 +35,7 @@ export interface DeleteDestinationCommandOutput extends DeleteDestinationRespons
  *
  * @see {@link DeleteDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteDestinationCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
 export class DeleteDestinationCommand extends $Command<

@@ -69,7 +69,7 @@ export interface ValidateResourcePolicyCommandOutput extends ValidateResourcePol
  *
  * @see {@link ValidateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidateResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
  */
 export class ValidateResourcePolicyCommand extends $Command<

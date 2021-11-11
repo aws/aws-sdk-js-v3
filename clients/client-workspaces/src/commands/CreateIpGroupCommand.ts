@@ -44,7 +44,7 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  *
  * @see {@link CreateIpGroupCommandInput} for command's `input` shape.
  * @see {@link CreateIpGroupCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class CreateIpGroupCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListSecurityProfilesCommandOutput extends ListSecurityProfilesR
  *
  * @see {@link ListSecurityProfilesCommandInput} for command's `input` shape.
  * @see {@link ListSecurityProfilesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListSecurityProfilesCommand extends $Command<

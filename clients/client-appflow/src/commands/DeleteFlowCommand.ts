@@ -37,7 +37,7 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *
  * @see {@link DeleteFlowCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
 export class DeleteFlowCommand extends $Command<

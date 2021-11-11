@@ -35,7 +35,7 @@ export interface ListAnalysesCommandOutput extends ListAnalysesResponse, __Metad
  *
  * @see {@link ListAnalysesCommandInput} for command's `input` shape.
  * @see {@link ListAnalysesCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
 export class ListAnalysesCommand extends $Command<

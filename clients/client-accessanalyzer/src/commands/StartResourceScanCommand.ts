@@ -35,7 +35,7 @@ export interface StartResourceScanCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StartResourceScanCommandInput} for command's `input` shape.
  * @see {@link StartResourceScanCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  */
 export class StartResourceScanCommand extends $Command<

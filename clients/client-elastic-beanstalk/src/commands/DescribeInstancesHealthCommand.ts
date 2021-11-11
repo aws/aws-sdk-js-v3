@@ -37,7 +37,7 @@ export interface DescribeInstancesHealthCommandOutput extends DescribeInstancesH
  *
  * @see {@link DescribeInstancesHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstancesHealthCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
  */
 export class DescribeInstancesHealthCommand extends $Command<

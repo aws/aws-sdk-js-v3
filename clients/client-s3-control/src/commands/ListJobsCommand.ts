@@ -59,7 +59,7 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  *
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
  */
 export class ListJobsCommand extends $Command<

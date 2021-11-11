@@ -36,7 +36,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisableStageTransitionCommandInput} for command's `input` shape.
  * @see {@link DisableStageTransitionCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
  */
 export class DisableStageTransitionCommand extends $Command<

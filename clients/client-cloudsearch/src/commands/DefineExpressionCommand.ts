@@ -35,7 +35,7 @@ export interface DefineExpressionCommandOutput extends DefineExpressionResponse,
  *
  * @see {@link DefineExpressionCommandInput} for command's `input` shape.
  * @see {@link DefineExpressionCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
  */
 export class DefineExpressionCommand extends $Command<

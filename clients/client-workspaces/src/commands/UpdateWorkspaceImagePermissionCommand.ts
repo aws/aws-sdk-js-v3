@@ -62,7 +62,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  *
  * @see {@link UpdateWorkspaceImagePermissionCommandInput} for command's `input` shape.
  * @see {@link UpdateWorkspaceImagePermissionCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class UpdateWorkspaceImagePermissionCommand extends $Command<

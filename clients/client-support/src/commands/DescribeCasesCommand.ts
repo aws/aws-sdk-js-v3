@@ -65,7 +65,7 @@ export interface DescribeCasesCommandOutput extends DescribeCasesResponse, __Met
  *
  * @see {@link DescribeCasesCommandInput} for command's `input` shape.
  * @see {@link DescribeCasesCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
  */
 export class DescribeCasesCommand extends $Command<

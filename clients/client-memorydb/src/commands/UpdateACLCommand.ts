@@ -32,7 +32,7 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  *
  * @see {@link UpdateACLCommandInput} for command's `input` shape.
  * @see {@link UpdateACLCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
  */
 export class UpdateACLCommand extends $Command<

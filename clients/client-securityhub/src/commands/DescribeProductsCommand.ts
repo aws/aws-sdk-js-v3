@@ -39,7 +39,7 @@ export interface DescribeProductsCommandOutput extends DescribeProductsResponse,
  *
  * @see {@link DescribeProductsCommandInput} for command's `input` shape.
  * @see {@link DescribeProductsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  */
 export class DescribeProductsCommand extends $Command<

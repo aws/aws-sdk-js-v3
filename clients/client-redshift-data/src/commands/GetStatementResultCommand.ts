@@ -36,7 +36,7 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  *
  * @see {@link GetStatementResultCommandInput} for command's `input` shape.
  * @see {@link GetStatementResultCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
  */
 export class GetStatementResultCommand extends $Command<

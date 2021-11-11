@@ -39,7 +39,7 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DetachGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachGroupPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  */
 export class DetachGroupPolicyCommand extends $Command<

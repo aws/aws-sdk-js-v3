@@ -40,7 +40,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *
  * @see {@link GetRuleCommandInput} for command's `input` shape.
  * @see {@link GetRuleCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class GetRuleCommand extends $Command<

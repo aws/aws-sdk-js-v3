@@ -36,7 +36,7 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  *
  * @see {@link GetMembersCommandInput} for command's `input` shape.
  * @see {@link GetMembersCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
  */
 export class GetMembersCommand extends $Command<

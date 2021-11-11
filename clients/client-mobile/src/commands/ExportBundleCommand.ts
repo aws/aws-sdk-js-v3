@@ -38,7 +38,7 @@ export interface ExportBundleCommandOutput extends ExportBundleResult, __Metadat
  *
  * @see {@link ExportBundleCommandInput} for command's `input` shape.
  * @see {@link ExportBundleCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
  */
 export class ExportBundleCommand extends $Command<

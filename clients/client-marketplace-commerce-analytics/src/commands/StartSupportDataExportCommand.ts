@@ -46,7 +46,7 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
  *
  * @see {@link StartSupportDataExportCommandInput} for command's `input` shape.
  * @see {@link StartSupportDataExportCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for MarketplaceCommerceAnalyticsClient's `config` shape.
  *
  */
 export class StartSupportDataExportCommand extends $Command<

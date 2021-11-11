@@ -36,7 +36,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  *
  * @see {@link CreateOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link CreateOTAUpdateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class CreateOTAUpdateCommand extends $Command<

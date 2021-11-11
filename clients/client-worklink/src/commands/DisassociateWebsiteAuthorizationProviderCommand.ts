@@ -43,7 +43,7 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  *
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandInput} for command's `input` shape.
  * @see {@link DisassociateWebsiteAuthorizationProviderCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for WorkLinkClient's `config` shape.
  *
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command<

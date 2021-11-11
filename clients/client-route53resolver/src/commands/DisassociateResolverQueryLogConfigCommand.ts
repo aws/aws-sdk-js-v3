@@ -55,7 +55,7 @@ export interface DisassociateResolverQueryLogConfigCommandOutput
  *
  * @see {@link DisassociateResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link DisassociateResolverQueryLogConfigCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
  *
  */
 export class DisassociateResolverQueryLogConfigCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DescribeOutboundConnectionsCommandOutput
  *
  * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
 export class DescribeOutboundConnectionsCommand extends $Command<

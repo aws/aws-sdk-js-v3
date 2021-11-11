@@ -35,7 +35,7 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  *
  * @see {@link ListLexiconsCommandInput} for command's `input` shape.
  * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
- * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
  */
 export class ListLexiconsCommand extends $Command<

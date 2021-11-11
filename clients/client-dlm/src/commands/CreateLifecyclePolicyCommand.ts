@@ -36,7 +36,7 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  *
  * @see {@link CreateLifecyclePolicyCommandInput} for command's `input` shape.
  * @see {@link CreateLifecyclePolicyCommandOutput} for command's `response` shape.
- * @see {@link DLMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
  */
 export class CreateLifecyclePolicyCommand extends $Command<

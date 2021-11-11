@@ -48,7 +48,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *
  * @see {@link CopyWorkspaceImageCommandInput} for command's `input` shape.
  * @see {@link CopyWorkspaceImageCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
  */
 export class CopyWorkspaceImageCommand extends $Command<

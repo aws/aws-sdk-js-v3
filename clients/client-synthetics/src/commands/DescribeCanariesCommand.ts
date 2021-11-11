@@ -40,7 +40,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  *
  * @see {@link DescribeCanariesCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
  */
 export class DescribeCanariesCommand extends $Command<

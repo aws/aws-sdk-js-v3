@@ -87,7 +87,7 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  *
  * @see {@link DisconnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
  */
 export class DisconnectCustomKeyStoreCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * @see {@link GetResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link GetResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
 export class GetResourcePolicyCommand extends $Command<

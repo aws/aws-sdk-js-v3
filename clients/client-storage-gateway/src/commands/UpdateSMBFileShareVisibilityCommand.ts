@@ -38,7 +38,7 @@ export interface UpdateSMBFileShareVisibilityCommandOutput
  *
  * @see {@link UpdateSMBFileShareVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateSMBFileShareVisibilityCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
  */
 export class UpdateSMBFileShareVisibilityCommand extends $Command<

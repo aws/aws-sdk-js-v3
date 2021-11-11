@@ -36,7 +36,7 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  *
  * @see {@link ListUpdatesCommandInput} for command's `input` shape.
  * @see {@link ListUpdatesCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  */
 export class ListUpdatesCommand extends $Command<

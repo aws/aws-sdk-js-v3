@@ -36,7 +36,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  *
  * @see {@link ListDomainsCommandInput} for command's `input` shape.
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for VoiceIDClient's `config` shape.
  *
  */
 export class ListDomainsCommand extends $Command<

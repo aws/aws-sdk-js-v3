@@ -43,7 +43,7 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  *
  * @see {@link ListSqlInjectionMatchSetsCommandInput} for command's `input` shape.
  * @see {@link ListSqlInjectionMatchSetsCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
  */
 export class ListSqlInjectionMatchSetsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  *
  * @see {@link UpdateEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link UpdateEventConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class UpdateEventConfigurationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetBackendEnvironmentCommandOutput extends GetBackendEnvironmen
  *
  * @see {@link GetBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link GetBackendEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
  */
 export class GetBackendEnvironmentCommand extends $Command<

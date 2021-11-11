@@ -35,7 +35,7 @@ export interface UpdateRobotApplicationCommandOutput extends UpdateRobotApplicat
  *
  * @see {@link UpdateRobotApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateRobotApplicationCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for RoboMakerClient's `config` shape.
  *
  */
 export class UpdateRobotApplicationCommand extends $Command<

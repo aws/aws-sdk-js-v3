@@ -35,7 +35,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  *
  * @see {@link GetAutomationExecutionCommandInput} for command's `input` shape.
  * @see {@link GetAutomationExecutionCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
 export class GetAutomationExecutionCommand extends $Command<

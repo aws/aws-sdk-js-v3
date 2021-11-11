@@ -45,7 +45,7 @@ export interface DisassociateConfigurationItemsFromApplicationCommandOutput
  *
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandInput} for command's `input` shape.
  * @see {@link DisassociateConfigurationItemsFromApplicationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for ApplicationDiscoveryServiceClient's `config` shape.
  *
  */
 export class DisassociateConfigurationItemsFromApplicationCommand extends $Command<

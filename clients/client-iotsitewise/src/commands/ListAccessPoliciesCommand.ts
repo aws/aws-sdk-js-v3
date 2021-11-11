@@ -36,7 +36,7 @@ export interface ListAccessPoliciesCommandOutput extends ListAccessPoliciesRespo
  *
  * @see {@link ListAccessPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAccessPoliciesCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  */
 export class ListAccessPoliciesCommand extends $Command<

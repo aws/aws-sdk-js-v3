@@ -41,7 +41,7 @@ export interface ListStackInstancesForProvisionedProductCommandOutput
  *
  * @see {@link ListStackInstancesForProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link ListStackInstancesForProvisionedProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class ListStackInstancesForProvisionedProductCommand extends $Command<

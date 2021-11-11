@@ -41,7 +41,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput
  *
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociatePhoneNumbersFromVoiceConnectorCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for ChimeClient's `config` shape.
  *
  */
 export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command<

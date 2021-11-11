@@ -36,7 +36,7 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateBotCommandInput} for command's `input` shape.
  * @see {@link AssociateBotCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
 export class AssociateBotCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteFunctionConcurrencyCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteFunctionConcurrencyCommandInput} for command's `input` shape.
  * @see {@link DeleteFunctionConcurrencyCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  */
 export class DeleteFunctionConcurrencyCommand extends $Command<

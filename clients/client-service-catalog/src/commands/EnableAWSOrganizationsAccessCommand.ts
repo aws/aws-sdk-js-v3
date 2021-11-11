@@ -42,7 +42,7 @@ export interface EnableAWSOrganizationsAccessCommandOutput
  *
  * @see {@link EnableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link EnableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
  */
 export class EnableAWSOrganizationsAccessCommand extends $Command<

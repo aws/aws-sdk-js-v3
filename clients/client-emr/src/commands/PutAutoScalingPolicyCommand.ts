@@ -38,7 +38,7 @@ export interface PutAutoScalingPolicyCommandOutput extends PutAutoScalingPolicyO
  *
  * @see {@link PutAutoScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutAutoScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
  */
 export class PutAutoScalingPolicyCommand extends $Command<

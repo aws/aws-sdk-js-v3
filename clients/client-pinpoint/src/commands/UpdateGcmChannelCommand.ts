@@ -35,7 +35,7 @@ export interface UpdateGcmChannelCommandOutput extends UpdateGcmChannelResponse,
  *
  * @see {@link UpdateGcmChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateGcmChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
  */
 export class UpdateGcmChannelCommand extends $Command<

@@ -40,7 +40,7 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  *
  * @see {@link PurchaseReservedDBInstancesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
 export class PurchaseReservedDBInstancesOfferingCommand extends $Command<

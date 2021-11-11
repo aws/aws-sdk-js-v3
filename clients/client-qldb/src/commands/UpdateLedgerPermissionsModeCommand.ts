@@ -43,7 +43,7 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  *
  * @see {@link UpdateLedgerPermissionsModeCommandInput} for command's `input` shape.
  * @see {@link UpdateLedgerPermissionsModeCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command<

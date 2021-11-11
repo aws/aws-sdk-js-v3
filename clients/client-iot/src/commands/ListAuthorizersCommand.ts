@@ -36,7 +36,7 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  *
  * @see {@link ListAuthorizersCommandInput} for command's `input` shape.
  * @see {@link ListAuthorizersCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  */
 export class ListAuthorizersCommand extends $Command<

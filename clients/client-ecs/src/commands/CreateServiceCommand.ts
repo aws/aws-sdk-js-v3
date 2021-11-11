@@ -140,7 +140,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
 export class CreateServiceCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  *
  * @see {@link ListEmailIdentitiesCommandInput} for command's `input` shape.
  * @see {@link ListEmailIdentitiesCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for PinpointEmailClient's `config` shape.
  *
  */
 export class ListEmailIdentitiesCommand extends $Command<
