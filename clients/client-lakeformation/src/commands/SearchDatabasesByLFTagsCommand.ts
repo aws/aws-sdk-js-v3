@@ -35,7 +35,7 @@ export interface SearchDatabasesByLFTagsCommandOutput extends SearchDatabasesByL
  *
  * @see {@link SearchDatabasesByLFTagsCommandInput} for command's `input` shape.
  * @see {@link SearchDatabasesByLFTagsCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchDatabasesByLFTagsCommand extends $Command<

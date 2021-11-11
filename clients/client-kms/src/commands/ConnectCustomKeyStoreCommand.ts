@@ -96,7 +96,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *
  * @see {@link ConnectCustomKeyStoreCommandInput} for command's `input` shape.
  * @see {@link ConnectCustomKeyStoreCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ConnectCustomKeyStoreCommand extends $Command<

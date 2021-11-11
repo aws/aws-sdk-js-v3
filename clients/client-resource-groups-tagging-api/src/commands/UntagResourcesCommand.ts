@@ -75,7 +75,7 @@ export interface UntagResourcesCommandOutput extends UntagResourcesOutput, __Met
  *
  * @see {@link UntagResourcesCommandInput} for command's `input` shape.
  * @see {@link UntagResourcesCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagResourcesCommand extends $Command<

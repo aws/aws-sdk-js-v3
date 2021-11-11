@@ -49,7 +49,7 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *
  * @see {@link CreateEventSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEventSubscriptionCommand extends $Command<

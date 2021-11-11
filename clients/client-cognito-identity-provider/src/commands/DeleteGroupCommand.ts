@@ -41,7 +41,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGroupCommand extends $Command<

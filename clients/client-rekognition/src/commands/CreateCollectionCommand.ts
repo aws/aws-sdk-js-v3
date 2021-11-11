@@ -47,7 +47,7 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *
  * @see {@link CreateCollectionCommandInput} for command's `input` shape.
  * @see {@link CreateCollectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCollectionCommand extends $Command<

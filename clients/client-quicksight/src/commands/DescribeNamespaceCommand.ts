@@ -35,7 +35,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  *
  * @see {@link DescribeNamespaceCommandInput} for command's `input` shape.
  * @see {@link DescribeNamespaceCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeNamespaceCommand extends $Command<

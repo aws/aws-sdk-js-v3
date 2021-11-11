@@ -41,7 +41,7 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput
  *
  * @see {@link DescribePermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePermissionSetProvisioningStatusCommand extends $Command<

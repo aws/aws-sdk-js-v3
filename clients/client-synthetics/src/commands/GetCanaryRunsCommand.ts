@@ -35,7 +35,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  *
  * @see {@link GetCanaryRunsCommandInput} for command's `input` shape.
  * @see {@link GetCanaryRunsCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCanaryRunsCommand extends $Command<

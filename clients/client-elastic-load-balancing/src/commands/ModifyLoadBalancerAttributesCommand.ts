@@ -67,7 +67,7 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  *
  * @see {@link ModifyLoadBalancerAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyLoadBalancerAttributesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command<

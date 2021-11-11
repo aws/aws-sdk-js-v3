@@ -42,7 +42,7 @@ export interface StartMLEvaluationTaskRunCommandOutput extends StartMLEvaluation
  *
  * @see {@link StartMLEvaluationTaskRunCommandInput} for command's `input` shape.
  * @see {@link StartMLEvaluationTaskRunCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMLEvaluationTaskRunCommand extends $Command<

@@ -33,7 +33,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  *
  * @see {@link CreateStackCommandInput} for command's `input` shape.
  * @see {@link CreateStackCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStackCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DescribePHIDetectionJobCommandOutput extends DescribePHIDetecti
  *
  * @see {@link DescribePHIDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribePHIDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePHIDetectionJobCommand extends $Command<

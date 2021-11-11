@@ -35,7 +35,7 @@ export interface ListTerminologiesCommandOutput extends ListTerminologiesRespons
  *
  * @see {@link ListTerminologiesCommandInput} for command's `input` shape.
  * @see {@link ListTerminologiesCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTerminologiesCommand extends $Command<

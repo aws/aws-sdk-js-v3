@@ -38,7 +38,7 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  *
  * @see {@link DescribeAccessPointsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccessPointsCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAccessPointsCommand extends $Command<

@@ -47,7 +47,7 @@ export interface DeleteEmailIdentityPolicyCommandOutput extends DeleteEmailIdent
  *
  * @see {@link DeleteEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailIdentityPolicyCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEmailIdentityPolicyCommand extends $Command<

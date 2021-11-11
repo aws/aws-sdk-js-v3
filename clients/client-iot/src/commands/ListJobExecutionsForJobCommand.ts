@@ -36,7 +36,7 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  *
  * @see {@link ListJobExecutionsForJobCommandInput} for command's `input` shape.
  * @see {@link ListJobExecutionsForJobCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListJobExecutionsForJobCommand extends $Command<

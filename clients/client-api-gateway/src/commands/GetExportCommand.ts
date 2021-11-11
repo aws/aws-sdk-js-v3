@@ -35,7 +35,7 @@ export interface GetExportCommandOutput extends ExportResponse, __MetadataBearer
  *
  * @see {@link GetExportCommandInput} for command's `input` shape.
  * @see {@link GetExportCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetExportCommand extends $Command<

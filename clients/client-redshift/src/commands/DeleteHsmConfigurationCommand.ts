@@ -35,7 +35,7 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteHsmConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteHsmConfigurationCommand extends $Command<

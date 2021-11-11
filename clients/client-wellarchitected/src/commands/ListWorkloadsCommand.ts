@@ -35,7 +35,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  *
  * @see {@link ListWorkloadsCommandInput} for command's `input` shape.
  * @see {@link ListWorkloadsCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWorkloadsCommand extends $Command<

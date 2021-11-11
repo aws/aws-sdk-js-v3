@@ -36,7 +36,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

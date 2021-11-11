@@ -37,7 +37,7 @@ export interface DisassociateFirewallRuleGroupCommandOutput
  *
  * @see {@link DisassociateFirewallRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateFirewallRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateFirewallRuleGroupCommand extends $Command<

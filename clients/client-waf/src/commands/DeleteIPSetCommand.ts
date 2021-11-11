@@ -58,7 +58,7 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *
  * @see {@link DeleteIPSetCommandInput} for command's `input` shape.
  * @see {@link DeleteIPSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteIPSetCommand extends $Command<

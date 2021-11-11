@@ -35,7 +35,7 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAliasCommand extends $Command<

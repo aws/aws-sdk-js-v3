@@ -35,7 +35,7 @@ export interface DeleteDiscovererCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDiscovererCommandInput} for command's `input` shape.
  * @see {@link DeleteDiscovererCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDiscovererCommand extends $Command<

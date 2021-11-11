@@ -37,7 +37,7 @@ export interface StartSentimentDetectionJobCommandOutput extends StartSentimentD
  *
  * @see {@link StartSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartSentimentDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartSentimentDetectionJobCommand extends $Command<

@@ -42,7 +42,7 @@ export interface DeleteDataIntegrationCommandOutput extends DeleteDataIntegratio
  *
  * @see {@link DeleteDataIntegrationCommandInput} for command's `input` shape.
  * @see {@link DeleteDataIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDataIntegrationCommand extends $Command<

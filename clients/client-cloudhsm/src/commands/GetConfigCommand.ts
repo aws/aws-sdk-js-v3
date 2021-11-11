@@ -43,7 +43,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *
  * @see {@link GetConfigCommandInput} for command's `input` shape.
  * @see {@link GetConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetConfigCommand extends $Command<

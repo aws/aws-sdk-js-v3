@@ -35,7 +35,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  *
  * @see {@link DownloadDefaultKeyPairCommandInput} for command's `input` shape.
  * @see {@link DownloadDefaultKeyPairCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DownloadDefaultKeyPairCommand extends $Command<

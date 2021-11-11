@@ -40,7 +40,7 @@ export interface ModifyTargetGroupCommandOutput extends ModifyTargetGroupOutput,
  *
  * @see {@link ModifyTargetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyTargetGroupCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyTargetGroupCommand extends $Command<

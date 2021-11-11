@@ -35,7 +35,7 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  *
  * @see {@link UpdateFilterCommandInput} for command's `input` shape.
  * @see {@link UpdateFilterCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFilterCommand extends $Command<

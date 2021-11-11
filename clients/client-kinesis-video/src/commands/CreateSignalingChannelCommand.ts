@@ -37,7 +37,7 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  *
  * @see {@link CreateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link CreateSignalingChannelCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSignalingChannelCommand extends $Command<

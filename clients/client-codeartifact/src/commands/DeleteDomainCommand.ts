@@ -38,7 +38,7 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResult, __Metadat
  *
  * @see {@link DeleteDomainCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDomainCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeregisterRdsDbInstanceCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeregisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link DeregisterRdsDbInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterRdsDbInstanceCommand extends $Command<

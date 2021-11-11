@@ -43,7 +43,7 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  *
  * @see {@link PurchaseReservedCacheNodesOfferingCommandInput} for command's `input` shape.
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PurchaseReservedCacheNodesOfferingCommand extends $Command<

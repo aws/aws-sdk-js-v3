@@ -53,7 +53,7 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *
  * @see {@link CreateTaskCommandInput} for command's `input` shape.
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTaskCommand extends $Command<

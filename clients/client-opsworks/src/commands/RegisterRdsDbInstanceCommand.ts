@@ -40,7 +40,7 @@ export interface RegisterRdsDbInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RegisterRdsDbInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterRdsDbInstanceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterRdsDbInstanceCommand extends $Command<

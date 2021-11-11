@@ -43,7 +43,7 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  *
  * @see {@link GetBotChannelAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetBotChannelAssociationsCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetBotChannelAssociationsCommand extends $Command<

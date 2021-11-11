@@ -44,7 +44,7 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *
  * @see {@link AssociateIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link AssociateIdentityProviderConfigCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateIdentityProviderConfigCommand extends $Command<

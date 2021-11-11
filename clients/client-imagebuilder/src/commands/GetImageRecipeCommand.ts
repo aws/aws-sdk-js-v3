@@ -35,7 +35,7 @@ export interface GetImageRecipeCommandOutput extends GetImageRecipeResponse, __M
  *
  * @see {@link GetImageRecipeCommandInput} for command's `input` shape.
  * @see {@link GetImageRecipeCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetImageRecipeCommand extends $Command<

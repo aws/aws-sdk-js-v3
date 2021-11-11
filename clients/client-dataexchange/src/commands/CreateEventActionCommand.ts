@@ -35,7 +35,7 @@ export interface CreateEventActionCommandOutput extends CreateEventActionRespons
  *
  * @see {@link CreateEventActionCommandInput} for command's `input` shape.
  * @see {@link CreateEventActionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEventActionCommand extends $Command<

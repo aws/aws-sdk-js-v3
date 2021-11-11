@@ -35,7 +35,7 @@ export interface UpdateDiscovererCommandOutput extends UpdateDiscovererResponse,
  *
  * @see {@link UpdateDiscovererCommandInput} for command's `input` shape.
  * @see {@link UpdateDiscovererCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDiscovererCommand extends $Command<

@@ -59,7 +59,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceOutput,
  *
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddTagsToResourceCommand extends $Command<

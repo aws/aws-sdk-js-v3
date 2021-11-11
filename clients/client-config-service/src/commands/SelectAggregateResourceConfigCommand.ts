@@ -50,7 +50,7 @@ export interface SelectAggregateResourceConfigCommandOutput
  *
  * @see {@link SelectAggregateResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectAggregateResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SelectAggregateResourceConfigCommand extends $Command<

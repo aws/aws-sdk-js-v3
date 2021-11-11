@@ -35,7 +35,7 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  *
  * @see {@link DeleteArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteArchiveCommand extends $Command<

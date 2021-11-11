@@ -42,7 +42,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  *
  * @see {@link StartAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link StartAttachmentUploadCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartAttachmentUploadCommand extends $Command<

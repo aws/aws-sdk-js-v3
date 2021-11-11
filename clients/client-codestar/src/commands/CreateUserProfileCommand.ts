@@ -38,7 +38,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  *
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateUserProfileCommand extends $Command<

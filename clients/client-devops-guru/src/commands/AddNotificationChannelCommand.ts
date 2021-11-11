@@ -45,7 +45,7 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  *
  * @see {@link AddNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link AddNotificationChannelCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddNotificationChannelCommand extends $Command<

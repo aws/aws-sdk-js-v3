@@ -60,7 +60,7 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  *
  * @see {@link CreateVpcEndpointServiceConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateVpcEndpointServiceConfigurationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVpcEndpointServiceConfigurationCommand extends $Command<

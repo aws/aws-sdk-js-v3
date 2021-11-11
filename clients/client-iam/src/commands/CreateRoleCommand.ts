@@ -36,7 +36,7 @@ export interface CreateRoleCommandOutput extends CreateRoleResponse, __MetadataB
  *
  * @see {@link CreateRoleCommandInput} for command's `input` shape.
  * @see {@link CreateRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRoleCommand extends $Command<

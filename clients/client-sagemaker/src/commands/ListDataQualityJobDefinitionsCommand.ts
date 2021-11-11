@@ -37,7 +37,7 @@ export interface ListDataQualityJobDefinitionsCommandOutput
  *
  * @see {@link ListDataQualityJobDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListDataQualityJobDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDataQualityJobDefinitionsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  *
  * @see {@link GetSamplingTargetsCommandInput} for command's `input` shape.
  * @see {@link GetSamplingTargetsCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSamplingTargetsCommand extends $Command<

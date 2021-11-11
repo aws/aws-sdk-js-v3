@@ -35,7 +35,7 @@ export interface GetRegistryCommandOutput extends GetRegistryResponse, __Metadat
  *
  * @see {@link GetRegistryCommandInput} for command's `input` shape.
  * @see {@link GetRegistryCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRegistryCommand extends $Command<

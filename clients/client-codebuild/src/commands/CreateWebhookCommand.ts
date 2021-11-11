@@ -45,7 +45,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *
  * @see {@link CreateWebhookCommandInput} for command's `input` shape.
  * @see {@link CreateWebhookCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWebhookCommand extends $Command<

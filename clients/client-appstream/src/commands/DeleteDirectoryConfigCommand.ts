@@ -35,7 +35,7 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  *
  * @see {@link DeleteDirectoryConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteDirectoryConfigCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDirectoryConfigCommand extends $Command<

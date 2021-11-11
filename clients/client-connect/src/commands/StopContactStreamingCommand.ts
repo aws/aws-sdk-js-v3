@@ -37,7 +37,7 @@ export interface StopContactStreamingCommandOutput extends StopContactStreamingR
  *
  * @see {@link StopContactStreamingCommandInput} for command's `input` shape.
  * @see {@link StopContactStreamingCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopContactStreamingCommand extends $Command<

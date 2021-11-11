@@ -40,7 +40,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  *
  * @see {@link ListCollectionsCommandInput} for command's `input` shape.
  * @see {@link ListCollectionsCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCollectionsCommand extends $Command<

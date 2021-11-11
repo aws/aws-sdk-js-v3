@@ -40,7 +40,7 @@ export interface ResetServiceSpecificCredentialCommandOutput
  *
  * @see {@link ResetServiceSpecificCredentialCommandInput} for command's `input` shape.
  * @see {@link ResetServiceSpecificCredentialCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResetServiceSpecificCredentialCommand extends $Command<

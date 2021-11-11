@@ -35,7 +35,7 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  *
  * @see {@link GetWorkloadCommandInput} for command's `input` shape.
  * @see {@link GetWorkloadCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetWorkloadCommand extends $Command<

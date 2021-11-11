@@ -38,7 +38,7 @@ export interface AttachVpnGatewayCommandOutput extends AttachVpnGatewayResult, _
  *
  * @see {@link AttachVpnGatewayCommandInput} for command's `input` shape.
  * @see {@link AttachVpnGatewayCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachVpnGatewayCommand extends $Command<

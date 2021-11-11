@@ -35,7 +35,7 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  *
  * @see {@link DeleteSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link DeleteSourceCredentialsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSourceCredentialsCommand extends $Command<

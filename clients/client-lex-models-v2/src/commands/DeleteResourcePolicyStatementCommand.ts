@@ -41,7 +41,7 @@ export interface DeleteResourcePolicyStatementCommandOutput
  *
  * @see {@link DeleteResourcePolicyStatementCommandInput} for command's `input` shape.
  * @see {@link DeleteResourcePolicyStatementCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResourcePolicyStatementCommand extends $Command<

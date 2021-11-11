@@ -35,7 +35,7 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  *
  * @see {@link UpdateApiDestinationCommandInput} for command's `input` shape.
  * @see {@link UpdateApiDestinationCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApiDestinationCommand extends $Command<

@@ -41,7 +41,7 @@ export interface CreateNotificationSubscriptionCommandOutput
  *
  * @see {@link CreateNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateNotificationSubscriptionCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  *
  * @see {@link DescribeAccountHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountHealthCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAccountHealthCommand extends $Command<

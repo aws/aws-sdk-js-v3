@@ -35,7 +35,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  *
  * @see {@link GetContainerRecipeCommandInput} for command's `input` shape.
  * @see {@link GetContainerRecipeCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetContainerRecipeCommand extends $Command<

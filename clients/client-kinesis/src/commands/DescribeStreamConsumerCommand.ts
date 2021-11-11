@@ -42,7 +42,7 @@ export interface DescribeStreamConsumerCommandOutput extends DescribeStreamConsu
  *
  * @see {@link DescribeStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamConsumerCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStreamConsumerCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  *
  * @see {@link DescribeSpotDatafeedSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DescribeSpotDatafeedSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command<

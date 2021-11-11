@@ -41,7 +41,7 @@ export interface RebalanceSlotsInGlobalReplicationGroupCommandOutput
  *
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link RebalanceSlotsInGlobalReplicationGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RebalanceSlotsInGlobalReplicationGroupCommand extends $Command<

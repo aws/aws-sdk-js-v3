@@ -36,7 +36,7 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutCommentReactionCommandInput} for command's `input` shape.
  * @see {@link PutCommentReactionCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutCommentReactionCommand extends $Command<

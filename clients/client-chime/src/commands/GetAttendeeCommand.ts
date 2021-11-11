@@ -41,7 +41,7 @@ export interface GetAttendeeCommandOutput extends GetAttendeeResponse, __Metadat
  *
  * @see {@link GetAttendeeCommandInput} for command's `input` shape.
  * @see {@link GetAttendeeCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAttendeeCommand extends $Command<

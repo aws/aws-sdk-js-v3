@@ -37,7 +37,7 @@ export interface AssociateTagOptionWithResourceCommandOutput
  *
  * @see {@link AssociateTagOptionWithResourceCommandInput} for command's `input` shape.
  * @see {@link AssociateTagOptionWithResourceCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateTagOptionWithResourceCommand extends $Command<

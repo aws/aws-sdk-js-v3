@@ -36,7 +36,7 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourceConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResourceConfigCommand extends $Command<

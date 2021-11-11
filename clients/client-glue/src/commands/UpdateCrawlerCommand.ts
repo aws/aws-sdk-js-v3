@@ -37,7 +37,7 @@ export interface UpdateCrawlerCommandOutput extends UpdateCrawlerResponse, __Met
  *
  * @see {@link UpdateCrawlerCommandInput} for command's `input` shape.
  * @see {@link UpdateCrawlerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateCrawlerCommand extends $Command<

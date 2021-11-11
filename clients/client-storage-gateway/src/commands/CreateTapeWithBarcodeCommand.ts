@@ -43,7 +43,7 @@ export interface CreateTapeWithBarcodeCommandOutput extends CreateTapeWithBarcod
  *
  * @see {@link CreateTapeWithBarcodeCommandInput} for command's `input` shape.
  * @see {@link CreateTapeWithBarcodeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTapeWithBarcodeCommand extends $Command<

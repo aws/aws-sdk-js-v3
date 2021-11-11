@@ -37,7 +37,7 @@ export interface CreateRecommenderConfigurationCommandOutput
  *
  * @see {@link CreateRecommenderConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateRecommenderConfigurationCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRecommenderConfigurationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *
  * @see {@link DescribeStandardsCommandInput} for command's `input` shape.
  * @see {@link DescribeStandardsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStandardsCommand extends $Command<

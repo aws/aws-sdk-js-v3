@@ -37,7 +37,7 @@ export interface ModifyGlobalReplicationGroupCommandOutput
  *
  * @see {@link ModifyGlobalReplicationGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyGlobalReplicationGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyGlobalReplicationGroupCommand extends $Command<

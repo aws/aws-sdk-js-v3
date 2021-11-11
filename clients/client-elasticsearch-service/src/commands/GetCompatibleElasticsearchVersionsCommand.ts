@@ -51,7 +51,7 @@ export interface GetCompatibleElasticsearchVersionsCommandOutput
  *
  * @see {@link GetCompatibleElasticsearchVersionsCommandInput} for command's `input` shape.
  * @see {@link GetCompatibleElasticsearchVersionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCompatibleElasticsearchVersionsCommand extends $Command<

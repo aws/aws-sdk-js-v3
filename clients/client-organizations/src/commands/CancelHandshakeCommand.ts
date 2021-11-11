@@ -40,7 +40,7 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  *
  * @see {@link CancelHandshakeCommandInput} for command's `input` shape.
  * @see {@link CancelHandshakeCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelHandshakeCommand extends $Command<

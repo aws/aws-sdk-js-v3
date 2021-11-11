@@ -35,7 +35,7 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  *
  * @see {@link UpdateNotificationCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateNotificationCommand extends $Command<

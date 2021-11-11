@@ -36,7 +36,7 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *
  * @see {@link DeactivateContactChannelCommandInput} for command's `input` shape.
  * @see {@link DeactivateContactChannelCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeactivateContactChannelCommand extends $Command<

@@ -41,7 +41,7 @@ export interface ListTrafficPolicyInstancesCommandOutput extends ListTrafficPoli
  *
  * @see {@link ListTrafficPolicyInstancesCommandInput} for command's `input` shape.
  * @see {@link ListTrafficPolicyInstancesCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTrafficPolicyInstancesCommand extends $Command<

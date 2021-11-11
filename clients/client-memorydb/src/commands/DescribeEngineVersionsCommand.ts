@@ -35,7 +35,7 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  *
  * @see {@link DescribeEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineVersionsCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEngineVersionsCommand extends $Command<

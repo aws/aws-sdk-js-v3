@@ -35,7 +35,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  *
  * @see {@link ListVodSourcesCommandInput} for command's `input` shape.
  * @see {@link ListVodSourcesCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVodSourcesCommand extends $Command<

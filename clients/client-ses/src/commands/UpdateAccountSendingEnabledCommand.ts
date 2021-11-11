@@ -40,7 +40,7 @@ export interface UpdateAccountSendingEnabledCommandOutput extends __MetadataBear
  *
  * @see {@link UpdateAccountSendingEnabledCommandInput} for command's `input` shape.
  * @see {@link UpdateAccountSendingEnabledCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAccountSendingEnabledCommand extends $Command<

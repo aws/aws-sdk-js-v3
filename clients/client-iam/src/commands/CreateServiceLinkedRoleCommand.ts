@@ -43,7 +43,7 @@ export interface CreateServiceLinkedRoleCommandOutput extends CreateServiceLinke
  *
  * @see {@link CreateServiceLinkedRoleCommandInput} for command's `input` shape.
  * @see {@link CreateServiceLinkedRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateServiceLinkedRoleCommand extends $Command<

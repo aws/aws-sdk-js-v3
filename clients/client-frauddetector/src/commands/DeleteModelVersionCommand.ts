@@ -37,7 +37,7 @@ export interface DeleteModelVersionCommandOutput extends DeleteModelVersionResul
  *
  * @see {@link DeleteModelVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteModelVersionCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteModelVersionCommand extends $Command<

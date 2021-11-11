@@ -35,7 +35,7 @@ export interface ListLongTermPricingCommandOutput extends ListLongTermPricingRes
  *
  * @see {@link ListLongTermPricingCommandInput} for command's `input` shape.
  * @see {@link ListLongTermPricingCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLongTermPricingCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTagsCommand extends $Command<

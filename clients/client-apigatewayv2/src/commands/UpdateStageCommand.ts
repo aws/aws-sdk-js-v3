@@ -35,7 +35,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  *
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateStageCommand extends $Command<

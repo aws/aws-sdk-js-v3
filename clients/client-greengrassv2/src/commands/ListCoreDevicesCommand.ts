@@ -35,7 +35,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *
  * @see {@link ListCoreDevicesCommandInput} for command's `input` shape.
  * @see {@link ListCoreDevicesCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCoreDevicesCommand extends $Command<

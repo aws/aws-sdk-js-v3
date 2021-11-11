@@ -35,7 +35,7 @@ export interface ListTagsForResourceCommandOutput extends ResourceTags, __Metada
  *
  * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsForResourceCommand extends $Command<

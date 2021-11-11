@@ -41,7 +41,7 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput
  *
  * @see {@link AcceptEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link AcceptEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptEnvironmentAccountConnectionCommand extends $Command<

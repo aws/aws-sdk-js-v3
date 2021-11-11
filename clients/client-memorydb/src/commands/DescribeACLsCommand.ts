@@ -35,7 +35,7 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  *
  * @see {@link DescribeACLsCommandInput} for command's `input` shape.
  * @see {@link DescribeACLsCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeACLsCommand extends $Command<

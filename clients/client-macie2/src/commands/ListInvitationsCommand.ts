@@ -35,7 +35,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInvitationsCommand extends $Command<

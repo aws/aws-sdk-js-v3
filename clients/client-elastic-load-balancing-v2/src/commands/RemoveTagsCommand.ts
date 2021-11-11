@@ -38,7 +38,7 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveTagsCommand extends $Command<

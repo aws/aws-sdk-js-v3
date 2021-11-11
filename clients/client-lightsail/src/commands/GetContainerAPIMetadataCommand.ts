@@ -36,7 +36,7 @@ export interface GetContainerAPIMetadataCommandOutput extends GetContainerAPIMet
  *
  * @see {@link GetContainerAPIMetadataCommandInput} for command's `input` shape.
  * @see {@link GetContainerAPIMetadataCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetContainerAPIMetadataCommand extends $Command<

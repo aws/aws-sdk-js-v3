@@ -35,7 +35,7 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *
  * @see {@link UpdateEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEndpointCommand extends $Command<

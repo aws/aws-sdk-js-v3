@@ -35,7 +35,7 @@ export interface DeleteWorkflowCommandOutput extends DeleteWorkflowResponse, __M
  *
  * @see {@link DeleteWorkflowCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkflowCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteWorkflowCommand extends $Command<

@@ -37,7 +37,7 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  *
  * @see {@link CreateAppImageConfigCommandInput} for command's `input` shape.
  * @see {@link CreateAppImageConfigCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAppImageConfigCommand extends $Command<

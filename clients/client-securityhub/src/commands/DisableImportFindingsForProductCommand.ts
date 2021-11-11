@@ -38,7 +38,7 @@ export interface DisableImportFindingsForProductCommandOutput
  *
  * @see {@link DisableImportFindingsForProductCommandInput} for command's `input` shape.
  * @see {@link DisableImportFindingsForProductCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableImportFindingsForProductCommand extends $Command<

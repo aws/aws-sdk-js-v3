@@ -36,7 +36,7 @@ export interface ListVersionsByFunctionCommandOutput extends ListVersionsByFunct
  *
  * @see {@link ListVersionsByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListVersionsByFunctionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVersionsByFunctionCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteAppCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAppCommandInput} for command's `input` shape.
  * @see {@link DeleteAppCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAppCommand extends $Command<

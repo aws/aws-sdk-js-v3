@@ -41,7 +41,7 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  *
  * @see {@link GetDiscoverySummaryCommandInput} for command's `input` shape.
  * @see {@link GetDiscoverySummaryCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDiscoverySummaryCommand extends $Command<

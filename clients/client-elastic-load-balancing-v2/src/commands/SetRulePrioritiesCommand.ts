@@ -41,7 +41,7 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  *
  * @see {@link SetRulePrioritiesCommandInput} for command's `input` shape.
  * @see {@link SetRulePrioritiesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetRulePrioritiesCommand extends $Command<

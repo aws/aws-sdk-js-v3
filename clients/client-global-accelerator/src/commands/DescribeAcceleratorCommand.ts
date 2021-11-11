@@ -39,7 +39,7 @@ export interface DescribeAcceleratorCommandOutput extends DescribeAcceleratorRes
  *
  * @see {@link DescribeAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAcceleratorCommand extends $Command<

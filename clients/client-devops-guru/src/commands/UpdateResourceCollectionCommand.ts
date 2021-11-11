@@ -38,7 +38,7 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  *
  * @see {@link UpdateResourceCollectionCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCollectionCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResourceCollectionCommand extends $Command<

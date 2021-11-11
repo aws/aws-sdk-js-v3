@@ -40,7 +40,7 @@ export interface UpdateElasticIpCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateElasticIpCommandInput} for command's `input` shape.
  * @see {@link UpdateElasticIpCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateElasticIpCommand extends $Command<

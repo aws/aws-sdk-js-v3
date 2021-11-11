@@ -35,7 +35,7 @@ export interface UpdateEventIntegrationCommandOutput extends UpdateEventIntegrat
  *
  * @see {@link UpdateEventIntegrationCommandInput} for command's `input` shape.
  * @see {@link UpdateEventIntegrationCommandOutput} for command's `response` shape.
- * @see {@link AppIntegrationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppIntegrationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEventIntegrationCommand extends $Command<

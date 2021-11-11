@@ -56,7 +56,7 @@ export interface ResetDBClusterParameterGroupCommandOutput
  *
  * @see {@link ResetDBClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ResetDBClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResetDBClusterParameterGroupCommand extends $Command<

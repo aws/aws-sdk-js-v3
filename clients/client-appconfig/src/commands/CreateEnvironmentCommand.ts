@@ -41,7 +41,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEnvironmentCommand extends $Command<

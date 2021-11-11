@@ -43,7 +43,7 @@ export interface SearchPlaceIndexForTextCommandOutput extends SearchPlaceIndexFo
  *
  * @see {@link SearchPlaceIndexForTextCommandInput} for command's `input` shape.
  * @see {@link SearchPlaceIndexForTextCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchPlaceIndexForTextCommand extends $Command<

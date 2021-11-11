@@ -38,7 +38,7 @@ export interface ListViolationEventsCommandOutput extends ListViolationEventsRes
  *
  * @see {@link ListViolationEventsCommandInput} for command's `input` shape.
  * @see {@link ListViolationEventsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListViolationEventsCommand extends $Command<

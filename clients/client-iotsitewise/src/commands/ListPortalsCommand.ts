@@ -35,7 +35,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *
  * @see {@link ListPortalsCommandInput} for command's `input` shape.
  * @see {@link ListPortalsCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPortalsCommand extends $Command<

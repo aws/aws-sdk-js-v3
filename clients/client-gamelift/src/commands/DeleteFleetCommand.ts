@@ -69,7 +69,7 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFleetCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFleetCommand extends $Command<

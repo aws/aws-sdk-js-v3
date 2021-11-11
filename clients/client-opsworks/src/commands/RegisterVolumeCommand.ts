@@ -42,7 +42,7 @@ export interface RegisterVolumeCommandOutput extends RegisterVolumeResult, __Met
  *
  * @see {@link RegisterVolumeCommandInput} for command's `input` shape.
  * @see {@link RegisterVolumeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterVolumeCommand extends $Command<

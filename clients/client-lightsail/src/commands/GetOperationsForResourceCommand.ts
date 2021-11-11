@@ -35,7 +35,7 @@ export interface GetOperationsForResourceCommandOutput extends GetOperationsForR
  *
  * @see {@link GetOperationsForResourceCommandInput} for command's `input` shape.
  * @see {@link GetOperationsForResourceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOperationsForResourceCommand extends $Command<

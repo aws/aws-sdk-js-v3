@@ -36,7 +36,7 @@ export interface GetAccessPointPolicyStatusCommandOutput extends GetAccessPointP
  *
  * @see {@link GetAccessPointPolicyStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointPolicyStatusCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAccessPointPolicyStatusCommand extends $Command<

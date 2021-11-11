@@ -38,7 +38,7 @@ export interface ListContainerInstancesCommandOutput extends ListContainerInstan
  *
  * @see {@link ListContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link ListContainerInstancesCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListContainerInstancesCommand extends $Command<

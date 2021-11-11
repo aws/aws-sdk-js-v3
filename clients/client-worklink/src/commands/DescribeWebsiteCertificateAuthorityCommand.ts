@@ -40,7 +40,7 @@ export interface DescribeWebsiteCertificateAuthorityCommandOutput
  *
  * @see {@link DescribeWebsiteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DescribeWebsiteCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeWebsiteCertificateAuthorityCommand extends $Command<

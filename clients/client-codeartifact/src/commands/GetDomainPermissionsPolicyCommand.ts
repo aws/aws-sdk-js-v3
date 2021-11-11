@@ -44,7 +44,7 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  *
  * @see {@link GetDomainPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link GetDomainPermissionsPolicyCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDomainPermissionsPolicyCommand extends $Command<

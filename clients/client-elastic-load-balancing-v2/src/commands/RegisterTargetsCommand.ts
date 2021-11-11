@@ -51,7 +51,7 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  *
  * @see {@link RegisterTargetsCommandInput} for command's `input` shape.
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterTargetsCommand extends $Command<

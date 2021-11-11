@@ -54,7 +54,7 @@ export interface CreateStudioCommandOutput extends CreateStudioResponse, __Metad
  *
  * @see {@link CreateStudioCommandInput} for command's `input` shape.
  * @see {@link CreateStudioCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStudioCommand extends $Command<

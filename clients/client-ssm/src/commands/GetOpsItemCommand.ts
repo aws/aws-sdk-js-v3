@@ -41,7 +41,7 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  *
  * @see {@link GetOpsItemCommandInput} for command's `input` shape.
  * @see {@link GetOpsItemCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOpsItemCommand extends $Command<

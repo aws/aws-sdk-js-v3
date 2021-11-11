@@ -35,7 +35,7 @@ export interface CreateRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *
  * @see {@link CreateRestApiCommandInput} for command's `input` shape.
  * @see {@link CreateRestApiCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRestApiCommand extends $Command<

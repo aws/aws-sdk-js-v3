@@ -42,7 +42,7 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  *
  * @see {@link ListOriginRequestPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListOriginRequestPoliciesCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOriginRequestPoliciesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  *
  * @see {@link DeleteChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteChannelCommand extends $Command<

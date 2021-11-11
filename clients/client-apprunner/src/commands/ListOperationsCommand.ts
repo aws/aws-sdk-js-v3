@@ -37,7 +37,7 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *
  * @see {@link ListOperationsCommandInput} for command's `input` shape.
  * @see {@link ListOperationsCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOperationsCommand extends $Command<

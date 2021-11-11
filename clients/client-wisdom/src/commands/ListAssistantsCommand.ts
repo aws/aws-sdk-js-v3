@@ -35,7 +35,7 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  *
  * @see {@link ListAssistantsCommandInput} for command's `input` shape.
  * @see {@link ListAssistantsCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAssistantsCommand extends $Command<

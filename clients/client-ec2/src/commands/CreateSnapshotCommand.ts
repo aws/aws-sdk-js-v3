@@ -59,7 +59,7 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSnapshotCommand extends $Command<

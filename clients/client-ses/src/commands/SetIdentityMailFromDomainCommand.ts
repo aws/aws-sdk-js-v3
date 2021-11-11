@@ -44,7 +44,7 @@ export interface SetIdentityMailFromDomainCommandOutput extends SetIdentityMailF
  *
  * @see {@link SetIdentityMailFromDomainCommandInput} for command's `input` shape.
  * @see {@link SetIdentityMailFromDomainCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetIdentityMailFromDomainCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListObjectAttributesCommandOutput extends ListObjectAttributesR
  *
  * @see {@link ListObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link ListObjectAttributesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListObjectAttributesCommand extends $Command<

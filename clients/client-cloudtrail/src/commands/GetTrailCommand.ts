@@ -32,7 +32,7 @@ export interface GetTrailCommandOutput extends GetTrailResponse, __MetadataBeare
  *
  * @see {@link GetTrailCommandInput} for command's `input` shape.
  * @see {@link GetTrailCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTrailCommand extends $Command<

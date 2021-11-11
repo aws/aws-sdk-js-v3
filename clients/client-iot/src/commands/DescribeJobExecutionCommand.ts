@@ -36,7 +36,7 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  *
  * @see {@link DescribeJobExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeJobExecutionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeJobExecutionCommand extends $Command<

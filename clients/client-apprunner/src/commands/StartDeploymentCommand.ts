@@ -40,7 +40,7 @@ export interface StartDeploymentCommandOutput extends StartDeploymentResponse, _
  *
  * @see {@link StartDeploymentCommandInput} for command's `input` shape.
  * @see {@link StartDeploymentCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDeploymentCommand extends $Command<

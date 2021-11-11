@@ -35,7 +35,7 @@ export interface StartFlowCommandOutput extends StartFlowResponse, __MetadataBea
  *
  * @see {@link StartFlowCommandInput} for command's `input` shape.
  * @see {@link StartFlowCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartFlowCommand extends $Command<

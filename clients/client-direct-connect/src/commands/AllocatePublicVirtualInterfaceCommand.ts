@@ -40,7 +40,7 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  *
  * @see {@link AllocatePublicVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link AllocatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AllocatePublicVirtualInterfaceCommand extends $Command<

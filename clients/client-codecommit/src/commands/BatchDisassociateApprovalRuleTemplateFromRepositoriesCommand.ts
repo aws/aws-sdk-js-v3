@@ -41,7 +41,7 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOut
  *
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandInput} for command's `input` shape.
  * @see {@link BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchDisassociateApprovalRuleTemplateFromRepositoriesCommand extends $Command<

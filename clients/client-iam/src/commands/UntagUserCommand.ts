@@ -33,7 +33,7 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagUserCommandInput} for command's `input` shape.
  * @see {@link UntagUserCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagUserCommand extends $Command<UntagUserCommandInput, UntagUserCommandOutput, IAMClientResolvedConfig> {

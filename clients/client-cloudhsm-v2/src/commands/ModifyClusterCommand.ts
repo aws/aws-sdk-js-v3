@@ -35,7 +35,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  *
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyClusterCommand extends $Command<

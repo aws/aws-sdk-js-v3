@@ -47,7 +47,7 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  *
  * @see {@link DescribeClustersCommandInput} for command's `input` shape.
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeClustersCommand extends $Command<

@@ -46,7 +46,7 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  *
  * @see {@link QueryForecastCommandInput} for command's `input` shape.
  * @see {@link QueryForecastCommandOutput} for command's `response` shape.
- * @see {@link ForecastqueryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastqueryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class QueryForecastCommand extends $Command<

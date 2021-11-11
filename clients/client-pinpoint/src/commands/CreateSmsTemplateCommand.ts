@@ -35,7 +35,7 @@ export interface CreateSmsTemplateCommandOutput extends CreateSmsTemplateRespons
  *
  * @see {@link CreateSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateSmsTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSmsTemplateCommand extends $Command<

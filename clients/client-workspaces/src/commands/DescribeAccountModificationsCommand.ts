@@ -38,7 +38,7 @@ export interface DescribeAccountModificationsCommandOutput
  *
  * @see {@link DescribeAccountModificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountModificationsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAccountModificationsCommand extends $Command<

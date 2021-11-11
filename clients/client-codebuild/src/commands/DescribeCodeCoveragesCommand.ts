@@ -35,7 +35,7 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  *
  * @see {@link DescribeCodeCoveragesCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeCoveragesCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCodeCoveragesCommand extends $Command<

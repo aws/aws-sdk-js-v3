@@ -43,7 +43,7 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  *
  * @see {@link StartPersonTrackingCommandInput} for command's `input` shape.
  * @see {@link StartPersonTrackingCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartPersonTrackingCommand extends $Command<

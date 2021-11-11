@@ -76,7 +76,7 @@ export interface ListBucketInventoryConfigurationsCommandOutput
  *
  * @see {@link ListBucketInventoryConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketInventoryConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBucketInventoryConfigurationsCommand extends $Command<

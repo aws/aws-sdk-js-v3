@@ -56,7 +56,7 @@ export interface CreateAccountCustomizationCommandOutput extends CreateAccountCu
  *
  * @see {@link CreateAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link CreateAccountCustomizationCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAccountCustomizationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  *
  * @see {@link ListTopicRuleDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListTopicRuleDestinationsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTopicRuleDestinationsCommand extends $Command<

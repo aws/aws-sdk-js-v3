@@ -35,7 +35,7 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  *
  * @see {@link GetVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link GetVoiceChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetVoiceChannelCommand extends $Command<

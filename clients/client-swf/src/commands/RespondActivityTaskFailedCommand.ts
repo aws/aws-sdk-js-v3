@@ -67,7 +67,7 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  *
  * @see {@link RespondActivityTaskFailedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskFailedCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RespondActivityTaskFailedCommand extends $Command<

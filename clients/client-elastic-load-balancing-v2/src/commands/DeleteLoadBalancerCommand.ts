@@ -45,7 +45,7 @@ export interface DeleteLoadBalancerCommandOutput extends DeleteLoadBalancerOutpu
  *
  * @see {@link DeleteLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link DeleteLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteLoadBalancerCommand extends $Command<

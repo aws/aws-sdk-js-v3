@@ -41,7 +41,7 @@ export interface ListApplicationDependenciesCommandOutput
  *
  * @see {@link ListApplicationDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListApplicationDependenciesCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListApplicationDependenciesCommand extends $Command<

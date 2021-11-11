@@ -35,7 +35,7 @@ export interface StartServiceSoftwareUpdateCommandOutput extends StartServiceSof
  *
  * @see {@link StartServiceSoftwareUpdateCommandInput} for command's `input` shape.
  * @see {@link StartServiceSoftwareUpdateCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartServiceSoftwareUpdateCommand extends $Command<

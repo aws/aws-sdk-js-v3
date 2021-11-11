@@ -42,7 +42,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  *
  * @see {@link MoveReplicationTaskCommandInput} for command's `input` shape.
  * @see {@link MoveReplicationTaskCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class MoveReplicationTaskCommand extends $Command<

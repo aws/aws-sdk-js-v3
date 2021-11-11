@@ -39,7 +39,7 @@ export interface DescribePackageVersionCommandOutput extends DescribePackageVers
  *
  * @see {@link DescribePackageVersionCommandInput} for command's `input` shape.
  * @see {@link DescribePackageVersionCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePackageVersionCommand extends $Command<

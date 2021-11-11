@@ -35,7 +35,7 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  *
  * @see {@link GetProtocolsListCommandInput} for command's `input` shape.
  * @see {@link GetProtocolsListCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetProtocolsListCommand extends $Command<

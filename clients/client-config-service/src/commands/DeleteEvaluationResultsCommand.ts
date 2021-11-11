@@ -38,7 +38,7 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  *
  * @see {@link DeleteEvaluationResultsCommandInput} for command's `input` shape.
  * @see {@link DeleteEvaluationResultsCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEvaluationResultsCommand extends $Command<

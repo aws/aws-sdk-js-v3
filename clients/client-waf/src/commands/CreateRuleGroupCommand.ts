@@ -57,7 +57,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *
  * @see {@link CreateRuleGroupCommandInput} for command's `input` shape.
  * @see {@link CreateRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRuleGroupCommand extends $Command<

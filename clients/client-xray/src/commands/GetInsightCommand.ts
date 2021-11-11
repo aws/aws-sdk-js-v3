@@ -37,7 +37,7 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  *
  * @see {@link GetInsightCommandInput} for command's `input` shape.
  * @see {@link GetInsightCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInsightCommand extends $Command<

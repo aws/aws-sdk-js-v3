@@ -43,7 +43,7 @@ export interface DescribeJournalS3ExportCommandOutput extends DescribeJournalS3E
  *
  * @see {@link DescribeJournalS3ExportCommandInput} for command's `input` shape.
  * @see {@link DescribeJournalS3ExportCommandOutput} for command's `response` shape.
- * @see {@link QLDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QLDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeJournalS3ExportCommand extends $Command<

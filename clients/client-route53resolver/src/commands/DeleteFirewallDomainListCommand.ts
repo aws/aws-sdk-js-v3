@@ -35,7 +35,7 @@ export interface DeleteFirewallDomainListCommandOutput extends DeleteFirewallDom
  *
  * @see {@link DeleteFirewallDomainListCommandInput} for command's `input` shape.
  * @see {@link DeleteFirewallDomainListCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFirewallDomainListCommand extends $Command<

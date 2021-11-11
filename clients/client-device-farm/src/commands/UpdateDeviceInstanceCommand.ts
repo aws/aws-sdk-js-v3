@@ -35,7 +35,7 @@ export interface UpdateDeviceInstanceCommandOutput extends UpdateDeviceInstanceR
  *
  * @see {@link UpdateDeviceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceInstanceCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDeviceInstanceCommand extends $Command<

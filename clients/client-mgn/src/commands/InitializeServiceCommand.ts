@@ -35,7 +35,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceRespons
  *
  * @see {@link InitializeServiceCommandInput} for command's `input` shape.
  * @see {@link InitializeServiceCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class InitializeServiceCommand extends $Command<

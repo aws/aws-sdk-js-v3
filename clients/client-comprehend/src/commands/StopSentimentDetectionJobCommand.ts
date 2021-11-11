@@ -44,7 +44,7 @@ export interface StopSentimentDetectionJobCommandOutput extends StopSentimentDet
  *
  * @see {@link StopSentimentDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopSentimentDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopSentimentDetectionJobCommand extends $Command<

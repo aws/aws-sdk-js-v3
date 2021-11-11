@@ -35,7 +35,7 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  *
  * @see {@link DeleteConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConfigurationCommand extends $Command<

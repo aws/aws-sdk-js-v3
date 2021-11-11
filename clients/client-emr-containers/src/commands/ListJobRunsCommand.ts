@@ -35,7 +35,7 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  *
  * @see {@link ListJobRunsCommandInput} for command's `input` shape.
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListJobRunsCommand extends $Command<

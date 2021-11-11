@@ -35,7 +35,7 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  *
  * @see {@link ListDomainAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListDomainAssociationsCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDomainAssociationsCommand extends $Command<

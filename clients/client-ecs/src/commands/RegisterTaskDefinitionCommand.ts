@@ -52,7 +52,7 @@ export interface RegisterTaskDefinitionCommandOutput extends RegisterTaskDefinit
  *
  * @see {@link RegisterTaskDefinitionCommandInput} for command's `input` shape.
  * @see {@link RegisterTaskDefinitionCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterTaskDefinitionCommand extends $Command<

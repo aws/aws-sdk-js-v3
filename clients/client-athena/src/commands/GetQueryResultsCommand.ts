@@ -49,7 +49,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  *
  * @see {@link GetQueryResultsCommandInput} for command's `input` shape.
  * @see {@link GetQueryResultsCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetQueryResultsCommand extends $Command<

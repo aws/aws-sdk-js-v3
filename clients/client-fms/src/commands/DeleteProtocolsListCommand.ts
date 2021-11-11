@@ -35,7 +35,7 @@ export interface DeleteProtocolsListCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteProtocolsListCommandInput} for command's `input` shape.
  * @see {@link DeleteProtocolsListCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteProtocolsListCommand extends $Command<

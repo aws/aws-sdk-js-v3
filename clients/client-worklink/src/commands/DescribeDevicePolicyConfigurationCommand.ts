@@ -40,7 +40,7 @@ export interface DescribeDevicePolicyConfigurationCommandOutput
  *
  * @see {@link DescribeDevicePolicyConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeDevicePolicyConfigurationCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDevicePolicyConfigurationCommand extends $Command<

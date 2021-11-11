@@ -35,7 +35,7 @@ export interface DescribeSharedDirectoriesCommandOutput extends DescribeSharedDi
  *
  * @see {@link DescribeSharedDirectoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeSharedDirectoriesCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSharedDirectoriesCommand extends $Command<

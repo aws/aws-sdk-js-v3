@@ -55,7 +55,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *
  * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDatasetCommand extends $Command<

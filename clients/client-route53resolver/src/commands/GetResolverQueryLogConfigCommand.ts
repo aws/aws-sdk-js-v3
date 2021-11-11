@@ -36,7 +36,7 @@ export interface GetResolverQueryLogConfigCommandOutput extends GetResolverQuery
  *
  * @see {@link GetResolverQueryLogConfigCommandInput} for command's `input` shape.
  * @see {@link GetResolverQueryLogConfigCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetResolverQueryLogConfigCommand extends $Command<

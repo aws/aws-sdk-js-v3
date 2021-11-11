@@ -36,7 +36,7 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  *
  * @see {@link DescribeWorkspaceBundlesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceBundlesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeWorkspaceBundlesCommand extends $Command<

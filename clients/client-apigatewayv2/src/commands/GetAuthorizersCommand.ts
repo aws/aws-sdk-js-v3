@@ -35,7 +35,7 @@ export interface GetAuthorizersCommandOutput extends GetAuthorizersResponse, __M
  *
  * @see {@link GetAuthorizersCommandInput} for command's `input` shape.
  * @see {@link GetAuthorizersCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAuthorizersCommand extends $Command<

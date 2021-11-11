@@ -42,7 +42,7 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  *
  * @see {@link ActivateGatewayCommandInput} for command's `input` shape.
  * @see {@link ActivateGatewayCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ActivateGatewayCommand extends $Command<

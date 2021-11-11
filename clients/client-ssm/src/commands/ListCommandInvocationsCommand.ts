@@ -39,7 +39,7 @@ export interface ListCommandInvocationsCommandOutput extends ListCommandInvocati
  *
  * @see {@link ListCommandInvocationsCommandInput} for command's `input` shape.
  * @see {@link ListCommandInvocationsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCommandInvocationsCommand extends $Command<

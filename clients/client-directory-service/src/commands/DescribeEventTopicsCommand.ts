@@ -38,7 +38,7 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  *
  * @see {@link DescribeEventTopicsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventTopicsCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventTopicsCommand extends $Command<

@@ -60,7 +60,7 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisableKeyRotationCommandInput} for command's `input` shape.
  * @see {@link DisableKeyRotationCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableKeyRotationCommand extends $Command<

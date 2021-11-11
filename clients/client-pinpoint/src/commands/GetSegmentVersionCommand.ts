@@ -35,7 +35,7 @@ export interface GetSegmentVersionCommandOutput extends GetSegmentVersionRespons
  *
  * @see {@link GetSegmentVersionCommandInput} for command's `input` shape.
  * @see {@link GetSegmentVersionCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSegmentVersionCommand extends $Command<

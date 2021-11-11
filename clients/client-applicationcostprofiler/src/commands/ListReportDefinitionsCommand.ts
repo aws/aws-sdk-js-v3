@@ -40,7 +40,7 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  *
  * @see {@link ListReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListReportDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationCostProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListReportDefinitionsCommand extends $Command<

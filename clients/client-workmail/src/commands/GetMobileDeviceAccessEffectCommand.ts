@@ -38,7 +38,7 @@ export interface GetMobileDeviceAccessEffectCommandOutput
  *
  * @see {@link GetMobileDeviceAccessEffectCommandInput} for command's `input` shape.
  * @see {@link GetMobileDeviceAccessEffectCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMobileDeviceAccessEffectCommand extends $Command<

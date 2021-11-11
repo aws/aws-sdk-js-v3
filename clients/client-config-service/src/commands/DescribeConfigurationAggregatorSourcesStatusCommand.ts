@@ -42,7 +42,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  *
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationAggregatorSourcesStatusCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command<

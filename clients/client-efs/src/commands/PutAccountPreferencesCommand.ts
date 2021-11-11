@@ -42,7 +42,7 @@ export interface PutAccountPreferencesCommandOutput extends PutAccountPreference
  *
  * @see {@link PutAccountPreferencesCommandInput} for command's `input` shape.
  * @see {@link PutAccountPreferencesCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAccountPreferencesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  *
  * @see {@link CreateFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link CreateFuotaTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateFuotaTaskCommand extends $Command<

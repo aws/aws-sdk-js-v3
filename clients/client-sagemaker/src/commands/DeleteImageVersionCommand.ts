@@ -36,7 +36,7 @@ export interface DeleteImageVersionCommandOutput extends DeleteImageVersionRespo
  *
  * @see {@link DeleteImageVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteImageVersionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteImageVersionCommand extends $Command<

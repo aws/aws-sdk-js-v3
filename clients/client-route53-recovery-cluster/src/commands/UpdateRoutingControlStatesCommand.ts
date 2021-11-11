@@ -43,7 +43,7 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  *
  * @see {@link UpdateRoutingControlStatesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingControlStatesCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRoutingControlStatesCommand extends $Command<

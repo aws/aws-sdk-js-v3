@@ -39,7 +39,7 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  *
  * @see {@link ConfirmForgotPasswordCommandInput} for command's `input` shape.
  * @see {@link ConfirmForgotPasswordCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ConfirmForgotPasswordCommand extends $Command<

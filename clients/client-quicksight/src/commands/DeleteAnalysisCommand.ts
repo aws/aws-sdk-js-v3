@@ -46,7 +46,7 @@ export interface DeleteAnalysisCommandOutput extends DeleteAnalysisResponse, __M
  *
  * @see {@link DeleteAnalysisCommandInput} for command's `input` shape.
  * @see {@link DeleteAnalysisCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAnalysisCommand extends $Command<

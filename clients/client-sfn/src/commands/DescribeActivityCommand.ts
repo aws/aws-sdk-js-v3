@@ -38,7 +38,7 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  *
  * @see {@link DescribeActivityCommandInput} for command's `input` shape.
  * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeActivityCommand extends $Command<

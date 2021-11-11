@@ -54,7 +54,7 @@ export interface DescribeIdFormatCommandOutput extends DescribeIdFormatResult, _
  *
  * @see {@link DescribeIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdFormatCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIdFormatCommand extends $Command<

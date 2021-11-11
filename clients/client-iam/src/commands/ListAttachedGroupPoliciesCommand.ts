@@ -44,7 +44,7 @@ export interface ListAttachedGroupPoliciesCommandOutput extends ListAttachedGrou
  *
  * @see {@link ListAttachedGroupPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListAttachedGroupPoliciesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAttachedGroupPoliciesCommand extends $Command<

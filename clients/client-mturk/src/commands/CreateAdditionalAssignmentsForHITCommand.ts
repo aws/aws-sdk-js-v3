@@ -62,7 +62,7 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  *
  * @see {@link CreateAdditionalAssignmentsForHITCommandInput} for command's `input` shape.
  * @see {@link CreateAdditionalAssignmentsForHITCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command<

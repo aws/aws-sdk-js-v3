@@ -33,7 +33,7 @@ export interface PauseClusterCommandOutput extends PauseClusterResult, __Metadat
  *
  * @see {@link PauseClusterCommandInput} for command's `input` shape.
  * @see {@link PauseClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PauseClusterCommand extends $Command<

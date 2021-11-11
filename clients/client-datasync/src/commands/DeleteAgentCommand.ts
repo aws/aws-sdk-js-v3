@@ -38,7 +38,7 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  *
  * @see {@link DeleteAgentCommandInput} for command's `input` shape.
  * @see {@link DeleteAgentCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAgentCommand extends $Command<

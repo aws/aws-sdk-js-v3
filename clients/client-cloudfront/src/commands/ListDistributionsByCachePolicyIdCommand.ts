@@ -43,7 +43,7 @@ export interface ListDistributionsByCachePolicyIdCommandOutput
  *
  * @see {@link ListDistributionsByCachePolicyIdCommandInput} for command's `input` shape.
  * @see {@link ListDistributionsByCachePolicyIdCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDistributionsByCachePolicyIdCommand extends $Command<

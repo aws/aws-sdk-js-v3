@@ -41,7 +41,7 @@ export interface GetAssociationForServiceQuotaTemplateCommandOutput
  *
  * @see {@link GetAssociationForServiceQuotaTemplateCommandInput} for command's `input` shape.
  * @see {@link GetAssociationForServiceQuotaTemplateCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAssociationForServiceQuotaTemplateCommand extends $Command<

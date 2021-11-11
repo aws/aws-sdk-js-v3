@@ -36,7 +36,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  *
  * @see {@link DeleteAggregationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteAggregationAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAggregationAuthorizationCommand extends $Command<

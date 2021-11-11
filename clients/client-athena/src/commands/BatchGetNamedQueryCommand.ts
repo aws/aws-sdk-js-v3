@@ -43,7 +43,7 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  *
  * @see {@link BatchGetNamedQueryCommandInput} for command's `input` shape.
  * @see {@link BatchGetNamedQueryCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetNamedQueryCommand extends $Command<

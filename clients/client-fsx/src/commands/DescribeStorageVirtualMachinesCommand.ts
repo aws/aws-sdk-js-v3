@@ -37,7 +37,7 @@ export interface DescribeStorageVirtualMachinesCommandOutput
  *
  * @see {@link DescribeStorageVirtualMachinesCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageVirtualMachinesCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStorageVirtualMachinesCommand extends $Command<

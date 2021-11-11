@@ -32,7 +32,7 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  *
  * @see {@link ListTestsCommandInput} for command's `input` shape.
  * @see {@link ListTestsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTestsCommand extends $Command<

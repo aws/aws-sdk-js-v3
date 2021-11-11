@@ -94,7 +94,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *
  * @see {@link TestFailoverCommandInput} for command's `input` shape.
  * @see {@link TestFailoverCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TestFailoverCommand extends $Command<

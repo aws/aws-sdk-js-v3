@@ -35,7 +35,7 @@ export interface DescribeLagsCommandOutput extends Lags, __MetadataBearer {}
  *
  * @see {@link DescribeLagsCommandInput} for command's `input` shape.
  * @see {@link DescribeLagsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLagsCommand extends $Command<

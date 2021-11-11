@@ -40,7 +40,7 @@ export interface DeleteBatchPredictionCommandOutput extends DeleteBatchPredictio
  *
  * @see {@link DeleteBatchPredictionCommandInput} for command's `input` shape.
  * @see {@link DeleteBatchPredictionCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBatchPredictionCommand extends $Command<

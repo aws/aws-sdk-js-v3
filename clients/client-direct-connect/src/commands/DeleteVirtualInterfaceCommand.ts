@@ -35,7 +35,7 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  *
  * @see {@link DeleteVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualInterfaceCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVirtualInterfaceCommand extends $Command<

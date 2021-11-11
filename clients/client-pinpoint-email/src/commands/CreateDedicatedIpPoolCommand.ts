@@ -38,7 +38,7 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *
  * @see {@link CreateDedicatedIpPoolCommandInput} for command's `input` shape.
  * @see {@link CreateDedicatedIpPoolCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDedicatedIpPoolCommand extends $Command<

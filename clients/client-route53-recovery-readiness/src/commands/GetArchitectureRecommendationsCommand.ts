@@ -41,7 +41,7 @@ export interface GetArchitectureRecommendationsCommandOutput
  *
  * @see {@link GetArchitectureRecommendationsCommandInput} for command's `input` shape.
  * @see {@link GetArchitectureRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetArchitectureRecommendationsCommand extends $Command<

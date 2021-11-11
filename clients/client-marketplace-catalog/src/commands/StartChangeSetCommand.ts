@@ -51,7 +51,7 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *
  * @see {@link StartChangeSetCommandInput} for command's `input` shape.
  * @see {@link StartChangeSetCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartChangeSetCommand extends $Command<

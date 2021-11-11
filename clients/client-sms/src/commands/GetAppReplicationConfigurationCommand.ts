@@ -38,7 +38,7 @@ export interface GetAppReplicationConfigurationCommandOutput
  *
  * @see {@link GetAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetAppReplicationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAppReplicationConfigurationCommand extends $Command<

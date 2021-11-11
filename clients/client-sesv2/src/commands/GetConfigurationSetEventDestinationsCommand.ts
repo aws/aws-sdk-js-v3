@@ -47,7 +47,7 @@ export interface GetConfigurationSetEventDestinationsCommandOutput
  *
  * @see {@link GetConfigurationSetEventDestinationsCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationSetEventDestinationsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetConfigurationSetEventDestinationsCommand extends $Command<

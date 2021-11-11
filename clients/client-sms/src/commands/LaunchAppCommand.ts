@@ -32,7 +32,7 @@ export interface LaunchAppCommandOutput extends LaunchAppResponse, __MetadataBea
  *
  * @see {@link LaunchAppCommandInput} for command's `input` shape.
  * @see {@link LaunchAppCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class LaunchAppCommand extends $Command<LaunchAppCommandInput, LaunchAppCommandOutput, SMSClientResolvedConfig> {

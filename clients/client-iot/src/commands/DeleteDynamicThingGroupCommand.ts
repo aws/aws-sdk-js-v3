@@ -36,7 +36,7 @@ export interface DeleteDynamicThingGroupCommandOutput extends DeleteDynamicThing
  *
  * @see {@link DeleteDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDynamicThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDynamicThingGroupCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeregisterPackageVersionCommandOutput extends DeregisterPackage
  *
  * @see {@link DeregisterPackageVersionCommandInput} for command's `input` shape.
  * @see {@link DeregisterPackageVersionCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterPackageVersionCommand extends $Command<

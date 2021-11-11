@@ -35,7 +35,7 @@ export interface RetryBuildBatchCommandOutput extends RetryBuildBatchOutput, __M
  *
  * @see {@link RetryBuildBatchCommandInput} for command's `input` shape.
  * @see {@link RetryBuildBatchCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RetryBuildBatchCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  *
  * @see {@link DescribeAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DescribeAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAuthorizerCommand extends $Command<

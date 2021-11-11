@@ -35,7 +35,7 @@ export interface GetWorldTemplateBodyCommandOutput extends GetWorldTemplateBodyR
  *
  * @see {@link GetWorldTemplateBodyCommandInput} for command's `input` shape.
  * @see {@link GetWorldTemplateBodyCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetWorldTemplateBodyCommand extends $Command<

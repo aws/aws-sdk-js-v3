@@ -35,7 +35,7 @@ export interface TagAttendeeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagAttendeeCommandInput} for command's `input` shape.
  * @see {@link TagAttendeeCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagAttendeeCommand extends $Command<

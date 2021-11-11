@@ -35,7 +35,7 @@ export interface ListCommandsCommandOutput extends ListCommandsResult, __Metadat
  *
  * @see {@link ListCommandsCommandInput} for command's `input` shape.
  * @see {@link ListCommandsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCommandsCommand extends $Command<

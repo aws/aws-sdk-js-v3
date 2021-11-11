@@ -37,7 +37,7 @@ export interface DecreaseReplicaCountCommandOutput extends DecreaseReplicaCountR
  *
  * @see {@link DecreaseReplicaCountCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicaCountCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DecreaseReplicaCountCommand extends $Command<

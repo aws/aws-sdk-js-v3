@@ -36,7 +36,7 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  *
  * @see {@link GetPhoneNumberOrderCommandInput} for command's `input` shape.
  * @see {@link GetPhoneNumberOrderCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPhoneNumberOrderCommand extends $Command<

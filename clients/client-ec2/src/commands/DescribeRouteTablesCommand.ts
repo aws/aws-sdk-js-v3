@@ -38,7 +38,7 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *
  * @see {@link DescribeRouteTablesCommandInput} for command's `input` shape.
  * @see {@link DescribeRouteTablesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRouteTablesCommand extends $Command<

@@ -54,7 +54,7 @@ export interface CreateDatasetImportJobCommandOutput extends CreateDatasetImport
  *
  * @see {@link CreateDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetImportJobCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDatasetImportJobCommand extends $Command<

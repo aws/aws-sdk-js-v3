@@ -36,7 +36,7 @@ export interface ListApprovalRuleTemplatesCommandOutput extends ListApprovalRule
  *
  * @see {@link ListApprovalRuleTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListApprovalRuleTemplatesCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListApprovalRuleTemplatesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  *
  * @see {@link GetAccountCommandInput} for command's `input` shape.
  * @see {@link GetAccountCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAccountCommand extends $Command<

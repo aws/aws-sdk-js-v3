@@ -72,7 +72,7 @@ export interface DescribeEventDetailsForOrganizationCommandOutput
  *
  * @see {@link DescribeEventDetailsForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeEventDetailsForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventDetailsForOrganizationCommand extends $Command<

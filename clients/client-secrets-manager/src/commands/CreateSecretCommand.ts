@@ -122,7 +122,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *
  * @see {@link CreateSecretCommandInput} for command's `input` shape.
  * @see {@link CreateSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSecretCommand extends $Command<

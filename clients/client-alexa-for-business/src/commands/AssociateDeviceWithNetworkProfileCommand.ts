@@ -40,7 +40,7 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  *
  * @see {@link AssociateDeviceWithNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link AssociateDeviceWithNetworkProfileCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  *
  * @see {@link DeleteOriginEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteOriginEndpointCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteOriginEndpointCommand extends $Command<

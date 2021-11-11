@@ -35,7 +35,7 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  *
  * @see {@link DeleteMetricPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMetricPolicyCommand extends $Command<

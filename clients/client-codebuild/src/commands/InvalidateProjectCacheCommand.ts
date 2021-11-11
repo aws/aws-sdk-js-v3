@@ -35,7 +35,7 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  *
  * @see {@link InvalidateProjectCacheCommandInput} for command's `input` shape.
  * @see {@link InvalidateProjectCacheCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class InvalidateProjectCacheCommand extends $Command<

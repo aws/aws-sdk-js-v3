@@ -52,7 +52,7 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
  *
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelMembershipForAppInstanceUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command<

@@ -45,7 +45,7 @@ export interface CreateStreamProcessorCommandOutput extends CreateStreamProcesso
  *
  * @see {@link CreateStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link CreateStreamProcessorCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStreamProcessorCommand extends $Command<

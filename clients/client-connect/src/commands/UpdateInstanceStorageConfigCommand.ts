@@ -36,7 +36,7 @@ export interface UpdateInstanceStorageConfigCommandOutput extends __MetadataBear
  *
  * @see {@link UpdateInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceStorageConfigCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateInstanceStorageConfigCommand extends $Command<

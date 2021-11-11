@@ -37,7 +37,7 @@ export interface DeleteMembersCommandOutput extends DeleteMembersResponse, __Met
  *
  * @see {@link DeleteMembersCommandInput} for command's `input` shape.
  * @see {@link DeleteMembersCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMembersCommand extends $Command<

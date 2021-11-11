@@ -36,7 +36,7 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  *
  * @see {@link CreateParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateParameterGroupCommand extends $Command<

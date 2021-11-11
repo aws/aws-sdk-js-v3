@@ -35,7 +35,7 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  *
  * @see {@link GetOnPremisesInstanceCommandInput} for command's `input` shape.
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOnPremisesInstanceCommand extends $Command<

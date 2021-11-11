@@ -47,7 +47,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  *
  * @see {@link PutSnapshotBlockCommandInput} for command's `input` shape.
  * @see {@link PutSnapshotBlockCommandOutput} for command's `response` shape.
- * @see {@link EBSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EBSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutSnapshotBlockCommand extends $Command<

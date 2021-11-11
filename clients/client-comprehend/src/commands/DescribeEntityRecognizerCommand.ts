@@ -36,7 +36,7 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  *
  * @see {@link DescribeEntityRecognizerCommandInput} for command's `input` shape.
  * @see {@link DescribeEntityRecognizerCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEntityRecognizerCommand extends $Command<

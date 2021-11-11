@@ -41,7 +41,7 @@ export interface ListJobsByPipelineCommandOutput extends ListJobsByPipelineRespo
  *
  * @see {@link ListJobsByPipelineCommandInput} for command's `input` shape.
  * @see {@link ListJobsByPipelineCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListJobsByPipelineCommand extends $Command<

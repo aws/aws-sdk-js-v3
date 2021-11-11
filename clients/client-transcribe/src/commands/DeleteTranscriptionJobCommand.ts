@@ -36,7 +36,7 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link DeleteTranscriptionJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTranscriptionJobCommand extends $Command<

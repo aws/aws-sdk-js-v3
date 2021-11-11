@@ -45,7 +45,7 @@ export interface ListApplicationVersionsCommandOutput extends ListApplicationVer
  *
  * @see {@link ListApplicationVersionsCommandInput} for command's `input` shape.
  * @see {@link ListApplicationVersionsCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListApplicationVersionsCommand extends $Command<

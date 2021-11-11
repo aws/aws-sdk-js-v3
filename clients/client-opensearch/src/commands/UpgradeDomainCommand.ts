@@ -36,7 +36,7 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  *
  * @see {@link UpgradeDomainCommandInput} for command's `input` shape.
  * @see {@link UpgradeDomainCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpgradeDomainCommand extends $Command<

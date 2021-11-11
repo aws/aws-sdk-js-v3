@@ -36,7 +36,7 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  *
  * @see {@link DescribeReservedCacheNodesCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedCacheNodesCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReservedCacheNodesCommand extends $Command<

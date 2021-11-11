@@ -67,7 +67,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *
  * @see {@link WriteGetObjectResponseCommandInput} for command's `input` shape.
  * @see {@link WriteGetObjectResponseCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class WriteGetObjectResponseCommand extends $Command<

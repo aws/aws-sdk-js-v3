@@ -35,7 +35,7 @@ export interface DescribeArtifactCommandOutput extends DescribeArtifactResponse,
  *
  * @see {@link DescribeArtifactCommandInput} for command's `input` shape.
  * @see {@link DescribeArtifactCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeArtifactCommand extends $Command<

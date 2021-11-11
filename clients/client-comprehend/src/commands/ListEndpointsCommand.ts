@@ -35,7 +35,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  *
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEndpointsCommand extends $Command<

@@ -54,7 +54,7 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *
  * @see {@link DescribeAdjustmentTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeAdjustmentTypesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAdjustmentTypesCommand extends $Command<

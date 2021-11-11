@@ -35,7 +35,7 @@ export interface GetPushTemplateCommandOutput extends GetPushTemplateResponse, _
  *
  * @see {@link GetPushTemplateCommandInput} for command's `input` shape.
  * @see {@link GetPushTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPushTemplateCommand extends $Command<

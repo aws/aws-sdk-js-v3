@@ -81,7 +81,7 @@ export interface SearchFacesByImageCommandOutput extends SearchFacesByImageRespo
  *
  * @see {@link SearchFacesByImageCommandInput} for command's `input` shape.
  * @see {@link SearchFacesByImageCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchFacesByImageCommand extends $Command<

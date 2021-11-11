@@ -35,7 +35,7 @@ export interface DescribeProvisionedProductCommandOutput extends DescribeProvisi
  *
  * @see {@link DescribeProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisionedProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeProvisionedProductCommand extends $Command<

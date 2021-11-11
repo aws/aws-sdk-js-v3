@@ -38,7 +38,7 @@ export interface DescribeEntitiesDetectionJobCommandOutput
  *
  * @see {@link DescribeEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeEntitiesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEntitiesDetectionJobCommand extends $Command<

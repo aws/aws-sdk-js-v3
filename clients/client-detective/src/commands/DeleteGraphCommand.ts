@@ -39,7 +39,7 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteGraphCommandInput} for command's `input` shape.
  * @see {@link DeleteGraphCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGraphCommand extends $Command<

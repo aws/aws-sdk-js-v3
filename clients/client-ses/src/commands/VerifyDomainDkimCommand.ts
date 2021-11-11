@@ -73,7 +73,7 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  *
  * @see {@link VerifyDomainDkimCommandInput} for command's `input` shape.
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class VerifyDomainDkimCommand extends $Command<

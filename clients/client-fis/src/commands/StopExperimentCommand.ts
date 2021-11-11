@@ -35,7 +35,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  *
  * @see {@link StopExperimentCommandInput} for command's `input` shape.
  * @see {@link StopExperimentCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopExperimentCommand extends $Command<

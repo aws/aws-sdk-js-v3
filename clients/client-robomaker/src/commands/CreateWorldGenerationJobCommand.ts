@@ -35,7 +35,7 @@ export interface CreateWorldGenerationJobCommandOutput extends CreateWorldGenera
  *
  * @see {@link CreateWorldGenerationJobCommandInput} for command's `input` shape.
  * @see {@link CreateWorldGenerationJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWorldGenerationJobCommand extends $Command<

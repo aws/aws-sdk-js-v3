@@ -73,7 +73,7 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  *
  * @see {@link DescribeInstanceRefreshesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceRefreshesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInstanceRefreshesCommand extends $Command<

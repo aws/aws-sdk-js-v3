@@ -47,7 +47,7 @@ export interface ListOrganizationalUnitsForParentCommandOutput
  *
  * @see {@link ListOrganizationalUnitsForParentCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationalUnitsForParentCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOrganizationalUnitsForParentCommand extends $Command<

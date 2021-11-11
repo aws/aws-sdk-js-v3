@@ -71,7 +71,7 @@ export interface GetJobOutputCommandOutput extends GetJobOutputOutput, __Metadat
  *
  * @see {@link GetJobOutputCommandInput} for command's `input` shape.
  * @see {@link GetJobOutputCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetJobOutputCommand extends $Command<

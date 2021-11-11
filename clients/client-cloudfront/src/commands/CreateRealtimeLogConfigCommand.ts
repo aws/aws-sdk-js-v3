@@ -38,7 +38,7 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  *
  * @see {@link CreateRealtimeLogConfigCommandInput} for command's `input` shape.
  * @see {@link CreateRealtimeLogConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRealtimeLogConfigCommand extends $Command<

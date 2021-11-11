@@ -41,7 +41,7 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ModifyVolumeAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyVolumeAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyVolumeAttributeCommand extends $Command<

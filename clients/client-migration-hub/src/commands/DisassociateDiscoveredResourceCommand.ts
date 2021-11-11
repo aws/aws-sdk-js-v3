@@ -38,7 +38,7 @@ export interface DisassociateDiscoveredResourceCommandOutput
  *
  * @see {@link DisassociateDiscoveredResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDiscoveredResourceCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateDiscoveredResourceCommand extends $Command<

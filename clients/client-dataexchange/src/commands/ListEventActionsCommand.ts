@@ -35,7 +35,7 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  *
  * @see {@link ListEventActionsCommandInput} for command's `input` shape.
  * @see {@link ListEventActionsCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEventActionsCommand extends $Command<

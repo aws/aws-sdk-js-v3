@@ -40,7 +40,7 @@ export interface DescribePermissionsCommandOutput extends DescribePermissionsRes
  *
  * @see {@link DescribePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePermissionsCommand extends $Command<

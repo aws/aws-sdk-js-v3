@@ -35,7 +35,7 @@ export interface UpdateAliasCommandOutput extends AliasConfiguration, __Metadata
  *
  * @see {@link UpdateAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateAliasCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAliasCommand extends $Command<

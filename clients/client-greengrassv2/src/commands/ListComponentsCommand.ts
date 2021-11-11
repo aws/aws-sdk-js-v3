@@ -36,7 +36,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListComponentsCommand extends $Command<

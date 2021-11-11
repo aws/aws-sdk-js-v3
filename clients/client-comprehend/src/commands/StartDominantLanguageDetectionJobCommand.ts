@@ -42,7 +42,7 @@ export interface StartDominantLanguageDetectionJobCommandOutput
  *
  * @see {@link StartDominantLanguageDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDominantLanguageDetectionJobCommand extends $Command<

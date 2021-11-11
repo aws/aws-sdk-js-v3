@@ -35,7 +35,7 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
  *
  * @see {@link GetKeyPairCommandInput} for command's `input` shape.
  * @see {@link GetKeyPairCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetKeyPairCommand extends $Command<

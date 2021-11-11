@@ -39,7 +39,7 @@ export interface DisassociateEnvironmentOperationsRoleCommandOutput extends __Me
  *
  * @see {@link DisassociateEnvironmentOperationsRoleCommandInput} for command's `input` shape.
  * @see {@link DisassociateEnvironmentOperationsRoleCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateEnvironmentOperationsRoleCommand extends $Command<

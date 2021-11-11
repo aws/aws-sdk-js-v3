@@ -35,7 +35,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  *
  * @see {@link DeleteFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DeleteFHIRDatastoreCommandOutput} for command's `response` shape.
- * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFHIRDatastoreCommand extends $Command<

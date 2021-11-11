@@ -38,7 +38,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  *
  * @see {@link RegisterCertificateCommandInput} for command's `input` shape.
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterCertificateCommand extends $Command<

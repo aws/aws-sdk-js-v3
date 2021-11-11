@@ -37,7 +37,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *
  * @see {@link DescribeRuleCommandInput} for command's `input` shape.
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRuleCommand extends $Command<

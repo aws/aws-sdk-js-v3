@@ -35,7 +35,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  *
  * @see {@link ListArtifactsCommandInput} for command's `input` shape.
  * @see {@link ListArtifactsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListArtifactsCommand extends $Command<

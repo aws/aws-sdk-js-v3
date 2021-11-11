@@ -40,7 +40,7 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
  *
  * @see {@link CancelCapacityReservationCommandInput} for command's `input` shape.
  * @see {@link CancelCapacityReservationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelCapacityReservationCommand extends $Command<

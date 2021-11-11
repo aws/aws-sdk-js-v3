@@ -38,7 +38,7 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  *
  * @see {@link VerifyEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link VerifyEmailIdentityCommandOutput} for command's `response` shape.
- * @see {@link SESClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class VerifyEmailIdentityCommand extends $Command<

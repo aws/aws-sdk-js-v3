@@ -73,7 +73,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *
  * @see {@link AcceptMatchCommandInput} for command's `input` shape.
  * @see {@link AcceptMatchCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptMatchCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ListIntegrationAssociationsCommandOutput
  *
  * @see {@link ListIntegrationAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListIntegrationAssociationsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListIntegrationAssociationsCommand extends $Command<

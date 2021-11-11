@@ -35,7 +35,7 @@ export interface GetSupportedResourceTypesCommandOutput extends GetSupportedReso
  *
  * @see {@link GetSupportedResourceTypesCommandInput} for command's `input` shape.
  * @see {@link GetSupportedResourceTypesCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSupportedResourceTypesCommand extends $Command<

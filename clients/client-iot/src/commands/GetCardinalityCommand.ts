@@ -36,7 +36,7 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  *
  * @see {@link GetCardinalityCommandInput} for command's `input` shape.
  * @see {@link GetCardinalityCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCardinalityCommand extends $Command<

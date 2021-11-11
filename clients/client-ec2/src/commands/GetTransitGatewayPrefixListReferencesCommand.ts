@@ -41,7 +41,7 @@ export interface GetTransitGatewayPrefixListReferencesCommandOutput
  *
  * @see {@link GetTransitGatewayPrefixListReferencesCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayPrefixListReferencesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTransitGatewayPrefixListReferencesCommand extends $Command<

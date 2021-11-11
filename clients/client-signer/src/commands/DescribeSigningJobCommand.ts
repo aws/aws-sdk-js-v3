@@ -37,7 +37,7 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  *
  * @see {@link DescribeSigningJobCommandInput} for command's `input` shape.
  * @see {@link DescribeSigningJobCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSigningJobCommand extends $Command<

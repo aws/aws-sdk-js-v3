@@ -35,7 +35,7 @@ export interface GetBlacklistReportsCommandOutput extends GetBlacklistReportsRes
  *
  * @see {@link GetBlacklistReportsCommandInput} for command's `input` shape.
  * @see {@link GetBlacklistReportsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetBlacklistReportsCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  *
  * @see {@link ListAcceleratorsCommandInput} for command's `input` shape.
  * @see {@link ListAcceleratorsCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAcceleratorsCommand extends $Command<

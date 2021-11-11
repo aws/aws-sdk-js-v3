@@ -36,7 +36,7 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  *
  * @see {@link ModifyAccountCommandInput} for command's `input` shape.
  * @see {@link ModifyAccountCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyAccountCommand extends $Command<

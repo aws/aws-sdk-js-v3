@@ -35,7 +35,7 @@ export interface DescribeTrailsCommandOutput extends DescribeTrailsResponse, __M
  *
  * @see {@link DescribeTrailsCommandInput} for command's `input` shape.
  * @see {@link DescribeTrailsCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTrailsCommand extends $Command<

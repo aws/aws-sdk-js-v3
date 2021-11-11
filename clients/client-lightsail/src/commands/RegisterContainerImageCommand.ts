@@ -42,7 +42,7 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  *
  * @see {@link RegisterContainerImageCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerImageCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterContainerImageCommand extends $Command<

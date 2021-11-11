@@ -39,7 +39,7 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  *
  * @see {@link DescribeReportDefinitionsCommandInput} for command's `input` shape.
  * @see {@link DescribeReportDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReportDefinitionsCommand extends $Command<

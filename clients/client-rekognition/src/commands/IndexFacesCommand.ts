@@ -134,7 +134,7 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *
  * @see {@link IndexFacesCommandInput} for command's `input` shape.
  * @see {@link IndexFacesCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class IndexFacesCommand extends $Command<

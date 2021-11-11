@@ -45,7 +45,7 @@ export interface DisablePolicyTypeCommandOutput extends DisablePolicyTypeRespons
  *
  * @see {@link DisablePolicyTypeCommandInput} for command's `input` shape.
  * @see {@link DisablePolicyTypeCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisablePolicyTypeCommand extends $Command<

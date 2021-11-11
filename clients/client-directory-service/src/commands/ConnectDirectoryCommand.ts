@@ -39,7 +39,7 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  *
  * @see {@link ConnectDirectoryCommandInput} for command's `input` shape.
  * @see {@link ConnectDirectoryCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ConnectDirectoryCommand extends $Command<

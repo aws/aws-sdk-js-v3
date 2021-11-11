@@ -78,7 +78,7 @@ export interface SubscribeToDatasetCommandOutput extends SubscribeToDatasetRespo
  *
  * @see {@link SubscribeToDatasetCommandInput} for command's `input` shape.
  * @see {@link SubscribeToDatasetCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SubscribeToDatasetCommand extends $Command<

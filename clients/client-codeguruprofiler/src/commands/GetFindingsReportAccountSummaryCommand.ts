@@ -43,7 +43,7 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  *
  * @see {@link GetFindingsReportAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetFindingsReportAccountSummaryCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFindingsReportAccountSummaryCommand extends $Command<

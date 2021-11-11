@@ -41,7 +41,7 @@ export interface UpdateChannelMessageCommandOutput extends UpdateChannelMessageR
  *
  * @see {@link UpdateChannelMessageCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelMessageCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateChannelMessageCommand extends $Command<

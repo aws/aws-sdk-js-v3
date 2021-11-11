@@ -59,7 +59,7 @@ export interface DescribeDomainCommandOutput extends DomainDetail, __MetadataBea
  *
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDomainCommand extends $Command<

@@ -37,7 +37,7 @@ export interface BatchUpdatePhoneNumberCommandOutput extends BatchUpdatePhoneNum
  *
  * @see {@link BatchUpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link BatchUpdatePhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchUpdatePhoneNumberCommand extends $Command<

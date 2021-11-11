@@ -37,7 +37,7 @@ export interface DescribeEnvironmentResourcesCommandOutput
  *
  * @see {@link DescribeEnvironmentResourcesCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentResourcesCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEnvironmentResourcesCommand extends $Command<

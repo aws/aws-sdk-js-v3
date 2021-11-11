@@ -43,7 +43,7 @@ export interface DeregisterEcsClusterCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeregisterEcsClusterCommandInput} for command's `input` shape.
  * @see {@link DeregisterEcsClusterCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterEcsClusterCommand extends $Command<

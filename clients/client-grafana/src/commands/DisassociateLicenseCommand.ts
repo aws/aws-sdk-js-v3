@@ -35,7 +35,7 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  *
  * @see {@link DisassociateLicenseCommandInput} for command's `input` shape.
  * @see {@link DisassociateLicenseCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateLicenseCommand extends $Command<

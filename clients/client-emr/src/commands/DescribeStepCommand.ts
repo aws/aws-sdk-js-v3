@@ -35,7 +35,7 @@ export interface DescribeStepCommandOutput extends DescribeStepOutput, __Metadat
  *
  * @see {@link DescribeStepCommandInput} for command's `input` shape.
  * @see {@link DescribeStepCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStepCommand extends $Command<

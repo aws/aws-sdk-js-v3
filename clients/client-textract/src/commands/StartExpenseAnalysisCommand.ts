@@ -50,7 +50,7 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  *
  * @see {@link StartExpenseAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartExpenseAnalysisCommandOutput} for command's `response` shape.
- * @see {@link TextractClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TextractClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartExpenseAnalysisCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  *
  * @see {@link DescribeJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeJobsCommand extends $Command<

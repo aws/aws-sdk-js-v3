@@ -40,7 +40,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsResponse, __MetadataB
  *
  * @see {@link DeleteTagsCommandInput} for command's `input` shape.
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTagsCommand extends $Command<

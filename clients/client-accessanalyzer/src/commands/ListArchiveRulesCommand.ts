@@ -35,7 +35,7 @@ export interface ListArchiveRulesCommandOutput extends ListArchiveRulesResponse,
  *
  * @see {@link ListArchiveRulesCommandInput} for command's `input` shape.
  * @see {@link ListArchiveRulesCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListArchiveRulesCommand extends $Command<

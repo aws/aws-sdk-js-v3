@@ -37,7 +37,7 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  *
  * @see {@link BatchGetReportGroupsCommandInput} for command's `input` shape.
  * @see {@link BatchGetReportGroupsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetReportGroupsCommand extends $Command<

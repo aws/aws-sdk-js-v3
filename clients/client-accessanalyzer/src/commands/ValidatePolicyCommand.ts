@@ -37,7 +37,7 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  *
  * @see {@link ValidatePolicyCommandInput} for command's `input` shape.
  * @see {@link ValidatePolicyCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ValidatePolicyCommand extends $Command<

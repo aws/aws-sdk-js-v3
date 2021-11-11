@@ -40,7 +40,7 @@ export interface ListOutpostsCommandOutput extends ListOutpostsOutput, __Metadat
  *
  * @see {@link ListOutpostsCommandInput} for command's `input` shape.
  * @see {@link ListOutpostsCommandOutput} for command's `response` shape.
- * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOutpostsCommand extends $Command<

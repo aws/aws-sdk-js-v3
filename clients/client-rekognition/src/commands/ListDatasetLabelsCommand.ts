@@ -40,7 +40,7 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  *
  * @see {@link ListDatasetLabelsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetLabelsCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDatasetLabelsCommand extends $Command<

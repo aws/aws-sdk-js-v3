@@ -37,7 +37,7 @@ export interface GetDeleteEventsByEventTypeStatusCommandOutput
  *
  * @see {@link GetDeleteEventsByEventTypeStatusCommandInput} for command's `input` shape.
  * @see {@link GetDeleteEventsByEventTypeStatusCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeleteEventsByEventTypeStatusCommand extends $Command<

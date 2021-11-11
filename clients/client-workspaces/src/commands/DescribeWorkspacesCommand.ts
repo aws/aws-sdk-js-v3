@@ -37,7 +37,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  *
  * @see {@link DescribeWorkspacesCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspacesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeWorkspacesCommand extends $Command<

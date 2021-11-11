@@ -37,7 +37,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  *
  * @see {@link DescribeInputDeviceThumbnailCommandInput} for command's `input` shape.
  * @see {@link DescribeInputDeviceThumbnailCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInputDeviceThumbnailCommand extends $Command<

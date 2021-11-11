@@ -39,7 +39,7 @@ export interface RemoveTagsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RemoveTagsCommandInput} for command's `input` shape.
  * @see {@link RemoveTagsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveTagsCommand extends $Command<

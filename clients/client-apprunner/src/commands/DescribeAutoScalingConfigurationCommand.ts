@@ -37,7 +37,7 @@ export interface DescribeAutoScalingConfigurationCommandOutput
  *
  * @see {@link DescribeAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAutoScalingConfigurationCommand extends $Command<

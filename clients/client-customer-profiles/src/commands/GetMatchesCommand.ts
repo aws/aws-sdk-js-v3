@@ -79,7 +79,7 @@ export interface GetMatchesCommandOutput extends GetMatchesResponse, __MetadataB
  *
  * @see {@link GetMatchesCommandInput} for command's `input` shape.
  * @see {@link GetMatchesCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMatchesCommand extends $Command<

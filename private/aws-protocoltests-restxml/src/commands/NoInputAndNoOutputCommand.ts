@@ -36,7 +36,7 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  *
  * @see {@link NoInputAndNoOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndNoOutputCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NoInputAndNoOutputCommand extends $Command<

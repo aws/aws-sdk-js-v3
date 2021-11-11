@@ -35,7 +35,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

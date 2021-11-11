@@ -40,7 +40,7 @@ export interface ListPresetsCommandOutput extends ListPresetsResponse, __Metadat
  *
  * @see {@link ListPresetsCommandInput} for command's `input` shape.
  * @see {@link ListPresetsCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPresetsCommand extends $Command<

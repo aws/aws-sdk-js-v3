@@ -35,7 +35,7 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  *
  * @see {@link UpdatePublicKeyCommandInput} for command's `input` shape.
  * @see {@link UpdatePublicKeyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePublicKeyCommand extends $Command<

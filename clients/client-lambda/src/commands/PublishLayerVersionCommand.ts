@@ -38,7 +38,7 @@ export interface PublishLayerVersionCommandOutput extends PublishLayerVersionRes
  *
  * @see {@link PublishLayerVersionCommandInput} for command's `input` shape.
  * @see {@link PublishLayerVersionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PublishLayerVersionCommand extends $Command<

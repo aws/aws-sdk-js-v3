@@ -35,7 +35,7 @@ export interface GetTraceGraphCommandOutput extends GetTraceGraphResult, __Metad
  *
  * @see {@link GetTraceGraphCommandInput} for command's `input` shape.
  * @see {@link GetTraceGraphCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTraceGraphCommand extends $Command<

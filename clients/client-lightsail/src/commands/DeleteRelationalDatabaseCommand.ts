@@ -38,7 +38,7 @@ export interface DeleteRelationalDatabaseCommandOutput extends DeleteRelationalD
  *
  * @see {@link DeleteRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link DeleteRelationalDatabaseCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRelationalDatabaseCommand extends $Command<

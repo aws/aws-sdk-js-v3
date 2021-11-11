@@ -37,7 +37,7 @@ export interface UpdateReportGroupCommandOutput extends UpdateReportGroupOutput,
  *
  * @see {@link UpdateReportGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateReportGroupCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateReportGroupCommand extends $Command<

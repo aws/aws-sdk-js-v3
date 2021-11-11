@@ -32,7 +32,7 @@ export interface GetTestCommandOutput extends GetTestResult, __MetadataBearer {}
  *
  * @see {@link GetTestCommandInput} for command's `input` shape.
  * @see {@link GetTestCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTestCommand extends $Command<

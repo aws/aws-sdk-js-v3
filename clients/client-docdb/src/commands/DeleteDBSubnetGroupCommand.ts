@@ -39,7 +39,7 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDBSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<

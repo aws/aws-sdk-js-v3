@@ -131,7 +131,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *
  * @see {@link SearchGameSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchGameSessionsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchGameSessionsCommand extends $Command<

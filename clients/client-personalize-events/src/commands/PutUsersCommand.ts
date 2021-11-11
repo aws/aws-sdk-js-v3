@@ -40,7 +40,7 @@ export interface PutUsersCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutUsersCommandInput} for command's `input` shape.
  * @see {@link PutUsersCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutUsersCommand extends $Command<

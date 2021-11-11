@@ -35,7 +35,7 @@ export interface DeleteInputCommandOutput extends DeleteInputResponse, __Metadat
  *
  * @see {@link DeleteInputCommandInput} for command's `input` shape.
  * @see {@link DeleteInputCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteInputCommand extends $Command<

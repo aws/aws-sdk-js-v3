@@ -69,7 +69,7 @@ export interface DescribeComplianceByResourceCommandOutput
  *
  * @see {@link DescribeComplianceByResourceCommandInput} for command's `input` shape.
  * @see {@link DescribeComplianceByResourceCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeComplianceByResourceCommand extends $Command<

@@ -40,7 +40,7 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  *
  * @see {@link StopUserImportJobCommandInput} for command's `input` shape.
  * @see {@link StopUserImportJobCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopUserImportJobCommand extends $Command<

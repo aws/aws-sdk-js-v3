@@ -65,7 +65,7 @@ export interface SetTaskStatusCommandOutput extends SetTaskStatusOutput, __Metad
  *
  * @see {@link SetTaskStatusCommandInput} for command's `input` shape.
  * @see {@link SetTaskStatusCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetTaskStatusCommand extends $Command<

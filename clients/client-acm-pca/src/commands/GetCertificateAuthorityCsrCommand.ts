@@ -39,7 +39,7 @@ export interface GetCertificateAuthorityCsrCommandOutput extends GetCertificateA
  *
  * @see {@link GetCertificateAuthorityCsrCommandInput} for command's `input` shape.
  * @see {@link GetCertificateAuthorityCsrCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCertificateAuthorityCsrCommand extends $Command<

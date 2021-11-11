@@ -36,7 +36,7 @@ export interface DeleteRetentionPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRetentionPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRetentionPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRetentionPolicyCommand extends $Command<

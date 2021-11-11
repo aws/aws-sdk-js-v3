@@ -77,7 +77,7 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  *
  * @see {@link RegisterUsageCommandInput} for command's `input` shape.
  * @see {@link RegisterUsageCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceMeteringClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceMeteringClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterUsageCommand extends $Command<

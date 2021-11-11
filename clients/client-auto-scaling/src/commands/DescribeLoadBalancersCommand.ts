@@ -56,7 +56,7 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *
  * @see {@link DescribeLoadBalancersCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancersCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLoadBalancersCommand extends $Command<

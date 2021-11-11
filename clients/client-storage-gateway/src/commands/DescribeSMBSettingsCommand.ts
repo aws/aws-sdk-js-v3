@@ -36,7 +36,7 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  *
  * @see {@link DescribeSMBSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeSMBSettingsCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSMBSettingsCommand extends $Command<

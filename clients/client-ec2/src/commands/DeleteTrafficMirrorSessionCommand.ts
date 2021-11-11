@@ -35,7 +35,7 @@ export interface DeleteTrafficMirrorSessionCommandOutput extends DeleteTrafficMi
  *
  * @see {@link DeleteTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficMirrorSessionCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTrafficMirrorSessionCommand extends $Command<

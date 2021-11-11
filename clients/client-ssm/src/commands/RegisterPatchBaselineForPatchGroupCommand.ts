@@ -40,7 +40,7 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput
  *
  * @see {@link RegisterPatchBaselineForPatchGroupCommandInput} for command's `input` shape.
  * @see {@link RegisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterPatchBaselineForPatchGroupCommand extends $Command<

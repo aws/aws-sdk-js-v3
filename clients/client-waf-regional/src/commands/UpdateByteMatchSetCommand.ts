@@ -81,7 +81,7 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  *
  * @see {@link UpdateByteMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateByteMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateByteMatchSetCommand extends $Command<

@@ -32,7 +32,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *
  * @see {@link PutFileCommandInput} for command's `input` shape.
  * @see {@link PutFileCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutFileCommand extends $Command<

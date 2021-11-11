@@ -50,7 +50,7 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *
  * @see {@link UpdateGatewaySoftwareNowCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewaySoftwareNowCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command<

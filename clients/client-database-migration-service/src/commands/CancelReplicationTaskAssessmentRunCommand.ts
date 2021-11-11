@@ -47,7 +47,7 @@ export interface CancelReplicationTaskAssessmentRunCommandOutput
  *
  * @see {@link CancelReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link CancelReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelReplicationTaskAssessmentRunCommand extends $Command<

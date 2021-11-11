@@ -36,7 +36,7 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  *
  * @see {@link GetBundlesCommandInput} for command's `input` shape.
  * @see {@link GetBundlesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetBundlesCommand extends $Command<

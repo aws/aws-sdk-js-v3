@@ -37,7 +37,7 @@ export interface UpdateThingRuntimeConfigurationCommandOutput
  *
  * @see {@link UpdateThingRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateThingRuntimeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateThingRuntimeConfigurationCommand extends $Command<

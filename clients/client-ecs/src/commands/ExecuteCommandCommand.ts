@@ -35,7 +35,7 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  *
  * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
  * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExecuteCommandCommand extends $Command<

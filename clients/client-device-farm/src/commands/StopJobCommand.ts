@@ -35,7 +35,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *
  * @see {@link StopJobCommandInput} for command's `input` shape.
  * @see {@link StopJobCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopJobCommand extends $Command<

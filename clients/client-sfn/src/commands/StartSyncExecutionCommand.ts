@@ -35,7 +35,7 @@ export interface StartSyncExecutionCommandOutput extends StartSyncExecutionOutpu
  *
  * @see {@link StartSyncExecutionCommandInput} for command's `input` shape.
  * @see {@link StartSyncExecutionCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartSyncExecutionCommand extends $Command<

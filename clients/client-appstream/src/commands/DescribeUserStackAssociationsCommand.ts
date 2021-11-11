@@ -45,7 +45,7 @@ export interface DescribeUserStackAssociationsCommandOutput
  *
  * @see {@link DescribeUserStackAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<

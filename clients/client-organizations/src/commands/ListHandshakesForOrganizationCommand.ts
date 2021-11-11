@@ -53,7 +53,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  *
  * @see {@link ListHandshakesForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHandshakesForOrganizationCommand extends $Command<

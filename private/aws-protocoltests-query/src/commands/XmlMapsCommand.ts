@@ -32,7 +32,7 @@ export interface XmlMapsCommandOutput extends XmlMapsOutput, __MetadataBearer {}
  *
  * @see {@link XmlMapsCommandInput} for command's `input` shape.
  * @see {@link XmlMapsCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class XmlMapsCommand extends $Command<

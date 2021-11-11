@@ -36,7 +36,7 @@ export interface CreateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * @see {@link CreateConfigCommandInput} for command's `input` shape.
  * @see {@link CreateConfigCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConfigCommand extends $Command<

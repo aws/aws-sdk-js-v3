@@ -33,7 +33,7 @@ export interface DeleteLagCommandOutput extends Lag, __MetadataBearer {}
  *
  * @see {@link DeleteLagCommandInput} for command's `input` shape.
  * @see {@link DeleteLagCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteLagCommand extends $Command<

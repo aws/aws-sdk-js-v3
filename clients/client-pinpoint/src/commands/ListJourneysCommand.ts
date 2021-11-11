@@ -35,7 +35,7 @@ export interface ListJourneysCommandOutput extends ListJourneysResponse, __Metad
  *
  * @see {@link ListJourneysCommandInput} for command's `input` shape.
  * @see {@link ListJourneysCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListJourneysCommand extends $Command<

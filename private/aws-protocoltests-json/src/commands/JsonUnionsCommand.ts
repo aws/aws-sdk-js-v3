@@ -35,7 +35,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  *
  * @see {@link JsonUnionsCommandInput} for command's `input` shape.
  * @see {@link JsonUnionsCommandOutput} for command's `response` shape.
- * @see {@link JsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link JsonProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class JsonUnionsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  *
  * @see {@link ListActionsCommandInput} for command's `input` shape.
  * @see {@link ListActionsCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListActionsCommand extends $Command<

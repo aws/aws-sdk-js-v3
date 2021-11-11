@@ -37,7 +37,7 @@ export interface GetFunctionCodeSigningConfigCommandOutput
  *
  * @see {@link GetFunctionCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCodeSigningConfigCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFunctionCodeSigningConfigCommand extends $Command<

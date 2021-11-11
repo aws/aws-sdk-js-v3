@@ -35,7 +35,7 @@ export interface CreateBlueprintCommandOutput extends CreateBlueprintResponse, _
  *
  * @see {@link CreateBlueprintCommandInput} for command's `input` shape.
  * @see {@link CreateBlueprintCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateBlueprintCommand extends $Command<

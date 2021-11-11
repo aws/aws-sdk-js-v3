@@ -35,7 +35,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEnvironmentCommand extends $Command<

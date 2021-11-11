@@ -35,7 +35,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  *
  * @see {@link ListStudioLifecycleConfigsCommandInput} for command's `input` shape.
  * @see {@link ListStudioLifecycleConfigsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStudioLifecycleConfigsCommand extends $Command<

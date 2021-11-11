@@ -35,7 +35,7 @@ export interface GetReportGroupTrendCommandOutput extends GetReportGroupTrendOut
  *
  * @see {@link GetReportGroupTrendCommandInput} for command's `input` shape.
  * @see {@link GetReportGroupTrendCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetReportGroupTrendCommand extends $Command<

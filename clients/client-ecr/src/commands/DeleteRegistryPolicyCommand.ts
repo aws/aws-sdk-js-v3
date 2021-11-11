@@ -35,7 +35,7 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  *
  * @see {@link DeleteRegistryPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRegistryPolicyCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRegistryPolicyCommand extends $Command<

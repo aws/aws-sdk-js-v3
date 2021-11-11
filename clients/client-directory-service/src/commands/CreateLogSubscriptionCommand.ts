@@ -36,7 +36,7 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  *
  * @see {@link CreateLogSubscriptionCommandInput} for command's `input` shape.
  * @see {@link CreateLogSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLogSubscriptionCommand extends $Command<

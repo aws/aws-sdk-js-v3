@@ -42,7 +42,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  *
  * @see {@link DescribeAssetPropertyCommandInput} for command's `input` shape.
  * @see {@link DescribeAssetPropertyCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAssetPropertyCommand extends $Command<

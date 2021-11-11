@@ -35,7 +35,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResourceCommand extends $Command<

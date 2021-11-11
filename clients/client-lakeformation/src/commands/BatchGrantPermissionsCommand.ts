@@ -35,7 +35,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  *
  * @see {@link BatchGrantPermissionsCommandInput} for command's `input` shape.
  * @see {@link BatchGrantPermissionsCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGrantPermissionsCommand extends $Command<

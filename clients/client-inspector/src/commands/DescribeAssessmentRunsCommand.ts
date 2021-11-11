@@ -36,7 +36,7 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  *
  * @see {@link DescribeAssessmentRunsCommandInput} for command's `input` shape.
  * @see {@link DescribeAssessmentRunsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAssessmentRunsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ExecutePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ExecutePolicyCommandInput} for command's `input` shape.
  * @see {@link ExecutePolicyCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExecutePolicyCommand extends $Command<

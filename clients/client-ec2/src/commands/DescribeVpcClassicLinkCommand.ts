@@ -35,7 +35,7 @@ export interface DescribeVpcClassicLinkCommandOutput extends DescribeVpcClassicL
  *
  * @see {@link DescribeVpcClassicLinkCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVpcClassicLinkCommand extends $Command<

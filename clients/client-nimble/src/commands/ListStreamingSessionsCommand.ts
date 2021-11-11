@@ -35,7 +35,7 @@ export interface ListStreamingSessionsCommandOutput extends ListStreamingSession
  *
  * @see {@link ListStreamingSessionsCommandInput} for command's `input` shape.
  * @see {@link ListStreamingSessionsCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStreamingSessionsCommand extends $Command<

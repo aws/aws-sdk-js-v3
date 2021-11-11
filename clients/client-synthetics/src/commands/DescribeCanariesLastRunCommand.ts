@@ -35,7 +35,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  *
  * @see {@link DescribeCanariesLastRunCommandInput} for command's `input` shape.
  * @see {@link DescribeCanariesLastRunCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCanariesLastRunCommand extends $Command<

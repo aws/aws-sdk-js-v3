@@ -35,7 +35,7 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  *
  * @see {@link CreateWorkerConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateWorkerConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KafkaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWorkerConfigurationCommand extends $Command<

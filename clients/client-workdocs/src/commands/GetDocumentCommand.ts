@@ -35,7 +35,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResponse, __Metadat
  *
  * @see {@link GetDocumentCommandInput} for command's `input` shape.
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDocumentCommand extends $Command<

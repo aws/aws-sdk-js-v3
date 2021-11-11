@@ -36,7 +36,7 @@ export interface ListRoleAliasesCommandOutput extends ListRoleAliasesResponse, _
  *
  * @see {@link ListRoleAliasesCommandInput} for command's `input` shape.
  * @see {@link ListRoleAliasesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRoleAliasesCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *
  * @see {@link CreateContactCommandInput} for command's `input` shape.
  * @see {@link CreateContactCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateContactCommand extends $Command<

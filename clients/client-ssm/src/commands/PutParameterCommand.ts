@@ -35,7 +35,7 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  *
  * @see {@link PutParameterCommandInput} for command's `input` shape.
  * @see {@link PutParameterCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutParameterCommand extends $Command<

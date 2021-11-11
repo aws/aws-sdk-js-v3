@@ -39,7 +39,7 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  *
  * @see {@link DisableSnapshotCopyCommandInput} for command's `input` shape.
  * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableSnapshotCopyCommand extends $Command<

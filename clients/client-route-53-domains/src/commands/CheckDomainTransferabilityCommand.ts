@@ -35,7 +35,7 @@ export interface CheckDomainTransferabilityCommandOutput extends CheckDomainTran
  *
  * @see {@link CheckDomainTransferabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainTransferabilityCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CheckDomainTransferabilityCommand extends $Command<

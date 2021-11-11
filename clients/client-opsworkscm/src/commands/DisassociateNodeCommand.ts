@@ -42,7 +42,7 @@ export interface DisassociateNodeCommandOutput extends DisassociateNodeResponse,
  *
  * @see {@link DisassociateNodeCommandInput} for command's `input` shape.
  * @see {@link DisassociateNodeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateNodeCommand extends $Command<

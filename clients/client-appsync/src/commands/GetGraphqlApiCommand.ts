@@ -35,7 +35,7 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  *
  * @see {@link GetGraphqlApiCommandInput} for command's `input` shape.
  * @see {@link GetGraphqlApiCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetGraphqlApiCommand extends $Command<

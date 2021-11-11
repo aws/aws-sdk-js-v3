@@ -35,7 +35,7 @@ export interface DeleteCampaignCommandOutput extends DeleteCampaignResponse, __M
  *
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCampaignCommand extends $Command<

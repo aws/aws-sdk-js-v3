@@ -41,7 +41,7 @@ export interface DeleteTableCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTableCommandInput} for command's `input` shape.
  * @see {@link DeleteTableCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTableCommand extends $Command<

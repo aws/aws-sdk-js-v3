@@ -36,7 +36,7 @@ export interface ListThingGroupsCommandOutput extends ListThingGroupsResponse, _
  *
  * @see {@link ListThingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListThingGroupsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListThingGroupsCommand extends $Command<

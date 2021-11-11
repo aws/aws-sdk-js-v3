@@ -35,7 +35,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *
  * @see {@link DeleteDBInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDBInstanceCommand extends $Command<

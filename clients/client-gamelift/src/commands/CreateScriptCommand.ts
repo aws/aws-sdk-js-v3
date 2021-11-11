@@ -78,7 +78,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateScriptCommand extends $Command<

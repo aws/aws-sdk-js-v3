@@ -38,7 +38,7 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
  *
  * @see {@link SearchDashboardsCommandInput} for command's `input` shape.
  * @see {@link SearchDashboardsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchDashboardsCommand extends $Command<

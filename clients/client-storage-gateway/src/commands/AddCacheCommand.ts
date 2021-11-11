@@ -36,7 +36,7 @@ export interface AddCacheCommandOutput extends AddCacheOutput, __MetadataBearer 
  *
  * @see {@link AddCacheCommandInput} for command's `input` shape.
  * @see {@link AddCacheCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddCacheCommand extends $Command<

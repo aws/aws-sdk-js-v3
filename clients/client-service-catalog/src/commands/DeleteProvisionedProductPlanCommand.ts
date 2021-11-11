@@ -37,7 +37,7 @@ export interface DeleteProvisionedProductPlanCommandOutput
  *
  * @see {@link DeleteProvisionedProductPlanCommandInput} for command's `input` shape.
  * @see {@link DeleteProvisionedProductPlanCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteProvisionedProductPlanCommand extends $Command<

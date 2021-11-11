@@ -35,7 +35,7 @@ export interface DeleteSubscriptionFilterCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionFilterCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSubscriptionFilterCommand extends $Command<

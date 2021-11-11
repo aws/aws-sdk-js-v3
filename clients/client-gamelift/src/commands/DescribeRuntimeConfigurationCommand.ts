@@ -69,7 +69,7 @@ export interface DescribeRuntimeConfigurationCommandOutput
  *
  * @see {@link DescribeRuntimeConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeRuntimeConfigurationCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRuntimeConfigurationCommand extends $Command<

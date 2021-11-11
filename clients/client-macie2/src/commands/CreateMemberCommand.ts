@@ -35,7 +35,7 @@ export interface CreateMemberCommandOutput extends CreateMemberResponse, __Metad
  *
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMemberCommand extends $Command<

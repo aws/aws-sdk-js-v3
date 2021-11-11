@@ -35,7 +35,7 @@ export interface DescribePageCommandOutput extends DescribePageResult, __Metadat
  *
  * @see {@link DescribePageCommandInput} for command's `input` shape.
  * @see {@link DescribePageCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePageCommand extends $Command<

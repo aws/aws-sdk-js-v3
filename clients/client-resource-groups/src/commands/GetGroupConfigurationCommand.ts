@@ -48,7 +48,7 @@ export interface GetGroupConfigurationCommandOutput extends GetGroupConfiguratio
  *
  * @see {@link GetGroupConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetGroupConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetGroupConfigurationCommand extends $Command<

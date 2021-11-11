@@ -44,7 +44,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  *
  * @see {@link ListComponentsCommandInput} for command's `input` shape.
  * @see {@link ListComponentsCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListComponentsCommand extends $Command<

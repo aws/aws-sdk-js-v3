@@ -39,7 +39,7 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  *
  * @see {@link DeleteBandwidthRateLimitCommandInput} for command's `input` shape.
  * @see {@link DeleteBandwidthRateLimitCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBandwidthRateLimitCommand extends $Command<

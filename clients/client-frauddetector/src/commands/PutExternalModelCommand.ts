@@ -35,7 +35,7 @@ export interface PutExternalModelCommandOutput extends PutExternalModelResult, _
  *
  * @see {@link PutExternalModelCommandInput} for command's `input` shape.
  * @see {@link PutExternalModelCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutExternalModelCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteModelCommandInput} for command's `input` shape.
  * @see {@link DeleteModelCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteModelCommand extends $Command<

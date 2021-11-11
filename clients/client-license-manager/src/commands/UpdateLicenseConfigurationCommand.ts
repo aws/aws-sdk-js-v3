@@ -35,7 +35,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  *
  * @see {@link UpdateLicenseConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateLicenseConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateLicenseConfigurationCommand extends $Command<

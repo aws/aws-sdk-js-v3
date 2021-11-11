@@ -40,7 +40,7 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  *
  * @see {@link DescribeResourceServerCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceServerCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeResourceServerCommand extends $Command<

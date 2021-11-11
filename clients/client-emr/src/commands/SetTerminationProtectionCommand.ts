@@ -49,7 +49,7 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  *
  * @see {@link SetTerminationProtectionCommandInput} for command's `input` shape.
  * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetTerminationProtectionCommand extends $Command<

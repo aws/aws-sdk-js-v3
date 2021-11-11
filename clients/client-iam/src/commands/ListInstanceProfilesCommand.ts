@@ -44,7 +44,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  *
  * @see {@link ListInstanceProfilesCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfilesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInstanceProfilesCommand extends $Command<

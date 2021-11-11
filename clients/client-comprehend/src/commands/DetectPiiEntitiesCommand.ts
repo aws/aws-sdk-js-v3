@@ -36,7 +36,7 @@ export interface DetectPiiEntitiesCommandOutput extends DetectPiiEntitiesRespons
  *
  * @see {@link DetectPiiEntitiesCommandInput} for command's `input` shape.
  * @see {@link DetectPiiEntitiesCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetectPiiEntitiesCommand extends $Command<

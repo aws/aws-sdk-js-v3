@@ -41,7 +41,7 @@ export interface ListPermissionSetProvisioningStatusCommandOutput
  *
  * @see {@link ListPermissionSetProvisioningStatusCommandInput} for command's `input` shape.
  * @see {@link ListPermissionSetProvisioningStatusCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPermissionSetProvisioningStatusCommand extends $Command<

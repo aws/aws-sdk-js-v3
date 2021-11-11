@@ -37,7 +37,7 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  *
  * @see {@link DescribeTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTableDataImportJobCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTableDataImportJobCommand extends $Command<

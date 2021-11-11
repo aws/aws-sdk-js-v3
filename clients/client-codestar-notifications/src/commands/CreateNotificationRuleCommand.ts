@@ -41,7 +41,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  *
  * @see {@link CreateNotificationRuleCommandInput} for command's `input` shape.
  * @see {@link CreateNotificationRuleCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateNotificationRuleCommand extends $Command<

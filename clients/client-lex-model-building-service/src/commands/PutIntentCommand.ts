@@ -96,7 +96,7 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *
  * @see {@link PutIntentCommandInput} for command's `input` shape.
  * @see {@link PutIntentCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutIntentCommand extends $Command<

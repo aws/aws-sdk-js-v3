@@ -40,7 +40,7 @@ export interface RejectTransitGatewayVpcAttachmentCommandOutput
  *
  * @see {@link RejectTransitGatewayVpcAttachmentCommandInput} for command's `input` shape.
  * @see {@link RejectTransitGatewayVpcAttachmentCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RejectTransitGatewayVpcAttachmentCommand extends $Command<

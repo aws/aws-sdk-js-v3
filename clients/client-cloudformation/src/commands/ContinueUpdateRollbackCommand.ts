@@ -45,7 +45,7 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  *
  * @see {@link ContinueUpdateRollbackCommandInput} for command's `input` shape.
  * @see {@link ContinueUpdateRollbackCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ContinueUpdateRollbackCommand extends $Command<

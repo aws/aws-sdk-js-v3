@@ -35,7 +35,7 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  *
  * @see {@link ModifyClusterSnapshotScheduleCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSnapshotScheduleCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyClusterSnapshotScheduleCommand extends $Command<

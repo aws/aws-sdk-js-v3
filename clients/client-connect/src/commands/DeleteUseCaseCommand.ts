@@ -35,7 +35,7 @@ export interface DeleteUseCaseCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUseCaseCommandInput} for command's `input` shape.
  * @see {@link DeleteUseCaseCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteUseCaseCommand extends $Command<

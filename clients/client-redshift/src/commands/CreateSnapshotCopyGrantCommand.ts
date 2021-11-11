@@ -42,7 +42,7 @@ export interface CreateSnapshotCopyGrantCommandOutput extends CreateSnapshotCopy
  *
  * @see {@link CreateSnapshotCopyGrantCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCopyGrantCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSnapshotCopyGrantCommand extends $Command<

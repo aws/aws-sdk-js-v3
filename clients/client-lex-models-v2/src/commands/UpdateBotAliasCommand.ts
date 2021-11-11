@@ -35,7 +35,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  *
  * @see {@link UpdateBotAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateBotAliasCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBotAliasCommand extends $Command<

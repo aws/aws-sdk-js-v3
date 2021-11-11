@@ -43,7 +43,7 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
  *
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConnectionCommand extends $Command<

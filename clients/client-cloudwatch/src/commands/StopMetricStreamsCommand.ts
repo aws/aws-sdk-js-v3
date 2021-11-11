@@ -35,7 +35,7 @@ export interface StopMetricStreamsCommandOutput extends StopMetricStreamsOutput,
  *
  * @see {@link StopMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link StopMetricStreamsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopMetricStreamsCommand extends $Command<

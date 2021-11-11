@@ -41,7 +41,7 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  *
  * @see {@link ReplaceNetworkAclAssociationCommandInput} for command's `input` shape.
  * @see {@link ReplaceNetworkAclAssociationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ReplaceNetworkAclAssociationCommand extends $Command<

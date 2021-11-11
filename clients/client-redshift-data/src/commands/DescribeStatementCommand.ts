@@ -37,7 +37,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  *
  * @see {@link DescribeStatementCommandInput} for command's `input` shape.
  * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStatementCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *
  * @see {@link UpdateDomainNameCommandInput} for command's `input` shape.
  * @see {@link UpdateDomainNameCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDomainNameCommand extends $Command<

@@ -45,7 +45,7 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  *
  * @see {@link UpdateEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateEnrollmentStatusCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEnrollmentStatusCommand extends $Command<

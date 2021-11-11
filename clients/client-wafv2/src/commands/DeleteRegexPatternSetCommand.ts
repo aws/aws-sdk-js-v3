@@ -35,7 +35,7 @@ export interface DeleteRegexPatternSetCommandOutput extends DeleteRegexPatternSe
  *
  * @see {@link DeleteRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexPatternSetCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRegexPatternSetCommand extends $Command<

@@ -42,7 +42,7 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *
  * @see {@link RetrieveTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link RetrieveTapeArchiveCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RetrieveTapeArchiveCommand extends $Command<

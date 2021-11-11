@@ -54,7 +54,7 @@ export interface EnableSecurityHubCommandOutput extends EnableSecurityHubRespons
  *
  * @see {@link EnableSecurityHubCommandInput} for command's `input` shape.
  * @see {@link EnableSecurityHubCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableSecurityHubCommand extends $Command<

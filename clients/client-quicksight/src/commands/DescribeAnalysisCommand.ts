@@ -35,7 +35,7 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  *
  * @see {@link DescribeAnalysisCommandInput} for command's `input` shape.
  * @see {@link DescribeAnalysisCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAnalysisCommand extends $Command<

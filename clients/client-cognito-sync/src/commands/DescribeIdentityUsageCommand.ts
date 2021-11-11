@@ -84,7 +84,7 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  *
  * @see {@link DescribeIdentityUsageCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityUsageCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIdentityUsageCommand extends $Command<

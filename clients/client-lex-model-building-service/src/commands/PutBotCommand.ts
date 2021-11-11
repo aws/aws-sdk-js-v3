@@ -53,7 +53,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *
  * @see {@link PutBotCommandInput} for command's `input` shape.
  * @see {@link PutBotCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutBotCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  *
  * @see {@link ModifyUserGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyUserGroupCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyUserGroupCommand extends $Command<

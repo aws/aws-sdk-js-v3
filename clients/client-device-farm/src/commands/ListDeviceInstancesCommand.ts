@@ -36,7 +36,7 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  *
  * @see {@link ListDeviceInstancesCommandInput} for command's `input` shape.
  * @see {@link ListDeviceInstancesCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDeviceInstancesCommand extends $Command<

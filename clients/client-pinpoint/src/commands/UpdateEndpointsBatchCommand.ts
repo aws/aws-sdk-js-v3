@@ -35,7 +35,7 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  *
  * @see {@link UpdateEndpointsBatchCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointsBatchCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEndpointsBatchCommand extends $Command<

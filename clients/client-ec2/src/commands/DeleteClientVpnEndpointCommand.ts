@@ -36,7 +36,7 @@ export interface DeleteClientVpnEndpointCommandOutput extends DeleteClientVpnEnd
  *
  * @see {@link DeleteClientVpnEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteClientVpnEndpointCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteClientVpnEndpointCommand extends $Command<

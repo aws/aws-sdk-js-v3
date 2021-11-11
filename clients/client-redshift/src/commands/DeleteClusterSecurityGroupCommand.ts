@@ -43,7 +43,7 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  *
  * @see {@link DeleteClusterSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteClusterSecurityGroupCommand extends $Command<

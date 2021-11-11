@@ -56,7 +56,7 @@ export interface DescribeTagsCommandOutput extends TaggedResourceListMessage, __
  *
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTagsCommand extends $Command<

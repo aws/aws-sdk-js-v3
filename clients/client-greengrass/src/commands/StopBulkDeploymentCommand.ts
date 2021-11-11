@@ -35,7 +35,7 @@ export interface StopBulkDeploymentCommandOutput extends StopBulkDeploymentRespo
  *
  * @see {@link StopBulkDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopBulkDeploymentCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopBulkDeploymentCommand extends $Command<

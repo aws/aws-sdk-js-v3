@@ -36,7 +36,7 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
  *
  * @see {@link CreateVocabularyCommandInput} for command's `input` shape.
  * @see {@link CreateVocabularyCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVocabularyCommand extends $Command<

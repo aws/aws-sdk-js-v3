@@ -35,7 +35,7 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  *
  * @see {@link DeletePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DeletePermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePermissionSetCommand extends $Command<

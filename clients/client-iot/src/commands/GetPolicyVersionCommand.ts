@@ -36,7 +36,7 @@ export interface GetPolicyVersionCommandOutput extends GetPolicyVersionResponse,
  *
  * @see {@link GetPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link GetPolicyVersionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPolicyVersionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface StartMeetingTranscriptionCommandOutput extends StartMeetingTran
  *
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMeetingTranscriptionCommand extends $Command<

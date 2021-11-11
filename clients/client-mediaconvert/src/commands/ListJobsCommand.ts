@@ -35,7 +35,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *
  * @see {@link ListJobsCommandInput} for command's `input` shape.
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListJobsCommand extends $Command<

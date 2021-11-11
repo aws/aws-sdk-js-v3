@@ -37,7 +37,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  *
  * @see {@link RemoveRegionCommandInput} for command's `input` shape.
  * @see {@link RemoveRegionCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveRegionCommand extends $Command<

@@ -41,7 +41,7 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *
  * @see {@link UpdateVirtualInterfaceAttributesCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualInterfaceAttributesCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateVirtualInterfaceAttributesCommand extends $Command<

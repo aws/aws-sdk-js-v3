@@ -52,7 +52,7 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  *
  * @see {@link GetFileUploadURLCommandInput} for command's `input` shape.
  * @see {@link GetFileUploadURLCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFileUploadURLCommand extends $Command<

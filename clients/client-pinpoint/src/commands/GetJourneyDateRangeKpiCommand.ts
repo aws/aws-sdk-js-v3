@@ -35,7 +35,7 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  *
  * @see {@link GetJourneyDateRangeKpiCommandInput} for command's `input` shape.
  * @see {@link GetJourneyDateRangeKpiCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetJourneyDateRangeKpiCommand extends $Command<

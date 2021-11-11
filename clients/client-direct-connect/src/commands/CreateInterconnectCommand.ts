@@ -50,7 +50,7 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  *
  * @see {@link CreateInterconnectCommandInput} for command's `input` shape.
  * @see {@link CreateInterconnectCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateInterconnectCommand extends $Command<

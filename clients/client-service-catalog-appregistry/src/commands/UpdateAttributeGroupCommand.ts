@@ -39,7 +39,7 @@ export interface UpdateAttributeGroupCommandOutput extends UpdateAttributeGroupR
  *
  * @see {@link UpdateAttributeGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAttributeGroupCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAttributeGroupCommand extends $Command<

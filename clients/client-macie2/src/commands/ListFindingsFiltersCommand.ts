@@ -35,7 +35,7 @@ export interface ListFindingsFiltersCommandOutput extends ListFindingsFiltersRes
  *
  * @see {@link ListFindingsFiltersCommandInput} for command's `input` shape.
  * @see {@link ListFindingsFiltersCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFindingsFiltersCommand extends $Command<

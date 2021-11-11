@@ -39,7 +39,7 @@ export interface GetEnvironmentAccountConnectionCommandOutput
  *
  * @see {@link GetEnvironmentAccountConnectionCommandInput} for command's `input` shape.
  * @see {@link GetEnvironmentAccountConnectionCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEnvironmentAccountConnectionCommand extends $Command<

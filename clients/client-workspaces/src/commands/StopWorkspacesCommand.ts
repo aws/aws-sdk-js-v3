@@ -38,7 +38,7 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  *
  * @see {@link StopWorkspacesCommandInput} for command's `input` shape.
  * @see {@link StopWorkspacesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopWorkspacesCommand extends $Command<

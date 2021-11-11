@@ -39,7 +39,7 @@ export interface CreateApplicationVersionCommandOutput extends CreateApplication
  *
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationVersionCommand extends $Command<

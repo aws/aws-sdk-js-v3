@@ -183,7 +183,7 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *
  * @see {@link UploadPartCommandInput} for command's `input` shape.
  * @see {@link UploadPartCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UploadPartCommand extends $Command<

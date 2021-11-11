@@ -35,7 +35,7 @@ export interface GetGroupCommandOutput extends GetGroupResult, __MetadataBearer 
  *
  * @see {@link GetGroupCommandInput} for command's `input` shape.
  * @see {@link GetGroupCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetGroupCommand extends $Command<GetGroupCommandInput, GetGroupCommandOutput, XRayClientResolvedConfig> {

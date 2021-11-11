@@ -38,7 +38,7 @@ export interface DeleteAutoScalingConfigurationCommandOutput
  *
  * @see {@link DeleteAutoScalingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteAutoScalingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAutoScalingConfigurationCommand extends $Command<

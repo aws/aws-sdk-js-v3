@@ -42,7 +42,7 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteCertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCertificateCommand extends $Command<

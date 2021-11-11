@@ -57,7 +57,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutMetricFilterCommand extends $Command<

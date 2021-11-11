@@ -37,7 +37,7 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  *
  * @see {@link DeregisterResourceCommandInput} for command's `input` shape.
  * @see {@link DeregisterResourceCommandOutput} for command's `response` shape.
- * @see {@link LakeFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LakeFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterResourceCommand extends $Command<

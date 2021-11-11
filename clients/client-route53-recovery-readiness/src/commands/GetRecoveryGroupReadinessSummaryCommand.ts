@@ -41,7 +41,7 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput
  *
  * @see {@link GetRecoveryGroupReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetRecoveryGroupReadinessSummaryCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRecoveryGroupReadinessSummaryCommand extends $Command<

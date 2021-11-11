@@ -88,7 +88,7 @@ export interface CreateReusableDelegationSetCommandOutput
  *
  * @see {@link CreateReusableDelegationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateReusableDelegationSetCommand extends $Command<

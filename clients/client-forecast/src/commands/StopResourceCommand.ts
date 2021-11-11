@@ -57,7 +57,7 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopResourceCommandInput} for command's `input` shape.
  * @see {@link StopResourceCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopResourceCommand extends $Command<

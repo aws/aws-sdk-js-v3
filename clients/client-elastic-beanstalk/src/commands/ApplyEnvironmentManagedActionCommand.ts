@@ -39,7 +39,7 @@ export interface ApplyEnvironmentManagedActionCommandOutput
  *
  * @see {@link ApplyEnvironmentManagedActionCommandInput} for command's `input` shape.
  * @see {@link ApplyEnvironmentManagedActionCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ApplyEnvironmentManagedActionCommand extends $Command<

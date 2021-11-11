@@ -35,7 +35,7 @@ export interface ListIntentsCommandOutput extends ListIntentsResponse, __Metadat
  *
  * @see {@link ListIntentsCommandInput} for command's `input` shape.
  * @see {@link ListIntentsCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListIntentsCommand extends $Command<

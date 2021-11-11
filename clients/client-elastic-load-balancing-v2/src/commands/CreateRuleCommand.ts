@@ -41,7 +41,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRuleCommand extends $Command<

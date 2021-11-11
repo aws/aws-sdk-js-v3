@@ -140,7 +140,7 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *
  * @see {@link PutObjectTaggingCommandInput} for command's `input` shape.
  * @see {@link PutObjectTaggingCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutObjectTaggingCommand extends $Command<

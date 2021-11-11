@@ -35,7 +35,7 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  *
  * @see {@link GetPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link GetPartnerAccountCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPartnerAccountCommand extends $Command<

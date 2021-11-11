@@ -37,7 +37,7 @@ export interface UpdateFindingAggregatorCommandOutput extends UpdateFindingAggre
  *
  * @see {@link UpdateFindingAggregatorCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingAggregatorCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFindingAggregatorCommand extends $Command<

@@ -46,7 +46,7 @@ export interface DeleteApplicationReferenceDataSourceCommandOutput
  *
  * @see {@link DeleteApplicationReferenceDataSourceCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationReferenceDataSourceCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApplicationReferenceDataSourceCommand extends $Command<

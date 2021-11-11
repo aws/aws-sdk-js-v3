@@ -36,7 +36,7 @@ export interface CreateEnvironmentCommandOutput extends EnvironmentDescription, 
  *
  * @see {@link CreateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEnvironmentCommand extends $Command<

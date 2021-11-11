@@ -36,7 +36,7 @@ export interface GetInventorySchemaCommandOutput extends GetInventorySchemaResul
  *
  * @see {@link GetInventorySchemaCommandInput} for command's `input` shape.
  * @see {@link GetInventorySchemaCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInventorySchemaCommand extends $Command<

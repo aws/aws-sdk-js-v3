@@ -37,7 +37,7 @@ export interface CreateAlertManagerDefinitionCommandOutput
  *
  * @see {@link CreateAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateAlertManagerDefinitionCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAlertManagerDefinitionCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeProvisioningTemplateCommandOutput
  *
  * @see {@link DescribeProvisioningTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeProvisioningTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeProvisioningTemplateCommand extends $Command<

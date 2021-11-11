@@ -38,7 +38,7 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  *
  * @see {@link StartContentUploadCommandInput} for command's `input` shape.
  * @see {@link StartContentUploadCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartContentUploadCommand extends $Command<

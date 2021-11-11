@@ -35,7 +35,7 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *
  * @see {@link CreateInputCommandInput} for command's `input` shape.
  * @see {@link CreateInputCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateInputCommand extends $Command<

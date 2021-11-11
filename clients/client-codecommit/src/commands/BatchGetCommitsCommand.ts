@@ -35,7 +35,7 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  *
  * @see {@link BatchGetCommitsCommandInput} for command's `input` shape.
  * @see {@link BatchGetCommitsCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetCommitsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DescribeMetricFiltersCommandOutput extends DescribeMetricFilter
  *
  * @see {@link DescribeMetricFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeMetricFiltersCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMetricFiltersCommand extends $Command<

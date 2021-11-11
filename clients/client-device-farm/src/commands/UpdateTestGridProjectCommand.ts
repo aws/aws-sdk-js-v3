@@ -35,7 +35,7 @@ export interface UpdateTestGridProjectCommandOutput extends UpdateTestGridProjec
  *
  * @see {@link UpdateTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateTestGridProjectCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTestGridProjectCommand extends $Command<

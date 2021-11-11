@@ -35,7 +35,7 @@ export interface DeleteApiMappingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteApiMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteApiMappingCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApiMappingCommand extends $Command<

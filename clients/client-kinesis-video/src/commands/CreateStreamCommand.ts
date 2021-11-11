@@ -43,7 +43,7 @@ export interface CreateStreamCommandOutput extends CreateStreamOutput, __Metadat
  *
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStreamCommand extends $Command<

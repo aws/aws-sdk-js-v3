@@ -35,7 +35,7 @@ export interface GetDeviceProfileCommandOutput extends GetDeviceProfileResponse,
  *
  * @see {@link GetDeviceProfileCommandInput} for command's `input` shape.
  * @see {@link GetDeviceProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeviceProfileCommand extends $Command<

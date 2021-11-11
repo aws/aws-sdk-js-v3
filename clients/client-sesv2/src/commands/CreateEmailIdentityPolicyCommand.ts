@@ -46,7 +46,7 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  *
  * @see {@link CreateEmailIdentityPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateEmailIdentityPolicyCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEmailIdentityPolicyCommand extends $Command<

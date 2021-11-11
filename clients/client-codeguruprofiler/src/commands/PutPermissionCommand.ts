@@ -60,7 +60,7 @@ export interface PutPermissionCommandOutput extends PutPermissionResponse, __Met
  *
  * @see {@link PutPermissionCommandInput} for command's `input` shape.
  * @see {@link PutPermissionCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutPermissionCommand extends $Command<

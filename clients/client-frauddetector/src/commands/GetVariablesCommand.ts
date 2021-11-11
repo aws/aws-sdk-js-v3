@@ -40,7 +40,7 @@ export interface GetVariablesCommandOutput extends GetVariablesResult, __Metadat
  *
  * @see {@link GetVariablesCommandInput} for command's `input` shape.
  * @see {@link GetVariablesCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetVariablesCommand extends $Command<

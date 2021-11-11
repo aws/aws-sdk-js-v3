@@ -39,7 +39,7 @@ export interface ListPredictorsCommandOutput extends ListPredictorsResponse, __M
  *
  * @see {@link ListPredictorsCommandInput} for command's `input` shape.
  * @see {@link ListPredictorsCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPredictorsCommand extends $Command<

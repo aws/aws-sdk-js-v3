@@ -35,7 +35,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *
  * @see {@link UpdateFlowOutputCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowOutputCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFlowOutputCommand extends $Command<

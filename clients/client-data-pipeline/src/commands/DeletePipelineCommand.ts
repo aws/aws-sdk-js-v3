@@ -66,7 +66,7 @@ export interface DeletePipelineCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeletePipelineCommandInput} for command's `input` shape.
  * @see {@link DeletePipelineCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePipelineCommand extends $Command<

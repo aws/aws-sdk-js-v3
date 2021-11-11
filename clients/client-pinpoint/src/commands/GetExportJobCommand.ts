@@ -35,7 +35,7 @@ export interface GetExportJobCommandOutput extends GetExportJobResponse, __Metad
  *
  * @see {@link GetExportJobCommandInput} for command's `input` shape.
  * @see {@link GetExportJobCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetExportJobCommand extends $Command<

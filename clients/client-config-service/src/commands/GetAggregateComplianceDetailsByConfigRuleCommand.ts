@@ -49,7 +49,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  *
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandInput} for command's `input` shape.
  * @see {@link GetAggregateComplianceDetailsByConfigRuleCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<

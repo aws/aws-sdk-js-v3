@@ -37,7 +37,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *
  * @see {@link CreateSessionCommandInput} for command's `input` shape.
  * @see {@link CreateSessionCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSessionCommand extends $Command<

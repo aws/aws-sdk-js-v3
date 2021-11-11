@@ -36,7 +36,7 @@ export interface UpdateRoutingProfileDefaultOutboundQueueCommandOutput extends _
  *
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileDefaultOutboundQueueCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRoutingProfileDefaultOutboundQueueCommand extends $Command<

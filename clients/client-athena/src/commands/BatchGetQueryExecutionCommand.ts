@@ -40,7 +40,7 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  *
  * @see {@link BatchGetQueryExecutionCommandInput} for command's `input` shape.
  * @see {@link BatchGetQueryExecutionCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetQueryExecutionCommand extends $Command<

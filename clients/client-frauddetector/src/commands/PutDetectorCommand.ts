@@ -35,7 +35,7 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  *
  * @see {@link PutDetectorCommandInput} for command's `input` shape.
  * @see {@link PutDetectorCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutDetectorCommand extends $Command<

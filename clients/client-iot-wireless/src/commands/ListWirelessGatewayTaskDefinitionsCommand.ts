@@ -40,7 +40,7 @@ export interface ListWirelessGatewayTaskDefinitionsCommandOutput
  *
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListWirelessGatewayTaskDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWirelessGatewayTaskDefinitionsCommand extends $Command<

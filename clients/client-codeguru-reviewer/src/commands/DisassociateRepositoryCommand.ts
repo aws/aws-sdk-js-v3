@@ -35,7 +35,7 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  *
  * @see {@link DisassociateRepositoryCommandInput} for command's `input` shape.
  * @see {@link DisassociateRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateRepositoryCommand extends $Command<

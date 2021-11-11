@@ -37,7 +37,7 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  *
  * @see {@link ListComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link ListComplianceItemsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListComplianceItemsCommand extends $Command<

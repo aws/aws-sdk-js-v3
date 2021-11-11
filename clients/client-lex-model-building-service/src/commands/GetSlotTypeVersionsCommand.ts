@@ -49,7 +49,7 @@ export interface GetSlotTypeVersionsCommandOutput extends GetSlotTypeVersionsRes
  *
  * @see {@link GetSlotTypeVersionsCommandInput} for command's `input` shape.
  * @see {@link GetSlotTypeVersionsCommandOutput} for command's `response` shape.
- * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSlotTypeVersionsCommand extends $Command<

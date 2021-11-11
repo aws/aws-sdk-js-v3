@@ -47,7 +47,7 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteLoginProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteLoginProfileCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteLoginProfileCommand extends $Command<

@@ -38,7 +38,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *
  * @see {@link PutInsightSelectorsCommandInput} for command's `input` shape.
  * @see {@link PutInsightSelectorsCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutInsightSelectorsCommand extends $Command<

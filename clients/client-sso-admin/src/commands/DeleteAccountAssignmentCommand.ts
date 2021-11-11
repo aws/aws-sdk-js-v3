@@ -36,7 +36,7 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  *
  * @see {@link DeleteAccountAssignmentCommandInput} for command's `input` shape.
  * @see {@link DeleteAccountAssignmentCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAccountAssignmentCommand extends $Command<

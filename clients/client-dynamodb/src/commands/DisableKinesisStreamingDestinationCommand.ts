@@ -38,7 +38,7 @@ export interface DisableKinesisStreamingDestinationCommandOutput
  *
  * @see {@link DisableKinesisStreamingDestinationCommandInput} for command's `input` shape.
  * @see {@link DisableKinesisStreamingDestinationCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableKinesisStreamingDestinationCommand extends $Command<

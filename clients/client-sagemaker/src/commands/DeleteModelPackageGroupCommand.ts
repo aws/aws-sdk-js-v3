@@ -35,7 +35,7 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteModelPackageGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteModelPackageGroupCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteModelPackageGroupCommand extends $Command<

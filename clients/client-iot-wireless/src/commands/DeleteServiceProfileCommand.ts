@@ -35,7 +35,7 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  *
  * @see {@link DeleteServiceProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteServiceProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteServiceProfileCommand extends $Command<

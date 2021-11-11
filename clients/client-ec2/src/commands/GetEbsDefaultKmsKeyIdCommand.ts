@@ -39,7 +39,7 @@ export interface GetEbsDefaultKmsKeyIdCommandOutput extends GetEbsDefaultKmsKeyI
  *
  * @see {@link GetEbsDefaultKmsKeyIdCommandInput} for command's `input` shape.
  * @see {@link GetEbsDefaultKmsKeyIdCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEbsDefaultKmsKeyIdCommand extends $Command<

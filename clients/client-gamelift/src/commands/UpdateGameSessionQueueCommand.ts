@@ -55,7 +55,7 @@ export interface UpdateGameSessionQueueCommandOutput extends UpdateGameSessionQu
  *
  * @see {@link UpdateGameSessionQueueCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionQueueCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGameSessionQueueCommand extends $Command<

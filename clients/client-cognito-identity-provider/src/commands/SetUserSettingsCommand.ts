@@ -42,7 +42,7 @@ export interface SetUserSettingsCommandOutput extends SetUserSettingsResponse, _
  *
  * @see {@link SetUserSettingsCommandInput} for command's `input` shape.
  * @see {@link SetUserSettingsCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetUserSettingsCommand extends $Command<

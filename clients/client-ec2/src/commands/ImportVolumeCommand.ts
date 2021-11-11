@@ -38,7 +38,7 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  *
  * @see {@link ImportVolumeCommandInput} for command's `input` shape.
  * @see {@link ImportVolumeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ImportVolumeCommand extends $Command<

@@ -41,7 +41,7 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  *
  * @see {@link CreateTrustCommandInput} for command's `input` shape.
  * @see {@link CreateTrustCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTrustCommand extends $Command<

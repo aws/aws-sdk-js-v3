@@ -39,7 +39,7 @@ export interface ListTagsForResourcesCommandOutput extends ListTagsForResourcesR
  *
  * @see {@link ListTagsForResourcesCommandInput} for command's `input` shape.
  * @see {@link ListTagsForResourcesCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsForResourcesCommand extends $Command<

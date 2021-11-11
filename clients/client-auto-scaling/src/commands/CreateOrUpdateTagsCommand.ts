@@ -39,7 +39,7 @@ export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateOrUpdateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateOrUpdateTagsCommand extends $Command<

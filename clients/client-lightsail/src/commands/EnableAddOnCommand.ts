@@ -36,7 +36,7 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  *
  * @see {@link EnableAddOnCommandInput} for command's `input` shape.
  * @see {@link EnableAddOnCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableAddOnCommand extends $Command<

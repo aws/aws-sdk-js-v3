@@ -39,7 +39,7 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  *
  * @see {@link SubmitContainerStateChangeCommandInput} for command's `input` shape.
  * @see {@link SubmitContainerStateChangeCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SubmitContainerStateChangeCommand extends $Command<

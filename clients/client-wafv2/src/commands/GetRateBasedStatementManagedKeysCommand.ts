@@ -39,7 +39,7 @@ export interface GetRateBasedStatementManagedKeysCommandOutput
  *
  * @see {@link GetRateBasedStatementManagedKeysCommandInput} for command's `input` shape.
  * @see {@link GetRateBasedStatementManagedKeysCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRateBasedStatementManagedKeysCommand extends $Command<

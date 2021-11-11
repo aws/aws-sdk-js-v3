@@ -35,7 +35,7 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  *
  * @see {@link DescribeIntentCommandInput} for command's `input` shape.
  * @see {@link DescribeIntentCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIntentCommand extends $Command<

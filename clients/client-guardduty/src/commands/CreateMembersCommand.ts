@@ -46,7 +46,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *
  * @see {@link CreateMembersCommandInput} for command's `input` shape.
  * @see {@link CreateMembersCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMembersCommand extends $Command<

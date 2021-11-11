@@ -43,7 +43,7 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput
  *
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandInput} for command's `input` shape.
  * @see {@link ModifySnapshotCopyRetentionPeriodCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifySnapshotCopyRetentionPeriodCommand extends $Command<

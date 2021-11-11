@@ -35,7 +35,7 @@ export interface DescribeFargateProfileCommandOutput extends DescribeFargateProf
  *
  * @see {@link DescribeFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeFargateProfileCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFargateProfileCommand extends $Command<

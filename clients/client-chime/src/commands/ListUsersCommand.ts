@@ -36,7 +36,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *
  * @see {@link ListUsersCommandInput} for command's `input` shape.
  * @see {@link ListUsersCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListUsersCommand extends $Command<

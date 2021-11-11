@@ -41,7 +41,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<

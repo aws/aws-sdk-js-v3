@@ -39,7 +39,7 @@ export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput,
  *
  * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeExecutionCommand extends $Command<

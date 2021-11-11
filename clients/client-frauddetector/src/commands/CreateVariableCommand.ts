@@ -35,7 +35,7 @@ export interface CreateVariableCommandOutput extends CreateVariableResult, __Met
  *
  * @see {@link CreateVariableCommandInput} for command's `input` shape.
  * @see {@link CreateVariableCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVariableCommand extends $Command<

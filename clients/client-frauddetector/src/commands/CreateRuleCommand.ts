@@ -35,7 +35,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResult, __MetadataBea
  *
  * @see {@link CreateRuleCommandInput} for command's `input` shape.
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRuleCommand extends $Command<

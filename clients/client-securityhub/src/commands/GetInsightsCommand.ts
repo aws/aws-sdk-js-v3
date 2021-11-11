@@ -35,7 +35,7 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  *
  * @see {@link GetInsightsCommandInput} for command's `input` shape.
  * @see {@link GetInsightsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInsightsCommand extends $Command<

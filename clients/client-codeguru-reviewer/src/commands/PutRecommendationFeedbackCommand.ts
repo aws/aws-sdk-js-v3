@@ -37,7 +37,7 @@ export interface PutRecommendationFeedbackCommandOutput extends PutRecommendatio
  *
  * @see {@link PutRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link PutRecommendationFeedbackCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutRecommendationFeedbackCommand extends $Command<

@@ -42,7 +42,7 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  *
  * @see {@link CreateWebACLMigrationStackCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLMigrationStackCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWebACLMigrationStackCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  *
  * @see {@link DeletePendingAggregationRequestCommandInput} for command's `input` shape.
  * @see {@link DeletePendingAggregationRequestCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePendingAggregationRequestCommand extends $Command<

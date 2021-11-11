@@ -41,7 +41,7 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  *
  * @see {@link StopHyperParameterTuningJobCommandInput} for command's `input` shape.
  * @see {@link StopHyperParameterTuningJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopHyperParameterTuningJobCommand extends $Command<

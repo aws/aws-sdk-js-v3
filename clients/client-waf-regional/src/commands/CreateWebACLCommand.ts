@@ -74,7 +74,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *
  * @see {@link CreateWebACLCommandInput} for command's `input` shape.
  * @see {@link CreateWebACLCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWebACLCommand extends $Command<

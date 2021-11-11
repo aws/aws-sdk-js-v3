@@ -35,7 +35,7 @@ export interface DeleteGatewayGroupCommandOutput extends DeleteGatewayGroupRespo
  *
  * @see {@link DeleteGatewayGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGatewayGroupCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGatewayGroupCommand extends $Command<

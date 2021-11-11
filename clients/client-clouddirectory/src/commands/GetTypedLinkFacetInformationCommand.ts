@@ -37,7 +37,7 @@ export interface GetTypedLinkFacetInformationCommandOutput
  *
  * @see {@link GetTypedLinkFacetInformationCommandInput} for command's `input` shape.
  * @see {@link GetTypedLinkFacetInformationCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTypedLinkFacetInformationCommand extends $Command<

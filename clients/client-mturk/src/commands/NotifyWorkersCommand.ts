@@ -44,7 +44,7 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  *
  * @see {@link NotifyWorkersCommandInput} for command's `input` shape.
  * @see {@link NotifyWorkersCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NotifyWorkersCommand extends $Command<

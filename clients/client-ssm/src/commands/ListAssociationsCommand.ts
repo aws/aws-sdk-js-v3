@@ -37,7 +37,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  *
  * @see {@link ListAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListAssociationsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAssociationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  *
  * @see {@link UpdateVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link UpdateVirtualNodeCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateVirtualNodeCommand extends $Command<

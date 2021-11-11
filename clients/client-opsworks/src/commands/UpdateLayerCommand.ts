@@ -40,7 +40,7 @@ export interface UpdateLayerCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateLayerCommandInput} for command's `input` shape.
  * @see {@link UpdateLayerCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateLayerCommand extends $Command<

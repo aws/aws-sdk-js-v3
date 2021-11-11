@@ -37,7 +37,7 @@ export interface CreateInternetGatewayCommandOutput extends CreateInternetGatewa
  *
  * @see {@link CreateInternetGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateInternetGatewayCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateInternetGatewayCommand extends $Command<

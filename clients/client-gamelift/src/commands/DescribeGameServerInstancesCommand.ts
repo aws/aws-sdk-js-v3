@@ -73,7 +73,7 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *
  * @see {@link DescribeGameServerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeGameServerInstancesCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeGameServerInstancesCommand extends $Command<

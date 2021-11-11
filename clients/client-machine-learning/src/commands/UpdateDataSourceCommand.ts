@@ -36,7 +36,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  *
  * @see {@link UpdateDataSourceCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSourceCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDataSourceCommand extends $Command<

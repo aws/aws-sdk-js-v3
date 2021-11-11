@@ -35,7 +35,7 @@ export interface RemoveAllResourcePermissionsCommandOutput extends __MetadataBea
  *
  * @see {@link RemoveAllResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link RemoveAllResourcePermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveAllResourcePermissionsCommand extends $Command<

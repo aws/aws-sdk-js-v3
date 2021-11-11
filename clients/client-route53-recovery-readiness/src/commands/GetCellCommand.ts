@@ -39,7 +39,7 @@ export interface GetCellCommandOutput extends GetCellResponse, __MetadataBearer 
  *
  * @see {@link GetCellCommandInput} for command's `input` shape.
  * @see {@link GetCellCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCellCommand extends $Command<

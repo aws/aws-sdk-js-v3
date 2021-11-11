@@ -39,7 +39,7 @@ export interface StartTableDataImportJobCommandOutput extends StartTableDataImpo
  *
  * @see {@link StartTableDataImportJobCommandInput} for command's `input` shape.
  * @see {@link StartTableDataImportJobCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartTableDataImportJobCommand extends $Command<

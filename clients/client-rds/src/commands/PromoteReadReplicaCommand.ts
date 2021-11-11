@@ -53,7 +53,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  *
  * @see {@link PromoteReadReplicaCommandInput} for command's `input` shape.
  * @see {@link PromoteReadReplicaCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PromoteReadReplicaCommand extends $Command<

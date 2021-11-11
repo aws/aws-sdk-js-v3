@@ -35,7 +35,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResult, __Metad
  *
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeUsersCommand extends $Command<

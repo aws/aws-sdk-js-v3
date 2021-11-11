@@ -35,7 +35,7 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  *
  * @see {@link DeleteTaskCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTaskCommand extends $Command<

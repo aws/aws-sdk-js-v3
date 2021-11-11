@@ -35,7 +35,7 @@ export interface ListPackagingGroupsCommandOutput extends ListPackagingGroupsRes
  *
  * @see {@link ListPackagingGroupsCommandInput} for command's `input` shape.
  * @see {@link ListPackagingGroupsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPackagingGroupsCommand extends $Command<

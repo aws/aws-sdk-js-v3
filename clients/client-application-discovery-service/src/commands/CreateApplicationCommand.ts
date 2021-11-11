@@ -39,7 +39,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationCommand extends $Command<

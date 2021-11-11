@@ -37,7 +37,7 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *
  * @see {@link ListTablesCommandInput} for command's `input` shape.
  * @see {@link ListTablesCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTablesCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  *
  * @see {@link DisassociateResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateResourceCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateResourceCommand extends $Command<

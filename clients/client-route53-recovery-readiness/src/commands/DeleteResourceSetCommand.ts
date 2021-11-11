@@ -39,7 +39,7 @@ export interface DeleteResourceSetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourceSetCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceSetCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResourceSetCommand extends $Command<

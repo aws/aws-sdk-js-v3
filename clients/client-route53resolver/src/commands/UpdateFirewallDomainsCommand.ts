@@ -35,7 +35,7 @@ export interface UpdateFirewallDomainsCommandOutput extends UpdateFirewallDomain
  *
  * @see {@link UpdateFirewallDomainsCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallDomainsCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFirewallDomainsCommand extends $Command<

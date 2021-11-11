@@ -36,7 +36,7 @@ export interface UpdateMitigationActionCommandOutput extends UpdateMitigationAct
  *
  * @see {@link UpdateMitigationActionCommandInput} for command's `input` shape.
  * @see {@link UpdateMitigationActionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateMitigationActionCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  *
  * @see {@link DescribeOpsItemsCommandInput} for command's `input` shape.
  * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeOpsItemsCommand extends $Command<

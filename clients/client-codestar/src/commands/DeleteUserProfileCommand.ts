@@ -37,7 +37,7 @@ export interface DeleteUserProfileCommandOutput extends DeleteUserProfileResult,
  *
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteUserProfileCommand extends $Command<

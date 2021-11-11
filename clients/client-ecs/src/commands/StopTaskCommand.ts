@@ -44,7 +44,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *
  * @see {@link StopTaskCommandInput} for command's `input` shape.
  * @see {@link StopTaskCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopTaskCommand extends $Command<StopTaskCommandInput, StopTaskCommandOutput, ECSClientResolvedConfig> {

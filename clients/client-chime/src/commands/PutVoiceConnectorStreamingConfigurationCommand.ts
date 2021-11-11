@@ -43,7 +43,7 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput
  *
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorStreamingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<

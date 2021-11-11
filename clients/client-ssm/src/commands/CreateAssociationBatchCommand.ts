@@ -41,7 +41,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *
  * @see {@link CreateAssociationBatchCommandInput} for command's `input` shape.
  * @see {@link CreateAssociationBatchCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAssociationBatchCommand extends $Command<

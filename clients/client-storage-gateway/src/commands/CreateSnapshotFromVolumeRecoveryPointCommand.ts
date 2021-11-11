@@ -60,7 +60,7 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  *
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command<

@@ -39,7 +39,7 @@ export interface StopModelCommandOutput extends StopModelResponse, __MetadataBea
  *
  * @see {@link StopModelCommandInput} for command's `input` shape.
  * @see {@link StopModelCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopModelCommand extends $Command<

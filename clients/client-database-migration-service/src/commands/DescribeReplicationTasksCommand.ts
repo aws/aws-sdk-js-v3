@@ -40,7 +40,7 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  *
  * @see {@link DescribeReplicationTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReplicationTasksCommand extends $Command<

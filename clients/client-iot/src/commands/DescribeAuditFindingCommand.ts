@@ -40,7 +40,7 @@ export interface DescribeAuditFindingCommandOutput extends DescribeAuditFindingR
  *
  * @see {@link DescribeAuditFindingCommandInput} for command's `input` shape.
  * @see {@link DescribeAuditFindingCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAuditFindingCommand extends $Command<

@@ -35,7 +35,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *
  * @see {@link StartPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartPipelineExecutionCommand extends $Command<

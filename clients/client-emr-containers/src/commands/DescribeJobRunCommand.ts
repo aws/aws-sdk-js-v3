@@ -35,7 +35,7 @@ export interface DescribeJobRunCommandOutput extends DescribeJobRunResponse, __M
  *
  * @see {@link DescribeJobRunCommandInput} for command's `input` shape.
  * @see {@link DescribeJobRunCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeJobRunCommand extends $Command<

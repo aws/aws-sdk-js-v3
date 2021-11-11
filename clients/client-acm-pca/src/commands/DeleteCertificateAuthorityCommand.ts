@@ -54,7 +54,7 @@ export interface DeleteCertificateAuthorityCommandOutput extends __MetadataBeare
  *
  * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
  * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCertificateAuthorityCommand extends $Command<

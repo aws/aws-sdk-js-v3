@@ -35,7 +35,7 @@ export interface DisableUserCommandOutput extends DisableUserResult, __MetadataB
  *
  * @see {@link DisableUserCommandInput} for command's `input` shape.
  * @see {@link DisableUserCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableUserCommand extends $Command<

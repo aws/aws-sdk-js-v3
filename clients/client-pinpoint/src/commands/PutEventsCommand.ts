@@ -35,7 +35,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *
  * @see {@link PutEventsCommandInput} for command's `input` shape.
  * @see {@link PutEventsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutEventsCommand extends $Command<

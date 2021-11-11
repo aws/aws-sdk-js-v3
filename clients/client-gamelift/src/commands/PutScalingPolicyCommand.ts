@@ -111,7 +111,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyOutput, _
  *
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutScalingPolicyCommand extends $Command<

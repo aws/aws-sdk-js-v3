@@ -39,7 +39,7 @@ export interface DeleteQueryDefinitionCommandOutput extends DeleteQueryDefinitio
  *
  * @see {@link DeleteQueryDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteQueryDefinitionCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteQueryDefinitionCommand extends $Command<

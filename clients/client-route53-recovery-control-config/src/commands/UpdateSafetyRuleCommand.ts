@@ -39,7 +39,7 @@ export interface UpdateSafetyRuleCommandOutput extends UpdateSafetyRuleResponse,
  *
  * @see {@link UpdateSafetyRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSafetyRuleCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSafetyRuleCommand extends $Command<

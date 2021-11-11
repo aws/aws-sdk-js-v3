@@ -35,7 +35,7 @@ export interface CreateLocationFsxWindowsCommandOutput extends CreateLocationFsx
  *
  * @see {@link CreateLocationFsxWindowsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationFsxWindowsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLocationFsxWindowsCommand extends $Command<

@@ -42,7 +42,7 @@ export interface DescribeEffectivePatchesForPatchBaselineCommandOutput
  *
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePatchesForPatchBaselineCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<

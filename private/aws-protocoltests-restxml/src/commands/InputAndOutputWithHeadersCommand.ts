@@ -36,7 +36,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  *
  * @see {@link InputAndOutputWithHeadersCommandInput} for command's `input` shape.
  * @see {@link InputAndOutputWithHeadersCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class InputAndOutputWithHeadersCommand extends $Command<

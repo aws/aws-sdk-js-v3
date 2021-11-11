@@ -37,7 +37,7 @@ export interface UpdateUserProfileCommandOutput extends UpdateUserProfileResult,
  *
  * @see {@link UpdateUserProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateUserProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateUserProfileCommand extends $Command<

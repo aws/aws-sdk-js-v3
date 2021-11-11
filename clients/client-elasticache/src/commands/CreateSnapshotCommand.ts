@@ -40,7 +40,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *
  * @see {@link CreateSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateSnapshotCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSnapshotCommand extends $Command<

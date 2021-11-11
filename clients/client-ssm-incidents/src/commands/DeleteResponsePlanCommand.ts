@@ -36,7 +36,7 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  *
  * @see {@link DeleteResponsePlanCommandInput} for command's `input` shape.
  * @see {@link DeleteResponsePlanCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResponsePlanCommand extends $Command<

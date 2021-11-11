@@ -42,7 +42,7 @@ export interface DescribeDefaultClusterParametersCommandOutput
  *
  * @see {@link DescribeDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultClusterParametersCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDefaultClusterParametersCommand extends $Command<

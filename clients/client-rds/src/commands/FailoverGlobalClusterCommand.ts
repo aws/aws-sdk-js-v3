@@ -49,7 +49,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  *
  * @see {@link FailoverGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link FailoverGlobalClusterCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class FailoverGlobalClusterCommand extends $Command<

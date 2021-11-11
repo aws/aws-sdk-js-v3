@@ -44,7 +44,7 @@ export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResul
  *
  * @see {@link GetTestGridSessionCommandInput} for command's `input` shape.
  * @see {@link GetTestGridSessionCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTestGridSessionCommand extends $Command<

@@ -37,7 +37,7 @@ export interface AssociateResourceSharePermissionCommandOutput
  *
  * @see {@link AssociateResourceSharePermissionCommandInput} for command's `input` shape.
  * @see {@link AssociateResourceSharePermissionCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateResourceSharePermissionCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput
  *
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteAutomaticTapeCreationPolicyCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAutomaticTapeCreationPolicyCommand extends $Command<

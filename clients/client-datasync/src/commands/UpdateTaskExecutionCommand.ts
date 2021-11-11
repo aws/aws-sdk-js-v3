@@ -44,7 +44,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *
  * @see {@link UpdateTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link UpdateTaskExecutionCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTaskExecutionCommand extends $Command<

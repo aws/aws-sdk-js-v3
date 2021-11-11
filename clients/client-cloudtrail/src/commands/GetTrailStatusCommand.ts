@@ -35,7 +35,7 @@ export interface GetTrailStatusCommandOutput extends GetTrailStatusResponse, __M
  *
  * @see {@link GetTrailStatusCommandInput} for command's `input` shape.
  * @see {@link GetTrailStatusCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTrailStatusCommand extends $Command<

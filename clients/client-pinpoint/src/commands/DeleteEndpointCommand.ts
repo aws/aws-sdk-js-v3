@@ -35,7 +35,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  *
  * @see {@link DeleteEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteEndpointCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEndpointCommand extends $Command<

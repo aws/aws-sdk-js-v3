@@ -35,7 +35,7 @@ export interface GetPermissionCommandOutput extends GetPermissionResponse, __Met
  *
  * @see {@link GetPermissionCommandInput} for command's `input` shape.
  * @see {@link GetPermissionCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPermissionCommand extends $Command<

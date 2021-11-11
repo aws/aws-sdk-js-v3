@@ -35,7 +35,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *
  * @see {@link StartJobRunCommandInput} for command's `input` shape.
  * @see {@link StartJobRunCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartJobRunCommand extends $Command<

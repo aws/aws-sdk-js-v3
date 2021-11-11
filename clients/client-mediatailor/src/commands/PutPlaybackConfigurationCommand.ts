@@ -35,7 +35,7 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *
  * @see {@link PutPlaybackConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutPlaybackConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutPlaybackConfigurationCommand extends $Command<

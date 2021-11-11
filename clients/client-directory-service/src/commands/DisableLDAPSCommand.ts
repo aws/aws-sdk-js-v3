@@ -35,7 +35,7 @@ export interface DisableLDAPSCommandOutput extends DisableLDAPSResult, __Metadat
  *
  * @see {@link DisableLDAPSCommandInput} for command's `input` shape.
  * @see {@link DisableLDAPSCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableLDAPSCommand extends $Command<

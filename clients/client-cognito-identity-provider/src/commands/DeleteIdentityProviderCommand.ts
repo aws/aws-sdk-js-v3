@@ -40,7 +40,7 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityProviderCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteIdentityProviderCommand extends $Command<

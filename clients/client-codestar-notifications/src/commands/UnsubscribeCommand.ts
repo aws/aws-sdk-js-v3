@@ -41,7 +41,7 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  *
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
- * @see {@link CodestarNotificationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodestarNotificationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UnsubscribeCommand extends $Command<

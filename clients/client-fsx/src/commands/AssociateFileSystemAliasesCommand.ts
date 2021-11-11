@@ -45,7 +45,7 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  *
  * @see {@link AssociateFileSystemAliasesCommandInput} for command's `input` shape.
  * @see {@link AssociateFileSystemAliasesCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateFileSystemAliasesCommand extends $Command<

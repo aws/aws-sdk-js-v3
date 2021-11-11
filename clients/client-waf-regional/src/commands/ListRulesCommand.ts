@@ -40,7 +40,7 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @see {@link ListRulesCommandInput} for command's `input` shape.
  * @see {@link ListRulesCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRulesCommand extends $Command<

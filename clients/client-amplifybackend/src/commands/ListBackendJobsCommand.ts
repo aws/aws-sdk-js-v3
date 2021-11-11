@@ -35,7 +35,7 @@ export interface ListBackendJobsCommandOutput extends ListBackendJobsResponse, _
  *
  * @see {@link ListBackendJobsCommandInput} for command's `input` shape.
  * @see {@link ListBackendJobsCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBackendJobsCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DescribeAcceleratorOfferingsCommandOutput
  *
  * @see {@link DescribeAcceleratorOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeAcceleratorOfferingsCommandOutput} for command's `response` shape.
- * @see {@link ElasticInferenceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticInferenceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAcceleratorOfferingsCommand extends $Command<

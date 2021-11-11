@@ -35,7 +35,7 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  *
  * @see {@link DescribeSlotTypeCommandInput} for command's `input` shape.
  * @see {@link DescribeSlotTypeCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSlotTypeCommand extends $Command<

@@ -45,7 +45,7 @@ export interface DescribeStackProvisioningParametersCommandOutput
  *
  * @see {@link DescribeStackProvisioningParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeStackProvisioningParametersCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStackProvisioningParametersCommand extends $Command<

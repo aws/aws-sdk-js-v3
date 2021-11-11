@@ -35,7 +35,7 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  *
  * @see {@link DeleteSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteSamplingRuleCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSamplingRuleCommand extends $Command<

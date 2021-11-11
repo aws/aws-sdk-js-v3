@@ -35,7 +35,7 @@ export interface UpdateApiMappingCommandOutput extends UpdateApiMappingResponse,
  *
  * @see {@link UpdateApiMappingCommandInput} for command's `input` shape.
  * @see {@link UpdateApiMappingCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApiMappingCommand extends $Command<

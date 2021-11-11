@@ -40,7 +40,7 @@ export interface ListDetectMitigationActionsTasksCommandOutput
  *
  * @see {@link ListDetectMitigationActionsTasksCommandInput} for command's `input` shape.
  * @see {@link ListDetectMitigationActionsTasksCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDetectMitigationActionsTasksCommand extends $Command<

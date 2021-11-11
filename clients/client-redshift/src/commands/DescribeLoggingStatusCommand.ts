@@ -37,7 +37,7 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  *
  * @see {@link DescribeLoggingStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingStatusCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLoggingStatusCommand extends $Command<

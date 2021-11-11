@@ -37,7 +37,7 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  *
  * @see {@link StartDataSourceSyncJobCommandInput} for command's `input` shape.
  * @see {@link StartDataSourceSyncJobCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDataSourceSyncJobCommand extends $Command<

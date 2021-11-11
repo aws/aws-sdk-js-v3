@@ -36,7 +36,7 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  *
  * @see {@link CreateDomainConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateDomainConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDomainConfigurationCommand extends $Command<

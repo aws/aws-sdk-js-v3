@@ -44,7 +44,7 @@ export interface RemoveRoleFromInstanceProfileCommandOutput extends __MetadataBe
  *
  * @see {@link RemoveRoleFromInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromInstanceProfileCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveRoleFromInstanceProfileCommand extends $Command<

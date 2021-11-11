@@ -36,7 +36,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  *
  * @see {@link ListArchivesCommandInput} for command's `input` shape.
  * @see {@link ListArchivesCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListArchivesCommand extends $Command<

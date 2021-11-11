@@ -37,7 +37,7 @@ export interface DescribeIdentityProviderConfigCommandOutput
  *
  * @see {@link DescribeIdentityProviderConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderConfigCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIdentityProviderConfigCommand extends $Command<

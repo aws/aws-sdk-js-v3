@@ -48,7 +48,7 @@ export interface DetectEntitiesV2CommandOutput extends DetectEntitiesV2Response,
  *
  * @see {@link DetectEntitiesV2CommandInput} for command's `input` shape.
  * @see {@link DetectEntitiesV2CommandOutput} for command's `response` shape.
- * @see {@link ComprehendMedicalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendMedicalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetectEntitiesV2Command extends $Command<

@@ -37,7 +37,7 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  *
  * @see {@link TerminateJobCommandInput} for command's `input` shape.
  * @see {@link TerminateJobCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TerminateJobCommand extends $Command<

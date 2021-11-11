@@ -73,7 +73,7 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  *
  * @see {@link UpdateServiceInstanceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceInstanceCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServiceInstanceCommand extends $Command<

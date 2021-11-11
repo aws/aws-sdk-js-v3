@@ -106,7 +106,7 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  *
  * @see {@link GetProfileCommandInput} for command's `input` shape.
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetProfileCommand extends $Command<

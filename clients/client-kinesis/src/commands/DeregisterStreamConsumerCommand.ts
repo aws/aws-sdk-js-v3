@@ -42,7 +42,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeregisterStreamConsumerCommandInput} for command's `input` shape.
  * @see {@link DeregisterStreamConsumerCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterStreamConsumerCommand extends $Command<

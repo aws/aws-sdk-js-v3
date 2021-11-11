@@ -37,7 +37,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *
  * @see {@link RequestServiceQuotaIncreaseCommandInput} for command's `input` shape.
  * @see {@link RequestServiceQuotaIncreaseCommandOutput} for command's `response` shape.
- * @see {@link ServiceQuotasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceQuotasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RequestServiceQuotaIncreaseCommand extends $Command<

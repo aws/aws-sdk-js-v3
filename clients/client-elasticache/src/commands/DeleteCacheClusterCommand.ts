@@ -64,7 +64,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *
  * @see {@link DeleteCacheClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteCacheClusterCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCacheClusterCommand extends $Command<

@@ -35,7 +35,7 @@ export interface StartEventsDetectionJobCommandOutput extends StartEventsDetecti
  *
  * @see {@link StartEventsDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEventsDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartEventsDetectionJobCommand extends $Command<

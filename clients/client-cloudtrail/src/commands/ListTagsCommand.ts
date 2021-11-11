@@ -32,7 +32,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsCommand extends $Command<

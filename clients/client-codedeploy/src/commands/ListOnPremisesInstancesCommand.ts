@@ -38,7 +38,7 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  *
  * @see {@link ListOnPremisesInstancesCommandInput} for command's `input` shape.
  * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOnPremisesInstancesCommand extends $Command<

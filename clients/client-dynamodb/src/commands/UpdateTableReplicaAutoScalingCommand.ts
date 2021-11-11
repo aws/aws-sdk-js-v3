@@ -40,7 +40,7 @@ export interface UpdateTableReplicaAutoScalingCommandOutput
  *
  * @see {@link UpdateTableReplicaAutoScalingCommandInput} for command's `input` shape.
  * @see {@link UpdateTableReplicaAutoScalingCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTableReplicaAutoScalingCommand extends $Command<

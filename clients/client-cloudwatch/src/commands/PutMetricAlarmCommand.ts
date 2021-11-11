@@ -98,7 +98,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutMetricAlarmCommandInput} for command's `input` shape.
  * @see {@link PutMetricAlarmCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutMetricAlarmCommand extends $Command<

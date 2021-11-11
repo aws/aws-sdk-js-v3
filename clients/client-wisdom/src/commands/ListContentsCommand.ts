@@ -35,7 +35,7 @@ export interface ListContentsCommandOutput extends ListContentsResponse, __Metad
  *
  * @see {@link ListContentsCommandInput} for command's `input` shape.
  * @see {@link ListContentsCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListContentsCommand extends $Command<

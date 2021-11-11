@@ -35,7 +35,7 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  *
  * @see {@link GetCampaignVersionCommandInput} for command's `input` shape.
  * @see {@link GetCampaignVersionCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCampaignVersionCommand extends $Command<

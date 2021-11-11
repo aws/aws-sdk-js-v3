@@ -37,7 +37,7 @@ export interface DescribeBudgetPerformanceHistoryCommandOutput
  *
  * @see {@link DescribeBudgetPerformanceHistoryCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetPerformanceHistoryCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeBudgetPerformanceHistoryCommand extends $Command<

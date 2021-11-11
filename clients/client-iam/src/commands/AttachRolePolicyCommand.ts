@@ -49,7 +49,7 @@ export interface AttachRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AttachRolePolicyCommandInput} for command's `input` shape.
  * @see {@link AttachRolePolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachRolePolicyCommand extends $Command<

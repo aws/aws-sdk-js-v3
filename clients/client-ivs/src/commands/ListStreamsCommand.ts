@@ -36,7 +36,7 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  *
  * @see {@link ListStreamsCommandInput} for command's `input` shape.
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
- * @see {@link IvsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IvsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStreamsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteTypedLinkFacetCommandOutput extends DeleteTypedLinkFacetR
  *
  * @see {@link DeleteTypedLinkFacetCommandInput} for command's `input` shape.
  * @see {@link DeleteTypedLinkFacetCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTypedLinkFacetCommand extends $Command<

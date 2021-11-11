@@ -39,7 +39,7 @@ export interface DescribeConditionalForwardersCommandOutput
  *
  * @see {@link DescribeConditionalForwardersCommandInput} for command's `input` shape.
  * @see {@link DescribeConditionalForwardersCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeConditionalForwardersCommand extends $Command<

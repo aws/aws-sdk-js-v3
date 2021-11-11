@@ -35,7 +35,7 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  *
  * @see {@link ListLensReviewImprovementsCommandInput} for command's `input` shape.
  * @see {@link ListLensReviewImprovementsCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLensReviewImprovementsCommand extends $Command<

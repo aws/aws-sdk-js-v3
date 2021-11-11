@@ -38,7 +38,7 @@ export interface ListOfferingTransactionsCommandOutput extends ListOfferingTrans
  *
  * @see {@link ListOfferingTransactionsCommandInput} for command's `input` shape.
  * @see {@link ListOfferingTransactionsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOfferingTransactionsCommand extends $Command<

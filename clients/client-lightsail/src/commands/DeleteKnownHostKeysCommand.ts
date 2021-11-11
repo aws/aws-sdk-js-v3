@@ -43,7 +43,7 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  *
  * @see {@link DeleteKnownHostKeysCommandInput} for command's `input` shape.
  * @see {@link DeleteKnownHostKeysCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteKnownHostKeysCommand extends $Command<

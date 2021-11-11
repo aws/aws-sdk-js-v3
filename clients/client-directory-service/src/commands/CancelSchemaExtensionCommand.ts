@@ -39,7 +39,7 @@ export interface CancelSchemaExtensionCommandOutput extends CancelSchemaExtensio
  *
  * @see {@link CancelSchemaExtensionCommandInput} for command's `input` shape.
  * @see {@link CancelSchemaExtensionCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelSchemaExtensionCommand extends $Command<

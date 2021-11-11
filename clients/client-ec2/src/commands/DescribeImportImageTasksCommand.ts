@@ -35,7 +35,7 @@ export interface DescribeImportImageTasksCommandOutput extends DescribeImportIma
  *
  * @see {@link DescribeImportImageTasksCommandInput} for command's `input` shape.
  * @see {@link DescribeImportImageTasksCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeImportImageTasksCommand extends $Command<

@@ -46,7 +46,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *
  * @see {@link ModifyEndpointCommandInput} for command's `input` shape.
  * @see {@link ModifyEndpointCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyEndpointCommand extends $Command<

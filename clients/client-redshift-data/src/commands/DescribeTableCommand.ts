@@ -50,7 +50,7 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *
  * @see {@link DescribeTableCommandInput} for command's `input` shape.
  * @see {@link DescribeTableCommandOutput} for command's `response` shape.
- * @see {@link RedshiftDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftDataClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTableCommand extends $Command<

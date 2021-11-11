@@ -38,7 +38,7 @@ export interface EnableOrganizationAdminAccountCommandOutput
  *
  * @see {@link EnableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link EnableOrganizationAdminAccountCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableOrganizationAdminAccountCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  *
  * @see {@link ListReusableDelegationSetsCommandInput} for command's `input` shape.
  * @see {@link ListReusableDelegationSetsCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListReusableDelegationSetsCommand extends $Command<

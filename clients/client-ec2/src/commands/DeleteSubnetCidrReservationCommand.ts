@@ -35,7 +35,7 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  *
  * @see {@link DeleteSubnetCidrReservationCommandInput} for command's `input` shape.
  * @see {@link DeleteSubnetCidrReservationCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSubnetCidrReservationCommand extends $Command<

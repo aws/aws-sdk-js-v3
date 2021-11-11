@@ -38,7 +38,7 @@ export interface ModifyDocumentPermissionCommandOutput extends ModifyDocumentPer
  *
  * @see {@link ModifyDocumentPermissionCommandInput} for command's `input` shape.
  * @see {@link ModifyDocumentPermissionCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyDocumentPermissionCommand extends $Command<

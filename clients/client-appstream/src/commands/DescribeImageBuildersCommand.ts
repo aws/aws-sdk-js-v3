@@ -35,7 +35,7 @@ export interface DescribeImageBuildersCommandOutput extends DescribeImageBuilder
  *
  * @see {@link DescribeImageBuildersCommandInput} for command's `input` shape.
  * @see {@link DescribeImageBuildersCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeImageBuildersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteVirtualClusterCommandOutput extends DeleteVirtualClusterR
  *
  * @see {@link DeleteVirtualClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualClusterCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVirtualClusterCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  *
  * @see {@link GetSubscriptionStateCommandInput} for command's `input` shape.
  * @see {@link GetSubscriptionStateCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSubscriptionStateCommand extends $Command<

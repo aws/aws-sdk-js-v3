@@ -35,7 +35,7 @@ export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteAccessLogSettingsCommandInput} for command's `input` shape.
  * @see {@link DeleteAccessLogSettingsCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAccessLogSettingsCommand extends $Command<

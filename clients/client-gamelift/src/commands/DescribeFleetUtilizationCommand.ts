@@ -85,7 +85,7 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
  *
  * @see {@link DescribeFleetUtilizationCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetUtilizationCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFleetUtilizationCommand extends $Command<

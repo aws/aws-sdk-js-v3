@@ -47,7 +47,7 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  *
  * @see {@link UpdateResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceCommandOutput} for command's `response` shape.
- * @see {@link CloudControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResourceCommand extends $Command<

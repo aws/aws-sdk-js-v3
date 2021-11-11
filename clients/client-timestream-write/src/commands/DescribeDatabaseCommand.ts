@@ -38,7 +38,7 @@ export interface DescribeDatabaseCommandOutput extends DescribeDatabaseResponse,
  *
  * @see {@link DescribeDatabaseCommandInput} for command's `input` shape.
  * @see {@link DescribeDatabaseCommandOutput} for command's `response` shape.
- * @see {@link TimestreamWriteClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TimestreamWriteClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDatabaseCommand extends $Command<

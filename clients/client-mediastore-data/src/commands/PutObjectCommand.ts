@@ -44,7 +44,7 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  *
  * @see {@link PutObjectCommandInput} for command's `input` shape.
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreDataClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutObjectCommand extends $Command<

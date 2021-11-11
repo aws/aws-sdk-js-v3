@@ -37,7 +37,7 @@ export interface DeleteVoiceConnectorGroupCommandOutput extends __MetadataBearer
  *
  * @see {@link DeleteVoiceConnectorGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceConnectorGroupCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVoiceConnectorGroupCommand extends $Command<

@@ -53,7 +53,7 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  *
  * @see {@link BatchGetResourceConfigCommandInput} for command's `input` shape.
  * @see {@link BatchGetResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetResourceConfigCommand extends $Command<

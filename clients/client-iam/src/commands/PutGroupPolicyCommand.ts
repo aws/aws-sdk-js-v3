@@ -49,7 +49,7 @@ export interface PutGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutGroupPolicyCommandInput} for command's `input` shape.
  * @see {@link PutGroupPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutGroupPolicyCommand extends $Command<

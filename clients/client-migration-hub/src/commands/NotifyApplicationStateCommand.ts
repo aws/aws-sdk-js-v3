@@ -38,7 +38,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  *
  * @see {@link NotifyApplicationStateCommandInput} for command's `input` shape.
  * @see {@link NotifyApplicationStateCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NotifyApplicationStateCommand extends $Command<

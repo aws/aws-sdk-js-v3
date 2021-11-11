@@ -48,7 +48,7 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  *
  * @see {@link DescribeOrganizationConformancePackStatusesCommandInput} for command's `input` shape.
  * @see {@link DescribeOrganizationConformancePackStatusesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeOrganizationConformancePackStatusesCommand extends $Command<

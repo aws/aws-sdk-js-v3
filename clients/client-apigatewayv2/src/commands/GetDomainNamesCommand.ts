@@ -35,7 +35,7 @@ export interface GetDomainNamesCommandOutput extends GetDomainNamesResponse, __M
  *
  * @see {@link GetDomainNamesCommandInput} for command's `input` shape.
  * @see {@link GetDomainNamesCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDomainNamesCommand extends $Command<

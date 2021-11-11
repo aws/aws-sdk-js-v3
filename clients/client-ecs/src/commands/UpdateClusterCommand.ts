@@ -35,7 +35,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *
  * @see {@link UpdateClusterCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateClusterCommand extends $Command<

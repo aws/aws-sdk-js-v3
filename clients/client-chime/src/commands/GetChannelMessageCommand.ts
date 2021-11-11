@@ -41,7 +41,7 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  *
  * @see {@link GetChannelMessageCommandInput} for command's `input` shape.
  * @see {@link GetChannelMessageCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetChannelMessageCommand extends $Command<

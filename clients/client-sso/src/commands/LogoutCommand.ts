@@ -32,7 +32,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  *
  * @see {@link LogoutCommandInput} for command's `input` shape.
  * @see {@link LogoutCommandOutput} for command's `response` shape.
- * @see {@link SSOClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class LogoutCommand extends $Command<LogoutCommandInput, LogoutCommandOutput, SSOClientResolvedConfig> {

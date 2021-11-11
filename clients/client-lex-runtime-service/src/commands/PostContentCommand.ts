@@ -124,7 +124,7 @@ export interface PostContentCommandOutput extends PostContentResponse, __Metadat
  *
  * @see {@link PostContentCommandInput} for command's `input` shape.
  * @see {@link PostContentCommandOutput} for command's `response` shape.
- * @see {@link LexRuntimeServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexRuntimeServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PostContentCommand extends $Command<

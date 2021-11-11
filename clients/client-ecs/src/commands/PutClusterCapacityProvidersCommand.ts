@@ -50,7 +50,7 @@ export interface PutClusterCapacityProvidersCommandOutput
  *
  * @see {@link PutClusterCapacityProvidersCommandInput} for command's `input` shape.
  * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutClusterCapacityProvidersCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  *
  * @see {@link ListRestoreJobsCommandInput} for command's `input` shape.
  * @see {@link ListRestoreJobsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRestoreJobsCommand extends $Command<

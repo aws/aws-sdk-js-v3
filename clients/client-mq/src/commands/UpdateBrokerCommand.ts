@@ -35,7 +35,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *
  * @see {@link UpdateBrokerCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBrokerCommand extends $Command<

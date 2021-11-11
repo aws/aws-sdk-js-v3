@@ -36,7 +36,7 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  *
  * @see {@link SubmitFeedbackCommandInput} for command's `input` shape.
  * @see {@link SubmitFeedbackCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SubmitFeedbackCommand extends $Command<

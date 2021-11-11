@@ -35,7 +35,7 @@ export interface DeleteApiKeyCommandOutput extends DeleteApiKeyResponse, __Metad
  *
  * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApiKeyCommand extends $Command<

@@ -43,7 +43,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * @see {@link BatchPutDocumentCommandInput} for command's `input` shape.
  * @see {@link BatchPutDocumentCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchPutDocumentCommand extends $Command<

@@ -51,7 +51,7 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  *
  * @see {@link CreateApplicationVersionCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationVersionCommand extends $Command<

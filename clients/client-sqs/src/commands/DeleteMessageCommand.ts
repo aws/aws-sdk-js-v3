@@ -54,7 +54,7 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteMessageCommandInput} for command's `input` shape.
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMessageCommand extends $Command<

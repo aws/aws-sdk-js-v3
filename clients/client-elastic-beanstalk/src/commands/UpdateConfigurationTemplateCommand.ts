@@ -48,7 +48,7 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  *
  * @see {@link UpdateConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateConfigurationTemplateCommand extends $Command<

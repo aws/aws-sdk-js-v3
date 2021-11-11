@@ -35,7 +35,7 @@ export interface DescribeRestoreJobCommandOutput extends DescribeRestoreJobOutpu
  *
  * @see {@link DescribeRestoreJobCommandInput} for command's `input` shape.
  * @see {@link DescribeRestoreJobCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRestoreJobCommand extends $Command<

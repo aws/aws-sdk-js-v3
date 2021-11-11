@@ -40,7 +40,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  *
  * @see {@link DetachManagedPolicyFromPermissionSetCommandInput} for command's `input` shape.
  * @see {@link DetachManagedPolicyFromPermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetachManagedPolicyFromPermissionSetCommand extends $Command<

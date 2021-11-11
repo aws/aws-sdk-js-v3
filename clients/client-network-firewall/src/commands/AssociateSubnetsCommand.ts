@@ -40,7 +40,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  *
  * @see {@link AssociateSubnetsCommandInput} for command's `input` shape.
  * @see {@link AssociateSubnetsCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateSubnetsCommand extends $Command<

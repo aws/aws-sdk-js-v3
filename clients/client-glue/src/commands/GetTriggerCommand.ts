@@ -35,7 +35,7 @@ export interface GetTriggerCommandOutput extends GetTriggerResponse, __MetadataB
  *
  * @see {@link GetTriggerCommandInput} for command's `input` shape.
  * @see {@link GetTriggerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTriggerCommand extends $Command<

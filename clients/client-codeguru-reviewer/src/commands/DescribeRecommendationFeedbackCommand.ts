@@ -39,7 +39,7 @@ export interface DescribeRecommendationFeedbackCommandOutput
  *
  * @see {@link DescribeRecommendationFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationFeedbackCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRecommendationFeedbackCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ListPartnerEventSourceAccountsCommandOutput
  *
  * @see {@link ListPartnerEventSourceAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerEventSourceAccountsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPartnerEventSourceAccountsCommand extends $Command<

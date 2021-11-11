@@ -36,7 +36,7 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  *
  * @see {@link ListAssessmentFrameworksCommandInput} for command's `input` shape.
  * @see {@link ListAssessmentFrameworksCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAssessmentFrameworksCommand extends $Command<

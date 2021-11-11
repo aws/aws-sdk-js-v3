@@ -41,7 +41,7 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteNotebookInstanceCommandInput} for command's `input` shape.
  * @see {@link DeleteNotebookInstanceCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteNotebookInstanceCommand extends $Command<

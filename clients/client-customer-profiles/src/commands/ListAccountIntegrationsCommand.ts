@@ -35,7 +35,7 @@ export interface ListAccountIntegrationsCommandOutput extends ListAccountIntegra
  *
  * @see {@link ListAccountIntegrationsCommandInput} for command's `input` shape.
  * @see {@link ListAccountIntegrationsCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAccountIntegrationsCommand extends $Command<

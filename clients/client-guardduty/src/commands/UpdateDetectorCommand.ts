@@ -35,7 +35,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
  *
  * @see {@link UpdateDetectorCommandInput} for command's `input` shape.
  * @see {@link UpdateDetectorCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDetectorCommand extends $Command<

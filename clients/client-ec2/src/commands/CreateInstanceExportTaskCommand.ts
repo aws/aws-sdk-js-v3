@@ -38,7 +38,7 @@ export interface CreateInstanceExportTaskCommandOutput extends CreateInstanceExp
  *
  * @see {@link CreateInstanceExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateInstanceExportTaskCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateInstanceExportTaskCommand extends $Command<

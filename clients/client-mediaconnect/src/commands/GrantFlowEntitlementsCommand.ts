@@ -35,7 +35,7 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  *
  * @see {@link GrantFlowEntitlementsCommandInput} for command's `input` shape.
  * @see {@link GrantFlowEntitlementsCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GrantFlowEntitlementsCommand extends $Command<

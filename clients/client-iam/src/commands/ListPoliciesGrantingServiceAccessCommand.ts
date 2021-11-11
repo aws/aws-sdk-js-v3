@@ -79,7 +79,7 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  *
  * @see {@link ListPoliciesGrantingServiceAccessCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesGrantingServiceAccessCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPoliciesGrantingServiceAccessCommand extends $Command<

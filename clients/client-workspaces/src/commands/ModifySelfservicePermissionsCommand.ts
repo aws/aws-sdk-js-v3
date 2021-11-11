@@ -38,7 +38,7 @@ export interface ModifySelfservicePermissionsCommandOutput
  *
  * @see {@link ModifySelfservicePermissionsCommandInput} for command's `input` shape.
  * @see {@link ModifySelfservicePermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifySelfservicePermissionsCommand extends $Command<

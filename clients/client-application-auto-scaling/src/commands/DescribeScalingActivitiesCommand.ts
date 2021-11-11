@@ -42,7 +42,7 @@ export interface DescribeScalingActivitiesCommandOutput extends DescribeScalingA
  *
  * @see {@link DescribeScalingActivitiesCommandInput} for command's `input` shape.
  * @see {@link DescribeScalingActivitiesCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeScalingActivitiesCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
  *
  * @see {@link DescribeRecommendationExportJobsCommandInput} for command's `input` shape.
  * @see {@link DescribeRecommendationExportJobsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRecommendationExportJobsCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
  *
  * @see {@link ListResponseHeadersPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListResponseHeadersPoliciesCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListResponseHeadersPoliciesCommand extends $Command<

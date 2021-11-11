@@ -35,7 +35,7 @@ export interface DeleteFlowDefinitionCommandOutput extends DeleteFlowDefinitionR
  *
  * @see {@link DeleteFlowDefinitionCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowDefinitionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFlowDefinitionCommand extends $Command<

@@ -41,7 +41,7 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
  *
  * @see {@link PutAppInstanceStreamingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link PutAppInstanceStreamingConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAppInstanceStreamingConfigurationsCommand extends $Command<

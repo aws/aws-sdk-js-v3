@@ -35,7 +35,7 @@ export interface UpdateChannelCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateChannelCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateChannelCommand extends $Command<

@@ -37,7 +37,7 @@ export interface PutVerificationStateOnViolationCommandOutput
  *
  * @see {@link PutVerificationStateOnViolationCommandInput} for command's `input` shape.
  * @see {@link PutVerificationStateOnViolationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutVerificationStateOnViolationCommand extends $Command<

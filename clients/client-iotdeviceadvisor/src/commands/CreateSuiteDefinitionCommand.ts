@@ -35,7 +35,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  *
  * @see {@link CreateSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link CreateSuiteDefinitionCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSuiteDefinitionCommand extends $Command<

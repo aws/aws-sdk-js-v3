@@ -35,7 +35,7 @@ export interface CreatePartnerInputCommandOutput extends CreatePartnerInputRespo
  *
  * @see {@link CreatePartnerInputCommandInput} for command's `input` shape.
  * @see {@link CreatePartnerInputCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePartnerInputCommand extends $Command<

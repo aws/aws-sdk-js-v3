@@ -41,7 +41,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  *
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandInput} for command's `input` shape.
  * @see {@link UpdateEndpointWeightsAndCapacitiesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command<

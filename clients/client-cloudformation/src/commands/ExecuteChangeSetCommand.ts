@@ -45,7 +45,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  *
  * @see {@link ExecuteChangeSetCommandInput} for command's `input` shape.
  * @see {@link ExecuteChangeSetCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExecuteChangeSetCommand extends $Command<

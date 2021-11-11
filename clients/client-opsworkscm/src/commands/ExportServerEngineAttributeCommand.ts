@@ -48,7 +48,7 @@ export interface ExportServerEngineAttributeCommandOutput
  *
  * @see {@link ExportServerEngineAttributeCommandInput} for command's `input` shape.
  * @see {@link ExportServerEngineAttributeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExportServerEngineAttributeCommand extends $Command<

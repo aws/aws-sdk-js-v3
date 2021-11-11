@@ -36,7 +36,7 @@ export interface DescribeThingGroupCommandOutput extends DescribeThingGroupRespo
  *
  * @see {@link DescribeThingGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeThingGroupCommand extends $Command<

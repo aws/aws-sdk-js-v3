@@ -35,7 +35,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  *
  * @see {@link DeletePackageCommandInput} for command's `input` shape.
  * @see {@link DeletePackageCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePackageCommand extends $Command<

@@ -44,7 +44,7 @@ export interface ListThingsCommandOutput extends ListThingsResponse, __MetadataB
  *
  * @see {@link ListThingsCommandInput} for command's `input` shape.
  * @see {@link ListThingsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListThingsCommand extends $Command<

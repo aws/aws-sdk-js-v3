@@ -40,7 +40,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  *
  * @see {@link UpdateSignalingChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateSignalingChannelCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSignalingChannelCommand extends $Command<

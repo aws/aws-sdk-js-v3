@@ -37,7 +37,7 @@ export interface DescribeBudgetActionCommandOutput extends DescribeBudgetActionR
  *
  * @see {@link DescribeBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DescribeBudgetActionCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeBudgetActionCommand extends $Command<

@@ -43,7 +43,7 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  *
  * @see {@link CreateClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateClusterParameterGroupCommand extends $Command<

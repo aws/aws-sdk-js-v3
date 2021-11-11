@@ -43,7 +43,7 @@ export interface ListResourceDataSyncCommandOutput extends ListResourceDataSyncR
  *
  * @see {@link ListResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link ListResourceDataSyncCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListResourceDataSyncCommand extends $Command<

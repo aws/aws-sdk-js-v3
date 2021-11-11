@@ -71,7 +71,7 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *
  * @see {@link DecodeAuthorizationMessageCommandInput} for command's `input` shape.
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
- * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link STSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DecodeAuthorizationMessageCommand extends $Command<

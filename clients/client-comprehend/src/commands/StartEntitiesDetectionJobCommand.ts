@@ -39,7 +39,7 @@ export interface StartEntitiesDetectionJobCommandOutput extends StartEntitiesDet
  *
  * @see {@link StartEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StartEntitiesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartEntitiesDetectionJobCommand extends $Command<

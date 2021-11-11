@@ -39,7 +39,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *
  * @see {@link CreateSimulationJobCommandInput} for command's `input` shape.
  * @see {@link CreateSimulationJobCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSimulationJobCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
  *
  * @see {@link DeleteSkillAuthorizationCommandInput} for command's `input` shape.
  * @see {@link DeleteSkillAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSkillAuthorizationCommand extends $Command<

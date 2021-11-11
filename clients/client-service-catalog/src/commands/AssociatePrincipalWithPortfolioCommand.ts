@@ -37,7 +37,7 @@ export interface AssociatePrincipalWithPortfolioCommandOutput
  *
  * @see {@link AssociatePrincipalWithPortfolioCommandInput} for command's `input` shape.
  * @see {@link AssociatePrincipalWithPortfolioCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociatePrincipalWithPortfolioCommand extends $Command<

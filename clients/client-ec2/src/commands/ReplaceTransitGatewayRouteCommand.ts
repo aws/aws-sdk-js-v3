@@ -35,7 +35,7 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  *
  * @see {@link ReplaceTransitGatewayRouteCommandInput} for command's `input` shape.
  * @see {@link ReplaceTransitGatewayRouteCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ReplaceTransitGatewayRouteCommand extends $Command<

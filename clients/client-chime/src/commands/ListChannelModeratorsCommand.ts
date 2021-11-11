@@ -40,7 +40,7 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  *
  * @see {@link ListChannelModeratorsCommandInput} for command's `input` shape.
  * @see {@link ListChannelModeratorsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListChannelModeratorsCommand extends $Command<

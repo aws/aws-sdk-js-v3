@@ -38,7 +38,7 @@ export interface RegisterWebhookWithThirdPartyCommandOutput
  *
  * @see {@link RegisterWebhookWithThirdPartyCommandInput} for command's `input` shape.
  * @see {@link RegisterWebhookWithThirdPartyCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterWebhookWithThirdPartyCommand extends $Command<

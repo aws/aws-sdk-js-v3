@@ -45,7 +45,7 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  *
  * @see {@link DeprovisionByoipCidrCommandInput} for command's `input` shape.
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeprovisionByoipCidrCommand extends $Command<

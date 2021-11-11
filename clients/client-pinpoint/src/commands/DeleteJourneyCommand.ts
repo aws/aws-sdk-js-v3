@@ -35,7 +35,7 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
  *
  * @see {@link DeleteJourneyCommandInput} for command's `input` shape.
  * @see {@link DeleteJourneyCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteJourneyCommand extends $Command<

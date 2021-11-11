@@ -74,7 +74,7 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *
  * @see {@link CreatePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link CreatePlatformApplicationCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePlatformApplicationCommand extends $Command<

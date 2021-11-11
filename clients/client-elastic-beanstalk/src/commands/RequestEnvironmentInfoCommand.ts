@@ -50,7 +50,7 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RequestEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RequestEnvironmentInfoCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RequestEnvironmentInfoCommand extends $Command<

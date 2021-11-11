@@ -36,7 +36,7 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *
  * @see {@link StartEngagementCommandInput} for command's `input` shape.
  * @see {@link StartEngagementCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartEngagementCommand extends $Command<

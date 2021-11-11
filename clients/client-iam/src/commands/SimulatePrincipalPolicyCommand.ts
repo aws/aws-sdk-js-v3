@@ -60,7 +60,7 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *
  * @see {@link SimulatePrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link SimulatePrincipalPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SimulatePrincipalPolicyCommand extends $Command<

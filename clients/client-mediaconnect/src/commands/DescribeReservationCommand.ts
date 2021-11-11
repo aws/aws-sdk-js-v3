@@ -35,7 +35,7 @@ export interface DescribeReservationCommandOutput extends DescribeReservationRes
  *
  * @see {@link DescribeReservationCommandInput} for command's `input` shape.
  * @see {@link DescribeReservationCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReservationCommand extends $Command<

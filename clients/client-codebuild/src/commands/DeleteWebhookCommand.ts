@@ -37,7 +37,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  *
  * @see {@link DeleteWebhookCommandInput} for command's `input` shape.
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteWebhookCommand extends $Command<

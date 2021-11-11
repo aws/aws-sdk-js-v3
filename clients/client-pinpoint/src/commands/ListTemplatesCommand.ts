@@ -35,7 +35,7 @@ export interface ListTemplatesCommandOutput extends ListTemplatesResponse, __Met
  *
  * @see {@link ListTemplatesCommandInput} for command's `input` shape.
  * @see {@link ListTemplatesCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTemplatesCommand extends $Command<

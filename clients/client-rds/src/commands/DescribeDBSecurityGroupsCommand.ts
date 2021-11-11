@@ -38,7 +38,7 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  *
  * @see {@link DescribeDBSecurityGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDBSecurityGroupsCommand extends $Command<

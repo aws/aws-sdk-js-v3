@@ -36,7 +36,7 @@ export interface DescribeRecoveryPointCommandOutput extends DescribeRecoveryPoin
  *
  * @see {@link DescribeRecoveryPointCommandInput} for command's `input` shape.
  * @see {@link DescribeRecoveryPointCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRecoveryPointCommand extends $Command<

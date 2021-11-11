@@ -36,7 +36,7 @@ export interface DetectSyntaxCommandOutput extends DetectSyntaxResponse, __Metad
  *
  * @see {@link DetectSyntaxCommandInput} for command's `input` shape.
  * @see {@link DetectSyntaxCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetectSyntaxCommand extends $Command<

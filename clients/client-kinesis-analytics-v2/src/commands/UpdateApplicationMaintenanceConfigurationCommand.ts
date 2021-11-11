@@ -60,7 +60,7 @@ export interface UpdateApplicationMaintenanceConfigurationCommandOutput
  *
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationMaintenanceConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApplicationMaintenanceConfigurationCommand extends $Command<

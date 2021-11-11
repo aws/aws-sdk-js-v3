@@ -38,7 +38,7 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  *
  * @see {@link GetOfferingStatusCommandInput} for command's `input` shape.
  * @see {@link GetOfferingStatusCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOfferingStatusCommand extends $Command<

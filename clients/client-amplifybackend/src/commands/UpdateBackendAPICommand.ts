@@ -35,7 +35,7 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  *
  * @see {@link UpdateBackendAPICommandInput} for command's `input` shape.
  * @see {@link UpdateBackendAPICommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBackendAPICommand extends $Command<

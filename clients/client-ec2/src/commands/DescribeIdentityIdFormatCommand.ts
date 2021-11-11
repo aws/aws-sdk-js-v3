@@ -53,7 +53,7 @@ export interface DescribeIdentityIdFormatCommandOutput extends DescribeIdentityI
  *
  * @see {@link DescribeIdentityIdFormatCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityIdFormatCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIdentityIdFormatCommand extends $Command<

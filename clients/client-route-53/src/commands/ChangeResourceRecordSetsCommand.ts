@@ -117,7 +117,7 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *
  * @see {@link ChangeResourceRecordSetsCommandInput} for command's `input` shape.
  * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ChangeResourceRecordSetsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetMailDomainCommandOutput extends GetMailDomainResponse, __Met
  *
  * @see {@link GetMailDomainCommandInput} for command's `input` shape.
  * @see {@link GetMailDomainCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMailDomainCommand extends $Command<

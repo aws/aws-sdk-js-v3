@@ -38,7 +38,7 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAttendeeCommandInput} for command's `input` shape.
  * @see {@link DeleteAttendeeCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAttendeeCommand extends $Command<

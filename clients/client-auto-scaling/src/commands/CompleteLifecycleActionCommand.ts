@@ -66,7 +66,7 @@ export interface CompleteLifecycleActionCommandOutput extends CompleteLifecycleA
  *
  * @see {@link CompleteLifecycleActionCommandInput} for command's `input` shape.
  * @see {@link CompleteLifecycleActionCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CompleteLifecycleActionCommand extends $Command<

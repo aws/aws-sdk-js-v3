@@ -35,7 +35,7 @@ export interface UpdateInstanceProfileCommandOutput extends UpdateInstanceProfil
  *
  * @see {@link UpdateInstanceProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateInstanceProfileCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateInstanceProfileCommand extends $Command<

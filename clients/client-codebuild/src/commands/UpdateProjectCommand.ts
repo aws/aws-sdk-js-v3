@@ -35,7 +35,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  *
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProjectCommand extends $Command<

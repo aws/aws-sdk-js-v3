@@ -59,7 +59,7 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *
  * @see {@link AssociateAddressCommandInput} for command's `input` shape.
  * @see {@link AssociateAddressCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateAddressCommand extends $Command<

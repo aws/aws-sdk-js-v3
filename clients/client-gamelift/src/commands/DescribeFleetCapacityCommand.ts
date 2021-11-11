@@ -84,7 +84,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  *
  * @see {@link DescribeFleetCapacityCommandInput} for command's `input` shape.
  * @see {@link DescribeFleetCapacityCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFleetCapacityCommand extends $Command<

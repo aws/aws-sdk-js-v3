@@ -35,7 +35,7 @@ export interface GetModelTemplateCommandOutput extends Template, __MetadataBeare
  *
  * @see {@link GetModelTemplateCommandInput} for command's `input` shape.
  * @see {@link GetModelTemplateCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetModelTemplateCommand extends $Command<

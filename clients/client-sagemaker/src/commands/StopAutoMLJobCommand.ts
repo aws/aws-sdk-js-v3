@@ -35,7 +35,7 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopAutoMLJobCommandInput} for command's `input` shape.
  * @see {@link StopAutoMLJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopAutoMLJobCommand extends $Command<

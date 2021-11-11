@@ -38,7 +38,7 @@ export interface ValidateSecurityProfileBehaviorsCommandOutput
  *
  * @see {@link ValidateSecurityProfileBehaviorsCommandInput} for command's `input` shape.
  * @see {@link ValidateSecurityProfileBehaviorsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ValidateSecurityProfileBehaviorsCommand extends $Command<

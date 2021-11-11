@@ -35,7 +35,7 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  *
  * @see {@link MergeBranchesBySquashCommandInput} for command's `input` shape.
  * @see {@link MergeBranchesBySquashCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class MergeBranchesBySquashCommand extends $Command<

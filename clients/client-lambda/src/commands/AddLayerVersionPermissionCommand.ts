@@ -40,7 +40,7 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *
  * @see {@link AddLayerVersionPermissionCommandInput} for command's `input` shape.
  * @see {@link AddLayerVersionPermissionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddLayerVersionPermissionCommand extends $Command<

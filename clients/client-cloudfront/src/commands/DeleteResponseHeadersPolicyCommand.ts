@@ -41,7 +41,7 @@ export interface DeleteResponseHeadersPolicyCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteResponseHeadersPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResponseHeadersPolicyCommand extends $Command<

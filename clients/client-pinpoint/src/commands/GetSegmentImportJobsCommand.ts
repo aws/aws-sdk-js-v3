@@ -35,7 +35,7 @@ export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsR
  *
  * @see {@link GetSegmentImportJobsCommandInput} for command's `input` shape.
  * @see {@link GetSegmentImportJobsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSegmentImportJobsCommand extends $Command<

@@ -58,7 +58,7 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  *
  * @see {@link CreateVaultCommandInput} for command's `input` shape.
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVaultCommand extends $Command<

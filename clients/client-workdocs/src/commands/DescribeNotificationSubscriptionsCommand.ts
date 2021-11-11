@@ -40,7 +40,7 @@ export interface DescribeNotificationSubscriptionsCommandOutput
  *
  * @see {@link DescribeNotificationSubscriptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeNotificationSubscriptionsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeNotificationSubscriptionsCommand extends $Command<

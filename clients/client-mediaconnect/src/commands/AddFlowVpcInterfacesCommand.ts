@@ -35,7 +35,7 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  *
  * @see {@link AddFlowVpcInterfacesCommandInput} for command's `input` shape.
  * @see {@link AddFlowVpcInterfacesCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddFlowVpcInterfacesCommand extends $Command<

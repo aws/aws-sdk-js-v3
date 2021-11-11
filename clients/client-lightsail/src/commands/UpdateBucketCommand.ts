@@ -38,7 +38,7 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  *
  * @see {@link UpdateBucketCommandInput} for command's `input` shape.
  * @see {@link UpdateBucketCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBucketCommand extends $Command<

@@ -41,7 +41,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentOutput, __Metad
  *
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeploymentCommand extends $Command<

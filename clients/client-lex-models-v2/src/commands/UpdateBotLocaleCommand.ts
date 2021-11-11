@@ -35,7 +35,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *
  * @see {@link UpdateBotLocaleCommandInput} for command's `input` shape.
  * @see {@link UpdateBotLocaleCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBotLocaleCommand extends $Command<

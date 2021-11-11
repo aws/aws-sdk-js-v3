@@ -36,7 +36,7 @@ export interface UpdateFolderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateFolderCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFolderCommand extends $Command<

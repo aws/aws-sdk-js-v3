@@ -35,7 +35,7 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  *
  * @see {@link UpdateResolverCommandInput} for command's `input` shape.
  * @see {@link UpdateResolverCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResolverCommand extends $Command<

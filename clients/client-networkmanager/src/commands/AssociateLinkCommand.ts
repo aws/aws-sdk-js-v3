@@ -35,7 +35,7 @@ export interface AssociateLinkCommandOutput extends AssociateLinkResponse, __Met
  *
  * @see {@link AssociateLinkCommandInput} for command's `input` shape.
  * @see {@link AssociateLinkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateLinkCommand extends $Command<

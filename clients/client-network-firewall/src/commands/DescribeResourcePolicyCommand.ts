@@ -35,7 +35,7 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *
  * @see {@link DescribeResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeResourcePolicyCommand extends $Command<

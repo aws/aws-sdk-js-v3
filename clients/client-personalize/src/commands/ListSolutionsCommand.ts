@@ -38,7 +38,7 @@ export interface ListSolutionsCommandOutput extends ListSolutionsResponse, __Met
  *
  * @see {@link ListSolutionsCommandInput} for command's `input` shape.
  * @see {@link ListSolutionsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSolutionsCommand extends $Command<

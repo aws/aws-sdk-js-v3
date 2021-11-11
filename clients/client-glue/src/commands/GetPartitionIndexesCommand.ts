@@ -35,7 +35,7 @@ export interface GetPartitionIndexesCommandOutput extends GetPartitionIndexesRes
  *
  * @see {@link GetPartitionIndexesCommandInput} for command's `input` shape.
  * @see {@link GetPartitionIndexesCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPartitionIndexesCommand extends $Command<

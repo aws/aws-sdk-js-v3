@@ -41,7 +41,7 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  *
  * @see {@link DescribeDeviceEc2InstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDeviceEc2InstancesCommandOutput} for command's `response` shape.
- * @see {@link SnowDeviceManagementClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowDeviceManagementClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDeviceEc2InstancesCommand extends $Command<

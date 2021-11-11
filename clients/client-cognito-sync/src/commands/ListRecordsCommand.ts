@@ -90,7 +90,7 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  *
  * @see {@link ListRecordsCommandInput} for command's `input` shape.
  * @see {@link ListRecordsCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRecordsCommand extends $Command<

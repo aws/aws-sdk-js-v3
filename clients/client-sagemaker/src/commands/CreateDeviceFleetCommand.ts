@@ -35,7 +35,7 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateDeviceFleetCommandInput} for command's `input` shape.
  * @see {@link CreateDeviceFleetCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDeviceFleetCommand extends $Command<

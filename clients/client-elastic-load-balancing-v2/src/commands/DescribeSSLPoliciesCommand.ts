@@ -41,7 +41,7 @@ export interface DescribeSSLPoliciesCommandOutput extends DescribeSSLPoliciesOut
  *
  * @see {@link DescribeSSLPoliciesCommandInput} for command's `input` shape.
  * @see {@link DescribeSSLPoliciesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSSLPoliciesCommand extends $Command<

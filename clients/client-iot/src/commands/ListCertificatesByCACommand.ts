@@ -36,7 +36,7 @@ export interface ListCertificatesByCACommandOutput extends ListCertificatesByCAR
  *
  * @see {@link ListCertificatesByCACommandInput} for command's `input` shape.
  * @see {@link ListCertificatesByCACommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCertificatesByCACommand extends $Command<

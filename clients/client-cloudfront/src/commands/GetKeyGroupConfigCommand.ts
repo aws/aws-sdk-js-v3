@@ -40,7 +40,7 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  *
  * @see {@link GetKeyGroupConfigCommandInput} for command's `input` shape.
  * @see {@link GetKeyGroupConfigCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetKeyGroupConfigCommand extends $Command<

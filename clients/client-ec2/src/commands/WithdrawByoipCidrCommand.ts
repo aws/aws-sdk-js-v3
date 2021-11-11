@@ -39,7 +39,7 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  *
  * @see {@link WithdrawByoipCidrCommandInput} for command's `input` shape.
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class WithdrawByoipCidrCommand extends $Command<

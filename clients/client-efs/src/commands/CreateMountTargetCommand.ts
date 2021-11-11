@@ -176,7 +176,7 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *
  * @see {@link CreateMountTargetCommandInput} for command's `input` shape.
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMountTargetCommand extends $Command<

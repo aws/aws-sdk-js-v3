@@ -35,7 +35,7 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
  *
  * @see {@link UpdateNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateNetworkProfileCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateNetworkProfileCommand extends $Command<

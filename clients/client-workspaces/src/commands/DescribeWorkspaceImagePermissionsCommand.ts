@@ -38,7 +38,7 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput
  *
  * @see {@link DescribeWorkspaceImagePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeWorkspaceImagePermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeWorkspaceImagePermissionsCommand extends $Command<

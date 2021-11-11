@@ -40,7 +40,7 @@ export interface CreateRelationalDatabaseSnapshotCommandOutput
  *
  * @see {@link CreateRelationalDatabaseSnapshotCommandInput} for command's `input` shape.
  * @see {@link CreateRelationalDatabaseSnapshotCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRelationalDatabaseSnapshotCommand extends $Command<

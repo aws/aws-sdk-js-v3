@@ -40,7 +40,7 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  *
  * @see {@link GetInstancesHealthStatusCommandInput} for command's `input` shape.
  * @see {@link GetInstancesHealthStatusCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInstancesHealthStatusCommand extends $Command<

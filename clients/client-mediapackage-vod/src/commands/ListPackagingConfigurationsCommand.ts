@@ -37,7 +37,7 @@ export interface ListPackagingConfigurationsCommandOutput
  *
  * @see {@link ListPackagingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListPackagingConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPackagingConfigurationsCommand extends $Command<

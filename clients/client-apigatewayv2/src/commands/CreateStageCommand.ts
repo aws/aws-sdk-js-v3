@@ -35,7 +35,7 @@ export interface CreateStageCommandOutput extends CreateStageResponse, __Metadat
  *
  * @see {@link CreateStageCommandInput} for command's `input` shape.
  * @see {@link CreateStageCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStageCommand extends $Command<

@@ -40,7 +40,7 @@ export interface CreatePublicDnsNamespaceCommandOutput extends CreatePublicDnsNa
  *
  * @see {@link CreatePublicDnsNamespaceCommandInput} for command's `input` shape.
  * @see {@link CreatePublicDnsNamespaceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePublicDnsNamespaceCommand extends $Command<

@@ -54,7 +54,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
  *
  * @see {@link CreateApplicationPresignedUrlCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationPresignedUrlCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationPresignedUrlCommand extends $Command<

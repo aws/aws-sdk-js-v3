@@ -57,7 +57,7 @@ export interface GetDashboardEmbedUrlCommandOutput extends GetDashboardEmbedUrlR
  *
  * @see {@link GetDashboardEmbedUrlCommandInput} for command's `input` shape.
  * @see {@link GetDashboardEmbedUrlCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDashboardEmbedUrlCommand extends $Command<

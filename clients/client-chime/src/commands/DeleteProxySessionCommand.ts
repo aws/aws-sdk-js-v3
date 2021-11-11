@@ -35,7 +35,7 @@ export interface DeleteProxySessionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteProxySessionCommandInput} for command's `input` shape.
  * @see {@link DeleteProxySessionCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteProxySessionCommand extends $Command<

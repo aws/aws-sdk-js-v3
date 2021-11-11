@@ -36,7 +36,7 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  *
  * @see {@link UpdateProvisioningArtifactCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisioningArtifactCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProvisioningArtifactCommand extends $Command<

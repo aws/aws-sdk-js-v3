@@ -36,7 +36,7 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteMonitoringScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteMonitoringScheduleCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMonitoringScheduleCommand extends $Command<

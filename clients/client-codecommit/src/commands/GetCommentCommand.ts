@@ -39,7 +39,7 @@ export interface GetCommentCommandOutput extends GetCommentOutput, __MetadataBea
  *
  * @see {@link GetCommentCommandInput} for command's `input` shape.
  * @see {@link GetCommentCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCommentCommand extends $Command<

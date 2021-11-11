@@ -35,7 +35,7 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  *
  * @see {@link BatchAssociateScramSecretCommandInput} for command's `input` shape.
  * @see {@link BatchAssociateScramSecretCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchAssociateScramSecretCommand extends $Command<

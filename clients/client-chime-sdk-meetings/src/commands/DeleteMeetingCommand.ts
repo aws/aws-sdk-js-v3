@@ -38,7 +38,7 @@ export interface DeleteMeetingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteMeetingCommandInput} for command's `input` shape.
  * @see {@link DeleteMeetingCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMeetingCommand extends $Command<

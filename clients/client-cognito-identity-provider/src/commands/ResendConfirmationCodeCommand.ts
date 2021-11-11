@@ -57,7 +57,7 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  *
  * @see {@link ResendConfirmationCodeCommandInput} for command's `input` shape.
  * @see {@link ResendConfirmationCodeCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResendConfirmationCodeCommand extends $Command<

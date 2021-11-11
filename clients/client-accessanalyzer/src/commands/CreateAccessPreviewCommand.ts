@@ -36,7 +36,7 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *
  * @see {@link CreateAccessPreviewCommandInput} for command's `input` shape.
  * @see {@link CreateAccessPreviewCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAccessPreviewCommand extends $Command<

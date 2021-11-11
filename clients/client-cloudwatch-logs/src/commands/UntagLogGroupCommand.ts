@@ -41,7 +41,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagLogGroupCommandInput} for command's `input` shape.
  * @see {@link UntagLogGroupCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagLogGroupCommand extends $Command<

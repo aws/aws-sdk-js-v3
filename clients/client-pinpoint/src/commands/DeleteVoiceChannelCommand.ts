@@ -35,7 +35,7 @@ export interface DeleteVoiceChannelCommandOutput extends DeleteVoiceChannelRespo
  *
  * @see {@link DeleteVoiceChannelCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVoiceChannelCommand extends $Command<

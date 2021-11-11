@@ -46,7 +46,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *
  * @see {@link ModifyListenerCommandInput} for command's `input` shape.
  * @see {@link ModifyListenerCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyListenerCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateTrialComponentCommandOutput extends UpdateTrialComponentR
  *
  * @see {@link UpdateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link UpdateTrialComponentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTrialComponentCommand extends $Command<

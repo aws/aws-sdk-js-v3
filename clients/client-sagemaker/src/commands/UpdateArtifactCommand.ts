@@ -35,7 +35,7 @@ export interface UpdateArtifactCommandOutput extends UpdateArtifactResponse, __M
  *
  * @see {@link UpdateArtifactCommandInput} for command's `input` shape.
  * @see {@link UpdateArtifactCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateArtifactCommand extends $Command<

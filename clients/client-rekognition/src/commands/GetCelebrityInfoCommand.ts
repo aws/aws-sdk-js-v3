@@ -42,7 +42,7 @@ export interface GetCelebrityInfoCommandOutput extends GetCelebrityInfoResponse,
  *
  * @see {@link GetCelebrityInfoCommandInput} for command's `input` shape.
  * @see {@link GetCelebrityInfoCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCelebrityInfoCommand extends $Command<

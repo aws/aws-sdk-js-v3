@@ -35,7 +35,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  *
  * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWorkflowsCommand extends $Command<

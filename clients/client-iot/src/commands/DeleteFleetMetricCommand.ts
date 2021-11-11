@@ -37,7 +37,7 @@ export interface DeleteFleetMetricCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteFleetMetricCommandInput} for command's `input` shape.
  * @see {@link DeleteFleetMetricCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFleetMetricCommand extends $Command<

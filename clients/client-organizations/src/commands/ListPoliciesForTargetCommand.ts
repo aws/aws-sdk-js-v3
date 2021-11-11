@@ -47,7 +47,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *
  * @see {@link ListPoliciesForTargetCommandInput} for command's `input` shape.
  * @see {@link ListPoliciesForTargetCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPoliciesForTargetCommand extends $Command<

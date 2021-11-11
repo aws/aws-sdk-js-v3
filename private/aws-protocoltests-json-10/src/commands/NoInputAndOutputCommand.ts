@@ -38,7 +38,7 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  *
  * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
- * @see {@link JSONRPC10ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link JSONRPC10ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NoInputAndOutputCommand extends $Command<

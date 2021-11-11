@@ -40,7 +40,7 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  *
  * @see {@link CreateDirectoryCommandInput} for command's `input` shape.
  * @see {@link CreateDirectoryCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDirectoryCommand extends $Command<

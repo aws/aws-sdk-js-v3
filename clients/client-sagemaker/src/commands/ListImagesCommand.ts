@@ -36,7 +36,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *
  * @see {@link ListImagesCommandInput} for command's `input` shape.
  * @see {@link ListImagesCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListImagesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateApiCommandOutput extends CreateApiResponse, __MetadataBea
  *
  * @see {@link CreateApiCommandInput} for command's `input` shape.
  * @see {@link CreateApiCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApiCommand extends $Command<

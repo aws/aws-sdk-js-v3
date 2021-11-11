@@ -36,7 +36,7 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  *
  * @see {@link DeleteCodeSigningConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteCodeSigningConfigCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCodeSigningConfigCommand extends $Command<

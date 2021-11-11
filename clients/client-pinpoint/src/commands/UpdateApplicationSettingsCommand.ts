@@ -35,7 +35,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  *
  * @see {@link UpdateApplicationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationSettingsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApplicationSettingsCommand extends $Command<

@@ -54,7 +54,7 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  *
  * @see {@link GetResourceConfigHistoryCommandInput} for command's `input` shape.
  * @see {@link GetResourceConfigHistoryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetResourceConfigHistoryCommand extends $Command<

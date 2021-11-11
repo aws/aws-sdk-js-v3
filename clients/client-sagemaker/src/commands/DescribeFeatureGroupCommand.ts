@@ -37,7 +37,7 @@ export interface DescribeFeatureGroupCommandOutput extends DescribeFeatureGroupR
  *
  * @see {@link DescribeFeatureGroupCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureGroupCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFeatureGroupCommand extends $Command<

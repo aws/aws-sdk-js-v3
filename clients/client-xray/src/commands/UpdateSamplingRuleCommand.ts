@@ -35,7 +35,7 @@ export interface UpdateSamplingRuleCommandOutput extends UpdateSamplingRuleResul
  *
  * @see {@link UpdateSamplingRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateSamplingRuleCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSamplingRuleCommand extends $Command<

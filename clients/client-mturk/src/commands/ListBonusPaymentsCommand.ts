@@ -40,7 +40,7 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  *
  * @see {@link ListBonusPaymentsCommandInput} for command's `input` shape.
  * @see {@link ListBonusPaymentsCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBonusPaymentsCommand extends $Command<

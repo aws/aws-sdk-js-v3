@@ -39,7 +39,7 @@ export interface GetResourceSetCommandOutput extends GetResourceSetResponse, __M
  *
  * @see {@link GetResourceSetCommandInput} for command's `input` shape.
  * @see {@link GetResourceSetCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetResourceSetCommand extends $Command<

@@ -50,7 +50,7 @@ export interface CreateEnvironmentTemplateCommandOutput extends CreateEnvironmen
  *
  * @see {@link CreateEnvironmentTemplateCommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentTemplateCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEnvironmentTemplateCommand extends $Command<

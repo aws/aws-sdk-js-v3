@@ -64,7 +64,7 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  *
  * @see {@link ListSecretsCommandInput} for command's `input` shape.
  * @see {@link ListSecretsCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSecretsCommand extends $Command<

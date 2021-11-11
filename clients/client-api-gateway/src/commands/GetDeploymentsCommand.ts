@@ -35,7 +35,7 @@ export interface GetDeploymentsCommandOutput extends Deployments, __MetadataBear
  *
  * @see {@link GetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentsCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeploymentsCommand extends $Command<

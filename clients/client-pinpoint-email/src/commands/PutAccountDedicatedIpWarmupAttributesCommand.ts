@@ -41,7 +41,7 @@ export interface PutAccountDedicatedIpWarmupAttributesCommandOutput
  *
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountDedicatedIpWarmupAttributesCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAccountDedicatedIpWarmupAttributesCommand extends $Command<

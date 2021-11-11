@@ -43,7 +43,7 @@ export interface ListSizeConstraintSetsCommandOutput extends ListSizeConstraintS
  *
  * @see {@link ListSizeConstraintSetsCommandInput} for command's `input` shape.
  * @see {@link ListSizeConstraintSetsCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSizeConstraintSetsCommand extends $Command<

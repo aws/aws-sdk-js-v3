@@ -46,7 +46,7 @@ export interface BatchDeleteImportDataCommandOutput extends BatchDeleteImportDat
  *
  * @see {@link BatchDeleteImportDataCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteImportDataCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchDeleteImportDataCommand extends $Command<

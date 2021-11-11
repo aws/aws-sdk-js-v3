@@ -35,7 +35,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *
  * @see {@link ListPermissionsCommandInput} for command's `input` shape.
  * @see {@link ListPermissionsCommandOutput} for command's `response` shape.
- * @see {@link RAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPermissionsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  *
  * @see {@link ListAuditFindingsCommandInput} for command's `input` shape.
  * @see {@link ListAuditFindingsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAuditFindingsCommand extends $Command<

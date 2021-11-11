@@ -35,7 +35,7 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
  *
  * @see {@link ListVocabularyFiltersCommandInput} for command's `input` shape.
  * @see {@link ListVocabularyFiltersCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVocabularyFiltersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetStageCommandOutput extends GetStageResponse, __MetadataBeare
  *
  * @see {@link GetStageCommandInput} for command's `input` shape.
  * @see {@link GetStageCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetStageCommand extends $Command<

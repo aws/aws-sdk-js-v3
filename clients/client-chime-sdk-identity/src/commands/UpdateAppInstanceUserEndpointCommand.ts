@@ -37,7 +37,7 @@ export interface UpdateAppInstanceUserEndpointCommandOutput
  *
  * @see {@link UpdateAppInstanceUserEndpointCommandInput} for command's `input` shape.
  * @see {@link UpdateAppInstanceUserEndpointCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKIdentityClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAppInstanceUserEndpointCommand extends $Command<

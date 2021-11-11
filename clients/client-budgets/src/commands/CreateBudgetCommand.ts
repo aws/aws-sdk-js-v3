@@ -38,7 +38,7 @@ export interface CreateBudgetCommandOutput extends CreateBudgetResponse, __Metad
  *
  * @see {@link CreateBudgetCommandInput} for command's `input` shape.
  * @see {@link CreateBudgetCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateBudgetCommand extends $Command<

@@ -41,7 +41,7 @@ export interface ListVPCAssociationAuthorizationsCommandOutput
  *
  * @see {@link ListVPCAssociationAuthorizationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCAssociationAuthorizationsCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVPCAssociationAuthorizationsCommand extends $Command<

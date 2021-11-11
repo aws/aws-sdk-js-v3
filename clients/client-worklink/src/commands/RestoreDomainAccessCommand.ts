@@ -35,7 +35,7 @@ export interface RestoreDomainAccessCommandOutput extends RestoreDomainAccessRes
  *
  * @see {@link RestoreDomainAccessCommandInput} for command's `input` shape.
  * @see {@link RestoreDomainAccessCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RestoreDomainAccessCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
  *
  * @see {@link ListDeviceEventsCommandInput} for command's `input` shape.
  * @see {@link ListDeviceEventsCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDeviceEventsCommand extends $Command<

@@ -51,7 +51,7 @@ export interface DeleteStorageLensConfigurationTaggingCommandOutput
  *
  * @see {@link DeleteStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link DeleteStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteStorageLensConfigurationTaggingCommand extends $Command<

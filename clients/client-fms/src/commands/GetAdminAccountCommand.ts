@@ -36,7 +36,7 @@ export interface GetAdminAccountCommandOutput extends GetAdminAccountResponse, _
  *
  * @see {@link GetAdminAccountCommandInput} for command's `input` shape.
  * @see {@link GetAdminAccountCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAdminAccountCommand extends $Command<

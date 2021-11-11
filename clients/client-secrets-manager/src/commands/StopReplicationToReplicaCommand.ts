@@ -35,7 +35,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  *
  * @see {@link StopReplicationToReplicaCommandInput} for command's `input` shape.
  * @see {@link StopReplicationToReplicaCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopReplicationToReplicaCommand extends $Command<

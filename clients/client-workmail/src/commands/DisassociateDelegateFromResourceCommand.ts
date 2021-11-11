@@ -37,7 +37,7 @@ export interface DisassociateDelegateFromResourceCommandOutput
  *
  * @see {@link DisassociateDelegateFromResourceCommandInput} for command's `input` shape.
  * @see {@link DisassociateDelegateFromResourceCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateDelegateFromResourceCommand extends $Command<

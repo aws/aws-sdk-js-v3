@@ -38,7 +38,7 @@ export interface ListProvisioningTemplateVersionsCommandOutput
  *
  * @see {@link ListProvisioningTemplateVersionsCommandInput} for command's `input` shape.
  * @see {@link ListProvisioningTemplateVersionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListProvisioningTemplateVersionsCommand extends $Command<

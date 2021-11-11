@@ -35,7 +35,7 @@ export interface GetTestGridProjectCommandOutput extends GetTestGridProjectResul
  *
  * @see {@link GetTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link GetTestGridProjectCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTestGridProjectCommand extends $Command<

@@ -78,7 +78,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  *
  * @see {@link ListBucketMetricsConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListBucketMetricsConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBucketMetricsConfigurationsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  *
  * @see {@link SyncResourceCommandInput} for command's `input` shape.
  * @see {@link SyncResourceCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SyncResourceCommand extends $Command<

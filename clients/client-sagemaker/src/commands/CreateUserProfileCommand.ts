@@ -41,7 +41,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileRespons
  *
  * @see {@link CreateUserProfileCommandInput} for command's `input` shape.
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateUserProfileCommand extends $Command<

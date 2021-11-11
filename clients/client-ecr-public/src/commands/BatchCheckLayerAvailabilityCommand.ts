@@ -43,7 +43,7 @@ export interface BatchCheckLayerAvailabilityCommandOutput
  *
  * @see {@link BatchCheckLayerAvailabilityCommandInput} for command's `input` shape.
  * @see {@link BatchCheckLayerAvailabilityCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchCheckLayerAvailabilityCommand extends $Command<

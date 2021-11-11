@@ -45,7 +45,7 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput
  *
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteInboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command<

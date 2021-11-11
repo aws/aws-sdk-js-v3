@@ -39,7 +39,7 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UnshareApplicationCommandInput} for command's `input` shape.
  * @see {@link UnshareApplicationCommandOutput} for command's `response` shape.
- * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServerlessApplicationRepositoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UnshareApplicationCommand extends $Command<

@@ -42,7 +42,7 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  *
  * @see {@link AttachLoadBalancerToSubnetsCommandInput} for command's `input` shape.
  * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachLoadBalancerToSubnetsCommand extends $Command<

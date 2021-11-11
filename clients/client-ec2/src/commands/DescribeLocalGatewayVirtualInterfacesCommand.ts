@@ -41,7 +41,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  *
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandInput} for command's `input` shape.
  * @see {@link DescribeLocalGatewayVirtualInterfacesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  *
  * @see {@link DeleteContactCommandInput} for command's `input` shape.
  * @see {@link DeleteContactCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteContactCommand extends $Command<

@@ -75,7 +75,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStreamCommand extends $Command<

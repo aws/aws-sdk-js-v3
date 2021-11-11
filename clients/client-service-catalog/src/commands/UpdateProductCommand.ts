@@ -35,7 +35,7 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  *
  * @see {@link UpdateProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProductCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  *
  * @see {@link GetRemoteAccessSessionCommandInput} for command's `input` shape.
  * @see {@link GetRemoteAccessSessionCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRemoteAccessSessionCommand extends $Command<

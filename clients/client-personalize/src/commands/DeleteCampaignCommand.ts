@@ -40,7 +40,7 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteCampaignCommandInput} for command's `input` shape.
  * @see {@link DeleteCampaignCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCampaignCommand extends $Command<

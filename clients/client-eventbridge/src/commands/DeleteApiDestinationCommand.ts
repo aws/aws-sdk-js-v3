@@ -35,7 +35,7 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  *
  * @see {@link DeleteApiDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteApiDestinationCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApiDestinationCommand extends $Command<

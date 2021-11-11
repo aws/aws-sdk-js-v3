@@ -44,7 +44,7 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteConfigurationRecorderCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationRecorderCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConfigurationRecorderCommand extends $Command<

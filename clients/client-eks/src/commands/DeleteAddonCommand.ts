@@ -37,7 +37,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
  *
  * @see {@link DeleteAddonCommandInput} for command's `input` shape.
  * @see {@link DeleteAddonCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAddonCommand extends $Command<

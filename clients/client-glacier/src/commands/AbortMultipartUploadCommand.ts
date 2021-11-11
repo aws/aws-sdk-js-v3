@@ -52,7 +52,7 @@ export interface AbortMultipartUploadCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AbortMultipartUploadCommandInput} for command's `input` shape.
  * @see {@link AbortMultipartUploadCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AbortMultipartUploadCommand extends $Command<

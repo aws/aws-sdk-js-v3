@@ -36,7 +36,7 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  *
  * @see {@link UpdateDynamicThingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateDynamicThingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDynamicThingGroupCommand extends $Command<

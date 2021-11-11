@@ -39,7 +39,7 @@ export interface CreateLogPatternCommandOutput extends CreateLogPatternResponse,
  *
  * @see {@link CreateLogPatternCommandInput} for command's `input` shape.
  * @see {@link CreateLogPatternCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLogPatternCommand extends $Command<

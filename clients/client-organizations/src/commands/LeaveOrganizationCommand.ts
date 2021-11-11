@@ -98,7 +98,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link LeaveOrganizationCommandInput} for command's `input` shape.
  * @see {@link LeaveOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class LeaveOrganizationCommand extends $Command<

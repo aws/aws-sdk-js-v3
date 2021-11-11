@@ -43,7 +43,7 @@ export interface ListPackageVersionDependenciesCommandOutput
  *
  * @see {@link ListPackageVersionDependenciesCommandInput} for command's `input` shape.
  * @see {@link ListPackageVersionDependenciesCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPackageVersionDependenciesCommand extends $Command<

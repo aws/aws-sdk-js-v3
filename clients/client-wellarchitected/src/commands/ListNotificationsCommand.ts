@@ -35,7 +35,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsOutput,
  *
  * @see {@link ListNotificationsCommandInput} for command's `input` shape.
  * @see {@link ListNotificationsCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListNotificationsCommand extends $Command<

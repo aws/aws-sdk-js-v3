@@ -36,7 +36,7 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  *
  * @see {@link GetAssessmentReportCommandInput} for command's `input` shape.
  * @see {@link GetAssessmentReportCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAssessmentReportCommand extends $Command<

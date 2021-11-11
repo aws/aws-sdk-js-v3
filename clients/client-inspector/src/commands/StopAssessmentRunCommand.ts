@@ -36,7 +36,7 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StopAssessmentRunCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopAssessmentRunCommand extends $Command<

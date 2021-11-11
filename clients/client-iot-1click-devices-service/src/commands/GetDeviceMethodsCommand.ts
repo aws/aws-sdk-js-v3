@@ -39,7 +39,7 @@ export interface GetDeviceMethodsCommandOutput extends GetDeviceMethodsResponse,
  *
  * @see {@link GetDeviceMethodsCommandInput} for command's `input` shape.
  * @see {@link GetDeviceMethodsCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeviceMethodsCommand extends $Command<

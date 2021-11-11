@@ -35,7 +35,7 @@ export interface ListTimelineEventsCommandOutput extends ListTimelineEventsOutpu
  *
  * @see {@link ListTimelineEventsCommandInput} for command's `input` shape.
  * @see {@link ListTimelineEventsCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTimelineEventsCommand extends $Command<

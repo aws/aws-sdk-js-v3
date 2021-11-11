@@ -37,7 +37,7 @@ export interface ListTaskDefinitionsCommandOutput extends ListTaskDefinitionsRes
  *
  * @see {@link ListTaskDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListTaskDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTaskDefinitionsCommand extends $Command<

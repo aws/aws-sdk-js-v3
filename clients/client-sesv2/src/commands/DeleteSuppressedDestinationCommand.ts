@@ -37,7 +37,7 @@ export interface DeleteSuppressedDestinationCommandOutput
  *
  * @see {@link DeleteSuppressedDestinationCommandInput} for command's `input` shape.
  * @see {@link DeleteSuppressedDestinationCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSuppressedDestinationCommand extends $Command<

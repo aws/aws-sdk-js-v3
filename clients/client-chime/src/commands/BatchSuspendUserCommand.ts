@@ -51,7 +51,7 @@ export interface BatchSuspendUserCommandOutput extends BatchSuspendUserResponse,
  *
  * @see {@link BatchSuspendUserCommandInput} for command's `input` shape.
  * @see {@link BatchSuspendUserCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchSuspendUserCommand extends $Command<

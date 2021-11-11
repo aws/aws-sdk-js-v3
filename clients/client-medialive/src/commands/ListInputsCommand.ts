@@ -35,7 +35,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  *
  * @see {@link ListInputsCommandInput} for command's `input` shape.
  * @see {@link ListInputsCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInputsCommand extends $Command<

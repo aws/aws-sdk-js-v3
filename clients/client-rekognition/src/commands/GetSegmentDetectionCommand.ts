@@ -57,7 +57,7 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  *
  * @see {@link GetSegmentDetectionCommandInput} for command's `input` shape.
  * @see {@link GetSegmentDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSegmentDetectionCommand extends $Command<

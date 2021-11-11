@@ -36,7 +36,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  *
  * @see {@link DescribeRecipeCommandInput} for command's `input` shape.
  * @see {@link DescribeRecipeCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRecipeCommand extends $Command<

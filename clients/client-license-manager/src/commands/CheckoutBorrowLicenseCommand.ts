@@ -35,7 +35,7 @@ export interface CheckoutBorrowLicenseCommandOutput extends CheckoutBorrowLicens
  *
  * @see {@link CheckoutBorrowLicenseCommandInput} for command's `input` shape.
  * @see {@link CheckoutBorrowLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CheckoutBorrowLicenseCommand extends $Command<

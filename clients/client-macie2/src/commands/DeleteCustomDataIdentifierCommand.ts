@@ -35,7 +35,7 @@ export interface DeleteCustomDataIdentifierCommandOutput extends DeleteCustomDat
  *
  * @see {@link DeleteCustomDataIdentifierCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomDataIdentifierCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCustomDataIdentifierCommand extends $Command<

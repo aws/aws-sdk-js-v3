@@ -35,7 +35,7 @@ export interface BatchGetPartitionCommandOutput extends BatchGetPartitionRespons
  *
  * @see {@link BatchGetPartitionCommandInput} for command's `input` shape.
  * @see {@link BatchGetPartitionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetPartitionCommand extends $Command<

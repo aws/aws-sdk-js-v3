@@ -35,7 +35,7 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  *
  * @see {@link GetServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingsCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetServiceSettingsCommand extends $Command<

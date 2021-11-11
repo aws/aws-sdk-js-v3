@@ -35,7 +35,7 @@ export interface TestInvokeMethodCommandOutput extends TestInvokeMethodResponse,
  *
  * @see {@link TestInvokeMethodCommandInput} for command's `input` shape.
  * @see {@link TestInvokeMethodCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TestInvokeMethodCommand extends $Command<

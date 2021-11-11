@@ -37,7 +37,7 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  *
  * @see {@link DeleteSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSubscriptionCommand extends $Command<

@@ -51,7 +51,7 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  *
  * @see {@link InvokeEndpointAsyncCommandInput} for command's `input` shape.
  * @see {@link InvokeEndpointAsyncCommandOutput} for command's `response` shape.
- * @see {@link SageMakerRuntimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerRuntimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class InvokeEndpointAsyncCommand extends $Command<

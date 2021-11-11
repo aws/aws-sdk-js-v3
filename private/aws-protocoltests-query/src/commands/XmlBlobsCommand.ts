@@ -32,7 +32,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  *
  * @see {@link XmlBlobsCommandInput} for command's `input` shape.
  * @see {@link XmlBlobsCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class XmlBlobsCommand extends $Command<

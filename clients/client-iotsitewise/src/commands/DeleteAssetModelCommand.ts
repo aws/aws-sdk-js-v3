@@ -39,7 +39,7 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *
  * @see {@link DeleteAssetModelCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetModelCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAssetModelCommand extends $Command<

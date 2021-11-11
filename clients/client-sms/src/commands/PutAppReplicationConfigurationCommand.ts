@@ -37,7 +37,7 @@ export interface PutAppReplicationConfigurationCommandOutput
  *
  * @see {@link PutAppReplicationConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutAppReplicationConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAppReplicationConfigurationCommand extends $Command<

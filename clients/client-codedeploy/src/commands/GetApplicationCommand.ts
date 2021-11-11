@@ -35,7 +35,7 @@ export interface GetApplicationCommandOutput extends GetApplicationOutput, __Met
  *
  * @see {@link GetApplicationCommandInput} for command's `input` shape.
  * @see {@link GetApplicationCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetApplicationCommand extends $Command<

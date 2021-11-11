@@ -41,7 +41,7 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  *
  * @see {@link PostAgentProfileCommandInput} for command's `input` shape.
  * @see {@link PostAgentProfileCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruProfilerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruProfilerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PostAgentProfileCommand extends $Command<

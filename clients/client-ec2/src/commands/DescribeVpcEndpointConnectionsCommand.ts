@@ -38,7 +38,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  *
  * @see {@link DescribeVpcEndpointConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVpcEndpointConnectionsCommand extends $Command<

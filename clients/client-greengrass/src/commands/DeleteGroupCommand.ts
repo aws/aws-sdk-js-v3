@@ -35,7 +35,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  *
  * @see {@link DeleteGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteGroupCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGroupCommand extends $Command<

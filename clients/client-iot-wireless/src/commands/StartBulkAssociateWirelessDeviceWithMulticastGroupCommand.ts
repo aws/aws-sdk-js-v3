@@ -41,7 +41,7 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  *
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $Command<

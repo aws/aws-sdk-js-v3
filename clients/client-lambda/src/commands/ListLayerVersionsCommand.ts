@@ -38,7 +38,7 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  *
  * @see {@link ListLayerVersionsCommandInput} for command's `input` shape.
  * @see {@link ListLayerVersionsCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLayerVersionsCommand extends $Command<

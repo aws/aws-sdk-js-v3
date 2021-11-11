@@ -39,7 +39,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *
  * @see {@link CreateComponentCommandInput} for command's `input` shape.
  * @see {@link CreateComponentCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateComponentCommand extends $Command<

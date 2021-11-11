@@ -36,7 +36,7 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  *
  * @see {@link GetFacetCommandInput} for command's `input` shape.
  * @see {@link GetFacetCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFacetCommand extends $Command<

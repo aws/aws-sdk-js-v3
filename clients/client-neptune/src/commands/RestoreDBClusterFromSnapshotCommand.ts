@@ -42,7 +42,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *
  * @see {@link RestoreDBClusterFromSnapshotCommandInput} for command's `input` shape.
  * @see {@link RestoreDBClusterFromSnapshotCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RestoreDBClusterFromSnapshotCommand extends $Command<

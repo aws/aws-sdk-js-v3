@@ -43,7 +43,7 @@ export interface GetPermissionPolicyCommandOutput extends GetPermissionPolicyRes
  *
  * @see {@link GetPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link GetPermissionPolicyCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetPermissionPolicyCommand extends $Command<

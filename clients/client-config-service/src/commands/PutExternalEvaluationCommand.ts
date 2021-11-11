@@ -36,7 +36,7 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  *
  * @see {@link PutExternalEvaluationCommandInput} for command's `input` shape.
  * @see {@link PutExternalEvaluationCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutExternalEvaluationCommand extends $Command<

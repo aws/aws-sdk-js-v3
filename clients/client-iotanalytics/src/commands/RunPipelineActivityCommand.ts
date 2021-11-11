@@ -35,7 +35,7 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  *
  * @see {@link RunPipelineActivityCommandInput} for command's `input` shape.
  * @see {@link RunPipelineActivityCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RunPipelineActivityCommand extends $Command<

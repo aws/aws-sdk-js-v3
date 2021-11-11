@@ -37,7 +37,7 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *
  * @see {@link UpdateBackupPlanCommandInput} for command's `input` shape.
  * @see {@link UpdateBackupPlanCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBackupPlanCommand extends $Command<

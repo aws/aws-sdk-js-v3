@@ -39,7 +39,7 @@ export interface DeleteConnectionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConnectionCommand extends $Command<

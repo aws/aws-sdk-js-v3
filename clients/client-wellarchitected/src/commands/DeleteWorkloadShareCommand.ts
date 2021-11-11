@@ -35,7 +35,7 @@ export interface DeleteWorkloadShareCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteWorkloadShareCommandInput} for command's `input` shape.
  * @see {@link DeleteWorkloadShareCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteWorkloadShareCommand extends $Command<

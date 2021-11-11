@@ -41,7 +41,7 @@ export interface CreateCrossAccountAuthorizationCommandOutput
  *
  * @see {@link CreateCrossAccountAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateCrossAccountAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCrossAccountAuthorizationCommand extends $Command<

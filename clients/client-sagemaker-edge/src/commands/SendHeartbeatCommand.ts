@@ -35,7 +35,7 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SendHeartbeatCommandInput} for command's `input` shape.
  * @see {@link SendHeartbeatCommandOutput} for command's `response` shape.
- * @see {@link SagemakerEdgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SagemakerEdgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendHeartbeatCommand extends $Command<

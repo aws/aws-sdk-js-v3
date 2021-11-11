@@ -35,7 +35,7 @@ export interface ListDetectorsCommandOutput extends ListDetectorsResponse, __Met
  *
  * @see {@link ListDetectorsCommandInput} for command's `input` shape.
  * @see {@link ListDetectorsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDetectorsCommand extends $Command<

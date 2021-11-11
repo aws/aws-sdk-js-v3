@@ -35,7 +35,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  *
  * @see {@link ListBuildsCommandInput} for command's `input` shape.
  * @see {@link ListBuildsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBuildsCommand extends $Command<

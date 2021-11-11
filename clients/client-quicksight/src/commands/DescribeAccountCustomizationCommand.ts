@@ -93,7 +93,7 @@ export interface DescribeAccountCustomizationCommandOutput
  *
  * @see {@link DescribeAccountCustomizationCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountCustomizationCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAccountCustomizationCommand extends $Command<

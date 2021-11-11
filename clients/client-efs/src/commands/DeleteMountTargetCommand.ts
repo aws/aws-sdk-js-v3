@@ -68,7 +68,7 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteMountTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMountTargetCommand extends $Command<

@@ -52,7 +52,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  *
  * @see {@link DescribeBandwidthRateLimitScheduleCommandInput} for command's `input` shape.
  * @see {@link DescribeBandwidthRateLimitScheduleCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeBandwidthRateLimitScheduleCommand extends $Command<

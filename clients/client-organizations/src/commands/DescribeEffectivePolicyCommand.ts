@@ -44,7 +44,7 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *
  * @see {@link DescribeEffectivePolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeEffectivePolicyCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEffectivePolicyCommand extends $Command<

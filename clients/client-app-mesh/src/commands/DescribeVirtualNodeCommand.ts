@@ -35,7 +35,7 @@ export interface DescribeVirtualNodeCommandOutput extends DescribeVirtualNodeOut
  *
  * @see {@link DescribeVirtualNodeCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualNodeCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVirtualNodeCommand extends $Command<

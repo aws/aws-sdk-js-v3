@@ -49,7 +49,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *
  * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
  * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDatasetCommand extends $Command<

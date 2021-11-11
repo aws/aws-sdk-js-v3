@@ -36,7 +36,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *
  * @see {@link CreateTrailCommandInput} for command's `input` shape.
  * @see {@link CreateTrailCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTrailCommand extends $Command<

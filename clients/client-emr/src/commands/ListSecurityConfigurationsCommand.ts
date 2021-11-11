@@ -38,7 +38,7 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  *
  * @see {@link ListSecurityConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListSecurityConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSecurityConfigurationsCommand extends $Command<

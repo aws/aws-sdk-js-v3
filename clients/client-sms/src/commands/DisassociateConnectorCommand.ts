@@ -37,7 +37,7 @@ export interface DisassociateConnectorCommandOutput extends DisassociateConnecto
  *
  * @see {@link DisassociateConnectorCommandInput} for command's `input` shape.
  * @see {@link DisassociateConnectorCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateConnectorCommand extends $Command<

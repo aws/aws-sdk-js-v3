@@ -38,7 +38,7 @@ export interface DeleteIdentityPoolCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteIdentityPoolCommandInput} for command's `input` shape.
  * @see {@link DeleteIdentityPoolCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteIdentityPoolCommand extends $Command<

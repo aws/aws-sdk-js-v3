@@ -36,7 +36,7 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
  *
  * @see {@link PutConferencePreferenceCommandInput} for command's `input` shape.
  * @see {@link PutConferencePreferenceCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutConferencePreferenceCommand extends $Command<

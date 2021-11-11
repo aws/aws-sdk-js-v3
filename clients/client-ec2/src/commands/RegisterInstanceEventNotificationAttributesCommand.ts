@@ -43,7 +43,7 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  *
  * @see {@link RegisterInstanceEventNotificationAttributesCommandInput} for command's `input` shape.
  * @see {@link RegisterInstanceEventNotificationAttributesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterInstanceEventNotificationAttributesCommand extends $Command<

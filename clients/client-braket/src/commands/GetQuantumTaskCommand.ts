@@ -35,7 +35,7 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  *
  * @see {@link GetQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link GetQuantumTaskCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BraketClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetQuantumTaskCommand extends $Command<

@@ -59,7 +59,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
- * @see {@link ServiceDiscoveryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceDiscoveryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServiceCommand extends $Command<

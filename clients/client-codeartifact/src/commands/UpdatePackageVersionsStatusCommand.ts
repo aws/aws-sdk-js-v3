@@ -37,7 +37,7 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  *
  * @see {@link UpdatePackageVersionsStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePackageVersionsStatusCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePackageVersionsStatusCommand extends $Command<

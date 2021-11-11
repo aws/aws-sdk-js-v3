@@ -37,7 +37,7 @@ export interface ListLexBotsCommandOutput extends ListLexBotsResponse, __Metadat
  *
  * @see {@link ListLexBotsCommandInput} for command's `input` shape.
  * @see {@link ListLexBotsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLexBotsCommand extends $Command<

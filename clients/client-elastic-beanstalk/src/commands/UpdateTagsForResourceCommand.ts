@@ -54,7 +54,7 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateTagsForResourceCommandInput} for command's `input` shape.
  * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTagsForResourceCommand extends $Command<

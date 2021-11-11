@@ -37,7 +37,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * @see {@link UpdateConfigCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateConfigCommand extends $Command<

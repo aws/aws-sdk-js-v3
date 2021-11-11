@@ -35,7 +35,7 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  *
  * @see {@link DescribeLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLoggingOptionsCommand extends $Command<

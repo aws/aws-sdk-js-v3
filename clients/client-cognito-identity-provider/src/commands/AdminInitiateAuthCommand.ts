@@ -60,7 +60,7 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *
  * @see {@link AdminInitiateAuthCommandInput} for command's `input` shape.
  * @see {@link AdminInitiateAuthCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AdminInitiateAuthCommand extends $Command<

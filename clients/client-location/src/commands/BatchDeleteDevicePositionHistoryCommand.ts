@@ -37,7 +37,7 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput
  *
  * @see {@link BatchDeleteDevicePositionHistoryCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteDevicePositionHistoryCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchDeleteDevicePositionHistoryCommand extends $Command<

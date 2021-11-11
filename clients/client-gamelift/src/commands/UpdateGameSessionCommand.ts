@@ -53,7 +53,7 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  *
  * @see {@link UpdateGameSessionCommandInput} for command's `input` shape.
  * @see {@link UpdateGameSessionCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGameSessionCommand extends $Command<

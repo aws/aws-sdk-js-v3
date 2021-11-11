@@ -41,7 +41,7 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *
  * @see {@link UpdateImagePipelineCommandInput} for command's `input` shape.
  * @see {@link UpdateImagePipelineCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateImagePipelineCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateImagePipelineCommandOutput extends CreateImagePipelineRes
  *
  * @see {@link CreateImagePipelineCommandInput} for command's `input` shape.
  * @see {@link CreateImagePipelineCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateImagePipelineCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  *
  * @see {@link DescribeSecurityPolicyCommandInput} for command's `input` shape.
  * @see {@link DescribeSecurityPolicyCommandOutput} for command's `response` shape.
- * @see {@link TransferClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TransferClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSecurityPolicyCommand extends $Command<

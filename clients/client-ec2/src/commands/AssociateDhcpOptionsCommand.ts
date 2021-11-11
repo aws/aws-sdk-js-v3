@@ -38,7 +38,7 @@ export interface AssociateDhcpOptionsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssociateDhcpOptionsCommandInput} for command's `input` shape.
  * @see {@link AssociateDhcpOptionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateDhcpOptionsCommand extends $Command<

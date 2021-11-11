@@ -39,7 +39,7 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  *
  * @see {@link CreateMeetingDialOutCommandInput} for command's `input` shape.
  * @see {@link CreateMeetingDialOutCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMeetingDialOutCommand extends $Command<

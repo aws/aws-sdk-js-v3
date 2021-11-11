@@ -42,7 +42,7 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *
  * @see {@link ListTapesCommandInput} for command's `input` shape.
  * @see {@link ListTapesCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTapesCommand extends $Command<

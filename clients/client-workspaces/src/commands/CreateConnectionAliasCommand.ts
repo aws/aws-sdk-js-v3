@@ -37,7 +37,7 @@ export interface CreateConnectionAliasCommandOutput extends CreateConnectionAlia
  *
  * @see {@link CreateConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionAliasCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConnectionAliasCommand extends $Command<

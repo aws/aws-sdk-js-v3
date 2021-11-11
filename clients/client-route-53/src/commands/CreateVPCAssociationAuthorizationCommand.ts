@@ -49,7 +49,7 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  *
  * @see {@link CreateVPCAssociationAuthorizationCommandInput} for command's `input` shape.
  * @see {@link CreateVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVPCAssociationAuthorizationCommand extends $Command<

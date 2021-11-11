@@ -39,7 +39,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  *
  * @see {@link ListPackagesCommandInput} for command's `input` shape.
  * @see {@link ListPackagesCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPackagesCommand extends $Command<

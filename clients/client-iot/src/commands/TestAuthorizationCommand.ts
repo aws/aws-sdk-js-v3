@@ -38,7 +38,7 @@ export interface TestAuthorizationCommandOutput extends TestAuthorizationRespons
  *
  * @see {@link TestAuthorizationCommandInput} for command's `input` shape.
  * @see {@link TestAuthorizationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TestAuthorizationCommand extends $Command<

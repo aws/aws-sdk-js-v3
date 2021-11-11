@@ -214,7 +214,7 @@ export interface GetObjectCommandOutput extends GetObjectOutput, __MetadataBeare
  *
  * @see {@link GetObjectCommandInput} for command's `input` shape.
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {

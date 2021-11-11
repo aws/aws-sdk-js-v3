@@ -35,7 +35,7 @@ export interface GetAppValidationOutputCommandOutput extends GetAppValidationOut
  *
  * @see {@link GetAppValidationOutputCommandInput} for command's `input` shape.
  * @see {@link GetAppValidationOutputCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAppValidationOutputCommand extends $Command<

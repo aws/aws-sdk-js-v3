@@ -37,7 +37,7 @@ export interface DeleteSchemaCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSchemaCommand extends $Command<

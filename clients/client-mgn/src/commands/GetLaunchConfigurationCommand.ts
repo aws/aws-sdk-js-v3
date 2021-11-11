@@ -35,7 +35,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  *
  * @see {@link GetLaunchConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetLaunchConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLaunchConfigurationCommand extends $Command<

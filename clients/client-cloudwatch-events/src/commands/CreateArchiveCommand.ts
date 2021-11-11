@@ -39,7 +39,7 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  *
  * @see {@link CreateArchiveCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateArchiveCommand extends $Command<

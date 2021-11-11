@@ -35,7 +35,7 @@ export interface CreateTemplateAliasCommandOutput extends CreateTemplateAliasRes
  *
  * @see {@link CreateTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateTemplateAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTemplateAliasCommand extends $Command<

@@ -40,7 +40,7 @@ export interface VoteOnProposalCommandOutput extends VoteOnProposalOutput, __Met
  *
  * @see {@link VoteOnProposalCommandInput} for command's `input` shape.
  * @see {@link VoteOnProposalCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class VoteOnProposalCommand extends $Command<

@@ -37,7 +37,7 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  *
  * @see {@link GetDifferencesCommandInput} for command's `input` shape.
  * @see {@link GetDifferencesCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDifferencesCommand extends $Command<

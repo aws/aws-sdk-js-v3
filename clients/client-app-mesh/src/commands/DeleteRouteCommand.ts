@@ -35,7 +35,7 @@ export interface DeleteRouteCommandOutput extends DeleteRouteOutput, __MetadataB
  *
  * @see {@link DeleteRouteCommandInput} for command's `input` shape.
  * @see {@link DeleteRouteCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRouteCommand extends $Command<

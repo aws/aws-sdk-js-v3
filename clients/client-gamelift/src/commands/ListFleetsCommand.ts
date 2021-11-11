@@ -81,7 +81,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *
  * @see {@link ListFleetsCommandInput} for command's `input` shape.
  * @see {@link ListFleetsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFleetsCommand extends $Command<

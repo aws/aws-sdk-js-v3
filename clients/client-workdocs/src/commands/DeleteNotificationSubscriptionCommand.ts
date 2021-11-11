@@ -35,7 +35,7 @@ export interface DeleteNotificationSubscriptionCommandOutput extends __MetadataB
  *
  * @see {@link DeleteNotificationSubscriptionCommandInput} for command's `input` shape.
  * @see {@link DeleteNotificationSubscriptionCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteNotificationSubscriptionCommand extends $Command<

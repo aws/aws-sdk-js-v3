@@ -36,7 +36,7 @@ export interface CreateAuthorizerCommandOutput extends CreateAuthorizerResponse,
  *
  * @see {@link CreateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link CreateAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAuthorizerCommand extends $Command<

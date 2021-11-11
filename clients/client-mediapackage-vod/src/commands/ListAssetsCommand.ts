@@ -35,7 +35,7 @@ export interface ListAssetsCommandOutput extends ListAssetsResponse, __MetadataB
  *
  * @see {@link ListAssetsCommandInput} for command's `input` shape.
  * @see {@link ListAssetsCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAssetsCommand extends $Command<

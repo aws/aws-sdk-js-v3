@@ -76,7 +76,7 @@ export interface TagRoleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagRoleCommandInput} for command's `input` shape.
  * @see {@link TagRoleCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagRoleCommand extends $Command<TagRoleCommandInput, TagRoleCommandOutput, IAMClientResolvedConfig> {

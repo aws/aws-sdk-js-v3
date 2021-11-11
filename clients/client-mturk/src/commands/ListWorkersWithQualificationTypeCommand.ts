@@ -40,7 +40,7 @@ export interface ListWorkersWithQualificationTypeCommandOutput
  *
  * @see {@link ListWorkersWithQualificationTypeCommandInput} for command's `input` shape.
  * @see {@link ListWorkersWithQualificationTypeCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWorkersWithQualificationTypeCommand extends $Command<

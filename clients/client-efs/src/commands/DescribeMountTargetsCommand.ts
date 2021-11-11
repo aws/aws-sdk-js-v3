@@ -42,7 +42,7 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *
  * @see {@link DescribeMountTargetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMountTargetsCommandOutput} for command's `response` shape.
- * @see {@link EFSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EFSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMountTargetsCommand extends $Command<

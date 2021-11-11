@@ -37,7 +37,7 @@ export interface UpdateSecurityHubConfigurationCommandOutput
  *
  * @see {@link UpdateSecurityHubConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityHubConfigurationCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSecurityHubConfigurationCommand extends $Command<

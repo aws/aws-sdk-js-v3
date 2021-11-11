@@ -42,7 +42,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @see {@link CreateDataSourceCommandInput} for command's `input` shape.
  * @see {@link CreateDataSourceCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDataSourceCommand extends $Command<

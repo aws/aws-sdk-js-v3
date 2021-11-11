@@ -81,7 +81,7 @@ export interface RegisterActivityTypeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RegisterActivityTypeCommandInput} for command's `input` shape.
  * @see {@link RegisterActivityTypeCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterActivityTypeCommand extends $Command<

@@ -33,7 +33,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *
  * @see {@link CreateDomainCommandInput} for command's `input` shape.
  * @see {@link CreateDomainCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDomainCommand extends $Command<

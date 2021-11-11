@@ -35,7 +35,7 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteTerminologyCommandInput} for command's `input` shape.
  * @see {@link DeleteTerminologyCommandOutput} for command's `response` shape.
- * @see {@link TranslateClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranslateClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTerminologyCommand extends $Command<

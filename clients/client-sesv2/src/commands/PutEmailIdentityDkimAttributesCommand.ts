@@ -37,7 +37,7 @@ export interface PutEmailIdentityDkimAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityDkimAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityDkimAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutEmailIdentityDkimAttributesCommand extends $Command<

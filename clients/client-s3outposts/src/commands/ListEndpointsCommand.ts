@@ -54,7 +54,7 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResult, __Metad
  *
  * @see {@link ListEndpointsCommandInput} for command's `input` shape.
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
- * @see {@link S3OutpostsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3OutpostsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEndpointsCommand extends $Command<

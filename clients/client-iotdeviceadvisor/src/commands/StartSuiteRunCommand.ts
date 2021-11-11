@@ -35,7 +35,7 @@ export interface StartSuiteRunCommandOutput extends StartSuiteRunResponse, __Met
  *
  * @see {@link StartSuiteRunCommandInput} for command's `input` shape.
  * @see {@link StartSuiteRunCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartSuiteRunCommand extends $Command<

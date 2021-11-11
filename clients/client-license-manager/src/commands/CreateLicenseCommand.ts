@@ -35,7 +35,7 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  *
  * @see {@link CreateLicenseCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLicenseCommand extends $Command<

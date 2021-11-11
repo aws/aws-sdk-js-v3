@@ -35,7 +35,7 @@ export interface GetDeploymentCommandOutput extends GetDeploymentResponse, __Met
  *
  * @see {@link GetDeploymentCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeploymentCommand extends $Command<

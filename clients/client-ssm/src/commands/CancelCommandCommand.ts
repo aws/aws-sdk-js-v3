@@ -36,7 +36,7 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  *
  * @see {@link CancelCommandCommandInput} for command's `input` shape.
  * @see {@link CancelCommandCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelCommandCommand extends $Command<

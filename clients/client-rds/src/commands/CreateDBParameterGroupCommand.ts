@@ -56,7 +56,7 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *
  * @see {@link CreateDBParameterGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDBParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDBParameterGroupCommand extends $Command<

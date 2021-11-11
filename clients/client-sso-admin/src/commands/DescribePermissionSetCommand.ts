@@ -35,7 +35,7 @@ export interface DescribePermissionSetCommandOutput extends DescribePermissionSe
  *
  * @see {@link DescribePermissionSetCommandInput} for command's `input` shape.
  * @see {@link DescribePermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePermissionSetCommand extends $Command<

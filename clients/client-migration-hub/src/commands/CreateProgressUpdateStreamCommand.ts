@@ -39,7 +39,7 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *
  * @see {@link CreateProgressUpdateStreamCommandInput} for command's `input` shape.
  * @see {@link CreateProgressUpdateStreamCommandOutput} for command's `response` shape.
- * @see {@link MigrationHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MigrationHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateProgressUpdateStreamCommand extends $Command<

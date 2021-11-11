@@ -36,7 +36,7 @@ export interface GetOpenIDConnectProviderCommandOutput extends GetOpenIDConnectP
  *
  * @see {@link GetOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link GetOpenIDConnectProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOpenIDConnectProviderCommand extends $Command<

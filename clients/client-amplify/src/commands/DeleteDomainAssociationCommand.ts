@@ -35,7 +35,7 @@ export interface DeleteDomainAssociationCommandOutput extends DeleteDomainAssoci
  *
  * @see {@link DeleteDomainAssociationCommandInput} for command's `input` shape.
  * @see {@link DeleteDomainAssociationCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDomainAssociationCommand extends $Command<

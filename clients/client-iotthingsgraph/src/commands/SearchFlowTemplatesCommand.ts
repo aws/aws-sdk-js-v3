@@ -35,7 +35,7 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  *
  * @see {@link SearchFlowTemplatesCommandInput} for command's `input` shape.
  * @see {@link SearchFlowTemplatesCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchFlowTemplatesCommand extends $Command<

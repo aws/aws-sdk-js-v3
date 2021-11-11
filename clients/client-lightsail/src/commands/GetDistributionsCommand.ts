@@ -36,7 +36,7 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  *
  * @see {@link GetDistributionsCommandInput} for command's `input` shape.
  * @see {@link GetDistributionsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDistributionsCommand extends $Command<

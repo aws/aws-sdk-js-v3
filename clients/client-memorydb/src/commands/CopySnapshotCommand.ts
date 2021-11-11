@@ -35,7 +35,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResponse, __Metad
  *
  * @see {@link CopySnapshotCommandInput} for command's `input` shape.
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CopySnapshotCommand extends $Command<

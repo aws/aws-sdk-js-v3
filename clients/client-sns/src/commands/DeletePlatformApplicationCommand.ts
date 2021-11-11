@@ -38,7 +38,7 @@ export interface DeletePlatformApplicationCommandOutput extends __MetadataBearer
  *
  * @see {@link DeletePlatformApplicationCommandInput} for command's `input` shape.
  * @see {@link DeletePlatformApplicationCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePlatformApplicationCommand extends $Command<

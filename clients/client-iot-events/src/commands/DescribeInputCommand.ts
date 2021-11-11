@@ -35,7 +35,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  *
  * @see {@link DescribeInputCommandInput} for command's `input` shape.
  * @see {@link DescribeInputCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInputCommand extends $Command<

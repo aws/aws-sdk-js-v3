@@ -36,7 +36,7 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  *
  * @see {@link DeletePreparedStatementCommandInput} for command's `input` shape.
  * @see {@link DeletePreparedStatementCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePreparedStatementCommand extends $Command<

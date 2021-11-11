@@ -44,7 +44,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  *
  * @see {@link DescribeInstanceInformationCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceInformationCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInstanceInformationCommand extends $Command<

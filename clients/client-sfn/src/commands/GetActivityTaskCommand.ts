@@ -47,7 +47,7 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  *
  * @see {@link GetActivityTaskCommandInput} for command's `input` shape.
  * @see {@link GetActivityTaskCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetActivityTaskCommand extends $Command<

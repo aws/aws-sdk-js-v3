@@ -37,7 +37,7 @@ export interface DescribeApplicationInstanceCommandOutput
  *
  * @see {@link DescribeApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationInstanceCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeApplicationInstanceCommand extends $Command<

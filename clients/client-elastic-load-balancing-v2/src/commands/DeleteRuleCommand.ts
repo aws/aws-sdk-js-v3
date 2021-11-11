@@ -37,7 +37,7 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  *
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRuleCommand extends $Command<

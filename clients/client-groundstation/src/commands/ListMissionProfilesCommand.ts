@@ -35,7 +35,7 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  *
  * @see {@link ListMissionProfilesCommandInput} for command's `input` shape.
  * @see {@link ListMissionProfilesCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListMissionProfilesCommand extends $Command<

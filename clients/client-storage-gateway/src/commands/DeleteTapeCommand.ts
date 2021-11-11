@@ -36,7 +36,7 @@ export interface DeleteTapeCommandOutput extends DeleteTapeOutput, __MetadataBea
  *
  * @see {@link DeleteTapeCommandInput} for command's `input` shape.
  * @see {@link DeleteTapeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTapeCommand extends $Command<

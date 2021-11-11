@@ -43,7 +43,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  *
  * @see {@link AssociateCustomerGatewayCommandInput} for command's `input` shape.
  * @see {@link AssociateCustomerGatewayCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateCustomerGatewayCommand extends $Command<

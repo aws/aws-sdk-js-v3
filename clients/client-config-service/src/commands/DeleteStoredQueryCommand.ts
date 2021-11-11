@@ -35,7 +35,7 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *
  * @see {@link DeleteStoredQueryCommandInput} for command's `input` shape.
  * @see {@link DeleteStoredQueryCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteStoredQueryCommand extends $Command<

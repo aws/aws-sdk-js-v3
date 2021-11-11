@@ -39,7 +39,7 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
  *
  * @see {@link StopActivityStreamCommandInput} for command's `input` shape.
  * @see {@link StopActivityStreamCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopActivityStreamCommand extends $Command<

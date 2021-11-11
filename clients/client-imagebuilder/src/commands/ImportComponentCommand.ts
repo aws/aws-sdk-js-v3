@@ -35,7 +35,7 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  *
  * @see {@link ImportComponentCommandInput} for command's `input` shape.
  * @see {@link ImportComponentCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ImportComponentCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  *
  * @see {@link CreateLocationNfsCommandInput} for command's `input` shape.
  * @see {@link CreateLocationNfsCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLocationNfsCommand extends $Command<

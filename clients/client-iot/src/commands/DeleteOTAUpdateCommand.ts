@@ -36,7 +36,7 @@ export interface DeleteOTAUpdateCommandOutput extends DeleteOTAUpdateResponse, _
  *
  * @see {@link DeleteOTAUpdateCommandInput} for command's `input` shape.
  * @see {@link DeleteOTAUpdateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteOTAUpdateCommand extends $Command<

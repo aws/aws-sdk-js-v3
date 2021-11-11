@@ -35,7 +35,7 @@ export interface ListQuickConnectsCommandOutput extends ListQuickConnectsRespons
  *
  * @see {@link ListQuickConnectsCommandInput} for command's `input` shape.
  * @see {@link ListQuickConnectsCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListQuickConnectsCommand extends $Command<

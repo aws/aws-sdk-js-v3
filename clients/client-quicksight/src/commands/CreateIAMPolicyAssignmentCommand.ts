@@ -38,7 +38,7 @@ export interface CreateIAMPolicyAssignmentCommandOutput extends CreateIAMPolicyA
  *
  * @see {@link CreateIAMPolicyAssignmentCommandInput} for command's `input` shape.
  * @see {@link CreateIAMPolicyAssignmentCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateIAMPolicyAssignmentCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
  *
  * @see {@link GetSipMediaApplicationCommandInput} for command's `input` shape.
  * @see {@link GetSipMediaApplicationCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSipMediaApplicationCommand extends $Command<

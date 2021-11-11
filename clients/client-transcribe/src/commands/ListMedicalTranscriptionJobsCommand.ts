@@ -37,7 +37,7 @@ export interface ListMedicalTranscriptionJobsCommandOutput
  *
  * @see {@link ListMedicalTranscriptionJobsCommandInput} for command's `input` shape.
  * @see {@link ListMedicalTranscriptionJobsCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListMedicalTranscriptionJobsCommand extends $Command<

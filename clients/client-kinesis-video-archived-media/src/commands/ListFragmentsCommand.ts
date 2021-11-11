@@ -75,7 +75,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  *
  * @see {@link ListFragmentsCommandInput} for command's `input` shape.
  * @see {@link ListFragmentsCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFragmentsCommand extends $Command<

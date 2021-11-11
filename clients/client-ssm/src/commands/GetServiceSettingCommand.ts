@@ -48,7 +48,7 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *
  * @see {@link GetServiceSettingCommandInput} for command's `input` shape.
  * @see {@link GetServiceSettingCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetServiceSettingCommand extends $Command<

@@ -37,7 +37,7 @@ export interface RemoveKnowledgeBaseTemplateUriCommandOutput
  *
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link RemoveKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveKnowledgeBaseTemplateUriCommand extends $Command<

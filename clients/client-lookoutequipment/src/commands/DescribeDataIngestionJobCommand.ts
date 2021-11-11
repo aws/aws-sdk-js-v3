@@ -36,7 +36,7 @@ export interface DescribeDataIngestionJobCommandOutput extends DescribeDataInges
  *
  * @see {@link DescribeDataIngestionJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDataIngestionJobCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDataIngestionJobCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  *
  * @see {@link DescribeAutoScalingGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutoScalingGroupsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAutoScalingGroupsCommand extends $Command<

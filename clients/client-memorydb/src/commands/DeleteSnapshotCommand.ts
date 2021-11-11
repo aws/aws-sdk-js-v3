@@ -35,7 +35,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  *
  * @see {@link DeleteSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSnapshotCommand extends $Command<

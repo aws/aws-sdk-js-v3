@@ -44,7 +44,7 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  *
  * @see {@link SendSerialConsoleSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link EC2InstanceConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2InstanceConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<

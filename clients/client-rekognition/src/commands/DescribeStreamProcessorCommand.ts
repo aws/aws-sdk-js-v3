@@ -36,7 +36,7 @@ export interface DescribeStreamProcessorCommandOutput extends DescribeStreamProc
  *
  * @see {@link DescribeStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamProcessorCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStreamProcessorCommand extends $Command<

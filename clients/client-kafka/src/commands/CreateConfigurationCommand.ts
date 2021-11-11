@@ -35,7 +35,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  *
  * @see {@link CreateConfigurationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConfigurationCommand extends $Command<

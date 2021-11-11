@@ -47,7 +47,7 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  *
  * @see {@link UpdateGroupQueryCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupQueryCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGroupQueryCommand extends $Command<

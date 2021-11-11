@@ -59,7 +59,7 @@ export interface ListWorkflowTypesCommandOutput extends WorkflowTypeInfos, __Met
  *
  * @see {@link ListWorkflowTypesCommandInput} for command's `input` shape.
  * @see {@link ListWorkflowTypesCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWorkflowTypesCommand extends $Command<

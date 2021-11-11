@@ -39,7 +39,7 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  *
  * @see {@link RevokeCacheSecurityGroupIngressCommandInput} for command's `input` shape.
  * @see {@link RevokeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RevokeCacheSecurityGroupIngressCommand extends $Command<

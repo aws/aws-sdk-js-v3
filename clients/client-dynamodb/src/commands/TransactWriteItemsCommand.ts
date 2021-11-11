@@ -108,7 +108,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *
  * @see {@link TransactWriteItemsCommandInput} for command's `input` shape.
  * @see {@link TransactWriteItemsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TransactWriteItemsCommand extends $Command<

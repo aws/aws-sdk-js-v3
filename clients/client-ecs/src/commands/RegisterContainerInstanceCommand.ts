@@ -40,7 +40,7 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  *
  * @see {@link RegisterContainerInstanceCommandInput} for command's `input` shape.
  * @see {@link RegisterContainerInstanceCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterContainerInstanceCommand extends $Command<

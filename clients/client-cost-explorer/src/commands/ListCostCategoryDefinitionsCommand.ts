@@ -37,7 +37,7 @@ export interface ListCostCategoryDefinitionsCommandOutput
  *
  * @see {@link ListCostCategoryDefinitionsCommandInput} for command's `input` shape.
  * @see {@link ListCostCategoryDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCostCategoryDefinitionsCommand extends $Command<

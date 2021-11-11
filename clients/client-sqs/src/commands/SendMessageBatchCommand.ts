@@ -54,7 +54,7 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *
  * @see {@link SendMessageBatchCommandInput} for command's `input` shape.
  * @see {@link SendMessageBatchCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendMessageBatchCommand extends $Command<

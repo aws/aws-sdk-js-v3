@@ -35,7 +35,7 @@ export interface CreatePushTemplateCommandOutput extends CreatePushTemplateRespo
  *
  * @see {@link CreatePushTemplateCommandInput} for command's `input` shape.
  * @see {@link CreatePushTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePushTemplateCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  *
  * @see {@link ListEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link ListEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEnvironmentsCommand extends $Command<

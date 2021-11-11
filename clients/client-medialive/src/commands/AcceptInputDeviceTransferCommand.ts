@@ -35,7 +35,7 @@ export interface AcceptInputDeviceTransferCommandOutput extends AcceptInputDevic
  *
  * @see {@link AcceptInputDeviceTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptInputDeviceTransferCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptInputDeviceTransferCommand extends $Command<

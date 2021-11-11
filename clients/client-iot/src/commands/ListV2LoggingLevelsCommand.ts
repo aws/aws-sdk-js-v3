@@ -36,7 +36,7 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  *
  * @see {@link ListV2LoggingLevelsCommandInput} for command's `input` shape.
  * @see {@link ListV2LoggingLevelsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListV2LoggingLevelsCommand extends $Command<

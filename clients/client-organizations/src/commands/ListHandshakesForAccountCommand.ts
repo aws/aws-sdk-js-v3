@@ -48,7 +48,7 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *
  * @see {@link ListHandshakesForAccountCommandInput} for command's `input` shape.
  * @see {@link ListHandshakesForAccountCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHandshakesForAccountCommand extends $Command<

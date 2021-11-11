@@ -35,7 +35,7 @@ export interface ListStudioMembersCommandOutput extends ListStudioMembersRespons
  *
  * @see {@link ListStudioMembersCommandInput} for command's `input` shape.
  * @see {@link ListStudioMembersCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStudioMembersCommand extends $Command<

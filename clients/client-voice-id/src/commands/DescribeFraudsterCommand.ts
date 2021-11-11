@@ -35,7 +35,7 @@ export interface DescribeFraudsterCommandOutput extends DescribeFraudsterRespons
  *
  * @see {@link DescribeFraudsterCommandInput} for command's `input` shape.
  * @see {@link DescribeFraudsterCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFraudsterCommand extends $Command<

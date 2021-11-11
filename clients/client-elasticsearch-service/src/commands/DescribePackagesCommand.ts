@@ -39,7 +39,7 @@ export interface DescribePackagesCommandOutput extends DescribePackagesResponse,
  *
  * @see {@link DescribePackagesCommandInput} for command's `input` shape.
  * @see {@link DescribePackagesCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePackagesCommand extends $Command<

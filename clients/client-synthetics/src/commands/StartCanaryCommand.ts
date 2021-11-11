@@ -37,7 +37,7 @@ export interface StartCanaryCommandOutput extends StartCanaryResponse, __Metadat
  *
  * @see {@link StartCanaryCommandInput} for command's `input` shape.
  * @see {@link StartCanaryCommandOutput} for command's `response` shape.
- * @see {@link SyntheticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SyntheticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartCanaryCommand extends $Command<

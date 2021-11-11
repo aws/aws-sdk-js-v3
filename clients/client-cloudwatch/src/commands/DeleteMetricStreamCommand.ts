@@ -35,7 +35,7 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  *
  * @see {@link DeleteMetricStreamCommandInput} for command's `input` shape.
  * @see {@link DeleteMetricStreamCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMetricStreamCommand extends $Command<

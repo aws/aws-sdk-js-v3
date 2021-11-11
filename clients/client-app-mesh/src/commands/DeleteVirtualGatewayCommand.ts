@@ -36,7 +36,7 @@ export interface DeleteVirtualGatewayCommandOutput extends DeleteVirtualGatewayO
  *
  * @see {@link DeleteVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteVirtualGatewayCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVirtualGatewayCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteBudgetActionCommandOutput extends DeleteBudgetActionRespo
  *
  * @see {@link DeleteBudgetActionCommandInput} for command's `input` shape.
  * @see {@link DeleteBudgetActionCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBudgetActionCommand extends $Command<

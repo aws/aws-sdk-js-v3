@@ -36,7 +36,7 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  *
  * @see {@link DeleteStreamProcessorCommandInput} for command's `input` shape.
  * @see {@link DeleteStreamProcessorCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteStreamProcessorCommand extends $Command<

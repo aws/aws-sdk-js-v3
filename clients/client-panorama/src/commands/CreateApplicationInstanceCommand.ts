@@ -35,7 +35,7 @@ export interface CreateApplicationInstanceCommandOutput extends CreateApplicatio
  *
  * @see {@link CreateApplicationInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationInstanceCommandOutput} for command's `response` shape.
- * @see {@link PanoramaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PanoramaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationInstanceCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  *
  * @see {@link DescribeHubCommandInput} for command's `input` shape.
  * @see {@link DescribeHubCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeHubCommand extends $Command<

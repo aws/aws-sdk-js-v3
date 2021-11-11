@@ -39,7 +39,7 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  *
  * @see {@link ListAttributeGroupsCommandInput} for command's `input` shape.
  * @see {@link ListAttributeGroupsCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAttributeGroupsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  *
  * @see {@link EnableRadiusCommandInput} for command's `input` shape.
  * @see {@link EnableRadiusCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableRadiusCommand extends $Command<

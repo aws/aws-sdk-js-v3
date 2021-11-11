@@ -44,7 +44,7 @@ export interface PutRepositoryPermissionsPolicyCommandOutput
  *
  * @see {@link PutRepositoryPermissionsPolicyCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryPermissionsPolicyCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutRepositoryPermissionsPolicyCommand extends $Command<

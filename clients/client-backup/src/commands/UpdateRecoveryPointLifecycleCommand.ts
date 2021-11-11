@@ -46,7 +46,7 @@ export interface UpdateRecoveryPointLifecycleCommandOutput
  *
  * @see {@link UpdateRecoveryPointLifecycleCommandInput} for command's `input` shape.
  * @see {@link UpdateRecoveryPointLifecycleCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRecoveryPointLifecycleCommand extends $Command<

@@ -39,7 +39,7 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  *
  * @see {@link UploadSSHPublicKeyCommandInput} for command's `input` shape.
  * @see {@link UploadSSHPublicKeyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UploadSSHPublicKeyCommand extends $Command<

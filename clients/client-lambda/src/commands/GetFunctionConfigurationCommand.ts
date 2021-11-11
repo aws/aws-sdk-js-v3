@@ -37,7 +37,7 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  *
  * @see {@link GetFunctionConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetFunctionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFunctionConfigurationCommand extends $Command<

@@ -63,7 +63,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *
  * @see {@link PutScalingPolicyCommandInput} for command's `input` shape.
  * @see {@link PutScalingPolicyCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutScalingPolicyCommand extends $Command<

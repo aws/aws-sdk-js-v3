@@ -44,7 +44,7 @@ export interface UpdateResourceDataSyncCommandOutput extends UpdateResourceDataS
  *
  * @see {@link UpdateResourceDataSyncCommandInput} for command's `input` shape.
  * @see {@link UpdateResourceDataSyncCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResourceDataSyncCommand extends $Command<

@@ -79,7 +79,7 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateAutoScalingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateAutoScalingGroupCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAutoScalingGroupCommand extends $Command<

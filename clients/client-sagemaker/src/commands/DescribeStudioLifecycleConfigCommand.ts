@@ -37,7 +37,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  *
  * @see {@link DescribeStudioLifecycleConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeStudioLifecycleConfigCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStudioLifecycleConfigCommand extends $Command<

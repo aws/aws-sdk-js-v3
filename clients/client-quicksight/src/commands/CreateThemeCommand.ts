@@ -38,7 +38,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *
  * @see {@link CreateThemeCommandInput} for command's `input` shape.
  * @see {@link CreateThemeCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateThemeCommand extends $Command<

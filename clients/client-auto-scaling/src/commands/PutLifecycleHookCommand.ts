@@ -72,7 +72,7 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
  *
  * @see {@link PutLifecycleHookCommandInput} for command's `input` shape.
  * @see {@link PutLifecycleHookCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutLifecycleHookCommand extends $Command<

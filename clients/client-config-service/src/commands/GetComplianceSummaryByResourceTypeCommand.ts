@@ -43,7 +43,7 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  *
  * @see {@link GetComplianceSummaryByResourceTypeCommandInput} for command's `input` shape.
  * @see {@link GetComplianceSummaryByResourceTypeCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command<

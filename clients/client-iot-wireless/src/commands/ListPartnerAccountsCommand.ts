@@ -35,7 +35,7 @@ export interface ListPartnerAccountsCommandOutput extends ListPartnerAccountsRes
  *
  * @see {@link ListPartnerAccountsCommandInput} for command's `input` shape.
  * @see {@link ListPartnerAccountsCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPartnerAccountsCommand extends $Command<

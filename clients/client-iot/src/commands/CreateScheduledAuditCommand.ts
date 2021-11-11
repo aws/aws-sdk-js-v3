@@ -37,7 +37,7 @@ export interface CreateScheduledAuditCommandOutput extends CreateScheduledAuditR
  *
  * @see {@link CreateScheduledAuditCommandInput} for command's `input` shape.
  * @see {@link CreateScheduledAuditCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateScheduledAuditCommand extends $Command<

@@ -58,7 +58,7 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RegisterDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterDomainCommand extends $Command<

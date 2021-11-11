@@ -41,7 +41,7 @@ export interface UpdateCustomRoutingListenerCommandOutput
  *
  * @see {@link UpdateCustomRoutingListenerCommandInput} for command's `input` shape.
  * @see {@link UpdateCustomRoutingListenerCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateCustomRoutingListenerCommand extends $Command<

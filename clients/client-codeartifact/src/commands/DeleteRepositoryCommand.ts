@@ -37,7 +37,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  *
  * @see {@link DeleteRepositoryCommandInput} for command's `input` shape.
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
- * @see {@link CodeartifactClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeartifactClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRepositoryCommand extends $Command<

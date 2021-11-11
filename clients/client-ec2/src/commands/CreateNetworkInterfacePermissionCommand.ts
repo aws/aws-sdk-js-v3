@@ -39,7 +39,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  *
  * @see {@link CreateNetworkInterfacePermissionCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkInterfacePermissionCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command<

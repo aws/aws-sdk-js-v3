@@ -34,7 +34,7 @@ export interface ExportImageCommandOutput extends ExportImageResult, __MetadataB
  *
  * @see {@link ExportImageCommandInput} for command's `input` shape.
  * @see {@link ExportImageCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExportImageCommand extends $Command<

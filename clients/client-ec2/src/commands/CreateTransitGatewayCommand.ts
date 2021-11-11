@@ -47,7 +47,7 @@ export interface CreateTransitGatewayCommandOutput extends CreateTransitGatewayR
  *
  * @see {@link CreateTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateTransitGatewayCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTransitGatewayCommand extends $Command<

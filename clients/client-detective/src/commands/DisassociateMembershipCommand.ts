@@ -36,7 +36,7 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DisassociateMembershipCommandInput} for command's `input` shape.
  * @see {@link DisassociateMembershipCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateMembershipCommand extends $Command<

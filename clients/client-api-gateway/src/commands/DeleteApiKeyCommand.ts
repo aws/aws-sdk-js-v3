@@ -35,7 +35,7 @@ export interface DeleteApiKeyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteApiKeyCommandInput} for command's `input` shape.
  * @see {@link DeleteApiKeyCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApiKeyCommand extends $Command<

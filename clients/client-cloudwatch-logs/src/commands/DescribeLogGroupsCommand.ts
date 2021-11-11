@@ -43,7 +43,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *
  * @see {@link DescribeLogGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLogGroupsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLogGroupsCommand extends $Command<

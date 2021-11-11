@@ -37,7 +37,7 @@ export interface AssociateContactWithAddressBookCommandOutput
  *
  * @see {@link AssociateContactWithAddressBookCommandInput} for command's `input` shape.
  * @see {@link AssociateContactWithAddressBookCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateContactWithAddressBookCommand extends $Command<

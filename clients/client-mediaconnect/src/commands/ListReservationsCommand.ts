@@ -35,7 +35,7 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  *
  * @see {@link ListReservationsCommandInput} for command's `input` shape.
  * @see {@link ListReservationsCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListReservationsCommand extends $Command<

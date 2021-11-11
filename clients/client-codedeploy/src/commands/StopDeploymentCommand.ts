@@ -35,7 +35,7 @@ export interface StopDeploymentCommandOutput extends StopDeploymentOutput, __Met
  *
  * @see {@link StopDeploymentCommandInput} for command's `input` shape.
  * @see {@link StopDeploymentCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopDeploymentCommand extends $Command<

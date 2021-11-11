@@ -58,7 +58,7 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  *
  * @see {@link DeleteGeoMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteGeoMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGeoMatchSetCommand extends $Command<

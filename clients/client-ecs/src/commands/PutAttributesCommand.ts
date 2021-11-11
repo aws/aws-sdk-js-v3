@@ -39,7 +39,7 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  *
  * @see {@link PutAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAttributesCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAttributesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
  *
  * @see {@link UpdateDashboardCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDashboardCommand extends $Command<

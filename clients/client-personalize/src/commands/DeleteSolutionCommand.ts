@@ -41,7 +41,7 @@ export interface DeleteSolutionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSolutionCommandInput} for command's `input` shape.
  * @see {@link DeleteSolutionCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSolutionCommand extends $Command<

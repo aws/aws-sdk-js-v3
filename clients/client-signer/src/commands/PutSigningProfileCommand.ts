@@ -37,7 +37,7 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  *
  * @see {@link PutSigningProfileCommandInput} for command's `input` shape.
  * @see {@link PutSigningProfileCommandOutput} for command's `response` shape.
- * @see {@link SignerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SignerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutSigningProfileCommand extends $Command<

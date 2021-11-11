@@ -87,7 +87,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *
  * @see {@link GetSessionTokenCommandInput} for command's `input` shape.
  * @see {@link GetSessionTokenCommandOutput} for command's `response` shape.
- * @see {@link STSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link STSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSessionTokenCommand extends $Command<

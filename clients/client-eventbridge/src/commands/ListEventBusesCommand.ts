@@ -36,7 +36,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  *
  * @see {@link ListEventBusesCommandInput} for command's `input` shape.
  * @see {@link ListEventBusesCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEventBusesCommand extends $Command<

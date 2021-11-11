@@ -52,7 +52,7 @@ export interface ListConfigurationHistoryCommandOutput extends ListConfiguration
  *
  * @see {@link ListConfigurationHistoryCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationHistoryCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListConfigurationHistoryCommand extends $Command<

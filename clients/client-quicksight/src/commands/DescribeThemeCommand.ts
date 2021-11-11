@@ -35,7 +35,7 @@ export interface DescribeThemeCommandOutput extends DescribeThemeResponse, __Met
  *
  * @see {@link DescribeThemeCommandInput} for command's `input` shape.
  * @see {@link DescribeThemeCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeThemeCommand extends $Command<

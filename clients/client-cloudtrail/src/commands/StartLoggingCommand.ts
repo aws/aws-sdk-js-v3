@@ -35,7 +35,7 @@ export interface StartLoggingCommandOutput extends StartLoggingResponse, __Metad
  *
  * @see {@link StartLoggingCommandInput} for command's `input` shape.
  * @see {@link StartLoggingCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartLoggingCommand extends $Command<

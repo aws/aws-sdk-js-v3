@@ -35,7 +35,7 @@ export interface UnlabelParameterVersionCommandOutput extends UnlabelParameterVe
  *
  * @see {@link UnlabelParameterVersionCommandInput} for command's `input` shape.
  * @see {@link UnlabelParameterVersionCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UnlabelParameterVersionCommand extends $Command<

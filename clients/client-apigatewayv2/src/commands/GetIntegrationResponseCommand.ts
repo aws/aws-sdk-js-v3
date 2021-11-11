@@ -35,7 +35,7 @@ export interface GetIntegrationResponseCommandOutput extends GetIntegrationRespo
  *
  * @see {@link GetIntegrationResponseCommandInput} for command's `input` shape.
  * @see {@link GetIntegrationResponseCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetIntegrationResponseCommand extends $Command<

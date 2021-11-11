@@ -86,7 +86,7 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  *
  * @see {@link GetMetricStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetMetricStatisticsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMetricStatisticsCommand extends $Command<

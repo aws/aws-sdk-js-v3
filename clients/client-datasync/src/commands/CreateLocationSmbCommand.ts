@@ -36,7 +36,7 @@ export interface CreateLocationSmbCommandOutput extends CreateLocationSmbRespons
  *
  * @see {@link CreateLocationSmbCommandInput} for command's `input` shape.
  * @see {@link CreateLocationSmbCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLocationSmbCommand extends $Command<

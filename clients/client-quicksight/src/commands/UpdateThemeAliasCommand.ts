@@ -35,7 +35,7 @@ export interface UpdateThemeAliasCommandOutput extends UpdateThemeAliasResponse,
  *
  * @see {@link UpdateThemeAliasCommandInput} for command's `input` shape.
  * @see {@link UpdateThemeAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateThemeAliasCommand extends $Command<

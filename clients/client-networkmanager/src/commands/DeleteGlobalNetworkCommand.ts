@@ -36,7 +36,7 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  *
  * @see {@link DeleteGlobalNetworkCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalNetworkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGlobalNetworkCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListPublishedSchemaArnsCommandOutput extends ListPublishedSchem
  *
  * @see {@link ListPublishedSchemaArnsCommandInput} for command's `input` shape.
  * @see {@link ListPublishedSchemaArnsCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPublishedSchemaArnsCommand extends $Command<

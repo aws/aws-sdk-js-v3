@@ -37,7 +37,7 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  *
  * @see {@link DeleteEmailTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteEmailTemplateCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEmailTemplateCommand extends $Command<

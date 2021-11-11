@@ -41,7 +41,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
  *
  * @see {@link DescribeTrainingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeTrainingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTrainingJobCommand extends $Command<

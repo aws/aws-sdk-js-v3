@@ -42,7 +42,7 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  *
  * @see {@link DescribeEngineDefaultClusterParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeEngineDefaultClusterParametersCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command<

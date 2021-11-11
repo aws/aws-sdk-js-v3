@@ -40,7 +40,7 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *
  * @see {@link UpdateTrailCommandInput} for command's `input` shape.
  * @see {@link UpdateTrailCommandOutput} for command's `response` shape.
- * @see {@link CloudTrailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudTrailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTrailCommand extends $Command<

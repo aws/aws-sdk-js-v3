@@ -42,7 +42,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *
  * @see {@link ResolveCustomerCommandInput} for command's `input` shape.
  * @see {@link ResolveCustomerCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceMeteringClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceMeteringClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResolveCustomerCommand extends $Command<

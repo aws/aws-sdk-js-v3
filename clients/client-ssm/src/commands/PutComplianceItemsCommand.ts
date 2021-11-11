@@ -90,7 +90,7 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *
  * @see {@link PutComplianceItemsCommandInput} for command's `input` shape.
  * @see {@link PutComplianceItemsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutComplianceItemsCommand extends $Command<

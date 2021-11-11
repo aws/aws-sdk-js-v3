@@ -42,7 +42,7 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  *
  * @see {@link CreateResponseHeadersPolicyCommandInput} for command's `input` shape.
  * @see {@link CreateResponseHeadersPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateResponseHeadersPolicyCommand extends $Command<

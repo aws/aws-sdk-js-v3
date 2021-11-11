@@ -45,7 +45,7 @@ export interface CreateOrganizationalUnitCommandOutput extends CreateOrganizatio
  *
  * @see {@link CreateOrganizationalUnitCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationalUnitCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateOrganizationalUnitCommand extends $Command<

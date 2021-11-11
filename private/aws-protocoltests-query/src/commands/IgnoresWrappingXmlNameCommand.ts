@@ -38,7 +38,7 @@ export interface IgnoresWrappingXmlNameCommandOutput extends IgnoresWrappingXmlN
  *
  * @see {@link IgnoresWrappingXmlNameCommandInput} for command's `input` shape.
  * @see {@link IgnoresWrappingXmlNameCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class IgnoresWrappingXmlNameCommand extends $Command<

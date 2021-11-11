@@ -41,7 +41,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  *
  * @see {@link ListTagsCommandInput} for command's `input` shape.
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsCommand extends $Command<ListTagsCommandInput, ListTagsCommandOutput, BackupClientResolvedConfig> {

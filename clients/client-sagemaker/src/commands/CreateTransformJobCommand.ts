@@ -69,7 +69,7 @@ export interface CreateTransformJobCommandOutput extends CreateTransformJobRespo
  *
  * @see {@link CreateTransformJobCommandInput} for command's `input` shape.
  * @see {@link CreateTransformJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTransformJobCommand extends $Command<

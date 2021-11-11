@@ -43,7 +43,7 @@ export interface DeletePlacementCommandOutput extends DeletePlacementResponse, _
  *
  * @see {@link DeletePlacementCommandInput} for command's `input` shape.
  * @see {@link DeletePlacementCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePlacementCommand extends $Command<

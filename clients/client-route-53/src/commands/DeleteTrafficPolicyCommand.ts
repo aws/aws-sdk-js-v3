@@ -50,7 +50,7 @@ export interface DeleteTrafficPolicyCommandOutput extends DeleteTrafficPolicyRes
  *
  * @see {@link DeleteTrafficPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteTrafficPolicyCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTrafficPolicyCommand extends $Command<

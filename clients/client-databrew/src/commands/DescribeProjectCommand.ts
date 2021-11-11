@@ -35,7 +35,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectResponse, _
  *
  * @see {@link DescribeProjectCommandInput} for command's `input` shape.
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeProjectCommand extends $Command<

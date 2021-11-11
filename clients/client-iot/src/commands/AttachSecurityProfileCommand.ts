@@ -37,7 +37,7 @@ export interface AttachSecurityProfileCommandOutput extends AttachSecurityProfil
  *
  * @see {@link AttachSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link AttachSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachSecurityProfileCommand extends $Command<

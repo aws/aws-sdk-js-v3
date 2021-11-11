@@ -48,7 +48,7 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *
  * @see {@link PublishCommandInput} for command's `input` shape.
  * @see {@link PublishCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {

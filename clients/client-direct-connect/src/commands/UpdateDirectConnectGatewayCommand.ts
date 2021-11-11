@@ -35,7 +35,7 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  *
  * @see {@link UpdateDirectConnectGatewayCommandInput} for command's `input` shape.
  * @see {@link UpdateDirectConnectGatewayCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDirectConnectGatewayCommand extends $Command<

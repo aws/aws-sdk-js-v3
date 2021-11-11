@@ -39,7 +39,7 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  *
  * @see {@link UpdateProvisionedProductCommandInput} for command's `input` shape.
  * @see {@link UpdateProvisionedProductCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProvisionedProductCommand extends $Command<

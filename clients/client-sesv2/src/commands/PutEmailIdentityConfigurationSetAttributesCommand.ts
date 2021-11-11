@@ -41,7 +41,7 @@ export interface PutEmailIdentityConfigurationSetAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityConfigurationSetAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutEmailIdentityConfigurationSetAttributesCommand extends $Command<

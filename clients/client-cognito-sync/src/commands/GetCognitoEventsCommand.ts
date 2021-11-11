@@ -35,7 +35,7 @@ export interface GetCognitoEventsCommandOutput extends GetCognitoEventsResponse,
  *
  * @see {@link GetCognitoEventsCommandInput} for command's `input` shape.
  * @see {@link GetCognitoEventsCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCognitoEventsCommand extends $Command<

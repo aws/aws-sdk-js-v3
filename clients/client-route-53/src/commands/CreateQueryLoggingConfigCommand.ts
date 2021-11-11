@@ -152,7 +152,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *
  * @see {@link CreateQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateQueryLoggingConfigCommand extends $Command<

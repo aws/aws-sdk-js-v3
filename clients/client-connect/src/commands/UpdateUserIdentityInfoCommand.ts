@@ -43,7 +43,7 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateUserIdentityInfoCommandInput} for command's `input` shape.
  * @see {@link UpdateUserIdentityInfoCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateUserIdentityInfoCommand extends $Command<

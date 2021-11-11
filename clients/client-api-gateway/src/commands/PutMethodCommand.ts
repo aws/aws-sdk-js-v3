@@ -35,7 +35,7 @@ export interface PutMethodCommandOutput extends Method, __MetadataBearer {}
  *
  * @see {@link PutMethodCommandInput} for command's `input` shape.
  * @see {@link PutMethodCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutMethodCommand extends $Command<

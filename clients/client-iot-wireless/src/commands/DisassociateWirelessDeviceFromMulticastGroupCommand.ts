@@ -41,7 +41,7 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput
  *
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromMulticastGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Command<

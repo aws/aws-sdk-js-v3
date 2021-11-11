@@ -37,7 +37,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  *
  * @see {@link ListOrganizationAdminAccountsCommandInput} for command's `input` shape.
  * @see {@link ListOrganizationAdminAccountsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOrganizationAdminAccountsCommand extends $Command<

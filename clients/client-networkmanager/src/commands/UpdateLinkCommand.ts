@@ -36,7 +36,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkResponse, __MetadataB
  *
  * @see {@link UpdateLinkCommandInput} for command's `input` shape.
  * @see {@link UpdateLinkCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateLinkCommand extends $Command<

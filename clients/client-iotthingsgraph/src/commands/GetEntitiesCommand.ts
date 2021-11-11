@@ -66,7 +66,7 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *
  * @see {@link GetEntitiesCommandInput} for command's `input` shape.
  * @see {@link GetEntitiesCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEntitiesCommand extends $Command<

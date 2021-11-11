@@ -37,7 +37,7 @@ export interface SendTaskSuccessCommandOutput extends SendTaskSuccessOutput, __M
  *
  * @see {@link SendTaskSuccessCommandInput} for command's `input` shape.
  * @see {@link SendTaskSuccessCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendTaskSuccessCommand extends $Command<

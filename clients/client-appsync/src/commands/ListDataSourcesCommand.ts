@@ -35,7 +35,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  *
  * @see {@link ListDataSourcesCommandInput} for command's `input` shape.
  * @see {@link ListDataSourcesCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDataSourcesCommand extends $Command<

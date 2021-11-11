@@ -49,7 +49,7 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *
  * @see {@link SendTaskHeartbeatCommandInput} for command's `input` shape.
  * @see {@link SendTaskHeartbeatCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendTaskHeartbeatCommand extends $Command<

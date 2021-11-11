@@ -37,7 +37,7 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteIntentCommandInput} for command's `input` shape.
  * @see {@link DeleteIntentCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteIntentCommand extends $Command<

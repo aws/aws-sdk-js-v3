@@ -38,7 +38,7 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  *
  * @see {@link CreateSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSubnetGroupCommand extends $Command<

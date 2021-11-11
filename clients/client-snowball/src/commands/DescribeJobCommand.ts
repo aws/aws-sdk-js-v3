@@ -36,7 +36,7 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  *
  * @see {@link DescribeJobCommandInput} for command's `input` shape.
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeJobCommand extends $Command<

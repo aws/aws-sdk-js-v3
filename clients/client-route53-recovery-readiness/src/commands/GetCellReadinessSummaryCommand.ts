@@ -39,7 +39,7 @@ export interface GetCellReadinessSummaryCommandOutput extends GetCellReadinessSu
  *
  * @see {@link GetCellReadinessSummaryCommandInput} for command's `input` shape.
  * @see {@link GetCellReadinessSummaryCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCellReadinessSummaryCommand extends $Command<

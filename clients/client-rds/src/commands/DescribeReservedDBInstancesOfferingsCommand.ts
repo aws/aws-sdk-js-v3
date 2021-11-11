@@ -37,7 +37,7 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  *
  * @see {@link DescribeReservedDBInstancesOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedDBInstancesOfferingsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReservedDBInstancesOfferingsCommand extends $Command<

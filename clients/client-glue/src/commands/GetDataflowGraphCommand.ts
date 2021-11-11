@@ -35,7 +35,7 @@ export interface GetDataflowGraphCommandOutput extends GetDataflowGraphResponse,
  *
  * @see {@link GetDataflowGraphCommandInput} for command's `input` shape.
  * @see {@link GetDataflowGraphCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDataflowGraphCommand extends $Command<

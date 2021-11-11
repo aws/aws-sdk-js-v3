@@ -35,7 +35,7 @@ export interface DescribeFilterCommandOutput extends DescribeFilterResponse, __M
  *
  * @see {@link DescribeFilterCommandInput} for command's `input` shape.
  * @see {@link DescribeFilterCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFilterCommand extends $Command<

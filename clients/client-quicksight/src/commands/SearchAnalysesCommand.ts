@@ -38,7 +38,7 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  *
  * @see {@link SearchAnalysesCommandInput} for command's `input` shape.
  * @see {@link SearchAnalysesCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchAnalysesCommand extends $Command<

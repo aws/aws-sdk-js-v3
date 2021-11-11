@@ -37,7 +37,7 @@ export interface GetEmailIdentityCommandOutput extends GetEmailIdentityResponse,
  *
  * @see {@link GetEmailIdentityCommandInput} for command's `input` shape.
  * @see {@link GetEmailIdentityCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEmailIdentityCommand extends $Command<

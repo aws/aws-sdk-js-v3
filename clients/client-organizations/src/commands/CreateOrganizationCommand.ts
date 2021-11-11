@@ -45,7 +45,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *
  * @see {@link CreateOrganizationCommandInput} for command's `input` shape.
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateOrganizationCommand extends $Command<

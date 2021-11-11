@@ -44,7 +44,7 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  *
  * @see {@link BatchUpdateTableRowsCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateTableRowsCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchUpdateTableRowsCommand extends $Command<

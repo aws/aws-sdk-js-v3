@@ -35,7 +35,7 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  *
  * @see {@link StartBuildCommandInput} for command's `input` shape.
  * @see {@link StartBuildCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartBuildCommand extends $Command<

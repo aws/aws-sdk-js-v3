@@ -37,7 +37,7 @@ export interface UntagMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagMFADeviceCommandInput} for command's `input` shape.
  * @see {@link UntagMFADeviceCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagMFADeviceCommand extends $Command<

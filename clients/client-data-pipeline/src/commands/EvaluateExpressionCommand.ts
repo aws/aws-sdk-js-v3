@@ -65,7 +65,7 @@ export interface EvaluateExpressionCommandOutput extends EvaluateExpressionOutpu
  *
  * @see {@link EvaluateExpressionCommandInput} for command's `input` shape.
  * @see {@link EvaluateExpressionCommandOutput} for command's `response` shape.
- * @see {@link DataPipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataPipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EvaluateExpressionCommand extends $Command<

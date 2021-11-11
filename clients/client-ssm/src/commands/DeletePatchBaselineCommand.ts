@@ -35,7 +35,7 @@ export interface DeletePatchBaselineCommandOutput extends DeletePatchBaselineRes
  *
  * @see {@link DeletePatchBaselineCommandInput} for command's `input` shape.
  * @see {@link DeletePatchBaselineCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePatchBaselineCommand extends $Command<

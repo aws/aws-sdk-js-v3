@@ -40,7 +40,7 @@ export interface PutClassificationExportConfigurationCommandOutput
  *
  * @see {@link PutClassificationExportConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutClassificationExportConfigurationCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutClassificationExportConfigurationCommand extends $Command<

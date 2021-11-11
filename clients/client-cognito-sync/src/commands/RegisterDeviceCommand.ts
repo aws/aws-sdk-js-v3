@@ -79,7 +79,7 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *
  * @see {@link RegisterDeviceCommandInput} for command's `input` shape.
  * @see {@link RegisterDeviceCommandOutput} for command's `response` shape.
- * @see {@link CognitoSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterDeviceCommand extends $Command<

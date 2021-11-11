@@ -38,7 +38,7 @@ export interface ListHITsCommandOutput extends ListHITsResponse, __MetadataBeare
  *
  * @see {@link ListHITsCommandInput} for command's `input` shape.
  * @see {@link ListHITsCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHITsCommand extends $Command<ListHITsCommandInput, ListHITsCommandOutput, MTurkClientResolvedConfig> {

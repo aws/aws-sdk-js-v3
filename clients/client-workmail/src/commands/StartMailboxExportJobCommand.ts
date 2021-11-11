@@ -38,7 +38,7 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  *
  * @see {@link StartMailboxExportJobCommandInput} for command's `input` shape.
  * @see {@link StartMailboxExportJobCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMailboxExportJobCommand extends $Command<

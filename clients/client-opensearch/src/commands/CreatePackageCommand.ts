@@ -35,7 +35,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  *
  * @see {@link CreatePackageCommandInput} for command's `input` shape.
  * @see {@link CreatePackageCommandOutput} for command's `response` shape.
- * @see {@link OpenSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePackageCommand extends $Command<

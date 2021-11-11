@@ -35,7 +35,7 @@ export interface StopChannelCommandOutput extends StopChannelResponse, __Metadat
  *
  * @see {@link StopChannelCommandInput} for command's `input` shape.
  * @see {@link StopChannelCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopChannelCommand extends $Command<

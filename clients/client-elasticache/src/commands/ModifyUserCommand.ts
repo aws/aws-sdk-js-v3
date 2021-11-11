@@ -32,7 +32,7 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  *
  * @see {@link ModifyUserCommandInput} for command's `input` shape.
  * @see {@link ModifyUserCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyUserCommand extends $Command<

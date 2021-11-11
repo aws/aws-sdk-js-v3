@@ -42,7 +42,7 @@ export interface StartTextDetectionCommandOutput extends StartTextDetectionRespo
  *
  * @see {@link StartTextDetectionCommandInput} for command's `input` shape.
  * @see {@link StartTextDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartTextDetectionCommand extends $Command<

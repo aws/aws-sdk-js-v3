@@ -59,7 +59,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *
  * @see {@link PutBucketLifecycleConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutBucketLifecycleConfigurationCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutBucketLifecycleConfigurationCommand extends $Command<

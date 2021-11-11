@@ -35,7 +35,7 @@ export interface GetWebhookCommandOutput extends GetWebhookResult, __MetadataBea
  *
  * @see {@link GetWebhookCommandInput} for command's `input` shape.
  * @see {@link GetWebhookCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetWebhookCommand extends $Command<

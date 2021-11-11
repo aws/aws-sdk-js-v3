@@ -35,7 +35,7 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  *
  * @see {@link GetBatchPredictionJobsCommandInput} for command's `input` shape.
  * @see {@link GetBatchPredictionJobsCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetBatchPredictionJobsCommand extends $Command<

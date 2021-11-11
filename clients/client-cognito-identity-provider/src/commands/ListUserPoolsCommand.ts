@@ -40,7 +40,7 @@ export interface ListUserPoolsCommandOutput extends ListUserPoolsResponse, __Met
  *
  * @see {@link ListUserPoolsCommandInput} for command's `input` shape.
  * @see {@link ListUserPoolsCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListUserPoolsCommand extends $Command<

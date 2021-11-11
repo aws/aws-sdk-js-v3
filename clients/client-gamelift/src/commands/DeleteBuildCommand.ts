@@ -56,7 +56,7 @@ export interface DeleteBuildCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBuildCommandInput} for command's `input` shape.
  * @see {@link DeleteBuildCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBuildCommand extends $Command<

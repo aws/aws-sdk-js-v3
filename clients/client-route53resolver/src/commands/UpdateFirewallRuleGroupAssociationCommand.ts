@@ -40,7 +40,7 @@ export interface UpdateFirewallRuleGroupAssociationCommandOutput
  *
  * @see {@link UpdateFirewallRuleGroupAssociationCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleGroupAssociationCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFirewallRuleGroupAssociationCommand extends $Command<

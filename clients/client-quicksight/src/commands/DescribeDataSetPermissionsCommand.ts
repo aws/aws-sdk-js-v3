@@ -36,7 +36,7 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
  *
  * @see {@link DescribeDataSetPermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDataSetPermissionsCommand extends $Command<

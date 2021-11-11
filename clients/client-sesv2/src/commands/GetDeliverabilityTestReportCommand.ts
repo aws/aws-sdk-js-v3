@@ -37,7 +37,7 @@ export interface GetDeliverabilityTestReportCommandOutput
  *
  * @see {@link GetDeliverabilityTestReportCommandInput} for command's `input` shape.
  * @see {@link GetDeliverabilityTestReportCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeliverabilityTestReportCommand extends $Command<

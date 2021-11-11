@@ -34,7 +34,7 @@ export interface ListStepsCommandOutput extends ListStepsOutput, __MetadataBeare
  *
  * @see {@link ListStepsCommandInput} for command's `input` shape.
  * @see {@link ListStepsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsCommandOutput, EMRClientResolvedConfig> {

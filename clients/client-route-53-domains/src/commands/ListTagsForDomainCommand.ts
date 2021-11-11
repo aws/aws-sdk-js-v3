@@ -36,7 +36,7 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  *
  * @see {@link ListTagsForDomainCommandInput} for command's `input` shape.
  * @see {@link ListTagsForDomainCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTagsForDomainCommand extends $Command<

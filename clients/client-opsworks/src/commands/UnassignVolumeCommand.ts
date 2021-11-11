@@ -42,7 +42,7 @@ export interface UnassignVolumeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UnassignVolumeCommandInput} for command's `input` shape.
  * @see {@link UnassignVolumeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UnassignVolumeCommand extends $Command<

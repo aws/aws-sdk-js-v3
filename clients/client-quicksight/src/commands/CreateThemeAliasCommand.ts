@@ -35,7 +35,7 @@ export interface CreateThemeAliasCommandOutput extends CreateThemeAliasResponse,
  *
  * @see {@link CreateThemeAliasCommandInput} for command's `input` shape.
  * @see {@link CreateThemeAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateThemeAliasCommand extends $Command<

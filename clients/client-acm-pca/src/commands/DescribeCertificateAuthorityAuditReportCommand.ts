@@ -44,7 +44,7 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  *
  * @see {@link DescribeCertificateAuthorityAuditReportCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCertificateAuthorityAuditReportCommand extends $Command<

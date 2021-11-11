@@ -35,7 +35,7 @@ export interface UpdateQuickConnectNameCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateQuickConnectNameCommandInput} for command's `input` shape.
  * @see {@link UpdateQuickConnectNameCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateQuickConnectNameCommand extends $Command<

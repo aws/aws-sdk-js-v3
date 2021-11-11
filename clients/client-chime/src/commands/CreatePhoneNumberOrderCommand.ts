@@ -36,7 +36,7 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  *
  * @see {@link CreatePhoneNumberOrderCommandInput} for command's `input` shape.
  * @see {@link CreatePhoneNumberOrderCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePhoneNumberOrderCommand extends $Command<

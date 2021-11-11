@@ -35,7 +35,7 @@ export interface GetAppsCommandOutput extends GetAppsResponse, __MetadataBearer 
  *
  * @see {@link GetAppsCommandInput} for command's `input` shape.
  * @see {@link GetAppsCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAppsCommand extends $Command<GetAppsCommandInput, GetAppsCommandOutput, PinpointClientResolvedConfig> {

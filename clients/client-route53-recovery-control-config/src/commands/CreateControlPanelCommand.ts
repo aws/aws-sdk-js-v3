@@ -39,7 +39,7 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  *
  * @see {@link CreateControlPanelCommandInput} for command's `input` shape.
  * @see {@link CreateControlPanelCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateControlPanelCommand extends $Command<

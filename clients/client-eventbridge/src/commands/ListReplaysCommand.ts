@@ -36,7 +36,7 @@ export interface ListReplaysCommandOutput extends ListReplaysResponse, __Metadat
  *
  * @see {@link ListReplaysCommandInput} for command's `input` shape.
  * @see {@link ListReplaysCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListReplaysCommand extends $Command<

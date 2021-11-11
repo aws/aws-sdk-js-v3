@@ -55,7 +55,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *
  * @see {@link SendCommandCommandInput} for command's `input` shape.
  * @see {@link SendCommandCommandOutput} for command's `response` shape.
- * @see {@link QLDBSessionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QLDBSessionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendCommandCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ModifyVpcAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyVpcAttributeCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyVpcAttributeCommand extends $Command<

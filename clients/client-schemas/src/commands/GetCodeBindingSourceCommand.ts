@@ -35,7 +35,7 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceR
  *
  * @see {@link GetCodeBindingSourceCommandInput} for command's `input` shape.
  * @see {@link GetCodeBindingSourceCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCodeBindingSourceCommand extends $Command<

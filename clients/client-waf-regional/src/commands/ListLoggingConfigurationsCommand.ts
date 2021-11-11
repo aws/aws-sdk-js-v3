@@ -43,7 +43,7 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  *
  * @see {@link ListLoggingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListLoggingConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLoggingConfigurationsCommand extends $Command<

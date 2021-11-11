@@ -47,7 +47,7 @@ export interface RebootCacheClusterCommandOutput extends RebootCacheClusterResul
  *
  * @see {@link RebootCacheClusterCommandInput} for command's `input` shape.
  * @see {@link RebootCacheClusterCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RebootCacheClusterCommand extends $Command<

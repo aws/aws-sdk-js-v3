@@ -43,7 +43,7 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  *
  * @see {@link DescribeRecordCommandInput} for command's `input` shape.
  * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRecordCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DescribeEventConfigurationsCommandOutput
  *
  * @see {@link DescribeEventConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventConfigurationsCommand extends $Command<

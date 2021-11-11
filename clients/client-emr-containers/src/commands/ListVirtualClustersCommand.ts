@@ -35,7 +35,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  *
  * @see {@link ListVirtualClustersCommandInput} for command's `input` shape.
  * @see {@link ListVirtualClustersCommandOutput} for command's `response` shape.
- * @see {@link EMRContainersClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRContainersClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVirtualClustersCommand extends $Command<

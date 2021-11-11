@@ -40,7 +40,7 @@ export interface ListResourceRequestsCommandOutput extends ListResourceRequestsO
  *
  * @see {@link ListResourceRequestsCommandInput} for command's `input` shape.
  * @see {@link ListResourceRequestsCommandOutput} for command's `response` shape.
- * @see {@link CloudControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListResourceRequestsCommand extends $Command<

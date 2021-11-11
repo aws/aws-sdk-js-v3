@@ -51,7 +51,7 @@ export interface ChannelFlowCallbackCommandOutput extends ChannelFlowCallbackRes
  *
  * @see {@link ChannelFlowCallbackCommandInput} for command's `input` shape.
  * @see {@link ChannelFlowCallbackCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ChannelFlowCallbackCommand extends $Command<

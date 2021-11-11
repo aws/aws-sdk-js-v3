@@ -35,7 +35,7 @@ export interface GetAssistantCommandOutput extends GetAssistantResponse, __Metad
  *
  * @see {@link GetAssistantCommandInput} for command's `input` shape.
  * @see {@link GetAssistantCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAssistantCommand extends $Command<

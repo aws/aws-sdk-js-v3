@@ -35,7 +35,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  *
  * @see {@link ModifyBackupAttributesCommandInput} for command's `input` shape.
  * @see {@link ModifyBackupAttributesCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyBackupAttributesCommand extends $Command<

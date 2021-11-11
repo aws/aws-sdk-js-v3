@@ -35,7 +35,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  *
  * @see {@link DescribeDBSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeDBSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDBSnapshotsCommand extends $Command<

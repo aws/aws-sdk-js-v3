@@ -35,7 +35,7 @@ export interface CreatePullRequestCommandOutput extends CreatePullRequestOutput,
  *
  * @see {@link CreatePullRequestCommandInput} for command's `input` shape.
  * @see {@link CreatePullRequestCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePullRequestCommand extends $Command<

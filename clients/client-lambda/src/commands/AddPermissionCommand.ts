@@ -47,7 +47,7 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddPermissionCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetDomainCommandOutput extends GetDomainResult, __MetadataBeare
  *
  * @see {@link GetDomainCommandInput} for command's `input` shape.
  * @see {@link GetDomainCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDomainCommand extends $Command<

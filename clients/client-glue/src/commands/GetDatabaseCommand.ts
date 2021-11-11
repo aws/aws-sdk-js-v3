@@ -36,7 +36,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  *
  * @see {@link GetDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetDatabaseCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDatabaseCommand extends $Command<

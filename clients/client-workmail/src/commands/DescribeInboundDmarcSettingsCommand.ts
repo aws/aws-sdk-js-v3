@@ -37,7 +37,7 @@ export interface DescribeInboundDmarcSettingsCommandOutput
  *
  * @see {@link DescribeInboundDmarcSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundDmarcSettingsCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInboundDmarcSettingsCommand extends $Command<

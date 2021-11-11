@@ -40,7 +40,7 @@ export interface DescribeChannelModeratorCommandOutput extends DescribeChannelMo
  *
  * @see {@link DescribeChannelModeratorCommandInput} for command's `input` shape.
  * @see {@link DescribeChannelModeratorCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeChannelModeratorCommand extends $Command<

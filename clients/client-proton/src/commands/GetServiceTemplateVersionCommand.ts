@@ -35,7 +35,7 @@ export interface GetServiceTemplateVersionCommandOutput extends GetServiceTempla
  *
  * @see {@link GetServiceTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link GetServiceTemplateVersionCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetServiceTemplateVersionCommand extends $Command<

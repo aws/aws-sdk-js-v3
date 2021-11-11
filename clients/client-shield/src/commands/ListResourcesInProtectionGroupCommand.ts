@@ -37,7 +37,7 @@ export interface ListResourcesInProtectionGroupCommandOutput
  *
  * @see {@link ListResourcesInProtectionGroupCommandInput} for command's `input` shape.
  * @see {@link ListResourcesInProtectionGroupCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListResourcesInProtectionGroupCommand extends $Command<

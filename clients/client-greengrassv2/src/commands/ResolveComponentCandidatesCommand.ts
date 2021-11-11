@@ -49,7 +49,7 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  *
  * @see {@link ResolveComponentCandidatesCommandInput} for command's `input` shape.
  * @see {@link ResolveComponentCandidatesCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResolveComponentCandidatesCommand extends $Command<

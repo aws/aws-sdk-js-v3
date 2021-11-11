@@ -37,7 +37,7 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  *
  * @see {@link DeleteDBProxyEndpointCommandInput} for command's `input` shape.
  * @see {@link DeleteDBProxyEndpointCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDBProxyEndpointCommand extends $Command<

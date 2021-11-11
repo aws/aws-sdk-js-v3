@@ -45,7 +45,7 @@ export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBeare
  *
  * @see {@link PutUserPermissionsBoundaryCommandInput} for command's `input` shape.
  * @see {@link PutUserPermissionsBoundaryCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutUserPermissionsBoundaryCommand extends $Command<

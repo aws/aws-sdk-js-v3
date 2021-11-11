@@ -35,7 +35,7 @@ export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
  *
  * @see {@link UpdateStageCommandInput} for command's `input` shape.
  * @see {@link UpdateStageCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateStageCommand extends $Command<

@@ -58,7 +58,7 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  *
  * @see {@link ModifyDBClusterSnapshotAttributeCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyDBClusterSnapshotAttributeCommand extends $Command<

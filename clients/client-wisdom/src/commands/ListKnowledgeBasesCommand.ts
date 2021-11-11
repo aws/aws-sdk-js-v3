@@ -35,7 +35,7 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  *
  * @see {@link ListKnowledgeBasesCommandInput} for command's `input` shape.
  * @see {@link ListKnowledgeBasesCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListKnowledgeBasesCommand extends $Command<

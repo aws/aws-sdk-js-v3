@@ -44,7 +44,7 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput
  *
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationInputProcessingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApplicationInputProcessingConfigurationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  *
  * @see {@link DescribeDefaultParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeDefaultParametersCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDefaultParametersCommand extends $Command<

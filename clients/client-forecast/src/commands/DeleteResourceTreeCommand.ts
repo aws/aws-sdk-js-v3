@@ -66,7 +66,7 @@ export interface DeleteResourceTreeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourceTreeCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceTreeCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResourceTreeCommand extends $Command<

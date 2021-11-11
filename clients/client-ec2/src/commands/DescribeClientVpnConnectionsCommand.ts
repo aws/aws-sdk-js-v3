@@ -38,7 +38,7 @@ export interface DescribeClientVpnConnectionsCommandOutput
  *
  * @see {@link DescribeClientVpnConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeClientVpnConnectionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeClientVpnConnectionsCommand extends $Command<

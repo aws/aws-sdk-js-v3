@@ -41,7 +41,7 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  *
  * @see {@link DisassociateDeviceFromPlacementCommandInput} for command's `input` shape.
  * @see {@link DisassociateDeviceFromPlacementCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateDeviceFromPlacementCommand extends $Command<

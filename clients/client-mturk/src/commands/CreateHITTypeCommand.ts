@@ -40,7 +40,7 @@ export interface CreateHITTypeCommandOutput extends CreateHITTypeResponse, __Met
  *
  * @see {@link CreateHITTypeCommandInput} for command's `input` shape.
  * @see {@link CreateHITTypeCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateHITTypeCommand extends $Command<

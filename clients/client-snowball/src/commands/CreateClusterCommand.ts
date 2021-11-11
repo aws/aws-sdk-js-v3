@@ -36,7 +36,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *
  * @see {@link CreateClusterCommandInput} for command's `input` shape.
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateClusterCommand extends $Command<

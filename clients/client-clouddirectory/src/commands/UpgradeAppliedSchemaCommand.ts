@@ -35,7 +35,7 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  *
  * @see {@link UpgradeAppliedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradeAppliedSchemaCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpgradeAppliedSchemaCommand extends $Command<

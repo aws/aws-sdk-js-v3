@@ -36,7 +36,7 @@ export interface SearchNetworkProfilesCommandOutput extends SearchNetworkProfile
  *
  * @see {@link SearchNetworkProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchNetworkProfilesCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchNetworkProfilesCommand extends $Command<

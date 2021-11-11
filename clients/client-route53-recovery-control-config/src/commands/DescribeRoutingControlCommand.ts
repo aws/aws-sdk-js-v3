@@ -39,7 +39,7 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  *
  * @see {@link DescribeRoutingControlCommandInput} for command's `input` shape.
  * @see {@link DescribeRoutingControlCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRoutingControlCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeVirtualRouterCommandOutput extends DescribeVirtualRoute
  *
  * @see {@link DescribeVirtualRouterCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualRouterCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVirtualRouterCommand extends $Command<

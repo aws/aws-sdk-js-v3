@@ -36,7 +36,7 @@ export interface ListEventSourcesCommandOutput extends ListEventSourcesResponse,
  *
  * @see {@link ListEventSourcesCommandInput} for command's `input` shape.
  * @see {@link ListEventSourcesCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEventSourcesCommand extends $Command<

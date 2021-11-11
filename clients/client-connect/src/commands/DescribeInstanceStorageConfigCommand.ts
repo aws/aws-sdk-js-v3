@@ -39,7 +39,7 @@ export interface DescribeInstanceStorageConfigCommandOutput
  *
  * @see {@link DescribeInstanceStorageConfigCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceStorageConfigCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInstanceStorageConfigCommand extends $Command<

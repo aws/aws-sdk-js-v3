@@ -35,7 +35,7 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  *
  * @see {@link GetFilterCommandInput} for command's `input` shape.
  * @see {@link GetFilterCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFilterCommand extends $Command<

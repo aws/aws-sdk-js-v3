@@ -35,7 +35,7 @@ export interface ListDirectoriesCommandOutput extends ListDirectoriesResponse, _
  *
  * @see {@link ListDirectoriesCommandInput} for command's `input` shape.
  * @see {@link ListDirectoriesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDirectoriesCommand extends $Command<

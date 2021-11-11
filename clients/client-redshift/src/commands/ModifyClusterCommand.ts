@@ -43,7 +43,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *
  * @see {@link ModifyClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyClusterCommand extends $Command<

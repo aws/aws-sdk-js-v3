@@ -45,7 +45,7 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * @see {@link UpdateClusterVersionCommandInput} for command's `input` shape.
  * @see {@link UpdateClusterVersionCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateClusterVersionCommand extends $Command<

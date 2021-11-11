@@ -35,7 +35,7 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  *
  * @see {@link CloneBackendCommandInput} for command's `input` shape.
  * @see {@link CloneBackendCommandOutput} for command's `response` shape.
- * @see {@link AmplifyBackendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyBackendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CloneBackendCommand extends $Command<

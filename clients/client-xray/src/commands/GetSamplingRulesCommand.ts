@@ -35,7 +35,7 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  *
  * @see {@link GetSamplingRulesCommandInput} for command's `input` shape.
  * @see {@link GetSamplingRulesCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSamplingRulesCommand extends $Command<

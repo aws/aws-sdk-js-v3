@@ -44,7 +44,7 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  *
  * @see {@link DescribeReservedNodeOfferingsCommandInput} for command's `input` shape.
  * @see {@link DescribeReservedNodeOfferingsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReservedNodeOfferingsCommand extends $Command<

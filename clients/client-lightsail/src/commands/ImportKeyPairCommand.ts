@@ -35,7 +35,7 @@ export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __Metad
  *
  * @see {@link ImportKeyPairCommandInput} for command's `input` shape.
  * @see {@link ImportKeyPairCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ImportKeyPairCommand extends $Command<

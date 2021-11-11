@@ -41,7 +41,7 @@ export interface AssignTapePoolCommandOutput extends AssignTapePoolOutput, __Met
  *
  * @see {@link AssignTapePoolCommandInput} for command's `input` shape.
  * @see {@link AssignTapePoolCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssignTapePoolCommand extends $Command<

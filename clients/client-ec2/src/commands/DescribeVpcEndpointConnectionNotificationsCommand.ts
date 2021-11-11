@@ -42,7 +42,7 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  *
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcEndpointConnectionNotificationsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVpcEndpointConnectionNotificationsCommand extends $Command<

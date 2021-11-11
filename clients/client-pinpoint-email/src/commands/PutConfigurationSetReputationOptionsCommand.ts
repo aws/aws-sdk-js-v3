@@ -41,7 +41,7 @@ export interface PutConfigurationSetReputationOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetReputationOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetReputationOptionsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutConfigurationSetReputationOptionsCommand extends $Command<

@@ -38,7 +38,7 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UnsubscribeCommandInput} for command's `input` shape.
  * @see {@link UnsubscribeCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UnsubscribeCommand extends $Command<

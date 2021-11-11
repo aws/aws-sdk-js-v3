@@ -35,7 +35,7 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  *
  * @see {@link CreateWebLoginTokenCommandInput} for command's `input` shape.
  * @see {@link CreateWebLoginTokenCommandOutput} for command's `response` shape.
- * @see {@link MWAAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MWAAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateWebLoginTokenCommand extends $Command<

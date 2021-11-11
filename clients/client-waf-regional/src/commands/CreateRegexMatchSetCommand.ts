@@ -66,7 +66,7 @@ export interface CreateRegexMatchSetCommandOutput extends CreateRegexMatchSetRes
  *
  * @see {@link CreateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link CreateRegexMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRegexMatchSetCommand extends $Command<

@@ -46,7 +46,7 @@ export interface UpdateNotificationSettingsCommandOutput extends UpdateNotificat
  *
  * @see {@link UpdateNotificationSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateNotificationSettingsCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateNotificationSettingsCommand extends $Command<

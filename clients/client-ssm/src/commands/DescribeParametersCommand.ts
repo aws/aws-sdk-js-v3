@@ -48,7 +48,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *
  * @see {@link DescribeParametersCommandInput} for command's `input` shape.
  * @see {@link DescribeParametersCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeParametersCommand extends $Command<

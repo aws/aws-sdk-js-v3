@@ -35,7 +35,7 @@ export interface DescribeContextCommandOutput extends DescribeContextResponse, _
  *
  * @see {@link DescribeContextCommandInput} for command's `input` shape.
  * @see {@link DescribeContextCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeContextCommand extends $Command<

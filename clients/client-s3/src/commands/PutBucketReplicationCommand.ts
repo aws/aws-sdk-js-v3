@@ -106,7 +106,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutBucketReplicationCommandInput} for command's `input` shape.
  * @see {@link PutBucketReplicationCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutBucketReplicationCommand extends $Command<

@@ -64,7 +64,7 @@ export interface DescribeMatchmakingConfigurationsCommandOutput
  *
  * @see {@link DescribeMatchmakingConfigurationsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMatchmakingConfigurationsCommand extends $Command<

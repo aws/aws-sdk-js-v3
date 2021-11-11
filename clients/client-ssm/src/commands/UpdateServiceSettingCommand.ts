@@ -48,7 +48,7 @@ export interface UpdateServiceSettingCommandOutput extends UpdateServiceSettingR
  *
  * @see {@link UpdateServiceSettingCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServiceSettingCommand extends $Command<

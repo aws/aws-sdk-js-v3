@@ -38,7 +38,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  *
  * @see {@link DeleteSubscriberCommandInput} for command's `input` shape.
  * @see {@link DeleteSubscriberCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSubscriberCommand extends $Command<

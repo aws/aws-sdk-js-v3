@@ -36,7 +36,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  *
  * @see {@link DeleteImageCommandInput} for command's `input` shape.
  * @see {@link DeleteImageCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteImageCommand extends $Command<

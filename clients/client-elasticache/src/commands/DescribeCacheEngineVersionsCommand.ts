@@ -36,7 +36,7 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  *
  * @see {@link DescribeCacheEngineVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeCacheEngineVersionsCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCacheEngineVersionsCommand extends $Command<

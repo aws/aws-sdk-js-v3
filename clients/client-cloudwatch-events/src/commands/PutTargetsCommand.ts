@@ -200,7 +200,7 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *
  * @see {@link PutTargetsCommandInput} for command's `input` shape.
  * @see {@link PutTargetsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutTargetsCommand extends $Command<

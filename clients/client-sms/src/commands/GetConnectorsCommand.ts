@@ -35,7 +35,7 @@ export interface GetConnectorsCommandOutput extends GetConnectorsResponse, __Met
  *
  * @see {@link GetConnectorsCommandInput} for command's `input` shape.
  * @see {@link GetConnectorsCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetConnectorsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  *
  * @see {@link ListSuiteRunsCommandInput} for command's `input` shape.
  * @see {@link ListSuiteRunsCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSuiteRunsCommand extends $Command<

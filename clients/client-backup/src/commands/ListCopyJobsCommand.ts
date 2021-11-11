@@ -35,7 +35,7 @@ export interface ListCopyJobsCommandOutput extends ListCopyJobsOutput, __Metadat
  *
  * @see {@link ListCopyJobsCommandInput} for command's `input` shape.
  * @see {@link ListCopyJobsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCopyJobsCommand extends $Command<

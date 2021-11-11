@@ -35,7 +35,7 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  *
  * @see {@link StartTestCommandInput} for command's `input` shape.
  * @see {@link StartTestCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartTestCommand extends $Command<StartTestCommandInput, StartTestCommandOutput, MgnClientResolvedConfig> {

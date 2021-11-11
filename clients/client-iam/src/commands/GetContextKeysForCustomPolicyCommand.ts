@@ -44,7 +44,7 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  *
  * @see {@link GetContextKeysForCustomPolicyCommandInput} for command's `input` shape.
  * @see {@link GetContextKeysForCustomPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command<

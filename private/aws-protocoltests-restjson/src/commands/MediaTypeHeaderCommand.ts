@@ -35,7 +35,7 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  *
  * @see {@link MediaTypeHeaderCommandInput} for command's `input` shape.
  * @see {@link MediaTypeHeaderCommandOutput} for command's `response` shape.
- * @see {@link RestJsonProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class MediaTypeHeaderCommand extends $Command<

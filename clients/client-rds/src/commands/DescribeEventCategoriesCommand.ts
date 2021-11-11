@@ -39,7 +39,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  *
  * @see {@link DescribeEventCategoriesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventCategoriesCommand extends $Command<

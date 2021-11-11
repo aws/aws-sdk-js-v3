@@ -39,7 +39,7 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeregisterImageCommandInput} for command's `input` shape.
  * @see {@link DeregisterImageCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterImageCommand extends $Command<

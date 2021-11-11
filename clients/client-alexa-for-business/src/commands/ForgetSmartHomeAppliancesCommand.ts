@@ -35,7 +35,7 @@ export interface ForgetSmartHomeAppliancesCommandOutput extends ForgetSmartHomeA
  *
  * @see {@link ForgetSmartHomeAppliancesCommandInput} for command's `input` shape.
  * @see {@link ForgetSmartHomeAppliancesCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ForgetSmartHomeAppliancesCommand extends $Command<

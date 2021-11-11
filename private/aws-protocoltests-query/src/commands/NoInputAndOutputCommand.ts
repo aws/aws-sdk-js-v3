@@ -38,7 +38,7 @@ export interface NoInputAndOutputCommandOutput extends __MetadataBearer {}
  *
  * @see {@link NoInputAndOutputCommandInput} for command's `input` shape.
  * @see {@link NoInputAndOutputCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NoInputAndOutputCommand extends $Command<

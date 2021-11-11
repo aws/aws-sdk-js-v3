@@ -35,7 +35,7 @@ export interface GetRelationalDatabaseCommandOutput extends GetRelationalDatabas
  *
  * @see {@link GetRelationalDatabaseCommandInput} for command's `input` shape.
  * @see {@link GetRelationalDatabaseCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRelationalDatabaseCommand extends $Command<

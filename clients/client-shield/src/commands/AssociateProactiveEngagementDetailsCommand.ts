@@ -45,7 +45,7 @@ export interface AssociateProactiveEngagementDetailsCommandOutput
  *
  * @see {@link AssociateProactiveEngagementDetailsCommandInput} for command's `input` shape.
  * @see {@link AssociateProactiveEngagementDetailsCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateProactiveEngagementDetailsCommand extends $Command<

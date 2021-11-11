@@ -44,7 +44,7 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagServerCertificateCommandInput} for command's `input` shape.
  * @see {@link UntagServerCertificateCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagServerCertificateCommand extends $Command<

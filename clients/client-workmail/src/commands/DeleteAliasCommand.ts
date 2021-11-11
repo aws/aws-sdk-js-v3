@@ -36,7 +36,7 @@ export interface DeleteAliasCommandOutput extends DeleteAliasResponse, __Metadat
  *
  * @see {@link DeleteAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteAliasCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAliasCommand extends $Command<

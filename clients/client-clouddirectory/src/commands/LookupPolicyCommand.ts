@@ -40,7 +40,7 @@ export interface LookupPolicyCommandOutput extends LookupPolicyResponse, __Metad
  *
  * @see {@link LookupPolicyCommandInput} for command's `input` shape.
  * @see {@link LookupPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class LookupPolicyCommand extends $Command<

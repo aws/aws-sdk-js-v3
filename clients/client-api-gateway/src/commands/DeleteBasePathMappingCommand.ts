@@ -35,7 +35,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBasePathMappingCommandInput} for command's `input` shape.
  * @see {@link DeleteBasePathMappingCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBasePathMappingCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteInputSecurityGroupCommandOutput extends DeleteInputSecuri
  *
  * @see {@link DeleteInputSecurityGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteInputSecurityGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteInputSecurityGroupCommand extends $Command<

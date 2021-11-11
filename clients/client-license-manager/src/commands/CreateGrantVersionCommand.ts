@@ -35,7 +35,7 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  *
  * @see {@link CreateGrantVersionCommandInput} for command's `input` shape.
  * @see {@link CreateGrantVersionCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateGrantVersionCommand extends $Command<

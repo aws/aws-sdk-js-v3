@@ -35,7 +35,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  *
  * @see {@link GetJobTemplateCommandInput} for command's `input` shape.
  * @see {@link GetJobTemplateCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetJobTemplateCommand extends $Command<

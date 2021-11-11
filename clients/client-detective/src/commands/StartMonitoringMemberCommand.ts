@@ -47,7 +47,7 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StartMonitoringMemberCommandInput} for command's `input` shape.
  * @see {@link StartMonitoringMemberCommandOutput} for command's `response` shape.
- * @see {@link DetectiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMonitoringMemberCommand extends $Command<

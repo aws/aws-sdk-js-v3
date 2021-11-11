@@ -36,7 +36,7 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  *
  * @see {@link UpdateQueueHoursOfOperationCommandInput} for command's `input` shape.
  * @see {@link UpdateQueueHoursOfOperationCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateQueueHoursOfOperationCommand extends $Command<

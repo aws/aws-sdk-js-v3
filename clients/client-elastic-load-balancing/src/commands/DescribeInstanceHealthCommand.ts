@@ -39,7 +39,7 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  *
  * @see {@link DescribeInstanceHealthCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceHealthCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInstanceHealthCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateBranchCommandOutput extends UpdateBranchResult, __Metadat
  *
  * @see {@link UpdateBranchCommandInput} for command's `input` shape.
  * @see {@link UpdateBranchCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBranchCommand extends $Command<

@@ -64,7 +64,7 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  *
  * @see {@link UpdateGameServerGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGameServerGroupCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGameServerGroupCommand extends $Command<

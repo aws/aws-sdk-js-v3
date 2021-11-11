@@ -35,7 +35,7 @@ export interface SearchSessionsCommandOutput extends SearchSessionsResponse, __M
  *
  * @see {@link SearchSessionsCommandInput} for command's `input` shape.
  * @see {@link SearchSessionsCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchSessionsCommand extends $Command<

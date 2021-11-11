@@ -35,7 +35,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * @see {@link CreateDBInstanceCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDBInstanceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  *
  * @see {@link UpdateRoutingProfileQueuesCommandInput} for command's `input` shape.
  * @see {@link UpdateRoutingProfileQueuesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRoutingProfileQueuesCommand extends $Command<

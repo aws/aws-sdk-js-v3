@@ -35,7 +35,7 @@ export interface GetLoggerDefinitionCommandOutput extends GetLoggerDefinitionRes
  *
  * @see {@link GetLoggerDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetLoggerDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLoggerDefinitionCommand extends $Command<

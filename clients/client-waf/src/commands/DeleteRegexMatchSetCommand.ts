@@ -58,7 +58,7 @@ export interface DeleteRegexMatchSetCommandOutput extends DeleteRegexMatchSetRes
  *
  * @see {@link DeleteRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link DeleteRegexMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRegexMatchSetCommand extends $Command<

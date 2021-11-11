@@ -40,7 +40,7 @@ export interface DescribeHealthServiceStatusForOrganizationCommandOutput
  *
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandInput} for command's `input` shape.
  * @see {@link DescribeHealthServiceStatusForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeHealthServiceStatusForOrganizationCommand extends $Command<

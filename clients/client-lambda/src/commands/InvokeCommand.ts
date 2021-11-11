@@ -58,7 +58,7 @@ export interface InvokeCommandOutput extends InvocationResponse, __MetadataBeare
  *
  * @see {@link InvokeCommandInput} for command's `input` shape.
  * @see {@link InvokeCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {

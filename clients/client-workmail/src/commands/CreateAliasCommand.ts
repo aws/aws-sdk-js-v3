@@ -35,7 +35,7 @@ export interface CreateAliasCommandOutput extends CreateAliasResponse, __Metadat
  *
  * @see {@link CreateAliasCommandInput} for command's `input` shape.
  * @see {@link CreateAliasCommandOutput} for command's `response` shape.
- * @see {@link WorkMailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkMailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAliasCommand extends $Command<

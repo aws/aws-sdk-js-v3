@@ -41,7 +41,7 @@ export interface ListAccountAssignmentCreationStatusCommandOutput
  *
  * @see {@link ListAccountAssignmentCreationStatusCommandInput} for command's `input` shape.
  * @see {@link ListAccountAssignmentCreationStatusCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAccountAssignmentCreationStatusCommand extends $Command<

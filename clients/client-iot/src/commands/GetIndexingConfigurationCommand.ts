@@ -36,7 +36,7 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  *
  * @see {@link GetIndexingConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetIndexingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetIndexingConfigurationCommand extends $Command<

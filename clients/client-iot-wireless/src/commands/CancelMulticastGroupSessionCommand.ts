@@ -37,7 +37,7 @@ export interface CancelMulticastGroupSessionCommandOutput
  *
  * @see {@link CancelMulticastGroupSessionCommandInput} for command's `input` shape.
  * @see {@link CancelMulticastGroupSessionCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelMulticastGroupSessionCommand extends $Command<

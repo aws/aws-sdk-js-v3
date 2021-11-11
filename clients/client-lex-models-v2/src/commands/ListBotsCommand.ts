@@ -35,7 +35,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * @see {@link ListBotsCommandInput} for command's `input` shape.
  * @see {@link ListBotsCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBotsCommand extends $Command<

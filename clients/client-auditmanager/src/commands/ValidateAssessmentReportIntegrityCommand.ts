@@ -40,7 +40,7 @@ export interface ValidateAssessmentReportIntegrityCommandOutput
  *
  * @see {@link ValidateAssessmentReportIntegrityCommandInput} for command's `input` shape.
  * @see {@link ValidateAssessmentReportIntegrityCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ValidateAssessmentReportIntegrityCommand extends $Command<

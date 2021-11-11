@@ -36,7 +36,7 @@ export interface EnableDirectoryCommandOutput extends EnableDirectoryResponse, _
  *
  * @see {@link EnableDirectoryCommandInput} for command's `input` shape.
  * @see {@link EnableDirectoryCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableDirectoryCommand extends $Command<

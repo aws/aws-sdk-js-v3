@@ -38,7 +38,7 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  *
  * @see {@link DescribeConfigurationOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeConfigurationOptionsCommand extends $Command<

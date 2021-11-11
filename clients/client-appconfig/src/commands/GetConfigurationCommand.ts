@@ -47,7 +47,7 @@ export interface GetConfigurationCommandOutput extends Configuration, __Metadata
  *
  * @see {@link GetConfigurationCommandInput} for command's `input` shape.
  * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetConfigurationCommand extends $Command<

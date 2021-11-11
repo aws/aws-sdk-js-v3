@@ -41,7 +41,7 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  *
  * @see {@link DescribeRefreshSchemasStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeRefreshSchemasStatusCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRefreshSchemasStatusCommand extends $Command<

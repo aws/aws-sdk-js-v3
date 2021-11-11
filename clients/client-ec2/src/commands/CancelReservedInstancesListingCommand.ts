@@ -40,7 +40,7 @@ export interface CancelReservedInstancesListingCommandOutput
  *
  * @see {@link CancelReservedInstancesListingCommandInput} for command's `input` shape.
  * @see {@link CancelReservedInstancesListingCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelReservedInstancesListingCommand extends $Command<

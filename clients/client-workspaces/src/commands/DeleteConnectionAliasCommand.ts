@@ -52,7 +52,7 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  *
  * @see {@link DeleteConnectionAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionAliasCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConnectionAliasCommand extends $Command<

@@ -37,7 +37,7 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  *
  * @see {@link UpdateClassifierCommandInput} for command's `input` shape.
  * @see {@link UpdateClassifierCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateClassifierCommand extends $Command<

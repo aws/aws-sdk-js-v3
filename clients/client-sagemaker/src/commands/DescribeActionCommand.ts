@@ -35,7 +35,7 @@ export interface DescribeActionCommandOutput extends DescribeActionResponse, __M
  *
  * @see {@link DescribeActionCommandInput} for command's `input` shape.
  * @see {@link DescribeActionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeActionCommand extends $Command<

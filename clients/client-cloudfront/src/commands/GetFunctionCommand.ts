@@ -38,7 +38,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResult, __MetadataB
  *
  * @see {@link GetFunctionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFunctionCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  *
  * @see {@link UpdatePackagingGroupCommandInput} for command's `input` shape.
  * @see {@link UpdatePackagingGroupCommandOutput} for command's `response` shape.
- * @see {@link MediaPackageVodClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaPackageVodClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePackagingGroupCommand extends $Command<

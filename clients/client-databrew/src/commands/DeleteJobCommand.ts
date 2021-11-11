@@ -35,7 +35,7 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  *
  * @see {@link DeleteJobCommandInput} for command's `input` shape.
  * @see {@link DeleteJobCommandOutput} for command's `response` shape.
- * @see {@link DataBrewClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataBrewClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteJobCommand extends $Command<

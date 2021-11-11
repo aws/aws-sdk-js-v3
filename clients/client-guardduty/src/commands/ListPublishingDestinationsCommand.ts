@@ -36,7 +36,7 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  *
  * @see {@link ListPublishingDestinationsCommandInput} for command's `input` shape.
  * @see {@link ListPublishingDestinationsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPublishingDestinationsCommand extends $Command<

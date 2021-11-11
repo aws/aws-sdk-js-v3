@@ -39,7 +39,7 @@ export interface SetDefaultPolicyVersionCommandOutput extends __MetadataBearer {
  *
  * @see {@link SetDefaultPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link SetDefaultPolicyVersionCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetDefaultPolicyVersionCommand extends $Command<

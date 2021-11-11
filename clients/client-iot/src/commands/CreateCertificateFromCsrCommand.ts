@@ -71,7 +71,7 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *
  * @see {@link CreateCertificateFromCsrCommandInput} for command's `input` shape.
  * @see {@link CreateCertificateFromCsrCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCertificateFromCsrCommand extends $Command<

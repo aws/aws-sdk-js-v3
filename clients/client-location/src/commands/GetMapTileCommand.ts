@@ -40,7 +40,7 @@ export interface GetMapTileCommandOutput extends GetMapTileResponse, __MetadataB
  *
  * @see {@link GetMapTileCommandInput} for command's `input` shape.
  * @see {@link GetMapTileCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMapTileCommand extends $Command<

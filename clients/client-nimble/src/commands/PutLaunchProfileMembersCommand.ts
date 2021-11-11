@@ -35,7 +35,7 @@ export interface PutLaunchProfileMembersCommandOutput extends PutLaunchProfileMe
  *
  * @see {@link PutLaunchProfileMembersCommandInput} for command's `input` shape.
  * @see {@link PutLaunchProfileMembersCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutLaunchProfileMembersCommand extends $Command<

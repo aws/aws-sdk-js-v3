@@ -35,7 +35,7 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  *
  * @see {@link GetModelsCommandInput} for command's `input` shape.
  * @see {@link GetModelsCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetModelsCommand extends $Command<

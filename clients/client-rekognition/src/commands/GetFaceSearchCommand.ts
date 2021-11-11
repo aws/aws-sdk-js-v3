@@ -65,7 +65,7 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *
  * @see {@link GetFaceSearchCommandInput} for command's `input` shape.
  * @see {@link GetFaceSearchCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFaceSearchCommand extends $Command<

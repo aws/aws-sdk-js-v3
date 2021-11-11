@@ -35,7 +35,7 @@ export interface CreateBotCommandOutput extends CreateBotResponse, __MetadataBea
  *
  * @see {@link CreateBotCommandInput} for command's `input` shape.
  * @see {@link CreateBotCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateBotCommand extends $Command<

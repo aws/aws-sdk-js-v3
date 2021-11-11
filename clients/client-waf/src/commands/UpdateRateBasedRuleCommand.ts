@@ -89,7 +89,7 @@ export interface UpdateRateBasedRuleCommandOutput extends UpdateRateBasedRuleRes
  *
  * @see {@link UpdateRateBasedRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateRateBasedRuleCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRateBasedRuleCommand extends $Command<

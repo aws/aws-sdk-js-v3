@@ -35,7 +35,7 @@ export interface ListSchemaVersionsCommandOutput extends ListSchemaVersionsRespo
  *
  * @see {@link ListSchemaVersionsCommandInput} for command's `input` shape.
  * @see {@link ListSchemaVersionsCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSchemaVersionsCommand extends $Command<

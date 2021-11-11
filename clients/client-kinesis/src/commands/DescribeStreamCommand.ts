@@ -51,7 +51,7 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  *
  * @see {@link DescribeStreamCommandInput} for command's `input` shape.
  * @see {@link DescribeStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStreamCommand extends $Command<

@@ -43,7 +43,7 @@ export interface AssignVolumeCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AssignVolumeCommandInput} for command's `input` shape.
  * @see {@link AssignVolumeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssignVolumeCommand extends $Command<

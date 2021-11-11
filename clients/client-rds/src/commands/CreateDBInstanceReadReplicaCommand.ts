@@ -51,7 +51,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * @see {@link CreateDBInstanceReadReplicaCommandInput} for command's `input` shape.
  * @see {@link CreateDBInstanceReadReplicaCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDBInstanceReadReplicaCommand extends $Command<

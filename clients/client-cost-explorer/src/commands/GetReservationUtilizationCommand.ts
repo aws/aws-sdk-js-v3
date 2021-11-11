@@ -37,7 +37,7 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  *
  * @see {@link GetReservationUtilizationCommandInput} for command's `input` shape.
  * @see {@link GetReservationUtilizationCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetReservationUtilizationCommand extends $Command<

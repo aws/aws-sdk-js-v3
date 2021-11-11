@@ -35,7 +35,7 @@ export interface UpdateVoiceTemplateCommandOutput extends UpdateVoiceTemplateRes
  *
  * @see {@link UpdateVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateVoiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateVoiceTemplateCommand extends $Command<

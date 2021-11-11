@@ -32,7 +32,7 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  *
  * @see {@link CreateACLCommandInput} for command's `input` shape.
  * @see {@link CreateACLCommandOutput} for command's `response` shape.
- * @see {@link MemoryDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MemoryDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateACLCommand extends $Command<

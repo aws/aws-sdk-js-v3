@@ -54,7 +54,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *
  * @see {@link SignUpCommandInput} for command's `input` shape.
  * @see {@link SignUpCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SignUpCommand extends $Command<

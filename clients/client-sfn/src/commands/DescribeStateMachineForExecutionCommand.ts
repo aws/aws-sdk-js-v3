@@ -41,7 +41,7 @@ export interface DescribeStateMachineForExecutionCommandOutput
  *
  * @see {@link DescribeStateMachineForExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeStateMachineForExecutionCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStateMachineForExecutionCommand extends $Command<

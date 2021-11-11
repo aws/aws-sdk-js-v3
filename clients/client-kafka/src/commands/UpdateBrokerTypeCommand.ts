@@ -35,7 +35,7 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  *
  * @see {@link UpdateBrokerTypeCommandInput} for command's `input` shape.
  * @see {@link UpdateBrokerTypeCommandOutput} for command's `response` shape.
- * @see {@link KafkaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KafkaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBrokerTypeCommand extends $Command<

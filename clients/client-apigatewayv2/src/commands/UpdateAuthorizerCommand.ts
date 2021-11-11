@@ -35,7 +35,7 @@ export interface UpdateAuthorizerCommandOutput extends UpdateAuthorizerResponse,
  *
  * @see {@link UpdateAuthorizerCommandInput} for command's `input` shape.
  * @see {@link UpdateAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAuthorizerCommand extends $Command<

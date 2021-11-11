@@ -40,7 +40,7 @@ export interface CreatePermissionSetCommandOutput extends CreatePermissionSetRes
  *
  * @see {@link CreatePermissionSetCommandInput} for command's `input` shape.
  * @see {@link CreatePermissionSetCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreatePermissionSetCommand extends $Command<

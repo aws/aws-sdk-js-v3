@@ -50,7 +50,7 @@ export interface PutStorageLensConfigurationTaggingCommandOutput
  *
  * @see {@link PutStorageLensConfigurationTaggingCommandInput} for command's `input` shape.
  * @see {@link PutStorageLensConfigurationTaggingCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutStorageLensConfigurationTaggingCommand extends $Command<

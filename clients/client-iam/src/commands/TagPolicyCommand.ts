@@ -67,7 +67,7 @@ export interface TagPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link TagPolicyCommandInput} for command's `input` shape.
  * @see {@link TagPolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyCommandOutput, IAMClientResolvedConfig> {

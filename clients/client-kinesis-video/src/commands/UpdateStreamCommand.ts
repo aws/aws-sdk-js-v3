@@ -44,7 +44,7 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *
  * @see {@link UpdateStreamCommandInput} for command's `input` shape.
  * @see {@link UpdateStreamCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateStreamCommand extends $Command<

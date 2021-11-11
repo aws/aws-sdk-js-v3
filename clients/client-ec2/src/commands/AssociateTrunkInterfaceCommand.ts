@@ -42,7 +42,7 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  *
  * @see {@link AssociateTrunkInterfaceCommandInput} for command's `input` shape.
  * @see {@link AssociateTrunkInterfaceCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateTrunkInterfaceCommand extends $Command<

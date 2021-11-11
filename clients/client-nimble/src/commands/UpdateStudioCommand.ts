@@ -37,7 +37,7 @@ export interface UpdateStudioCommandOutput extends UpdateStudioResponse, __Metad
  *
  * @see {@link UpdateStudioCommandInput} for command's `input` shape.
  * @see {@link UpdateStudioCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateStudioCommand extends $Command<

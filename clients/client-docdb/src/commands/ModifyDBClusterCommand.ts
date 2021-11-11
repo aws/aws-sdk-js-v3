@@ -37,7 +37,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *
  * @see {@link ModifyDBClusterCommandInput} for command's `input` shape.
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyDBClusterCommand extends $Command<

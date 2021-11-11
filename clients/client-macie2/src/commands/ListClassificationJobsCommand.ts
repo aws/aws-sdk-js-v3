@@ -35,7 +35,7 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  *
  * @see {@link ListClassificationJobsCommandInput} for command's `input` shape.
  * @see {@link ListClassificationJobsCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListClassificationJobsCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  *
  * @see {@link DeleteGlobalClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteGlobalClusterCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteGlobalClusterCommand extends $Command<

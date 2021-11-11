@@ -35,7 +35,7 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * @see {@link DeleteMissionProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteMissionProfileCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMissionProfileCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListStreamProcessorsCommandOutput extends ListStreamProcessorsR
  *
  * @see {@link ListStreamProcessorsCommandInput} for command's `input` shape.
  * @see {@link ListStreamProcessorsCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListStreamProcessorsCommand extends $Command<

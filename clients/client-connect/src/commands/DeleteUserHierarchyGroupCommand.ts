@@ -36,7 +36,7 @@ export interface DeleteUserHierarchyGroupCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteUserHierarchyGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteUserHierarchyGroupCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteUserHierarchyGroupCommand extends $Command<

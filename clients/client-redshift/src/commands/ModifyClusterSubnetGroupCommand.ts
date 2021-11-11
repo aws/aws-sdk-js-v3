@@ -36,7 +36,7 @@ export interface ModifyClusterSubnetGroupCommandOutput extends ModifyClusterSubn
  *
  * @see {@link ModifyClusterSubnetGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterSubnetGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyClusterSubnetGroupCommand extends $Command<

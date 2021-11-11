@@ -39,7 +39,7 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  *
  * @see {@link ListDomainNamesCommandInput} for command's `input` shape.
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDomainNamesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetDiscoveredSchemaCommandOutput extends GetDiscoveredSchemaRes
  *
  * @see {@link GetDiscoveredSchemaCommandInput} for command's `input` shape.
  * @see {@link GetDiscoveredSchemaCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDiscoveredSchemaCommand extends $Command<

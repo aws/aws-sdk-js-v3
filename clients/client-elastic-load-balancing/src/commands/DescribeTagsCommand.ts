@@ -36,7 +36,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  *
  * @see {@link DescribeTagsCommandInput} for command's `input` shape.
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTagsCommand extends $Command<

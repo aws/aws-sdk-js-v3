@@ -36,7 +36,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  *
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSessionsCommand extends $Command<

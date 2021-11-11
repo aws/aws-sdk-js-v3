@@ -35,7 +35,7 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  *
  * @see {@link AttachToIndexCommandInput} for command's `input` shape.
  * @see {@link AttachToIndexCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachToIndexCommand extends $Command<

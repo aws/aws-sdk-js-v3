@@ -35,7 +35,7 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  *
  * @see {@link CancelPipelineReprocessingCommandInput} for command's `input` shape.
  * @see {@link CancelPipelineReprocessingCommandOutput} for command's `response` shape.
- * @see {@link IoTAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelPipelineReprocessingCommand extends $Command<

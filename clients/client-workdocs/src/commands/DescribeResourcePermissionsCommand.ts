@@ -37,7 +37,7 @@ export interface DescribeResourcePermissionsCommandOutput
  *
  * @see {@link DescribeResourcePermissionsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourcePermissionsCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeResourcePermissionsCommand extends $Command<

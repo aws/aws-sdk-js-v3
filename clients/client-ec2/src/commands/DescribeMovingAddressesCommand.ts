@@ -35,7 +35,7 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  *
  * @see {@link DescribeMovingAddressesCommandInput} for command's `input` shape.
  * @see {@link DescribeMovingAddressesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMovingAddressesCommand extends $Command<

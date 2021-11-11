@@ -47,7 +47,7 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  *
  * @see {@link DescribeCampaignCommandInput} for command's `input` shape.
  * @see {@link DescribeCampaignCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCampaignCommand extends $Command<

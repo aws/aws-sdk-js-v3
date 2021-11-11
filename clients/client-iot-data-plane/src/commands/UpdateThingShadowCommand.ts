@@ -38,7 +38,7 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowRespons
  *
  * @see {@link UpdateThingShadowCommandInput} for command's `input` shape.
  * @see {@link UpdateThingShadowCommandOutput} for command's `response` shape.
- * @see {@link IoTDataPlaneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTDataPlaneClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateThingShadowCommand extends $Command<

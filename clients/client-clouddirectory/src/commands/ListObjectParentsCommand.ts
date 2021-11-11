@@ -36,7 +36,7 @@ export interface ListObjectParentsCommandOutput extends ListObjectParentsRespons
  *
  * @see {@link ListObjectParentsCommandInput} for command's `input` shape.
  * @see {@link ListObjectParentsCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListObjectParentsCommand extends $Command<

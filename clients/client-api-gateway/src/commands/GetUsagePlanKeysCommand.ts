@@ -35,7 +35,7 @@ export interface GetUsagePlanKeysCommandOutput extends UsagePlanKeys, __Metadata
  *
  * @see {@link GetUsagePlanKeysCommandInput} for command's `input` shape.
  * @see {@link GetUsagePlanKeysCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetUsagePlanKeysCommand extends $Command<

@@ -56,7 +56,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *
  * @see {@link PutOrganizationConfigRuleCommandInput} for command's `input` shape.
  * @see {@link PutOrganizationConfigRuleCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutOrganizationConfigRuleCommand extends $Command<

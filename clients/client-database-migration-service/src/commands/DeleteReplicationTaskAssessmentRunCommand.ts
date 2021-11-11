@@ -47,7 +47,7 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput
  *
  * @see {@link DeleteReplicationTaskAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link DeleteReplicationTaskAssessmentRunCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteReplicationTaskAssessmentRunCommand extends $Command<

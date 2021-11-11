@@ -36,7 +36,7 @@ export interface DescribeDetectorModelCommandOutput extends DescribeDetectorMode
  *
  * @see {@link DescribeDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DescribeDetectorModelCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDetectorModelCommand extends $Command<

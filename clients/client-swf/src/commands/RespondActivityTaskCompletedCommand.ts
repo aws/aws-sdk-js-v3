@@ -74,7 +74,7 @@ export interface RespondActivityTaskCompletedCommandOutput extends __MetadataBea
  *
  * @see {@link RespondActivityTaskCompletedCommandInput} for command's `input` shape.
  * @see {@link RespondActivityTaskCompletedCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RespondActivityTaskCompletedCommand extends $Command<

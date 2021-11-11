@@ -48,7 +48,7 @@ export interface AttachElasticLoadBalancerCommandOutput extends __MetadataBearer
  *
  * @see {@link AttachElasticLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachElasticLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachElasticLoadBalancerCommand extends $Command<

@@ -44,7 +44,7 @@ export interface AllowCustomRoutingTrafficCommandOutput extends __MetadataBearer
  *
  * @see {@link AllowCustomRoutingTrafficCommandInput} for command's `input` shape.
  * @see {@link AllowCustomRoutingTrafficCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AllowCustomRoutingTrafficCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  *
  * @see {@link ListDevicesCommandInput} for command's `input` shape.
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
- * @see {@link WorkLinkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkLinkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDevicesCommand extends $Command<

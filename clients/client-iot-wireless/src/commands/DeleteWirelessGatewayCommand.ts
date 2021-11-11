@@ -35,7 +35,7 @@ export interface DeleteWirelessGatewayCommandOutput extends DeleteWirelessGatewa
  *
  * @see {@link DeleteWirelessGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteWirelessGatewayCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteWirelessGatewayCommand extends $Command<

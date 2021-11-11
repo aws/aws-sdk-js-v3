@@ -36,7 +36,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *
  * @see {@link CreateServiceCommandInput} for command's `input` shape.
  * @see {@link CreateServiceCommandOutput} for command's `response` shape.
- * @see {@link AppRunnerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppRunnerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateServiceCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ListInstanceProfileTagsCommandOutput extends ListInstanceProfil
  *
  * @see {@link ListInstanceProfileTagsCommandInput} for command's `input` shape.
  * @see {@link ListInstanceProfileTagsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInstanceProfileTagsCommand extends $Command<

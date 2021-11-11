@@ -40,7 +40,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UntagResourceCommandInput} for command's `input` shape.
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagResourceCommand extends $Command<

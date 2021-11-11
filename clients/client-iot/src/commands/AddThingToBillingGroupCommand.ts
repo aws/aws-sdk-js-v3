@@ -36,7 +36,7 @@ export interface AddThingToBillingGroupCommandOutput extends AddThingToBillingGr
  *
  * @see {@link AddThingToBillingGroupCommandInput} for command's `input` shape.
  * @see {@link AddThingToBillingGroupCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddThingToBillingGroupCommand extends $Command<

@@ -61,7 +61,7 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *
  * @see {@link UpdateScriptCommandInput} for command's `input` shape.
  * @see {@link UpdateScriptCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateScriptCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListLensesCommandOutput extends ListLensesOutput, __MetadataBea
  *
  * @see {@link ListLensesCommandInput} for command's `input` shape.
  * @see {@link ListLensesCommandOutput} for command's `response` shape.
- * @see {@link WellArchitectedClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WellArchitectedClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLensesCommand extends $Command<

@@ -41,7 +41,7 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput
  *
  * @see {@link CreateLicenseConversionTaskForResourceCommandInput} for command's `input` shape.
  * @see {@link CreateLicenseConversionTaskForResourceCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLicenseConversionTaskForResourceCommand extends $Command<

@@ -36,7 +36,7 @@ export interface CancelImageCreationCommandOutput extends CancelImageCreationRes
  *
  * @see {@link CancelImageCreationCommandInput} for command's `input` shape.
  * @see {@link CancelImageCreationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelImageCreationCommand extends $Command<

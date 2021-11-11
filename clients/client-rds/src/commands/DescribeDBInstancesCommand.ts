@@ -38,7 +38,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  *
  * @see {@link DescribeDBInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeDBInstancesCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDBInstancesCommand extends $Command<

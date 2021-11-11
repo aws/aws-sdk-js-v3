@@ -35,7 +35,7 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *
  * @see {@link DeleteDataflowEndpointGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteDataflowEndpointGroupCommandOutput} for command's `response` shape.
- * @see {@link GroundStationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GroundStationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDataflowEndpointGroupCommand extends $Command<

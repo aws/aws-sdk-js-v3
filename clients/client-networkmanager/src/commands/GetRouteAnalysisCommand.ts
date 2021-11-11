@@ -35,7 +35,7 @@ export interface GetRouteAnalysisCommandOutput extends GetRouteAnalysisResponse,
  *
  * @see {@link GetRouteAnalysisCommandInput} for command's `input` shape.
  * @see {@link GetRouteAnalysisCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRouteAnalysisCommand extends $Command<

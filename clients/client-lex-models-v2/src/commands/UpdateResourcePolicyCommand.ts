@@ -37,7 +37,7 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  *
  * @see {@link UpdateResourcePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateResourcePolicyCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateResourcePolicyCommand extends $Command<

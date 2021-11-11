@@ -35,7 +35,7 @@ export interface UpdateContextCommandOutput extends UpdateContextResponse, __Met
  *
  * @see {@link UpdateContextCommandInput} for command's `input` shape.
  * @see {@link UpdateContextCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateContextCommand extends $Command<

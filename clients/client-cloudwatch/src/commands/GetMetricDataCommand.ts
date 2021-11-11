@@ -70,7 +70,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataOutput, __Metad
  *
  * @see {@link GetMetricDataCommandInput} for command's `input` shape.
  * @see {@link GetMetricDataCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMetricDataCommand extends $Command<

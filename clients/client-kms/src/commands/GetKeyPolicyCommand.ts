@@ -43,7 +43,7 @@ export interface GetKeyPolicyCommandOutput extends GetKeyPolicyResponse, __Metad
  *
  * @see {@link GetKeyPolicyCommandInput} for command's `input` shape.
  * @see {@link GetKeyPolicyCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetKeyPolicyCommand extends $Command<

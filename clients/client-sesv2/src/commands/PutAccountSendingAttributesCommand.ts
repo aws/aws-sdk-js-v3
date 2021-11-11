@@ -37,7 +37,7 @@ export interface PutAccountSendingAttributesCommandOutput
  *
  * @see {@link PutAccountSendingAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSendingAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAccountSendingAttributesCommand extends $Command<

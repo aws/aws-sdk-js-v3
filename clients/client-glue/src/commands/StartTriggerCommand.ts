@@ -37,7 +37,7 @@ export interface StartTriggerCommandOutput extends StartTriggerResponse, __Metad
  *
  * @see {@link StartTriggerCommandInput} for command's `input` shape.
  * @see {@link StartTriggerCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartTriggerCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  *
  * @see {@link ListVoiceConnectorsCommandInput} for command's `input` shape.
  * @see {@link ListVoiceConnectorsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVoiceConnectorsCommand extends $Command<

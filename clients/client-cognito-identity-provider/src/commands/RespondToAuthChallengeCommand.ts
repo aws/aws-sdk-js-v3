@@ -56,7 +56,7 @@ export interface RespondToAuthChallengeCommandOutput extends RespondToAuthChalle
  *
  * @see {@link RespondToAuthChallengeCommandInput} for command's `input` shape.
  * @see {@link RespondToAuthChallengeCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RespondToAuthChallengeCommand extends $Command<

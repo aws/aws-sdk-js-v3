@@ -41,7 +41,7 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput
  *
  * @see {@link PutConfigurationSetTrackingOptionsCommandInput} for command's `input` shape.
  * @see {@link PutConfigurationSetTrackingOptionsCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutConfigurationSetTrackingOptionsCommand extends $Command<

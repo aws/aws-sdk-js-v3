@@ -45,7 +45,7 @@ export interface DeleteHapgCommandOutput extends DeleteHapgResponse, __MetadataB
  *
  * @see {@link DeleteHapgCommandInput} for command's `input` shape.
  * @see {@link DeleteHapgCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteHapgCommand extends $Command<

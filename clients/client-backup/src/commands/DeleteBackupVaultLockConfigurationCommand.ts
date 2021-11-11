@@ -40,7 +40,7 @@ export interface DeleteBackupVaultLockConfigurationCommandOutput extends __Metad
  *
  * @see {@link DeleteBackupVaultLockConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupVaultLockConfigurationCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBackupVaultLockConfigurationCommand extends $Command<

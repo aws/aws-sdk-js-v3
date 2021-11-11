@@ -40,7 +40,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFindingsCommand extends $Command<

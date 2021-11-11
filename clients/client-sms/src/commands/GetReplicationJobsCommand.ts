@@ -35,7 +35,7 @@ export interface GetReplicationJobsCommandOutput extends GetReplicationJobsRespo
  *
  * @see {@link GetReplicationJobsCommandInput} for command's `input` shape.
  * @see {@link GetReplicationJobsCommandOutput} for command's `response` shape.
- * @see {@link SMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetReplicationJobsCommand extends $Command<

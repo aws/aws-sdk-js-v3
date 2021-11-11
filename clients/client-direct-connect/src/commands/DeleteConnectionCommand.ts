@@ -38,7 +38,7 @@ export interface DeleteConnectionCommandOutput extends Connection, __MetadataBea
  *
  * @see {@link DeleteConnectionCommandInput} for command's `input` shape.
  * @see {@link DeleteConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConnectionCommand extends $Command<

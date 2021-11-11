@@ -39,7 +39,7 @@ export interface DeactivateMFADeviceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeactivateMFADeviceCommandInput} for command's `input` shape.
  * @see {@link DeactivateMFADeviceCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeactivateMFADeviceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDashboardPermissionsCommandOutput extends UpdateDashboard
  *
  * @see {@link UpdateDashboardPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateDashboardPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDashboardPermissionsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link ElasticInferenceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticInferenceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

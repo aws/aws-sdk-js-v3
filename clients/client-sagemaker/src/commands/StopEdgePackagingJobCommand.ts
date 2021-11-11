@@ -35,7 +35,7 @@ export interface StopEdgePackagingJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopEdgePackagingJobCommandInput} for command's `input` shape.
  * @see {@link StopEdgePackagingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopEdgePackagingJobCommand extends $Command<

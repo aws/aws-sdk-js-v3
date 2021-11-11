@@ -36,7 +36,7 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  *
  * @see {@link DescribeInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link DescribeInstanceTypesCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInstanceTypesCommand extends $Command<

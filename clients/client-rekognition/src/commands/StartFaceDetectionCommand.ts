@@ -47,7 +47,7 @@ export interface StartFaceDetectionCommandOutput extends StartFaceDetectionRespo
  *
  * @see {@link StartFaceDetectionCommandInput} for command's `input` shape.
  * @see {@link StartFaceDetectionCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartFaceDetectionCommand extends $Command<

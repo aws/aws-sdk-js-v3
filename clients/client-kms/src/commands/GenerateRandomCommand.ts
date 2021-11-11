@@ -44,7 +44,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *
  * @see {@link GenerateRandomCommandInput} for command's `input` shape.
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GenerateRandomCommand extends $Command<

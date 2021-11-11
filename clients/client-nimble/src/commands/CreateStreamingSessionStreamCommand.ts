@@ -39,7 +39,7 @@ export interface CreateStreamingSessionStreamCommandOutput
  *
  * @see {@link CreateStreamingSessionStreamCommandInput} for command's `input` shape.
  * @see {@link CreateStreamingSessionStreamCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStreamingSessionStreamCommand extends $Command<

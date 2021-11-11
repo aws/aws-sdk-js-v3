@@ -35,7 +35,7 @@ export interface DescribePatchBaselinesCommandOutput extends DescribePatchBaseli
  *
  * @see {@link DescribePatchBaselinesCommandInput} for command's `input` shape.
  * @see {@link DescribePatchBaselinesCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribePatchBaselinesCommand extends $Command<

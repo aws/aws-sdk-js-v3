@@ -35,7 +35,7 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  *
  * @see {@link DeleteProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteProjectCommand extends $Command<

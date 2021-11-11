@@ -35,7 +35,7 @@ export interface DeleteSegmentCommandOutput extends DeleteSegmentResponse, __Met
  *
  * @see {@link DeleteSegmentCommandInput} for command's `input` shape.
  * @see {@link DeleteSegmentCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSegmentCommand extends $Command<

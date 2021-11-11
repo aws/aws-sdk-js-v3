@@ -44,7 +44,7 @@ export interface RetrieveEnvironmentInfoCommandOutput extends RetrieveEnvironmen
  *
  * @see {@link RetrieveEnvironmentInfoCommandInput} for command's `input` shape.
  * @see {@link RetrieveEnvironmentInfoCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RetrieveEnvironmentInfoCommand extends $Command<

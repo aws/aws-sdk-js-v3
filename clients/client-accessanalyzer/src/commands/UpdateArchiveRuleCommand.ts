@@ -35,7 +35,7 @@ export interface UpdateArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateArchiveRuleCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateArchiveRuleCommand extends $Command<

@@ -42,7 +42,7 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput
  *
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandInput} for command's `input` shape.
  * @see {@link UpdateKnowledgeBaseTemplateUriCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateKnowledgeBaseTemplateUriCommand extends $Command<

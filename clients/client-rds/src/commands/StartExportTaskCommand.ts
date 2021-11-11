@@ -39,7 +39,7 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  *
  * @see {@link StartExportTaskCommandInput} for command's `input` shape.
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartExportTaskCommand extends $Command<

@@ -52,7 +52,7 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  *
  * @see {@link ModifyCurrentDBClusterCapacityCommandInput} for command's `input` shape.
  * @see {@link ModifyCurrentDBClusterCapacityCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command<

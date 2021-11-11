@@ -45,7 +45,7 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  *
  * @see {@link UploadEntityDefinitionsCommandInput} for command's `input` shape.
  * @see {@link UploadEntityDefinitionsCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UploadEntityDefinitionsCommand extends $Command<

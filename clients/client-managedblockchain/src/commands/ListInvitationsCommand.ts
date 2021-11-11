@@ -40,7 +40,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsOutput, __M
  *
  * @see {@link ListInvitationsCommandInput} for command's `input` shape.
  * @see {@link ListInvitationsCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInvitationsCommand extends $Command<

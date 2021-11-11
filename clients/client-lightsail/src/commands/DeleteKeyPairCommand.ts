@@ -40,7 +40,7 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *
  * @see {@link DeleteKeyPairCommandInput} for command's `input` shape.
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteKeyPairCommand extends $Command<

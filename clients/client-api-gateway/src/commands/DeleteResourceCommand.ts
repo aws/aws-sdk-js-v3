@@ -35,7 +35,7 @@ export interface DeleteResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteResourceCommandInput} for command's `input` shape.
  * @see {@link DeleteResourceCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteResourceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *
  * @see {@link ListFunctionsCommandInput} for command's `input` shape.
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFunctionsCommand extends $Command<

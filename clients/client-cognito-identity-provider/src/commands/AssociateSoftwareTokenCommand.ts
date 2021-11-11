@@ -49,7 +49,7 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *
  * @see {@link AssociateSoftwareTokenCommandInput} for command's `input` shape.
  * @see {@link AssociateSoftwareTokenCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateSoftwareTokenCommand extends $Command<

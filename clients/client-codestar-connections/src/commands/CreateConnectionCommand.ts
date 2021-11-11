@@ -41,7 +41,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionOutput, _
  *
  * @see {@link CreateConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
- * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConnectionCommand extends $Command<

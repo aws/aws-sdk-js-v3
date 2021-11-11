@@ -69,7 +69,7 @@ export interface DescribeDatasetImportJobCommandOutput extends DescribeDatasetIm
  *
  * @see {@link DescribeDatasetImportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeDatasetImportJobCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDatasetImportJobCommand extends $Command<

@@ -37,7 +37,7 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  *
  * @see {@link GetDeploymentInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeploymentInstanceCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeploymentInstanceCommand extends $Command<

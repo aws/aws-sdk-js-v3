@@ -37,7 +37,7 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  *
  * @see {@link DescribeQueriesCommandInput} for command's `input` shape.
  * @see {@link DescribeQueriesCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeQueriesCommand extends $Command<

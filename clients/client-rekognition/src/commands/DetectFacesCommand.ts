@@ -57,7 +57,7 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  *
  * @see {@link DetectFacesCommandInput} for command's `input` shape.
  * @see {@link DetectFacesCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetectFacesCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DeleteBusinessReportScheduleCommandOutput
  *
  * @see {@link DeleteBusinessReportScheduleCommandInput} for command's `input` shape.
  * @see {@link DeleteBusinessReportScheduleCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBusinessReportScheduleCommand extends $Command<

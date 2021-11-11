@@ -44,7 +44,7 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *
  * @see {@link DetachInstancesCommandInput} for command's `input` shape.
  * @see {@link DetachInstancesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetachInstancesCommand extends $Command<

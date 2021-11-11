@@ -41,7 +41,7 @@ export interface DeleteTestGridProjectCommandOutput extends DeleteTestGridProjec
  *
  * @see {@link DeleteTestGridProjectCommandInput} for command's `input` shape.
  * @see {@link DeleteTestGridProjectCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTestGridProjectCommand extends $Command<

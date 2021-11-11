@@ -48,7 +48,7 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *
  * @see {@link CreateModelCommandInput} for command's `input` shape.
  * @see {@link CreateModelCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateModelCommand extends $Command<

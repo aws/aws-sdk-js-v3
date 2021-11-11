@@ -37,7 +37,7 @@ export interface ListFileSystemAssociationsCommandOutput extends ListFileSystemA
  *
  * @see {@link ListFileSystemAssociationsCommandInput} for command's `input` shape.
  * @see {@link ListFileSystemAssociationsCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFileSystemAssociationsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteBackendEnvironmentCommandOutput extends DeleteBackendEnvi
  *
  * @see {@link DeleteBackendEnvironmentCommandInput} for command's `input` shape.
  * @see {@link DeleteBackendEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBackendEnvironmentCommand extends $Command<

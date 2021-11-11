@@ -63,7 +63,7 @@ export interface DescribeDirectConnectGatewayAssociationsCommandOutput
  *
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandInput} for command's `input` shape.
  * @see {@link DescribeDirectConnectGatewayAssociationsCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<

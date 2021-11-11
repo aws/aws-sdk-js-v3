@@ -43,7 +43,7 @@ export interface DescribeNodeAssociationStatusCommandOutput
  *
  * @see {@link DescribeNodeAssociationStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeNodeAssociationStatusCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeNodeAssociationStatusCommand extends $Command<

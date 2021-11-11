@@ -45,7 +45,7 @@ export interface AssociateConfigurationItemsToApplicationCommandOutput
  *
  * @see {@link AssociateConfigurationItemsToApplicationCommandInput} for command's `input` shape.
  * @see {@link AssociateConfigurationItemsToApplicationCommandOutput} for command's `response` shape.
- * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationDiscoveryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateConfigurationItemsToApplicationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface PutVoiceConnectorTerminationCredentialsCommandOutput extends __
  *
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandInput} for command's `input` shape.
  * @see {@link PutVoiceConnectorTerminationCredentialsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutVoiceConnectorTerminationCredentialsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  *
  * @see {@link CreateRevisionCommandInput} for command's `input` shape.
  * @see {@link CreateRevisionCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRevisionCommand extends $Command<

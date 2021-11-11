@@ -35,7 +35,7 @@ export interface GetSuiteDefinitionCommandOutput extends GetSuiteDefinitionRespo
  *
  * @see {@link GetSuiteDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetSuiteDefinitionCommandOutput} for command's `response` shape.
- * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSuiteDefinitionCommand extends $Command<

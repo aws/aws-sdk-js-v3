@@ -36,7 +36,7 @@ export interface GetInstancePortStatesCommandOutput extends GetInstancePortState
  *
  * @see {@link GetInstancePortStatesCommandInput} for command's `input` shape.
  * @see {@link GetInstancePortStatesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInstancePortStatesCommand extends $Command<

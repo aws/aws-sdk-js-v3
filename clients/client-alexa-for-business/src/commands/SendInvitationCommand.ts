@@ -36,7 +36,7 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  *
  * @see {@link SendInvitationCommandInput} for command's `input` shape.
  * @see {@link SendInvitationCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendInvitationCommand extends $Command<

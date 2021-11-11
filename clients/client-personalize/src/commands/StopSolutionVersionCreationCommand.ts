@@ -48,7 +48,7 @@ export interface StopSolutionVersionCreationCommandOutput extends __MetadataBear
  *
  * @see {@link StopSolutionVersionCreationCommandInput} for command's `input` shape.
  * @see {@link StopSolutionVersionCreationCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopSolutionVersionCreationCommand extends $Command<

@@ -79,7 +79,7 @@ export interface GetClipCommandOutput extends GetClipOutput, __MetadataBearer {}
  *
  * @see {@link GetClipCommandInput} for command's `input` shape.
  * @see {@link GetClipCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoArchivedMediaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetClipCommand extends $Command<

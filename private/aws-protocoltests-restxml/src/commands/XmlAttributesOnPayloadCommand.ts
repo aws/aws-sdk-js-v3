@@ -35,7 +35,7 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  *
  * @see {@link XmlAttributesOnPayloadCommandInput} for command's `input` shape.
  * @see {@link XmlAttributesOnPayloadCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class XmlAttributesOnPayloadCommand extends $Command<

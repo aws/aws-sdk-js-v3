@@ -35,7 +35,7 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  *
  * @see {@link DeleteExperimentTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteExperimentTemplateCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteExperimentTemplateCommand extends $Command<

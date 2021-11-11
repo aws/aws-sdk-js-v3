@@ -35,7 +35,7 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsResponse, _
  *
  * @see {@link ListDeploymentsCommandInput} for command's `input` shape.
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDeploymentsCommand extends $Command<

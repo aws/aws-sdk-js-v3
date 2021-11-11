@@ -35,7 +35,7 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  *
  * @see {@link GetAccountStatusCommandInput} for command's `input` shape.
  * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAccountStatusCommand extends $Command<

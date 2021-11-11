@@ -35,7 +35,7 @@ export interface DeleteTransitGatewayCommandOutput extends DeleteTransitGatewayR
  *
  * @see {@link DeleteTransitGatewayCommandInput} for command's `input` shape.
  * @see {@link DeleteTransitGatewayCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTransitGatewayCommand extends $Command<

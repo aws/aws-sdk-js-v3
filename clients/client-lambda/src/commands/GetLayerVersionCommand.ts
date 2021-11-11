@@ -37,7 +37,7 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  *
  * @see {@link GetLayerVersionCommandInput} for command's `input` shape.
  * @see {@link GetLayerVersionCommandOutput} for command's `response` shape.
- * @see {@link LambdaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LambdaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLayerVersionCommand extends $Command<

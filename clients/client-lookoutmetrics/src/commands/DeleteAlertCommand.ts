@@ -35,7 +35,7 @@ export interface DeleteAlertCommandOutput extends DeleteAlertResponse, __Metadat
  *
  * @see {@link DeleteAlertCommandInput} for command's `input` shape.
  * @see {@link DeleteAlertCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAlertCommand extends $Command<

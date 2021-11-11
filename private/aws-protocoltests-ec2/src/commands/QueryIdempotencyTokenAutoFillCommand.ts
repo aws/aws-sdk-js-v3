@@ -35,7 +35,7 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  *
  * @see {@link QueryIdempotencyTokenAutoFillCommandInput} for command's `input` shape.
  * @see {@link QueryIdempotencyTokenAutoFillCommandOutput} for command's `response` shape.
- * @see {@link EC2ProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class QueryIdempotencyTokenAutoFillCommand extends $Command<

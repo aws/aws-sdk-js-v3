@@ -36,7 +36,7 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  *
  * @see {@link ListInferenceExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListInferenceExecutionsCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListInferenceExecutionsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  *
  * @see {@link SendTaskFailureCommandInput} for command's `input` shape.
  * @see {@link SendTaskFailureCommandOutput} for command's `response` shape.
- * @see {@link SFNClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SFNClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SendTaskFailureCommand extends $Command<

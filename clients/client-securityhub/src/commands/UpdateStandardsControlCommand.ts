@@ -36,7 +36,7 @@ export interface UpdateStandardsControlCommandOutput extends UpdateStandardsCont
  *
  * @see {@link UpdateStandardsControlCommandInput} for command's `input` shape.
  * @see {@link UpdateStandardsControlCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateStandardsControlCommand extends $Command<

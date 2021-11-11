@@ -36,7 +36,7 @@ export interface DeactivateUserCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeactivateUserCommandInput} for command's `input` shape.
  * @see {@link DeactivateUserCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeactivateUserCommand extends $Command<

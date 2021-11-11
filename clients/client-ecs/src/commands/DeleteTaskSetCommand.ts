@@ -36,7 +36,7 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  *
  * @see {@link DeleteTaskSetCommandInput} for command's `input` shape.
  * @see {@link DeleteTaskSetCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTaskSetCommand extends $Command<

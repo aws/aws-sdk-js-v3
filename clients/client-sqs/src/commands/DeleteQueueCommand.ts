@@ -46,7 +46,7 @@ export interface DeleteQueueCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteQueueCommandInput} for command's `input` shape.
  * @see {@link DeleteQueueCommandOutput} for command's `response` shape.
- * @see {@link SQSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SQSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteQueueCommand extends $Command<

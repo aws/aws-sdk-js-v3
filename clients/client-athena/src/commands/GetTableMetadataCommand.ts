@@ -35,7 +35,7 @@ export interface GetTableMetadataCommandOutput extends GetTableMetadataOutput, _
  *
  * @see {@link GetTableMetadataCommandInput} for command's `input` shape.
  * @see {@link GetTableMetadataCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTableMetadataCommand extends $Command<

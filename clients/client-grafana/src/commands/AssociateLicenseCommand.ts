@@ -37,7 +37,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  *
  * @see {@link AssociateLicenseCommandInput} for command's `input` shape.
  * @see {@link AssociateLicenseCommandOutput} for command's `response` shape.
- * @see {@link GrafanaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GrafanaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateLicenseCommand extends $Command<

@@ -37,7 +37,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  *
  * @see {@link UpdatePhoneNumberCommandInput} for command's `input` shape.
  * @see {@link UpdatePhoneNumberCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePhoneNumberCommand extends $Command<

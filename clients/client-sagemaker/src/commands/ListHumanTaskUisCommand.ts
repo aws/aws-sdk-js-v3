@@ -35,7 +35,7 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  *
  * @see {@link ListHumanTaskUisCommandInput} for command's `input` shape.
  * @see {@link ListHumanTaskUisCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHumanTaskUisCommand extends $Command<

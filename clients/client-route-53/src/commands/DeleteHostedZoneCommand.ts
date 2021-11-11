@@ -74,7 +74,7 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  *
  * @see {@link DeleteHostedZoneCommandInput} for command's `input` shape.
  * @see {@link DeleteHostedZoneCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteHostedZoneCommand extends $Command<

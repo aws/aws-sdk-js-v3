@@ -82,7 +82,7 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *
  * @see {@link UpdateRegexPatternSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexPatternSetCommandOutput} for command's `response` shape.
- * @see {@link WAFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRegexPatternSetCommand extends $Command<

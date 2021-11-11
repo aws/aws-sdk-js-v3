@@ -39,7 +39,7 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *
  * @see {@link CreateAssetModelCommandInput} for command's `input` shape.
  * @see {@link CreateAssetModelCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAssetModelCommand extends $Command<

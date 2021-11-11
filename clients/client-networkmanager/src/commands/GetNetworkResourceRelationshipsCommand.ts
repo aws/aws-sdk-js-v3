@@ -37,7 +37,7 @@ export interface GetNetworkResourceRelationshipsCommandOutput
  *
  * @see {@link GetNetworkResourceRelationshipsCommandInput} for command's `input` shape.
  * @see {@link GetNetworkResourceRelationshipsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetNetworkResourceRelationshipsCommand extends $Command<

@@ -36,7 +36,7 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteBackupSelectionCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupSelectionCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBackupSelectionCommand extends $Command<

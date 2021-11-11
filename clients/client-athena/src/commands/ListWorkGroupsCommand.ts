@@ -35,7 +35,7 @@ export interface ListWorkGroupsCommandOutput extends ListWorkGroupsOutput, __Met
  *
  * @see {@link ListWorkGroupsCommandInput} for command's `input` shape.
  * @see {@link ListWorkGroupsCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListWorkGroupsCommand extends $Command<

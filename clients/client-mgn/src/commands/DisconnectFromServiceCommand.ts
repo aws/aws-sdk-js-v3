@@ -35,7 +35,7 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  *
  * @see {@link DisconnectFromServiceCommandInput} for command's `input` shape.
  * @see {@link DisconnectFromServiceCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisconnectFromServiceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface AssociateSkillWithUsersCommandOutput extends AssociateSkillWith
  *
  * @see {@link AssociateSkillWithUsersCommandInput} for command's `input` shape.
  * @see {@link AssociateSkillWithUsersCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateSkillWithUsersCommand extends $Command<

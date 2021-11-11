@@ -37,7 +37,7 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  *
  * @see {@link ListAnomaliesForInsightCommandInput} for command's `input` shape.
  * @see {@link ListAnomaliesForInsightCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAnomaliesForInsightCommand extends $Command<

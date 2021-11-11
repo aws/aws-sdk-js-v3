@@ -56,7 +56,7 @@ export interface DescribeLoadBalancerTargetGroupsCommandOutput
  *
  * @see {@link DescribeLoadBalancerTargetGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLoadBalancerTargetGroupsCommand extends $Command<

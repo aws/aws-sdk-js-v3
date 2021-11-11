@@ -63,7 +63,7 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  *
  * @see {@link DescribeMatchmakingRuleSetsCommandInput} for command's `input` shape.
  * @see {@link DescribeMatchmakingRuleSetsCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMatchmakingRuleSetsCommand extends $Command<

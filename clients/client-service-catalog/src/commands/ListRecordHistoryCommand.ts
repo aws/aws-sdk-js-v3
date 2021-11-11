@@ -35,7 +35,7 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  *
  * @see {@link ListRecordHistoryCommandInput} for command's `input` shape.
  * @see {@link ListRecordHistoryCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRecordHistoryCommand extends $Command<

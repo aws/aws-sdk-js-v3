@@ -41,7 +41,7 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput
  *
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandInput} for command's `input` shape.
  * @see {@link DisassociateWirelessDeviceFromFuotaTaskCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command<

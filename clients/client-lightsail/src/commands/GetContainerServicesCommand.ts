@@ -35,7 +35,7 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  *
  * @see {@link GetContainerServicesCommandInput} for command's `input` shape.
  * @see {@link GetContainerServicesCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetContainerServicesCommand extends $Command<

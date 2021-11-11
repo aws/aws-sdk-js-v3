@@ -35,7 +35,7 @@ export interface ListHealthChecksCommandOutput extends ListHealthChecksResponse,
  *
  * @see {@link ListHealthChecksCommandInput} for command's `input` shape.
  * @see {@link ListHealthChecksCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHealthChecksCommand extends $Command<

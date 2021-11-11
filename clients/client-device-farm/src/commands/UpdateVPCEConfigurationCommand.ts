@@ -35,7 +35,7 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  *
  * @see {@link UpdateVPCEConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateVPCEConfigurationCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateVPCEConfigurationCommand extends $Command<

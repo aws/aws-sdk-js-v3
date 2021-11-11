@@ -38,7 +38,7 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  *
  * @see {@link CreateApplicationCommandInput} for command's `input` shape.
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateApplicationCommand extends $Command<

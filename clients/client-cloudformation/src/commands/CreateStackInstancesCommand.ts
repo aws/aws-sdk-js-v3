@@ -36,7 +36,7 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  *
  * @see {@link CreateStackInstancesCommandInput} for command's `input` shape.
  * @see {@link CreateStackInstancesCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateStackInstancesCommand extends $Command<

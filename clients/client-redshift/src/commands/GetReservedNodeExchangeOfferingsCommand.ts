@@ -41,7 +41,7 @@ export interface GetReservedNodeExchangeOfferingsCommandOutput
  *
  * @see {@link GetReservedNodeExchangeOfferingsCommandInput} for command's `input` shape.
  * @see {@link GetReservedNodeExchangeOfferingsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetReservedNodeExchangeOfferingsCommand extends $Command<

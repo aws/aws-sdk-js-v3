@@ -40,7 +40,7 @@ export interface GetIPSetCommandOutput extends GetIPSetResponse, __MetadataBeare
  *
  * @see {@link GetIPSetCommandInput} for command's `input` shape.
  * @see {@link GetIPSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetIPSetCommand extends $Command<

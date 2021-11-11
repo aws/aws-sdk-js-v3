@@ -38,7 +38,7 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  *
  * @see {@link UntagDeliveryStreamCommandInput} for command's `input` shape.
  * @see {@link UntagDeliveryStreamCommandOutput} for command's `response` shape.
- * @see {@link FirehoseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FirehoseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagDeliveryStreamCommand extends $Command<

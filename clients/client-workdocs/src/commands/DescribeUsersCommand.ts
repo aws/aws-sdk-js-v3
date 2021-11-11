@@ -39,7 +39,7 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  *
  * @see {@link DescribeUsersCommandInput} for command's `input` shape.
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
- * @see {@link WorkDocsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkDocsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeUsersCommand extends $Command<

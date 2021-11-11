@@ -37,7 +37,7 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *
  * @see {@link DescribeChapCredentialsCommandInput} for command's `input` shape.
  * @see {@link DescribeChapCredentialsCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeChapCredentialsCommand extends $Command<

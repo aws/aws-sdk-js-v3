@@ -46,7 +46,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
  *
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandInput} for command's `input` shape.
  * @see {@link DeleteApplicationCloudWatchLoggingOptionCommandOutput} for command's `response` shape.
- * @see {@link KinesisAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command<

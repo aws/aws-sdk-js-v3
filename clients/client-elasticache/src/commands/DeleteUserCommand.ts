@@ -32,7 +32,7 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  *
  * @see {@link DeleteUserCommandInput} for command's `input` shape.
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteUserCommand extends $Command<

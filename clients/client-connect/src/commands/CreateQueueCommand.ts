@@ -36,7 +36,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *
  * @see {@link CreateQueueCommandInput} for command's `input` shape.
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateQueueCommand extends $Command<

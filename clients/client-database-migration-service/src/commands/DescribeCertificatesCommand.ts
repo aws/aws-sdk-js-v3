@@ -39,7 +39,7 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  *
  * @see {@link DescribeCertificatesCommandInput} for command's `input` shape.
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCertificatesCommand extends $Command<

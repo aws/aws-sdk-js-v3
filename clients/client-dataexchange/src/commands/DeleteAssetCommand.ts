@@ -35,7 +35,7 @@ export interface DeleteAssetCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteAssetCommandInput} for command's `input` shape.
  * @see {@link DeleteAssetCommandOutput} for command's `response` shape.
- * @see {@link DataExchangeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataExchangeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAssetCommand extends $Command<

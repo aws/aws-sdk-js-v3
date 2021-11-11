@@ -41,7 +41,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  *
  * @see {@link DescribeServicesCommandInput} for command's `input` shape.
  * @see {@link DescribeServicesCommandOutput} for command's `response` shape.
- * @see {@link PricingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PricingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeServicesCommand extends $Command<

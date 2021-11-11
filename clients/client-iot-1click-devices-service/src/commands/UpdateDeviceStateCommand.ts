@@ -40,7 +40,7 @@ export interface UpdateDeviceStateCommandOutput extends UpdateDeviceStateRespons
  *
  * @see {@link UpdateDeviceStateCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStateCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDeviceStateCommand extends $Command<

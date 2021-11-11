@@ -35,7 +35,7 @@ export interface DescribeNotebookExecutionCommandOutput extends DescribeNotebook
  *
  * @see {@link DescribeNotebookExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeNotebookExecutionCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeNotebookExecutionCommand extends $Command<

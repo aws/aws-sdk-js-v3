@@ -36,7 +36,7 @@ export interface CreateContentCommandOutput extends CreateContentResponse, __Met
  *
  * @see {@link CreateContentCommandInput} for command's `input` shape.
  * @see {@link CreateContentCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateContentCommand extends $Command<

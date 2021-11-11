@@ -37,7 +37,7 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
  *
  * @see {@link RejectSkillCommandInput} for command's `input` shape.
  * @see {@link RejectSkillCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RejectSkillCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *
  * @see {@link DeleteConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConfigurationTemplateCommand extends $Command<

@@ -37,7 +37,7 @@ export interface AssociateMacSecKeyCommandOutput extends AssociateMacSecKeyRespo
  *
  * @see {@link AssociateMacSecKeyCommandInput} for command's `input` shape.
  * @see {@link AssociateMacSecKeyCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateMacSecKeyCommand extends $Command<

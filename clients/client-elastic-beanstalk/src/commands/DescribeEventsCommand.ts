@@ -39,7 +39,7 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  *
  * @see {@link DescribeEventsCommandInput} for command's `input` shape.
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventsCommand extends $Command<

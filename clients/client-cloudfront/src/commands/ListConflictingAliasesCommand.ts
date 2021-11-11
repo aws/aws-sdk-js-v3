@@ -57,7 +57,7 @@ export interface ListConflictingAliasesCommandOutput extends ListConflictingAlia
  *
  * @see {@link ListConflictingAliasesCommandInput} for command's `input` shape.
  * @see {@link ListConflictingAliasesCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListConflictingAliasesCommand extends $Command<

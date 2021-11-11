@@ -40,7 +40,7 @@ export interface DeleteQueryLoggingConfigCommandOutput extends DeleteQueryLoggin
  *
  * @see {@link DeleteQueryLoggingConfigCommandInput} for command's `input` shape.
  * @see {@link DeleteQueryLoggingConfigCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteQueryLoggingConfigCommand extends $Command<

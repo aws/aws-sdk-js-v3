@@ -37,7 +37,7 @@ export interface GetWirelessGatewayStatisticsCommandOutput
  *
  * @see {@link GetWirelessGatewayStatisticsCommandInput} for command's `input` shape.
  * @see {@link GetWirelessGatewayStatisticsCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetWirelessGatewayStatisticsCommand extends $Command<

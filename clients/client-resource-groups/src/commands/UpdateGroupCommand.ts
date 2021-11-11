@@ -47,7 +47,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupOutput, __MetadataB
  *
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGroupCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  *
  * @see {@link DeactivateTypeCommandInput} for command's `input` shape.
  * @see {@link DeactivateTypeCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeactivateTypeCommand extends $Command<

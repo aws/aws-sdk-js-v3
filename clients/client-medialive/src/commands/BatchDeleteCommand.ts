@@ -35,7 +35,7 @@ export interface BatchDeleteCommandOutput extends BatchDeleteResponse, __Metadat
  *
  * @see {@link BatchDeleteCommandInput} for command's `input` shape.
  * @see {@link BatchDeleteCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchDeleteCommand extends $Command<

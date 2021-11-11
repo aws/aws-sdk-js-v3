@@ -61,7 +61,7 @@ export interface UpdateJobPriorityCommandOutput extends UpdateJobPriorityResult,
  *
  * @see {@link UpdateJobPriorityCommandInput} for command's `input` shape.
  * @see {@link UpdateJobPriorityCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateJobPriorityCommand extends $Command<

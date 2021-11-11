@@ -35,7 +35,7 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteVpcLinkCommandInput} for command's `input` shape.
  * @see {@link DeleteVpcLinkCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVpcLinkCommand extends $Command<

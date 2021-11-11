@@ -62,7 +62,7 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  *
  * @see {@link DescribeSecretCommandInput} for command's `input` shape.
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSecretCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteRuleGroupCommandOutput extends DeleteRuleGroupResponse, _
  *
  * @see {@link DeleteRuleGroupCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleGroupCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRuleGroupCommand extends $Command<

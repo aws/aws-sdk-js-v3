@@ -36,7 +36,7 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  *
  * @see {@link StopDataSourceSyncJobCommandInput} for command's `input` shape.
  * @see {@link StopDataSourceSyncJobCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopDataSourceSyncJobCommand extends $Command<

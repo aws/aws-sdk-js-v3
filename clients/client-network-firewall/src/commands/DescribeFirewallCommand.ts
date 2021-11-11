@@ -35,7 +35,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  *
  * @see {@link DescribeFirewallCommandInput} for command's `input` shape.
  * @see {@link DescribeFirewallCommandOutput} for command's `response` shape.
- * @see {@link NetworkFirewallClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkFirewallClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFirewallCommand extends $Command<

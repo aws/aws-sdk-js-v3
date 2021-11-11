@@ -35,7 +35,7 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  *
  * @see {@link DeleteContainerPolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteContainerPolicyCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteContainerPolicyCommand extends $Command<

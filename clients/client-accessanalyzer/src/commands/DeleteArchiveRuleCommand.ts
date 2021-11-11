@@ -35,7 +35,7 @@ export interface DeleteArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteArchiveRuleCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteArchiveRuleCommand extends $Command<

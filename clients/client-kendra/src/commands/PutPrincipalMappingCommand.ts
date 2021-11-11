@@ -50,7 +50,7 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutPrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link PutPrincipalMappingCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutPrincipalMappingCommand extends $Command<

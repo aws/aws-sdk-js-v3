@@ -36,7 +36,7 @@ export interface AttachPolicyCommandOutput extends AttachPolicyResponse, __Metad
  *
  * @see {@link AttachPolicyCommandInput} for command's `input` shape.
  * @see {@link AttachPolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachPolicyCommand extends $Command<

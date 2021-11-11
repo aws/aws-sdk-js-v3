@@ -41,7 +41,7 @@ export interface DetachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DetachPrincipalPolicyCommandInput} for command's `input` shape.
  * @see {@link DetachPrincipalPolicyCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetachPrincipalPolicyCommand extends $Command<

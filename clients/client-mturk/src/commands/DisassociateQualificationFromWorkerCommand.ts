@@ -47,7 +47,7 @@ export interface DisassociateQualificationFromWorkerCommandOutput
  *
  * @see {@link DisassociateQualificationFromWorkerCommandInput} for command's `input` shape.
  * @see {@link DisassociateQualificationFromWorkerCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateQualificationFromWorkerCommand extends $Command<

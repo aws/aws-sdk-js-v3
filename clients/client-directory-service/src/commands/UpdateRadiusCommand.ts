@@ -36,7 +36,7 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  *
  * @see {@link UpdateRadiusCommandInput} for command's `input` shape.
  * @see {@link UpdateRadiusCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRadiusCommand extends $Command<

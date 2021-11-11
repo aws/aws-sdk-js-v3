@@ -35,7 +35,7 @@ export interface ListImagePipelinesCommandOutput extends ListImagePipelinesRespo
  *
  * @see {@link ListImagePipelinesCommandInput} for command's `input` shape.
  * @see {@link ListImagePipelinesCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListImagePipelinesCommand extends $Command<

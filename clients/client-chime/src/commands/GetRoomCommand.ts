@@ -35,7 +35,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  *
  * @see {@link GetRoomCommandInput} for command's `input` shape.
  * @see {@link GetRoomCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommandOutput, ChimeClientResolvedConfig> {

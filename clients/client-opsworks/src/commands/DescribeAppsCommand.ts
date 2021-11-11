@@ -43,7 +43,7 @@ export interface DescribeAppsCommandOutput extends DescribeAppsResult, __Metadat
  *
  * @see {@link DescribeAppsCommandInput} for command's `input` shape.
  * @see {@link DescribeAppsCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAppsCommand extends $Command<

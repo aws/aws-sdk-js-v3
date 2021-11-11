@@ -35,7 +35,7 @@ export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __Metadat
  *
  * @see {@link AcceptGrantCommandInput} for command's `input` shape.
  * @see {@link AcceptGrantCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptGrantCommand extends $Command<

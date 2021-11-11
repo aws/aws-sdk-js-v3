@@ -36,7 +36,7 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  *
  * @see {@link DescribeConnectorEntityCommandInput} for command's `input` shape.
  * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
- * @see {@link AppflowClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppflowClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeConnectorEntityCommand extends $Command<

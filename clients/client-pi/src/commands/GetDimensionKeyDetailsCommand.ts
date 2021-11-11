@@ -38,7 +38,7 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  *
  * @see {@link GetDimensionKeyDetailsCommandInput} for command's `input` shape.
  * @see {@link GetDimensionKeyDetailsCommandOutput} for command's `response` shape.
- * @see {@link PIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PIClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDimensionKeyDetailsCommand extends $Command<

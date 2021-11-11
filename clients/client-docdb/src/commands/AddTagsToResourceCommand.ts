@@ -38,7 +38,7 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AddTagsToResourceCommandInput} for command's `input` shape.
  * @see {@link AddTagsToResourceCommandOutput} for command's `response` shape.
- * @see {@link DocDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DocDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddTagsToResourceCommand extends $Command<

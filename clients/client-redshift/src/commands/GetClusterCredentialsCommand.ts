@@ -56,7 +56,7 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *
  * @see {@link GetClusterCredentialsCommandInput} for command's `input` shape.
  * @see {@link GetClusterCredentialsCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetClusterCredentialsCommand extends $Command<

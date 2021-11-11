@@ -41,7 +41,7 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  *
  * @see {@link GetRecordCommandInput} for command's `input` shape.
  * @see {@link GetRecordCommandOutput} for command's `response` shape.
- * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRecordCommand extends $Command<

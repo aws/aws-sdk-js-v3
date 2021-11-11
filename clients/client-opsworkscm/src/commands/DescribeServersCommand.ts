@@ -46,7 +46,7 @@ export interface DescribeServersCommandOutput extends DescribeServersResponse, _
  *
  * @see {@link DescribeServersCommandInput} for command's `input` shape.
  * @see {@link DescribeServersCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeServersCommand extends $Command<

@@ -32,7 +32,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResult, __MetadataBeare
  *
  * @see {@link GetDeviceCommandInput} for command's `input` shape.
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeviceCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetLoadBalancerCommandOutput extends GetLoadBalancerResult, __M
  *
  * @see {@link GetLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link GetLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLoadBalancerCommand extends $Command<

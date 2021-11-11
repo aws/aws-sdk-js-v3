@@ -36,7 +36,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  *
  * @see {@link DisassociateApprovedOriginCommandInput} for command's `input` shape.
  * @see {@link DisassociateApprovedOriginCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateApprovedOriginCommand extends $Command<

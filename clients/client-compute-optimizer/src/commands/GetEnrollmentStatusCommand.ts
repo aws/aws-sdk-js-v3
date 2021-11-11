@@ -40,7 +40,7 @@ export interface GetEnrollmentStatusCommandOutput extends GetEnrollmentStatusRes
  *
  * @see {@link GetEnrollmentStatusCommandInput} for command's `input` shape.
  * @see {@link GetEnrollmentStatusCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEnrollmentStatusCommand extends $Command<

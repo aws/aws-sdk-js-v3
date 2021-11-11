@@ -36,7 +36,7 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetV2LoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetV2LoggingOptionsCommand extends $Command<

@@ -58,7 +58,7 @@ export interface GetSavingsPlansCoverageCommandOutput extends GetSavingsPlansCov
  *
  * @see {@link GetSavingsPlansCoverageCommandInput} for command's `input` shape.
  * @see {@link GetSavingsPlansCoverageCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetSavingsPlansCoverageCommand extends $Command<

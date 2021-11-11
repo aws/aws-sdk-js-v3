@@ -35,7 +35,7 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  *
  * @see {@link UpdateContentCommandInput} for command's `input` shape.
  * @see {@link UpdateContentCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateContentCommand extends $Command<

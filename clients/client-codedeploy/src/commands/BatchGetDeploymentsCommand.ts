@@ -36,7 +36,7 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  *
  * @see {@link BatchGetDeploymentsCommandInput} for command's `input` shape.
  * @see {@link BatchGetDeploymentsCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchGetDeploymentsCommand extends $Command<

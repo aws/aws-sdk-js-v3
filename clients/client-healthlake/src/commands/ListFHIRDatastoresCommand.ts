@@ -36,7 +36,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  *
  * @see {@link ListFHIRDatastoresCommandInput} for command's `input` shape.
  * @see {@link ListFHIRDatastoresCommandOutput} for command's `response` shape.
- * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFHIRDatastoresCommand extends $Command<

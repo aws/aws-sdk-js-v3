@@ -39,7 +39,7 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  *
  * @see {@link SelectResourceConfigCommandInput} for command's `input` shape.
  * @see {@link SelectResourceConfigCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SelectResourceConfigCommand extends $Command<

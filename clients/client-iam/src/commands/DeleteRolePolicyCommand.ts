@@ -40,7 +40,7 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRolePolicyCommandInput} for command's `input` shape.
  * @see {@link DeleteRolePolicyCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRolePolicyCommand extends $Command<

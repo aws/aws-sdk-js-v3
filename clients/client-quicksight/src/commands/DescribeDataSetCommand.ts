@@ -35,7 +35,7 @@ export interface DescribeDataSetCommandOutput extends DescribeDataSetResponse, _
  *
  * @see {@link DescribeDataSetCommandInput} for command's `input` shape.
  * @see {@link DescribeDataSetCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDataSetCommand extends $Command<

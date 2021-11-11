@@ -105,7 +105,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *
  * @see {@link CreateCampaignCommandInput} for command's `input` shape.
  * @see {@link CreateCampaignCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCampaignCommand extends $Command<

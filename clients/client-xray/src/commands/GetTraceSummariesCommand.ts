@@ -51,7 +51,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *
  * @see {@link GetTraceSummariesCommandInput} for command's `input` shape.
  * @see {@link GetTraceSummariesCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTraceSummariesCommand extends $Command<

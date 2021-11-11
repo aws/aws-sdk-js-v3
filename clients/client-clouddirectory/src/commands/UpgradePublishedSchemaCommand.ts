@@ -35,7 +35,7 @@ export interface UpgradePublishedSchemaCommandOutput extends UpgradePublishedSch
  *
  * @see {@link UpgradePublishedSchemaCommandInput} for command's `input` shape.
  * @see {@link UpgradePublishedSchemaCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpgradePublishedSchemaCommand extends $Command<

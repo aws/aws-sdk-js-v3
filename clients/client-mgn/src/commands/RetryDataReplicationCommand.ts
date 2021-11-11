@@ -35,7 +35,7 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  *
  * @see {@link RetryDataReplicationCommandInput} for command's `input` shape.
  * @see {@link RetryDataReplicationCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RetryDataReplicationCommand extends $Command<

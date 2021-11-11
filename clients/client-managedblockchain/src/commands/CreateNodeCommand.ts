@@ -40,7 +40,7 @@ export interface CreateNodeCommandOutput extends CreateNodeOutput, __MetadataBea
  *
  * @see {@link CreateNodeCommandInput} for command's `input` shape.
  * @see {@link CreateNodeCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateNodeCommand extends $Command<

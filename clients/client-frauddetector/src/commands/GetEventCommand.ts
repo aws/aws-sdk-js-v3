@@ -32,7 +32,7 @@ export interface GetEventCommandOutput extends GetEventResult, __MetadataBearer 
  *
  * @see {@link GetEventCommandInput} for command's `input` shape.
  * @see {@link GetEventCommandOutput} for command's `response` shape.
- * @see {@link FraudDetectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FraudDetectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEventCommand extends $Command<

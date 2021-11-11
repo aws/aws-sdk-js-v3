@@ -35,7 +35,7 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  *
  * @see {@link PutEventStreamCommandInput} for command's `input` shape.
  * @see {@link PutEventStreamCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutEventStreamCommand extends $Command<

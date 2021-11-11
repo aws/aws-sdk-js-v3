@@ -35,7 +35,7 @@ export interface GetLinkAttributesCommandOutput extends GetLinkAttributesRespons
  *
  * @see {@link GetLinkAttributesCommandInput} for command's `input` shape.
  * @see {@link GetLinkAttributesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLinkAttributesCommand extends $Command<

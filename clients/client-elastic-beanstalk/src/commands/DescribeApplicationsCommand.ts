@@ -35,7 +35,7 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  *
  * @see {@link DescribeApplicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeApplicationsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeApplicationsCommand extends $Command<

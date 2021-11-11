@@ -40,7 +40,7 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *
  * @see {@link UpdateServerCommandInput} for command's `input` shape.
  * @see {@link UpdateServerCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServerCommand extends $Command<

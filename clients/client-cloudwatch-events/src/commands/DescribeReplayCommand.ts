@@ -43,7 +43,7 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  *
  * @see {@link DescribeReplayCommandInput} for command's `input` shape.
  * @see {@link DescribeReplayCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReplayCommand extends $Command<

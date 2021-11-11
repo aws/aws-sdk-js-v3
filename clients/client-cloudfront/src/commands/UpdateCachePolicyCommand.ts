@@ -52,7 +52,7 @@ export interface UpdateCachePolicyCommandOutput extends UpdateCachePolicyResult,
  *
  * @see {@link UpdateCachePolicyCommandInput} for command's `input` shape.
  * @see {@link UpdateCachePolicyCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateCachePolicyCommand extends $Command<

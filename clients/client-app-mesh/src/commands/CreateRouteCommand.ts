@@ -38,7 +38,7 @@ export interface CreateRouteCommandOutput extends CreateRouteOutput, __MetadataB
  *
  * @see {@link CreateRouteCommandInput} for command's `input` shape.
  * @see {@link CreateRouteCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateRouteCommand extends $Command<

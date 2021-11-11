@@ -44,7 +44,7 @@ export interface CreateDatasetGroupCommandOutput extends CreateDatasetGroupRespo
  *
  * @see {@link CreateDatasetGroupCommandInput} for command's `input` shape.
  * @see {@link CreateDatasetGroupCommandOutput} for command's `response` shape.
- * @see {@link ForecastClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ForecastClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDatasetGroupCommand extends $Command<

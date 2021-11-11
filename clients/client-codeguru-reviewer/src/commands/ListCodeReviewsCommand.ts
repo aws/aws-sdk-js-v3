@@ -37,7 +37,7 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  *
  * @see {@link ListCodeReviewsCommandInput} for command's `input` shape.
  * @see {@link ListCodeReviewsCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCodeReviewsCommand extends $Command<

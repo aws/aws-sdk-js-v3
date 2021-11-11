@@ -36,7 +36,7 @@ export interface DescribeRulesPackagesCommandOutput extends DescribeRulesPackage
  *
  * @see {@link DescribeRulesPackagesCommandInput} for command's `input` shape.
  * @see {@link DescribeRulesPackagesCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRulesPackagesCommand extends $Command<

@@ -38,7 +38,7 @@ export interface DecreaseReplicationFactorCommandOutput extends DecreaseReplicat
  *
  * @see {@link DecreaseReplicationFactorCommandInput} for command's `input` shape.
  * @see {@link DecreaseReplicationFactorCommandOutput} for command's `response` shape.
- * @see {@link DAXClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DAXClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DecreaseReplicationFactorCommand extends $Command<

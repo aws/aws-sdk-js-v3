@@ -39,7 +39,7 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  *
  * @see {@link DetachVolumeCommandInput} for command's `input` shape.
  * @see {@link DetachVolumeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetachVolumeCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DeleteJobTemplateCommandOutput extends DeleteJobTemplateRespons
  *
  * @see {@link DeleteJobTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteJobTemplateCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteJobTemplateCommand extends $Command<

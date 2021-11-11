@@ -33,7 +33,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *
  * @see {@link CreateHsmCommandInput} for command's `input` shape.
  * @see {@link CreateHsmCommandOutput} for command's `response` shape.
- * @see {@link CloudHSMV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudHSMV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateHsmCommand extends $Command<

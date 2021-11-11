@@ -35,7 +35,7 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  *
  * @see {@link GetContentSummaryCommandInput} for command's `input` shape.
  * @see {@link GetContentSummaryCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetContentSummaryCommand extends $Command<

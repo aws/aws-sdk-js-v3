@@ -36,7 +36,7 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  *
  * @see {@link ListAlarmsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmsCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsDataClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAlarmsCommand extends $Command<

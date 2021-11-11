@@ -36,7 +36,7 @@ export interface DeleteTapeArchiveCommandOutput extends DeleteTapeArchiveOutput,
  *
  * @see {@link DeleteTapeArchiveCommandInput} for command's `input` shape.
  * @see {@link DeleteTapeArchiveCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteTapeArchiveCommand extends $Command<

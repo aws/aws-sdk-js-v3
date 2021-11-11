@@ -45,7 +45,7 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput
  *
  * @see {@link DescribeInboundCrossClusterSearchConnectionsCommandInput} for command's `input` shape.
  * @see {@link DescribeInboundCrossClusterSearchConnectionsCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Command<

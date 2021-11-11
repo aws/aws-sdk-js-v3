@@ -37,7 +37,7 @@ export interface StartDetectorModelAnalysisCommandOutput extends StartDetectorMo
  *
  * @see {@link StartDetectorModelAnalysisCommandInput} for command's `input` shape.
  * @see {@link StartDetectorModelAnalysisCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDetectorModelAnalysisCommand extends $Command<

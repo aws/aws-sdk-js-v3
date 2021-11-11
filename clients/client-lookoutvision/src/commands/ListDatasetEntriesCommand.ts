@@ -38,7 +38,7 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *
  * @see {@link ListDatasetEntriesCommandInput} for command's `input` shape.
  * @see {@link ListDatasetEntriesCommandOutput} for command's `response` shape.
- * @see {@link LookoutVisionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutVisionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDatasetEntriesCommand extends $Command<

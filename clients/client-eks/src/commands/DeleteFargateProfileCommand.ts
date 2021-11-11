@@ -42,7 +42,7 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  *
  * @see {@link DeleteFargateProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteFargateProfileCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFargateProfileCommand extends $Command<

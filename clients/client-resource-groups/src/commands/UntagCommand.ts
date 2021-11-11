@@ -43,7 +43,7 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *
  * @see {@link UntagCommandInput} for command's `input` shape.
  * @see {@link UntagCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagCommand extends $Command<UntagCommandInput, UntagCommandOutput, ResourceGroupsClientResolvedConfig> {

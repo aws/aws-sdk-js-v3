@@ -38,7 +38,7 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *
  * @see {@link UpdateBudgetCommandInput} for command's `input` shape.
  * @see {@link UpdateBudgetCommandOutput} for command's `response` shape.
- * @see {@link BudgetsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BudgetsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateBudgetCommand extends $Command<

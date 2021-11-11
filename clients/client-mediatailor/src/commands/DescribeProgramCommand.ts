@@ -35,7 +35,7 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  *
  * @see {@link DescribeProgramCommandInput} for command's `input` shape.
  * @see {@link DescribeProgramCommandOutput} for command's `response` shape.
- * @see {@link MediaTailorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaTailorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeProgramCommand extends $Command<

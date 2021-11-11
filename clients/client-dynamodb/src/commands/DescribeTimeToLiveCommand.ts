@@ -35,7 +35,7 @@ export interface DescribeTimeToLiveCommandOutput extends DescribeTimeToLiveOutpu
  *
  * @see {@link DescribeTimeToLiveCommandInput} for command's `input` shape.
  * @see {@link DescribeTimeToLiveCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTimeToLiveCommand extends $Command<

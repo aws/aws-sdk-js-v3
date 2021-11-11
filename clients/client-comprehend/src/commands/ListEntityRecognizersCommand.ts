@@ -40,7 +40,7 @@ export interface ListEntityRecognizersCommandOutput extends ListEntityRecognizer
  *
  * @see {@link ListEntityRecognizersCommandInput} for command's `input` shape.
  * @see {@link ListEntityRecognizersCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEntityRecognizersCommand extends $Command<

@@ -40,7 +40,7 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *
  * @see {@link StopPipelineExecutionCommandInput} for command's `input` shape.
  * @see {@link StopPipelineExecutionCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopPipelineExecutionCommand extends $Command<

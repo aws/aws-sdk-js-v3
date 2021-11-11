@@ -35,7 +35,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *
  * @see {@link UpdateDataSetCommandInput} for command's `input` shape.
  * @see {@link UpdateDataSetCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDataSetCommand extends $Command<

@@ -42,7 +42,7 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  *
  * @see {@link ListQualificationRequestsCommandInput} for command's `input` shape.
  * @see {@link ListQualificationRequestsCommandOutput} for command's `response` shape.
- * @see {@link MTurkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MTurkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListQualificationRequestsCommand extends $Command<

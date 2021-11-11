@@ -35,7 +35,7 @@ export interface GetEulaCommandOutput extends GetEulaResponse, __MetadataBearer 
  *
  * @see {@link GetEulaCommandInput} for command's `input` shape.
  * @see {@link GetEulaCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetEulaCommand extends $Command<GetEulaCommandInput, GetEulaCommandOutput, NimbleClientResolvedConfig> {

@@ -42,7 +42,7 @@ export interface StartReplicationTaskAssessmentCommandOutput
  *
  * @see {@link StartReplicationTaskAssessmentCommandInput} for command's `input` shape.
  * @see {@link StartReplicationTaskAssessmentCommandOutput} for command's `response` shape.
- * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartReplicationTaskAssessmentCommand extends $Command<

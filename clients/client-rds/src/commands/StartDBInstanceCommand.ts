@@ -50,7 +50,7 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *
  * @see {@link StartDBInstanceCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDBInstanceCommand extends $Command<

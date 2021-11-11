@@ -35,7 +35,7 @@ export interface DescribeEnvironmentsCommandOutput extends EnvironmentDescriptio
  *
  * @see {@link DescribeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEnvironmentsCommand extends $Command<

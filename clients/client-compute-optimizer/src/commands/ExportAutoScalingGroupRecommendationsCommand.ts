@@ -48,7 +48,7 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput
  *
  * @see {@link ExportAutoScalingGroupRecommendationsCommandInput} for command's `input` shape.
  * @see {@link ExportAutoScalingGroupRecommendationsCommandOutput} for command's `response` shape.
- * @see {@link ComputeOptimizerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComputeOptimizerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExportAutoScalingGroupRecommendationsCommand extends $Command<

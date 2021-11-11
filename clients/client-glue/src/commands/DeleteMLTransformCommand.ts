@@ -40,7 +40,7 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  *
  * @see {@link DeleteMLTransformCommandInput} for command's `input` shape.
  * @see {@link DeleteMLTransformCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteMLTransformCommand extends $Command<

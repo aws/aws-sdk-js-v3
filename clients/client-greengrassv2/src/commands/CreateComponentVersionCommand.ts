@@ -88,7 +88,7 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *
  * @see {@link CreateComponentVersionCommandInput} for command's `input` shape.
  * @see {@link CreateComponentVersionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateComponentVersionCommand extends $Command<

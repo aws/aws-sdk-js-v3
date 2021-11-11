@@ -39,7 +39,7 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  *
  * @see {@link ListLogPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListLogPatternSetsCommandOutput} for command's `response` shape.
- * @see {@link ApplicationInsightsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationInsightsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListLogPatternSetsCommand extends $Command<

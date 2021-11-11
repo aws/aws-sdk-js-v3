@@ -35,7 +35,7 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
  *
  * @see {@link GetFlowTemplateCommandInput} for command's `input` shape.
  * @see {@link GetFlowTemplateCommandOutput} for command's `response` shape.
- * @see {@link IoTThingsGraphClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTThingsGraphClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFlowTemplateCommand extends $Command<

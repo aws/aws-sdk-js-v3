@@ -35,7 +35,7 @@ export interface PutStudioMembersCommandOutput extends PutStudioMembersResponse,
  *
  * @see {@link PutStudioMembersCommandInput} for command's `input` shape.
  * @see {@link PutStudioMembersCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutStudioMembersCommand extends $Command<

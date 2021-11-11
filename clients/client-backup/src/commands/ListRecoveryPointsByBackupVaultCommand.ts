@@ -37,7 +37,7 @@ export interface ListRecoveryPointsByBackupVaultCommandOutput
  *
  * @see {@link ListRecoveryPointsByBackupVaultCommandInput} for command's `input` shape.
  * @see {@link ListRecoveryPointsByBackupVaultCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRecoveryPointsByBackupVaultCommand extends $Command<

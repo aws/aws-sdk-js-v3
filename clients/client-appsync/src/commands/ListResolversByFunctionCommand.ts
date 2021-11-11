@@ -35,7 +35,7 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  *
  * @see {@link ListResolversByFunctionCommandInput} for command's `input` shape.
  * @see {@link ListResolversByFunctionCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListResolversByFunctionCommand extends $Command<

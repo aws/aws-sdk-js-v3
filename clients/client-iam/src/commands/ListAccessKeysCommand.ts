@@ -47,7 +47,7 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  *
  * @see {@link ListAccessKeysCommandInput} for command's `input` shape.
  * @see {@link ListAccessKeysCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAccessKeysCommand extends $Command<

@@ -43,7 +43,7 @@ export interface DeleteEnvironmentTemplateVersionCommandOutput
  *
  * @see {@link DeleteEnvironmentTemplateVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentTemplateVersionCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEnvironmentTemplateVersionCommand extends $Command<

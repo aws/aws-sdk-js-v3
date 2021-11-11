@@ -55,7 +55,7 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *
  * @see {@link StartChatContactCommandInput} for command's `input` shape.
  * @see {@link StartChatContactCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartChatContactCommand extends $Command<

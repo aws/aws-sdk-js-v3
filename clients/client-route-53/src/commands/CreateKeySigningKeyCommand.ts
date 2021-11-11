@@ -36,7 +36,7 @@ export interface CreateKeySigningKeyCommandOutput extends CreateKeySigningKeyRes
  *
  * @see {@link CreateKeySigningKeyCommandInput} for command's `input` shape.
  * @see {@link CreateKeySigningKeyCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateKeySigningKeyCommand extends $Command<

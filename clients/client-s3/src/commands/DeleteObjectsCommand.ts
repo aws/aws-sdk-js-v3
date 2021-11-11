@@ -93,7 +93,7 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *
  * @see {@link DeleteObjectsCommandInput} for command's `input` shape.
  * @see {@link DeleteObjectsCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteObjectsCommand extends $Command<

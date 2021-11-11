@@ -39,7 +39,7 @@ export interface VerifyUserAttributeCommandOutput extends VerifyUserAttributeRes
  *
  * @see {@link VerifyUserAttributeCommandInput} for command's `input` shape.
  * @see {@link VerifyUserAttributeCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class VerifyUserAttributeCommand extends $Command<

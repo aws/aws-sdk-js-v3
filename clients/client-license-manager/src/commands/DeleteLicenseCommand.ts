@@ -35,7 +35,7 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  *
  * @see {@link DeleteLicenseCommandInput} for command's `input` shape.
  * @see {@link DeleteLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteLicenseCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateFindingsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateFindingsCommandInput} for command's `input` shape.
  * @see {@link UpdateFindingsCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFindingsCommand extends $Command<

@@ -38,7 +38,7 @@ export interface ModifyVpnTunnelOptionsCommandOutput extends ModifyVpnTunnelOpti
  *
  * @see {@link ModifyVpnTunnelOptionsCommandInput} for command's `input` shape.
  * @see {@link ModifyVpnTunnelOptionsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyVpnTunnelOptionsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * @see {@link ModifyDBInstanceCommandInput} for command's `input` shape.
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyDBInstanceCommand extends $Command<

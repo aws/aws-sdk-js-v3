@@ -35,7 +35,7 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  *
  * @see {@link CreateDomainNameCommandInput} for command's `input` shape.
  * @see {@link CreateDomainNameCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateDomainNameCommand extends $Command<

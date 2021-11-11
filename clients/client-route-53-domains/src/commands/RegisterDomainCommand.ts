@@ -60,7 +60,7 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  *
  * @see {@link RegisterDomainCommandInput} for command's `input` shape.
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterDomainCommand extends $Command<

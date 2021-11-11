@@ -37,7 +37,7 @@ export interface EnableSerialConsoleAccessCommandOutput extends EnableSerialCons
  *
  * @see {@link EnableSerialConsoleAccessCommandInput} for command's `input` shape.
  * @see {@link EnableSerialConsoleAccessCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EnableSerialConsoleAccessCommand extends $Command<

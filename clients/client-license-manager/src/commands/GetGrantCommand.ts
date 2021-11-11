@@ -32,7 +32,7 @@ export interface GetGrantCommandOutput extends GetGrantResponse, __MetadataBeare
  *
  * @see {@link GetGrantCommandInput} for command's `input` shape.
  * @see {@link GetGrantCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetGrantCommand extends $Command<

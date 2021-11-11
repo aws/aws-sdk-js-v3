@@ -35,7 +35,7 @@ export interface GetLicenseCommandOutput extends GetLicenseResponse, __MetadataB
  *
  * @see {@link GetLicenseCommandInput} for command's `input` shape.
  * @see {@link GetLicenseCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetLicenseCommand extends $Command<

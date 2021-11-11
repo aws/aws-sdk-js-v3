@@ -42,7 +42,7 @@ export interface ListClientDevicesAssociatedWithCoreDeviceCommandOutput
  *
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link ListClientDevicesAssociatedWithCoreDeviceCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListClientDevicesAssociatedWithCoreDeviceCommand extends $Command<

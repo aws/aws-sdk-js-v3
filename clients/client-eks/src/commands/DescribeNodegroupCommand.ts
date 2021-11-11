@@ -35,7 +35,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  *
  * @see {@link DescribeNodegroupCommandInput} for command's `input` shape.
  * @see {@link DescribeNodegroupCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeNodegroupCommand extends $Command<

@@ -37,7 +37,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @see {@link TagResourceCommandInput} for command's `input` shape.
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
- * @see {@link MediaStoreClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaStoreClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagResourceCommand extends $Command<

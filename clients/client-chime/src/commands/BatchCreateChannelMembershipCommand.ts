@@ -37,7 +37,7 @@ export interface BatchCreateChannelMembershipCommandOutput
  *
  * @see {@link BatchCreateChannelMembershipCommandInput} for command's `input` shape.
  * @see {@link BatchCreateChannelMembershipCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchCreateChannelMembershipCommand extends $Command<

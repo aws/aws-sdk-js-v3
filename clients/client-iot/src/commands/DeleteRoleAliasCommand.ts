@@ -36,7 +36,7 @@ export interface DeleteRoleAliasCommandOutput extends DeleteRoleAliasResponse, _
  *
  * @see {@link DeleteRoleAliasCommandInput} for command's `input` shape.
  * @see {@link DeleteRoleAliasCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRoleAliasCommand extends $Command<

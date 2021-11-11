@@ -35,7 +35,7 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  *
  * @see {@link DescribeStacksCommandInput} for command's `input` shape.
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStacksCommand extends $Command<

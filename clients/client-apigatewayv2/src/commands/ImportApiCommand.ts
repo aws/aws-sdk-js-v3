@@ -35,7 +35,7 @@ export interface ImportApiCommandOutput extends ImportApiResponse, __MetadataBea
  *
  * @see {@link ImportApiCommandInput} for command's `input` shape.
  * @see {@link ImportApiCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ImportApiCommand extends $Command<

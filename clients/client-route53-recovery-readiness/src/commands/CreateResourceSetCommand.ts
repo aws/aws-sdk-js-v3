@@ -39,7 +39,7 @@ export interface CreateResourceSetCommandOutput extends CreateResourceSetRespons
  *
  * @see {@link CreateResourceSetCommandInput} for command's `input` shape.
  * @see {@link CreateResourceSetCommandOutput} for command's `response` shape.
- * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53RecoveryReadinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateResourceSetCommand extends $Command<

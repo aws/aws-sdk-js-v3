@@ -43,7 +43,7 @@ export interface ListRegexPatternSetsCommandOutput extends ListRegexPatternSetsR
  *
  * @see {@link ListRegexPatternSetsCommandInput} for command's `input` shape.
  * @see {@link ListRegexPatternSetsCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListRegexPatternSetsCommand extends $Command<

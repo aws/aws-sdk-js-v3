@@ -32,7 +32,7 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  *
  * @see {@link GetUploadCommandInput} for command's `input` shape.
  * @see {@link GetUploadCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetUploadCommand extends $Command<

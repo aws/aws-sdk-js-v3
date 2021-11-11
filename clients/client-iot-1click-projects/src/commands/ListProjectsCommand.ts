@@ -39,7 +39,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  *
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListProjectsCommand extends $Command<

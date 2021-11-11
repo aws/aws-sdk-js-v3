@@ -38,7 +38,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *
  * @see {@link ResumeContactRecordingCommandInput} for command's `input` shape.
  * @see {@link ResumeContactRecordingCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResumeContactRecordingCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeTrialComponentCommandOutput extends DescribeTrialCompon
  *
  * @see {@link DescribeTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DescribeTrialComponentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTrialComponentCommand extends $Command<

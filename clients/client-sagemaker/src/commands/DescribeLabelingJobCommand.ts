@@ -35,7 +35,7 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  *
  * @see {@link DescribeLabelingJobCommandInput} for command's `input` shape.
  * @see {@link DescribeLabelingJobCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeLabelingJobCommand extends $Command<

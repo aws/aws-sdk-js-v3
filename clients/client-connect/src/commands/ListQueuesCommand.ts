@@ -41,7 +41,7 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *
  * @see {@link ListQueuesCommandInput} for command's `input` shape.
  * @see {@link ListQueuesCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListQueuesCommand extends $Command<

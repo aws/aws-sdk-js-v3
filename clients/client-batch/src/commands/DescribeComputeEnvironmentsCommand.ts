@@ -40,7 +40,7 @@ export interface DescribeComputeEnvironmentsCommandOutput
  *
  * @see {@link DescribeComputeEnvironmentsCommandInput} for command's `input` shape.
  * @see {@link DescribeComputeEnvironmentsCommandOutput} for command's `response` shape.
- * @see {@link BatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeComputeEnvironmentsCommand extends $Command<

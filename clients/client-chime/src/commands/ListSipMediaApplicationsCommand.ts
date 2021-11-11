@@ -35,7 +35,7 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
  *
  * @see {@link ListSipMediaApplicationsCommandInput} for command's `input` shape.
  * @see {@link ListSipMediaApplicationsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSipMediaApplicationsCommand extends $Command<

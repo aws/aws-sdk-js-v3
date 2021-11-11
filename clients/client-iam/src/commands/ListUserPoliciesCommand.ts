@@ -42,7 +42,7 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *
  * @see {@link ListUserPoliciesCommandInput} for command's `input` shape.
  * @see {@link ListUserPoliciesCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListUserPoliciesCommand extends $Command<

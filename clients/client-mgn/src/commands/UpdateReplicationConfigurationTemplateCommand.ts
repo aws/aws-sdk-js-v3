@@ -38,7 +38,7 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput
  *
  * @see {@link UpdateReplicationConfigurationTemplateCommandInput} for command's `input` shape.
  * @see {@link UpdateReplicationConfigurationTemplateCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateReplicationConfigurationTemplateCommand extends $Command<

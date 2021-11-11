@@ -38,7 +38,7 @@ export interface DisassociateTeamMemberCommandOutput extends DisassociateTeamMem
  *
  * @see {@link DisassociateTeamMemberCommandInput} for command's `input` shape.
  * @see {@link DisassociateTeamMemberCommandOutput} for command's `response` shape.
- * @see {@link CodeStarClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateTeamMemberCommand extends $Command<

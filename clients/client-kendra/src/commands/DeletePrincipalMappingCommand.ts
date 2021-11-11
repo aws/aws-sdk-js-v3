@@ -46,7 +46,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeletePrincipalMappingCommandInput} for command's `input` shape.
  * @see {@link DeletePrincipalMappingCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeletePrincipalMappingCommand extends $Command<

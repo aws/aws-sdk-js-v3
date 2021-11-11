@@ -39,7 +39,7 @@ export interface GetScreenDataCommandOutput extends GetScreenDataResult, __Metad
  *
  * @see {@link GetScreenDataCommandInput} for command's `input` shape.
  * @see {@link GetScreenDataCommandOutput} for command's `response` shape.
- * @see {@link HoneycodeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HoneycodeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetScreenDataCommand extends $Command<

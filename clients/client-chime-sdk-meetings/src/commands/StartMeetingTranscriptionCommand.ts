@@ -35,7 +35,7 @@ export interface StartMeetingTranscriptionCommandOutput extends __MetadataBearer
  *
  * @see {@link StartMeetingTranscriptionCommandInput} for command's `input` shape.
  * @see {@link StartMeetingTranscriptionCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMeetingsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMeetingTranscriptionCommand extends $Command<

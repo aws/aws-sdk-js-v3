@@ -226,7 +226,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutBucketAclCommandInput} for command's `input` shape.
  * @see {@link PutBucketAclCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutBucketAclCommand extends $Command<

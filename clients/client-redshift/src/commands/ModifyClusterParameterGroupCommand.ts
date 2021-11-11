@@ -40,7 +40,7 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  *
  * @see {@link ModifyClusterParameterGroupCommandInput} for command's `input` shape.
  * @see {@link ModifyClusterParameterGroupCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyClusterParameterGroupCommand extends $Command<

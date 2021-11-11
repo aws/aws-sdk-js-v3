@@ -37,7 +37,7 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  *
  * @see {@link DeleteSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSecurityProfileCommand extends $Command<

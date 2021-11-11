@@ -43,7 +43,7 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  *
  * @see {@link PublishFunctionCommandInput} for command's `input` shape.
  * @see {@link PublishFunctionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PublishFunctionCommand extends $Command<

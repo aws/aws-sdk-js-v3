@@ -35,7 +35,7 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteDistributionCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDistributionCommand extends $Command<

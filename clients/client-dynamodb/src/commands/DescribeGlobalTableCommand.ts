@@ -39,7 +39,7 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  *
  * @see {@link DescribeGlobalTableCommandInput} for command's `input` shape.
  * @see {@link DescribeGlobalTableCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeGlobalTableCommand extends $Command<

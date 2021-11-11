@@ -35,7 +35,7 @@ export interface DeleteFindingsFilterCommandOutput extends DeleteFindingsFilterR
  *
  * @see {@link DeleteFindingsFilterCommandInput} for command's `input` shape.
  * @see {@link DeleteFindingsFilterCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFindingsFilterCommand extends $Command<

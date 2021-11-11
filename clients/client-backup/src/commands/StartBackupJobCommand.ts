@@ -35,7 +35,7 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *
  * @see {@link StartBackupJobCommandInput} for command's `input` shape.
  * @see {@link StartBackupJobCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartBackupJobCommand extends $Command<

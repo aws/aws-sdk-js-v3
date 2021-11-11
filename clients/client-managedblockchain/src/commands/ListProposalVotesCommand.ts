@@ -40,7 +40,7 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  *
  * @see {@link ListProposalVotesCommandInput} for command's `input` shape.
  * @see {@link ListProposalVotesCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListProposalVotesCommand extends $Command<

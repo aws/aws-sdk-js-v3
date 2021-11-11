@@ -35,7 +35,7 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  *
  * @see {@link ListAnalyzersCommandInput} for command's `input` shape.
  * @see {@link ListAnalyzersCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAnalyzersCommand extends $Command<

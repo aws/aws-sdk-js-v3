@@ -54,7 +54,7 @@ export interface DescribeGameSessionPlacementCommandOutput
  *
  * @see {@link DescribeGameSessionPlacementCommandInput} for command's `input` shape.
  * @see {@link DescribeGameSessionPlacementCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeGameSessionPlacementCommand extends $Command<

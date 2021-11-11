@@ -36,7 +36,7 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  *
  * @see {@link DetectSentimentCommandInput} for command's `input` shape.
  * @see {@link DetectSentimentCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DetectSentimentCommand extends $Command<

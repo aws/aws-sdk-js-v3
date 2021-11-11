@@ -35,7 +35,7 @@ export interface GetOutpostInstanceTypesCommandOutput extends GetOutpostInstance
  *
  * @see {@link GetOutpostInstanceTypesCommandInput} for command's `input` shape.
  * @see {@link GetOutpostInstanceTypesCommandOutput} for command's `response` shape.
- * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOutpostInstanceTypesCommand extends $Command<

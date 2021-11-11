@@ -41,7 +41,7 @@ export interface DescribeAccountAssignmentDeletionStatusCommandOutput
  *
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandInput} for command's `input` shape.
  * @see {@link DescribeAccountAssignmentDeletionStatusCommandOutput} for command's `response` shape.
- * @see {@link SSOAdminClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSOAdminClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAccountAssignmentDeletionStatusCommand extends $Command<

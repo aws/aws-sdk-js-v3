@@ -41,7 +41,7 @@ export interface GetTransitGatewayRouteTablePropagationsCommandOutput
  *
  * @see {@link GetTransitGatewayRouteTablePropagationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayRouteTablePropagationsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<

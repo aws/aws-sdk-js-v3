@@ -40,7 +40,7 @@ export interface RemoveListenerCertificatesCommandOutput extends RemoveListenerC
  *
  * @see {@link RemoveListenerCertificatesCommandInput} for command's `input` shape.
  * @see {@link RemoveListenerCertificatesCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveListenerCertificatesCommand extends $Command<

@@ -49,7 +49,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *
  * @see {@link RequestCertificateCommandInput} for command's `input` shape.
  * @see {@link RequestCertificateCommandOutput} for command's `response` shape.
- * @see {@link ACMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RequestCertificateCommand extends $Command<

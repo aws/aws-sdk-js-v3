@@ -42,7 +42,7 @@ export interface ListServiceSpecificCredentialsCommandOutput
  *
  * @see {@link ListServiceSpecificCredentialsCommandInput} for command's `input` shape.
  * @see {@link ListServiceSpecificCredentialsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListServiceSpecificCredentialsCommand extends $Command<

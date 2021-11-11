@@ -62,7 +62,7 @@ export interface PutMetricStreamCommandOutput extends PutMetricStreamOutput, __M
  *
  * @see {@link PutMetricStreamCommandInput} for command's `input` shape.
  * @see {@link PutMetricStreamCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutMetricStreamCommand extends $Command<

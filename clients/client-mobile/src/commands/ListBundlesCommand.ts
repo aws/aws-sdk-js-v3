@@ -37,7 +37,7 @@ export interface ListBundlesCommandOutput extends ListBundlesResult, __MetadataB
  *
  * @see {@link ListBundlesCommandInput} for command's `input` shape.
  * @see {@link ListBundlesCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MobileClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBundlesCommand extends $Command<

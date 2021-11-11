@@ -41,7 +41,7 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  *
  * @see {@link PutWebhookCommandInput} for command's `input` shape.
  * @see {@link PutWebhookCommandOutput} for command's `response` shape.
- * @see {@link CodePipelineClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodePipelineClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutWebhookCommand extends $Command<

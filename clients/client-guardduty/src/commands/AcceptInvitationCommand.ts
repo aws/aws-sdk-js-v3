@@ -35,7 +35,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *
  * @see {@link AcceptInvitationCommandInput} for command's `input` shape.
  * @see {@link AcceptInvitationCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptInvitationCommand extends $Command<

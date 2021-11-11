@@ -44,7 +44,7 @@ export interface UpdateMaintenanceWindowCommandOutput extends UpdateMaintenanceW
  *
  * @see {@link UpdateMaintenanceWindowCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceWindowCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateMaintenanceWindowCommand extends $Command<

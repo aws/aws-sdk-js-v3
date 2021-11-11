@@ -51,7 +51,7 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  *
  * @see {@link GetBucketLoggingCommandInput} for command's `input` shape.
  * @see {@link GetBucketLoggingCommandOutput} for command's `response` shape.
- * @see {@link S3ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetBucketLoggingCommand extends $Command<

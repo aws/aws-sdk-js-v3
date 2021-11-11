@@ -35,7 +35,7 @@ export interface ListProjectsCommandOutput extends ListProjectsOutput, __Metadat
  *
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListProjectsCommand extends $Command<

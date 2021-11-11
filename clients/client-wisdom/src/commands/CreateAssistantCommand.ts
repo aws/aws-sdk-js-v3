@@ -35,7 +35,7 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  *
  * @see {@link CreateAssistantCommandInput} for command's `input` shape.
  * @see {@link CreateAssistantCommandOutput} for command's `response` shape.
- * @see {@link WisdomClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WisdomClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAssistantCommand extends $Command<

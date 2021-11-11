@@ -35,7 +35,7 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  *
  * @see {@link DescribeCodeReviewCommandInput} for command's `input` shape.
  * @see {@link DescribeCodeReviewCommandOutput} for command's `response` shape.
- * @see {@link CodeGuruReviewerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeGuruReviewerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCodeReviewCommand extends $Command<

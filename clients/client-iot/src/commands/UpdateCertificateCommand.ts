@@ -43,7 +43,7 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateCertificateCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateCertificateCommand extends $Command<

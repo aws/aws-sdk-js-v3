@@ -41,7 +41,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
  *
  * @see {@link CancelSpotFleetRequestsCommandInput} for command's `input` shape.
  * @see {@link CancelSpotFleetRequestsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelSpotFleetRequestsCommand extends $Command<

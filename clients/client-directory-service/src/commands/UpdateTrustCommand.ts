@@ -36,7 +36,7 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  *
  * @see {@link UpdateTrustCommandInput} for command's `input` shape.
  * @see {@link UpdateTrustCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateTrustCommand extends $Command<

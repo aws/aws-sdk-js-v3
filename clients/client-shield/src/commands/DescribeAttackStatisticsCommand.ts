@@ -37,7 +37,7 @@ export interface DescribeAttackStatisticsCommandOutput extends DescribeAttackSta
  *
  * @see {@link DescribeAttackStatisticsCommandInput} for command's `input` shape.
  * @see {@link DescribeAttackStatisticsCommandOutput} for command's `response` shape.
- * @see {@link ShieldClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ShieldClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAttackStatisticsCommand extends $Command<

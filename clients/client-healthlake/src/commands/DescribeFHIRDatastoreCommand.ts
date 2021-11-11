@@ -37,7 +37,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *
  * @see {@link DescribeFHIRDatastoreCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRDatastoreCommandOutput} for command's `response` shape.
- * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFHIRDatastoreCommand extends $Command<

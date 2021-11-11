@@ -35,7 +35,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  *
  * @see {@link CreateComputerCommandInput} for command's `input` shape.
  * @see {@link CreateComputerCommandOutput} for command's `response` shape.
- * @see {@link DirectoryServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectoryServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateComputerCommand extends $Command<

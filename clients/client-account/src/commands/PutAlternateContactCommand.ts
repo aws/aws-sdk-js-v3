@@ -37,7 +37,7 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutAlternateContactCommandInput} for command's `input` shape.
  * @see {@link PutAlternateContactCommandOutput} for command's `response` shape.
- * @see {@link AccountClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccountClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAlternateContactCommand extends $Command<

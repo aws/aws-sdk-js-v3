@@ -38,7 +38,7 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  *
  * @see {@link UntagOpenIDConnectProviderCommandInput} for command's `input` shape.
  * @see {@link UntagOpenIDConnectProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UntagOpenIDConnectProviderCommand extends $Command<

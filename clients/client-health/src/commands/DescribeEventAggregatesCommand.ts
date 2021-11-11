@@ -40,7 +40,7 @@ export interface DescribeEventAggregatesCommandOutput extends DescribeEventAggre
  *
  * @see {@link DescribeEventAggregatesCommandInput} for command's `input` shape.
  * @see {@link DescribeEventAggregatesCommandOutput} for command's `response` shape.
- * @see {@link HealthClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEventAggregatesCommand extends $Command<

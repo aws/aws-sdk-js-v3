@@ -37,7 +37,7 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  *
  * @see {@link DescribeTrafficMirrorFiltersCommandInput} for command's `input` shape.
  * @see {@link DescribeTrafficMirrorFiltersCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTrafficMirrorFiltersCommand extends $Command<

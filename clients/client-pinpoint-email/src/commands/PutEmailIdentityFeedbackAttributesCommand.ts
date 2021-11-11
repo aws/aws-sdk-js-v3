@@ -50,7 +50,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  *
  * @see {@link PutEmailIdentityFeedbackAttributesCommandInput} for command's `input` shape.
  * @see {@link PutEmailIdentityFeedbackAttributesCommandOutput} for command's `response` shape.
- * @see {@link PinpointEmailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointEmailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command<

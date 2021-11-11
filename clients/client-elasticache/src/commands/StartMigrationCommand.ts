@@ -35,7 +35,7 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *
  * @see {@link StartMigrationCommandInput} for command's `input` shape.
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
- * @see {@link ElastiCacheClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElastiCacheClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMigrationCommand extends $Command<

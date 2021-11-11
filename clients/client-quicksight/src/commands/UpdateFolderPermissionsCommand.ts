@@ -35,7 +35,7 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  *
  * @see {@link UpdateFolderPermissionsCommandInput} for command's `input` shape.
  * @see {@link UpdateFolderPermissionsCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFolderPermissionsCommand extends $Command<

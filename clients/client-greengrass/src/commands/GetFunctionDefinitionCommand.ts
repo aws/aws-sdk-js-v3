@@ -35,7 +35,7 @@ export interface GetFunctionDefinitionCommandOutput extends GetFunctionDefinitio
  *
  * @see {@link GetFunctionDefinitionCommandInput} for command's `input` shape.
  * @see {@link GetFunctionDefinitionCommandOutput} for command's `response` shape.
- * @see {@link GreengrassClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFunctionDefinitionCommand extends $Command<

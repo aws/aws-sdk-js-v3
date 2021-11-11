@@ -39,7 +39,7 @@ export interface ListDatasetImportJobsCommandOutput extends ListDatasetImportJob
  *
  * @see {@link ListDatasetImportJobsCommandInput} for command's `input` shape.
  * @see {@link ListDatasetImportJobsCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDatasetImportJobsCommand extends $Command<

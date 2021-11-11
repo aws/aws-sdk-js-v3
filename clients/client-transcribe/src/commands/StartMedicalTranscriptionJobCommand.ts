@@ -37,7 +37,7 @@ export interface StartMedicalTranscriptionJobCommandOutput
  *
  * @see {@link StartMedicalTranscriptionJobCommandInput} for command's `input` shape.
  * @see {@link StartMedicalTranscriptionJobCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartMedicalTranscriptionJobCommand extends $Command<

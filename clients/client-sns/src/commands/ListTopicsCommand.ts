@@ -36,7 +36,7 @@ export interface ListTopicsCommandOutput extends ListTopicsResponse, __MetadataB
  *
  * @see {@link ListTopicsCommandInput} for command's `input` shape.
  * @see {@link ListTopicsCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListTopicsCommand extends $Command<

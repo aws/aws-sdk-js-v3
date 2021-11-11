@@ -58,7 +58,7 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *
  * @see {@link DescribeCommunicationsCommandInput} for command's `input` shape.
  * @see {@link DescribeCommunicationsCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeCommunicationsCommand extends $Command<

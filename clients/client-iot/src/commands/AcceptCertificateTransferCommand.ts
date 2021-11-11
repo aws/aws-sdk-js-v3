@@ -39,7 +39,7 @@ export interface AcceptCertificateTransferCommandOutput extends __MetadataBearer
  *
  * @see {@link AcceptCertificateTransferCommandInput} for command's `input` shape.
  * @see {@link AcceptCertificateTransferCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AcceptCertificateTransferCommand extends $Command<

@@ -52,7 +52,7 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *
  * @see {@link CreateConfigurationProfileCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationProfileCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConfigurationProfileCommand extends $Command<

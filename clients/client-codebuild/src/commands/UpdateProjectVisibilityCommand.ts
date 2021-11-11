@@ -72,7 +72,7 @@ export interface UpdateProjectVisibilityCommandOutput extends UpdateProjectVisib
  *
  * @see {@link UpdateProjectVisibilityCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectVisibilityCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProjectVisibilityCommand extends $Command<

@@ -41,7 +41,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *
  * @see {@link CreateConfigurationSetEventDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
- * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointSMSVoiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command<

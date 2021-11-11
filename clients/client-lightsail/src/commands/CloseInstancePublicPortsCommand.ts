@@ -38,7 +38,7 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  *
  * @see {@link CloseInstancePublicPortsCommandInput} for command's `input` shape.
  * @see {@link CloseInstancePublicPortsCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CloseInstancePublicPortsCommand extends $Command<

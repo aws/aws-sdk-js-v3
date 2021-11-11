@@ -35,7 +35,7 @@ export interface GetMasterAccountCommandOutput extends GetMasterAccountResponse,
  *
  * @see {@link GetMasterAccountCommandInput} for command's `input` shape.
  * @see {@link GetMasterAccountCommandOutput} for command's `response` shape.
- * @see {@link Macie2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Macie2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMasterAccountCommand extends $Command<

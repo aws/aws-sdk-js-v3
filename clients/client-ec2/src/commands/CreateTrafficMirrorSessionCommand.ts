@@ -41,7 +41,7 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  *
  * @see {@link CreateTrafficMirrorSessionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficMirrorSessionCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTrafficMirrorSessionCommand extends $Command<

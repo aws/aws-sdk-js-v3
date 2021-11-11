@@ -48,7 +48,7 @@ export interface CreateExportTaskCommandOutput extends CreateExportTaskResponse,
  *
  * @see {@link CreateExportTaskCommandInput} for command's `input` shape.
  * @see {@link CreateExportTaskCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchLogsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchLogsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateExportTaskCommand extends $Command<

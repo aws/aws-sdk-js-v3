@@ -43,7 +43,7 @@ export interface SearchInsightsCommandOutput extends SearchInsightsResponse, __M
  *
  * @see {@link SearchInsightsCommandInput} for command's `input` shape.
  * @see {@link SearchInsightsCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchInsightsCommand extends $Command<

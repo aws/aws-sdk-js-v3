@@ -41,7 +41,7 @@ export interface GetTransitGatewayConnectPeerAssociationsCommandOutput
  *
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandInput} for command's `input` shape.
  * @see {@link GetTransitGatewayConnectPeerAssociationsCommandOutput} for command's `response` shape.
- * @see {@link NetworkManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NetworkManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTransitGatewayConnectPeerAssociationsCommand extends $Command<

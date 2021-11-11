@@ -37,7 +37,7 @@ export interface DescribeAutomationExecutionsCommandOutput
  *
  * @see {@link DescribeAutomationExecutionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAutomationExecutionsCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAutomationExecutionsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateArchiveRuleCommandInput} for command's `input` shape.
  * @see {@link CreateArchiveRuleCommandOutput} for command's `response` shape.
- * @see {@link AccessAnalyzerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AccessAnalyzerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateArchiveRuleCommand extends $Command<

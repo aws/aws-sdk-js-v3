@@ -48,7 +48,7 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  *
  * @see {@link GetGroupQueryCommandInput} for command's `input` shape.
  * @see {@link GetGroupQueryCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetGroupQueryCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateActionCommandOutput extends UpdateActionResponse, __Metad
  *
  * @see {@link UpdateActionCommandInput} for command's `input` shape.
  * @see {@link UpdateActionCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateActionCommand extends $Command<

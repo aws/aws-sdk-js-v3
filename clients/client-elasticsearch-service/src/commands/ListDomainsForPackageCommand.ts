@@ -39,7 +39,7 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  *
  * @see {@link ListDomainsForPackageCommandInput} for command's `input` shape.
  * @see {@link ListDomainsForPackageCommandOutput} for command's `response` shape.
- * @see {@link ElasticsearchServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticsearchServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDomainsForPackageCommand extends $Command<

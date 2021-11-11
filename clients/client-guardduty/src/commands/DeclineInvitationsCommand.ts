@@ -36,7 +36,7 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  *
  * @see {@link DeclineInvitationsCommandInput} for command's `input` shape.
  * @see {@link DeclineInvitationsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeclineInvitationsCommand extends $Command<

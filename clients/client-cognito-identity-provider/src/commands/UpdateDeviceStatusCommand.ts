@@ -40,7 +40,7 @@ export interface UpdateDeviceStatusCommandOutput extends UpdateDeviceStatusRespo
  *
  * @see {@link UpdateDeviceStatusCommandInput} for command's `input` shape.
  * @see {@link UpdateDeviceStatusCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDeviceStatusCommand extends $Command<

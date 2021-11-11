@@ -35,7 +35,7 @@ export interface DescribeWorldTemplateCommandOutput extends DescribeWorldTemplat
  *
  * @see {@link DescribeWorldTemplateCommandInput} for command's `input` shape.
  * @see {@link DescribeWorldTemplateCommandOutput} for command's `response` shape.
- * @see {@link RoboMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RoboMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeWorldTemplateCommand extends $Command<

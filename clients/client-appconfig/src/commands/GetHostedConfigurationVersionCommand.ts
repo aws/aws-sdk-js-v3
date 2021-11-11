@@ -35,7 +35,7 @@ export interface GetHostedConfigurationVersionCommandOutput extends HostedConfig
  *
  * @see {@link GetHostedConfigurationVersionCommandInput} for command's `input` shape.
  * @see {@link GetHostedConfigurationVersionCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetHostedConfigurationVersionCommand extends $Command<

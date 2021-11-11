@@ -36,7 +36,7 @@ export interface BatchPutGeofenceCommandOutput extends BatchPutGeofenceResponse,
  *
  * @see {@link BatchPutGeofenceCommandInput} for command's `input` shape.
  * @see {@link BatchPutGeofenceCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchPutGeofenceCommand extends $Command<

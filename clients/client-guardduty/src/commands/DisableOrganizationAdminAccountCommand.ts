@@ -38,7 +38,7 @@ export interface DisableOrganizationAdminAccountCommandOutput
  *
  * @see {@link DisableOrganizationAdminAccountCommandInput} for command's `input` shape.
  * @see {@link DisableOrganizationAdminAccountCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableOrganizationAdminAccountCommand extends $Command<

@@ -36,7 +36,7 @@ export interface ListAlarmModelVersionsCommandOutput extends ListAlarmModelVersi
  *
  * @see {@link ListAlarmModelVersionsCommandInput} for command's `input` shape.
  * @see {@link ListAlarmModelVersionsCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAlarmModelVersionsCommand extends $Command<

@@ -32,7 +32,7 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  *
  * @see {@link DeleteFlowLogsCommandInput} for command's `input` shape.
  * @see {@link DeleteFlowLogsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFlowLogsCommand extends $Command<

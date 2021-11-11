@@ -35,7 +35,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  *
  * @see {@link StartExperimentCommandInput} for command's `input` shape.
  * @see {@link StartExperimentCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartExperimentCommand extends $Command<

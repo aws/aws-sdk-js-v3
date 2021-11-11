@@ -67,7 +67,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *
  * @see {@link CreateCaseCommandInput} for command's `input` shape.
  * @see {@link CreateCaseCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCaseCommand extends $Command<

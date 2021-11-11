@@ -35,7 +35,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  *
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
- * @see {@link XRayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link XRayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGroupCommand extends $Command<

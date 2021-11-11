@@ -48,7 +48,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *
  * @see {@link ListAWSServiceAccessForOrganizationCommandInput} for command's `input` shape.
  * @see {@link ListAWSServiceAccessForOrganizationCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAWSServiceAccessForOrganizationCommand extends $Command<

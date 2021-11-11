@@ -52,7 +52,7 @@ export interface GetIceServerConfigCommandOutput extends GetIceServerConfigRespo
  *
  * @see {@link GetIceServerConfigCommandInput} for command's `input` shape.
  * @see {@link GetIceServerConfigCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetIceServerConfigCommand extends $Command<

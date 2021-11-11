@@ -35,7 +35,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  *
  * @see {@link ListAccountSettingsCommandInput} for command's `input` shape.
  * @see {@link ListAccountSettingsCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAccountSettingsCommand extends $Command<

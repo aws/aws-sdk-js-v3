@@ -52,7 +52,7 @@ export interface DeleteCustomRoutingAcceleratorCommandOutput extends __MetadataB
  *
  * @see {@link DeleteCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link DeleteCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCustomRoutingAcceleratorCommand extends $Command<

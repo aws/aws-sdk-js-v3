@@ -35,7 +35,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *
  * @see {@link ListFindingsCommandInput} for command's `input` shape.
  * @see {@link ListFindingsCommandOutput} for command's `response` shape.
- * @see {@link GuardDutyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GuardDutyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFindingsCommand extends $Command<

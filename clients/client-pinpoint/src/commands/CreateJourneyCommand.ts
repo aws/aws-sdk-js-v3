@@ -35,7 +35,7 @@ export interface CreateJourneyCommandOutput extends CreateJourneyResponse, __Met
  *
  * @see {@link CreateJourneyCommandInput} for command's `input` shape.
  * @see {@link CreateJourneyCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateJourneyCommand extends $Command<

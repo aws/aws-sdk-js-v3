@@ -32,7 +32,7 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *
  * @see {@link DescribeVpcsCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVpcsCommand extends $Command<

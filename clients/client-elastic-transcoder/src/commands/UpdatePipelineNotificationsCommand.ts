@@ -42,7 +42,7 @@ export interface UpdatePipelineNotificationsCommandOutput
  *
  * @see {@link UpdatePipelineNotificationsCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineNotificationsCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePipelineNotificationsCommand extends $Command<

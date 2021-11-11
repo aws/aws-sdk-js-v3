@@ -35,7 +35,7 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesRes
  *
  * @see {@link GetObjectAttributesCommandInput} for command's `input` shape.
  * @see {@link GetObjectAttributesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetObjectAttributesCommand extends $Command<

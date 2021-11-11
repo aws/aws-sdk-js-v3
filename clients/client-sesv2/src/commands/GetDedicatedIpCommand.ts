@@ -37,7 +37,7 @@ export interface GetDedicatedIpCommandOutput extends GetDedicatedIpResponse, __M
  *
  * @see {@link GetDedicatedIpCommandInput} for command's `input` shape.
  * @see {@link GetDedicatedIpCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDedicatedIpCommand extends $Command<

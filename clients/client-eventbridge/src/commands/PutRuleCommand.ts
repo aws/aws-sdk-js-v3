@@ -78,7 +78,7 @@ export interface PutRuleCommandOutput extends PutRuleResponse, __MetadataBearer 
  *
  * @see {@link PutRuleCommandInput} for command's `input` shape.
  * @see {@link PutRuleCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutRuleCommand extends $Command<

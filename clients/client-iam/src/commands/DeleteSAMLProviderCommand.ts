@@ -41,7 +41,7 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSAMLProviderCommandInput} for command's `input` shape.
  * @see {@link DeleteSAMLProviderCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSAMLProviderCommand extends $Command<

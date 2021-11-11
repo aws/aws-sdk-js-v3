@@ -35,7 +35,7 @@ export interface GetApplicationRevisionCommandOutput extends GetApplicationRevis
  *
  * @see {@link GetApplicationRevisionCommandInput} for command's `input` shape.
  * @see {@link GetApplicationRevisionCommandOutput} for command's `response` shape.
- * @see {@link CodeDeployClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeDeployClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetApplicationRevisionCommand extends $Command<

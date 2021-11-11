@@ -35,7 +35,7 @@ export interface GetTimelineEventCommandOutput extends GetTimelineEventOutput, _
  *
  * @see {@link GetTimelineEventCommandInput} for command's `input` shape.
  * @see {@link GetTimelineEventCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetTimelineEventCommand extends $Command<

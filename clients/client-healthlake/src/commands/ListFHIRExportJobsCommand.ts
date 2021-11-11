@@ -37,7 +37,7 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  *
  * @see {@link ListFHIRExportJobsCommandInput} for command's `input` shape.
  * @see {@link ListFHIRExportJobsCommandOutput} for command's `response` shape.
- * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFHIRExportJobsCommand extends $Command<

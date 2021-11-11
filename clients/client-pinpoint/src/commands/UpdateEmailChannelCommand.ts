@@ -35,7 +35,7 @@ export interface UpdateEmailChannelCommandOutput extends UpdateEmailChannelRespo
  *
  * @see {@link UpdateEmailChannelCommandInput} for command's `input` shape.
  * @see {@link UpdateEmailChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEmailChannelCommand extends $Command<

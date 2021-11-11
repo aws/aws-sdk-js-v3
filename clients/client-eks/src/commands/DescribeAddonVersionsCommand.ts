@@ -35,7 +35,7 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  *
  * @see {@link DescribeAddonVersionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAddonVersionsCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAddonVersionsCommand extends $Command<

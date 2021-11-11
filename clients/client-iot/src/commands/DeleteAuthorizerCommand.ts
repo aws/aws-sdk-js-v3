@@ -36,7 +36,7 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  *
  * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
  * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAuthorizerCommand extends $Command<

@@ -40,7 +40,7 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput
  *
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandInput} for command's `input` shape.
  * @see {@link UpdateApprovalRuleTemplateDescriptionCommandOutput} for command's `response` shape.
- * @see {@link CodeCommitClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeCommitClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command<

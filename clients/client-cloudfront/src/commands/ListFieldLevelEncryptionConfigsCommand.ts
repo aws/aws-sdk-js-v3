@@ -37,7 +37,7 @@ export interface ListFieldLevelEncryptionConfigsCommandOutput
  *
  * @see {@link ListFieldLevelEncryptionConfigsCommandInput} for command's `input` shape.
  * @see {@link ListFieldLevelEncryptionConfigsCommandOutput} for command's `response` shape.
- * @see {@link CloudFrontClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFrontClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFieldLevelEncryptionConfigsCommand extends $Command<

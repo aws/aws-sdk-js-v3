@@ -40,7 +40,7 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  *
  * @see {@link DeregisterTargetsCommandInput} for command's `input` shape.
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
- * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterTargetsCommand extends $Command<

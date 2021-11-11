@@ -35,7 +35,7 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  *
  * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
  * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
- * @see {@link AppConfigClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppConfigClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateApplicationCommand extends $Command<

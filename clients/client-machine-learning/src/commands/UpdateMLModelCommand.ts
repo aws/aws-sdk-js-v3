@@ -36,7 +36,7 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  *
  * @see {@link UpdateMLModelCommandInput} for command's `input` shape.
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
- * @see {@link MachineLearningClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MachineLearningClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateMLModelCommand extends $Command<

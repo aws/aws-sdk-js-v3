@@ -36,7 +36,7 @@ export interface GetRepositoryCatalogDataCommandOutput extends GetRepositoryCata
  *
  * @see {@link GetRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link GetRepositoryCatalogDataCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRepositoryCatalogDataCommand extends $Command<

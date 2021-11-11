@@ -35,7 +35,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
  *
  * @see {@link UpdateEnvironmentCommandInput} for command's `input` shape.
  * @see {@link UpdateEnvironmentCommandOutput} for command's `response` shape.
- * @see {@link FinspaceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FinspaceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateEnvironmentCommand extends $Command<

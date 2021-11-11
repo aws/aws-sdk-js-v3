@@ -35,7 +35,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  *
  * @see {@link GetServiceCommandInput} for command's `input` shape.
  * @see {@link GetServiceCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetServiceCommand extends $Command<

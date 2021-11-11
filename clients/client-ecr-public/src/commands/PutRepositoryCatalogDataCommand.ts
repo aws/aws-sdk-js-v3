@@ -35,7 +35,7 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  *
  * @see {@link PutRepositoryCatalogDataCommandInput} for command's `input` shape.
  * @see {@link PutRepositoryCatalogDataCommandOutput} for command's `response` shape.
- * @see {@link ECRPUBLICClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRPUBLICClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutRepositoryCatalogDataCommand extends $Command<

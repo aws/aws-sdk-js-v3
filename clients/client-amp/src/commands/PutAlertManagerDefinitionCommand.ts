@@ -35,7 +35,7 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  *
  * @see {@link PutAlertManagerDefinitionCommandInput} for command's `input` shape.
  * @see {@link PutAlertManagerDefinitionCommandOutput} for command's `response` shape.
- * @see {@link AmpClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmpClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAlertManagerDefinitionCommand extends $Command<

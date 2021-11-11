@@ -42,7 +42,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *
  * @see {@link DeleteClusterCommandInput} for command's `input` shape.
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
- * @see {@link EKSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EKSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteClusterCommand extends $Command<

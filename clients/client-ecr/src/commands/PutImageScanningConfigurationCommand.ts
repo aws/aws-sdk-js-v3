@@ -37,7 +37,7 @@ export interface PutImageScanningConfigurationCommandOutput
  *
  * @see {@link PutImageScanningConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutImageScanningConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutImageScanningConfigurationCommand extends $Command<

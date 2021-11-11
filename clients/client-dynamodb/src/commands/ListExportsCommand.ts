@@ -35,7 +35,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *
  * @see {@link ListExportsCommandInput} for command's `input` shape.
  * @see {@link ListExportsCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListExportsCommand extends $Command<

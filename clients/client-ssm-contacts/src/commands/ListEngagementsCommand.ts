@@ -35,7 +35,7 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResult, __M
  *
  * @see {@link ListEngagementsCommandInput} for command's `input` shape.
  * @see {@link ListEngagementsCommandOutput} for command's `response` shape.
- * @see {@link SSMContactsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMContactsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListEngagementsCommand extends $Command<

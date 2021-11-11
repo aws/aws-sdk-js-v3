@@ -35,7 +35,7 @@ export interface GetCoreDeviceCommandOutput extends GetCoreDeviceResponse, __Met
  *
  * @see {@link GetCoreDeviceCommandInput} for command's `input` shape.
  * @see {@link GetCoreDeviceCommandOutput} for command's `response` shape.
- * @see {@link GreengrassV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GreengrassV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetCoreDeviceCommand extends $Command<

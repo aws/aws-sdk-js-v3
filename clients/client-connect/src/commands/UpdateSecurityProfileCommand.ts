@@ -36,7 +36,7 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateSecurityProfileCommandInput} for command's `input` shape.
  * @see {@link UpdateSecurityProfileCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSecurityProfileCommand extends $Command<

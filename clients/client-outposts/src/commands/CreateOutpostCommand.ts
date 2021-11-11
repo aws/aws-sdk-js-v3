@@ -36,7 +36,7 @@ export interface CreateOutpostCommandOutput extends CreateOutpostOutput, __Metad
  *
  * @see {@link CreateOutpostCommandInput} for command's `input` shape.
  * @see {@link CreateOutpostCommandOutput} for command's `response` shape.
- * @see {@link OutpostsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OutpostsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateOutpostCommand extends $Command<

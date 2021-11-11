@@ -37,7 +37,7 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  *
  * @see {@link CancelClusterCommandInput} for command's `input` shape.
  * @see {@link CancelClusterCommandOutput} for command's `response` shape.
- * @see {@link SnowballClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SnowballClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelClusterCommand extends $Command<

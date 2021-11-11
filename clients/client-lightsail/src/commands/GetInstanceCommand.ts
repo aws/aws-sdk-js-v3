@@ -37,7 +37,7 @@ export interface GetInstanceCommandOutput extends GetInstanceResult, __MetadataB
  *
  * @see {@link GetInstanceCommandInput} for command's `input` shape.
  * @see {@link GetInstanceCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetInstanceCommand extends $Command<

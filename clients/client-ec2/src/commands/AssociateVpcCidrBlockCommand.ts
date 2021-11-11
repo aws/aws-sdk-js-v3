@@ -43,7 +43,7 @@ export interface AssociateVpcCidrBlockCommandOutput extends AssociateVpcCidrBloc
  *
  * @see {@link AssociateVpcCidrBlockCommandInput} for command's `input` shape.
  * @see {@link AssociateVpcCidrBlockCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateVpcCidrBlockCommand extends $Command<

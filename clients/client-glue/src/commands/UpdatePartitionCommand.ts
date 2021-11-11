@@ -35,7 +35,7 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  *
  * @see {@link UpdatePartitionCommandInput} for command's `input` shape.
  * @see {@link UpdatePartitionCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePartitionCommand extends $Command<

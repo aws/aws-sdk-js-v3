@@ -39,7 +39,7 @@ export interface CreateSlotCommandOutput extends CreateSlotResponse, __MetadataB
  *
  * @see {@link CreateSlotCommandInput} for command's `input` shape.
  * @see {@link CreateSlotCommandOutput} for command's `response` shape.
- * @see {@link LexModelsV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LexModelsV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSlotCommand extends $Command<

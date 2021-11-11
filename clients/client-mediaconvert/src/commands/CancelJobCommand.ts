@@ -35,7 +35,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *
  * @see {@link CancelJobCommandInput} for command's `input` shape.
  * @see {@link CancelJobCommandOutput} for command's `response` shape.
- * @see {@link MediaConvertClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConvertClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelJobCommand extends $Command<

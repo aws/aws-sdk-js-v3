@@ -36,7 +36,7 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *
  * @see {@link ListIndicesCommandInput} for command's `input` shape.
  * @see {@link ListIndicesCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListIndicesCommand extends $Command<

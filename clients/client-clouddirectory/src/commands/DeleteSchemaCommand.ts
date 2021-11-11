@@ -35,7 +35,7 @@ export interface DeleteSchemaCommandOutput extends DeleteSchemaResponse, __Metad
  *
  * @see {@link DeleteSchemaCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSchemaCommand extends $Command<

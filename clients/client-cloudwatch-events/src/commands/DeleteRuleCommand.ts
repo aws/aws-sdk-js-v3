@@ -48,7 +48,7 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteRuleCommandInput} for command's `input` shape.
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteRuleCommand extends $Command<

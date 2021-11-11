@@ -35,7 +35,7 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteSchemaVersionCommandInput} for command's `input` shape.
  * @see {@link DeleteSchemaVersionCommandOutput} for command's `response` shape.
- * @see {@link SchemasClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SchemasClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSchemaVersionCommand extends $Command<

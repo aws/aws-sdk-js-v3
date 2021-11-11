@@ -36,7 +36,7 @@ export interface ListVPCEConfigurationsCommandOutput extends ListVPCEConfigurati
  *
  * @see {@link ListVPCEConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListVPCEConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVPCEConfigurationsCommand extends $Command<

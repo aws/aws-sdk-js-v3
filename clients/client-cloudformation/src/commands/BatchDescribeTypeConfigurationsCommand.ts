@@ -40,7 +40,7 @@ export interface BatchDescribeTypeConfigurationsCommandOutput
  *
  * @see {@link BatchDescribeTypeConfigurationsCommandInput} for command's `input` shape.
  * @see {@link BatchDescribeTypeConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchDescribeTypeConfigurationsCommand extends $Command<

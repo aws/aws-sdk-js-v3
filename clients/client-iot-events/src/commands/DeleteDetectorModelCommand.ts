@@ -36,7 +36,7 @@ export interface DeleteDetectorModelCommandOutput extends DeleteDetectorModelRes
  *
  * @see {@link DeleteDetectorModelCommandInput} for command's `input` shape.
  * @see {@link DeleteDetectorModelCommandOutput} for command's `response` shape.
- * @see {@link IoTEventsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTEventsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDetectorModelCommand extends $Command<

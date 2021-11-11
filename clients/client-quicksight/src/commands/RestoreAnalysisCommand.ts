@@ -35,7 +35,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  *
  * @see {@link RestoreAnalysisCommandInput} for command's `input` shape.
  * @see {@link RestoreAnalysisCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RestoreAnalysisCommand extends $Command<

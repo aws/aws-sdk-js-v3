@@ -41,7 +41,7 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  *
  * @see {@link ListQueryExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListQueryExecutionsCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListQueryExecutionsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateScriptCommandOutput extends CreateScriptResponse, __Metad
  *
  * @see {@link CreateScriptCommandInput} for command's `input` shape.
  * @see {@link CreateScriptCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateScriptCommand extends $Command<

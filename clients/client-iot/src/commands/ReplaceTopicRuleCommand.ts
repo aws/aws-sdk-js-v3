@@ -38,7 +38,7 @@ export interface ReplaceTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ReplaceTopicRuleCommandInput} for command's `input` shape.
  * @see {@link ReplaceTopicRuleCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ReplaceTopicRuleCommand extends $Command<

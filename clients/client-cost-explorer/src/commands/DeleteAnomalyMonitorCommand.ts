@@ -35,7 +35,7 @@ export interface DeleteAnomalyMonitorCommandOutput extends DeleteAnomalyMonitorR
  *
  * @see {@link DeleteAnomalyMonitorCommandInput} for command's `input` shape.
  * @see {@link DeleteAnomalyMonitorCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteAnomalyMonitorCommand extends $Command<

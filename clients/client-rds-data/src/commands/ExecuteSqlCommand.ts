@@ -41,7 +41,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *
  * @see {@link ExecuteSqlCommandInput} for command's `input` shape.
  * @see {@link ExecuteSqlCommandOutput} for command's `response` shape.
- * @see {@link RDSDataClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSDataClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ExecuteSqlCommand extends $Command<

@@ -35,7 +35,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  *
  * @see {@link UpdateDatabaseCommandInput} for command's `input` shape.
  * @see {@link UpdateDatabaseCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateDatabaseCommand extends $Command<

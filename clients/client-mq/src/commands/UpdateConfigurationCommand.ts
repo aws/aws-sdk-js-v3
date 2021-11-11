@@ -35,7 +35,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *
  * @see {@link UpdateConfigurationCommandInput} for command's `input` shape.
  * @see {@link UpdateConfigurationCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateConfigurationCommand extends $Command<

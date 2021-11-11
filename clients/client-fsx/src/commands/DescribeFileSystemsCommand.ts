@@ -66,7 +66,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *
  * @see {@link DescribeFileSystemsCommandInput} for command's `input` shape.
  * @see {@link DescribeFileSystemsCommandOutput} for command's `response` shape.
- * @see {@link FSxClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FSxClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFileSystemsCommand extends $Command<

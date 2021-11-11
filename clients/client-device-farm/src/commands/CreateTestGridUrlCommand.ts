@@ -36,7 +36,7 @@ export interface CreateTestGridUrlCommandOutput extends CreateTestGridUrlResult,
  *
  * @see {@link CreateTestGridUrlCommandInput} for command's `input` shape.
  * @see {@link CreateTestGridUrlCommandOutput} for command's `response` shape.
- * @see {@link DeviceFarmClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DeviceFarmClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTestGridUrlCommand extends $Command<

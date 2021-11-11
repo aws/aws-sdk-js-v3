@@ -38,7 +38,7 @@ export interface SetLoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link SetLoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link SetLoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SetLoggingOptionsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  *
  * @see {@link NestedStructuresCommandInput} for command's `input` shape.
  * @see {@link NestedStructuresCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class NestedStructuresCommand extends $Command<

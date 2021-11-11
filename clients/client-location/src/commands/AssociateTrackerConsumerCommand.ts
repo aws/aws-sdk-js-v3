@@ -41,7 +41,7 @@ export interface AssociateTrackerConsumerCommandOutput extends AssociateTrackerC
  *
  * @see {@link AssociateTrackerConsumerCommandInput} for command's `input` shape.
  * @see {@link AssociateTrackerConsumerCommandOutput} for command's `response` shape.
- * @see {@link LocationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LocationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateTrackerConsumerCommand extends $Command<

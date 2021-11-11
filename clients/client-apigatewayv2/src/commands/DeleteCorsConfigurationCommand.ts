@@ -35,7 +35,7 @@ export interface DeleteCorsConfigurationCommandOutput extends __MetadataBearer {
  *
  * @see {@link DeleteCorsConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteCorsConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ApiGatewayV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApiGatewayV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCorsConfigurationCommand extends $Command<

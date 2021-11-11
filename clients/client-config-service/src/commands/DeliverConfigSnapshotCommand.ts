@@ -51,7 +51,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  *
  * @see {@link DeliverConfigSnapshotCommandInput} for command's `input` shape.
  * @see {@link DeliverConfigSnapshotCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeliverConfigSnapshotCommand extends $Command<

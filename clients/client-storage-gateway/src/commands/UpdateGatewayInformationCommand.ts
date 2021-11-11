@@ -43,7 +43,7 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *
  * @see {@link UpdateGatewayInformationCommandInput} for command's `input` shape.
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGatewayInformationCommand extends $Command<

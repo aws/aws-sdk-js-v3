@@ -33,7 +33,7 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  *
  * @see {@link ListUserTagsCommandInput} for command's `input` shape.
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListUserTagsCommand extends $Command<

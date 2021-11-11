@@ -60,7 +60,7 @@ export interface PutLoggingConfigurationCommandOutput extends PutLoggingConfigur
  *
  * @see {@link PutLoggingConfigurationCommandInput} for command's `input` shape.
  * @see {@link PutLoggingConfigurationCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutLoggingConfigurationCommand extends $Command<

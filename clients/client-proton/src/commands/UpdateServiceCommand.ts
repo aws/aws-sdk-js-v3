@@ -41,7 +41,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceOutput, __Metad
  *
  * @see {@link UpdateServiceCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServiceCommand extends $Command<

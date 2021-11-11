@@ -35,7 +35,7 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *
  * @see {@link AddFlowSourcesCommandInput} for command's `input` shape.
  * @see {@link AddFlowSourcesCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddFlowSourcesCommand extends $Command<

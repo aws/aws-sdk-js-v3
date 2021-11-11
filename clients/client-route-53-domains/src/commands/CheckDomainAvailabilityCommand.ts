@@ -36,7 +36,7 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  *
  * @see {@link CheckDomainAvailabilityCommandInput} for command's `input` shape.
  * @see {@link CheckDomainAvailabilityCommandOutput} for command's `response` shape.
- * @see {@link Route53DomainsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53DomainsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CheckDomainAvailabilityCommand extends $Command<

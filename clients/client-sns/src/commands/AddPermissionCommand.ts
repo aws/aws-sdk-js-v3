@@ -36,7 +36,7 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AddPermissionCommandInput} for command's `input` shape.
  * @see {@link AddPermissionCommandOutput} for command's `response` shape.
- * @see {@link SNSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SNSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AddPermissionCommand extends $Command<

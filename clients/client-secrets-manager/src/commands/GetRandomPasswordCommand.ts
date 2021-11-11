@@ -47,7 +47,7 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  *
  * @see {@link GetRandomPasswordCommandInput} for command's `input` shape.
  * @see {@link GetRandomPasswordCommandOutput} for command's `response` shape.
- * @see {@link SecretsManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecretsManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetRandomPasswordCommand extends $Command<

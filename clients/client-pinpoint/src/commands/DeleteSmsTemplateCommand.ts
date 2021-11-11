@@ -35,7 +35,7 @@ export interface DeleteSmsTemplateCommandOutput extends DeleteSmsTemplateRespons
  *
  * @see {@link DeleteSmsTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteSmsTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteSmsTemplateCommand extends $Command<

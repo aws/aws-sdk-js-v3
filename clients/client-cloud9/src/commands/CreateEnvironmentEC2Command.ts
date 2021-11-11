@@ -36,7 +36,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *
  * @see {@link CreateEnvironmentEC2CommandInput} for command's `input` shape.
  * @see {@link CreateEnvironmentEC2CommandOutput} for command's `response` shape.
- * @see {@link Cloud9ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Cloud9ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateEnvironmentEC2Command extends $Command<

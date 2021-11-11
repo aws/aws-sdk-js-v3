@@ -42,7 +42,7 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  *
  * @see {@link GetDownloadUrlForLayerCommandInput} for command's `input` shape.
  * @see {@link GetDownloadUrlForLayerCommandOutput} for command's `response` shape.
- * @see {@link ECRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDownloadUrlForLayerCommand extends $Command<

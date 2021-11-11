@@ -47,7 +47,7 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  *
  * @see {@link CreateMLTransformCommandInput} for command's `input` shape.
  * @see {@link CreateMLTransformCommandOutput} for command's `response` shape.
- * @see {@link GlueClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlueClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMLTransformCommand extends $Command<

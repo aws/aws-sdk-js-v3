@@ -40,7 +40,7 @@ export interface DescribeMyUserProfileCommandOutput extends DescribeMyUserProfil
  *
  * @see {@link DescribeMyUserProfileCommandInput} for command's `input` shape.
  * @see {@link DescribeMyUserProfileCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeMyUserProfileCommand extends $Command<

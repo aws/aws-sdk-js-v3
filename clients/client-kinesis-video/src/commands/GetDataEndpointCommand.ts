@@ -46,7 +46,7 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  *
  * @see {@link GetDataEndpointCommandInput} for command's `input` shape.
  * @see {@link GetDataEndpointCommandOutput} for command's `response` shape.
- * @see {@link KinesisVideoClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KinesisVideoClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDataEndpointCommand extends $Command<

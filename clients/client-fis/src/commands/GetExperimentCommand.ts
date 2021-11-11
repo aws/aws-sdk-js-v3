@@ -35,7 +35,7 @@ export interface GetExperimentCommandOutput extends GetExperimentResponse, __Met
  *
  * @see {@link GetExperimentCommandInput} for command's `input` shape.
  * @see {@link GetExperimentCommandOutput} for command's `response` shape.
- * @see {@link FisClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FisClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetExperimentCommand extends $Command<

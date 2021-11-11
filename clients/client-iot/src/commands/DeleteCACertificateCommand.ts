@@ -36,7 +36,7 @@ export interface DeleteCACertificateCommandOutput extends DeleteCACertificateRes
  *
  * @see {@link DeleteCACertificateCommandInput} for command's `input` shape.
  * @see {@link DeleteCACertificateCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteCACertificateCommand extends $Command<

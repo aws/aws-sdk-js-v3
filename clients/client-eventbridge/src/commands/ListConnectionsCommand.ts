@@ -35,7 +35,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * @see {@link ListConnectionsCommandInput} for command's `input` shape.
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListConnectionsCommand extends $Command<

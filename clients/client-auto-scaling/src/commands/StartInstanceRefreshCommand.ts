@@ -49,7 +49,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *
  * @see {@link StartInstanceRefreshCommandInput} for command's `input` shape.
  * @see {@link StartInstanceRefreshCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartInstanceRefreshCommand extends $Command<

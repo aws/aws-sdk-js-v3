@@ -51,7 +51,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *
  * @see {@link ListDiscoveredResourcesCommandInput} for command's `input` shape.
  * @see {@link ListDiscoveredResourcesCommandOutput} for command's `response` shape.
- * @see {@link ConfigServiceClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConfigServiceClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListDiscoveredResourcesCommand extends $Command<

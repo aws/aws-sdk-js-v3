@@ -51,7 +51,7 @@ export interface CancelServiceInstanceDeploymentCommandOutput
  *
  * @see {@link CancelServiceInstanceDeploymentCommandInput} for command's `input` shape.
  * @see {@link CancelServiceInstanceDeploymentCommandOutput} for command's `response` shape.
- * @see {@link ProtonClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ProtonClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelServiceInstanceDeploymentCommand extends $Command<

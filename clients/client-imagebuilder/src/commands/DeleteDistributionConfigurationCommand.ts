@@ -37,7 +37,7 @@ export interface DeleteDistributionConfigurationCommandOutput
  *
  * @see {@link DeleteDistributionConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteDistributionConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ImagebuilderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ImagebuilderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDistributionConfigurationCommand extends $Command<

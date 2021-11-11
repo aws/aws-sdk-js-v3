@@ -37,7 +37,7 @@ export interface DescribeStorageConfigurationCommandOutput
  *
  * @see {@link DescribeStorageConfigurationCommandInput} for command's `input` shape.
  * @see {@link DescribeStorageConfigurationCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeStorageConfigurationCommand extends $Command<

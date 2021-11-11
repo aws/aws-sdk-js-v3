@@ -35,7 +35,7 @@ export interface UpdateReservationCommandOutput extends UpdateReservationRespons
  *
  * @see {@link UpdateReservationCommandInput} for command's `input` shape.
  * @see {@link UpdateReservationCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateReservationCommand extends $Command<

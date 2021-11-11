@@ -45,7 +45,7 @@ export interface ListChannelsAssociatedWithChannelFlowCommandOutput
  *
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandInput} for command's `input` shape.
  * @see {@link ListChannelsAssociatedWithChannelFlowCommandOutput} for command's `response` shape.
- * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeSDKMessagingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListChannelsAssociatedWithChannelFlowCommand extends $Command<

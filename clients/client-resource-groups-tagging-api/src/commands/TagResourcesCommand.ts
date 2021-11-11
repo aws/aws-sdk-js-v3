@@ -88,7 +88,7 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *
  * @see {@link TagResourcesCommandInput} for command's `input` shape.
  * @see {@link TagResourcesCommandOutput} for command's `response` shape.
- * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ResourceGroupsTaggingAPIClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TagResourcesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  *
  * @see {@link DescribeTaskExecutionCommandInput} for command's `input` shape.
  * @see {@link DescribeTaskExecutionCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTaskExecutionCommand extends $Command<

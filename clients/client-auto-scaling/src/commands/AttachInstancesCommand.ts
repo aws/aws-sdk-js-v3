@@ -44,7 +44,7 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  *
  * @see {@link AttachInstancesCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachInstancesCommand extends $Command<

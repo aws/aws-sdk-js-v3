@@ -36,7 +36,7 @@ export interface GenerateAccessLogsCommandOutput extends GenerateAccessLogsResul
  *
  * @see {@link GenerateAccessLogsCommandInput} for command's `input` shape.
  * @see {@link GenerateAccessLogsCommandOutput} for command's `response` shape.
- * @see {@link AmplifyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AmplifyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GenerateAccessLogsCommand extends $Command<

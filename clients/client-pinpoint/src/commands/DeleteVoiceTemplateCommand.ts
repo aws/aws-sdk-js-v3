@@ -35,7 +35,7 @@ export interface DeleteVoiceTemplateCommandOutput extends DeleteVoiceTemplateRes
  *
  * @see {@link DeleteVoiceTemplateCommandInput} for command's `input` shape.
  * @see {@link DeleteVoiceTemplateCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteVoiceTemplateCommand extends $Command<

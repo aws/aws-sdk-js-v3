@@ -41,7 +41,7 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  *
  * @see {@link ConfirmDeviceCommandInput} for command's `input` shape.
  * @see {@link ConfirmDeviceCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ConfirmDeviceCommand extends $Command<

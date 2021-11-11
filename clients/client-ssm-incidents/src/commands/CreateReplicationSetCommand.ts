@@ -36,7 +36,7 @@ export interface CreateReplicationSetCommandOutput extends CreateReplicationSetO
  *
  * @see {@link CreateReplicationSetCommandInput} for command's `input` shape.
  * @see {@link CreateReplicationSetCommandOutput} for command's `response` shape.
- * @see {@link SSMIncidentsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMIncidentsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateReplicationSetCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  *
  * @see {@link ListBootstrapActionsCommandInput} for command's `input` shape.
  * @see {@link ListBootstrapActionsCommandOutput} for command's `response` shape.
- * @see {@link EMRClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EMRClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListBootstrapActionsCommand extends $Command<

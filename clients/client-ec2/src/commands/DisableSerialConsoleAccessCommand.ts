@@ -38,7 +38,7 @@ export interface DisableSerialConsoleAccessCommandOutput extends DisableSerialCo
  *
  * @see {@link DisableSerialConsoleAccessCommandInput} for command's `input` shape.
  * @see {@link DisableSerialConsoleAccessCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableSerialConsoleAccessCommand extends $Command<

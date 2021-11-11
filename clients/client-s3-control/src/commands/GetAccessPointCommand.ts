@@ -57,7 +57,7 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResult, __Met
  *
  * @see {@link GetAccessPointCommandInput} for command's `input` shape.
  * @see {@link GetAccessPointCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAccessPointCommand extends $Command<

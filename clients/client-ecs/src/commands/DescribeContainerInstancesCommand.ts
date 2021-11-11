@@ -36,7 +36,7 @@ export interface DescribeContainerInstancesCommandOutput extends DescribeContain
  *
  * @see {@link DescribeContainerInstancesCommandInput} for command's `input` shape.
  * @see {@link DescribeContainerInstancesCommandOutput} for command's `response` shape.
- * @see {@link ECSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ECSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeContainerInstancesCommand extends $Command<

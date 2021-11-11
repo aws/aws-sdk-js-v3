@@ -36,7 +36,7 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  *
  * @see {@link UpdateMaintenanceStartTimeCommandInput} for command's `input` shape.
  * @see {@link UpdateMaintenanceStartTimeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateMaintenanceStartTimeCommand extends $Command<

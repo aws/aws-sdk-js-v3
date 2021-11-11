@@ -37,7 +37,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *
  * @see {@link ListAccountsCommandInput} for command's `input` shape.
  * @see {@link ListAccountsCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListAccountsCommand extends $Command<

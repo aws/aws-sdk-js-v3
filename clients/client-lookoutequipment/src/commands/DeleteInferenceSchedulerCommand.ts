@@ -36,7 +36,7 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  *
  * @see {@link DeleteInferenceSchedulerCommandInput} for command's `input` shape.
  * @see {@link DeleteInferenceSchedulerCommandOutput} for command's `response` shape.
- * @see {@link LookoutEquipmentClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutEquipmentClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteInferenceSchedulerCommand extends $Command<

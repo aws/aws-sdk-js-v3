@@ -65,7 +65,7 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *
  * @see {@link CreateVpcPeeringConnectionCommandInput} for command's `input` shape.
  * @see {@link CreateVpcPeeringConnectionCommandOutput} for command's `response` shape.
- * @see {@link GameLiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GameLiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVpcPeeringConnectionCommand extends $Command<

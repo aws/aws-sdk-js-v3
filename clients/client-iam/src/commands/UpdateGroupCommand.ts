@@ -46,7 +46,7 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  *
  * @see {@link UpdateGroupCommandInput} for command's `input` shape.
  * @see {@link UpdateGroupCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateGroupCommand extends $Command<

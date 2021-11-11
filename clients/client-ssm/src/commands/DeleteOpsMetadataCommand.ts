@@ -35,7 +35,7 @@ export interface DeleteOpsMetadataCommandOutput extends DeleteOpsMetadataResult,
  *
  * @see {@link DeleteOpsMetadataCommandInput} for command's `input` shape.
  * @see {@link DeleteOpsMetadataCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteOpsMetadataCommand extends $Command<

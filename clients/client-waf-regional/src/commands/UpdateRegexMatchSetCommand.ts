@@ -77,7 +77,7 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  *
  * @see {@link UpdateRegexMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateRegexMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateRegexMatchSetCommand extends $Command<

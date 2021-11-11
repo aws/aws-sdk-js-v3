@@ -41,7 +41,7 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *
  * @see {@link CreateTagsCommandInput} for command's `input` shape.
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTagsCommand extends $Command<

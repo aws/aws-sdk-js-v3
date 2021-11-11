@@ -36,7 +36,7 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  *
  * @see {@link CreateAssetCommandInput} for command's `input` shape.
  * @see {@link CreateAssetCommandOutput} for command's `response` shape.
- * @see {@link IoTSiteWiseClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTSiteWiseClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateAssetCommand extends $Command<

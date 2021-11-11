@@ -38,7 +38,7 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  *
  * @see {@link ListGlobalTablesCommandInput} for command's `input` shape.
  * @see {@link ListGlobalTablesCommandOutput} for command's `response` shape.
- * @see {@link DynamoDBClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DynamoDBClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListGlobalTablesCommand extends $Command<

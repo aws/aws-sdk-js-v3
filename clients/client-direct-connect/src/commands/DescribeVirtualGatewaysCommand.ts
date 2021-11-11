@@ -36,7 +36,7 @@ export interface DescribeVirtualGatewaysCommandOutput extends VirtualGateways, _
  *
  * @see {@link DescribeVirtualGatewaysCommandInput} for command's `input` shape.
  * @see {@link DescribeVirtualGatewaysCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVirtualGatewaysCommand extends $Command<

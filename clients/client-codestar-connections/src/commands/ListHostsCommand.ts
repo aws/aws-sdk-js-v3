@@ -36,7 +36,7 @@ export interface ListHostsCommandOutput extends ListHostsOutput, __MetadataBeare
  *
  * @see {@link ListHostsCommandInput} for command's `input` shape.
  * @see {@link ListHostsCommandOutput} for command's `response` shape.
- * @see {@link CodeStarConnectionsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeStarConnectionsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListHostsCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  *
  * @see {@link ListCertificateAuthoritiesCommandInput} for command's `input` shape.
  * @see {@link ListCertificateAuthoritiesCommandOutput} for command's `response` shape.
- * @see {@link ACMPCAClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ACMPCAClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListCertificateAuthoritiesCommand extends $Command<

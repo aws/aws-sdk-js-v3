@@ -35,7 +35,7 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  *
  * @see {@link GetNetworkProfileCommandInput} for command's `input` shape.
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetNetworkProfileCommand extends $Command<

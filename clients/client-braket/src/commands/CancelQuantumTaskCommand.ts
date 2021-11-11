@@ -35,7 +35,7 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  *
  * @see {@link CancelQuantumTaskCommandInput} for command's `input` shape.
  * @see {@link CancelQuantumTaskCommandOutput} for command's `response` shape.
- * @see {@link BraketClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BraketClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CancelQuantumTaskCommand extends $Command<

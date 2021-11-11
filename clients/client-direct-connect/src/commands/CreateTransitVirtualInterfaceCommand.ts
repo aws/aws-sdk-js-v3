@@ -46,7 +46,7 @@ export interface CreateTransitVirtualInterfaceCommandOutput
  *
  * @see {@link CreateTransitVirtualInterfaceCommandInput} for command's `input` shape.
  * @see {@link CreateTransitVirtualInterfaceCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTransitVirtualInterfaceCommand extends $Command<

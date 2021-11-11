@@ -39,7 +39,7 @@ export interface PutScheduledUpdateGroupActionCommandOutput extends __MetadataBe
  *
  * @see {@link PutScheduledUpdateGroupActionCommandInput} for command's `input` shape.
  * @see {@link PutScheduledUpdateGroupActionCommandOutput} for command's `response` shape.
- * @see {@link AutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutScheduledUpdateGroupActionCommand extends $Command<

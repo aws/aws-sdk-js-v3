@@ -35,7 +35,7 @@ export interface PutIntegrationCommandOutput extends Integration, __MetadataBear
  *
  * @see {@link PutIntegrationCommandInput} for command's `input` shape.
  * @see {@link PutIntegrationCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutIntegrationCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  *
  * @see {@link GetAnomaliesCommandInput} for command's `input` shape.
  * @see {@link GetAnomaliesCommandOutput} for command's `response` shape.
- * @see {@link CostExplorerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CostExplorerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAnomaliesCommand extends $Command<

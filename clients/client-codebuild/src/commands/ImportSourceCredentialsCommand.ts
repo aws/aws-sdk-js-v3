@@ -36,7 +36,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *
  * @see {@link ImportSourceCredentialsCommandInput} for command's `input` shape.
  * @see {@link ImportSourceCredentialsCommandOutput} for command's `response` shape.
- * @see {@link CodeBuildClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CodeBuildClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ImportSourceCredentialsCommand extends $Command<

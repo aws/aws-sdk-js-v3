@@ -37,7 +37,7 @@ export interface ModifyWorkspaceCreationPropertiesCommandOutput
  *
  * @see {@link ModifyWorkspaceCreationPropertiesCommandInput} for command's `input` shape.
  * @see {@link ModifyWorkspaceCreationPropertiesCommandOutput} for command's `response` shape.
- * @see {@link WorkSpacesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WorkSpacesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ModifyWorkspaceCreationPropertiesCommand extends $Command<

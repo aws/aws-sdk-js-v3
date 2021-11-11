@@ -44,7 +44,7 @@ export interface UpdatePipelineStatusCommandOutput extends UpdatePipelineStatusR
  *
  * @see {@link UpdatePipelineStatusCommandInput} for command's `input` shape.
  * @see {@link UpdatePipelineStatusCommandOutput} for command's `response` shape.
- * @see {@link ElasticTranscoderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticTranscoderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePipelineStatusCommand extends $Command<

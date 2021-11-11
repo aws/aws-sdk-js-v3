@@ -37,7 +37,7 @@ export interface DescribeAvailabilityOptionsCommandOutput
  *
  * @see {@link DescribeAvailabilityOptionsCommandInput} for command's `input` shape.
  * @see {@link DescribeAvailabilityOptionsCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeAvailabilityOptionsCommand extends $Command<

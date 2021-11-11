@@ -35,7 +35,7 @@ export interface ListFacetNamesCommandOutput extends ListFacetNamesResponse, __M
  *
  * @see {@link ListFacetNamesCommandInput} for command's `input` shape.
  * @see {@link ListFacetNamesCommandOutput} for command's `response` shape.
- * @see {@link CloudDirectoryClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudDirectoryClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListFacetNamesCommand extends $Command<

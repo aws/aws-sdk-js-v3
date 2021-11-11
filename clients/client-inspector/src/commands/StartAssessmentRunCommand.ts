@@ -37,7 +37,7 @@ export interface StartAssessmentRunCommandOutput extends StartAssessmentRunRespo
  *
  * @see {@link StartAssessmentRunCommandInput} for command's `input` shape.
  * @see {@link StartAssessmentRunCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartAssessmentRunCommand extends $Command<

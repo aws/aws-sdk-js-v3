@@ -42,7 +42,7 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *
  * @see {@link CreateIndexCommandInput} for command's `input` shape.
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateIndexCommand extends $Command<

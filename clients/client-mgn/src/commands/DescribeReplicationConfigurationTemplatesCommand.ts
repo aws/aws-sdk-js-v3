@@ -41,7 +41,7 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput
  *
  * @see {@link DescribeReplicationConfigurationTemplatesCommandInput} for command's `input` shape.
  * @see {@link DescribeReplicationConfigurationTemplatesCommandOutput} for command's `response` shape.
- * @see {@link MgnClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MgnClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeReplicationConfigurationTemplatesCommand extends $Command<

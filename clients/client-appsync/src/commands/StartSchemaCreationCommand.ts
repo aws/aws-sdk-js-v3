@@ -37,7 +37,7 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  *
  * @see {@link StartSchemaCreationCommandInput} for command's `input` shape.
  * @see {@link StartSchemaCreationCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartSchemaCreationCommand extends $Command<

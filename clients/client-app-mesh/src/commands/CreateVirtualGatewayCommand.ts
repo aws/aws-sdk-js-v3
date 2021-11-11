@@ -41,7 +41,7 @@ export interface CreateVirtualGatewayCommandOutput extends CreateVirtualGatewayO
  *
  * @see {@link CreateVirtualGatewayCommandInput} for command's `input` shape.
  * @see {@link CreateVirtualGatewayCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVirtualGatewayCommand extends $Command<

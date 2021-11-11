@@ -36,7 +36,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  *
  * @see {@link SearchProfilesCommandInput} for command's `input` shape.
  * @see {@link SearchProfilesCommandOutput} for command's `response` shape.
- * @see {@link CustomerProfilesClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CustomerProfilesClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SearchProfilesCommand extends $Command<

@@ -37,7 +37,7 @@ export interface ConfirmConnectionCommandOutput extends ConfirmConnectionRespons
  *
  * @see {@link ConfirmConnectionCommandInput} for command's `input` shape.
  * @see {@link ConfirmConnectionCommandOutput} for command's `response` shape.
- * @see {@link DirectConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DirectConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ConfirmConnectionCommand extends $Command<

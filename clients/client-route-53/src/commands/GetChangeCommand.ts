@@ -45,7 +45,7 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  *
  * @see {@link GetChangeCommandInput} for command's `input` shape.
  * @see {@link GetChangeCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetChangeCommand extends $Command<

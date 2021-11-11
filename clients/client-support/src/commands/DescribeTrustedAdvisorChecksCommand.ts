@@ -60,7 +60,7 @@ export interface DescribeTrustedAdvisorChecksCommandOutput
  *
  * @see {@link DescribeTrustedAdvisorChecksCommandInput} for command's `input` shape.
  * @see {@link DescribeTrustedAdvisorChecksCommandOutput} for command's `response` shape.
- * @see {@link SupportClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SupportClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTrustedAdvisorChecksCommand extends $Command<

@@ -35,7 +35,7 @@ export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __M
  *
  * @see {@link DescribeDomainCommandInput} for command's `input` shape.
  * @see {@link DescribeDomainCommandOutput} for command's `response` shape.
- * @see {@link VoiceIDClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link VoiceIDClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeDomainCommand extends $Command<

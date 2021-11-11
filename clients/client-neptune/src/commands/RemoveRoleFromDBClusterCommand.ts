@@ -35,7 +35,7 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  *
  * @see {@link RemoveRoleFromDBClusterCommandInput} for command's `input` shape.
  * @see {@link RemoveRoleFromDBClusterCommandOutput} for command's `response` shape.
- * @see {@link NeptuneClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NeptuneClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveRoleFromDBClusterCommand extends $Command<

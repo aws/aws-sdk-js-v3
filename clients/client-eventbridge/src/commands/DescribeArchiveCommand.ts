@@ -35,7 +35,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  *
  * @see {@link DescribeArchiveCommandInput} for command's `input` shape.
  * @see {@link DescribeArchiveCommandOutput} for command's `response` shape.
- * @see {@link EventBridgeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EventBridgeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeArchiveCommand extends $Command<

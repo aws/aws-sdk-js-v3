@@ -46,7 +46,7 @@ export interface StartStudioSSOConfigurationRepairCommandOutput
  *
  * @see {@link StartStudioSSOConfigurationRepairCommandInput} for command's `input` shape.
  * @see {@link StartStudioSSOConfigurationRepairCommandOutput} for command's `response` shape.
- * @see {@link NimbleClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link NimbleClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartStudioSSOConfigurationRepairCommand extends $Command<

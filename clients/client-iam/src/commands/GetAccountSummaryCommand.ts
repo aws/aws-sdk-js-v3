@@ -38,7 +38,7 @@ export interface GetAccountSummaryCommandOutput extends GetAccountSummaryRespons
  *
  * @see {@link GetAccountSummaryCommandInput} for command's `input` shape.
  * @see {@link GetAccountSummaryCommandOutput} for command's `response` shape.
- * @see {@link IAMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IAMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetAccountSummaryCommand extends $Command<

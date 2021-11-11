@@ -39,7 +39,7 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  *
  * @see {@link GetOpsSummaryCommandInput} for command's `input` shape.
  * @see {@link GetOpsSummaryCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetOpsSummaryCommand extends $Command<

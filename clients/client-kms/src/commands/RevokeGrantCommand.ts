@@ -78,7 +78,7 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *
  * @see {@link RevokeGrantCommandInput} for command's `input` shape.
  * @see {@link RevokeGrantCommandOutput} for command's `response` shape.
- * @see {@link KMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RevokeGrantCommand extends $Command<

@@ -38,7 +38,7 @@ export interface GetMaintenanceWindowExecutionTaskCommandOutput
  *
  * @see {@link GetMaintenanceWindowExecutionTaskCommandInput} for command's `input` shape.
  * @see {@link GetMaintenanceWindowExecutionTaskCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetMaintenanceWindowExecutionTaskCommand extends $Command<

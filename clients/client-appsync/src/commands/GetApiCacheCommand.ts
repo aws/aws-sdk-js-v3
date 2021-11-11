@@ -35,7 +35,7 @@ export interface GetApiCacheCommandOutput extends GetApiCacheResponse, __Metadat
  *
  * @see {@link GetApiCacheCommandInput} for command's `input` shape.
  * @see {@link GetApiCacheCommandOutput} for command's `response` shape.
- * @see {@link AppSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetApiCacheCommand extends $Command<

@@ -56,7 +56,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *
  * @see {@link ListPartsCommandInput} for command's `input` shape.
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
- * @see {@link GlacierClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlacierClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPartsCommand extends $Command<

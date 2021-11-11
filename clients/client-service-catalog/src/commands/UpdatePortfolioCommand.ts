@@ -36,7 +36,7 @@ export interface UpdatePortfolioCommandOutput extends UpdatePortfolioOutput, __M
  *
  * @see {@link UpdatePortfolioCommandInput} for command's `input` shape.
  * @see {@link UpdatePortfolioCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdatePortfolioCommand extends $Command<

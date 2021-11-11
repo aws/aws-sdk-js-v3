@@ -38,7 +38,7 @@ export interface EmptyInputAndEmptyOutputCommandOutput extends EmptyInputAndEmpt
  *
  * @see {@link EmptyInputAndEmptyOutputCommandInput} for command's `input` shape.
  * @see {@link EmptyInputAndEmptyOutputCommandOutput} for command's `response` shape.
- * @see {@link RestXmlProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RestXmlProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class EmptyInputAndEmptyOutputCommand extends $Command<

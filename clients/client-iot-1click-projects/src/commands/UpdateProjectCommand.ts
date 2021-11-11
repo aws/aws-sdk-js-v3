@@ -42,7 +42,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectResponse, __Met
  *
  * @see {@link UpdateProjectCommandInput} for command's `input` shape.
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
- * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateProjectCommand extends $Command<

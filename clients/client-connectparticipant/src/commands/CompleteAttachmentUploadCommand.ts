@@ -42,7 +42,7 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  *
  * @see {@link CompleteAttachmentUploadCommandInput} for command's `input` shape.
  * @see {@link CompleteAttachmentUploadCommandOutput} for command's `response` shape.
- * @see {@link ConnectParticipantClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectParticipantClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CompleteAttachmentUploadCommand extends $Command<

@@ -39,7 +39,7 @@ export interface ReportInstanceStatusCommandOutput extends __MetadataBearer {}
  *
  * @see {@link ReportInstanceStatusCommandInput} for command's `input` shape.
  * @see {@link ReportInstanceStatusCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ReportInstanceStatusCommand extends $Command<

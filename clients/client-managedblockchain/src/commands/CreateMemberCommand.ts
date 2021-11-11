@@ -40,7 +40,7 @@ export interface CreateMemberCommandOutput extends CreateMemberOutput, __Metadat
  *
  * @see {@link CreateMemberCommandInput} for command's `input` shape.
  * @see {@link CreateMemberCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateMemberCommand extends $Command<

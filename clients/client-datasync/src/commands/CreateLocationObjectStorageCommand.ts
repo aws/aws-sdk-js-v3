@@ -38,7 +38,7 @@ export interface CreateLocationObjectStorageCommandOutput
  *
  * @see {@link CreateLocationObjectStorageCommandInput} for command's `input` shape.
  * @see {@link CreateLocationObjectStorageCommandOutput} for command's `response` shape.
- * @see {@link DataSyncClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DataSyncClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateLocationObjectStorageCommand extends $Command<

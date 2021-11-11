@@ -35,7 +35,7 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *
  * @see {@link UpdateFirewallRuleCommandInput} for command's `input` shape.
  * @see {@link UpdateFirewallRuleCommandOutput} for command's `response` shape.
- * @see {@link Route53ResolverClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ResolverClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFirewallRuleCommand extends $Command<

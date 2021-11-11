@@ -46,7 +46,7 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput
  *
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandInput} for command's `input` shape.
  * @see {@link StartDBInstanceAutomatedBackupsReplicationCommandOutput} for command's `response` shape.
- * @see {@link RDSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RDSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<

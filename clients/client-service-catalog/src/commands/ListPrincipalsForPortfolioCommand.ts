@@ -35,7 +35,7 @@ export interface ListPrincipalsForPortfolioCommandOutput extends ListPrincipalsF
  *
  * @see {@link ListPrincipalsForPortfolioCommandInput} for command's `input` shape.
  * @see {@link ListPrincipalsForPortfolioCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListPrincipalsForPortfolioCommand extends $Command<

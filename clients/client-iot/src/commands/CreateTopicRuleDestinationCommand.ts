@@ -36,7 +36,7 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  *
  * @see {@link CreateTopicRuleDestinationCommandInput} for command's `input` shape.
  * @see {@link CreateTopicRuleDestinationCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTopicRuleDestinationCommand extends $Command<

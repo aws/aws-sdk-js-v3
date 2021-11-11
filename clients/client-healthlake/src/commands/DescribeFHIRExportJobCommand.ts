@@ -35,7 +35,7 @@ export interface DescribeFHIRExportJobCommandOutput extends DescribeFHIRExportJo
  *
  * @see {@link DescribeFHIRExportJobCommandInput} for command's `input` shape.
  * @see {@link DescribeFHIRExportJobCommandOutput} for command's `response` shape.
- * @see {@link HealthLakeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link HealthLakeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFHIRExportJobCommand extends $Command<

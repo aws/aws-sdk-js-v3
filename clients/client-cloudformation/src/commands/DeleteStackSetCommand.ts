@@ -36,7 +36,7 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  *
  * @see {@link DeleteStackSetCommandInput} for command's `input` shape.
  * @see {@link DeleteStackSetCommandOutput} for command's `response` shape.
- * @see {@link CloudFormationClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudFormationClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteStackSetCommand extends $Command<

@@ -35,7 +35,7 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  *
  * @see {@link CreateUsagePlanCommandInput} for command's `input` shape.
  * @see {@link CreateUsagePlanCommandOutput} for command's `response` shape.
- * @see {@link APIGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link APIGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateUsagePlanCommand extends $Command<

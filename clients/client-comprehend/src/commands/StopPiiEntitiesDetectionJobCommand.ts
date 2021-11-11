@@ -37,7 +37,7 @@ export interface StopPiiEntitiesDetectionJobCommandOutput
  *
  * @see {@link StopPiiEntitiesDetectionJobCommandInput} for command's `input` shape.
  * @see {@link StopPiiEntitiesDetectionJobCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class StopPiiEntitiesDetectionJobCommand extends $Command<

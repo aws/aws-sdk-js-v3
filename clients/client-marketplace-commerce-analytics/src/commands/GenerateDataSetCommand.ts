@@ -46,7 +46,7 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  *
  * @see {@link GenerateDataSetCommandInput} for command's `input` shape.
  * @see {@link GenerateDataSetCommandOutput} for command's `response` shape.
- * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GenerateDataSetCommand extends $Command<

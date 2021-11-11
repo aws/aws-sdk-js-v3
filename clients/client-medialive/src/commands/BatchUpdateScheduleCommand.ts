@@ -35,7 +35,7 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *
  * @see {@link BatchUpdateScheduleCommandInput} for command's `input` shape.
  * @see {@link BatchUpdateScheduleCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BatchUpdateScheduleCommand extends $Command<

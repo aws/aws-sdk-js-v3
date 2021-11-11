@@ -42,7 +42,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *
  * @see {@link DeleteBackupCommandInput} for command's `input` shape.
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteBackupCommand extends $Command<

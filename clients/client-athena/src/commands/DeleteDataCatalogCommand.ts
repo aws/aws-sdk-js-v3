@@ -35,7 +35,7 @@ export interface DeleteDataCatalogCommandOutput extends DeleteDataCatalogOutput,
  *
  * @see {@link DeleteDataCatalogCommandInput} for command's `input` shape.
  * @see {@link DeleteDataCatalogCommandOutput} for command's `response` shape.
- * @see {@link AthenaClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AthenaClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDataCatalogCommand extends $Command<

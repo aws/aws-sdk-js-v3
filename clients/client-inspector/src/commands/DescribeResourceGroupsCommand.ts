@@ -36,7 +36,7 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  *
  * @see {@link DescribeResourceGroupsCommandInput} for command's `input` shape.
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
- * @see {@link InspectorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link InspectorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeResourceGroupsCommand extends $Command<

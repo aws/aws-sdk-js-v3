@@ -39,7 +39,7 @@ export interface RemoveCustomRoutingEndpointsCommandOutput extends __MetadataBea
  *
  * @see {@link RemoveCustomRoutingEndpointsCommandInput} for command's `input` shape.
  * @see {@link RemoveCustomRoutingEndpointsCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RemoveCustomRoutingEndpointsCommand extends $Command<

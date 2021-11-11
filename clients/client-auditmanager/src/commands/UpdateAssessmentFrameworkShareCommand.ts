@@ -37,7 +37,7 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  *
  * @see {@link UpdateAssessmentFrameworkShareCommandInput} for command's `input` shape.
  * @see {@link UpdateAssessmentFrameworkShareCommandOutput} for command's `response` shape.
- * @see {@link AuditManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AuditManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateAssessmentFrameworkShareCommand extends $Command<

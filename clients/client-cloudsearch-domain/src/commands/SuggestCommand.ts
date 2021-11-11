@@ -42,7 +42,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  *
  * @see {@link SuggestCommandInput} for command's `input` shape.
  * @see {@link SuggestCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchDomainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchDomainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SuggestCommand extends $Command<

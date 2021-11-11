@@ -43,7 +43,7 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *
  * @see {@link GetFederationTokenCommandInput} for command's `input` shape.
  * @see {@link GetFederationTokenCommandOutput} for command's `response` shape.
- * @see {@link ConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetFederationTokenCommand extends $Command<

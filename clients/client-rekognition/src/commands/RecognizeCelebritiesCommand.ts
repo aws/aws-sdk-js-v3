@@ -65,7 +65,7 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *
  * @see {@link RecognizeCelebritiesCommandInput} for command's `input` shape.
  * @see {@link RecognizeCelebritiesCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RecognizeCelebritiesCommand extends $Command<

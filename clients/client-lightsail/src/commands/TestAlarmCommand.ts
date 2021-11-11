@@ -39,7 +39,7 @@ export interface TestAlarmCommandOutput extends TestAlarmResult, __MetadataBeare
  *
  * @see {@link TestAlarmCommandInput} for command's `input` shape.
  * @see {@link TestAlarmCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class TestAlarmCommand extends $Command<

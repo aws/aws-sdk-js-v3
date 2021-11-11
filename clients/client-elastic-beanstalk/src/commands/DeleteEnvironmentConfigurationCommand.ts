@@ -40,7 +40,7 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  *
  * @see {@link DeleteEnvironmentConfigurationCommandInput} for command's `input` shape.
  * @see {@link DeleteEnvironmentConfigurationCommandOutput} for command's `response` shape.
- * @see {@link ElasticBeanstalkClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ElasticBeanstalkClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteEnvironmentConfigurationCommand extends $Command<

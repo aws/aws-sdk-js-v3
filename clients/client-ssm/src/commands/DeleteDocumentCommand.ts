@@ -37,7 +37,7 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  *
  * @see {@link DeleteDocumentCommandInput} for command's `input` shape.
  * @see {@link DeleteDocumentCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteDocumentCommand extends $Command<

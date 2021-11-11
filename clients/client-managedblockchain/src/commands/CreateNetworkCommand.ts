@@ -40,7 +40,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  *
  * @see {@link CreateNetworkCommandInput} for command's `input` shape.
  * @see {@link CreateNetworkCommandOutput} for command's `response` shape.
- * @see {@link ManagedBlockchainClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ManagedBlockchainClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateNetworkCommand extends $Command<

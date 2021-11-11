@@ -43,7 +43,7 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  *
  * @see {@link RegisterDelegatedAdministratorCommandInput} for command's `input` shape.
  * @see {@link RegisterDelegatedAdministratorCommandOutput} for command's `response` shape.
- * @see {@link OrganizationsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OrganizationsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class RegisterDelegatedAdministratorCommand extends $Command<

@@ -75,7 +75,7 @@ export interface PutBucketPolicyCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutBucketPolicyCommandInput} for command's `input` shape.
  * @see {@link PutBucketPolicyCommandOutput} for command's `response` shape.
- * @see {@link S3ControlClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link S3ControlClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutBucketPolicyCommand extends $Command<

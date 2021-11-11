@@ -37,7 +37,7 @@ export interface DescribeFeedbackCommandOutput extends DescribeFeedbackResponse,
  *
  * @see {@link DescribeFeedbackCommandInput} for command's `input` shape.
  * @see {@link DescribeFeedbackCommandOutput} for command's `response` shape.
- * @see {@link DevOpsGuruClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link DevOpsGuruClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFeedbackCommand extends $Command<

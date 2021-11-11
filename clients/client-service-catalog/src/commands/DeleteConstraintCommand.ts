@@ -36,7 +36,7 @@ export interface DeleteConstraintCommandOutput extends DeleteConstraintOutput, _
  *
  * @see {@link DeleteConstraintCommandInput} for command's `input` shape.
  * @see {@link DeleteConstraintCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteConstraintCommand extends $Command<

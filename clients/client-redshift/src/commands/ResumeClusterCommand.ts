@@ -36,7 +36,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  *
  * @see {@link ResumeClusterCommandInput} for command's `input` shape.
  * @see {@link ResumeClusterCommandOutput} for command's `response` shape.
- * @see {@link RedshiftClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RedshiftClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResumeClusterCommand extends $Command<

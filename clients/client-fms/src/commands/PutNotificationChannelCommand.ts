@@ -39,7 +39,7 @@ export interface PutNotificationChannelCommandOutput extends __MetadataBearer {}
  *
  * @see {@link PutNotificationChannelCommandInput} for command's `input` shape.
  * @see {@link PutNotificationChannelCommandOutput} for command's `response` shape.
- * @see {@link FMSClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link FMSClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutNotificationChannelCommand extends $Command<

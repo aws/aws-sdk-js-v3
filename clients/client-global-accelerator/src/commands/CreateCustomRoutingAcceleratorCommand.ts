@@ -50,7 +50,7 @@ export interface CreateCustomRoutingAcceleratorCommandOutput
  *
  * @see {@link CreateCustomRoutingAcceleratorCommandInput} for command's `input` shape.
  * @see {@link CreateCustomRoutingAcceleratorCommandOutput} for command's `response` shape.
- * @see {@link GlobalAcceleratorClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link GlobalAcceleratorClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCustomRoutingAcceleratorCommand extends $Command<

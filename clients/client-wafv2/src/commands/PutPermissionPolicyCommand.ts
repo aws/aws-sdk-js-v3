@@ -51,7 +51,7 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *
  * @see {@link PutPermissionPolicyCommandInput} for command's `input` shape.
  * @see {@link PutPermissionPolicyCommandOutput} for command's `response` shape.
- * @see {@link WAFV2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFV2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutPermissionPolicyCommand extends $Command<

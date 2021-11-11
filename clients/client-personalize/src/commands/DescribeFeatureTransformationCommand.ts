@@ -37,7 +37,7 @@ export interface DescribeFeatureTransformationCommandOutput
  *
  * @see {@link DescribeFeatureTransformationCommandInput} for command's `input` shape.
  * @see {@link DescribeFeatureTransformationCommandOutput} for command's `response` shape.
- * @see {@link PersonalizeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PersonalizeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeFeatureTransformationCommand extends $Command<

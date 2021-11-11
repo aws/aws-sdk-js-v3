@@ -35,7 +35,7 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  *
  * @see {@link ListMetricStreamsCommandInput} for command's `input` shape.
  * @see {@link ListMetricStreamsCommandOutput} for command's `response` shape.
- * @see {@link CloudWatchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudWatchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListMetricStreamsCommand extends $Command<

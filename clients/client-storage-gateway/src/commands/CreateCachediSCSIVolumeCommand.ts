@@ -52,7 +52,7 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  *
  * @see {@link CreateCachediSCSIVolumeCommandInput} for command's `input` shape.
  * @see {@link CreateCachediSCSIVolumeCommandOutput} for command's `response` shape.
- * @see {@link StorageGatewayClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link StorageGatewayClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateCachediSCSIVolumeCommand extends $Command<

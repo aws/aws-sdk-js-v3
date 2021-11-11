@@ -35,7 +35,7 @@ export interface UpdateFlowEntitlementCommandOutput extends UpdateFlowEntitlemen
  *
  * @see {@link UpdateFlowEntitlementCommandInput} for command's `input` shape.
  * @see {@link UpdateFlowEntitlementCommandOutput} for command's `response` shape.
- * @see {@link MediaConnectClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaConnectClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateFlowEntitlementCommand extends $Command<

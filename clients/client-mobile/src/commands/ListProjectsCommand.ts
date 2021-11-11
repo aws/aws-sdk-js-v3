@@ -37,7 +37,7 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  *
  * @see {@link ListProjectsCommandInput} for command's `input` shape.
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
- * @see {@link MobileClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MobileClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListProjectsCommand extends $Command<

@@ -37,7 +37,7 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  *
  * @see {@link DeleteActionTargetCommandInput} for command's `input` shape.
  * @see {@link DeleteActionTargetCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteActionTargetCommand extends $Command<

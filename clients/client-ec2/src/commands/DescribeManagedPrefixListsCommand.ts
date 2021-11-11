@@ -36,7 +36,7 @@ export interface DescribeManagedPrefixListsCommandOutput extends DescribeManaged
  *
  * @see {@link DescribeManagedPrefixListsCommandInput} for command's `input` shape.
  * @see {@link DescribeManagedPrefixListsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeManagedPrefixListsCommand extends $Command<

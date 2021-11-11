@@ -49,7 +49,7 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  *
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandInput} for command's `input` shape.
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
- * @see {@link SSMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SSMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<

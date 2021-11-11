@@ -41,7 +41,7 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  *
  * @see {@link XmlListsCommandInput} for command's `input` shape.
  * @see {@link XmlListsCommandOutput} for command's `response` shape.
- * @see {@link QueryProtocolClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QueryProtocolClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class XmlListsCommand extends $Command<

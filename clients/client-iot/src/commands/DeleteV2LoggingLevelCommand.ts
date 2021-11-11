@@ -36,7 +36,7 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteV2LoggingLevelCommandInput} for command's `input` shape.
  * @see {@link DeleteV2LoggingLevelCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteV2LoggingLevelCommand extends $Command<

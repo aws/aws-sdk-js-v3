@@ -38,7 +38,7 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  *
  * @see {@link DeleteFacesCommandInput} for command's `input` shape.
  * @see {@link DeleteFacesCommandOutput} for command's `response` shape.
- * @see {@link RekognitionClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link RekognitionClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteFacesCommand extends $Command<

@@ -35,7 +35,7 @@ export interface GetApnsChannelCommandOutput extends GetApnsChannelResponse, __M
  *
  * @see {@link GetApnsChannelCommandInput} for command's `input` shape.
  * @see {@link GetApnsChannelCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetApnsChannelCommand extends $Command<

@@ -39,7 +39,7 @@ export interface DeleteUserProfileCommandOutput extends __MetadataBearer {}
  *
  * @see {@link DeleteUserProfileCommandInput} for command's `input` shape.
  * @see {@link DeleteUserProfileCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeleteUserProfileCommand extends $Command<

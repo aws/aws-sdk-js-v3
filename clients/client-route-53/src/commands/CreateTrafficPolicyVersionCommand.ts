@@ -40,7 +40,7 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  *
  * @see {@link CreateTrafficPolicyVersionCommandInput} for command's `input` shape.
  * @see {@link CreateTrafficPolicyVersionCommandOutput} for command's `response` shape.
- * @see {@link Route53ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link Route53ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateTrafficPolicyVersionCommand extends $Command<

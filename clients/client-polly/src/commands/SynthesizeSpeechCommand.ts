@@ -39,7 +39,7 @@ export interface SynthesizeSpeechCommandOutput extends SynthesizeSpeechOutput, _
  *
  * @see {@link SynthesizeSpeechCommandInput} for command's `input` shape.
  * @see {@link SynthesizeSpeechCommandOutput} for command's `response` shape.
- * @see {@link PollyClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PollyClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class SynthesizeSpeechCommand extends $Command<

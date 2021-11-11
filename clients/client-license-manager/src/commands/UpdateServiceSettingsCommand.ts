@@ -35,7 +35,7 @@ export interface UpdateServiceSettingsCommandOutput extends UpdateServiceSetting
  *
  * @see {@link UpdateServiceSettingsCommandInput} for command's `input` shape.
  * @see {@link UpdateServiceSettingsCommandOutput} for command's `response` shape.
- * @see {@link LicenseManagerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LicenseManagerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateServiceSettingsCommand extends $Command<

@@ -40,7 +40,7 @@ export interface DisassociateTrialComponentCommandOutput extends DisassociateTri
  *
  * @see {@link DisassociateTrialComponentCommandInput} for command's `input` shape.
  * @see {@link DisassociateTrialComponentCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisassociateTrialComponentCommand extends $Command<

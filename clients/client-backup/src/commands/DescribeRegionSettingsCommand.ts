@@ -39,7 +39,7 @@ export interface DescribeRegionSettingsCommandOutput extends DescribeRegionSetti
  *
  * @see {@link DescribeRegionSettingsCommandInput} for command's `input` shape.
  * @see {@link DescribeRegionSettingsCommandOutput} for command's `response` shape.
- * @see {@link BackupClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link BackupClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeRegionSettingsCommand extends $Command<

@@ -41,7 +41,7 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  *
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandInput} for command's `input` shape.
  * @see {@link AssociateAwsAccountWithPartnerAccountCommandOutput} for command's `response` shape.
- * @see {@link IoTWirelessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTWirelessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command<

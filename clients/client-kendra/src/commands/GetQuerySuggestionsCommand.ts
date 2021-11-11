@@ -35,7 +35,7 @@ export interface GetQuerySuggestionsCommandOutput extends GetQuerySuggestionsRes
  *
  * @see {@link GetQuerySuggestionsCommandInput} for command's `input` shape.
  * @see {@link GetQuerySuggestionsCommandOutput} for command's `response` shape.
- * @see {@link KendraClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link KendraClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetQuerySuggestionsCommand extends $Command<

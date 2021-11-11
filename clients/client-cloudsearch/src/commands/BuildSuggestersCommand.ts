@@ -35,7 +35,7 @@ export interface BuildSuggestersCommandOutput extends BuildSuggestersResponse, _
  *
  * @see {@link BuildSuggestersCommandInput} for command's `input` shape.
  * @see {@link BuildSuggestersCommandOutput} for command's `response` shape.
- * @see {@link CloudSearchClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CloudSearchClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class BuildSuggestersCommand extends $Command<

@@ -35,7 +35,7 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  *
  * @see {@link ListVirtualNodesCommandInput} for command's `input` shape.
  * @see {@link ListVirtualNodesCommandOutput} for command's `response` shape.
- * @see {@link AppMeshClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppMeshClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListVirtualNodesCommand extends $Command<

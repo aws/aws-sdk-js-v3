@@ -82,7 +82,7 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  *
  * @see {@link ListOpenWorkflowExecutionsCommandInput} for command's `input` shape.
  * @see {@link ListOpenWorkflowExecutionsCommandOutput} for command's `response` shape.
- * @see {@link SWFClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SWFClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListOpenWorkflowExecutionsCommand extends $Command<

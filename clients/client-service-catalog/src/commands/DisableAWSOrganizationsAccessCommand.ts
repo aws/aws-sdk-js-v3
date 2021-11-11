@@ -43,7 +43,7 @@ export interface DisableAWSOrganizationsAccessCommandOutput
  *
  * @see {@link DisableAWSOrganizationsAccessCommandInput} for command's `input` shape.
  * @see {@link DisableAWSOrganizationsAccessCommandOutput} for command's `response` shape.
- * @see {@link ServiceCatalogClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ServiceCatalogClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DisableAWSOrganizationsAccessCommand extends $Command<

@@ -36,7 +36,7 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  *
  * @see {@link GetV2LoggingOptionsCommandInput} for command's `input` shape.
  * @see {@link GetV2LoggingOptionsCommandOutput} for command's `response` shape.
- * @see {@link IoTClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link IoTClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class GetV2LoggingOptionsCommand extends $Command<

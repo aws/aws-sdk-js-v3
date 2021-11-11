@@ -35,7 +35,7 @@ export interface DescribeTemplateAliasCommandOutput extends DescribeTemplateAlia
  *
  * @see {@link DescribeTemplateAliasCommandInput} for command's `input` shape.
  * @see {@link DescribeTemplateAliasCommandOutput} for command's `response` shape.
- * @see {@link QuickSightClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link QuickSightClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeTemplateAliasCommand extends $Command<

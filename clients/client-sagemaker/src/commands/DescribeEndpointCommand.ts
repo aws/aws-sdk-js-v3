@@ -35,7 +35,7 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  *
  * @see {@link DescribeEndpointCommandInput} for command's `input` shape.
  * @see {@link DescribeEndpointCommandOutput} for command's `response` shape.
- * @see {@link SageMakerClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SageMakerClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeEndpointCommand extends $Command<

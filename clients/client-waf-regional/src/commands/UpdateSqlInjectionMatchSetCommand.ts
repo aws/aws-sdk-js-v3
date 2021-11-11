@@ -84,7 +84,7 @@ export interface UpdateSqlInjectionMatchSetCommandOutput extends UpdateSqlInject
  *
  * @see {@link UpdateSqlInjectionMatchSetCommandInput} for command's `input` shape.
  * @see {@link UpdateSqlInjectionMatchSetCommandOutput} for command's `response` shape.
- * @see {@link WAFRegionalClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link WAFRegionalClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateSqlInjectionMatchSetCommand extends $Command<

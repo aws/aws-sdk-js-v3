@@ -35,7 +35,7 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  *
  * @see {@link UpdateMetricSetCommandInput} for command's `input` shape.
  * @see {@link UpdateMetricSetCommandOutput} for command's `response` shape.
- * @see {@link LookoutMetricsClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LookoutMetricsClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateMetricSetCommand extends $Command<

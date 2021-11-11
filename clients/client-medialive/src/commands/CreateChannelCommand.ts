@@ -35,7 +35,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *
  * @see {@link CreateChannelCommandInput} for command's `input` shape.
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
- * @see {@link MediaLiveClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MediaLiveClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateChannelCommand extends $Command<

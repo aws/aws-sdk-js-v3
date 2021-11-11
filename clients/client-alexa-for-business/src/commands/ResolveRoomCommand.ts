@@ -41,7 +41,7 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  *
  * @see {@link ResolveRoomCommandInput} for command's `input` shape.
  * @see {@link ResolveRoomCommandOutput} for command's `response` shape.
- * @see {@link AlexaForBusinessClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AlexaForBusinessClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ResolveRoomCommand extends $Command<

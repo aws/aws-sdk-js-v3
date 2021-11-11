@@ -42,7 +42,7 @@ export interface AttachInstancesToLoadBalancerCommandOutput
  *
  * @see {@link AttachInstancesToLoadBalancerCommandInput} for command's `input` shape.
  * @see {@link AttachInstancesToLoadBalancerCommandOutput} for command's `response` shape.
- * @see {@link LightsailClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link LightsailClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AttachInstancesToLoadBalancerCommand extends $Command<

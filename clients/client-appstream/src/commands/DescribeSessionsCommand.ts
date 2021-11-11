@@ -37,7 +37,7 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResult, _
  *
  * @see {@link DescribeSessionsCommandInput} for command's `input` shape.
  * @see {@link DescribeSessionsCommandOutput} for command's `response` shape.
- * @see {@link AppStreamClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link AppStreamClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSessionsCommand extends $Command<

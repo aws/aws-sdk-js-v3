@@ -40,7 +40,7 @@ export interface DescribeIdentityProviderCommandOutput extends DescribeIdentityP
  *
  * @see {@link DescribeIdentityProviderCommandInput} for command's `input` shape.
  * @see {@link DescribeIdentityProviderCommandOutput} for command's `response` shape.
- * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeIdentityProviderCommand extends $Command<

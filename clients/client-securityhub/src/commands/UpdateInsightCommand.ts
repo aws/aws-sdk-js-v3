@@ -35,7 +35,7 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *
  * @see {@link UpdateInsightCommandInput} for command's `input` shape.
  * @see {@link UpdateInsightCommandOutput} for command's `response` shape.
- * @see {@link SecurityHubClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SecurityHubClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateInsightCommand extends $Command<

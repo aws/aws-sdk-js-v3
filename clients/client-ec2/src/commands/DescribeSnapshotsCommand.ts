@@ -81,7 +81,7 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  *
  * @see {@link DescribeSnapshotsCommandInput} for command's `input` shape.
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeSnapshotsCommand extends $Command<

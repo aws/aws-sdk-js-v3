@@ -35,7 +35,7 @@ export interface ListSentimentDetectionJobsCommandOutput extends ListSentimentDe
  *
  * @see {@link ListSentimentDetectionJobsCommandInput} for command's `input` shape.
  * @see {@link ListSentimentDetectionJobsCommandOutput} for command's `response` shape.
- * @see {@link ComprehendClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ComprehendClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListSentimentDetectionJobsCommand extends $Command<

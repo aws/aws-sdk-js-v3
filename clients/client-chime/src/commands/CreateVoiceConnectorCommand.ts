@@ -41,7 +41,7 @@ export interface CreateVoiceConnectorCommandOutput extends CreateVoiceConnectorR
  *
  * @see {@link CreateVoiceConnectorCommandInput} for command's `input` shape.
  * @see {@link CreateVoiceConnectorCommandOutput} for command's `response` shape.
- * @see {@link ChimeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ChimeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateVoiceConnectorCommand extends $Command<

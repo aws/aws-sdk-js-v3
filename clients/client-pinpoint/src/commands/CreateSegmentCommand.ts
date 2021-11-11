@@ -35,7 +35,7 @@ export interface CreateSegmentCommandOutput extends CreateSegmentResponse, __Met
  *
  * @see {@link CreateSegmentCommandInput} for command's `input` shape.
  * @see {@link CreateSegmentCommandOutput} for command's `response` shape.
- * @see {@link PinpointClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link PinpointClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class CreateSegmentCommand extends $Command<

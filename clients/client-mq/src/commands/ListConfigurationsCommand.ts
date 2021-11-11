@@ -35,7 +35,7 @@ export interface ListConfigurationsCommandOutput extends ListConfigurationsRespo
  *
  * @see {@link ListConfigurationsCommandInput} for command's `input` shape.
  * @see {@link ListConfigurationsCommandOutput} for command's `response` shape.
- * @see {@link MqClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link MqClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class ListConfigurationsCommand extends $Command<

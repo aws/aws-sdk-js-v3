@@ -51,7 +51,7 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  *
  * @see {@link AssociateNodeCommandInput} for command's `input` shape.
  * @see {@link AssociateNodeCommandOutput} for command's `response` shape.
- * @see {@link OpsWorksCMClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link OpsWorksCMClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class AssociateNodeCommand extends $Command<

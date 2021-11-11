@@ -44,7 +44,7 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  *
  * @see {@link DeregisterScalableTargetCommandInput} for command's `input` shape.
  * @see {@link DeregisterScalableTargetCommandOutput} for command's `response` shape.
- * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DeregisterScalableTargetCommand extends $Command<

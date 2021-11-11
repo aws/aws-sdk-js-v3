@@ -36,7 +36,7 @@ export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse,
  *
  * @see {@link UpdateVocabularyCommandInput} for command's `input` shape.
  * @see {@link UpdateVocabularyCommandOutput} for command's `response` shape.
- * @see {@link TranscribeClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link TranscribeClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class UpdateVocabularyCommand extends $Command<

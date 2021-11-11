@@ -37,7 +37,7 @@ export interface PutAccountSuppressionAttributesCommandOutput
  *
  * @see {@link PutAccountSuppressionAttributesCommandInput} for command's `input` shape.
  * @see {@link PutAccountSuppressionAttributesCommandOutput} for command's `response` shape.
- * @see {@link SESv2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link SESv2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class PutAccountSuppressionAttributesCommand extends $Command<

@@ -41,7 +41,7 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  *
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandInput} for command's `input` shape.
  * @see {@link DescribeVpcClassicLinkDnsSupportCommandOutput} for command's `response` shape.
- * @see {@link EC2ClientResolvedConfig | config} for command's `input` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for clients's `config` shape.
  *
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
