@@ -31,6 +31,8 @@ allprojects {
     version = "0.7.0"
 }
 
+extra["smithyVersion"] = "[1.12.0,1.13.0["
+
 // The root project doesn't produce a JAR.
 tasks["jar"].enabled = false
 
