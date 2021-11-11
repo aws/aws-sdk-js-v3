@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "devops-guru.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "devops-guru-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "devops-guru.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "devops-guru-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

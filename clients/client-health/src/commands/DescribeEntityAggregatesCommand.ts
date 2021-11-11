@@ -22,8 +22,7 @@ export interface DescribeEntityAggregatesCommandInput extends DescribeEntityAggr
 export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAggregatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the number of entities that are affected by each of the specified events. If no
- *          events are specified, the counts of all affected entities are returned.</p>
+ * <p>Returns the number of entities that are affected by each of the specified events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

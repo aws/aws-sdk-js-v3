@@ -143,6 +143,10 @@ const partitionHash: PartitionHash = {
         hostname: "polly.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "polly-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -152,6 +156,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "polly.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "polly-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

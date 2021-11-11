@@ -27,28 +27,23 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
  *             and have the same provisioned and maximum write capacity units.</p>
  *         <note>
- *             <p>Although you can use <code>UpdateGlobalTable</code> to add replicas and remove replicas in
- *                 a single request, for simplicity we recommend that you issue separate requests for
- *                 adding or removing replicas.</p>
- *          </note>
- *        	<p>
- *         If global secondary indexes are specified, then the following conditions must also be met:
- *         </p>
+ *             <p>Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
+ *                 replicas in a single request, for simplicity we recommend that you issue separate
+ *                 requests for adding or removing replicas.</p>
+ *         </note>
+ *         <p> If global secondary indexes are specified, then the following conditions must also be
+ *             met: </p>
  *         <ul>
  *             <li>
- *                <p>
- *                The global secondary indexes must have the same name.
- *             </p>
+ *                 <p> The global secondary indexes must have the same name. </p>
  *             </li>
  *             <li>
- *                <p>
- *                The global secondary indexes must have the same hash key and sort key (if present).
- *             </p>
+ *                 <p> The global secondary indexes must have the same hash key and sort key (if
+ *                     present). </p>
  *             </li>
  *             <li>
- *                <p>
- *                The global secondary indexes must have the same provisioned and maximum write capacity units.
- *             </p>
+ *                 <p> The global secondary indexes must have the same provisioned and maximum write
+ *                     capacity units. </p>
  *             </li>
  *          </ul>
  * @example

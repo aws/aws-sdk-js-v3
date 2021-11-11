@@ -385,7 +385,7 @@ export interface CreateMeetingRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p>
+   * <p>The Region in which to create the meeting.</p>
    *
    *          <p>
    *            Available values:
@@ -585,7 +585,7 @@ export interface CreateMeetingWithAttendeesRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The Region in which to create the meeting. Default: <code>us-east-1</code>.</p>
+   * <p>The Region in which to create the meeting.</p>
    */
   MediaRegion: string | undefined;
 

@@ -1836,6 +1836,8 @@ const serializeAws_json1_1TargetLanguageCodeStringList = (input: string[], conte
 
 const serializeAws_json1_1TerminologyData = (input: TerminologyData, context: __SerdeContext): any => {
   return {
+    ...(input.Directionality !== undefined &&
+      input.Directionality !== null && { Directionality: input.Directionality }),
     ...(input.File !== undefined && input.File !== null && { File: context.base64Encoder(input.File) }),
     ...(input.Format !== undefined && input.Format !== null && { Format: input.Format }),
   };
@@ -2000,6 +2002,10 @@ const deserializeAws_json1_1GetParallelDataResponse = (
 
 const deserializeAws_json1_1GetTerminologyResponse = (output: any, context: __SerdeContext): GetTerminologyResponse => {
   return {
+    AuxiliaryDataLocation:
+      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+        ? deserializeAws_json1_1TerminologyDataLocation(output.AuxiliaryDataLocation, context)
+        : undefined,
     TerminologyDataLocation:
       output.TerminologyDataLocation !== undefined && output.TerminologyDataLocation !== null
         ? deserializeAws_json1_1TerminologyDataLocation(output.TerminologyDataLocation, context)
@@ -2016,6 +2022,10 @@ const deserializeAws_json1_1ImportTerminologyResponse = (
   context: __SerdeContext
 ): ImportTerminologyResponse => {
   return {
+    AuxiliaryDataLocation:
+      output.AuxiliaryDataLocation !== undefined && output.AuxiliaryDataLocation !== null
+        ? deserializeAws_json1_1TerminologyDataLocation(output.AuxiliaryDataLocation, context)
+        : undefined,
     TerminologyProperties:
       output.TerminologyProperties !== undefined && output.TerminologyProperties !== null
         ? deserializeAws_json1_1TerminologyProperties(output.TerminologyProperties, context)
@@ -2293,16 +2303,20 @@ const deserializeAws_json1_1TerminologyProperties = (output: any, context: __Ser
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedAt)))
         : undefined,
     Description: __expectString(output.Description),
+    Directionality: __expectString(output.Directionality),
     EncryptionKey:
       output.EncryptionKey !== undefined && output.EncryptionKey !== null
         ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
         : undefined,
+    Format: __expectString(output.Format),
     LastUpdatedAt:
       output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedAt)))
         : undefined,
+    Message: __expectString(output.Message),
     Name: __expectString(output.Name),
     SizeBytes: __expectInt32(output.SizeBytes),
+    SkippedTermCount: __expectInt32(output.SkippedTermCount),
     SourceLanguageCode: __expectString(output.SourceLanguageCode),
     TargetLanguageCodes:
       output.TargetLanguageCodes !== undefined && output.TargetLanguageCodes !== null

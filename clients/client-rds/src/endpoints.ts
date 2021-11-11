@@ -178,6 +178,10 @@ const partitionHash: PartitionHash = {
         hostname: "rds.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "rds-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -187,6 +191,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rds.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "rds-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -206,16 +214,8 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "rds-fips.{region}.amazonaws.com",
+        hostname: "rds.{region}.amazonaws.com",
         tags: ["fips"],
-      },
-      {
-        hostname: "rds-fips.{region}.api.aws",
-        tags: ["dualstack", "fips"],
-      },
-      {
-        hostname: "rds.{region}.api.aws",
-        tags: ["dualstack"],
       },
     ],
   },

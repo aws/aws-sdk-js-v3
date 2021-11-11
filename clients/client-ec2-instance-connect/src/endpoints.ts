@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "ec2-instance-connect.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "ec2-instance-connect-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "ec2-instance-connect.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "ec2-instance-connect-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

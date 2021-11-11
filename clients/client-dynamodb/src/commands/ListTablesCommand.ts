@@ -22,9 +22,9 @@ export interface ListTablesCommandInput extends ListTablesInput {}
 export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns an array of table names associated with the current account and endpoint. The output
- *       from <code>ListTables</code> is paginated, with each page returning a maximum of 100 table
- *       names.</p>
+ * <p>Returns an array of table names associated with the current account and endpoint. The
+ *             output from <code>ListTables</code> is paginated, with each page returning a maximum of
+ *             100 table names.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

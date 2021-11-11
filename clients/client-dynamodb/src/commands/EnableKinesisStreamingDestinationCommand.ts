@@ -24,10 +24,10 @@ export interface EnableKinesisStreamingDestinationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen
- *             during the enable workflow. If this operation doesn't return results immediately, use
- *             DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is
- *             ACTIVE.</p>
+ * <p>Starts table data replication to the specified Kinesis data stream at a timestamp
+ *             chosen during the enable workflow. If this operation doesn't return results immediately,
+ *             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
+ *             is ACTIVE.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

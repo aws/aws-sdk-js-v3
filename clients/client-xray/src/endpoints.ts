@@ -155,6 +155,10 @@ const partitionHash: PartitionHash = {
         hostname: "xray.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "xray-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -164,6 +168,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "xray.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "xray-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "metering.marketplace.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "metering.marketplace-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "metering.marketplace.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "metering.marketplace-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

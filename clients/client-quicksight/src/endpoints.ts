@@ -79,6 +79,10 @@ const partitionHash: PartitionHash = {
         hostname: "quicksight.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "quicksight-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -88,6 +92,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "quicksight.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "quicksight-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

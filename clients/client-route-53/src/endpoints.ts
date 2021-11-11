@@ -136,6 +136,10 @@ const partitionHash: PartitionHash = {
         hostname: "route53.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "route53-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
     endpoint: "aws-iso-global",
   },
@@ -146,6 +150,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "route53-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
     endpoint: "aws-iso-b-global",

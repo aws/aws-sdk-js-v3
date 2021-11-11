@@ -130,6 +130,10 @@ const partitionHash: PartitionHash = {
         hostname: "cognito-identity.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "cognito-identity-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -139,6 +143,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cognito-identity.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "cognito-identity-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -168,6 +168,10 @@ const partitionHash: PartitionHash = {
         hostname: "cloudcontrolapi.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "cloudcontrolapi-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -177,6 +181,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudcontrolapi.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "cloudcontrolapi-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "personalize-runtime.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "personalize-runtime-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "personalize-runtime.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "personalize-runtime-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

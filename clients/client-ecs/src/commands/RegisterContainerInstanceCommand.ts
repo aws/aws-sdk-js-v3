@@ -25,9 +25,8 @@ export interface RegisterContainerInstanceCommandOutput extends RegisterContaine
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
- *          <p>Registers an EC2
- * 			instance into the specified cluster. This instance becomes available to place containers
- * 			on.</p>
+ * 		       <p>Registers an EC2 instance into the specified cluster. This instance becomes available
+ * 			to place containers on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

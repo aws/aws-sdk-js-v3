@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "route53-recovery-cluster.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "route53-recovery-cluster-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "route53-recovery-cluster.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "route53-recovery-cluster-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

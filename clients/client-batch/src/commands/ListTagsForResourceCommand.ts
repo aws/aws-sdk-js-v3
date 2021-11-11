@@ -22,8 +22,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for an Batch resource. Batch resources that support tags are compute environments, jobs, job definitions, and job
- *  queues. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
+ * <p>Lists the tags for an Batch resource. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
+ *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs are not supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

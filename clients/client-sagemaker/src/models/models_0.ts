@@ -299,11 +299,11 @@ export namespace AgentVersion {
 }
 
 /**
- * <p>This API is not supported.</p>
+ * <p>An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.</p>
  */
 export interface Alarm {
   /**
-   * <p></p>
+   * <p>The name of a CloudWatch alarm in your account.</p>
    */
   AlarmName?: string;
 }
@@ -4674,11 +4674,12 @@ export enum AutoMLSortOrder {
 }
 
 /**
- * <p>Currently, the <code>AutoRollbackConfig</code> API is not supported.</p>
+ * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
  */
 export interface AutoRollbackConfig {
   /**
-   * <p></p>
+   * <p>List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint.
+   *             If any alarms are tripped during a deployment, SageMaker rolls back the deployment.</p>
    */
   Alarms?: Alarm[];
 }
@@ -5052,16 +5053,28 @@ export enum CapacitySizeType {
 }
 
 /**
- * <p>Currently, the <code>CapacitySize</code> API is not supported.</p>
+ * <p>Specifies the endpoint capacity to activate for production.</p>
  */
 export interface CapacitySize {
   /**
-   * <p>This API is not supported.</p>
+   * <p>Specifies the endpoint capacity type.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INSTANCE_COUNT</code>: The endpoint activates based on
+   *                 the number of instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CAPACITY_PERCENT</code>: The endpoint activates based on
+   *             the specified percentage of capacity.</p>
+   *             </li>
+   *          </ul>
    */
   Type: CapacitySizeType | string | undefined;
 
   /**
-   * <p></p>
+   * <p>Defines the capacity size, either as a number of instances or a capacity percentage.</p>
    */
   Value: number | undefined;
 }
@@ -5078,26 +5091,57 @@ export namespace CapacitySize {
 export enum TrafficRoutingConfigType {
   ALL_AT_ONCE = "ALL_AT_ONCE",
   CANARY = "CANARY",
+  LINEAR = "LINEAR",
 }
 
 /**
- * <p>Currently, the <code>TrafficRoutingConfig</code> API is not supported.</p>
+ * <p>Defines the traffic routing strategy during an endpoint deployment to shift traffic from the
+ *             old fleet to the new fleet.</p>
  */
 export interface TrafficRoutingConfig {
   /**
-   * <p></p>
+   * <p>Traffic routing strategy type.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet
+   *                 in a single step.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANARY</code>: Endpoint traffic shifts to the new fleet
+   *                 in two steps. The first step is the canary, which is a small portion of the traffic. The
+   *                 second step is the remainder of the traffic.
+   *             </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINEAR</code>: Endpoint traffic shifts to the new fleet in
+   *                 n steps of a configurable size.
+   *             </p>
+   *             </li>
+   *          </ul>
    */
   Type: TrafficRoutingConfigType | string | undefined;
 
   /**
-   * <p></p>
+   * <p>The waiting time (in seconds) between incremental steps to turn on traffic on the
+   *             new endpoint fleet.</p>
    */
   WaitIntervalInSeconds: number | undefined;
 
   /**
-   * <p></p>
+   * <p>Batch size for the first step to turn on traffic on the new endpoint fleet. <code>Value</code> must be less than
+   *         or equal to 50% of the variant's total instance count.</p>
    */
   CanarySize?: CapacitySize;
+
+  /**
+   * <p>Batch size for each step to turn on traffic on the new endpoint fleet. <code>Value</code> must be
+   *             10-50% of the variant's total instance count.</p>
+   */
+  LinearStepSize?: CapacitySize;
 }
 
 export namespace TrafficRoutingConfig {
@@ -5110,21 +5154,29 @@ export namespace TrafficRoutingConfig {
 }
 
 /**
- * <p>Currently, the <code>BlueGreenUpdatePolicy</code> API is not supported.</p>
+ * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
+ *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
+ *             traffic to the new fleet according to the specified traffic routing configuration. Only
+ *             one update policy should be used in the deployment configuration. If no update policy is
+ *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
+ *             by default.</p>
  */
 export interface BlueGreenUpdatePolicy {
   /**
-   * <p></p>
+   * <p>Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet
+   *             during an endpoint deployment.</p>
    */
   TrafficRoutingConfiguration: TrafficRoutingConfig | undefined;
 
   /**
-   * <p></p>
+   * <p>Additional waiting time in seconds after the completion of an endpoint deployment
+   *             before terminating the old endpoint fleet. Default is 0.</p>
    */
   TerminationWaitInSeconds?: number;
 
   /**
-   * <p></p>
+   * <p>Maximum execution timeout for the deployment. Note that the timeout value should be larger
+   *         than the total waiting time specified in <code>TerminationWaitInSeconds</code> and <code>WaitIntervalInSeconds</code>.</p>
    */
   MaximumExecutionTimeoutInSeconds?: number;
 }
@@ -9032,6 +9084,36 @@ export namespace CreateEdgePackagingJobRequest {
   });
 }
 
+/**
+ * <p>The deployment configuration for an endpoint, which contains the desired deployment
+ *             strategy and rollback configurations.</p>
+ */
+export interface DeploymentConfig {
+  /**
+   * <p>Update policy for a blue/green deployment. If this update policy is specified, SageMaker
+   *             creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips
+   *             traffic to the new fleet according to the specified traffic routing configuration. Only
+   *             one update policy should be used in the deployment configuration. If no update policy is
+   *             specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting
+   *             by default.</p>
+   */
+  BlueGreenUpdatePolicy: BlueGreenUpdatePolicy | undefined;
+
+  /**
+   * <p>Automatic rollback configuration for handling endpoint deployment failures and recovery.</p>
+   */
+  AutoRollbackConfiguration?: AutoRollbackConfig;
+}
+
+export namespace DeploymentConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DeploymentConfig): any => ({
+    ...obj,
+  });
+}
+
 export interface CreateEndpointInput {
   /**
    * <p>The name of the endpoint.The name must be unique within an Amazon Web Services Region in your Amazon Web Services
@@ -9044,6 +9126,12 @@ export interface CreateEndpointInput {
    * <p>The name of an endpoint configuration. For more information, see <a>CreateEndpointConfig</a>. </p>
    */
   EndpointConfigName: string | undefined;
+
+  /**
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment
+   *             strategy and rollback configurations.</p>
+   */
+  DeploymentConfig?: DeploymentConfig;
 
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in
@@ -13221,8 +13309,7 @@ export interface HumanTaskConfig {
    *                     the maximum is 8 hours (28,800 seconds).</p>
    *             </li>
    *             <li>
-   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs,
-   *                     the maximum is 7 days (604,800 seconds). If you want to change these limits,
+   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL mode. For most users, the maximum is also 30 days. If you want to change these limits,
    *                     contact Amazon Web Services Support.</p>
    *             </li>
    *          </ul>
@@ -13239,8 +13326,7 @@ export interface HumanTaskConfig {
    *                     The default is 6 hours (21,600 seconds).</p>
    *             </li>
    *             <li>
-   *                 <p>If you choose a private or vendor workforce, the default value is 10 days
-   *                     (864,000 seconds). For most users, the maximum is also 10 days. If you want to
+   *                 <p>If you choose a private or vendor workforce, the default value is 30 days (2592,000 seconds) for non-AL mode. For most users, the maximum is also 30 days. If you want to
    *                     change this limit, contact Amazon Web Services Support.</p>
    *             </li>
    *          </ul>
@@ -13381,30 +13467,6 @@ export namespace LabelingJobDataSource {
    * @internal
    */
   export const filterSensitiveLog = (obj: LabelingJobDataSource): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Input configuration information for a labeling job.</p>
- */
-export interface LabelingJobInputConfig {
-  /**
-   * <p>The location of the input data.</p>
-   */
-  DataSource: LabelingJobDataSource | undefined;
-
-  /**
-   * <p>Attributes of the data specified by the customer.</p>
-   */
-  DataAttributes?: LabelingJobDataAttributes;
-}
-
-export namespace LabelingJobInputConfig {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: LabelingJobInputConfig): any => ({
     ...obj,
   });
 }

@@ -22,29 +22,31 @@ export interface UpdateTableCommandInput extends UpdateTableInput {}
 export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB Streams settings for a given table.</p>
- *          <p>You can only perform one of the following operations at once:</p>
- *          <ul>
+ * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
+ *             Streams settings for a given table.</p>
+ *         <p>You can only perform one of the following operations at once:</p>
+ *         <ul>
  *             <li>
- *                <p>Modify the provisioned throughput settings of the table.</p>
+ *                 <p>Modify the provisioned throughput settings of the table.</p>
  *             </li>
  *             <li>
- *                <p>Enable or disable DynamoDB Streams on the table.</p>
+ *                 <p>Enable or disable DynamoDB Streams on the table.</p>
  *             </li>
  *             <li>
- *                <p>Remove a global secondary index from the table.</p>
+ *                 <p>Remove a global secondary index from the table.</p>
  *             </li>
  *             <li>
- *                <p>Create a new global secondary index on the table. After the index begins
+ *                 <p>Create a new global secondary index on the table. After the index begins
  *                     backfilling, you can use <code>UpdateTable</code> to perform other
  *                     operations.</p>
  *             </li>
  *          </ul>
- *          <p>
- *             <code>UpdateTable</code> is an asynchronous operation; while it is executing, the table status
- *       changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is <code>UPDATING</code>,
- *       you cannot issue another <code>UpdateTable</code> request. When the table returns to the
- *         <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is complete.</p>
+ *         <p>
+ *             <code>UpdateTable</code> is an asynchronous operation; while it is executing, the table
+ *             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
+ *                 <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.
+ *             When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
+ *             operation is complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

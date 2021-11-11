@@ -296,6 +296,9 @@ export class GreengrassV2 extends GreengrassV2Client {
    *                </ul>
    *                <p>To create a component from a Lambda function, specify <code>lambdaFunction</code>
    *           when you call this operation.</p>
+   *                <note>
+   *                   <p>IoT Greengrass currently supports Lambda functions on only Linux core devices.</p>
+   *                </note>
    *             </li>
    *          </ul>
    */

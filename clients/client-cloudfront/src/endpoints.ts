@@ -100,6 +100,10 @@ const partitionHash: PartitionHash = {
         hostname: "cloudfront.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "cloudfront-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -109,6 +113,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "cloudfront.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "cloudfront-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

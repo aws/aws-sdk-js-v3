@@ -23,7 +23,6 @@ import {
   ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
-  Subnet,
   Tag,
   TagSpecification,
   TargetCapacityUnitType,
@@ -68,11 +67,42 @@ import {
   EventInformation,
   Filter,
   IdFormat,
-  InstanceCapacity,
   InstanceTagNotificationAttribute,
   PermissionGroup,
   ProductCode,
 } from "./models_2";
+
+/**
+ * <p>Information about the number of instances that can be launched onto the Dedicated
+ *     		Host.</p>
+ */
+export interface InstanceCapacity {
+  /**
+   * <p>The number of instances that can be launched onto the Dedicated Host based on the
+   *     		host's available capacity.</p>
+   */
+  AvailableCapacity?: number;
+
+  /**
+   * <p>The instance type supported by the Dedicated Host.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The total number of instances that can be launched onto the Dedicated Host if there
+   *     		are no instances running on it.</p>
+   */
+  TotalCapacity?: number;
+}
+
+export namespace InstanceCapacity {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: InstanceCapacity): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
@@ -12952,27 +12982,6 @@ export namespace DescribeSubnetsRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: DescribeSubnetsRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface DescribeSubnetsResult {
-  /**
-   * <p>Information about one or more subnets.</p>
-   */
-  Subnets?: Subnet[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace DescribeSubnetsResult {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: DescribeSubnetsResult): any => ({
     ...obj,
   });
 }

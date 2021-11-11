@@ -130,6 +130,10 @@ const partitionHash: PartitionHash = {
         hostname: "kendra.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "kendra-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -139,6 +143,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "kendra.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "kendra-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

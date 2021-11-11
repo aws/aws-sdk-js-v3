@@ -23,14 +23,14 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
 
 /**
  * <p>Updates the Amazon ECS container agent on a specified container instance. Updating the
- * 			Amazon ECS container agent does not interrupt running tasks or services on the container
+ * 			Amazon ECS container agent doesn't interrupt running tasks or services on the container
  * 			instance. The process for updating the agent differs depending on whether your container
  * 			instance was launched with the Amazon ECS-optimized AMI or another operating system.</p>
  * 		       <note>
  * 			         <p>The <code>UpdateContainerAgent</code> API isn't supported for container instances
  * 				using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
- * 				you can update the <code>ecs-init</code> package which will update the agent. For
- * 				more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating the
+ * 				you can update the <code>ecs-init</code> package. This updates the agent. For more
+ * 				information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating the
  * 					Amazon ECS container agent</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>

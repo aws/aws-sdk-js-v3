@@ -105,6 +105,10 @@ const partitionHash: PartitionHash = {
         hostname: "workdocs.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "workdocs-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -114,6 +118,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "workdocs.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "workdocs-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

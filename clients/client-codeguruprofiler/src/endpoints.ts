@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "codeguru-profiler.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "codeguru-profiler-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codeguru-profiler.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "codeguru-profiler-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

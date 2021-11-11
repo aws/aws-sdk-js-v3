@@ -24,7 +24,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
 /**
  * <p>Deletes a specified service within a cluster. You can delete a service if you have no
  * 			running tasks in it and the desired task count is zero. If the service is actively
- * 			maintaining tasks, you cannot delete it, and you must update the service to a desired
+ * 			maintaining tasks, you can't delete it, and you must update the service to a desired
  * 			task count of zero. For more information, see <a>UpdateService</a>.</p>
  * 		       <note>
  * 			         <p>When you delete a service, if there are still running tasks that require cleanup,

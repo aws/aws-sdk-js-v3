@@ -748,6 +748,7 @@ import {
   DataQualityBaselineConfig,
   DataQualityJobInput,
   DataSource,
+  DeploymentConfig,
   DomainSettings,
   EdgeOutputConfig,
   EndpointInput,
@@ -779,7 +780,6 @@ import {
   KernelSpec,
   LabelingJobDataAttributes,
   LabelingJobDataSource,
-  LabelingJobInputConfig,
   LabelingJobS3DataSource,
   LabelingJobSnsDataSource,
   MetadataProperties,
@@ -958,7 +958,6 @@ import {
   DeleteWorkteamRequest,
   DeleteWorkteamResponse,
   DeployedImage,
-  DeploymentConfig,
   DeregisterDevicesRequest,
   DescribeActionRequest,
   DescribeActionResponse,
@@ -1033,8 +1032,6 @@ import {
   DescribePipelineRequest,
   DescribePipelineResponse,
   DescribeProcessingJobRequest,
-  DescribeProcessingJobResponse,
-  DescribeProjectInput,
   EdgeModel,
   EdgePresetDeploymentOutput,
   ExperimentConfig,
@@ -1045,6 +1042,7 @@ import {
   InferenceExecutionConfig,
   LabelCounters,
   LabelingJobAlgorithmsConfig,
+  LabelingJobInputConfig,
   LabelingJobOutput,
   LabelingJobOutputConfig,
   LabelingJobResourceConfig,
@@ -1085,6 +1083,8 @@ import {
   OfflineStoreStatus,
   OidcConfig,
   OidcMemberDefinition,
+  PendingDeploymentSummary,
+  PendingProductionVariantSummary,
   PipelineExperimentConfig,
   ProcessingClusterConfig,
   ProcessingFeatureStoreOutput,
@@ -1095,6 +1095,7 @@ import {
   ProcessingS3Input,
   ProcessingS3Output,
   ProcessingStoppingCondition,
+  ProductionVariantStatus,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
@@ -1115,6 +1116,8 @@ import {
   UiTemplateInfo,
 } from "../models/models_1";
 import {
+  DescribeProcessingJobResponse,
+  DescribeProjectInput,
   DescribeProjectOutput,
   DescribeStudioLifecycleConfigRequest,
   DescribeStudioLifecycleConfigResponse,
@@ -1337,10 +1340,6 @@ import {
   StartMonitoringScheduleRequest,
   StartNotebookInstanceInput,
   StartPipelineExecutionRequest,
-  StartPipelineExecutionResponse,
-  StopAutoMLJobRequest,
-  StopCompilationJobRequest,
-  StopEdgePackagingJobRequest,
   StudioLifecycleConfigDetails,
   SubscribedWorkteam,
   SuggestionQuery,
@@ -1368,6 +1367,10 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  StartPipelineExecutionResponse,
+  StopAutoMLJobRequest,
+  StopCompilationJobRequest,
+  StopEdgePackagingJobRequest,
   StopHyperParameterTuningJobRequest,
   StopLabelingJobRequest,
   StopMonitoringScheduleRequest,
@@ -18374,6 +18377,10 @@ const serializeAws_json1_1CreateEndpointConfigInput = (
 
 const serializeAws_json1_1CreateEndpointInput = (input: CreateEndpointInput, context: __SerdeContext): any => {
   return {
+    ...(input.DeploymentConfig !== undefined &&
+      input.DeploymentConfig !== null && {
+        DeploymentConfig: serializeAws_json1_1DeploymentConfig(input.DeploymentConfig, context),
+      }),
     ...(input.EndpointConfigName !== undefined &&
       input.EndpointConfigName !== null && { EndpointConfigName: input.EndpointConfigName }),
     ...(input.EndpointName !== undefined && input.EndpointName !== null && { EndpointName: input.EndpointName }),
@@ -24134,6 +24141,10 @@ const serializeAws_json1_1TrafficRoutingConfig = (input: TrafficRoutingConfig, c
   return {
     ...(input.CanarySize !== undefined &&
       input.CanarySize !== null && { CanarySize: serializeAws_json1_1CapacitySize(input.CanarySize, context) }),
+    ...(input.LinearStepSize !== undefined &&
+      input.LinearStepSize !== null && {
+        LinearStepSize: serializeAws_json1_1CapacitySize(input.LinearStepSize, context),
+      }),
     ...(input.Type !== undefined && input.Type !== null && { Type: input.Type }),
     ...(input.WaitIntervalInSeconds !== undefined &&
       input.WaitIntervalInSeconds !== null && { WaitIntervalInSeconds: input.WaitIntervalInSeconds }),
@@ -24545,6 +24556,8 @@ const serializeAws_json1_1UpdateEndpointInput = (input: UpdateEndpointInput, con
       }),
     ...(input.RetainAllVariantProperties !== undefined &&
       input.RetainAllVariantProperties !== null && { RetainAllVariantProperties: input.RetainAllVariantProperties }),
+    ...(input.RetainDeploymentConfig !== undefined &&
+      input.RetainDeploymentConfig !== null && { RetainDeploymentConfig: input.RetainDeploymentConfig }),
   };
 };
 
@@ -27525,6 +27538,10 @@ const deserializeAws_json1_1DescribeEndpointOutput = (output: any, context: __Se
     LastModifiedTime:
       output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
+        : undefined,
+    PendingDeploymentSummary:
+      output.PendingDeploymentSummary !== undefined && output.PendingDeploymentSummary !== null
+        ? deserializeAws_json1_1PendingDeploymentSummary(output.PendingDeploymentSummary, context)
         : undefined,
     ProductionVariants:
       output.ProductionVariants !== undefined && output.ProductionVariants !== null
@@ -32356,6 +32373,60 @@ const deserializeAws_json1_1Parents = (output: any, context: __SerdeContext): Pa
     });
 };
 
+const deserializeAws_json1_1PendingDeploymentSummary = (
+  output: any,
+  context: __SerdeContext
+): PendingDeploymentSummary => {
+  return {
+    EndpointConfigName: __expectString(output.EndpointConfigName),
+    ProductionVariants:
+      output.ProductionVariants !== undefined && output.ProductionVariants !== null
+        ? deserializeAws_json1_1PendingProductionVariantSummaryList(output.ProductionVariants, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PendingProductionVariantSummary = (
+  output: any,
+  context: __SerdeContext
+): PendingProductionVariantSummary => {
+  return {
+    AcceleratorType: __expectString(output.AcceleratorType),
+    CurrentInstanceCount: __expectInt32(output.CurrentInstanceCount),
+    CurrentWeight: __limitedParseFloat32(output.CurrentWeight),
+    DeployedImages:
+      output.DeployedImages !== undefined && output.DeployedImages !== null
+        ? deserializeAws_json1_1DeployedImages(output.DeployedImages, context)
+        : undefined,
+    DesiredInstanceCount: __expectInt32(output.DesiredInstanceCount),
+    DesiredWeight: __limitedParseFloat32(output.DesiredWeight),
+    InstanceType: __expectString(output.InstanceType),
+    VariantName: __expectString(output.VariantName),
+    VariantStatus:
+      output.VariantStatus !== undefined && output.VariantStatus !== null
+        ? deserializeAws_json1_1ProductionVariantStatusList(output.VariantStatus, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PendingProductionVariantSummaryList = (
+  output: any,
+  context: __SerdeContext
+): PendingProductionVariantSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1PendingProductionVariantSummary(entry, context);
+    });
+};
+
 const deserializeAws_json1_1Pipeline = (output: any, context: __SerdeContext): Pipeline => {
   return {
     CreatedBy:
@@ -32860,6 +32931,34 @@ const deserializeAws_json1_1ProductionVariantList = (output: any, context: __Ser
     });
 };
 
+const deserializeAws_json1_1ProductionVariantStatus = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantStatus => {
+  return {
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.StartTime)))
+        : undefined,
+    Status: __expectString(output.Status),
+    StatusMessage: __expectString(output.StatusMessage),
+  } as any;
+};
+
+const deserializeAws_json1_1ProductionVariantStatusList = (
+  output: any,
+  context: __SerdeContext
+): ProductionVariantStatus[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProductionVariantStatus(entry, context);
+    });
+};
+
 const deserializeAws_json1_1ProductionVariantSummary = (
   output: any,
   context: __SerdeContext
@@ -32874,6 +32973,10 @@ const deserializeAws_json1_1ProductionVariantSummary = (
     DesiredInstanceCount: __expectInt32(output.DesiredInstanceCount),
     DesiredWeight: __limitedParseFloat32(output.DesiredWeight),
     VariantName: __expectString(output.VariantName),
+    VariantStatus:
+      output.VariantStatus !== undefined && output.VariantStatus !== null
+        ? deserializeAws_json1_1ProductionVariantStatusList(output.VariantStatus, context)
+        : undefined,
   } as any;
 };
 
@@ -33703,6 +33806,10 @@ const deserializeAws_json1_1TrafficRoutingConfig = (output: any, context: __Serd
     CanarySize:
       output.CanarySize !== undefined && output.CanarySize !== null
         ? deserializeAws_json1_1CapacitySize(output.CanarySize, context)
+        : undefined,
+    LinearStepSize:
+      output.LinearStepSize !== undefined && output.LinearStepSize !== null
+        ? deserializeAws_json1_1CapacitySize(output.LinearStepSize, context)
         : undefined,
     Type: __expectString(output.Type),
     WaitIntervalInSeconds: __expectInt32(output.WaitIntervalInSeconds),

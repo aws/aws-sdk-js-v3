@@ -118,6 +118,10 @@ const partitionHash: PartitionHash = {
         hostname: "qldb.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "qldb-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -127,6 +131,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "qldb.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "qldb-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

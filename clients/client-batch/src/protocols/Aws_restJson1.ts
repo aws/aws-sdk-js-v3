@@ -7,6 +7,8 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseFloat32 as __limitedParseFloat32,
+  serializeFloat as __serializeFloat,
 } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
@@ -23,10 +25,18 @@ import {
 } from "../commands/CreateComputeEnvironmentCommand";
 import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "../commands/CreateJobQueueCommand";
 import {
+  CreateSchedulingPolicyCommandInput,
+  CreateSchedulingPolicyCommandOutput,
+} from "../commands/CreateSchedulingPolicyCommand";
+import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "../commands/DeleteComputeEnvironmentCommand";
 import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "../commands/DeleteJobQueueCommand";
+import {
+  DeleteSchedulingPolicyCommandInput,
+  DeleteSchedulingPolicyCommandOutput,
+} from "../commands/DeleteSchedulingPolicyCommand";
 import {
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput,
@@ -41,7 +51,15 @@ import {
 } from "../commands/DescribeJobDefinitionsCommand";
 import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from "../commands/DescribeJobQueuesCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "../commands/DescribeJobsCommand";
+import {
+  DescribeSchedulingPoliciesCommandInput,
+  DescribeSchedulingPoliciesCommandOutput,
+} from "../commands/DescribeSchedulingPoliciesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJobsCommand";
+import {
+  ListSchedulingPoliciesCommandInput,
+  ListSchedulingPoliciesCommandOutput,
+} from "../commands/ListSchedulingPoliciesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -59,6 +77,10 @@ import {
   UpdateComputeEnvironmentCommandOutput,
 } from "../commands/UpdateComputeEnvironmentCommand";
 import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "../commands/UpdateJobQueueCommand";
+import {
+  UpdateSchedulingPolicyCommandInput,
+  UpdateSchedulingPolicyCommandOutput,
+} from "../commands/UpdateSchedulingPolicyCommand";
 import {
   ArrayProperties,
   ArrayPropertiesDetail,
@@ -80,6 +102,7 @@ import {
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EvaluateOnExit,
+  FairsharePolicy,
   FargatePlatformConfiguration,
   Host,
   JobDefinition,
@@ -105,8 +128,11 @@ import {
   PlatformCapability,
   ResourceRequirement,
   RetryStrategy,
+  SchedulingPolicyDetail,
+  SchedulingPolicyListingDetail,
   Secret,
   ServerException,
+  ShareAttributes,
   Tmpfs,
   Ulimit,
   Volume,
@@ -160,6 +186,8 @@ export const serializeAws_restJson1CreateComputeEnvironmentCommand = async (
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagrisTagsMap(input.tags, context) }),
     ...(input.type !== undefined && input.type !== null && { type: input.type }),
+    ...(input.unmanagedvCpus !== undefined &&
+      input.unmanagedvCpus !== null && { unmanagedvCpus: input.unmanagedvCpus }),
   });
   return new __HttpRequest({
     protocol,
@@ -189,7 +217,40 @@ export const serializeAws_restJson1CreateJobQueueCommand = async (
       }),
     ...(input.jobQueueName !== undefined && input.jobQueueName !== null && { jobQueueName: input.jobQueueName }),
     ...(input.priority !== undefined && input.priority !== null && { priority: input.priority }),
+    ...(input.schedulingPolicyArn !== undefined &&
+      input.schedulingPolicyArn !== null && { schedulingPolicyArn: input.schedulingPolicyArn }),
     ...(input.state !== undefined && input.state !== null && { state: input.state }),
+    ...(input.tags !== undefined &&
+      input.tags !== null && { tags: serializeAws_restJson1TagrisTagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateSchedulingPolicyCommand = async (
+  input: CreateSchedulingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/createschedulingpolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.fairsharePolicy !== undefined &&
+      input.fairsharePolicy !== null && {
+        fairsharePolicy: serializeAws_restJson1FairsharePolicy(input.fairsharePolicy, context),
+      }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagrisTagsMap(input.tags, context) }),
   });
@@ -242,6 +303,31 @@ export const serializeAws_restJson1DeleteJobQueueCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.jobQueue !== undefined && input.jobQueue !== null && { jobQueue: input.jobQueue }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteSchedulingPolicyCommand = async (
+  input: DeleteSchedulingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/deleteschedulingpolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
   });
   return new __HttpRequest({
     protocol,
@@ -394,6 +480,32 @@ export const serializeAws_restJson1DescribeJobsCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeSchedulingPoliciesCommand = async (
+  input: DescribeSchedulingPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/describeschedulingpolicies";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.arns !== undefined &&
+      input.arns !== null && { arns: serializeAws_restJson1StringList(input.arns, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
@@ -413,6 +525,32 @@ export const serializeAws_restJson1ListJobsCommand = async (
     ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.multiNodeJobId !== undefined &&
       input.multiNodeJobId !== null && { multiNodeJobId: input.multiNodeJobId }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSchedulingPoliciesCommand = async (
+  input: ListSchedulingPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/listschedulingpolicies";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
@@ -487,6 +625,8 @@ export const serializeAws_restJson1RegisterJobDefinitionCommand = async (
       input.retryStrategy !== null && {
         retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
       }),
+    ...(input.schedulingPriority !== undefined &&
+      input.schedulingPriority !== null && { schedulingPriority: input.schedulingPriority }),
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagrisTagsMap(input.tags, context) }),
     ...(input.timeout !== undefined &&
@@ -539,6 +679,10 @@ export const serializeAws_restJson1SubmitJobCommand = async (
       input.retryStrategy !== null && {
         retryStrategy: serializeAws_restJson1RetryStrategy(input.retryStrategy, context),
       }),
+    ...(input.schedulingPriorityOverride !== undefined &&
+      input.schedulingPriorityOverride !== null && { schedulingPriorityOverride: input.schedulingPriorityOverride }),
+    ...(input.shareIdentifier !== undefined &&
+      input.shareIdentifier !== null && { shareIdentifier: input.shareIdentifier }),
     ...(input.tags !== undefined &&
       input.tags !== null && { tags: serializeAws_restJson1TagrisTagsMap(input.tags, context) }),
     ...(input.timeout !== undefined &&
@@ -666,6 +810,8 @@ export const serializeAws_restJson1UpdateComputeEnvironmentCommand = async (
       }),
     ...(input.serviceRole !== undefined && input.serviceRole !== null && { serviceRole: input.serviceRole }),
     ...(input.state !== undefined && input.state !== null && { state: input.state }),
+    ...(input.unmanagedvCpus !== undefined &&
+      input.unmanagedvCpus !== null && { unmanagedvCpus: input.unmanagedvCpus }),
   });
   return new __HttpRequest({
     protocol,
@@ -695,7 +841,38 @@ export const serializeAws_restJson1UpdateJobQueueCommand = async (
       }),
     ...(input.jobQueue !== undefined && input.jobQueue !== null && { jobQueue: input.jobQueue }),
     ...(input.priority !== undefined && input.priority !== null && { priority: input.priority }),
+    ...(input.schedulingPolicyArn !== undefined &&
+      input.schedulingPolicyArn !== null && { schedulingPolicyArn: input.schedulingPolicyArn }),
     ...(input.state !== undefined && input.state !== null && { state: input.state }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateSchedulingPolicyCommand = async (
+  input: UpdateSchedulingPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/updateschedulingpolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.arn !== undefined && input.arn !== null && { arn: input.arn }),
+    ...(input.fairsharePolicy !== undefined &&
+      input.fairsharePolicy !== null && {
+        fairsharePolicy: serializeAws_restJson1FairsharePolicy(input.fairsharePolicy, context),
+      }),
   });
   return new __HttpRequest({
     protocol,
@@ -901,6 +1078,73 @@ const deserializeAws_restJson1CreateJobQueueCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreateSchedulingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSchedulingPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateSchedulingPolicyCommandError(output, context);
+  }
+  const contents: CreateSchedulingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    arn: undefined,
+    name: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.name !== undefined && data.name !== null) {
+    contents.name = __expectString(data.name);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateSchedulingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSchedulingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.batch#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.batch#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteComputeEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -978,6 +1222,65 @@ const deserializeAws_restJson1DeleteJobQueueCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobQueueCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.batch#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.batch#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteSchedulingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchedulingPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteSchedulingPolicyCommandError(output, context);
+  }
+  const contents: DeleteSchedulingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteSchedulingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSchedulingPolicyCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1345,6 +1648,69 @@ const deserializeAws_restJson1DescribeJobsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeSchedulingPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSchedulingPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeSchedulingPoliciesCommandError(output, context);
+  }
+  const contents: DescribeSchedulingPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    schedulingPolicies: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.schedulingPolicies !== undefined && data.schedulingPolicies !== null) {
+    contents.schedulingPolicies = deserializeAws_restJson1SchedulingPolicyDetailList(data.schedulingPolicies, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeSchedulingPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSchedulingPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.batch#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.batch#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1371,6 +1737,76 @@ const deserializeAws_restJson1ListJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.batch#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.batch#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListSchedulingPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchedulingPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSchedulingPoliciesCommandError(output, context);
+  }
+  const contents: ListSchedulingPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    schedulingPolicies: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.schedulingPolicies !== undefined && data.schedulingPolicies !== null) {
+    contents.schedulingPolicies = deserializeAws_restJson1SchedulingPolicyListingDetailList(
+      data.schedulingPolicies,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSchedulingPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchedulingPoliciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseBody(output.body, context),
@@ -1928,6 +2364,65 @@ const deserializeAws_restJson1UpdateJobQueueCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateSchedulingPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchedulingPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateSchedulingPolicyCommandError(output, context);
+  }
+  const contents: UpdateSchedulingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateSchedulingPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchedulingPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.batch#ClientException":
+      response = {
+        ...(await deserializeAws_restJson1ClientExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServerException":
+    case "com.amazonaws.batch#ServerException":
+      response = {
+        ...(await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_restJson1ClientExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2226,6 +2721,19 @@ const serializeAws_restJson1EvaluateOnExitList = (input: EvaluateOnExit[], conte
     });
 };
 
+const serializeAws_restJson1FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.computeReservation !== undefined &&
+      input.computeReservation !== null && { computeReservation: input.computeReservation }),
+    ...(input.shareDecaySeconds !== undefined &&
+      input.shareDecaySeconds !== null && { shareDecaySeconds: input.shareDecaySeconds }),
+    ...(input.shareDistribution !== undefined &&
+      input.shareDistribution !== null && {
+        shareDistribution: serializeAws_restJson1ShareAttributesList(input.shareDistribution, context),
+      }),
+  };
+};
+
 const serializeAws_restJson1FargatePlatformConfiguration = (
   input: FargatePlatformConfiguration,
   context: __SerdeContext
@@ -2507,6 +3015,26 @@ const serializeAws_restJson1SecretList = (input: Secret[], context: __SerdeConte
     });
 };
 
+const serializeAws_restJson1ShareAttributes = (input: ShareAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.shareIdentifier !== undefined &&
+      input.shareIdentifier !== null && { shareIdentifier: input.shareIdentifier }),
+    ...(input.weightFactor !== undefined &&
+      input.weightFactor !== null && { weightFactor: __serializeFloat(input.weightFactor) }),
+  };
+};
+
+const serializeAws_restJson1ShareAttributesList = (input: ShareAttributes[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ShareAttributes(entry, context);
+    });
+};
+
 const serializeAws_restJson1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2700,6 +3228,7 @@ const deserializeAws_restJson1ComputeEnvironmentDetail = (
         ? deserializeAws_restJson1TagrisTagsMap(output.tags, context)
         : undefined,
     type: __expectString(output.type),
+    unmanagedvCpus: __expectInt32(output.unmanagedvCpus),
   } as any;
 };
 
@@ -3024,6 +3553,17 @@ const deserializeAws_restJson1EvaluateOnExitList = (output: any, context: __Serd
     });
 };
 
+const deserializeAws_restJson1FairsharePolicy = (output: any, context: __SerdeContext): FairsharePolicy => {
+  return {
+    computeReservation: __expectInt32(output.computeReservation),
+    shareDecaySeconds: __expectInt32(output.shareDecaySeconds),
+    shareDistribution:
+      output.shareDistribution !== undefined && output.shareDistribution !== null
+        ? deserializeAws_restJson1ShareAttributesList(output.shareDistribution, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1FargatePlatformConfiguration = (
   output: any,
   context: __SerdeContext
@@ -3065,6 +3605,7 @@ const deserializeAws_restJson1JobDefinition = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
         : undefined,
     revision: __expectInt32(output.revision),
+    schedulingPriority: __expectInt32(output.schedulingPriority),
     status: __expectString(output.status),
     tags:
       output.tags !== undefined && output.tags !== null
@@ -3152,6 +3693,8 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
       output.retryStrategy !== undefined && output.retryStrategy !== null
         ? deserializeAws_restJson1RetryStrategy(output.retryStrategy, context)
         : undefined,
+    schedulingPriority: __expectInt32(output.schedulingPriority),
+    shareIdentifier: __expectString(output.shareIdentifier),
     startedAt: __expectLong(output.startedAt),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -3187,6 +3730,7 @@ const deserializeAws_restJson1JobQueueDetail = (output: any, context: __SerdeCon
     jobQueueArn: __expectString(output.jobQueueArn),
     jobQueueName: __expectString(output.jobQueueName),
     priority: __expectInt32(output.priority),
+    schedulingPolicyArn: __expectString(output.schedulingPolicyArn),
     state: __expectString(output.state),
     status: __expectString(output.status),
     statusReason: __expectString(output.statusReason),
@@ -3460,6 +4004,61 @@ const deserializeAws_restJson1RetryStrategy = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1SchedulingPolicyDetail = (
+  output: any,
+  context: __SerdeContext
+): SchedulingPolicyDetail => {
+  return {
+    arn: __expectString(output.arn),
+    fairsharePolicy:
+      output.fairsharePolicy !== undefined && output.fairsharePolicy !== null
+        ? deserializeAws_restJson1FairsharePolicy(output.fairsharePolicy, context)
+        : undefined,
+    name: __expectString(output.name),
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagrisTagsMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SchedulingPolicyDetailList = (
+  output: any,
+  context: __SerdeContext
+): SchedulingPolicyDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SchedulingPolicyDetail(entry, context);
+    });
+};
+
+const deserializeAws_restJson1SchedulingPolicyListingDetail = (
+  output: any,
+  context: __SerdeContext
+): SchedulingPolicyListingDetail => {
+  return {
+    arn: __expectString(output.arn),
+  } as any;
+};
+
+const deserializeAws_restJson1SchedulingPolicyListingDetailList = (
+  output: any,
+  context: __SerdeContext
+): SchedulingPolicyListingDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SchedulingPolicyListingDetail(entry, context);
+    });
+};
+
 const deserializeAws_restJson1Secret = (output: any, context: __SerdeContext): Secret => {
   return {
     name: __expectString(output.name),
@@ -3475,6 +4074,24 @@ const deserializeAws_restJson1SecretList = (output: any, context: __SerdeContext
         return null as any;
       }
       return deserializeAws_restJson1Secret(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ShareAttributes = (output: any, context: __SerdeContext): ShareAttributes => {
+  return {
+    shareIdentifier: __expectString(output.shareIdentifier),
+    weightFactor: __limitedParseFloat32(output.weightFactor),
+  } as any;
+};
+
+const deserializeAws_restJson1ShareAttributesList = (output: any, context: __SerdeContext): ShareAttributes[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ShareAttributes(entry, context);
     });
 };
 

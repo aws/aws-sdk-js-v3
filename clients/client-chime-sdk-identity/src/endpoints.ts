@@ -92,6 +92,10 @@ const partitionHash: PartitionHash = {
         hostname: "identity-chime.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "identity-chime-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -101,6 +105,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identity-chime.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "identity-chime-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

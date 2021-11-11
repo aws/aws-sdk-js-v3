@@ -25,10 +25,10 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
  * 			cluster and are used in capacity provider strategies to facilitate cluster auto
  * 			scaling.</p>
- * 		       <p>Only capacity providers using an Auto Scaling group can be created. Amazon ECS tasks on
- * 			Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers
- * 			which are already created and available to all accounts in Regions supported by
- * 			Fargate.</p>
+ * 		       <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
+ * 			Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.
+ * 			These providers are available to all accounts in the Amazon Web Services Regions that Fargate
+ * 			supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3,7 +3,9 @@ import { MetadataBearer as $MetadataBearer, SmithyException as __SmithyException
 export enum ActionValue {
   ALLOW = "ALLOW",
   BLOCK = "BLOCK",
+  CAPTCHA = "CAPTCHA",
   COUNT = "COUNT",
+  EXCLUDED_AS_COUNT = "EXCLUDED_AS_COUNT",
 }
 
 /**
@@ -1295,13 +1297,13 @@ export namespace LabelMatchStatement {
 }
 
 /**
- * <p>Specifies a single rule to exclude from the rule group. Excluding a rule overrides its
- *          action setting for the rule group in the web ACL, setting it to <code>COUNT</code>. This
- *          effectively excludes the rule from acting on web requests. </p>
+ * <p>Specifies a single rule in a rule group whose action you want to override to <code>Count</code>. When you exclude a rule,
+ *            WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>. This is a useful option for
+ *            testing the rules in a rule group without modifying how they handle your web traffic. </p>
  */
 export interface ExcludedRule {
   /**
-   * <p>The name of the rule to exclude.</p>
+   * <p>The name of the rule whose action you want to override to <code>Count</code>.</p>
    */
   Name: string | undefined;
 }
@@ -1396,8 +1398,9 @@ export interface RuleGroupReferenceStatement {
   ARN: string | undefined;
 
   /**
-   * <p>The names of rules that are in the referenced rule group, but that you want WAF to
-   *          exclude from processing for this rule statement. </p>
+   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>.
+   *        When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>.
+   *        This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.</p>
    */
   ExcludedRules?: ExcludedRule[];
 }
@@ -1812,6 +1815,55 @@ export namespace BlockAction {
 }
 
 /**
+ * <p>Specifies that WAF should run a <code>CAPTCHA</code> check against the request: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,
+ *                WAF allows the web request inspection to
+ *                    proceed to the next rule, similar to a <code>CountAction</code>. </p>
+ *            </li>
+ *             <li>
+ *                <p>If the request doesn't include a valid, unexpired <code>CAPTCHA</code> token, WAF
+ *                    discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>
+ *                <p>WAF generates a response that it sends back to the client, which includes the following: </p>
+ *                <ul>
+ *                   <li>
+ *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>
+ *                    </li>
+ *                   <li>
+ *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> challenge. </p>
+ *                    </li>
+ *                </ul>
+ *            </li>
+ *          </ul>
+ *          <p>You can configure the expiration time
+ *                in the <code>CaptchaConfig</code>
+ *             <code>ImmunityTimeProperty</code> setting at the rule and web ACL level. The rule setting overrides the web ACL setting. </p>
+ *          <p>This action option is available for rules. It isn't available for web ACL default actions. </p>
+ *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
+ */
+export interface CaptchaAction {
+  /**
+   * <p>Defines custom handling for the web request.</p>
+   *          <p>For information about customizing web requests and responses, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
+   */
+  CustomRequestHandling?: CustomRequestHandling;
+}
+
+export namespace CaptchaAction {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CaptchaAction): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Specifies that WAF should count the request. Optionally defines additional custom
  *          handling for the request.</p>
  *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
@@ -1853,6 +1905,11 @@ export interface RuleAction {
    * <p>Instructs WAF to count the web request and allow it.</p>
    */
   Count?: CountAction;
+
+  /**
+   * <p>Instructs WAF to run a <code>CAPTCHA</code> check against the web request.</p>
+   */
+  Captcha?: CaptchaAction;
 }
 
 export namespace RuleAction {
@@ -1865,8 +1922,46 @@ export namespace RuleAction {
 }
 
 /**
- * <p>Specifies that WAF should do nothing. This is generally used to try out a rule
- *          without performing any actions. You set the <code>OverrideAction</code> on the <a>Rule</a>. </p>
+ * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client successfully solves a <code>CAPTCHA</code> puzzle. </p>
+ */
+export interface ImmunityTimeProperty {
+  /**
+   * <p>The amount of time, in seconds, that a <code>CAPTCHA</code> token is valid. The default setting is 300.</p>
+   */
+  ImmunityTime: number | undefined;
+}
+
+export namespace ImmunityTimeProperty {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ImmunityTimeProperty): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. This is available at the web ACL level and in each rule.  </p>
+ */
+export interface CaptchaConfig {
+  /**
+   * <p>Determines how long a <code>CAPTCHA</code> token remains valid after the client successfully solves a <code>CAPTCHA</code> puzzle. </p>
+   */
+  ImmunityTimeProperty?: ImmunityTimeProperty;
+}
+
+export namespace CaptchaConfig {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CaptchaConfig): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies that WAF should do nothing. This is used for the <code>OverrideAction</code> setting
+ *            on a <a>Rule</a> when the rule uses a rule group reference statement. </p>
  *          <p>This is used in the context of other settings, for example to specify values for <a>RuleAction</a> and web ACL <a>DefaultAction</a>. </p>
  *          <p>JSON specification: <code>"None": {}</code>
  *          </p>
@@ -1883,27 +1978,25 @@ export namespace NoneAction {
 }
 
 /**
- * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
- *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
- *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
- *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
- *          <ul>
- *             <li>
- *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
- *             </li>
- *             <li>
- *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
- *             </li>
- *          </ul>
+ * <p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>
+ *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+ *          <note>
+ *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
+ *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+ *          </note>
  */
 export interface OverrideAction {
   /**
-   * <p>Override the rule action setting to count.</p>
+   * <p>Override the rule group evaluation result to count only. </p>
+   *          <note>
+   *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
+   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *          </note>
    */
   Count?: CountAction;
 
   /**
-   * <p>Don't override the rule action setting.</p>
+   * <p>Don't override the rule group evaluation result. This is the most common setting.</p>
    */
   None?: NoneAction;
 }
@@ -4002,6 +4095,40 @@ export namespace GetSampledRequestsRequest {
   });
 }
 
+export enum FailureReason {
+  TOKEN_EXPIRED = "TOKEN_EXPIRED",
+  TOKEN_MISSING = "TOKEN_MISSING",
+}
+
+/**
+ * <p>The result from the inspection of the web request for a valid <code>CAPTCHA</code> token. </p>
+ */
+export interface CaptchaResponse {
+  /**
+   * <p>The HTTP response code indicating the status of the <code>CAPTCHA</code> token in the web request. If the token is missing, invalid, or expired, this code is <code>405 Method Not Allowed</code>.</p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * <p>The time that the <code>CAPTCHA</code> puzzle was solved for the supplied token. </p>
+   */
+  SolveTimestamp?: number;
+
+  /**
+   * <p>The reason for failure, populated when the evaluation of the token fails.</p>
+   */
+  FailureReason?: FailureReason | string;
+}
+
+export namespace CaptchaResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: CaptchaResponse): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Part of the response from <a>GetSampledRequests</a>. This is a complex type
  *          that appears as <code>Headers</code> in the response syntax. <code>HTTPHeader</code>
@@ -4121,8 +4248,8 @@ export interface SampledHTTPRequest {
   Timestamp?: Date;
 
   /**
-   * <p>The action for the <code>Rule</code> that the request matched: <code>ALLOW</code>,
-   *             <code>BLOCK</code>, or <code>COUNT</code>.</p>
+   * <p>The action for the <code>Rule</code> that the request matched: <code>Allow</code>,
+   *             <code>Block</code>, or <code>Count</code>.</p>
    */
   Action?: string;
 
@@ -4155,6 +4282,11 @@ export interface SampledHTTPRequest {
    *             <code>awswaf:managed:aws:managed-rule-set:header:encoding:utf8</code>. </p>
    */
   Labels?: Label[];
+
+  /**
+   * <p>The <code>CAPTCHA</code> response for the request.</p>
+   */
+  CaptchaResponse?: CaptchaResponse;
 }
 
 export namespace SampledHTTPRequest {
@@ -4515,7 +4647,7 @@ export interface ListLoggingConfigurationsRequest {
    *             </li>
    *          </ul>
    */
-  Scope?: Scope | string;
+  Scope: Scope | string | undefined;
 
   /**
    * <p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available
@@ -5720,9 +5852,9 @@ export interface ManagedRuleGroupStatement {
   Version?: string;
 
   /**
-   * <p>The rules whose actions are set to <code>COUNT</code> by the web ACL, regardless of the
-   *          action that is set on the rule. This effectively excludes the rule from acting on web
-   *          requests. </p>
+   * <p>The rules in the referenced rule group whose actions are set to <code>Count</code>.
+   *        When you exclude a rule, WAF evaluates it exactly as it would if the rule action setting were <code>Count</code>.
+   *        This is a useful option for testing the rules in a rule group without modifying how they handle your web traffic.</p>
    */
   ExcludedRules?: ExcludedRule[];
 
@@ -5877,18 +6009,12 @@ export interface Rule {
   Action?: RuleAction;
 
   /**
-   * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
-   *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
-   *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
-   *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
-   *             </li>
-   *             <li>
-   *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
-   *             </li>
-   *          </ul>
+   * <p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>
+   *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *          <note>
+   *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
+   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *          </note>
    */
   OverrideAction?: OverrideAction;
 
@@ -5926,6 +6052,11 @@ export interface Rule {
    * <p>Defines and enables Amazon CloudWatch metrics and web request sample collection.  </p>
    */
   VisibilityConfig: VisibilityConfig | undefined;
+
+  /**
+   * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations. If you don't specify this, WAF uses the <code>CAPTCHA</code> configuration that's defined for the web ACL. </p>
+   */
+  CaptchaConfig?: CaptchaConfig;
 }
 
 export namespace Rule {
@@ -6027,18 +6158,12 @@ export interface FirewallManagerRuleGroup {
   FirewallManagerStatement: FirewallManagerStatement | undefined;
 
   /**
-   * <p>The override action to apply to the rules in a rule group. Used only for rule statements that reference a rule group,
-   *            like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
-   *         <p>Set the override action to none to leave the rule actions in effect. Set it to count to only count matches, regardless of the rule action settings. </p>
-   *         <p>In a <a>Rule</a>, you must specify either this <code>OverrideAction</code> setting or the rule <code>Action</code> setting, but not both:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the rule statement references a rule group, use this override action setting and not the action setting.  </p>
-   *             </li>
-   *             <li>
-   *                <p>If the rule statement does not reference a rule group, use the rule action setting and not this rule override action setting. </p>
-   *             </li>
-   *          </ul>
+   * <p>The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only. </p>
+   *          <p>You can only use this for rule statements that reference a rule group, like <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *          <note>
+   *             <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count
+   *   matches, do not use this and instead exclude those rules in your rule group reference statement settings. </p>
+   *          </note>
    */
   OverrideAction: OverrideAction | undefined;
 
@@ -6222,6 +6347,11 @@ export interface CreateWebACLRequest {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: { [key: string]: CustomResponseBody };
+
+  /**
+   * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
+   */
+  CaptchaConfig?: CaptchaConfig;
 }
 
 export namespace CreateWebACLRequest {
@@ -6463,6 +6593,11 @@ export interface UpdateWebACLRequest {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: { [key: string]: CustomResponseBody };
+
+  /**
+   * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
+   */
+  CaptchaConfig?: CaptchaConfig;
 }
 
 export namespace UpdateWebACLRequest {
@@ -6609,6 +6744,11 @@ export interface WebACL {
    *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
    */
   CustomResponseBodies?: { [key: string]: CustomResponseBody };
+
+  /**
+   * <p>Specifies how WAF should handle <code>CAPTCHA</code> evaluations for rules that don't have their own <code>CaptchaConfig</code> settings. If you don't specify this, WAF uses its default settings for <code>CaptchaConfig</code>. </p>
+   */
+  CaptchaConfig?: CaptchaConfig;
 }
 
 export namespace WebACL {

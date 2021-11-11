@@ -29,14 +29,14 @@ export interface PutClusterCapacityProvidersCommandOutput
  * 		       <p>You must specify both the available capacity providers and a default capacity provider
  * 			strategy for the cluster. If the specified cluster has existing capacity providers
  * 			associated with it, you must specify all existing capacity providers in addition to any
- * 			new ones you want to add. Any existing capacity providers associated with a cluster that
- * 			are omitted from a <a>PutClusterCapacityProviders</a> API call will be
- * 			disassociated with the cluster. You can only disassociate an existing capacity provider
- * 			from a cluster if it's not being used by any existing tasks.</p>
+ * 			new ones you want to add. Any existing capacity providers that are associated with a
+ * 			cluster that are omitted from a <a>PutClusterCapacityProviders</a> API call
+ * 			will be disassociated with the cluster. You can only disassociate an existing capacity
+ * 			provider from a cluster if it's not being used by any existing tasks.</p>
  * 		       <p>When creating a service or running a task on a cluster, if no capacity provider or
  * 			launch type is specified, then the cluster's default capacity provider strategy is used.
- * 			It is recommended to define a default capacity provider strategy for your cluster,
- * 			however you may specify an empty array (<code>[]</code>) to bypass defining a default
+ * 			We recommend that you define a default capacity provider strategy for your cluster.
+ * 			However, you must specify an empty array (<code>[]</code>) to bypass defining a default
  * 			strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

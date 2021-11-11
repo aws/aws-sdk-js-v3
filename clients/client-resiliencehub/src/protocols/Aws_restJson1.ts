@@ -1,0 +1,6069 @@
+import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
+import {
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
+  expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
+  expectObject as __expectObject,
+  expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseDouble as __limitedParseDouble,
+  parseEpochTimestamp as __parseEpochTimestamp,
+} from "@aws-sdk/smithy-client";
+import {
+  Endpoint as __Endpoint,
+  MetadataBearer as __MetadataBearer,
+  ResponseMetadata as __ResponseMetadata,
+  SerdeContext as __SerdeContext,
+  SmithyException as __SmithyException,
+} from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
+
+import {
+  AddDraftAppVersionResourceMappingsCommandInput,
+  AddDraftAppVersionResourceMappingsCommandOutput,
+} from "../commands/AddDraftAppVersionResourceMappingsCommand";
+import { CreateAppCommandInput, CreateAppCommandOutput } from "../commands/CreateAppCommand";
+import {
+  CreateRecommendationTemplateCommandInput,
+  CreateRecommendationTemplateCommandOutput,
+} from "../commands/CreateRecommendationTemplateCommand";
+import {
+  CreateResiliencyPolicyCommandInput,
+  CreateResiliencyPolicyCommandOutput,
+} from "../commands/CreateResiliencyPolicyCommand";
+import {
+  DeleteAppAssessmentCommandInput,
+  DeleteAppAssessmentCommandOutput,
+} from "../commands/DeleteAppAssessmentCommand";
+import { DeleteAppCommandInput, DeleteAppCommandOutput } from "../commands/DeleteAppCommand";
+import {
+  DeleteRecommendationTemplateCommandInput,
+  DeleteRecommendationTemplateCommandOutput,
+} from "../commands/DeleteRecommendationTemplateCommand";
+import {
+  DeleteResiliencyPolicyCommandInput,
+  DeleteResiliencyPolicyCommandOutput,
+} from "../commands/DeleteResiliencyPolicyCommand";
+import {
+  DescribeAppAssessmentCommandInput,
+  DescribeAppAssessmentCommandOutput,
+} from "../commands/DescribeAppAssessmentCommand";
+import { DescribeAppCommandInput, DescribeAppCommandOutput } from "../commands/DescribeAppCommand";
+import {
+  DescribeAppVersionResourcesResolutionStatusCommandInput,
+  DescribeAppVersionResourcesResolutionStatusCommandOutput,
+} from "../commands/DescribeAppVersionResourcesResolutionStatusCommand";
+import {
+  DescribeAppVersionTemplateCommandInput,
+  DescribeAppVersionTemplateCommandOutput,
+} from "../commands/DescribeAppVersionTemplateCommand";
+import {
+  DescribeDraftAppVersionResourcesImportStatusCommandInput,
+  DescribeDraftAppVersionResourcesImportStatusCommandOutput,
+} from "../commands/DescribeDraftAppVersionResourcesImportStatusCommand";
+import {
+  DescribeResiliencyPolicyCommandInput,
+  DescribeResiliencyPolicyCommandOutput,
+} from "../commands/DescribeResiliencyPolicyCommand";
+import {
+  ImportResourcesToDraftAppVersionCommandInput,
+  ImportResourcesToDraftAppVersionCommandOutput,
+} from "../commands/ImportResourcesToDraftAppVersionCommand";
+import {
+  ListAlarmRecommendationsCommandInput,
+  ListAlarmRecommendationsCommandOutput,
+} from "../commands/ListAlarmRecommendationsCommand";
+import { ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput } from "../commands/ListAppAssessmentsCommand";
+import {
+  ListAppComponentCompliancesCommandInput,
+  ListAppComponentCompliancesCommandOutput,
+} from "../commands/ListAppComponentCompliancesCommand";
+import {
+  ListAppComponentRecommendationsCommandInput,
+  ListAppComponentRecommendationsCommandOutput,
+} from "../commands/ListAppComponentRecommendationsCommand";
+import { ListAppsCommandInput, ListAppsCommandOutput } from "../commands/ListAppsCommand";
+import {
+  ListAppVersionResourceMappingsCommandInput,
+  ListAppVersionResourceMappingsCommandOutput,
+} from "../commands/ListAppVersionResourceMappingsCommand";
+import {
+  ListAppVersionResourcesCommandInput,
+  ListAppVersionResourcesCommandOutput,
+} from "../commands/ListAppVersionResourcesCommand";
+import { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "../commands/ListAppVersionsCommand";
+import {
+  ListRecommendationTemplatesCommandInput,
+  ListRecommendationTemplatesCommandOutput,
+} from "../commands/ListRecommendationTemplatesCommand";
+import {
+  ListResiliencyPoliciesCommandInput,
+  ListResiliencyPoliciesCommandOutput,
+} from "../commands/ListResiliencyPoliciesCommand";
+import {
+  ListSopRecommendationsCommandInput,
+  ListSopRecommendationsCommandOutput,
+} from "../commands/ListSopRecommendationsCommand";
+import {
+  ListSuggestedResiliencyPoliciesCommandInput,
+  ListSuggestedResiliencyPoliciesCommandOutput,
+} from "../commands/ListSuggestedResiliencyPoliciesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
+  ListTestRecommendationsCommandInput,
+  ListTestRecommendationsCommandOutput,
+} from "../commands/ListTestRecommendationsCommand";
+import {
+  ListUnsupportedAppVersionResourcesCommandInput,
+  ListUnsupportedAppVersionResourcesCommandOutput,
+} from "../commands/ListUnsupportedAppVersionResourcesCommand";
+import { PublishAppVersionCommandInput, PublishAppVersionCommandOutput } from "../commands/PublishAppVersionCommand";
+import {
+  PutDraftAppVersionTemplateCommandInput,
+  PutDraftAppVersionTemplateCommandOutput,
+} from "../commands/PutDraftAppVersionTemplateCommand";
+import {
+  RemoveDraftAppVersionResourceMappingsCommandInput,
+  RemoveDraftAppVersionResourceMappingsCommandOutput,
+} from "../commands/RemoveDraftAppVersionResourceMappingsCommand";
+import {
+  ResolveAppVersionResourcesCommandInput,
+  ResolveAppVersionResourcesCommandOutput,
+} from "../commands/ResolveAppVersionResourcesCommand";
+import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "../commands/StartAppAssessmentCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAppCommandInput, UpdateAppCommandOutput } from "../commands/UpdateAppCommand";
+import {
+  UpdateResiliencyPolicyCommandInput,
+  UpdateResiliencyPolicyCommandOutput,
+} from "../commands/UpdateResiliencyPolicyCommand";
+import {
+  AccessDeniedException,
+  AlarmRecommendation,
+  App,
+  AppAssessment,
+  AppAssessmentSummary,
+  AppComponent,
+  AppComponentCompliance,
+  AppSummary,
+  AppVersionSummary,
+  ComponentRecommendation,
+  ConfigRecommendation,
+  ConflictException,
+  Cost,
+  DisruptionCompliance,
+  DisruptionType,
+  FailurePolicy,
+  InternalServerException,
+  LogicalResourceId,
+  PhysicalResource,
+  PhysicalResourceId,
+  RecommendationDisruptionCompliance,
+  RecommendationItem,
+  RecommendationTemplate,
+  RenderRecommendationType,
+  ResiliencyPolicy,
+  ResiliencyScore,
+  ResourceMapping,
+  ResourceNotFoundException,
+  S3Location,
+  ServiceQuotaExceededException,
+  SopRecommendation,
+  TestRecommendation,
+  ThrottlingException,
+  UnsupportedResource,
+  ValidationException,
+} from "../models/models_0";
+
+export const serializeAws_restJson1AddDraftAppVersionResourceMappingsCommand = async (
+  input: AddDraftAppVersionResourceMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/add-draft-app-version-resource-mappings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.resourceMappings !== undefined &&
+      input.resourceMappings !== null && {
+        resourceMappings: serializeAws_restJson1ResourceMappingList(input.resourceMappings, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateAppCommand = async (
+  input: CreateAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-app";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateRecommendationTemplateCommand = async (
+  input: CreateRecommendationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-recommendation-template";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.bucketName !== undefined && input.bucketName !== null && { bucketName: input.bucketName }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.format !== undefined && input.format !== null && { format: input.format }),
+    ...(input.name !== undefined && input.name !== null && { name: input.name }),
+    ...(input.recommendationIds !== undefined &&
+      input.recommendationIds !== null && {
+        recommendationIds: serializeAws_restJson1RecommendationIdList(input.recommendationIds, context),
+      }),
+    ...(input.recommendationTypes !== undefined &&
+      input.recommendationTypes !== null && {
+        recommendationTypes: serializeAws_restJson1RenderRecommendationTypeList(input.recommendationTypes, context),
+      }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateResiliencyPolicyCommand = async (
+  input: CreateResiliencyPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-resiliency-policy";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.dataLocationConstraint !== undefined &&
+      input.dataLocationConstraint !== null && { dataLocationConstraint: input.dataLocationConstraint }),
+    ...(input.policy !== undefined &&
+      input.policy !== null && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
+    ...(input.policyDescription !== undefined &&
+      input.policyDescription !== null && { policyDescription: input.policyDescription }),
+    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+    ...(input.tier !== undefined && input.tier !== null && { tier: input.tier }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAppCommand = async (
+  input: DeleteAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.forceDelete !== undefined && input.forceDelete !== null && { forceDelete: input.forceDelete }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAppAssessmentCommand = async (
+  input: DeleteAppAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-app-assessment";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteRecommendationTemplateCommand = async (
+  input: DeleteRecommendationTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-recommendation-template";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.recommendationTemplateArn !== undefined &&
+      input.recommendationTemplateArn !== null && { recommendationTemplateArn: input.recommendationTemplateArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteResiliencyPolicyCommand = async (
+  input: DeleteResiliencyPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/delete-resiliency-policy";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAppCommand = async (
+  input: DescribeAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAppAssessmentCommand = async (
+  input: DescribeAppAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-assessment";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand = async (
+  input: DescribeAppVersionResourcesResolutionStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/describe-app-version-resources-resolution-status";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAppVersionTemplateCommand = async (
+  input: DescribeAppVersionTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-app-version-template";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand = async (
+  input: DescribeDraftAppVersionResourcesImportStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/describe-draft-app-version-resources-import-status";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeResiliencyPolicyCommand = async (
+  input: DescribeResiliencyPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describe-resiliency-policy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ImportResourcesToDraftAppVersionCommand = async (
+  input: ImportResourcesToDraftAppVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import-resources-to-draft-app-version";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.sourceArns !== undefined &&
+      input.sourceArns !== null && { sourceArns: serializeAws_restJson1ArnList(input.sourceArns, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAlarmRecommendationsCommand = async (
+  input: ListAlarmRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-alarm-recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppAssessmentsCommand = async (
+  input: ListAppAssessmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-assessments";
+  const query: any = {
+    ...(input.appArn !== undefined && { appArn: input.appArn }),
+    ...(input.assessmentName !== undefined && { assessmentName: input.assessmentName }),
+    ...(input.assessmentStatus !== undefined && {
+      assessmentStatus: (input.assessmentStatus || []).map((_entry) => _entry as any),
+    }),
+    ...(input.complianceStatus !== undefined && { complianceStatus: input.complianceStatus }),
+    ...(input.invoker !== undefined && { invoker: input.invoker }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppComponentCompliancesCommand = async (
+  input: ListAppComponentCompliancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-compliances";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppComponentRecommendationsCommand = async (
+  input: ListAppComponentRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-component-recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppsCommand = async (
+  input: ListAppsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-apps";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.appArn !== undefined && { appArn: input.appArn }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppVersionResourceMappingsCommand = async (
+  input: ListAppVersionResourceMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resource-mappings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppVersionResourcesCommand = async (
+  input: ListAppVersionResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-version-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListAppVersionsCommand = async (
+  input: ListAppVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-app-versions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRecommendationTemplatesCommand = async (
+  input: ListRecommendationTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-recommendation-templates";
+  const query: any = {
+    ...(input.assessmentArn !== undefined && { assessmentArn: input.assessmentArn }),
+    ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder.toString() }),
+    ...(input.status !== undefined && { status: (input.status || []).map((_entry) => _entry as any) }),
+    ...(input.recommendationTemplateArn !== undefined && {
+      recommendationTemplateArn: input.recommendationTemplateArn,
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListResiliencyPoliciesCommand = async (
+  input: ListResiliencyPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-resiliency-policies";
+  const query: any = {
+    ...(input.policyName !== undefined && { policyName: input.policyName }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSopRecommendationsCommand = async (
+  input: ListSopRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-sop-recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSuggestedResiliencyPoliciesCommand = async (
+  input: ListSuggestedResiliencyPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-suggested-resiliency-policies";
+  const query: any = {
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListTestRecommendationsCommand = async (
+  input: ListTestRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-test-recommendations";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.assessmentArn !== undefined && input.assessmentArn !== null && { assessmentArn: input.assessmentArn }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListUnsupportedAppVersionResourcesCommand = async (
+  input: ListUnsupportedAppVersionResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-unsupported-app-version-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.maxResults !== undefined && input.maxResults !== null && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && input.nextToken !== null && { nextToken: input.nextToken }),
+    ...(input.resolutionId !== undefined && input.resolutionId !== null && { resolutionId: input.resolutionId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PublishAppVersionCommand = async (
+  input: PublishAppVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/publish-app-version";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutDraftAppVersionTemplateCommand = async (
+  input: PutDraftAppVersionTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/put-draft-app-version-template";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appTemplateBody !== undefined &&
+      input.appTemplateBody !== null && { appTemplateBody: input.appTemplateBody }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand = async (
+  input: RemoveDraftAppVersionResourceMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/remove-draft-app-version-resource-mappings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appRegistryAppNames !== undefined &&
+      input.appRegistryAppNames !== null && {
+        appRegistryAppNames: serializeAws_restJson1EntityNameList(input.appRegistryAppNames, context),
+      }),
+    ...(input.logicalStackNames !== undefined &&
+      input.logicalStackNames !== null && {
+        logicalStackNames: serializeAws_restJson1String255List(input.logicalStackNames, context),
+      }),
+    ...(input.resourceGroupNames !== undefined &&
+      input.resourceGroupNames !== null && {
+        resourceGroupNames: serializeAws_restJson1EntityNameList(input.resourceGroupNames, context),
+      }),
+    ...(input.resourceNames !== undefined &&
+      input.resourceNames !== null && {
+        resourceNames: serializeAws_restJson1EntityNameList(input.resourceNames, context),
+      }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ResolveAppVersionResourcesCommand = async (
+  input: ResolveAppVersionResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resolve-app-version-resources";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartAppAssessmentCommand = async (
+  input: StartAppAssessmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-app-assessment";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.appVersion !== undefined && input.appVersion !== null && { appVersion: input.appVersion }),
+    ...(input.assessmentName !== undefined &&
+      input.assessmentName !== null && { assessmentName: input.assessmentName }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.tags !== undefined && input.tags !== null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
+  if (input.resourceArn !== undefined) {
+    const labelValue: string = input.resourceArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceArn.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceArn.");
+  }
+  const query: any = {
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry as any) }),
+  };
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateAppCommand = async (
+  input: UpdateAppCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-app";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.appArn !== undefined && input.appArn !== null && { appArn: input.appArn }),
+    ...(input.clearResiliencyPolicyArn !== undefined &&
+      input.clearResiliencyPolicyArn !== null && { clearResiliencyPolicyArn: input.clearResiliencyPolicyArn }),
+    ...(input.description !== undefined && input.description !== null && { description: input.description }),
+    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateResiliencyPolicyCommand = async (
+  input: UpdateResiliencyPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-resiliency-policy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.dataLocationConstraint !== undefined &&
+      input.dataLocationConstraint !== null && { dataLocationConstraint: input.dataLocationConstraint }),
+    ...(input.policy !== undefined &&
+      input.policy !== null && { policy: serializeAws_restJson1DisruptionPolicy(input.policy, context) }),
+    ...(input.policyArn !== undefined && input.policyArn !== null && { policyArn: input.policyArn }),
+    ...(input.policyDescription !== undefined &&
+      input.policyDescription !== null && { policyDescription: input.policyDescription }),
+    ...(input.policyName !== undefined && input.policyName !== null && { policyName: input.policyName }),
+    ...(input.tier !== undefined && input.tier !== null && { tier: input.tier }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDraftAppVersionResourceMappingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommandError(output, context);
+  }
+  const contents: AddDraftAppVersionResourceMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+    resourceMappings: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.resourceMappings !== undefined && data.resourceMappings !== null) {
+    contents.resourceMappings = deserializeAws_restJson1ResourceMappingList(data.resourceMappings, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1AddDraftAppVersionResourceMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDraftAppVersionResourceMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateAppCommandError(output, context);
+  }
+  const contents: CreateAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    app: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.app !== undefined && data.app !== null) {
+    contents.app = deserializeAws_restJson1App(data.app, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateAppCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAppCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.resiliencehub#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateRecommendationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommendationTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateRecommendationTemplateCommandError(output, context);
+  }
+  const contents: CreateRecommendationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    recommendationTemplate: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.recommendationTemplate !== undefined && data.recommendationTemplate !== null) {
+    contents.recommendationTemplate = deserializeAws_restJson1RecommendationTemplate(
+      data.recommendationTemplate,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateRecommendationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRecommendationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1CreateResiliencyPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResiliencyPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateResiliencyPolicyCommandError(output, context);
+  }
+  const contents: CreateResiliencyPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    policy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.policy !== undefined && data.policy !== null) {
+    contents.policy = deserializeAws_restJson1ResiliencyPolicy(data.policy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreateResiliencyPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResiliencyPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.resiliencehub#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAppCommandError(output, context);
+  }
+  const contents: DeleteAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAppCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteAppAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppAssessmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAppAssessmentCommandError(output, context);
+  }
+  const contents: DeleteAppAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessmentArn: undefined,
+    assessmentStatus: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessmentArn !== undefined && data.assessmentArn !== null) {
+    contents.assessmentArn = __expectString(data.assessmentArn);
+  }
+  if (data.assessmentStatus !== undefined && data.assessmentStatus !== null) {
+    contents.assessmentStatus = __expectString(data.assessmentStatus);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteAppAssessmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAppAssessmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteRecommendationTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommendationTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteRecommendationTemplateCommandError(output, context);
+  }
+  const contents: DeleteRecommendationTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    recommendationTemplateArn: undefined,
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.recommendationTemplateArn !== undefined && data.recommendationTemplateArn !== null) {
+    contents.recommendationTemplateArn = __expectString(data.recommendationTemplateArn);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteRecommendationTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRecommendationTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DeleteResiliencyPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResiliencyPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteResiliencyPolicyCommandError(output, context);
+  }
+  const contents: DeleteResiliencyPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    policyArn: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.policyArn !== undefined && data.policyArn !== null) {
+    contents.policyArn = __expectString(data.policyArn);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteResiliencyPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResiliencyPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAppCommandError(output, context);
+  }
+  const contents: DescribeAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    app: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.app !== undefined && data.app !== null) {
+    contents.app = deserializeAws_restJson1App(data.app, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAppCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAppAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppAssessmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAppAssessmentCommandError(output, context);
+  }
+  const contents: DescribeAppAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessment !== undefined && data.assessment !== null) {
+    contents.assessment = deserializeAws_restJson1AppAssessment(data.assessment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAppAssessmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppAssessmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppVersionResourcesResolutionStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommandError(output, context);
+  }
+  const contents: DescribeAppVersionResourcesResolutionStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+    errorMessage: undefined,
+    resolutionId: undefined,
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.errorMessage !== undefined && data.errorMessage !== null) {
+    contents.errorMessage = __expectString(data.errorMessage);
+  }
+  if (data.resolutionId !== undefined && data.resolutionId !== null) {
+    contents.resolutionId = __expectString(data.resolutionId);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAppVersionResourcesResolutionStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppVersionResourcesResolutionStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeAppVersionTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppVersionTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAppVersionTemplateCommandError(output, context);
+  }
+  const contents: DescribeAppVersionTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appTemplateBody: undefined,
+    appVersion: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appTemplateBody !== undefined && data.appTemplateBody !== null) {
+    contents.appTemplateBody = __expectString(data.appTemplateBody);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeAppVersionTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAppVersionTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDraftAppVersionResourcesImportStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommandError(output, context);
+  }
+  const contents: DescribeDraftAppVersionResourcesImportStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+    errorMessage: undefined,
+    status: undefined,
+    statusChangeTime: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.errorMessage !== undefined && data.errorMessage !== null) {
+    contents.errorMessage = __expectString(data.errorMessage);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  if (data.statusChangeTime !== undefined && data.statusChangeTime !== null) {
+    contents.statusChangeTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.statusChangeTime)));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeDraftAppVersionResourcesImportStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDraftAppVersionResourcesImportStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1DescribeResiliencyPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResiliencyPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeResiliencyPolicyCommandError(output, context);
+  }
+  const contents: DescribeResiliencyPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    policy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.policy !== undefined && data.policy !== null) {
+    contents.policy = deserializeAws_restJson1ResiliencyPolicy(data.policy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeResiliencyPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResiliencyPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportResourcesToDraftAppVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ImportResourcesToDraftAppVersionCommandError(output, context);
+  }
+  const contents: ImportResourcesToDraftAppVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+    sourceArns: undefined,
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.sourceArns !== undefined && data.sourceArns !== null) {
+    contents.sourceArns = deserializeAws_restJson1ArnList(data.sourceArns, context);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ImportResourcesToDraftAppVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportResourcesToDraftAppVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAlarmRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlarmRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAlarmRecommendationsCommandError(output, context);
+  }
+  const contents: ListAlarmRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    alarmRecommendations: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.alarmRecommendations !== undefined && data.alarmRecommendations !== null) {
+    contents.alarmRecommendations = deserializeAws_restJson1AlarmRecommendationList(data.alarmRecommendations, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAlarmRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAlarmRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppAssessmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppAssessmentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppAssessmentsCommandError(output, context);
+  }
+  const contents: ListAppAssessmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessmentSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessmentSummaries !== undefined && data.assessmentSummaries !== null) {
+    contents.assessmentSummaries = deserializeAws_restJson1AppAssessmentSummaryList(data.assessmentSummaries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppAssessmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppAssessmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppComponentCompliancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppComponentCompliancesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppComponentCompliancesCommandError(output, context);
+  }
+  const contents: ListAppComponentCompliancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    componentCompliances: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.componentCompliances !== undefined && data.componentCompliances !== null) {
+    contents.componentCompliances = deserializeAws_restJson1ComponentCompliancesList(
+      data.componentCompliances,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppComponentCompliancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppComponentCompliancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppComponentRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppComponentRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppComponentRecommendationsCommandError(output, context);
+  }
+  const contents: ListAppComponentRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    componentRecommendations: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.componentRecommendations !== undefined && data.componentRecommendations !== null) {
+    contents.componentRecommendations = deserializeAws_restJson1ComponentRecommendationList(
+      data.componentRecommendations,
+      context
+    );
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppComponentRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppComponentRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppsCommandError(output, context);
+  }
+  const contents: ListAppsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appSummaries: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appSummaries !== undefined && data.appSummaries !== null) {
+    contents.appSummaries = deserializeAws_restJson1AppSummaryList(data.appSummaries, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppVersionResourceMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionResourceMappingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppVersionResourceMappingsCommandError(output, context);
+  }
+  const contents: ListAppVersionResourceMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    resourceMappings: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.resourceMappings !== undefined && data.resourceMappings !== null) {
+    contents.resourceMappings = deserializeAws_restJson1ResourceMappingList(data.resourceMappings, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppVersionResourceMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionResourceMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppVersionResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppVersionResourcesCommandError(output, context);
+  }
+  const contents: ListAppVersionResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    physicalResources: undefined,
+    resolutionId: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.physicalResources !== undefined && data.physicalResources !== null) {
+    contents.physicalResources = deserializeAws_restJson1PhysicalResourceList(data.physicalResources, context);
+  }
+  if (data.resolutionId !== undefined && data.resolutionId !== null) {
+    contents.resolutionId = __expectString(data.resolutionId);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppVersionResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListAppVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListAppVersionsCommandError(output, context);
+  }
+  const contents: ListAppVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appVersions: undefined,
+    nextToken: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appVersions !== undefined && data.appVersions !== null) {
+    contents.appVersions = deserializeAws_restJson1AppVersionList(data.appVersions, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListAppVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAppVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListRecommendationTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRecommendationTemplatesCommandError(output, context);
+  }
+  const contents: ListRecommendationTemplatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    recommendationTemplates: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.recommendationTemplates !== undefined && data.recommendationTemplates !== null) {
+    contents.recommendationTemplates = deserializeAws_restJson1RecommendationTemplateList(
+      data.recommendationTemplates,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListRecommendationTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListResiliencyPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResiliencyPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListResiliencyPoliciesCommandError(output, context);
+  }
+  const contents: ListResiliencyPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    resiliencyPolicies: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.resiliencyPolicies !== undefined && data.resiliencyPolicies !== null) {
+    contents.resiliencyPolicies = deserializeAws_restJson1ResiliencyPolicies(data.resiliencyPolicies, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListResiliencyPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResiliencyPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListSopRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSopRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSopRecommendationsCommandError(output, context);
+  }
+  const contents: ListSopRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    sopRecommendations: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.sopRecommendations !== undefined && data.sopRecommendations !== null) {
+    contents.sopRecommendations = deserializeAws_restJson1SopRecommendationList(data.sopRecommendations, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSopRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSopRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListSuggestedResiliencyPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSuggestedResiliencyPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSuggestedResiliencyPoliciesCommandError(output, context);
+  }
+  const contents: ListSuggestedResiliencyPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    resiliencyPolicies: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.resiliencyPolicies !== undefined && data.resiliencyPolicies !== null) {
+    contents.resiliencyPolicies = deserializeAws_restJson1ResiliencyPolicies(data.resiliencyPolicies, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListSuggestedResiliencyPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSuggestedResiliencyPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
+  }
+  const contents: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    tags: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.tags !== undefined && data.tags !== null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTagsForResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListTestRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestRecommendationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTestRecommendationsCommandError(output, context);
+  }
+  const contents: ListTestRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    testRecommendations: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.testRecommendations !== undefined && data.testRecommendations !== null) {
+    contents.testRecommendations = deserializeAws_restJson1TestRecommendationList(data.testRecommendations, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListTestRecommendationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTestRecommendationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUnsupportedAppVersionResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommandError(output, context);
+  }
+  const contents: ListUnsupportedAppVersionResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    nextToken: undefined,
+    resolutionId: undefined,
+    unsupportedResources: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.resolutionId !== undefined && data.resolutionId !== null) {
+    contents.resolutionId = __expectString(data.resolutionId);
+  }
+  if (data.unsupportedResources !== undefined && data.unsupportedResources !== null) {
+    contents.unsupportedResources = deserializeAws_restJson1UnsupportedResourceList(data.unsupportedResources, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListUnsupportedAppVersionResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUnsupportedAppVersionResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PublishAppVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishAppVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PublishAppVersionCommandError(output, context);
+  }
+  const contents: PublishAppVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PublishAppVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishAppVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1PutDraftAppVersionTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDraftAppVersionTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutDraftAppVersionTemplateCommandError(output, context);
+  }
+  const contents: PutDraftAppVersionTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1PutDraftAppVersionTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDraftAppVersionTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommandError(output, context);
+  }
+  const contents: RemoveDraftAppVersionResourceMappingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveDraftAppVersionResourceMappingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1ResolveAppVersionResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResolveAppVersionResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ResolveAppVersionResourcesCommandError(output, context);
+  }
+  const contents: ResolveAppVersionResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    appArn: undefined,
+    appVersion: undefined,
+    resolutionId: undefined,
+    status: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.appArn !== undefined && data.appArn !== null) {
+    contents.appArn = __expectString(data.appArn);
+  }
+  if (data.appVersion !== undefined && data.appVersion !== null) {
+    contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.resolutionId !== undefined && data.resolutionId !== null) {
+    contents.resolutionId = __expectString(data.resolutionId);
+  }
+  if (data.status !== undefined && data.status !== null) {
+    contents.status = __expectString(data.status);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ResolveAppVersionResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResolveAppVersionResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1StartAppAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAppAssessmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartAppAssessmentCommandError(output, context);
+  }
+  const contents: StartAppAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    assessment: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.assessment !== undefined && data.assessment !== null) {
+    contents.assessment = deserializeAws_restJson1AppAssessment(data.assessment, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1StartAppAssessmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAppAssessmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.resiliencehub#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1TagResourceCommandError(output, context);
+  }
+  const contents: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1TagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UntagResourceCommandError(output, context);
+  }
+  const contents: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UntagResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateAppCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateAppCommandError(output, context);
+  }
+  const contents: UpdateAppCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    app: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.app !== undefined && data.app !== null) {
+    contents.app = deserializeAws_restJson1App(data.app, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateAppCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAppCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1UpdateResiliencyPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResiliencyPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateResiliencyPolicyCommandError(output, context);
+  }
+  const contents: UpdateResiliencyPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    policy: undefined,
+  };
+  const data: { [key: string]: any } = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.policy !== undefined && data.policy !== null) {
+    contents.policy = deserializeAws_restJson1ResiliencyPolicy(data.policy, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateResiliencyPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResiliencyPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.resiliencehub#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.resiliencehub#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.resiliencehub#InternalServerException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.resiliencehub#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.resiliencehub#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.resiliencehub#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: AccessDeniedException = {
+    name: "AccessDeniedException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const contents: ConflictException = {
+    name: "ConflictException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+    resourceId: undefined,
+    resourceType: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.resourceId !== undefined && data.resourceId !== null) {
+    contents.resourceId = __expectString(data.resourceId);
+  }
+  if (data.resourceType !== undefined && data.resourceType !== null) {
+    contents.resourceType = __expectString(data.resourceType);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1InternalServerExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const contents: InternalServerException = {
+    name: "InternalServerException",
+    $fault: "server",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: ResourceNotFoundException = {
+    name: "ResourceNotFoundException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+    resourceId: undefined,
+    resourceType: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.resourceId !== undefined && data.resourceId !== null) {
+    contents.resourceId = __expectString(data.resourceId);
+  }
+  if (data.resourceType !== undefined && data.resourceType !== null) {
+    contents.resourceType = __expectString(data.resourceType);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ThrottlingExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ThrottlingException> => {
+  const contents: ThrottlingException = {
+    name: "ThrottlingException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+    retryAfterSeconds: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  if (data.retryAfterSeconds !== undefined && data.retryAfterSeconds !== null) {
+    contents.retryAfterSeconds = __expectInt32(data.retryAfterSeconds);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ValidationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ValidationException> => {
+  const contents: ValidationException = {
+    name: "ValidationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    message: undefined,
+  };
+  const data: any = parsedOutput.body;
+  if (data.message !== undefined && data.message !== null) {
+    contents.message = __expectString(data.message);
+  }
+  return contents;
+};
+
+const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1DisruptionPolicy = (
+  input: { [key: string]: FailurePolicy },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [DisruptionType | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: serializeAws_restJson1FailurePolicy(value, context),
+    };
+  }, {});
+};
+
+const serializeAws_restJson1EntityNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1FailurePolicy = (input: FailurePolicy, context: __SerdeContext): any => {
+  return {
+    ...(input.rpoInSecs !== undefined && input.rpoInSecs !== null && { rpoInSecs: input.rpoInSecs }),
+    ...(input.rtoInSecs !== undefined && input.rtoInSecs !== null && { rtoInSecs: input.rtoInSecs }),
+  };
+};
+
+const serializeAws_restJson1PhysicalResourceId = (input: PhysicalResourceId, context: __SerdeContext): any => {
+  return {
+    ...(input.awsAccountId !== undefined && input.awsAccountId !== null && { awsAccountId: input.awsAccountId }),
+    ...(input.awsRegion !== undefined && input.awsRegion !== null && { awsRegion: input.awsRegion }),
+    ...(input.identifier !== undefined && input.identifier !== null && { identifier: input.identifier }),
+    ...(input.type !== undefined && input.type !== null && { type: input.type }),
+  };
+};
+
+const serializeAws_restJson1RecommendationIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1RenderRecommendationTypeList = (
+  input: (RenderRecommendationType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ResourceMapping = (input: ResourceMapping, context: __SerdeContext): any => {
+  return {
+    ...(input.appRegistryAppName !== undefined &&
+      input.appRegistryAppName !== null && { appRegistryAppName: input.appRegistryAppName }),
+    ...(input.logicalStackName !== undefined &&
+      input.logicalStackName !== null && { logicalStackName: input.logicalStackName }),
+    ...(input.mappingType !== undefined && input.mappingType !== null && { mappingType: input.mappingType }),
+    ...(input.physicalResourceId !== undefined &&
+      input.physicalResourceId !== null && {
+        physicalResourceId: serializeAws_restJson1PhysicalResourceId(input.physicalResourceId, context),
+      }),
+    ...(input.resourceGroupName !== undefined &&
+      input.resourceGroupName !== null && { resourceGroupName: input.resourceGroupName }),
+    ...(input.resourceName !== undefined && input.resourceName !== null && { resourceName: input.resourceName }),
+  };
+};
+
+const serializeAws_restJson1ResourceMappingList = (input: ResourceMapping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ResourceMapping(entry, context);
+    });
+};
+
+const serializeAws_restJson1String255List = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: { [key: string]: any }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1AlarmRecommendation = (output: any, context: __SerdeContext): AlarmRecommendation => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    description: __expectString(output.description),
+    items:
+      output.items !== undefined && output.items !== null
+        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
+        : undefined,
+    name: __expectString(output.name),
+    prerequisite: __expectString(output.prerequisite),
+    recommendationId: __expectString(output.recommendationId),
+    referenceId: __expectString(output.referenceId),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1AlarmRecommendationList = (
+  output: any,
+  context: __SerdeContext
+): AlarmRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AlarmRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App => {
+  return {
+    appArn: __expectString(output.appArn),
+    complianceStatus: __expectString(output.complianceStatus),
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
+        : undefined,
+    description: __expectString(output.description),
+    lastAppComplianceEvaluationTime:
+      output.lastAppComplianceEvaluationTime !== undefined && output.lastAppComplianceEvaluationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastAppComplianceEvaluationTime)))
+        : undefined,
+    lastResiliencyScoreEvaluationTime:
+      output.lastResiliencyScoreEvaluationTime !== undefined && output.lastResiliencyScoreEvaluationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastResiliencyScoreEvaluationTime)))
+        : undefined,
+    name: __expectString(output.name),
+    policyArn: __expectString(output.policyArn),
+    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
+    status: __expectString(output.status),
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AppAssessment = (output: any, context: __SerdeContext): AppAssessment => {
+  return {
+    appArn: __expectString(output.appArn),
+    appVersion: __expectString(output.appVersion),
+    assessmentArn: __expectString(output.assessmentArn),
+    assessmentName: __expectString(output.assessmentName),
+    assessmentStatus: __expectString(output.assessmentStatus),
+    compliance:
+      output.compliance !== undefined && output.compliance !== null
+        ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
+        : undefined,
+    complianceStatus: __expectString(output.complianceStatus),
+    cost:
+      output.cost !== undefined && output.cost !== null
+        ? deserializeAws_restJson1Cost(output.cost, context)
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
+    invoker: __expectString(output.invoker),
+    message: __expectString(output.message),
+    policy:
+      output.policy !== undefined && output.policy !== null
+        ? deserializeAws_restJson1ResiliencyPolicy(output.policy, context)
+        : undefined,
+    resiliencyScore:
+      output.resiliencyScore !== undefined && output.resiliencyScore !== null
+        ? deserializeAws_restJson1ResiliencyScore(output.resiliencyScore, context)
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AppAssessmentSummary = (output: any, context: __SerdeContext): AppAssessmentSummary => {
+  return {
+    appArn: __expectString(output.appArn),
+    appVersion: __expectString(output.appVersion),
+    assessmentArn: __expectString(output.assessmentArn),
+    assessmentName: __expectString(output.assessmentName),
+    assessmentStatus: __expectString(output.assessmentStatus),
+    complianceStatus: __expectString(output.complianceStatus),
+    cost:
+      output.cost !== undefined && output.cost !== null
+        ? deserializeAws_restJson1Cost(output.cost, context)
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
+    invoker: __expectString(output.invoker),
+    message: __expectString(output.message),
+    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AppAssessmentSummaryList = (
+  output: any,
+  context: __SerdeContext
+): AppAssessmentSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppAssessmentSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AppComponent = (output: any, context: __SerdeContext): AppComponent => {
+  return {
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1AppComponentCompliance = (
+  output: any,
+  context: __SerdeContext
+): AppComponentCompliance => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    compliance:
+      output.compliance !== undefined && output.compliance !== null
+        ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
+        : undefined,
+    cost:
+      output.cost !== undefined && output.cost !== null
+        ? deserializeAws_restJson1Cost(output.cost, context)
+        : undefined,
+    message: __expectString(output.message),
+    resiliencyScore:
+      output.resiliencyScore !== undefined && output.resiliencyScore !== null
+        ? deserializeAws_restJson1ResiliencyScore(output.resiliencyScore, context)
+        : undefined,
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1AppComponentList = (output: any, context: __SerdeContext): AppComponent[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppComponent(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AppSummary = (output: any, context: __SerdeContext): AppSummary => {
+  return {
+    appArn: __expectString(output.appArn),
+    complianceStatus: __expectString(output.complianceStatus),
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
+        : undefined,
+    description: __expectString(output.description),
+    name: __expectString(output.name),
+    resiliencyScore: __limitedParseDouble(output.resiliencyScore),
+  } as any;
+};
+
+const deserializeAws_restJson1AppSummaryList = (output: any, context: __SerdeContext): AppSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AppVersionList = (output: any, context: __SerdeContext): AppVersionSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppVersionSummary(entry, context);
+    });
+};
+
+const deserializeAws_restJson1AppVersionSummary = (output: any, context: __SerdeContext): AppVersionSummary => {
+  return {
+    appVersion: __expectString(output.appVersion),
+  } as any;
+};
+
+const deserializeAws_restJson1ArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1AssessmentCompliance = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: DisruptionCompliance } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: DisruptionCompliance }, [key, value]: [DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1DisruptionCompliance(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1ComponentCompliancesList = (
+  output: any,
+  context: __SerdeContext
+): AppComponentCompliance[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AppComponentCompliance(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ComponentRecommendation = (
+  output: any,
+  context: __SerdeContext
+): ComponentRecommendation => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    configRecommendations:
+      output.configRecommendations !== undefined && output.configRecommendations !== null
+        ? deserializeAws_restJson1ConfigRecommendationList(output.configRecommendations, context)
+        : undefined,
+    recommendationStatus: __expectString(output.recommendationStatus),
+  } as any;
+};
+
+const deserializeAws_restJson1ComponentRecommendationList = (
+  output: any,
+  context: __SerdeContext
+): ComponentRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ComponentRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ConfigRecommendation = (output: any, context: __SerdeContext): ConfigRecommendation => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    compliance:
+      output.compliance !== undefined && output.compliance !== null
+        ? deserializeAws_restJson1AssessmentCompliance(output.compliance, context)
+        : undefined,
+    cost:
+      output.cost !== undefined && output.cost !== null
+        ? deserializeAws_restJson1Cost(output.cost, context)
+        : undefined,
+    description: __expectString(output.description),
+    haArchitecture: __expectString(output.haArchitecture),
+    name: __expectString(output.name),
+    optimizationType: __expectString(output.optimizationType),
+    recommendationCompliance:
+      output.recommendationCompliance !== undefined && output.recommendationCompliance !== null
+        ? deserializeAws_restJson1RecommendationCompliance(output.recommendationCompliance, context)
+        : undefined,
+    referenceId: __expectString(output.referenceId),
+    suggestedChanges:
+      output.suggestedChanges !== undefined && output.suggestedChanges !== null
+        ? deserializeAws_restJson1SuggestedChangesList(output.suggestedChanges, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ConfigRecommendationList = (
+  output: any,
+  context: __SerdeContext
+): ConfigRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConfigRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Cost = (output: any, context: __SerdeContext): Cost => {
+  return {
+    amount: __limitedParseDouble(output.amount),
+    currency: __expectString(output.currency),
+    frequency: __expectString(output.frequency),
+  } as any;
+};
+
+const deserializeAws_restJson1DisruptionCompliance = (output: any, context: __SerdeContext): DisruptionCompliance => {
+  return {
+    achievableRpoInSecs: __expectInt32(output.achievableRpoInSecs),
+    achievableRtoInSecs: __expectInt32(output.achievableRtoInSecs),
+    complianceStatus: __expectString(output.complianceStatus),
+    currentRpoInSecs: __expectInt32(output.currentRpoInSecs),
+    currentRtoInSecs: __expectInt32(output.currentRtoInSecs),
+    message: __expectString(output.message),
+    rpoDescription: __expectString(output.rpoDescription),
+    rpoReferenceId: __expectString(output.rpoReferenceId),
+    rtoDescription: __expectString(output.rtoDescription),
+    rtoReferenceId: __expectString(output.rtoReferenceId),
+  } as any;
+};
+
+const deserializeAws_restJson1DisruptionPolicy = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: FailurePolicy } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: FailurePolicy }, [key, value]: [DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1FailurePolicy(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1DisruptionResiliencyScore = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: number } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: number }, [key, value]: [DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: __limitedParseDouble(value) as any,
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1FailurePolicy = (output: any, context: __SerdeContext): FailurePolicy => {
+  return {
+    rpoInSecs: __expectInt32(output.rpoInSecs),
+    rtoInSecs: __expectInt32(output.rtoInSecs),
+  } as any;
+};
+
+const deserializeAws_restJson1LogicalResourceId = (output: any, context: __SerdeContext): LogicalResourceId => {
+  return {
+    identifier: __expectString(output.identifier),
+    logicalStackName: __expectString(output.logicalStackName),
+    resourceGroupName: __expectString(output.resourceGroupName),
+  } as any;
+};
+
+const deserializeAws_restJson1PhysicalResource = (output: any, context: __SerdeContext): PhysicalResource => {
+  return {
+    appComponents:
+      output.appComponents !== undefined && output.appComponents !== null
+        ? deserializeAws_restJson1AppComponentList(output.appComponents, context)
+        : undefined,
+    logicalResourceId:
+      output.logicalResourceId !== undefined && output.logicalResourceId !== null
+        ? deserializeAws_restJson1LogicalResourceId(output.logicalResourceId, context)
+        : undefined,
+    physicalResourceId:
+      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+        ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
+        : undefined,
+    resourceName: __expectString(output.resourceName),
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1PhysicalResourceId = (output: any, context: __SerdeContext): PhysicalResourceId => {
+  return {
+    awsAccountId: __expectString(output.awsAccountId),
+    awsRegion: __expectString(output.awsRegion),
+    identifier: __expectString(output.identifier),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1PhysicalResourceList = (output: any, context: __SerdeContext): PhysicalResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PhysicalResource(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RecommendationCompliance = (
+  output: any,
+  context: __SerdeContext
+): { [key: string]: RecommendationDisruptionCompliance } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: RecommendationDisruptionCompliance }, [key, value]: [DisruptionType | string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      return {
+        ...acc,
+        [key]: deserializeAws_restJson1RecommendationDisruptionCompliance(value, context),
+      };
+    },
+    {}
+  );
+};
+
+const deserializeAws_restJson1RecommendationDisruptionCompliance = (
+  output: any,
+  context: __SerdeContext
+): RecommendationDisruptionCompliance => {
+  return {
+    expectedComplianceStatus: __expectString(output.expectedComplianceStatus),
+    expectedRpoDescription: __expectString(output.expectedRpoDescription),
+    expectedRpoInSecs: __expectInt32(output.expectedRpoInSecs),
+    expectedRtoDescription: __expectString(output.expectedRtoDescription),
+    expectedRtoInSecs: __expectInt32(output.expectedRtoInSecs),
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1RecommendationItem = (output: any, context: __SerdeContext): RecommendationItem => {
+  return {
+    alreadyImplemented: __expectBoolean(output.alreadyImplemented),
+    resourceId: __expectString(output.resourceId),
+    targetAccountId: __expectString(output.targetAccountId),
+    targetRegion: __expectString(output.targetRegion),
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationItemList = (output: any, context: __SerdeContext): RecommendationItem[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecommendationItem(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RecommendationTemplate = (
+  output: any,
+  context: __SerdeContext
+): RecommendationTemplate => {
+  return {
+    appArn: __expectString(output.appArn),
+    assessmentArn: __expectString(output.assessmentArn),
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.endTime)))
+        : undefined,
+    format: __expectString(output.format),
+    message: __expectString(output.message),
+    name: __expectString(output.name),
+    needsReplacements: __expectBoolean(output.needsReplacements),
+    recommendationIds:
+      output.recommendationIds !== undefined && output.recommendationIds !== null
+        ? deserializeAws_restJson1RecommendationIdList(output.recommendationIds, context)
+        : undefined,
+    recommendationTemplateArn: __expectString(output.recommendationTemplateArn),
+    recommendationTypes:
+      output.recommendationTypes !== undefined && output.recommendationTypes !== null
+        ? deserializeAws_restJson1RenderRecommendationTypeList(output.recommendationTypes, context)
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.startTime)))
+        : undefined,
+    status: __expectString(output.status),
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+    templatesLocation:
+      output.templatesLocation !== undefined && output.templatesLocation !== null
+        ? deserializeAws_restJson1S3Location(output.templatesLocation, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RecommendationTemplateList = (
+  output: any,
+  context: __SerdeContext
+): RecommendationTemplate[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecommendationTemplate(entry, context);
+    });
+};
+
+const deserializeAws_restJson1RenderRecommendationTypeList = (
+  output: any,
+  context: __SerdeContext
+): (RenderRecommendationType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1ResiliencyPolicies = (output: any, context: __SerdeContext): ResiliencyPolicy[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResiliencyPolicy(entry, context);
+    });
+};
+
+const deserializeAws_restJson1ResiliencyPolicy = (output: any, context: __SerdeContext): ResiliencyPolicy => {
+  return {
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
+        : undefined,
+    dataLocationConstraint: __expectString(output.dataLocationConstraint),
+    estimatedCostTier: __expectString(output.estimatedCostTier),
+    policy:
+      output.policy !== undefined && output.policy !== null
+        ? deserializeAws_restJson1DisruptionPolicy(output.policy, context)
+        : undefined,
+    policyArn: __expectString(output.policyArn),
+    policyDescription: __expectString(output.policyDescription),
+    policyName: __expectString(output.policyName),
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1TagMap(output.tags, context)
+        : undefined,
+    tier: __expectString(output.tier),
+  } as any;
+};
+
+const deserializeAws_restJson1ResiliencyScore = (output: any, context: __SerdeContext): ResiliencyScore => {
+  return {
+    disruptionScore:
+      output.disruptionScore !== undefined && output.disruptionScore !== null
+        ? deserializeAws_restJson1DisruptionResiliencyScore(output.disruptionScore, context)
+        : undefined,
+    score: __limitedParseDouble(output.score),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceMapping = (output: any, context: __SerdeContext): ResourceMapping => {
+  return {
+    appRegistryAppName: __expectString(output.appRegistryAppName),
+    logicalStackName: __expectString(output.logicalStackName),
+    mappingType: __expectString(output.mappingType),
+    physicalResourceId:
+      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+        ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
+        : undefined,
+    resourceGroupName: __expectString(output.resourceGroupName),
+    resourceName: __expectString(output.resourceName),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourceMappingList = (output: any, context: __SerdeContext): ResourceMapping[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourceMapping(entry, context);
+    });
+};
+
+const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
+  return {
+    bucket: __expectString(output.bucket),
+    prefix: __expectString(output.prefix),
+  } as any;
+};
+
+const deserializeAws_restJson1SopRecommendation = (output: any, context: __SerdeContext): SopRecommendation => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    description: __expectString(output.description),
+    items:
+      output.items !== undefined && output.items !== null
+        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
+        : undefined,
+    name: __expectString(output.name),
+    prerequisite: __expectString(output.prerequisite),
+    recommendationId: __expectString(output.recommendationId),
+    referenceId: __expectString(output.referenceId),
+    serviceType: __expectString(output.serviceType),
+  } as any;
+};
+
+const deserializeAws_restJson1SopRecommendationList = (output: any, context: __SerdeContext): SopRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SopRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1SuggestedChangesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce((acc: { [key: string]: string }, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
+};
+
+const deserializeAws_restJson1TestRecommendation = (output: any, context: __SerdeContext): TestRecommendation => {
+  return {
+    appComponentName: __expectString(output.appComponentName),
+    description: __expectString(output.description),
+    intent: __expectString(output.intent),
+    items:
+      output.items !== undefined && output.items !== null
+        ? deserializeAws_restJson1RecommendationItemList(output.items, context)
+        : undefined,
+    name: __expectString(output.name),
+    prerequisite: __expectString(output.prerequisite),
+    recommendationId: __expectString(output.recommendationId),
+    referenceId: __expectString(output.referenceId),
+    risk: __expectString(output.risk),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1TestRecommendationList = (output: any, context: __SerdeContext): TestRecommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TestRecommendation(entry, context);
+    });
+};
+
+const deserializeAws_restJson1UnsupportedResource = (output: any, context: __SerdeContext): UnsupportedResource => {
+  return {
+    logicalResourceId:
+      output.logicalResourceId !== undefined && output.logicalResourceId !== null
+        ? deserializeAws_restJson1LogicalResourceId(output.logicalResourceId, context)
+        : undefined,
+    physicalResourceId:
+      output.physicalResourceId !== undefined && output.physicalResourceId !== null
+        ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
+        : undefined,
+    resourceType: __expectString(output.resourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1UnsupportedResourceList = (
+  output: any,
+  context: __SerdeContext
+): UnsupportedResource[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UnsupportedResource(entry, context);
+    });
+};
+
+const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
+  httpStatusCode: output.statusCode,
+  requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"],
+  extendedRequestId: output.headers["x-amz-id-2"],
+  cfId: output.headers["x-amz-cf-id"],
+});
+
+// Collect low-level response body stream to Uint8Array.
+const collectBody = (streamBody: any = new Uint8Array(), context: __SerdeContext): Promise<Uint8Array> => {
+  if (streamBody instanceof Uint8Array) {
+    return Promise.resolve(streamBody);
+  }
+  return context.streamCollector(streamBody) || Promise.resolve(new Uint8Array());
+};
+
+// Encode Uint8Array data into string with utf-8.
+const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
+  collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+
+const isSerializableHeaderValue = (value: any): boolean =>
+  value !== undefined &&
+  value !== null &&
+  value !== "" &&
+  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
+  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const parseBody = (streamBody: any, context: __SerdeContext): any =>
+  collectBodyString(streamBody, context).then((encoded) => {
+    if (encoded.length) {
+      return JSON.parse(encoded);
+    }
+    return {};
+  });
+
+/**
+ * Load an error code for the aws.rest-json-1.1 protocol.
+ */
+const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string => {
+  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
+
+  const sanitizeErrorCode = (rawValue: string): string => {
+    let cleanValue = rawValue;
+    if (cleanValue.indexOf(":") >= 0) {
+      cleanValue = cleanValue.split(":")[0];
+    }
+    if (cleanValue.indexOf("#") >= 0) {
+      cleanValue = cleanValue.split("#")[1];
+    }
+    return cleanValue;
+  };
+
+  const headerKey = findKey(output.headers, "x-amzn-errortype");
+  if (headerKey !== undefined) {
+    return sanitizeErrorCode(output.headers[headerKey]);
+  }
+
+  if (data.code !== undefined) {
+    return sanitizeErrorCode(data.code);
+  }
+
+  if (data["__type"] !== undefined) {
+    return sanitizeErrorCode(data["__type"]);
+  }
+
+  return "";
+};

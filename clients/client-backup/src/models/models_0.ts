@@ -661,6 +661,36 @@ export namespace BackupPlanTemplatesListMember {
   });
 }
 
+export interface ConditionParameter {
+  ConditionKey?: string;
+  ConditionValue?: string;
+}
+
+export namespace ConditionParameter {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: ConditionParameter): any => ({
+    ...obj,
+  });
+}
+
+export interface Conditions {
+  StringEquals?: ConditionParameter[];
+  StringNotEquals?: ConditionParameter[];
+  StringLike?: ConditionParameter[];
+  StringNotLike?: ConditionParameter[];
+}
+
+export namespace Conditions {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: Conditions): any => ({
+    ...obj,
+  });
+}
+
 export enum ConditionType {
   STRINGEQUALS = "STRINGEQUALS",
 }
@@ -727,6 +757,9 @@ export interface BackupSelection {
    *          Assigns the backup plan to every resource with at least one matching tag.</p>
    */
   ListOfTags?: Condition[];
+
+  NotResources?: string[];
+  Conditions?: Conditions;
 }
 
 export namespace BackupSelection {

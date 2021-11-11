@@ -36,7 +36,6 @@ import {
   FeatureDefinition,
   HyperParameterTuningJobStrategyType,
   InferenceSpecification,
-  LabelingJobInputConfig,
   MetadataProperties,
   ModelApprovalStatus,
   ModelPackageStatus,
@@ -78,6 +77,7 @@ import {
   ImageStatus,
   ImageVersionStatus,
   LabelCounters,
+  LabelingJobInputConfig,
   LabelingJobOutput,
   LabelingJobStatus,
   MemberDefinition,
@@ -100,14 +100,12 @@ import {
   PipelineExperimentConfig,
   PipelineStatus,
   ProcessingInput,
-  ProcessingJobStatus,
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  ProjectStatus,
   RuleEvaluationStatus,
   ScheduleStatus,
   ServiceCatalogProvisioningDetails,
@@ -121,6 +119,165 @@ import {
   TrialComponentParameterValue,
   TrialComponentStatus,
 } from "./models_1";
+
+export enum ProcessingJobStatus {
+  COMPLETED = "Completed",
+  FAILED = "Failed",
+  IN_PROGRESS = "InProgress",
+  STOPPED = "Stopped",
+  STOPPING = "Stopping",
+}
+
+export interface DescribeProcessingJobResponse {
+  /**
+   * <p>The inputs for a processing job.</p>
+   */
+  ProcessingInputs?: ProcessingInput[];
+
+  /**
+   * <p>Output configuration for the processing job.</p>
+   */
+  ProcessingOutputConfig?: ProcessingOutputConfig;
+
+  /**
+   * <p>The name of the processing job. The name must be unique within an Amazon Web Services Region in the
+   *             Amazon Web Services account.</p>
+   */
+  ProcessingJobName: string | undefined;
+
+  /**
+   * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
+   *             processing job. In distributed training, you specify more than one instance.</p>
+   */
+  ProcessingResources: ProcessingResources | undefined;
+
+  /**
+   * <p>The time limit for how long the processing job is allowed to run.</p>
+   */
+  StoppingCondition?: ProcessingStoppingCondition;
+
+  /**
+   * <p>Configures the processing job to run a specified container image.</p>
+   */
+  AppSpecification: AppSpecification | undefined;
+
+  /**
+   * <p>The environment variables set in the Docker container.</p>
+   */
+  Environment?: { [key: string]: string };
+
+  /**
+   * <p>Networking options for a processing job.</p>
+   */
+  NetworkConfig?: NetworkConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on
+   *             your behalf.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>The configuration information used to create an experiment.</p>
+   */
+  ExperimentConfig?: ExperimentConfig;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the processing job.</p>
+   */
+  ProcessingJobArn: string | undefined;
+
+  /**
+   * <p>Provides the status of a processing job.</p>
+   */
+  ProcessingJobStatus: ProcessingJobStatus | string | undefined;
+
+  /**
+   * <p>An optional string, up to one KB in size, that contains metadata from the processing
+   *             container when the processing job exits.</p>
+   */
+  ExitMessage?: string;
+
+  /**
+   * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
+   *             it failed.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The time at which the processing job completed.</p>
+   */
+  ProcessingEndTime?: Date;
+
+  /**
+   * <p>The time at which the processing job started.</p>
+   */
+  ProcessingStartTime?: Date;
+
+  /**
+   * <p>The time at which the processing job was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The time at which the processing job was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
+   *             job.</p>
+   */
+  MonitoringScheduleArn?: string;
+
+  /**
+   * <p>The ARN of an AutoML job associated with this processing job.</p>
+   */
+  AutoMLJobArn?: string;
+
+  /**
+   * <p>The ARN of a training job associated with this processing job.</p>
+   */
+  TrainingJobArn?: string;
+}
+
+export namespace DescribeProcessingJobResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeProcessingJobResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeProjectInput {
+  /**
+   * <p>The name of the project to describe.</p>
+   */
+  ProjectName: string | undefined;
+}
+
+export namespace DescribeProjectInput {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: DescribeProjectInput): any => ({
+    ...obj,
+  });
+}
+
+export enum ProjectStatus {
+  CREATE_COMPLETED = "CreateCompleted",
+  CREATE_FAILED = "CreateFailed",
+  CREATE_IN_PROGRESS = "CreateInProgress",
+  DELETE_COMPLETED = "DeleteCompleted",
+  DELETE_FAILED = "DeleteFailed",
+  DELETE_IN_PROGRESS = "DeleteInProgress",
+  PENDING = "Pending",
+  UPDATE_COMPLETED = "UpdateCompleted",
+  UPDATE_FAILED = "UpdateFailed",
+  UPDATE_IN_PROGRESS = "UpdateInProgress",
+}
 
 /**
  * <p>Details of a provisioned service catalog product. For information about service catalog,
@@ -11447,70 +11604,6 @@ export namespace StartPipelineExecutionRequest {
    * @internal
    */
   export const filterSensitiveLog = (obj: StartPipelineExecutionRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StartPipelineExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
-   */
-  PipelineExecutionArn?: string;
-}
-
-export namespace StartPipelineExecutionResponse {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StartPipelineExecutionResponse): any => ({
-    ...obj,
-  });
-}
-
-export interface StopAutoMLJobRequest {
-  /**
-   * <p>The name of the object you are requesting.</p>
-   */
-  AutoMLJobName: string | undefined;
-}
-
-export namespace StopAutoMLJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopAutoMLJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopCompilationJobRequest {
-  /**
-   * <p>The name of the model compilation job to stop.</p>
-   */
-  CompilationJobName: string | undefined;
-}
-
-export namespace StopCompilationJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface StopEdgePackagingJobRequest {
-  /**
-   * <p>The name of the edge packaging job.</p>
-   */
-  EdgePackagingJobName: string | undefined;
-}
-
-export namespace StopEdgePackagingJobRequest {
-  /**
-   * @internal
-   */
-  export const filterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
     ...obj,
   });
 }

@@ -359,6 +359,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.ecr.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "api.ecr-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -368,6 +372,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.ecr.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "api.ecr-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

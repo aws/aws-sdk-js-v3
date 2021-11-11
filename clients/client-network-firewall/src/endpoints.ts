@@ -168,6 +168,10 @@ const partitionHash: PartitionHash = {
         hostname: "network-firewall.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "network-firewall-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -177,6 +181,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "network-firewall.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "network-firewall-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

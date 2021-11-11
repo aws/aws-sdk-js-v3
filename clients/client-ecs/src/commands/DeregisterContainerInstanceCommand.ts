@@ -27,15 +27,16 @@ export interface DeregisterContainerInstanceCommandOutput
  * <p>Deregisters an Amazon ECS container instance from the specified cluster. This instance is
  * 			no longer available to run tasks.</p>
  * 		       <p>If you intend to use the container instance for some other purpose after
- * 			deregistration, you should stop all of the tasks running on the container instance
- * 			before deregistration. That prevents any orphaned tasks from consuming resources.</p>
- * 		       <p>Deregistering a container instance removes the instance from a cluster, but it does
- * 			not terminate the EC2 instance. If you are finished using the instance, be sure to
- * 			terminate it in the Amazon EC2 console to stop billing.</p>
+ * 			deregistration, we recommend that you stop all of the tasks running on the container
+ * 			instance before deregistration. That prevents any orphaned tasks from consuming
+ * 			resources.</p>
+ * 		       <p>Deregistering a container instance removes the instance from a cluster, but it doesn't
+ * 			terminate the EC2 instance. If you are finished using the instance, be sure to terminate
+ * 			it in the Amazon EC2 console to stop billing.</p>
  * 		       <note>
  * 			         <p>If you terminate a running container instance, Amazon ECS automatically deregisters the
  * 				instance from your cluster (stopped container instances or instances with
- * 				disconnected agents are not automatically deregistered when terminated).</p>
+ * 				disconnected agents aren't automatically deregistered when terminated).</p>
  * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

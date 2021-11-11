@@ -2316,7 +2316,6 @@ import {
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
-  InstanceCapacity,
   InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   LoadPermission,
@@ -2493,7 +2492,6 @@ import {
   DescribeStoreImageTasksRequest,
   DescribeStoreImageTasksResult,
   DescribeSubnetsRequest,
-  DescribeSubnetsResult,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -2524,6 +2522,7 @@ import {
   Instance,
   InstanceAttribute,
   InstanceBlockDeviceMapping,
+  InstanceCapacity,
   InstanceCreditSpecification,
   InstanceIpv4Prefix,
   InstanceIpv6Prefix,
@@ -2623,6 +2622,7 @@ import {
   ClientCertificateRevocationListStatus,
   ClientData,
   CoipAddressUsage,
+  DescribeSubnetsResult,
   DescribeTagsRequest,
   DescribeTagsResult,
   DescribeTrafficMirrorFiltersRequest,
@@ -2870,7 +2870,6 @@ import {
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-  ModifyInstanceCreditSpecificationRequest,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -2917,6 +2916,7 @@ import {
   InstanceStateChange,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
   ModifyInstanceEventStartTimeResult,
@@ -35167,6 +35167,9 @@ const serializeAws_ec2CreateRouteRequest = (input: CreateRouteRequest, context: 
   if (input.VpcPeeringConnectionId !== undefined && input.VpcPeeringConnectionId !== null) {
     entries["VpcPeeringConnectionId"] = input.VpcPeeringConnectionId;
   }
+  if (input.CoreNetworkArn !== undefined && input.CoreNetworkArn !== null) {
+    entries["CoreNetworkArn"] = input.CoreNetworkArn;
+  }
   return entries;
 };
 
@@ -48090,6 +48093,9 @@ const serializeAws_ec2ReplaceRouteRequest = (input: ReplaceRouteRequest, context
   }
   if (input.VpcPeeringConnectionId !== undefined && input.VpcPeeringConnectionId !== null) {
     entries["VpcPeeringConnectionId"] = input.VpcPeeringConnectionId;
+  }
+  if (input.CoreNetworkArn !== undefined && input.CoreNetworkArn !== null) {
+    entries["CoreNetworkArn"] = input.CoreNetworkArn;
   }
   return entries;
 };
@@ -71395,6 +71401,7 @@ const deserializeAws_ec2Route = (output: any, context: __SerdeContext): Route =>
     Origin: undefined,
     State: undefined,
     VpcPeeringConnectionId: undefined,
+    CoreNetworkArn: undefined,
   };
   if (output["destinationCidrBlock"] !== undefined) {
     contents.DestinationCidrBlock = __expectString(output["destinationCidrBlock"]);
@@ -71440,6 +71447,9 @@ const deserializeAws_ec2Route = (output: any, context: __SerdeContext): Route =>
   }
   if (output["vpcPeeringConnectionId"] !== undefined) {
     contents.VpcPeeringConnectionId = __expectString(output["vpcPeeringConnectionId"]);
+  }
+  if (output["coreNetworkArn"] !== undefined) {
+    contents.CoreNetworkArn = __expectString(output["coreNetworkArn"]);
   }
   return contents;
 };

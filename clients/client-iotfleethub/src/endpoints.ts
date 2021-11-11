@@ -131,6 +131,10 @@ const partitionHash: PartitionHash = {
         hostname: "api.fleethub.iot.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "api.fleethub.iot-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -140,6 +144,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "api.fleethub.iot.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "api.fleethub.iot-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

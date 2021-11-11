@@ -162,6 +162,10 @@ const partitionHash: PartitionHash = {
         hostname: "mediaconvert.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "mediaconvert-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -171,6 +175,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mediaconvert.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "mediaconvert-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

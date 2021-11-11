@@ -88,6 +88,10 @@ const partitionHash: PartitionHash = {
         hostname: "mturk-requester.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "mturk-requester-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -97,6 +101,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "mturk-requester.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "mturk-requester-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

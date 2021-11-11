@@ -6083,6 +6083,8 @@ export interface CreateRouteRequest {
    * <p>The ID of a VPC peering connection.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  CoreNetworkArn?: string;
 }
 
 export namespace CreateRouteRequest {
@@ -6299,6 +6301,8 @@ export interface Route {
    * <p>The ID of a VPC peering connection.</p>
    */
   VpcPeeringConnectionId?: string;
+
+  CoreNetworkArn?: string;
 }
 
 export namespace Route {

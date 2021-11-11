@@ -149,6 +149,10 @@ const partitionHash: PartitionHash = {
         hostname: "elasticbeanstalk.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "elasticbeanstalk-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -158,6 +162,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticbeanstalk.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "elasticbeanstalk-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

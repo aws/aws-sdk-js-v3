@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "query.timestream.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "query.timestream-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "query.timestream.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "query.timestream-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

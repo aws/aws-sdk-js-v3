@@ -177,6 +177,7 @@ import {
   ContainerDependency,
   ContainerInstance,
   ContainerInstanceField,
+  ContainerInstanceHealthStatus,
   ContainerOverride,
   ContainerStateChange,
   CreateCapacityProviderRequest,
@@ -243,6 +244,7 @@ import {
   HostVolumeProperties,
   InferenceAccelerator,
   InferenceAcceleratorOverride,
+  InstanceHealthCheckResult,
   InvalidParameterException,
   KernelCapabilities,
   KeyValuePair,
@@ -8344,6 +8346,10 @@ const deserializeAws_json1_1ContainerInstance = (output: any, context: __SerdeCo
     capacityProviderName: __expectString(output.capacityProviderName),
     containerInstanceArn: __expectString(output.containerInstanceArn),
     ec2InstanceId: __expectString(output.ec2InstanceId),
+    healthStatus:
+      output.healthStatus !== undefined && output.healthStatus !== null
+        ? deserializeAws_json1_1ContainerInstanceHealthStatus(output.healthStatus, context)
+        : undefined,
     pendingTasksCount: __expectInt32(output.pendingTasksCount),
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
@@ -8367,6 +8373,19 @@ const deserializeAws_json1_1ContainerInstance = (output: any, context: __SerdeCo
       output.versionInfo !== undefined && output.versionInfo !== null
         ? deserializeAws_json1_1VersionInfo(output.versionInfo, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ContainerInstanceHealthStatus = (
+  output: any,
+  context: __SerdeContext
+): ContainerInstanceHealthStatus => {
+  return {
+    details:
+      output.details !== undefined && output.details !== null
+        ? deserializeAws_json1_1InstanceHealthCheckResultList(output.details, context)
+        : undefined,
+    overallStatus: __expectString(output.overallStatus),
   } as any;
 };
 
@@ -9064,6 +9083,38 @@ const deserializeAws_json1_1InferenceAccelerators = (output: any, context: __Ser
         return null as any;
       }
       return deserializeAws_json1_1InferenceAccelerator(entry, context);
+    });
+};
+
+const deserializeAws_json1_1InstanceHealthCheckResult = (
+  output: any,
+  context: __SerdeContext
+): InstanceHealthCheckResult => {
+  return {
+    lastStatusChange:
+      output.lastStatusChange !== undefined && output.lastStatusChange !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastStatusChange)))
+        : undefined,
+    lastUpdated:
+      output.lastUpdated !== undefined && output.lastUpdated !== null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.lastUpdated)))
+        : undefined,
+    status: __expectString(output.status),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_json1_1InstanceHealthCheckResultList = (
+  output: any,
+  context: __SerdeContext
+): InstanceHealthCheckResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1InstanceHealthCheckResult(entry, context);
     });
 };
 

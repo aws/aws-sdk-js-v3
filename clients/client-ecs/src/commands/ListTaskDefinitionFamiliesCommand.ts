@@ -22,12 +22,12 @@ export interface ListTaskDefinitionFamiliesCommandInput extends ListTaskDefiniti
 export interface ListTaskDefinitionFamiliesCommandOutput extends ListTaskDefinitionFamiliesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of task definition families that are registered to your account (which
- * 			may include task definition families that no longer have any <code>ACTIVE</code> task
- * 			definition revisions).</p>
- * 		       <p>You can filter out task definition families that do not contain any
- * 				<code>ACTIVE</code> task definition revisions by setting the <code>status</code>
- * 			parameter to <code>ACTIVE</code>. You can also filter the results with the
+ * <p>Returns a list of task definition families that are registered to your account. This
+ * 			list includes task definition families that no longer have any <code>ACTIVE</code> task
+ * 			definition revisions.</p>
+ * 		       <p>You can filter out task definition families that don't contain any <code>ACTIVE</code>
+ * 			task definition revisions by setting the <code>status</code> parameter to
+ * 				<code>ACTIVE</code>. You can also filter the results with the
  * 				<code>familyPrefix</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

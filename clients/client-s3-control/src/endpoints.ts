@@ -370,15 +370,11 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "s3-control-fips.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
-        hostname: "s3-control-fips.{region}.api.aws",
+        hostname: "s3-control-fips.dualstack.{region}.amazonaws.com",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "s3-control.{region}.api.aws",
+        hostname: "s3-control.dualstack.{region}.amazonaws.com",
         tags: ["dualstack"],
       },
     ],
@@ -392,15 +388,7 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "s3-control-fips.{region}.amazonaws.com.cn",
-        tags: ["fips"],
-      },
-      {
-        hostname: "s3-control-fips.{region}.api.amazonwebservices.com.cn",
-        tags: ["dualstack", "fips"],
-      },
-      {
-        hostname: "s3-control.{region}.api.amazonwebservices.com.cn",
+        hostname: "s3-control.dualstack.{region}.amazonaws.com.cn",
         tags: ["dualstack"],
       },
     ],
@@ -413,6 +401,10 @@ const partitionHash: PartitionHash = {
         hostname: "s3-control.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "s3-control-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -422,6 +414,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "s3-control.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "s3-control-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -434,15 +430,11 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "s3-control-fips.{region}.amazonaws.com",
-        tags: ["fips"],
-      },
-      {
-        hostname: "s3-control-fips.{region}.api.aws",
+        hostname: "s3-control-fips.dualstack.{region}.amazonaws.com",
         tags: ["dualstack", "fips"],
       },
       {
-        hostname: "s3-control.{region}.api.aws",
+        hostname: "s3-control.dualstack.{region}.amazonaws.com",
         tags: ["dualstack"],
       },
     ],

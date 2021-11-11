@@ -25,8 +25,8 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * <p>Deletes the specified capacity provider.</p>
  * 		       <note>
  * 			         <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
- * 				reserved and cannot be deleted. You can disassociate them from a cluster using
- * 				either the <a>PutClusterCapacityProviders</a> API or by deleting the
+ * 				reserved and can't be deleted. You can disassociate them from a cluster using either
+ * 				the <a>PutClusterCapacityProviders</a> API or by deleting the
  * 				cluster.</p>
  * 		       </note>
  * 		       <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
@@ -35,7 +35,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * 			strategy. When updating a service, the <code>forceNewDeployment</code> option can be
  * 			used to ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity
  * 			provider are transitioned to use the capacity from the remaining capacity providers.
- * 			Only capacity providers that are not associated with a cluster can be deleted. To remove
+ * 			Only capacity providers that aren't associated with a cluster can be deleted. To remove
  * 			a capacity provider from a cluster, you can either use <a>PutClusterCapacityProviders</a> or delete the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

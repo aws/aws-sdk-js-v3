@@ -1,6 +1,7 @@
 import {
   ActionStatus,
   BooleanOperator,
+  DeploymentConfig,
   EdgeOutputConfig,
   KernelGatewayImageConfig,
   ModelApprovalStatus,
@@ -9,7 +10,6 @@ import {
 } from "./models_0";
 import {
   _InstanceType,
-  DeploymentConfig,
   MemberDefinition,
   MonitoringScheduleConfig,
   NotebookInstanceAcceleratorType,
@@ -37,6 +37,70 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface StartPipelineExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
+   */
+  PipelineExecutionArn?: string;
+}
+
+export namespace StartPipelineExecutionResponse {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StartPipelineExecutionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface StopAutoMLJobRequest {
+  /**
+   * <p>The name of the object you are requesting.</p>
+   */
+  AutoMLJobName: string | undefined;
+}
+
+export namespace StopAutoMLJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopAutoMLJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopCompilationJobRequest {
+  /**
+   * <p>The name of the model compilation job to stop.</p>
+   */
+  CompilationJobName: string | undefined;
+}
+
+export namespace StopCompilationJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopCompilationJobRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface StopEdgePackagingJobRequest {
+  /**
+   * <p>The name of the edge packaging job.</p>
+   */
+  EdgePackagingJobName: string | undefined;
+}
+
+export namespace StopEdgePackagingJobRequest {
+  /**
+   * @internal
+   */
+  export const filterSensitiveLog = (obj: StopEdgePackagingJobRequest): any => ({
+    ...obj,
+  });
+}
 
 export interface StopHyperParameterTuningJobRequest {
   /**
@@ -595,9 +659,15 @@ export interface UpdateEndpointInput {
   ExcludeRetainedVariantProperties?: VariantProperty[];
 
   /**
-   * <p>The deployment configuration for the endpoint to be updated.</p>
+   * <p>The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations.</p>
    */
   DeploymentConfig?: DeploymentConfig;
+
+  /**
+   * <p>Specifies whether to reuse the last deployment configuration. The default value is
+   *             false (the configuration is not reused).</p>
+   */
+  RetainDeploymentConfig?: boolean;
 }
 
 export namespace UpdateEndpointInput {

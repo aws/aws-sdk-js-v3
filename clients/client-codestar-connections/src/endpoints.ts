@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "codestar-connections.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "codestar-connections-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "codestar-connections.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "codestar-connections-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

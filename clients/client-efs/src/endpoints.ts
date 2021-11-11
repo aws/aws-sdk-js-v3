@@ -412,6 +412,10 @@ const partitionHash: PartitionHash = {
         hostname: "elasticfilesystem.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "elasticfilesystem-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -421,6 +425,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "elasticfilesystem.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "elasticfilesystem-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

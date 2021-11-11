@@ -2,6 +2,18 @@ import { getRegionInfo, PartitionHash, RegionHash } from "@aws-sdk/config-resolv
 import { RegionInfoProvider, RegionInfoProviderOptions } from "@aws-sdk/types";
 
 const regionHash: RegionHash = {
+  "ca-central-1": {
+    variants: [
+      {
+        hostname: "transcribe.ca-central-1.amazonaws.com",
+        tags: [],
+      },
+      {
+        hostname: "fips.transcribe.ca-central-1.amazonaws.com",
+        tags: ["fips"],
+      },
+    ],
+  },
   "cn-north-1": {
     variants: [
       {
@@ -112,6 +124,7 @@ const partitionHash: PartitionHash = {
       "eu-west-1",
       "eu-west-2",
       "eu-west-3",
+      "fips-ca-central-1",
       "fips-us-east-1",
       "fips-us-east-2",
       "fips-us-west-1",
@@ -165,6 +178,10 @@ const partitionHash: PartitionHash = {
         hostname: "transcribe.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "transcribe-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -174,6 +191,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "transcribe.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "transcribe-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

@@ -335,6 +335,10 @@ const partitionHash: PartitionHash = {
         hostname: "snowball.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "snowball-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -344,6 +348,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "snowball.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "snowball-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

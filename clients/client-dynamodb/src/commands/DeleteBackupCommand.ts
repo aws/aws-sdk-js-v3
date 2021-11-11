@@ -23,7 +23,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
 
 /**
  * <p>Deletes an existing backup of a table.</p>
- *          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per second.</p>
+ *         <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
+ *             second.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

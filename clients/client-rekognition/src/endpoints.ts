@@ -166,6 +166,10 @@ const partitionHash: PartitionHash = {
         hostname: "rekognition.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "rekognition-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -175,6 +179,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "rekognition.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "rekognition-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

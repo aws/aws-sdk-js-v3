@@ -56,10 +56,18 @@ import {
 } from "./commands/CreateComputeEnvironmentCommand";
 import { CreateJobQueueCommandInput, CreateJobQueueCommandOutput } from "./commands/CreateJobQueueCommand";
 import {
+  CreateSchedulingPolicyCommandInput,
+  CreateSchedulingPolicyCommandOutput,
+} from "./commands/CreateSchedulingPolicyCommand";
+import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
 import { DeleteJobQueueCommandInput, DeleteJobQueueCommandOutput } from "./commands/DeleteJobQueueCommand";
+import {
+  DeleteSchedulingPolicyCommandInput,
+  DeleteSchedulingPolicyCommandOutput,
+} from "./commands/DeleteSchedulingPolicyCommand";
 import {
   DeregisterJobDefinitionCommandInput,
   DeregisterJobDefinitionCommandOutput,
@@ -74,7 +82,15 @@ import {
 } from "./commands/DescribeJobDefinitionsCommand";
 import { DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput } from "./commands/DescribeJobQueuesCommand";
 import { DescribeJobsCommandInput, DescribeJobsCommandOutput } from "./commands/DescribeJobsCommand";
+import {
+  DescribeSchedulingPoliciesCommandInput,
+  DescribeSchedulingPoliciesCommandOutput,
+} from "./commands/DescribeSchedulingPoliciesCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
+import {
+  ListSchedulingPoliciesCommandInput,
+  ListSchedulingPoliciesCommandOutput,
+} from "./commands/ListSchedulingPoliciesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -92,20 +108,28 @@ import {
   UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
 import { UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput } from "./commands/UpdateJobQueueCommand";
+import {
+  UpdateSchedulingPolicyCommandInput,
+  UpdateSchedulingPolicyCommandOutput,
+} from "./commands/UpdateSchedulingPolicyCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | CancelJobCommandInput
   | CreateComputeEnvironmentCommandInput
   | CreateJobQueueCommandInput
+  | CreateSchedulingPolicyCommandInput
   | DeleteComputeEnvironmentCommandInput
   | DeleteJobQueueCommandInput
+  | DeleteSchedulingPolicyCommandInput
   | DeregisterJobDefinitionCommandInput
   | DescribeComputeEnvironmentsCommandInput
   | DescribeJobDefinitionsCommandInput
   | DescribeJobQueuesCommandInput
   | DescribeJobsCommandInput
+  | DescribeSchedulingPoliciesCommandInput
   | ListJobsCommandInput
+  | ListSchedulingPoliciesCommandInput
   | ListTagsForResourceCommandInput
   | RegisterJobDefinitionCommandInput
   | SubmitJobCommandInput
@@ -113,20 +137,25 @@ export type ServiceInputTypes =
   | TerminateJobCommandInput
   | UntagResourceCommandInput
   | UpdateComputeEnvironmentCommandInput
-  | UpdateJobQueueCommandInput;
+  | UpdateJobQueueCommandInput
+  | UpdateSchedulingPolicyCommandInput;
 
 export type ServiceOutputTypes =
   | CancelJobCommandOutput
   | CreateComputeEnvironmentCommandOutput
   | CreateJobQueueCommandOutput
+  | CreateSchedulingPolicyCommandOutput
   | DeleteComputeEnvironmentCommandOutput
   | DeleteJobQueueCommandOutput
+  | DeleteSchedulingPolicyCommandOutput
   | DeregisterJobDefinitionCommandOutput
   | DescribeComputeEnvironmentsCommandOutput
   | DescribeJobDefinitionsCommandOutput
   | DescribeJobQueuesCommandOutput
   | DescribeJobsCommandOutput
+  | DescribeSchedulingPoliciesCommandOutput
   | ListJobsCommandOutput
+  | ListSchedulingPoliciesCommandOutput
   | ListTagsForResourceCommandOutput
   | RegisterJobDefinitionCommandOutput
   | SubmitJobCommandOutput
@@ -134,7 +163,8 @@ export type ServiceOutputTypes =
   | TerminateJobCommandOutput
   | UntagResourceCommandOutput
   | UpdateComputeEnvironmentCommandOutput
-  | UpdateJobQueueCommandOutput;
+  | UpdateJobQueueCommandOutput
+  | UpdateSchedulingPolicyCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -286,7 +316,7 @@ export interface BatchClientResolvedConfig extends BatchClientResolvedConfigType
 
 /**
  * <fullname>Batch</fullname>
- *          <p>Using Batch, you can run batch computing workloads on the Cloud. Batch computing is a common means for
+ *          <p>Using Batch, you can run batch computing workloads on the Amazon Web Services Cloud. Batch computing is a common means for
  *    developers, scientists, and engineers to access large amounts of compute resources. Batch uses the advantages of
  *    this computing workload to remove the undifferentiated heavy lifting of configuring and managing required
  *    infrastructure. At the same time, it also adopts a familiar batch computing software approach. Given these
@@ -295,7 +325,7 @@ export interface BatchClientResolvedConfig extends BatchClientResolvedConfigType
  *          <p>As a fully managed service, Batch can run batch computing workloads of any scale. Batch automatically
  *    provisions compute resources and optimizes workload distribution based on the quantity and scale of your specific
  *    workloads. With Batch, there's no need to install or manage batch computing software. This means that you can focus
- *    your time and energy on analyzing results and solving your specific problems. </p>
+ *    your time and energy on analyzing results and solving your specific problems.</p>
  */
 export class BatchClient extends __Client<
   __HttpHandlerOptions,

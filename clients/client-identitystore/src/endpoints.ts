@@ -91,6 +91,10 @@ const partitionHash: PartitionHash = {
         hostname: "identitystore.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "identitystore-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -100,6 +104,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "identitystore.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "identitystore-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },
@@ -112,16 +120,8 @@ const partitionHash: PartitionHash = {
         tags: [],
       },
       {
-        hostname: "identitystore-fips.{region}.amazonaws.com",
+        hostname: "identitystore.{region}.amazonaws.com",
         tags: ["fips"],
-      },
-      {
-        hostname: "identitystore-fips.{region}.api.aws",
-        tags: ["dualstack", "fips"],
-      },
-      {
-        hostname: "identitystore.{region}.api.aws",
-        tags: ["dualstack"],
       },
     ],
   },

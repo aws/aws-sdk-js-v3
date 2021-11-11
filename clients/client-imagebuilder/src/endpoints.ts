@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "imagebuilder.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "imagebuilder-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "imagebuilder.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "imagebuilder-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

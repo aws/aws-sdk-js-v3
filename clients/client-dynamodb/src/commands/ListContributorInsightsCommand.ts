@@ -22,7 +22,8 @@ export interface ListContributorInsightsCommandInput extends ListContributorInsi
 export interface ListContributorInsightsCommandOutput extends ListContributorInsightsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary indexes.</p>
+ * <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
+ *             indexes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

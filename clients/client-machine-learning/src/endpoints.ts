@@ -78,6 +78,10 @@ const partitionHash: PartitionHash = {
         hostname: "machinelearning.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "machinelearning-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -87,6 +91,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "machinelearning.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "machinelearning-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

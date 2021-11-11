@@ -22,30 +22,30 @@ export interface RestoreTableFromBackupCommandInput extends RestoreTableFromBack
 export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores
- *         (any type of restore) in a given account.
- *       </p>
- *          <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per second.</p>
- *          <p>You must manually set up the following on the restored table:</p>
- *          <ul>
+ * <p>Creates a new table from an existing backup. Any number of users can execute up to 4
+ *             concurrent restores (any type of restore) in a given account. </p>
+ *         <p>You can call <code>RestoreTableFromBackup</code> at a maximum rate of 10 times per
+ *             second.</p>
+ *         <p>You must manually set up the following on the restored table:</p>
+ *         <ul>
  *             <li>
- *                  <p>Auto scaling policies</p>
- *              </li>
+ *                 <p>Auto scaling policies</p>
+ *             </li>
  *             <li>
- *                  <p>IAM policies</p>
- *              </li>
+ *                 <p>IAM policies</p>
+ *             </li>
  *             <li>
- *                  <p>Amazon CloudWatch metrics and alarms</p>
- *              </li>
+ *                 <p>Amazon CloudWatch metrics and alarms</p>
+ *             </li>
  *             <li>
- *                  <p>Tags</p>
- *              </li>
+ *                 <p>Tags</p>
+ *             </li>
  *             <li>
- *                  <p>Stream settings</p>
- *              </li>
+ *                 <p>Stream settings</p>
+ *             </li>
  *             <li>
- *                  <p>Time to Live (TTL) settings</p>
- *              </li>
+ *                 <p>Time to Live (TTL) settings</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

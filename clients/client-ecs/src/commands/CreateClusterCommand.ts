@@ -27,10 +27,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
  * 		       <note>
  * 			         <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
- * 				create the Amazon ECS service-linked role for your account so that required resources in
- * 				other Amazon Web Services services can be managed on your behalf. However, if the IAM user that
- * 				makes the call does not have permissions to create the service-linked role, it is
- * 				not created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+ * 				create the Amazon ECS service-linked role for your account. This is so that it can manage
+ * 				required resources in other Amazon Web Services services on your behalf. However, if the IAM user
+ * 				that makes the call doesn't have permissions to create the service-linked role, it
+ * 				isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
  * 					Service-Linked Roles for Amazon ECS</a> in the
  * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>

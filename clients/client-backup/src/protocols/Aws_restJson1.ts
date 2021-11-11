@@ -194,6 +194,8 @@ import {
   BackupVaultListMember,
   CalculatedLifecycle,
   Condition,
+  ConditionParameter,
+  Conditions,
   ConflictException,
   ControlInputParameter,
   ControlScope,
@@ -8465,9 +8467,13 @@ const serializeAws_restJson1BackupRulesInput = (input: BackupRuleInput[], contex
 
 const serializeAws_restJson1BackupSelection = (input: BackupSelection, context: __SerdeContext): any => {
   return {
+    ...(input.Conditions !== undefined &&
+      input.Conditions !== null && { Conditions: serializeAws_restJson1Conditions(input.Conditions, context) }),
     ...(input.IamRoleArn !== undefined && input.IamRoleArn !== null && { IamRoleArn: input.IamRoleArn }),
     ...(input.ListOfTags !== undefined &&
       input.ListOfTags !== null && { ListOfTags: serializeAws_restJson1ListOfTags(input.ListOfTags, context) }),
+    ...(input.NotResources !== undefined &&
+      input.NotResources !== null && { NotResources: serializeAws_restJson1ResourceArns(input.NotResources, context) }),
     ...(input.Resources !== undefined &&
       input.Resources !== null && { Resources: serializeAws_restJson1ResourceArns(input.Resources, context) }),
     ...(input.SelectionName !== undefined && input.SelectionName !== null && { SelectionName: input.SelectionName }),
@@ -8505,6 +8511,46 @@ const serializeAws_restJson1Condition = (input: Condition, context: __SerdeConte
     ...(input.ConditionType !== undefined && input.ConditionType !== null && { ConditionType: input.ConditionType }),
     ...(input.ConditionValue !== undefined &&
       input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
+  };
+};
+
+const serializeAws_restJson1ConditionParameter = (input: ConditionParameter, context: __SerdeContext): any => {
+  return {
+    ...(input.ConditionKey !== undefined && input.ConditionKey !== null && { ConditionKey: input.ConditionKey }),
+    ...(input.ConditionValue !== undefined &&
+      input.ConditionValue !== null && { ConditionValue: input.ConditionValue }),
+  };
+};
+
+const serializeAws_restJson1ConditionParameters = (input: ConditionParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return serializeAws_restJson1ConditionParameter(entry, context);
+    });
+};
+
+const serializeAws_restJson1Conditions = (input: Conditions, context: __SerdeContext): any => {
+  return {
+    ...(input.StringEquals !== undefined &&
+      input.StringEquals !== null && {
+        StringEquals: serializeAws_restJson1ConditionParameters(input.StringEquals, context),
+      }),
+    ...(input.StringLike !== undefined &&
+      input.StringLike !== null && {
+        StringLike: serializeAws_restJson1ConditionParameters(input.StringLike, context),
+      }),
+    ...(input.StringNotEquals !== undefined &&
+      input.StringNotEquals !== null && {
+        StringNotEquals: serializeAws_restJson1ConditionParameters(input.StringNotEquals, context),
+      }),
+    ...(input.StringNotLike !== undefined &&
+      input.StringNotLike !== null && {
+        StringNotLike: serializeAws_restJson1ConditionParameters(input.StringNotLike, context),
+      }),
   };
 };
 
@@ -8961,10 +9007,18 @@ const deserializeAws_restJson1BackupRules = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1BackupSelection = (output: any, context: __SerdeContext): BackupSelection => {
   return {
+    Conditions:
+      output.Conditions !== undefined && output.Conditions !== null
+        ? deserializeAws_restJson1Conditions(output.Conditions, context)
+        : undefined,
     IamRoleArn: __expectString(output.IamRoleArn),
     ListOfTags:
       output.ListOfTags !== undefined && output.ListOfTags !== null
         ? deserializeAws_restJson1ListOfTags(output.ListOfTags, context)
+        : undefined,
+    NotResources:
+      output.NotResources !== undefined && output.NotResources !== null
+        ? deserializeAws_restJson1ResourceArns(output.NotResources, context)
         : undefined,
     Resources:
       output.Resources !== undefined && output.Resources !== null
@@ -9080,6 +9134,45 @@ const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext)
     ConditionKey: __expectString(output.ConditionKey),
     ConditionType: __expectString(output.ConditionType),
     ConditionValue: __expectString(output.ConditionValue),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionParameter = (output: any, context: __SerdeContext): ConditionParameter => {
+  return {
+    ConditionKey: __expectString(output.ConditionKey),
+    ConditionValue: __expectString(output.ConditionValue),
+  } as any;
+};
+
+const deserializeAws_restJson1ConditionParameters = (output: any, context: __SerdeContext): ConditionParameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ConditionParameter(entry, context);
+    });
+};
+
+const deserializeAws_restJson1Conditions = (output: any, context: __SerdeContext): Conditions => {
+  return {
+    StringEquals:
+      output.StringEquals !== undefined && output.StringEquals !== null
+        ? deserializeAws_restJson1ConditionParameters(output.StringEquals, context)
+        : undefined,
+    StringLike:
+      output.StringLike !== undefined && output.StringLike !== null
+        ? deserializeAws_restJson1ConditionParameters(output.StringLike, context)
+        : undefined,
+    StringNotEquals:
+      output.StringNotEquals !== undefined && output.StringNotEquals !== null
+        ? deserializeAws_restJson1ConditionParameters(output.StringNotEquals, context)
+        : undefined,
+    StringNotLike:
+      output.StringNotLike !== undefined && output.StringNotLike !== null
+        ? deserializeAws_restJson1ConditionParameters(output.StringNotLike, context)
+        : undefined,
   } as any;
 };
 

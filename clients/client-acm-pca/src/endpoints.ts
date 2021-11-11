@@ -168,6 +168,10 @@ const partitionHash: PartitionHash = {
         hostname: "acm-pca.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "acm-pca-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -177,6 +181,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "acm-pca.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "acm-pca-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },

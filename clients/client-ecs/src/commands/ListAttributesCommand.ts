@@ -26,9 +26,9 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  * 			When you specify a target type and cluster, <code>ListAttributes</code> returns a list
  * 			of attribute objects, one for each attribute on each resource. You can filter the list
  * 			of results to a single attribute name to only return results that have that name. You
- * 			can also filter the results by attribute name and value, for example, to see which
- * 			container instances in a cluster are running a Linux AMI
- * 			(<code>ecs.os-type=linux</code>). </p>
+ * 			can also filter the results by attribute name and value. You can do this, for example,
+ * 			to see which container instances in a cluster are running a Linux AMI
+ * 				(<code>ecs.os-type=linux</code>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

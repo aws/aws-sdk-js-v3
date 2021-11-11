@@ -22,13 +22,16 @@ export interface DescribeTableCommandInput extends DescribeTableInput {}
 export interface DescribeTableCommandOutput extends DescribeTableOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about the table, including the current status of the table, when it was created, the primary key schema, and any indexes on the table.</p>
- *          <note>
- *             <p>If you issue a <code>DescribeTable</code> request immediately after a <code>CreateTable</code> request, DynamoDB might
- *         return a <code>ResourceNotFoundException</code>. This is because <code>DescribeTable</code> uses an eventually
- *         consistent query, and the metadata for your table might not be available at that moment.
- *         Wait for a few seconds, and then try the <code>DescribeTable</code> request again.</p>
- *          </note>
+ * <p>Returns information about the table, including the current status of the table, when
+ *             it was created, the primary key schema, and any indexes on the table.</p>
+ *         <note>
+ *             <p>If you issue a <code>DescribeTable</code> request immediately after a
+ *                     <code>CreateTable</code> request, DynamoDB might return a
+ *                     <code>ResourceNotFoundException</code>. This is because
+ *                     <code>DescribeTable</code> uses an eventually consistent query, and the metadata
+ *                 for your table might not be available at that moment. Wait for a few seconds, and
+ *                 then try the <code>DescribeTable</code> request again.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

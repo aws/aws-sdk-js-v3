@@ -155,6 +155,10 @@ const partitionHash: PartitionHash = {
         hostname: "resource-groups.{region}.c2s.ic.gov",
         tags: [],
       },
+      {
+        hostname: "resource-groups-fips.{region}.c2s.ic.gov",
+        tags: ["fips"],
+      },
     ],
   },
   "aws-iso-b": {
@@ -164,6 +168,10 @@ const partitionHash: PartitionHash = {
       {
         hostname: "resource-groups.{region}.sc2s.sgov.gov",
         tags: [],
+      },
+      {
+        hostname: "resource-groups-fips.{region}.sc2s.sgov.gov",
+        tags: ["fips"],
       },
     ],
   },
